@@ -12,9 +12,9 @@
     <CommerceSdkPackagesVersion>[9.31.21219.9-preview,9.32)</CommerceSdkPackagesVersion>
     <CommercePosPackagesVersion>[9.31.*,9.32)</CommercePosPackagesVersion>
     <CommerceChannelPackagesVersion>[9.31.21217.2-preview,9.32)</CommerceChannelPackagesVersion>
-    <CommerceHwsPackagesVersion>[,9.32)</CommerceHwsPackagesVersion>
-    <CommerceToolsPackagesVersion>[,10.22)</CommerceToolsPackagesVersion>
-    <CommercePaymentsPackagesVersion>[,10.21)</CommercePaymentsPackagesVersion>
+    <CommerceHwsPackagesVersion>[9.31.*,9.32)</CommerceHwsPackagesVersion>
+    <CommerceToolsPackagesVersion>[10.21.*,10.22)</CommerceToolsPackagesVersion>
+    <CommercePaymentsPackagesVersion>[10.20.*,10.21)</CommercePaymentsPackagesVersion>
     <CommerceFrameworkPackagesVersion>[10.4.21216.1-preview,10.5)</CommerceFrameworkPackagesVersion>
   </PropertyGroup>
 </Project>
