@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ConfigurationProperties xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+  <ConfigurationProperty>
+    <Namespace>DocumentProviderGeneralInfo</Namespace>
+    <Name>Name</Name>
+    <ValueType>String</ValueType>
+    <StringValue>AtolSample</StringValue>
+    <DecimalValue>0</DecimalValue>
+    <BooleanValue>false</BooleanValue>
+    <DateValue>0001-01-01T00:00:00</DateValue>
+    <IntegerValue>0</IntegerValue>
+    <IsEncrypted>false</IsEncrypted>
+    <IsPassword>false</IsPassword>
+    <IsReadOnly>false</IsReadOnly>
+    <IsHidden>false</IsHidden>
+    <DisplayHeight>1</DisplayHeight>
+    <SequenceNumber>1</SequenceNumber>
+    <DisplayProperty>
+      <DisplayValue>
+        <LanguageId>EN-US</LanguageId>
+        <DisplayName>@RetailFiscalIntegration:Name</DisplayName>
+        <Description>@RetailFiscalIntegration:DocumentProviderNameDescription</Description>
+      </DisplayValue>
+    </DisplayProperty>
+  </ConfigurationProperty>
+  <ConfigurationProperty>
+        <Namespace>FiscalServiceDataMappingInfo</Namespace>
+        <Name>GeneratedCloseShiftReportElectronically</Name>
+        <ValueType>Boolean</ValueType>
+        <StringValue></StringValue>
+        <DecimalValue>0</DecimalValue>
+        <BooleanValue>false</BooleanValue>
+        <DateValue>0001-01-01T00:00:00</DateValue>
+        <IntegerValue>0</IntegerValue>
+        <IsEncrypted>false</IsEncrypted>
+        <IsPassword>false</IsPassword>
+        <IsReadOnly>false</IsReadOnly>
+        <IsHidden>false</IsHidden>
+        <DisplayHeight>1</DisplayHeight>
+        <SequenceNumber>9</SequenceNumber>
+    <DisplayProperty>
+      <DisplayValue>
+        <LanguageId>EN-US</LanguageId>
+        <DisplayName>@RetailFiscalIntegration:DoNotPrintCloseShiftReport</DisplayName>
+        <Description>@RetailFiscalIntegration:DoNotPrintCloseShiftReportDescription</Description>
+      </DisplayValue>
+    </DisplayProperty>
+  </ConfigurationProperty>
+  <ConfigurationProperty>
+        <Namespace>FiscalServiceDataMappingInfo</Namespace>
+        <Name>PaymentTypeMapping</Name>
+        <ValueType>String</ValueType>
+        <StringValue>
+          {
+            "PaymentMethods": [
+              {"StorePaymentMethod":"1", "AtolPaymentType":0},
+              {"StorePaymentMethod":"2", "AtolPaymentType":4},
+              {"StorePaymentMethod":"3", "AtolPaymentType":1},
+              {"StorePaymentMethod":"4", "AtolPaymentType":3},
+              {"StorePaymentMethod":"5", "AtolPaymentType":0},
+              {"StorePaymentMethod":"6", "AtolPaymentType":0},
+              {"StorePaymentMethod":"7", "AtolPaymentType":4},
+              {"StorePaymentMethod":"8", "AtolPaymentType":4},
+              {"StorePaymentMethod":"10", "AtolPaymentType":4},
+              {"StorePaymentMethod":"11", "AtolPaymentType":4}
+            ]
+          }
+        </StringValue>
+        <DecimalValue>0</DecimalValue>
+        <BooleanValue>false</BooleanValue>
+        <DateValue>0001-01-01T00:00:00</DateValue>
+        <IntegerValue>0</IntegerValue>
+        <IsEncrypted>false</IsEncrypted>
+        <IsPassword>false</IsPassword>
+        <IsReadOnly>false</IsReadOnly>
+        <IsHidden>false</IsHidden>
+        <DisplayHeight>1</DisplayHeight>
+        <SequenceNumber>1</SequenceNumber>
+    <DisplayProperty>
+      <DisplayValue>
+        <LanguageId>EN-US</LanguageId>
+        <DisplayName>@RetailFiscalIntegration:PaymentTypeMapping</DisplayName>
+        <Description>@RetailFiscalIntegration:PaymentTypeMappingDescription</Description>
+      </DisplayValue>
+    </DisplayProperty>
+  </ConfigurationProperty>
+</ConfigurationProperties>

@@ -1,5 +1,5 @@
 # Introduction 
-This folder contains configuration files for Fiscal Integration solution for Brazil (NFC-e/NF-e).
+This folder contains configuration files for Fiscal Integration solution for Brazil (NFC-e/NF-e/CFe).
 
 # Getting Started
 Please read official documentation on how to use provided configurations:
