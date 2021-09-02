@@ -8,7 +8,7 @@ Language picker supports two views that can be configured based on the need.
  Apart from that, there are other settings that can be configured from CMS based on the requirement like (static url redirection, persistant url etc.). Please refer documentation for setting up the appropriate view and other cms configurations.
 
  ## License
-License is listed in the [LICENSE](https://github.com/microsoft/Dynamics365Commerce.Solutions/tree/release/9.29/src/CommerceOnboarding/Module%20Extensions/Language%20Picker) file.
+Please locate the License file under "/src/CommerceOnboarding/Module Extensions/Language Picker" folder.
 
 ## Starter kit license
 License for starter kit is listed in the [LICENSE](./starter-pack/LICENSE) file of starter pack.
@@ -18,7 +18,7 @@ SSK Module code need to be deployed and running.
 Reference [link](https://docs.microsoft.com/en-us/dynamics365/commerce/e-commerce-extensibility/setup-dev-environment)
 
 # Language picker- Sample code & documentation
-Documentation on how to use/apply the samples can be found [here](https://github.com/microsoft/Dynamics365Commerce.Solutions/tree/release/9.29/src/CommerceOnboarding/Module%20Extensions/Language%20Picker)
+Please refer the sample code and documentation under "/src/CommerceOnboarding/Module Extensions/Language Picker" folder.
 
 # Note: Sample code is tested with below package version.
 - Store starter kit: 10.0.14 (i.e. @msdyn365-commerce-modules/starter-pack": "~9.24.0)

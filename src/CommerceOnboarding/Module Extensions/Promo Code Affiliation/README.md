@@ -7,7 +7,7 @@ Promo-code affiliation extends the above default behaviour, that performs below 
 - Cart with products: Apply promo-code automatically on the cart page.
 
 ## License
-License is listed in the [LICENSE](https://github.com/microsoft/Dynamics365Commerce.Solutions/tree/release/9.29/src/CommerceOnboarding/Module%20Extensions/Promo%20Code%20Affiliation) file.
+Please locate the License file under "/src/CommerceOnboarding/Module Extensions/Promo Code Affiliation" folder.
 
 ## Starter kit license
 License for starter kit is listed in the [LICENSE](./starter-pack/LICENSE) file of starter pack.
@@ -17,7 +17,7 @@ SSK Module code need to be deployed and running.
 Reference [link](https://docs.microsoft.com/en-us/dynamics365/commerce/e-commerce-extensibility/setup-dev-environment)
 
 # Promo code Affiliation - Sample code & documentation
-Documentation on how to use/apply the samples can be found [here] (https://github.com/microsoft/Dynamics365Commerce.Solutions/tree/release/9.29/src/CommerceOnboarding/Module%20Extensions/Promo%20Code%20Affiliation)
+Please refer the sample code and documentation under "/src/CommerceOnboarding/Module Extensions/Promo Code Affiliation" folder.
 
 # Note: Sample code is tested with below package version.
 - Store starter kit: 10.0.16 (i.e. @msdyn365-commerce-modules/starter-pack": "~9.26.0)

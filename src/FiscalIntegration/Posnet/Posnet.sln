@@ -7,6 +7,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DocumentProvider.PosnetSamp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HardwareStation.PosnetThermalFVFiscalPrinterSample", "HardwareStation\ThermalDeviceSample\HardwareStation.PosnetThermalFVFiscalPrinterSample.csproj", "{28A220E5-476B-425D-9BB6-247D345228E4}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScaleUnit.Installer", "CommerceRuntime\Installer\ScaleUnit.Installer.csproj", "{240D8CAA-5F97-4A1C-965B-CB685ADA6765}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HardwareStation.Installer", "HardwareStation\HardwareStation.Installer\HardwareStation.Installer.csproj", "{9B67D1A0-4F06-4145-A615-0C0515BA26FD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{28A220E5-476B-425D-9BB6-247D345228E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{28A220E5-476B-425D-9BB6-247D345228E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{28A220E5-476B-425D-9BB6-247D345228E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{240D8CAA-5F97-4A1C-965B-CB685ADA6765}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{240D8CAA-5F97-4A1C-965B-CB685ADA6765}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{240D8CAA-5F97-4A1C-965B-CB685ADA6765}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{240D8CAA-5F97-4A1C-965B-CB685ADA6765}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B67D1A0-4F06-4145-A615-0C0515BA26FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B67D1A0-4F06-4145-A615-0C0515BA26FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B67D1A0-4F06-4145-A615-0C0515BA26FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B67D1A0-4F06-4145-A615-0C0515BA26FD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

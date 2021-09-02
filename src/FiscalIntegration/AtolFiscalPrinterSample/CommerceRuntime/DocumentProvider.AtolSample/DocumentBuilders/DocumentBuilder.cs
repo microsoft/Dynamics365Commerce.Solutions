@@ -219,7 +219,7 @@ namespace Contoso
                     Price = Math.Abs(salesLine.NetAmountWithAllInclusiveTaxPerUnit),
                     Quantity = Math.Abs(salesLine.Quantity),
                     Amount = Math.Abs(salesLine.TotalAmount),
-                    InfoDiscount = salesLine.DiscountAmount,
+                    InfoDiscount = Math.Abs(salesLine.DiscountAmount),
                     MeasurementUnit = salesLine.UnitOfMeasureSymbol,
                     PaymentObject = itemType,
                     Tax = taxItem,
@@ -266,10 +266,10 @@ namespace Contoso
             /// Fills payment receipt.
             /// </summary>
             /// <param name="requestContext">The request.</param>
-            /// <param name="itemReceipt">The receipt for filling.</param>
+            /// <param name="receipt">The receipt for filling.</param>
             /// <param name="salesOrder">The sales order.</param>
             /// <param name="fiscalIntegrationFunctionalityProfile">The fiscal integration functionality profile.</param>
-            private static async Task FillPayments(RequestContext requestContext, DataModel.AtolTask.Receipt itemReceipt, SalesOrder salesOrder, FiscalIntegrationFunctionalityProfile fiscalIntegrationFunctionalityProfile)
+            private static async Task FillPayments(RequestContext requestContext, DataModel.AtolTask.Receipt receipt, SalesOrder salesOrder, FiscalIntegrationFunctionalityProfile fiscalIntegrationFunctionalityProfile)
             {
                 GetPaymentsForSalesOrderAtolRequest getPaymentsForSalesOrderAtolRequest = new GetPaymentsForSalesOrderAtolRequest(fiscalIntegrationFunctionalityProfile, salesOrder);
                 var getPaymentsForSalesOrderAtolResponse = await requestContext.ExecuteAsync<GetPaymentsForSalesOrderAtolResponse>(getPaymentsForSalesOrderAtolRequest).ConfigureAwait(false);
@@ -280,7 +280,8 @@ namespace Contoso
                         PaymentMethod = x.Key,
                         Sum = x.Sum(y => y.Sum),
                     });
-                itemReceipt.Payments.AddRange(payments);
+                receipt.Payments.AddRange(payments);
+                receipt.Total = Math.Abs(salesOrder.AmountPaid);
             }
 
             /// <summary>
