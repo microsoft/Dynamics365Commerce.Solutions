@@ -1,0 +1,52 @@
+{
+    "$type": "contentModule",
+    "friendlyName": "Product Feature",
+    "name": "product-feature",
+    "description": "Feature module used to highlight a product.",
+    "categories": [
+        "storytelling"
+    ],
+    "tags": [
+        ""
+    ],
+    "dataActions": {
+        "productReviews": {
+            "path": "../../actions/get-product-reviews.action",
+            "runOn": "server"
+        }
+    },
+    "config": {
+        "imageAlignment": {
+            "friendlyName": "Image Alignment",
+            "description": "Sets the desired alignment of the image, either left or right on the text.",
+            "type": "string",
+            "enum": {
+                "left": "Left",
+                "right": "Right"
+            },
+            "default": "left",
+            "scope": "module",
+            "group": "Layout Properties"
+        },
+        "productTitle": {
+            "type": "string",
+            "friendlyName": "Product Title",
+            "description": "Product placement title"
+        },
+        "productDetails": {
+            "type": "richText",
+            "friendlyName": "Product Details",
+            "description": "Rich text representing the featured product details"
+        },
+        "productImage": {
+            "type": "image",
+            "friendlyName": "Product Image",
+            "description": "Image representing the featured product"
+        },
+        "buttonText": {
+            "type": "string",
+            "friendlyName": "Button Text",
+            "description": "Text to show on the call to action button"
+        }
+    }
+}

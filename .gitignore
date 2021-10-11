@@ -108,6 +108,7 @@ bld/
 schemas/
 dist/
 devDependencies/
+/src/Dependencies/
 
 # Certificate files
 *.pfx

@@ -420,9 +420,7 @@ namespace Contoso
                     throw new DataValidationException($"Cannot print a fiscal receipt for the return transaction - ChannelId:{request.RequestContext.GetChannel().RecordId} TerminalId:{adjustedSalesOrder.TerminalId} TransactionId:{adjustedSalesOrder.Id}. A {originalSalesDateInfoCode} info code transaction that is linked to the store transaction is not found.");
                 }
 
-                var reasonCodeLineByReturnDateInformationWithoutLeftToRightMarks = reasonCodeLineByReturnDate.Information.Replace("\u200e", "");
-
-                if (DateTime.TryParse(reasonCodeLineByReturnDateInformationWithoutLeftToRightMarks, new CultureInfo("it-IT"), DateTimeStyles.None, out DateTime fiscalReceiptDate) == false)
+                if (ReasonCodeDateParser.TryParse(reasonCodeLineByReturnDate.Information, out var fiscalReceiptDate) == false)
                 {
                     throw new FormatException($"Cannot print a fiscal receipt for the return transaction - ChannelId:{request.RequestContext.GetChannel().RecordId} TerminalId:{adjustedSalesOrder.TerminalId} TransactionId:{adjustedSalesOrder.Id}. A {originalSalesDateInfoCode} info code transaction that is linked to the store transaction does not contain a valid date.");
                 }

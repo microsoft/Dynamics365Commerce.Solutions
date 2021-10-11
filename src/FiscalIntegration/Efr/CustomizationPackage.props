@@ -5,7 +5,7 @@
     <PackagePublisher Condition="'$(PackagePublisher)' == ''">$(Publisher)</PackagePublisher>
     <PackagePublisherDisplayName Condition="'$(PackagePublisherDisplayName)' == ''">$(PublisherDisplayName)</PackagePublisherDisplayName>
     <PackageVersion Condition="'$(PackageVersion)' == ''">$(Version)</PackageVersion>
-    <PackageName Condition="'$(PackageName)' == ''">Contoso.Commerce.Posnet</PackageName>
+    <PackageName Condition="'$(PackageName)' == ''">Contoso.Commerce.Efr</PackageName>
     <PackageDisplayName Condition="'$(PackageDisplayName)' == ''">Contoso EFR Sample</PackageDisplayName>
     <PackageDescription Condition="'$(PackageDescription)' == ''">Contoso EFR Sample</PackageDescription>
   </PropertyGroup>

@@ -42,9 +42,12 @@ namespace Contoso
                 // Customer name
                 var customer = await GetCustomerAsync(request, adjustedSalesOrder).ConfigureAwait(false);
 
-                foreach (string splitString in StringProcessor.SplitStringByWords(customer.Name, DocumentAttributeConstants.MaxHeaderAttributeLength).Take(DocumentAttributeConstants.ReceiptFieldCustomerNameLinesLimit))
+                if (customer != null)
                 {
-                    rootElement = DocumentElementBuilder.BuildPrintRecMessageElement(rootElement, splitString, DocumentAttributeConstants.ReceiptHeaderMessageType, DocumentBuilder.GetNextHeaderLineIndex(rootElement).ToString());
+                    foreach (string splitString in StringProcessor.SplitStringByWords(customer.Name, DocumentAttributeConstants.MaxHeaderAttributeLength).Take(DocumentAttributeConstants.ReceiptFieldCustomerNameLinesLimit))
+                    {
+                        rootElement = DocumentElementBuilder.BuildPrintRecMessageElement(rootElement, splitString, DocumentAttributeConstants.ReceiptHeaderMessageType, DocumentBuilder.GetNextHeaderLineIndex(rootElement).ToString());
+                    }
                 }
 
                 // Sales ID
@@ -61,6 +64,11 @@ namespace Contoso
             /// <returns>The customer.</returns>
             private static async Task<Customer> GetCustomerAsync(GetFiscalDocumentDocumentProviderRequest request, SalesOrder adjustedSalesOrder)
             {
+                if (string.IsNullOrWhiteSpace(adjustedSalesOrder.CustomerId))
+                {
+                    return null;
+                }
+
                 var customersServiceRequest = new GetCustomersServiceRequest(QueryResultSettings.SingleRecord, adjustedSalesOrder.CustomerId);
                 var response = await request.RequestContext.ExecuteAsync<GetCustomersServiceResponse>(customersServiceRequest).ConfigureAwait(false);
 

@@ -164,7 +164,7 @@ namespace Contoso
 
                 if (ConfigurationController.ParsePrintCustomerDataInReceipt(request.FiscalIntegrationFunctionalityProfile))
                 {
-                    if (!string.IsNullOrEmpty(request.SalesOrder.CustomerId))
+                    if (!string.IsNullOrWhiteSpace(request.SalesOrder.CustomerId))
                     {
                         var customersServiceRequest = new GetCustomersServiceRequest(QueryResultSettings.SingleRecord, request.SalesOrder.CustomerId);
                         var customersServiceResponse = await request.RequestContext.ExecuteAsync<GetCustomersServiceResponse>(customersServiceRequest).ConfigureAwait(false);

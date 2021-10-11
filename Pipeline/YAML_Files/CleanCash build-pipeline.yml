@@ -1,0 +1,71 @@
+pr: none
+trigger: none
+
+pool:
+  vmImage: 'vs2017-win2016'
+
+variables:
+ - name: BuildingInVsts
+   value: true
+
+steps:
+  - task: PowerShell@2
+    displayName: 'Pre-Build steps'
+    inputs:
+      targetType: filePath
+      filePath: ./Pipeline/PowershellScripts/Pre-Build.ps1
+      failOnStderr: true
+
+  - task: NuGetToolInstaller@1
+    displayName: 'Use NuGet 5.4.0'
+    inputs:
+      versionSpec: '5.4.0'
+
+  - task: NuGetCommand@2
+    displayName: 'NuGet restore'
+    inputs:
+      feedsToUse: config
+      nugetConfigPath: nuget.config
+
+  - task: VSBuild@1
+    displayName: 'Build solution CleanCash.sln'
+    inputs:
+      solution: '$(Build.SourcesDirectory)\src\FiscalIntegration\CleanCash\CleanCash.sln'
+
+  - task: DotNetCoreCLI@2
+    displayName: 'Install AzureSignTool'
+    inputs:
+      command: custom
+      custom: tool
+      arguments: 'install --global azuresigntool'
+
+  - task: PowerShell@2
+    displayName: 'Copy Hardware Station Installer to Artifact directory'
+    inputs:
+      targetType: filePath
+      filePath: ./Pipeline/PowerShellScripts/CopyFileToDestination.ps1
+      arguments: '-RelativePath "$(Build.SourcesDirectory)\src\FiscalIntegration\CleanCash\HardwareStation\HardwareStation.CleanCash.Installer" -File "HardwareStation.CleanCash.Installer.exe" -DestinationFullName "$(Build.ArtifactStagingDirectory)\HardwareStation.CleanCash.Installer_$(Build.BuildNumber).exe"'
+
+  - task: PowerShell@2
+    displayName: 'Copy Scale Unit Installer to Artifact directory'
+    inputs:
+      targetType: filePath
+      filePath: ./Pipeline/PowerShellScripts/CopyFileToDestination.ps1
+      arguments: '-RelativePath "$(Build.SourcesDirectory)\src\FiscalIntegration\CleanCash\ScaleUnit\ScaleUnit.CleanCash.Installer" -File "ScaleUnit.CleanCash.Installer.exe" -DestinationFullName "$(Build.ArtifactStagingDirectory)\ScaleUnit.CleanCash.Installer_$(Build.BuildNumber).exe"'
+
+  - task: PowerShell@2
+    displayName: 'Copy Modern POS Installer to Artifact directory'
+    inputs:
+      targetType: filePath
+      filePath: ./Pipeline/PowerShellScripts/CopyFileToDestination.ps1
+      arguments: '-RelativePath "$(Build.SourcesDirectory)\src\FiscalIntegration\CleanCash\ModernPos\ModernPos.CleanCash.Installer" -File "ModernPos.CleanCash.Installer.exe" -DestinationFullName "$(Build.ArtifactStagingDirectory)\ModernPos.CleanCash.Installer_$(Build.BuildNumber).exe"'
+
+  - task: PowerShell@2
+    displayName: 'Sign Files'
+    inputs:
+      targetType: filePath
+      filePath: ./Pipeline/PowerShellScripts/CodeSign.ps1
+      arguments: '-AzureKeyVaultURI $(AzureKeyVaultURI) -ApplicationId $(ApplicationId) -ApplicationSecretValue $(SecretValue) -CertificateName $(CertificateName) -Timestamp $(Timestamp) -TimestampDigest "sha256" -Files "$(Build.ArtifactStagingDirectory)\HardwareStation.CleanCash.Installer_$(Build.BuildNumber).exe $(Build.ArtifactStagingDirectory)\ScaleUnit.CleanCash.Installer_$(Build.BuildNumber).exe $(Build.ArtifactStagingDirectory)\ModernPos.CleanCash.Installer_$(Build.BuildNumber).exe"'
+
+  - task: PublishBuildArtifacts@1
+    displayName: 'Publish Artifact: drop'
