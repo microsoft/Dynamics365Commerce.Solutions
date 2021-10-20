@@ -7,7 +7,7 @@ export default async function checkErrors(): Promise<void> {
     await t.expect(error[0]).notOk();
 }
 
-const url = 'http://localhost:4000/page?mock=default-page';
+const url = 'https://localhost:4000/page?mock=default-page';
 fixture('Default Page tests').page(url);
 
 const getWindowLocation = ClientFunction(() => window.location);
