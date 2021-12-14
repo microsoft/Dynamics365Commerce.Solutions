@@ -15,6 +15,8 @@ Project("{262852C6-CD72-467D-83FE-5EEB1973A190}") = "ModernPos.Posnet", "ModernP
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModernPos.Posnet.Installer", "ModernPOS\ModernPos.Posnet.Installer\ModernPos.Posnet.Installer.csproj", "{3B3556FB-D915-4031-B4C7-793A1A30B9C3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScaleUnit.Posnet", "ScaleUnit\ScaleUnit.Posnet\ScaleUnit.Posnet.csproj", "{6A781822-014D-4A65-89BB-1A52332A1A34}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -75,6 +77,14 @@ Global
 		{3B3556FB-D915-4031-B4C7-793A1A30B9C3}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3B3556FB-D915-4031-B4C7-793A1A30B9C3}.Release|x86.ActiveCfg = Release|Any CPU
 		{3B3556FB-D915-4031-B4C7-793A1A30B9C3}.Release|x86.Build.0 = Release|Any CPU
+		{6A781822-014D-4A65-89BB-1A52332A1A34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A781822-014D-4A65-89BB-1A52332A1A34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A781822-014D-4A65-89BB-1A52332A1A34}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{6A781822-014D-4A65-89BB-1A52332A1A34}.Debug|x86.Build.0 = Debug|Any CPU
+		{6A781822-014D-4A65-89BB-1A52332A1A34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A781822-014D-4A65-89BB-1A52332A1A34}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A781822-014D-4A65-89BB-1A52332A1A34}.Release|x86.ActiveCfg = Release|Any CPU
+		{6A781822-014D-4A65-89BB-1A52332A1A34}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

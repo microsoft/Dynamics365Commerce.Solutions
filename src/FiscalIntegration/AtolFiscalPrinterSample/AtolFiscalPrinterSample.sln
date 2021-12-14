@@ -15,6 +15,8 @@ Project("{262852C6-CD72-467D-83FE-5EEB1973A190}") = "ModernPos.AtolFiscalPrinter
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModernPos.AtolFiscalPrinter.Installer", "ModernPOS\ModernPos.AtolFiscalPrinter.Installer\ModernPos.AtolFiscalPrinter.Installer.csproj", "{81568802-8F08-4F1F-93A6-731525F5777D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScaleUnit.AtolFiscalPrinter", "ScaleUnit\ScaleUnit.AtolFiscalPrinter\ScaleUnit.AtolFiscalPrinter.csproj", "{5D3DE148-481C-4A86-9B2C-0194E5E00DF9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -99,6 +101,18 @@ Global
 		{81568802-8F08-4F1F-93A6-731525F5777D}.Release|x64.Build.0 = Release|Any CPU
 		{81568802-8F08-4F1F-93A6-731525F5777D}.Release|x86.ActiveCfg = Release|Any CPU
 		{81568802-8F08-4F1F-93A6-731525F5777D}.Release|x86.Build.0 = Release|Any CPU
+		{5D3DE148-481C-4A86-9B2C-0194E5E00DF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D3DE148-481C-4A86-9B2C-0194E5E00DF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D3DE148-481C-4A86-9B2C-0194E5E00DF9}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{5D3DE148-481C-4A86-9B2C-0194E5E00DF9}.Debug|x64.Build.0 = Debug|Any CPU
+		{5D3DE148-481C-4A86-9B2C-0194E5E00DF9}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{5D3DE148-481C-4A86-9B2C-0194E5E00DF9}.Debug|x86.Build.0 = Debug|Any CPU
+		{5D3DE148-481C-4A86-9B2C-0194E5E00DF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D3DE148-481C-4A86-9B2C-0194E5E00DF9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D3DE148-481C-4A86-9B2C-0194E5E00DF9}.Release|x64.ActiveCfg = Release|Any CPU
+		{5D3DE148-481C-4A86-9B2C-0194E5E00DF9}.Release|x64.Build.0 = Release|Any CPU
+		{5D3DE148-481C-4A86-9B2C-0194E5E00DF9}.Release|x86.ActiveCfg = Release|Any CPU
+		{5D3DE148-481C-4A86-9B2C-0194E5E00DF9}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

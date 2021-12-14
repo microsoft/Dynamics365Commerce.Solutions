@@ -27,7 +27,7 @@ namespace Contoso
         /// <summary>
         /// Incapsulates the document generation logic for a non sales transaction event.
         /// </summary>
-        internal class NonSalesTransactionBuilder : IDocumentBuilder
+        public class NonSalesTransactionBuilder : IDocumentBuilder
         {
             private readonly IDictionary<FiscalIntegrationEventType, (string TransactionTypeCode, ExtensibleTransactionType ExtensibleTransactionType)> NonFiscalTransactionTypeDictionary =
                 new Dictionary<FiscalIntegrationEventType, (string, ExtensibleTransactionType)>

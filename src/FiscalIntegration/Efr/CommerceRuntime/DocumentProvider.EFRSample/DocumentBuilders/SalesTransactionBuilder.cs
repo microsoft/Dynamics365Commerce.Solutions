@@ -27,7 +27,7 @@ namespace Contoso
         /// <summary>
         /// Builds a sales transaction registration request document.
         /// </summary>
-        internal class SalesTransactionBuilder : IDocumentBuilder
+        public class SalesTransactionBuilder : IDocumentBuilder
         {
             private readonly DocumentBuilderData documentBuilderData;
 

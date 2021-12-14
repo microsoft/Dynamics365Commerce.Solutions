@@ -7,6 +7,8 @@ pool:
 variables:
  - name: BuildingInVsts
    value: true
+ - name: SolutionDirectory 
+   value: 'src\FiscalIntegration\AtolFiscalPrinterSample'
 
 steps:
   - task: PowerShell@2
@@ -30,7 +32,7 @@ steps:
   - task: VSBuild@1
     displayName: 'Build solution AtolFiscalPrinterSample.sln'
     inputs:
-      solution: '$(Build.SourcesDirectory)\src\FiscalIntegration\AtolFiscalPrinterSample\AtolFiscalPrinterSample.sln'
+      solution: '$(Build.SourcesDirectory)\$(SolutionDirectory)\AtolFiscalPrinterSample.sln'
 
   - task: DotNetCoreCLI@2
     displayName: 'Install AzureSignTool'
@@ -40,25 +42,32 @@ steps:
       arguments: 'install --global azuresigntool'
 
   - task: PowerShell@2
+    displayName: 'Copy CloudScaleUnitExtensionPackage package to artifact directory'
+    inputs:
+      targetType: filePath
+      filePath: ./Pipeline/PowershellScripts/CopyFileToDestination.ps1
+      arguments: '-RelativePath "$(Build.SourcesDirectory)\$(SolutionDirectory)\ScaleUnit\ScaleUnit.AtolFiscalPrinter" -File "CloudScaleUnitExtensionPackage.zip" -DestinationFullName "$(Build.ArtifactStagingDirectory)\ScaleUnitPackage_$(Build.BuildNumber).zip"'
+      
+  - task: PowerShell@2
     displayName: 'Copy Hardware Station Installer to Artifact directory'
     inputs:
       targetType: filePath
       filePath: ./Pipeline/PowerShellScripts/CopyFileToDestination.ps1
-      arguments: '-RelativePath "$(Build.SourcesDirectory)\src\FiscalIntegration\AtolFiscalPrinterSample\HardwareStation\HardwareStation.AtolFiscalPrinter.Installer" -File "HardwareStation.AtolFiscalPrinter.Installer.exe" -DestinationFullName "$(Build.ArtifactStagingDirectory)\HardwareStation.AtolFiscalPrinter.Installer_$(Build.BuildNumber).exe"'
+      arguments: '-RelativePath "$(Build.SourcesDirectory)\$(SolutionDirectory)\HardwareStation\HardwareStation.AtolFiscalPrinter.Installer" -File "HardwareStation.AtolFiscalPrinter.Installer.exe" -DestinationFullName "$(Build.ArtifactStagingDirectory)\HardwareStation.AtolFiscalPrinter.Installer_$(Build.BuildNumber).exe"'
 
   - task: PowerShell@2
     displayName: 'Copy Scale Unit Installer to Artifact directory'
     inputs:
       targetType: filePath
       filePath: ./Pipeline/PowerShellScripts/CopyFileToDestination.ps1
-      arguments: '-RelativePath "$(Build.SourcesDirectory)\src\FiscalIntegration\AtolFiscalPrinterSample\ScaleUnit\ScaleUnit.AtolFiscalPrinter.Installer" -File "ScaleUnit.AtolFiscalPrinter.Installer.exe" -DestinationFullName "$(Build.ArtifactStagingDirectory)\ScaleUnit.AtolFiscalPrinter.Installer_$(Build.BuildNumber).exe"'
+      arguments: '-RelativePath "$(Build.SourcesDirectory)\$(SolutionDirectory)\ScaleUnit\ScaleUnit.AtolFiscalPrinter.Installer" -File "ScaleUnit.AtolFiscalPrinter.Installer.exe" -DestinationFullName "$(Build.ArtifactStagingDirectory)\ScaleUnit.AtolFiscalPrinter.Installer_$(Build.BuildNumber).exe"'
 
   - task: PowerShell@2
     displayName: 'Copy Modern POS Installer to Artifact directory'
     inputs:
       targetType: filePath
       filePath: ./Pipeline/PowerShellScripts/CopyFileToDestination.ps1
-      arguments: '-RelativePath "$(Build.SourcesDirectory)\src\FiscalIntegration\AtolFiscalPrinterSample\ModernPos\ModernPos.AtolFiscalPrinter.Installer" -File "ModernPos.AtolFiscalPrinter.Installer.exe" -DestinationFullName "$(Build.ArtifactStagingDirectory)\ModernPos.AtolFiscalPrinter.Installer_$(Build.BuildNumber).exe"'
+      arguments: '-RelativePath "$(Build.SourcesDirectory)\$(SolutionDirectory)\ModernPos\ModernPos.AtolFiscalPrinter.Installer" -File "ModernPos.AtolFiscalPrinter.Installer.exe" -DestinationFullName "$(Build.ArtifactStagingDirectory)\ModernPos.AtolFiscalPrinter.Installer_$(Build.BuildNumber).exe"'
 
   - task: PowerShell@2
     displayName: 'Sign Files'

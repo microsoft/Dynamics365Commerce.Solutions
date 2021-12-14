@@ -27,7 +27,7 @@ namespace Contoso
         /// <summary>
         /// Incapsulates the document generation logic for the safe drop event.
         /// </summary>
-        internal class BankSafeDropBuilder : IDocumentBuilder
+        public class BankSafeDropBuilder : IDocumentBuilder
         {
             /// <summary>
             /// The request.

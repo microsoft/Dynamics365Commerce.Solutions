@@ -28,7 +28,7 @@ namespace Contoso
         /// <summary>
         /// Encapsulates the document generation logic for the income accounts event.
         /// </summary>
-        internal class IncomeAccountsBuilder : IDocumentBuilder
+        public class IncomeAccountsBuilder : IDocumentBuilder
         {
             /// <summary>
             /// The request.

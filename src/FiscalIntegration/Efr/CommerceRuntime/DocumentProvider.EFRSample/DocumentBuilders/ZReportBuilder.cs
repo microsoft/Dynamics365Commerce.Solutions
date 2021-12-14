@@ -19,7 +19,7 @@ namespace Contoso
         /// <summary>
         /// Incapsulates the document generation logic for Z-report printing event for Germany.
         /// </summary>
-        internal class ZReportBuilder : IDocumentBuilder
+        public class ZReportBuilder : IDocumentBuilder
         {
             private const string TransactionTypeCode = "Z";
 

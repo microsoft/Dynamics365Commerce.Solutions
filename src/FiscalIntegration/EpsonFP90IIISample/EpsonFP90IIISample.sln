@@ -15,6 +15,8 @@ Project("{262852C6-CD72-467D-83FE-5EEB1973A190}") = "ModernPos.EpsonFP90III", "M
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModernPos.EpsonFP90III.Installer", "ModernPOS\ModernPos.EpsonFP90III.Installer\ModernPos.EpsonFP90III.Installer.csproj", "{3FFB943E-3057-48A8-B6CB-6C63EFE461EB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScaleUnit.EpsonFP90III", "ScaleUnit\ScaleUnit.EpsonFP90III\ScaleUnit.EpsonFP90III.csproj", "{B38E7B8E-D38F-4232-8B76-27185464B52A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -75,6 +77,14 @@ Global
 		{3FFB943E-3057-48A8-B6CB-6C63EFE461EB}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3FFB943E-3057-48A8-B6CB-6C63EFE461EB}.Release|x86.ActiveCfg = Release|Any CPU
 		{3FFB943E-3057-48A8-B6CB-6C63EFE461EB}.Release|x86.Build.0 = Release|Any CPU
+		{B38E7B8E-D38F-4232-8B76-27185464B52A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B38E7B8E-D38F-4232-8B76-27185464B52A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B38E7B8E-D38F-4232-8B76-27185464B52A}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{B38E7B8E-D38F-4232-8B76-27185464B52A}.Debug|x86.Build.0 = Debug|Any CPU
+		{B38E7B8E-D38F-4232-8B76-27185464B52A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B38E7B8E-D38F-4232-8B76-27185464B52A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B38E7B8E-D38F-4232-8B76-27185464B52A}.Release|x86.ActiveCfg = Release|Any CPU
+		{B38E7B8E-D38F-4232-8B76-27185464B52A}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

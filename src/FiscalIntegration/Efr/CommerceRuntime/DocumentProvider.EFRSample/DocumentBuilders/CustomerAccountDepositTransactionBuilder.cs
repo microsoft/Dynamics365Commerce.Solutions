@@ -26,7 +26,7 @@ namespace Contoso
         /// <summary>
         /// Builds a customer account deposit transaction document.
         /// </summary>
-        internal class CustomerAccountDepositTransactionBuilder : IDocumentBuilder
+        public class CustomerAccountDepositTransactionBuilder : IDocumentBuilder
         {
             private readonly DocumentBuilderData documentBuilderData;
 

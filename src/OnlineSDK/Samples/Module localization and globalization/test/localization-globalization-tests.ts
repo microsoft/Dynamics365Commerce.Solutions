@@ -12,7 +12,7 @@ export default async function checkErrors(): Promise<void> {
     await t.expect(error[0]).notOk();
 }
 
-const url1 = 'https://localhost:4000/page?mock=myLocTestPage&theme=spring&locale=en-us';
+const url1 = 'https://localhost:4000/page?mock=myTestPage&theme=spring&locale=en-us';
 fixture('Localization and Globalization test - en-us locale').page(url1);
 
 test('validate rendered module strings are localized in en-us locale', async (testController: TestController) => {

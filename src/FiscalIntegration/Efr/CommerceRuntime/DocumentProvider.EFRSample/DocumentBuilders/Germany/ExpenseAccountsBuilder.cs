@@ -28,7 +28,7 @@ namespace Contoso
         /// <summary>
         /// Encapsulates the document generation logic for the expense accounts event.
         /// </summary>
-        internal class ExpenseAccountsBuilder : IDocumentBuilder
+        public class ExpenseAccountsBuilder : IDocumentBuilder
         {
             /// <summary>
             /// The request.

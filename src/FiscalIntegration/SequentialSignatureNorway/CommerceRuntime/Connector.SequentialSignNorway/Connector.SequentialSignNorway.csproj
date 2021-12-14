@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="..\..\CustomizationPackage.props" />
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>Contoso.CommerceRuntime.Connector.SequentialSignNorway</AssemblyName>
+    <RootNamespace>Contoso.CommerceRuntime.Connector.SequentialSignNorway</RootNamespace>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Platforms>AnyCPU;x64</Platforms>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Dynamics.Commerce.Sdk.Runtime" Version="$(CommerceSdkPackagesVersion)" />
+    <PackageReference Include="Microsoft.Dynamics.Commerce.Runtime.FIF.Connector.Messages" Version="$(CommerceChannelPackagesVersion)" />
+    <PackageReference Include="Microsoft.Dynamics.Commerce.Runtime.Localization.Entities" Version="$(CommerceChannelPackagesVersion)" />
+    <PackageReference Include="Microsoft.Dynamics.Commerce.Runtime.Localization.Services.Messages" Version="$(CommerceChannelPackagesVersion)" />
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+  </ItemGroup>
+</Project>

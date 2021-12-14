@@ -22,7 +22,7 @@ namespace Contoso
         /// <summary>
         /// Incapsulates the document generation logic for the void transaction event.
         /// </summary>
-        internal class VoidTransactionBuilder : IDocumentBuilder
+        public class VoidTransactionBuilder : IDocumentBuilder
         {
             /// <summary>
             /// The request.

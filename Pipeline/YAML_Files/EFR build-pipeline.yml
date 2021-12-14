@@ -7,6 +7,8 @@ pool:
 variables:
  - name: BuildingInVsts
    value: true
+ - name: SolutionDirectory 
+   value: 'src\FiscalIntegration\Efr'
 
 steps:
   - task: PowerShell@2
@@ -30,7 +32,7 @@ steps:
   - task: VSBuild@1
     displayName: 'Build solution EFR.sln'
     inputs:
-      solution: '$(Build.SourcesDirectory)\src\FiscalIntegration\EFR\EFR.sln'
+      solution: '$(Build.SourcesDirectory)\$(SolutionDirectory)\EFR.sln'
 
   - task: DotNetCoreCLI@2
     displayName: 'Install AzureSignTool'
@@ -40,25 +42,32 @@ steps:
       arguments: 'install --global azuresigntool'
 
   - task: PowerShell@2
+    displayName: 'Copy CloudScaleUnitExtensionPackage package to artifact directory'
+    inputs:
+      targetType: filePath
+      filePath: ./Pipeline/PowershellScripts/CopyFileToDestination.ps1
+      arguments: '-RelativePath "$(Build.SourcesDirectory)\$(SolutionDirectory)\ScaleUnit\ScaleUnit.EFR" -File "CloudScaleUnitExtensionPackage.zip" -DestinationFullName "$(Build.ArtifactStagingDirectory)\ScaleUnitPackage_$(Build.BuildNumber).zip"'
+
+  - task: PowerShell@2
     displayName: 'Copy Hardware Station Installer to Artifact directory'
     inputs:
       targetType: filePath
       filePath: ./Pipeline/PowerShellScripts/CopyFileToDestination.ps1
-      arguments: '-RelativePath "$(Build.SourcesDirectory)\src\FiscalIntegration\EFR\HardwareStation\HardwareStation.EFR.Installer" -File "HardwareStation.EFR.Installer.exe" -DestinationFullName "$(Build.ArtifactStagingDirectory)\HardwareStation.EFR.Installer_$(Build.BuildNumber).exe"'
+      arguments: '-RelativePath "$(Build.SourcesDirectory)\$(SolutionDirectory)\HardwareStation\HardwareStation.EFR.Installer" -File "HardwareStation.EFR.Installer.exe" -DestinationFullName "$(Build.ArtifactStagingDirectory)\HardwareStation.EFR.Installer_$(Build.BuildNumber).exe"'
 
   - task: PowerShell@2
     displayName: 'Copy Scale Unit Installer to Artifact directory'
     inputs:
       targetType: filePath
       filePath: ./Pipeline/PowerShellScripts/CopyFileToDestination.ps1
-      arguments: '-RelativePath "$(Build.SourcesDirectory)\src\FiscalIntegration\EFR\ScaleUnit\ScaleUnit.EFR.Installer" -File "ScaleUnit.EFR.Installer.exe" -DestinationFullName "$(Build.ArtifactStagingDirectory)\ScaleUnit.EFR.Installer_$(Build.BuildNumber).exe"'
+      arguments: '-RelativePath "$(Build.SourcesDirectory)\$(SolutionDirectory)\ScaleUnit\ScaleUnit.EFR.Installer" -File "ScaleUnit.EFR.Installer.exe" -DestinationFullName "$(Build.ArtifactStagingDirectory)\ScaleUnit.EFR.Installer_$(Build.BuildNumber).exe"'
 
   - task: PowerShell@2
     displayName: 'Copy Modern POS Installer to Artifact directory'
     inputs:
       targetType: filePath
       filePath: ./Pipeline/PowerShellScripts/CopyFileToDestination.ps1
-      arguments: '-RelativePath "$(Build.SourcesDirectory)\src\FiscalIntegration\EFR\ModernPos\ModernPos.EFR.Installer" -File "ModernPos.EFR.Installer.exe" -DestinationFullName "$(Build.ArtifactStagingDirectory)\ModernPos.EFR.Installer_$(Build.BuildNumber).exe"'
+      arguments: '-RelativePath "$(Build.SourcesDirectory)\$(SolutionDirectory)\ModernPos\ModernPos.EFR.Installer" -File "ModernPos.EFR.Installer.exe" -DestinationFullName "$(Build.ArtifactStagingDirectory)\ModernPos.EFR.Installer_$(Build.BuildNumber).exe"'
 
   - task: PowerShell@2
     displayName: 'Sign Files'

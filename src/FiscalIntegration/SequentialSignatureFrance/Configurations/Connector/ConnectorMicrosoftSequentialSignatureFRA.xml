@@ -27,6 +27,7 @@
     <Namespace>ConnectorSettingsInfo</Namespace>
     <Name>CertificateProfileId</Name>
     <ValueType>String</ValueType>
+    <ExtendedDataType>RetailUserDefinedCertificateProfileId</ExtendedDataType>
     <StringValue></StringValue>
     <DecimalValue>0</DecimalValue>
     <BooleanValue>false</BooleanValue>

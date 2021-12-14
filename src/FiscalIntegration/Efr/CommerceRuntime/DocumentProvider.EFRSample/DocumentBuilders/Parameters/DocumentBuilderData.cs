@@ -15,7 +15,7 @@ namespace Contoso
         using Microsoft.Dynamics.Commerce.Runtime.DataModel;
         using Microsoft.Dynamics.Commerce.Runtime.FiscalIntegration.DocumentProvider.Messages;
 
-        internal sealed class DocumentBuilderData
+        public sealed class DocumentBuilderData
         {
             /// <summary>
             /// The request context.

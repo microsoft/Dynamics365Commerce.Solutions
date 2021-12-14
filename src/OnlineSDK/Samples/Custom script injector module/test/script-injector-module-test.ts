@@ -15,5 +15,5 @@ const getWindowLocation = ClientFunction(() => window.location);
 test('validate script is included as part of head in the script injector module', async (testController: TestController) => {
     const scriptInjectorScriptTag = Selector('.data-ms-head');
     await testController.expect(scriptInjectorScriptTag.exists).eql(true, 'Could not find default page container');
-    await testController.expect(scriptInjectorScriptTag.innerText).eql(`window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;ga('create', 'UA-XXXXX-Y', 'auto');ga('send', 'pageview')`, 'Could not find default page container');
+    await testController.expect(scriptInjectorScriptTag.innerText).eql(`window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;ga('create', 'UA-XXXXX-Y', 'auto');ga('send', 'pageview');`, 'Could not find default page container');
 });
