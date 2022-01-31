@@ -58,7 +58,7 @@
     <IsEncrypted>false</IsEncrypted>
     <IsPassword>false</IsPassword>
     <IsReadOnly>false</IsReadOnly>
-    <IsHidden>false</IsHidden>
+    <IsHidden>true</IsHidden>
     <DisplayHeight>1</DisplayHeight>
     <SequenceNumber>3</SequenceNumber>
     <DisplayProperty>
