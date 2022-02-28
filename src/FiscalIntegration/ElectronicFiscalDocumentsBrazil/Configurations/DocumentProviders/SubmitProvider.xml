@@ -73,6 +73,7 @@
     <Namespace>FiscalServiceDataMappingInfo</Namespace>
     <Name>CertificateProfileId</Name>
     <ValueType>String</ValueType>
+    <ExtendedDataType>RetailUserDefinedCertificateProfileId</ExtendedDataType>
     <StringValue></StringValue>
     <DecimalValue>0</DecimalValue>
     <BooleanValue>false</BooleanValue>
@@ -81,7 +82,7 @@
     <IsEncrypted>false</IsEncrypted>
     <IsPassword>false</IsPassword>
     <IsReadOnly>false</IsReadOnly>
-    <IsHidden>true</IsHidden>
+    <IsHidden>false</IsHidden>
     <DisplayHeight>1</DisplayHeight>
     <SequenceNumber>4</SequenceNumber>
     <DisplayProperty>

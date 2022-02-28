@@ -5,10 +5,10 @@ pool:
   vmImage: 'vs2017-win2016'
 
 variables:
- - name: BuildingInVsts
-   value: true
- - name: SolutionDirectory 
-   value: 'src\FiscalIntegration\SequentialSignatureNorway'
+  - name: BuildingInVsts
+    value: true
+  - name: SolutionDirectory
+    value: 'src\FiscalIntegration\SequentialSignatureNorway'
 
 steps:
   - task: PowerShell@2
@@ -67,7 +67,7 @@ steps:
     inputs:
       targetType: filePath
       filePath: ./Pipeline/PowerShellScripts/CodeSign.ps1
-      arguments: '-AzureKeyVaultURI $(AzureKeyVaultURI) -ApplicationId $(ApplicationId) -ApplicationSecretValue $(SecretValue) -CertificateName $(CertificateName) -Timestamp $(Timestamp) -TimestampDigest "sha256" -Files $(Build.ArtifactStagingDirectory)\ScaleUnit.SequentialSignNorway.Installer_$(Build.BuildNumber).exe $(Build.ArtifactStagingDirectory)\ModernPos.SequentialSignNorway.Installer_$(Build.BuildNumber).exe"'
+      arguments: '-TenantId $(TenantId) -ApplicationId $(ApplicationId) -ApplicationSecretValue $(SecretValue) -AzureKeyVaultURI $(AzureKeyVaultURI) -CertificateName $(CertificateName) -Timestamp $(Timestamp) -TimestampDigest "sha256" -Files $(Build.ArtifactStagingDirectory)\ScaleUnit.SequentialSignNorway.Installer_$(Build.BuildNumber).exe $(Build.ArtifactStagingDirectory)\ModernPos.SequentialSignNorway.Installer_$(Build.BuildNumber).exe"'
 
   - task: PublishBuildArtifacts@1
     displayName: 'Publish Artifact: drop'

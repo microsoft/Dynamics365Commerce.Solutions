@@ -5,10 +5,10 @@ pool:
   vmImage: 'vs2017-win2016'
 
 variables:
- - name: BuildingInVsts
-   value: true
- - name: SolutionDirectory 
-   value: 'src\FiscalIntegration\Posnet'
+  - name: BuildingInVsts
+    value: true
+  - name: SolutionDirectory
+    value: 'src\FiscalIntegration\Posnet'
 
 steps:
   - task: PowerShell@2
@@ -74,7 +74,7 @@ steps:
     inputs:
       targetType: filePath
       filePath: ./Pipeline/PowerShellScripts/CodeSign.ps1
-      arguments: '-AzureKeyVaultURI $(AzureKeyVaultURI) -ApplicationId $(ApplicationId) -ApplicationSecretValue $(SecretValue) -CertificateName $(CertificateName) -Timestamp $(Timestamp) -TimestampDigest "sha256" -Files "$(Build.ArtifactStagingDirectory)\HardwareStation.PosnetThermalFVFiscalPrinter.Installer_$(Build.BuildNumber).exe $(Build.ArtifactStagingDirectory)\ScaleUnit.Posnet.Installer_$(Build.BuildNumber).exe $(Build.ArtifactStagingDirectory)\ModernPos.Posnet.Installer_$(Build.BuildNumber).exe"'
+      arguments: '-TenantId $(TenantId) -ApplicationId $(ApplicationId) -ApplicationSecretValue $(SecretValue) -AzureKeyVaultURI $(AzureKeyVaultURI) -CertificateName $(CertificateName) -Timestamp $(Timestamp) -TimestampDigest "sha256" -Files "$(Build.ArtifactStagingDirectory)\HardwareStation.PosnetThermalFVFiscalPrinter.Installer_$(Build.BuildNumber).exe $(Build.ArtifactStagingDirectory)\ScaleUnit.Posnet.Installer_$(Build.BuildNumber).exe $(Build.ArtifactStagingDirectory)\ModernPos.Posnet.Installer_$(Build.BuildNumber).exe"'
 
   - task: PublishBuildArtifacts@1
     displayName: 'Publish Artifact: drop'

@@ -1,0 +1,30 @@
+﻿{
+  "$schema": "./devDependencies/schemas/manifestSchema.json",
+  "name": "Fiscal POS Connector Sample",
+  "description": "Enables connection to fiscal devices and services from POS.",
+  "publisher": "Microsoft",
+  "version": "7.2.0",
+  "minimumPosVersion": "9.35.0.0",
+  "components": {
+    "create": {
+      "requestHandlers": [
+        {
+          "modulePath": "RequestHandlers/ExecuteHttpRequestRequestHandler"
+        }
+      ]
+    },
+    "extend": {
+      "requestHandlers": [
+        {
+          "modulePath": "RequestHandlers/Initialize"
+        },
+        {
+          "modulePath": "RequestHandlers/IsReady"
+        },
+        {
+          "modulePath": "RequestHandlers/SubmitDocument"
+        }
+      ]
+    }
+  }
+}
