@@ -15,17 +15,17 @@ namespace Contoso
         using System.Collections.Generic;
         using System.Linq;
         using System.Threading.Tasks;
+        using Contoso.CommerceRuntime.DocumentProvider.DataModelEFR.Documents;
+        using Contoso.CommerceRuntime.DocumentProvider.EFRSample.DocumentBuilders;
+        using Contoso.CommerceRuntime.DocumentProvider.EFRSample.DocumentBuilders.GermanyBuilders;
+        using Contoso.CommerceRuntime.DocumentProvider.EFRSample.DocumentBuilders.Parameters;
+        using Contoso.CommerceRuntime.DocumentProvider.EFRSample.Serializers;
         using Microsoft.Dynamics.Commerce.Runtime;
         using Microsoft.Dynamics.Commerce.Runtime.DataModel;
         using Microsoft.Dynamics.Commerce.Runtime.FiscalIntegration.DocumentProvider.Messages;
         using Microsoft.Dynamics.Commerce.Runtime.Handlers;
         using Microsoft.Dynamics.Commerce.Runtime.Messages;
         using Microsoft.Dynamics.Commerce.Runtime.Services.Messages;
-        using Contoso.CommerceRuntime.DocumentProvider.DataModelEFR.Documents;
-        using Contoso.CommerceRuntime.DocumentProvider.EFRSample.DocumentBuilders;
-        using Contoso.CommerceRuntime.DocumentProvider.EFRSample.DocumentBuilders.GermanyBuilders;
-        using Contoso.CommerceRuntime.DocumentProvider.EFRSample.DocumentBuilders.Parameters;
-        using Contoso.CommerceRuntime.DocumentProvider.EFRSample.Serializers;
 
         /// <summary>
         /// The document provider for EFSTA (European Fiscal Standards Association) Fiscal Register (version 1.8.3) specific for Germany.
@@ -66,7 +66,7 @@ namespace Contoso
                 (int)FiscalIntegrationEventType.IncomeAccounts,
                 (int)FiscalIntegrationEventType.ExpenseAccounts,
                 (int)FiscalIntegrationEventType.CloseShift,
-                (int)FiscalIntegrationEventType.RecallTransaction
+                (int)FiscalIntegrationEventType.RecallTransaction,
             };
 
             /// <summary>
@@ -82,7 +82,7 @@ namespace Contoso
                 typeof(GetFiscalDocumentDocumentProviderRequest),
                 typeof(GetSupportedRegistrableEventsDocumentProviderRequest),
                 typeof(GetFiscalRegisterResponseToSaveDocumentProviderRequest),
-                typeof(GetFiscalTransactionExtendedDataDocumentProviderRequest)
+                typeof(GetFiscalTransactionExtendedDataDocumentProviderRequest),
             };
 
             /// <summary>
@@ -106,21 +106,11 @@ namespace Contoso
                         return await Task.FromResult<Response>(GetFiscalTransactionExtendedData(getFiscalTransactionExtendedDataDocumentProviderRequest)).ConfigureAwait(false);
 
                     case GetFiscalRegisterResponseToSaveDocumentProviderRequest getFiscalRegisterResponseToSaveDocumentProviderRequest:
-                        return await GetFiscalRegisterResponseToSaveAsync(getFiscalRegisterResponseToSaveDocumentProviderRequest) ;
+                        return await GetFiscalRegisterResponseToSaveAsync(getFiscalRegisterResponseToSaveDocumentProviderRequest);
 
                     default:
                         throw new NotSupportedException(string.Format("Request '{0}' is not supported.", request.GetType()));
                 }
-            }
-
-            /// <summary>
-            /// Gets the supported registerable events document provider response.
-            /// </summary>
-            /// <returns>The supported registerable events document provider response.</returns>
-            private Task<Response> GetSupportedRegistrableEventsAsync()
-            {
-                var response = new GetSupportedRegistrableEventsDocumentProviderResponse(this.SupportedRegistrableFiscalEventsId.ToList(), this.SupportedRegistrableNonFiscalEventsId.ToList());
-                return Task.FromResult<Response>(response);
             }
 
             /// <summary>
@@ -144,9 +134,10 @@ namespace Contoso
                 var extendedData = new List<CommerceProperty>();
                 string documentNumber = string.Empty;
 
+                // If the response string cannot be parsed, extendedData and documentNumber will be empty and no exception will be thrown.
                 if (XmlSerializer<SalesTransactionRegistrationResponse>.TryDeserialize(request.FiscalRegistrationResult?.Response, out var salesTransactionResponse))
                 {
-                    Func<string, string> GetFiscalTagFieldValue = (string elementName) => salesTransactionResponse.FiscalData?.FiscalTags.SingleOrDefault(ft => ft.FieldName == elementName)?.FieldValue;
+                    string GetFiscalTagFieldValue(string elementName) => salesTransactionResponse.FiscalData?.FiscalTags?.SingleOrDefault(ft => ft.FieldName == elementName)?.FieldValue;
 
                     CommerceProperty[] commerceProperties = new[]
                     {
@@ -157,7 +148,7 @@ namespace Contoso
                         new CommerceProperty(ExtensibleFiscalRegistrationExtendedDataType.TransactionEnd.Name, GetFiscalTagFieldValue(FinishDateTimeElementName)),
                         new CommerceProperty(ExtensibleFiscalRegistrationExtendedDataType.SequenceNumber.Name, GetFiscalTagFieldValue(SequenceNumberElementName)),
                         new CommerceProperty(ExtensibleFiscalRegistrationExtendedDataType.Signature.Name, GetFiscalTagFieldValue(SignatureElementName)),
-                        new CommerceProperty(ExtensibleFiscalRegistrationExtendedDataType.Info.Name, GetFiscalTagFieldValue(InfoElementName))
+                        new CommerceProperty(ExtensibleFiscalRegistrationExtendedDataType.Info.Name, GetFiscalTagFieldValue(InfoElementName)),
                     };
                     extendedData.AddRange(commerceProperties);
                     documentNumber = salesTransactionResponse.FiscalData?.TransactionId;
@@ -264,7 +255,7 @@ namespace Contoso
             /// <summary>
             /// Gets the fiscal integration document builder for void or suspend event types.
             /// </summary>
-            /// <param name="request">The request.</param>
+            /// <param name="documentBuilderData">The document builder data.</param>
             /// <returns>The fiscal integration receipt document builder.</returns>
             private static async Task<IDocumentBuilder> GetVoidTransactionDocumentBuilderAsync(DocumentBuilderData documentBuilderData)
             {
@@ -286,7 +277,7 @@ namespace Contoso
             /// <summary>
             /// Gets the fiscal integration document builder for recall event type.
             /// </summary>
-            /// <param name="request">The request.</param>
+            /// <param name="documentBuilderData">The document builder data.</param>
             /// <returns>The fiscal integration receipt document builder.</returns>
             private static async Task<IDocumentBuilder> GetFiscalDocumentBuilderForRecallEventAsync(DocumentBuilderData documentBuilderData)
             {
@@ -311,13 +302,23 @@ namespace Contoso
             /// <param name="requestContext">The request context.</param>
             /// <param name="isRemoteTransaction">Gets or sets a value indicating whether the fiscal document is for Remote transaction or not.</param>
             /// <param name="transactionId">The transaction identifier.</param>
-            /// <returns>The sales order.></returns>
+            /// <returns>The sales order.</returns>
             private static async Task<SalesOrder> GetSalesOrderAsync(RequestContext requestContext, bool isRemoteTransaction, string transactionId)
             {
                 SearchLocation searchLocationType = isRemoteTransaction ? SearchLocation.All : SearchLocation.Local;
                 var getSalesOrderRequest = new GetSalesOrderDetailsByTransactionIdServiceRequest(transactionId, searchLocationType);
 
                 return (await requestContext.ExecuteAsync<GetSalesOrderDetailsServiceResponse>(getSalesOrderRequest).ConfigureAwait(false)).SalesOrder;
+            }
+
+            /// <summary>
+            /// Gets the supported registerable events document provider response.
+            /// </summary>
+            /// <returns>The supported registerable events document provider response.</returns>
+            private Task<Response> GetSupportedRegistrableEventsAsync()
+            {
+                var response = new GetSupportedRegistrableEventsDocumentProviderResponse(this.SupportedRegistrableFiscalEventsId.ToList(), this.SupportedRegistrableNonFiscalEventsId.ToList());
+                return Task.FromResult<Response>(response);
             }
         }
     }

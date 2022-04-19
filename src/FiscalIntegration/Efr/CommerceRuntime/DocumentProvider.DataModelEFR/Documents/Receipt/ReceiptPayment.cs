@@ -32,20 +32,20 @@ namespace Contoso
             private const string VoucherIDAttributeName = "VouN";
 
             /// <summary>
-            /// The description.
+            /// Gets or sets the description.
             /// </summary>
             [XmlAttribute(AttributeName = DescriptionAttributeName)]
             [DefaultValue("")]
             public string Description { get; set; }
 
             /// <summary>
-            /// The amount.
+            /// Gets or sets the amount.
             /// </summary>
             [XmlIgnore]
             public decimal Amount { get; set; }
 
             /// <summary>
-            /// The amount formatted for serialization.
+            /// Gets or sets the amount formatted for serialization.
             /// </summary>
             [XmlAttribute(AttributeName = AmountAttributeName)]
             public string AmountStringValue
@@ -62,34 +62,34 @@ namespace Contoso
             }
 
             /// <summary>
-            /// The unique id.
+            /// Gets or sets the unique identifier.
             /// </summary>
             [XmlAttribute(AttributeName = UniqueIdentifierAttributeName)]
             [DefaultValue("")]
             public string UniqueIdentifier { get; set; }
 
             /// <summary>
-            /// The payment type group.
+            /// Gets or sets the payment type group.
             /// </summary>
             [XmlAttribute(AttributeName = PaymentTypeGroupAttributeName)]
             [DefaultValue("")]
             public string PaymentTypeGroup { get; set; }
 
             /// <summary>
-            /// The CZ fields for transaction marking.
+            /// Gets or sets the CZ fields for transaction marking.
             /// </summary>
             [XmlAttribute(AttributeName = CZFieldAttributeName)]
             [DefaultValue(0)]
             public int CZField { get; set; }
 
             /// <summary>
-            /// The amount of the foreign payment.
+            /// Gets or sets the amount of the foreign payment.
             /// </summary>
             [XmlIgnore]
             public decimal? ForeignAmount { get; set; }
 
             /// <summary>
-            /// The amount formatted for serialization.
+            /// Gets or sets the amount formatted for serialization.
             /// </summary>
             [XmlAttribute(AttributeName = ForeignAmountAttributeName)]
             public string ForeignAmountValue
@@ -106,13 +106,13 @@ namespace Contoso
             }
 
             /// <summary>
-            /// Foreign currency code.
+            /// Gets or sets the foreign currency code.
             /// </summary>
             [XmlAttribute(AttributeName = ForeignCurrencyCodeAttributeName)]
             public string ForeignCurrencyCode { get; set; }
 
             /// <summary>
-            /// ID of the voucher.
+            /// Gets or sets the identifier of the voucher.
             /// </summary>
             [XmlAttribute(AttributeName = VoucherIDAttributeName)]
             [DefaultValue("")]

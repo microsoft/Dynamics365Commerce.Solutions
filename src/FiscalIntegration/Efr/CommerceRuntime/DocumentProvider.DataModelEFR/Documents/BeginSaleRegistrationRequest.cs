@@ -25,7 +25,7 @@ namespace Contoso
             private const string ReceiptElementName = "ESR";
 
             /// <summary>
-            /// The receipt.
+            /// Gets or sets the receipt.
             /// </summary>
             [XmlElement(ElementName = ReceiptElementName)]
             public Receipt Receipt { get; set; }

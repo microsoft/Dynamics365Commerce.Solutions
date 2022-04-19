@@ -1,4 +1,11 @@
-﻿
+﻿/**
+ * SAMPLE CODE NOTICE
+ * 
+ * THIS SAMPLE CODE IS MADE AVAILABLE AS IS.  MICROSOFT MAKES NO WARRANTIES, WHETHER EXPRESS OR IMPLIED,
+ * OF FITNESS FOR A PARTICULAR PURPOSE, OF ACCURACY OR COMPLETENESS OF RESPONSES, OF RESULTS, OR CONDITIONS OF MERCHANTABILITY.
+ * THE ENTIRE RISK OF THE USE OR THE RESULTS FROM THE USE OF THIS SAMPLE CODE REMAINS WITH THE USER.
+ * NO TECHNICAL SUPPORT IS PROVIDED.  YOU MAY NOT DISTRIBUTE THIS CODE UNLESS YOU HAVE A LICENSE AGREEMENT WITH MICROSOFT THAT ALLOWS YOU TO DO SO.
+ */
 
 namespace Contoso
 {
@@ -26,76 +33,79 @@ namespace Contoso
             private const string IsTrainingTransactionAttributeName = "test";
 
             /// <summary>
-            /// The country region ISO code.
+            /// Gets or sets the country region ISO code.
             /// </summary>
             [XmlIgnore]
             public CountryRegionISOCode CountryRegionISOCode { get; set; }
 
             /// <summary>
-            /// The receipt DateTime.
+            /// Gets or sets the receipt DateTime.
             /// </summary>
             [XmlIgnore]
             public DateTime ReceiptDateTime { get; set; }
 
             /// <summary>
-            /// The receipt DateTime formatted for serialization.
+            /// Gets or sets the receipt DateTime formatted for serialization.
             /// </summary>
             [XmlAttribute(AttributeName = ReceiptDateTimeAttributeName)]
             [DefaultValue("")]
-            public string ReceiptDateTimeStringValue {
-                get {
+            public string ReceiptDateTimeStringValue
+            {
+                get
+                {
                     return FormatHelper.FormatDateTime(ReceiptDateTime);
                 }
 
-                set {
+                set
+                {
                     ReceiptDateTime = DateTime.Parse(value);
                 }
             }
 
             /// <summary>
-            /// The transaction location.
+            /// Gets or sets the transaction location.
             /// </summary>
             [XmlAttribute(AttributeName = TransactionLocationAttributeName)]
             [DefaultValue("")]
             public string TransactionLocation { get; set; }
 
             /// <summary>
-            /// The transaction terminal.
+            /// Gets or sets the transaction terminal.
             /// </summary>
             [XmlAttribute(AttributeName = TransactionTerminalAttributeName)]
             [DefaultValue("")]
             public string TransactionTerminal { get; set; }
 
             /// <summary>
-            /// The operator id.
+            /// Gets or sets the operator identifier.
             /// </summary>
             [XmlAttribute(AttributeName = OperatorIdAttributeName)]
             [DefaultValue("")]
             public string OperatorId { get; set; }
 
             /// <summary>
-            /// The operator name.
+            /// Gets or sets the operator name.
             /// </summary>
             [XmlAttribute(AttributeName = OperatorNameAttributeName)]
             [DefaultValue("")]
             public string OperatorName { get; set; }
 
             /// <summary>
-            /// The non-fiscal transaction type.
+            /// Gets or sets the non-fiscal transaction type.
             /// </summary>
             [XmlAttribute(AttributeName = NonFiscalTransactionTypeAttributeName)]
             [DefaultValue("")]
             public string NonFiscalTransactionType { get; set; }
 
             /// <summary>
-            /// The non-fiscal signed transaction type.
+            /// Gets or sets the non-fiscal signed transaction type.
             /// </summary>
             [XmlAttribute(AttributeName = NonFiscalSignedTransactionTypeAttributeName)]
             [DefaultValue("")]
             public string NonFiscalSignedTransactionType { get; set; }
 
             /// <summary>
-            /// The training transaction flag.
+            /// Gets or sets the training transaction flag.
             /// </summary>
             [XmlAttribute(AttributeName = IsTrainingTransactionAttributeName)]
             [DefaultValue(0)]

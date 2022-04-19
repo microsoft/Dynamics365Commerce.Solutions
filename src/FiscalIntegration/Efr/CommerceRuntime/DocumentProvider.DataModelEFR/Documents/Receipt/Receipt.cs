@@ -49,19 +49,19 @@ namespace Contoso
             private const string TrueStringValue = "1";
 
             /// <summary>
-            /// The country region ISO code.
+            /// Gets or sets the country region ISO code.
             /// </summary>
             [XmlIgnore]
             public CountryRegionISOCode CountryRegionISOCode { get; set; }
 
             /// <summary>
-            /// The receipt DateTime.
+            /// Gets or sets the receipt DateTime.
             /// </summary>
             [XmlIgnore]
             public DateTime ReceiptDateTime { get; set; }
 
             /// <summary>
-            /// The receipt DateTime formatted for serialization.
+            /// Gets or sets the receipt DateTime formatted for serialization.
             /// </summary>
             [XmlAttribute(AttributeName = DateTimeAttributeName)]
             [DefaultValue("")]
@@ -79,13 +79,13 @@ namespace Contoso
             }
 
             /// <summary>
-            /// Timestamp of the transaction start.
+            /// Gets or sets timestamp of the transaction start.
             /// </summary>
             [XmlIgnore]
             public DateTime TransactionStartDateTime { get; set; }
 
             /// <summary>
-            /// The receipt TransactionStartDateTime formatted for serialization.
+            /// Gets or sets the receipt TransactionStartDateTime formatted for serialization.
             /// </summary>
             [XmlAttribute(AttributeName = TransactionStartDateTimeAttributeName)]
             [DefaultValue("")]
@@ -103,41 +103,41 @@ namespace Contoso
             }
 
             /// <summary>
-            /// The transaction location.
+            /// Gets or sets the transaction location.
             /// </summary>
             [XmlAttribute(AttributeName = TransactionLocationAttributeName)]
             [DefaultValue("")]
             public string TransactionLocation { get; set; }
 
             /// <summary>
-            /// The transaction terminal.
+            /// Gets or sets the transaction terminal.
             /// </summary>
             [XmlAttribute(AttributeName = TransactionTerminalAttributeName)]
             [DefaultValue("")]
             public string TransactionTerminal { get; set; }
 
             /// <summary>
-            /// The transaction number.
+            /// Gets or sets the transaction number.
             /// </summary>
             [XmlAttribute(AttributeName = TransactionNumberAttributeName)]
             [DefaultValue("")]
             public string TransactionNumber { get; set; }
 
             /// <summary>
-            /// The fiscal transaction id.
+            /// Gets or sets the fiscal transaction id.
             /// </summary>
             [XmlAttribute(AttributeName = TransactionIdAttributeName)]
             [DefaultValue("")]
             public string TransactionId { get; set; }
 
             /// <summary>
-            /// The total amount.
+            /// Gets or sets the total amount.
             /// </summary>
             [XmlIgnore]
             public decimal TotalAmount { get; set; }
 
             /// <summary>
-            /// The total amount formatted for serialization.
+            /// Gets or sets the total amount formatted for serialization.
             /// </summary>
             [XmlAttribute(AttributeName = TotalAmountAttributeName)]
             public string TotalAmountStringValue
@@ -154,61 +154,61 @@ namespace Contoso
             }
 
             /// <summary>
-            /// The operator id.
+            /// Gets or sets the operator identifier.
             /// </summary>
             [XmlAttribute(AttributeName = OperatorIdAttributeName)]
             [DefaultValue("")]
             public string OperatorId { get; set; }
 
             /// <summary>
-            /// The operator name.
+            /// Gets or sets the operator name.
             /// </summary>
             [XmlAttribute(AttributeName = OperatorNameAttributeName)]
             [DefaultValue("")]
             public string OperatorName { get; set; }
 
             /// <summary>
-            /// The non-fiscal transaction type.
+            /// Gets or sets the non-fiscal transaction type.
             /// </summary>
             [XmlAttribute(AttributeName = NonFiscalTransactionTypeAttributeName)]
             [DefaultValue("")]
             public string NonFiscalTransactionType { get; set; }
 
             /// <summary>
-            /// The non-fiscal signed transaction type.
+            /// Gets or sets the non-fiscal signed transaction type.
             /// </summary>
             [XmlAttribute(AttributeName = NonFiscalSignedTransactionTypeAttributeName)]
             [DefaultValue("")]
             public string NonFiscalSignedTransactionType { get; set; }
 
             /// <summary>
-            /// The training transaction flag.
+            /// Gets or sets the training transaction flag.
             /// </summary>
             [XmlAttribute(AttributeName = IsTrainingTransactionAttributeName)]
             [DefaultValue(0)]
             public int IsTrainingTransaction { get; set; }
 
             /// <summary>
-            /// The header.
+            /// Gets or sets the header.
             /// </summary>
             [XmlElement(ElementName = HeaderElementName)]
             public ReceiptHeader Header { get; set; }
 
             /// <summary>
-            /// The array of position lines.
+            /// Gets or sets the array of position lines.
             /// </summary>
             [XmlElement(ElementName = PositionLinesElementName)]
             public ReceiptPositionLines PositionLines { get; set; }
 
             /// <summary>
-            /// The array of payments.
+            /// Gets or sets the array of payments.
             /// </summary>
             [XmlArray(ElementName = PaymentsElementName)]
             [XmlArrayItem(ElementName = PaymentElementName)]
             public List<ReceiptPayment> Payments { get; set; }
 
             /// <summary>
-            /// Defines the payments serialization condition.
+            /// Gets a value indicating whether the payments serialization condition is true.
             /// </summary>
             [XmlIgnore]
             public bool PaymentsSpecified
@@ -217,14 +217,14 @@ namespace Contoso
             }
 
             /// <summary>
-            /// The array of taxes.
+            /// Gets or sets the array of taxes.
             /// </summary>
             [XmlArray(ElementName = TaxesElementName)]
             [XmlArrayItem(ElementName = TaxElementName)]
             public List<ReceiptTax> Taxes { get; set; }
 
             /// <summary>
-            /// Defines the taxes serialization condition.
+            /// Gets a value indicating whether the taxes serialization condition is true.
             /// </summary>
             [XmlIgnore]
             public bool TaxesSpecified
@@ -233,32 +233,32 @@ namespace Contoso
             }
 
             /// <summary>
-            /// The footer.
+            /// Gets or sets the footer.
             /// </summary>
             [XmlElement(ElementName = FooterElementName)]
             public ReceiptFooter Footer { get; set; }
 
             /// <summary>
-            /// The corresponding Business premises ID.
+            /// Gets or sets the corresponding Business premises identifier.
             /// </summary>
             [XmlAttribute(AttributeName = RegistrationIdAttributeName)]
             [DefaultValue("")]
             public string RegistrationId { get; set; }
 
             /// <summary>
-            /// The customer data.
+            /// Gets or sets the customer data.
             /// </summary>
             [XmlElement(ElementName = CustomerAttributeName)]
             public ReceiptCustomer Customer { get; set; }
 
             /// <summary>
-            /// Indicates that taxes are not included in price.
+            /// Gets or sets a value indicating whether taxes are not included in price.
             /// </summary>
             [XmlIgnore]
             public bool NetTaxFlag { get; set; }
 
             /// <summary>
-            /// The receipt NetTaxFlag formatted for serialization.
+            /// Gets or sets the receipt NetTaxFlag formatted for serialization.
             /// </summary>
             [XmlAttribute(AttributeName = NetTaxFlagAttributeName)]
             [DefaultValue("")]

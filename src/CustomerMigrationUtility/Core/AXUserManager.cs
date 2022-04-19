@@ -1,6 +1,6 @@
 ﻿namespace Microsoft.Dynamics.Commerce.CustomerMigrationUtility.Core
 {
-    using Microsoft.IdentityModel.Clients.ActiveDirectory;
+    using Microsoft.Identity.Client;    
     using Newtonsoft.Json.Linq;
     using System;
     using System.Collections.Generic;
@@ -17,21 +17,21 @@
 
         /// <summary>The data area id.</summary>
         private static readonly string DataAreaIdValue = ConfigurationManager.AppSettings["DataAreaId"];
+        
+        /// <summary>The AAD instance.</summary>
+        private static readonly string AADInstance = "https://login.microsoftonline.com/" + ConfigurationManager.AppSettings["AX-AAD-Tenant"];
 
         /// <summary>The AX Odata Url.</summary>
         private static string AXOdataUrl = ConfigurationManager.AppSettings["AX-AOS-Url"];
-
+        
         /// <summary>The authentication result.</summary>
         private static AuthenticationResult AuthenticationResult = null;
 
         /// <summary>The ExternalIdToCustomerMaps uri.</summary>
         private const string ExternalIdToCustomerMaps = "/data/ExternalIdToCustomerMaps";
 
-        /// <summary>The client credential.</summary>
-        private readonly ClientCredential credential;
-
-        /// <summary>The authentication context.</summary>
-        private readonly AuthenticationContext authenticationContext;
+        /// <summary>The confidential client application.</summary>
+        private readonly IConfidentialClientApplication confidentialClientApplication;
 
         /// <summary>The logger.</summary>
         private Logger logger = new Logger();
@@ -43,13 +43,14 @@
             var clientId = ConfigurationManager.AppSettings["AX-AAD-ClientId"];
             var clientPassword = ConfigurationManager.AppSettings["AX-AAD-ClientPassword"];
 
-            if(string.IsNullOrEmpty(tenant) || string.IsNullOrEmpty(clientId) || string.IsNullOrEmpty(clientPassword))
+            if (string.IsNullOrEmpty(tenant) || string.IsNullOrEmpty(clientId) || string.IsNullOrEmpty(clientPassword))
             {
                 return;
             }
 
-            this.authenticationContext = new AuthenticationContext("https://login.microsoftonline.com/" + tenant);
-            this.credential = new ClientCredential(clientId, clientPassword);
+            this.confidentialClientApplication = ConfidentialClientApplicationBuilder.Create(clientId)
+                                .WithClientSecret(clientPassword)
+                                .Build();
             this.logger = new Logger();
         }
 
@@ -168,13 +169,17 @@
             if (AuthenticationResult == null || AuthenticationResult.ExpiresOn < DateTimeOffset.UtcNow.AddMinutes(5))
             {
                 this.logger.Trace("Acquiring the access token...");
-                AuthenticationResult = await this.authenticationContext.AcquireTokenAsync(AXOdataUrl, this.credential);
+
+                AuthenticationResult = await this.confidentialClientApplication.AcquireTokenForClient(scopes: new string[] { $"{AXOdataUrl}/.default" })                                             
+                                             .WithAuthority(AADInstance)
+                                             .ExecuteAsync().ConfigureAwait(false);
+
                 this.logger.Trace("Acquiring the access token is done.");
             }
 
             // Creating authentication header
             var authenticationHeaderValue = new AuthenticationHeaderValue("Bearer", AuthenticationResult.AccessToken);
-            
+
             var externalIdToCustomerMap = new ExternalIdToCustomerMap()
             {
                 CustomerAccountNumber = customerAccountNumber,

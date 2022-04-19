@@ -26,25 +26,25 @@ namespace Contoso
             private const string DebugMessageElementName = "Warning";
 
             /// <summary>
-            /// The result code.
+            /// Gets or sets the result code.
             /// </summary>
             [XmlAttribute(AttributeName = ResultCodeAttributeName)]
             public string ResultCode { get; set; }
 
             /// <summary>
-            /// The error code.
+            /// Gets or sets the error code.
             /// </summary>
             [XmlElement(ElementName = ErrorCodeElementName)]
             public string ErrorCode { get; set; }
 
             /// <summary>
-            /// The user message.
+            /// Gets or sets the user message.
             /// </summary>
             [XmlElement(ElementName = UserMessageElementName)]
             public string UserMessage { get; set; }
 
             /// <summary>
-            /// The debug message.
+            /// Gets or sets the debug message.
             /// </summary>
             [XmlElement(ElementName = DebugMessageElementName)]
             public string DebugMessage { get; set; }

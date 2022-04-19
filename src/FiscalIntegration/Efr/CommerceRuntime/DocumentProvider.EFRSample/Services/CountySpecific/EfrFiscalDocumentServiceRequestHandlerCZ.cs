@@ -336,7 +336,7 @@ namespace Contoso
                 var tenderLinesGrpByTenderTypeId = salesOrder.TenderLinesGrpByTenderTypeId();
 
                 var getChannelTenderTypesDataRequest = new GetChannelTenderTypesDataRequest(requestContext.GetPrincipal().ChannelId, QueryResultSettings.AllRecords);
-                ReadOnlyCollection<TenderType> channelTenderTypes = requestContext.Execute<EntityDataServiceResponse<TenderType>>(getChannelTenderTypesDataRequest).PagedEntityCollection.Results;
+                ReadOnlyCollection<TenderType> channelTenderTypes = (await requestContext.ExecuteAsync<EntityDataServiceResponse<TenderType>>(getChannelTenderTypesDataRequest).ConfigureAwait(false)).PagedEntityCollection.Results;
                 var payCustomerAccountTypes = channelTenderTypes.Where(c => c.OperationType == RetailOperation.PayCustomerAccount || c.OperationType == RetailOperation.PayCustomerAccountExact);
 
                 foreach (var tenderLine in tenderLinesGrpByTenderTypeId)

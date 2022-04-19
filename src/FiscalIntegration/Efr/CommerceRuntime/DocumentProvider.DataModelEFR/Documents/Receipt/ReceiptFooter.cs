@@ -24,7 +24,7 @@ namespace Contoso
             private const string TxtAttributeName = "Txt";
 
             /// <summary>
-            /// The footer text.
+            /// Gets or sets the footer text.
             /// </summary>
             [XmlAttribute(AttributeName = TxtAttributeName)]
             [DefaultValue("")]

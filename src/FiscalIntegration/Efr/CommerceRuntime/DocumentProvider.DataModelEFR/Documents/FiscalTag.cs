@@ -25,19 +25,19 @@ namespace Contoso
             private const string FieldLabelAttributeName = "Label";
 
             /// <summary>
-            /// The field name.
+            /// Gets or sets the field name.
             /// </summary>
             [XmlAttribute(AttributeName = FieldNameAttributeName)]
             public string FieldName { get; set; }
 
             /// <summary>
-            /// The field value.
+            /// Gets or sets the field value.
             /// </summary>
             [XmlAttribute(AttributeName = FieldValueAttributeName)]
             public string FieldValue { get; set; }
 
             /// <summary>
-            /// The field label.
+            /// Gets or sets the field label.
             /// </summary>
             [XmlAttribute(AttributeName = FieldLabelAttributeName)]
             public string FieldLabel { get; set; }

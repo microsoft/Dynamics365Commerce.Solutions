@@ -43,55 +43,55 @@ namespace Contoso
             private const string CZFieldAttributeName = "CZ_field";
 
             /// <summary>
-            /// The position type.
+            /// Gets or sets the position type.
             /// </summary>
             [XmlAttribute(AttributeName = PositionTypeAttributeName)]
             [DefaultValue("")]
             public string PositionType { get; set; }
 
             /// <summary>
-            /// The position number.
+            /// Gets or sets the position number.
             /// </summary>
             [XmlAttribute(AttributeName = PositionNumberAttributeName)]
             [DefaultValue(0)]
             public int PositionNumber { get; set; }
 
             /// <summary>
-            /// The item number.
+            /// Gets or sets the item number.
             /// </summary>
             [XmlAttribute(AttributeName = ItemNumberAttributeName)]
             [DefaultValue("")]
             public string ItemNumber { get; set; }
 
             /// <summary>
-            /// The item identity (serial or batch number).
+            /// Gets or sets the item identity (serial or batch number).
             /// </summary>
             [XmlAttribute(AttributeName = ItemIdentityAttributeName)]
             [DefaultValue("")]
             public string ItemIdentity { get; set; }
 
             /// <summary>
-            /// The description.
+            /// Gets or sets the description.
             /// </summary>
             [XmlAttribute(AttributeName = DescriptionAttributeName)]
             [DefaultValue("")]
             public string Description { get; set; }
 
             /// <summary>
-            /// The tax group.
+            /// Gets or sets the tax group.
             /// </summary>
             [XmlAttribute(AttributeName = TaxGroupAttributeName)]
             [DefaultValue("")]
             public string TaxGroup { get; set; }
 
             /// <summary>
-            /// The amount.
+            /// Gets or sets the amount.
             /// </summary>
             [XmlIgnore]
             public decimal Amount { get; set; }
 
             /// <summary>
-            /// The amount formatted for serialization.
+            /// Gets or sets the amount formatted for serialization.
             /// </summary>
             [XmlAttribute(AttributeName = AmountAttributeName)]
             public string AmountStringValue
@@ -108,13 +108,13 @@ namespace Contoso
             }
 
             /// <summary>
-            /// The quantity.
+            /// Gets or sets the quantity.
             /// </summary>
             [XmlIgnore]
             public decimal? Quantity { get; set; }
 
             /// <summary>
-            /// The quantity formatted for serialization.
+            /// Gets or sets the quantity formatted for serialization.
             /// </summary>
             [XmlAttribute(AttributeName = QuantityAttributeName)]
             public string QuantityStringValue
@@ -131,20 +131,20 @@ namespace Contoso
             }
 
             /// <summary>
-            /// The quantity unit.
+            /// Gets or sets the quantity unit.
             /// </summary>
             [XmlAttribute(AttributeName = QuantityUnitAttributeName)]
             [DefaultValue("")]
             public string QuantityUnit { get; set; }
 
             /// <summary>
-            /// The price per unit.
+            /// Gets or sets the price per unit.
             /// </summary>
             [XmlIgnore]
             public decimal? UnitPrice { get; set; }
 
             /// <summary>
-            /// The price per unit formatted for serialization.
+            /// Gets or sets the price per unit formatted for serialization.
             /// </summary>
             [XmlAttribute(AttributeName = UnitPriceAttributeName)]
             public string UnitPriceStringValue
@@ -161,13 +161,13 @@ namespace Contoso
             }
 
             /// <summary>
-            /// The reference DateTime.
+            /// Gets or sets the reference DateTime.
             /// </summary>
             [XmlIgnore]
             public DateTime ReferenceDateTime { get; set; }
 
             /// <summary>
-            /// The reference DateTime formatted for serialization.
+            /// Gets or sets the reference DateTime formatted for serialization.
             /// </summary>
             [XmlAttribute(AttributeName = ReferenceDateTimeAttributeName)]
             [DefaultValue("")]
@@ -185,55 +185,55 @@ namespace Contoso
             }
 
             /// <summary>
-            /// The reference transaction location.
+            /// Gets or sets the reference transaction location.
             /// </summary>
             [XmlAttribute(AttributeName = ReferenceTransactionLocationAttributeName)]
             [DefaultValue("")]
             public string ReferenceTransactionLocation { get; set; }
 
             /// <summary>
-            /// The reference transaction terminal.
+            /// Gets or sets the reference transaction terminal.
             /// </summary>
             [XmlAttribute(AttributeName = ReferenceTransactionTerminalAttributeName)]
             [DefaultValue("")]
             public string ReferenceTransactionTerminal { get; set; }
 
             /// <summary>
-            /// The reference transaction number.
+            /// Gets or sets the reference transaction number.
             /// </summary>
             [XmlAttribute(AttributeName = ReferenceTransactionNumberAttributeName)]
             [DefaultValue("")]
             public string ReferenceTransactionNumber { get; set; }
 
             /// <summary>
-            /// The reference position number.
+            /// Gets or sets the reference position number.
             /// </summary>
             [XmlAttribute(AttributeName = ReferencePositionNumberAttributeName)]
             [DefaultValue(0)]
             public int ReferencePositionNumber { get; set; }
 
             /// <summary>
-            /// The CZ fields for transaction marking.
+            /// Gets or sets the CZ fields for transaction marking.
             /// </summary>
             [XmlAttribute(AttributeName = CZFieldAttributeName)]
             [DefaultValue(0)]
             public int CZField { get; set; }
 
             /// <summary>
-            /// ID of the voucher.
+            /// Gets or sets the ID of the voucher.
             /// </summary>
             [XmlAttribute(AttributeName = VoucherIDAttributeName)]
             [DefaultValue("")]
             public string VoucherId { get; set; }
 
             /// <summary>
-            /// Void of position inside same receipt.
+            /// Gets or sets a value indicating whether there is void of position inside same receipt.
             /// </summary>
             [XmlIgnore]
             public bool Void { get; set; }
 
             /// <summary>
-            /// The receipt void formatted for serialization.
+            /// Gets or sets the receipt void formatted for serialization.
             /// </summary>
             [XmlAttribute(AttributeName = VoidAttributeName)]
             [DefaultValue("")]
@@ -246,7 +246,7 @@ namespace Contoso
 
                 set
                 {
-                    Void = Boolean.Parse(value);
+                    Void = bool.Parse(value);
                 }
             }
         }

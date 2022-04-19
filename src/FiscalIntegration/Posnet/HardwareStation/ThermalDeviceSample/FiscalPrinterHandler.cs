@@ -21,9 +21,6 @@
         /// </summary>
         public class FiscalPrinterHandler : INamedRequestHandler
         {
-            private const string InitializerTransactionCommandName = "trinit";
-            private const string TransactionPaymentCommandName = "trpayment";
-
             private static PosnetDriver posnetDriver;
             private static readonly object syncObject = new object();
 
@@ -166,9 +163,12 @@
 
                     var posnetRequest = DeserializeFromJson<PosnetDocumentRequest>(request.Document);
                     responses = ProcessDocument(posnetRequest);
-                    bool success = responses.All(r => r.Success);
 
-                    if (success)
+                    // If the responses contain a command to cancel the transaction, then the submit the document is not successful.
+                    bool containsCancelTransactionCommand = responses.Any(r=> PosnetCommands.IsCancelTransactionCommand(r.RequestCommandName));
+                    bool allResponsesSuccessful = !containsCancelTransactionCommand && responses.All(r => r.Success);
+
+                    if (allResponsesSuccessful)
                     {
                         var fiscalDocumentResponse = new PosnetDocumentResponse(true, responses);
                         return new SubmitDocumentFiscalDeviceResponse(
@@ -232,12 +232,21 @@
                 {
                     try
                     {
+                        PosnetCommandValidator posnetValidator = new PosnetCommandValidator(posnetDriver);
                         foreach (var posnetCommand in posnetRequest.Commands)
                         {
-                            var posnetResponse = posnetDriver.ExecuteCommand(posnetCommand);
-                            responsesList.Add(posnetResponse);
+                            var validatorResult = posnetValidator.CanExecute(posnetCommand);
+                            if (!validatorResult.Success)
+                            {
+                                CancelDocument(responsesList);
+                                break;
+                            }
 
-                            if (!posnetResponse.Success)
+                            var posnetResponse = posnetDriver.ExecuteCommand(posnetCommand);
+                            validatorResult = posnetValidator.GetExecutionResult(posnetCommand, posnetResponse);
+                            responsesList.Add(validatorResult.Response);
+
+                            if (!validatorResult.Success)
                             {
                                 CancelDocument(responsesList);
                                 break;
@@ -286,7 +295,7 @@
             /// <returns><see cref="IPosnetCommandResponse"/> containing the synchronization result.</returns>
             private IPosnetCommandResponse SynchronizeDateTime()
             {
-                var request = FiscalPrinterHelper.CreateSynchronizeDateTimeRequest();
+                var request = PosnetCommands.CreateSynchronizeDateTimeRequest();
                 return ProcessDocument(request).Single();
             }
 
@@ -312,7 +321,12 @@
                 {
                     for (int i = responsesList.Count - 1; i >= 0; --i)
                     {
-                        CancelRequest(responsesList[i]);
+                        var response = CancelRequest(responsesList[i]);
+
+                        if (response != null)
+                        {
+                            responsesList.Add(response);
+                        }
                     }
                 }
                 catch (Exception ex)
@@ -325,28 +339,30 @@
             /// Cancels the failed posnet command if necessary.
             /// </summary>
             /// <param name="posnetCommandResponse">Response to the command to be cancelled.</param>
-            private static void CancelRequest(IPosnetCommandResponse posnetCommandResponse)
+            /// <returns>The <see cref="IPosnetCommandResponse"/> if cancel command was sent to the printer, otherwise null.</returns>
+            private static IPosnetCommandResponse CancelRequest(IPosnetCommandResponse posnetCommandResponse)
             {
                 if (!posnetCommandResponse.Success)
                 {
-                    return;
+                    return null;
                 }
 
                 IPosnetCommandRequest posnetCommand = null;
                 switch (posnetCommandResponse.RequestCommandName)
                 {
-                    case TransactionPaymentCommandName:
-                        posnetCommand = FiscalPrinterHelper.CreateCancelPaymentCommandRequest();
+                    case PosnetCommands.TransactionPaymentCommandName:
+                        posnetCommand = PosnetCommands.CreateCancelPaymentCommandRequest();
                         break;
-                    case InitializerTransactionCommandName:
-                        posnetCommand = FiscalPrinterHelper.CreateCancelTransactionCommandRequest();
+                    case PosnetCommands.InitializeTransactionCommandName:
+                        posnetCommand = PosnetCommands.CreateCancelTransactionCommandRequest();
                         break;
                     default:
-                        return;
+                        return null;
                 }
 
                 IPosnetCommandResponse response = null;
                 response = posnetDriver.ExecuteCommand(posnetCommand);
+                return response;
             }
 
             /// <summary>

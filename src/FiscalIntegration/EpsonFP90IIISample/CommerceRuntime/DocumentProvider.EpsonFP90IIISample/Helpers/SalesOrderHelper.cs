@@ -94,17 +94,14 @@ namespace Contoso
             /// <param name="salesOrder">The sales order.</param>
             /// <param name="channelConfiguration">The channel configuration</param>
             /// <returns>True if the sales order is customer order pick up or return, otherwise false.</returns>
-            public static bool IsCustomerOrderPickupOrReturn(RequestContext context, SalesOrder salesOrder, ChannelConfiguration channelConfiguration)
+            public static async Task<bool> IsCustomerOrderPickupOrReturn(RequestContext context, SalesOrder salesOrder, ChannelConfiguration channelConfiguration)
             {
                 ThrowIf.Null(salesOrder, nameof(salesOrder));
 
                 return salesOrder.ExtensibleSalesTransactionType == ExtensibleSalesTransactionType.CustomerOrder
                     && (salesOrder.CustomerOrderMode == CustomerOrderMode.Pickup
                      || (salesOrder.CustomerOrderMode == CustomerOrderMode.Return
-                        && (IsPickupDeliveryMode(context, salesOrder.DeliveryMode)
-                            || salesOrder.DeliveryMode == channelConfiguration.CarryoutDeliveryModeCode
-                            || salesOrder.ActiveSalesLines.All(l => l.DeliveryMode == channelConfiguration.CarryoutDeliveryModeCode
-                                || IsPickupDeliveryMode(context, l.DeliveryMode)))));
+                        && await IsPickupOrCarryoutDeliveryMode(context, salesOrder, channelConfiguration).ConfigureAwait(false)));
             }
 
             /// <summary>
@@ -382,11 +379,31 @@ namespace Contoso
             /// <param name="context">The request context.</param>
             /// <param name="deliveryModeCode">The delivery mode code.</param>
             /// <returns>True if it is pickup mode, false otherwise.</returns>
-            private static bool IsPickupDeliveryMode(RequestContext context, string deliveryModeCode)
+            private static async Task<bool> IsPickupDeliveryMode(RequestContext context, string deliveryModeCode)
             {
                 var request = new IsDeliveryModePickupServiceRequest(deliveryModeCode);
-                var response = context.Execute<IsDeliveryModePickupServiceResponse>(request);
+                var response = await context.ExecuteAsync<IsDeliveryModePickupServiceResponse>(request).ConfigureAwait(false);
                 return response.IsPickupDeliveryMode;
+            }
+
+            private static async Task<bool> IsPickupOrCarryoutDeliveryMode(RequestContext context, SalesOrder salesOrder, ChannelConfiguration channelConfiguration)
+            {
+                if (salesOrder.DeliveryMode == channelConfiguration.CarryoutDeliveryModeCode ||
+                    await IsPickupDeliveryMode(context, salesOrder.DeliveryMode).ConfigureAwait(false))
+                {
+                    return true;
+                }
+
+                foreach (var salesLine in salesOrder.ActiveSalesLines)
+                {
+                    if (!(salesLine.DeliveryMode == channelConfiguration.CarryoutDeliveryModeCode ||
+                        await IsPickupDeliveryMode(context, salesLine.DeliveryMode).ConfigureAwait(false)))
+                    {
+                        return false;
+                    }
+                }
+
+                return true;
             }
         }
     }

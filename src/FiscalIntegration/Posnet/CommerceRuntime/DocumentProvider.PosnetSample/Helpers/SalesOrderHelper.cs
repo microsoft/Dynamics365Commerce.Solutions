@@ -215,13 +215,13 @@
             /// </summary>
             /// <param name="request">The request.</param>
             /// <returns>The list of discount fiscal texts.</returns>
-            public static List<FiscalIntegrationSalesDiscountFiscalText> GetDiscountFiscalTextForSalesOrder(GetFiscalDocumentDocumentProviderRequest request)
+            public static async Task<List<FiscalIntegrationSalesDiscountFiscalText>> GetDiscountFiscalTextForSalesOrder(GetFiscalDocumentDocumentProviderRequest request)
             {
                 ThrowIf.Null(request, nameof(request));
                 ThrowIf.Null(request.SalesOrder, nameof(request.SalesOrder));
 
                 GetFiscalTextsFromSalesOrderFiscalIntegrationServiceRequest fiscalTextRequest = new GetFiscalTextsFromSalesOrderFiscalIntegrationServiceRequest(request.SalesOrder, request.FiscalIntegrationFunctionalityProfileGroupId);
-                GetFiscalTextsFromSalesOrderFiscalIntegrationServiceResponse fiscalTextResponse = request.RequestContext.Runtime.Execute<GetFiscalTextsFromSalesOrderFiscalIntegrationServiceResponse>(fiscalTextRequest, request.RequestContext);
+                GetFiscalTextsFromSalesOrderFiscalIntegrationServiceResponse fiscalTextResponse = await request.RequestContext.Runtime.ExecuteAsync<GetFiscalTextsFromSalesOrderFiscalIntegrationServiceResponse>(fiscalTextRequest, request.RequestContext).ConfigureAwait(false);
 
                 return fiscalTextResponse.SalesOrderDiscountsFiscalTexts;
             }

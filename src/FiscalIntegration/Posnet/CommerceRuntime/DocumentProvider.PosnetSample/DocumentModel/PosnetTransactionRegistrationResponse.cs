@@ -9,26 +9,22 @@
 
 namespace Contoso
 {
-    namespace CommerceRuntime.DocumentProvider.DataModelEFR.Documents
+    namespace Commerce.Runtime.DocumentProvider.PosnetSample.Documents
     {
-        using System;
-        using System.Xml.Serialization;
+        using System.Runtime.Serialization;
+        using Microsoft.Dynamics.Commerce.Runtime.DataModel;
 
         /// <summary>
-        /// The sales transaction registration document.
+        /// The transaction registration response for Posnet.
         /// </summary>
-        [Serializable]
-        [XmlRoot(ElementName = RootElementName)]
-        public class SalesTransactionRegistrationRequest : IFiscalIntegrationDocument
+        [DataContract]
+        internal class PosnetTransactionRegistrationResponse
         {
-            private const string RootElementName = "Tra";
-            private const string ReceiptElementName = "ESR";
-
             /// <summary>
-            /// Gets or sets the receipt.
+            /// Gets or sets the registration result.
             /// </summary>
-            [XmlElement(ElementName = ReceiptElementName)]
-            public Receipt Receipt { get; set; }
+            [DataMember]
+            public FiscalIntegrationRegistrationResult RegistrationResult { get; set; }
         }
     }
 }

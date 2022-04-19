@@ -14,18 +14,28 @@ namespace Contoso
         using System;
         using System.Collections.Generic;
         using System.Threading.Tasks;
+        using Contoso.CommerceRuntime.DocumentProvider.AtolSample.DataModel.AtolTask;
         using Contoso.CommerceRuntime.DocumentProvider.AtolSample.Messages;
         using Microsoft.Dynamics.Commerce.Runtime;
         using Microsoft.Dynamics.Commerce.Runtime.DataModel;
         using Microsoft.Dynamics.Commerce.Runtime.FiscalIntegration.DocumentProvider.Messages;
         using Microsoft.Dynamics.Commerce.Runtime.Handlers;
         using Microsoft.Dynamics.Commerce.Runtime.Messages;
+        using Microsoft.Dynamics.Retail.Diagnostics;
+        using Newtonsoft.Json;
 
         /// <summary>
         /// Document provider service for Atol fiscal printer.
         /// </summary>
         public class DocumentProviderAtolService : INamedRequestHandlerAsync
         {
+            private const string ServiceName = "Atol";
+
+            private enum Events
+            {
+                FiscalRegistrationResultResponseDeserializationFailed,
+            }
+
             /// <summary>
             /// Gets handler name.
             /// </summary>
@@ -54,6 +64,7 @@ namespace Contoso
             {
                 typeof(GetFiscalDocumentDocumentProviderRequest),
                 typeof(GetSupportedRegistrableEventsDocumentProviderRequest),
+                typeof(GetFiscalTransactionExtendedDataDocumentProviderRequest),
             };
 
             /// <summary>
@@ -65,22 +76,20 @@ namespace Contoso
             {
                 ThrowIf.Null(request, nameof(request));
 
-                Response response;
+                switch (request)
+                {
+                    case GetFiscalDocumentDocumentProviderRequest getFiscalDocumentDocumentProviderRequest:
+                        return await this.GetFiscalDocumentAsync(getFiscalDocumentDocumentProviderRequest).ConfigureAwait(false);
 
-                if (request is GetFiscalDocumentDocumentProviderRequest getFiscalDocumentDocumentProviderRequest)
-                {
-                    response = await this.GetFiscalDocumentAsync(getFiscalDocumentDocumentProviderRequest).ConfigureAwait(false);
-                }
-                else if (request is GetSupportedRegistrableEventsDocumentProviderRequest getSupportedRegistrableEventsDocumentProviderRequest)
-                {
-                    response = this.GetSupportedRegisterableEvents(getSupportedRegistrableEventsDocumentProviderRequest);
-                }
-                else
-                {
-                    throw new NotSupportedException(string.Format("Request '{0}' is not supported.", request.GetType()));
-                }
+                    case GetSupportedRegistrableEventsDocumentProviderRequest getSupportedRegistrableEventsDocumentProviderRequest:
+                        return this.GetSupportedRegisterableEvents(getSupportedRegistrableEventsDocumentProviderRequest);
 
-                return response;
+                    case GetFiscalTransactionExtendedDataDocumentProviderRequest getFiscalTransactionExtendedDataDocumentProviderRequest:
+                        return this.GetFiscalTransactionExtendedData(getFiscalTransactionExtendedDataDocumentProviderRequest);
+
+                    default:
+                        throw new NotSupportedException(string.Format("Request '{0}' is not supported.", request.GetType()));
+                }
             }
 
             /// <summary>
@@ -120,6 +129,64 @@ namespace Contoso
                         new List<int>());
 
                 return response;
+            }
+
+            /// <summary>
+            /// Gets the fiscal transaction extended data.
+            /// </summary>
+            /// <param name="request">The request.</param>
+            /// <returns>The the fiscal transaction extended data.</returns>
+            private GetFiscalTransactionExtendedDataDocumentProviderResponse GetFiscalTransactionExtendedData(GetFiscalTransactionExtendedDataDocumentProviderRequest request)
+            {
+                var extendedData = new List<CommerceProperty>();
+                string documentNumber = string.Empty;
+                string fiscalRegistrationResultResponse = request.FiscalRegistrationResult?.Response;
+
+                // If the response string cannot be parsed, extendedData and documentNumber will be empty and no exception will be thrown.
+                if (!string.IsNullOrWhiteSpace(fiscalRegistrationResultResponse) && this.DeserializeJson(fiscalRegistrationResultResponse, out var salesTransactionResponse))
+                {
+                    CommerceProperty[] commerceProperties = new[]
+                    {
+                        new CommerceProperty(ExtensibleFiscalRegistrationExtendedDataType.TransactionEnd.Name, salesTransactionResponse.FiscalParameters?.FiscalDocumentDateTime),
+                        new CommerceProperty(ExtensibleFiscalRegistrationExtendedDataType.Signature.Name, salesTransactionResponse.FiscalParameters?.FiscalDocumentSignature),
+                        new CommerceProperty(ExtensibleFiscalRegistrationExtendedDataType.RegistrationNumber.Name, salesTransactionResponse.FiscalParameters?.RegistrationNumber),
+                        new CommerceProperty(ExtensibleFiscalRegistrationExtendedDataType.DeviceSerialNumber.Name, salesTransactionResponse.FiscalParameters?.FnNumber),
+                        new CommerceProperty(ExtensibleFiscalRegistrationExtendedDataType.ServiceTransactionId.Name, salesTransactionResponse.FiscalParameters?.FiscalReceiptNumber),
+                    };
+                    extendedData.AddRange(commerceProperties);
+                    documentNumber = salesTransactionResponse.FiscalParameters?.FiscalDocumentNumber.ToString();
+                }
+
+                var registrationType = ExtensibleFiscalRegistrationType.CashSale;
+
+                return new GetFiscalTransactionExtendedDataDocumentProviderResponse(
+                    documentNumber ?? string.Empty,
+                    registrationType,
+                    ServiceName,
+                    request.RequestContext.GetPrincipal().CountryRegionIsoCode,
+                    extendedData);
+            }
+
+            /// <summary>
+            /// Deserializes JSON string into AtolTransactionRegistrationResponse object.
+            /// </summary>
+            /// <param name="source">The JSON string.</param>
+            /// <param name="result">The deserialized object.</param>
+            /// <returns>True if deserialized successfully; false otherwise.</returns>
+            private bool DeserializeJson(string source, out AtolTransactionRegistrationResponse result)
+            {
+                try
+                {
+                    result = JsonConvert.DeserializeObject<AtolTransactionRegistrationResponse>(source);
+                    return result != null;
+                }
+                catch (JsonException ex)
+                {
+                    result = default(AtolTransactionRegistrationResponse);
+                    RetailLogger.Log.LogDebug(Events.FiscalRegistrationResultResponseDeserializationFailed, ex, "Deserialization of fiscal registration response has failed.");
+
+                    return false;
+                }
             }
         }
     }

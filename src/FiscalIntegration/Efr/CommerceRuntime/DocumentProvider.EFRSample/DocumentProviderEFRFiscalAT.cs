@@ -15,6 +15,12 @@ namespace Contoso
         using System.Collections.Generic;
         using System.Linq;
         using System.Threading.Tasks;
+        using Contoso.CommerceRuntime.DocumentProvider.DataModelEFR.Documents;
+        using Contoso.CommerceRuntime.DocumentProvider.EFRSample.DocumentBuilders;
+        using Contoso.CommerceRuntime.DocumentProvider.EFRSample.DocumentBuilders.Parameters;
+        using Contoso.CommerceRuntime.DocumentProvider.EFRSample.Extensions;
+        using Contoso.CommerceRuntime.DocumentProvider.EFRSample.Messages.Austria;
+        using Contoso.CommerceRuntime.DocumentProvider.EFRSample.Serializers;
         using Microsoft.Dynamics.Commerce.Runtime;
         using Microsoft.Dynamics.Commerce.Runtime.DataModel;
         using Microsoft.Dynamics.Commerce.Runtime.DataServices.Messages;
@@ -22,18 +28,15 @@ namespace Contoso
         using Microsoft.Dynamics.Commerce.Runtime.Handlers;
         using Microsoft.Dynamics.Commerce.Runtime.Messages;
         using Microsoft.Dynamics.Commerce.Runtime.Services.Messages;
-        using Contoso.CommerceRuntime.DocumentProvider.DataModelEFR.Documents;
-        using Contoso.CommerceRuntime.DocumentProvider.EFRSample.DocumentBuilders;
-        using Contoso.CommerceRuntime.DocumentProvider.EFRSample.DocumentBuilders.Parameters;
-        using Contoso.CommerceRuntime.DocumentProvider.EFRSample.Extensions;
-        using Contoso.CommerceRuntime.DocumentProvider.EFRSample.Messages.Austria;
-        using Contoso.CommerceRuntime.DocumentProvider.EFRSample.Serializers;
 
         /// <summary>
         /// The document provider for EFSTA (European Fiscal Standards Association) Fiscal Register (version 1.8.3) specific for Austria.
         /// </summary>
         public class DocumentProviderEFRFiscalAT : INamedRequestHandlerAsync
         {
+            private const string ServiceName = "EFR";
+            private const string InfoElementName = "Info";
+
             /// <summary>
             /// Gets the unique name for this request handler.
             /// </summary>
@@ -62,6 +65,7 @@ namespace Contoso
                 typeof(GetFiscalDocumentDocumentProviderRequest),
                 typeof(GetSupportedRegistrableEventsDocumentProviderRequest),
                 typeof(GetFiscalRegisterResponseToSaveDocumentProviderRequest),
+                typeof(GetFiscalTransactionExtendedDataDocumentProviderRequest),
             };
 
             /// <summary>
@@ -82,11 +86,63 @@ namespace Contoso
                         return await GetFiscalDocumentResponseAsync(getFiscalDocumentDocumentProviderRequest);
 
                     case GetFiscalRegisterResponseToSaveDocumentProviderRequest getFiscalRegisterResponseToSaveDocumentProviderRequest:
-                        return await GetFiscalRegisterResponseToSaveAsync(getFiscalRegisterResponseToSaveDocumentProviderRequest) ;
+                        return await GetFiscalRegisterResponseToSaveAsync(getFiscalRegisterResponseToSaveDocumentProviderRequest);
+
+                    case GetFiscalTransactionExtendedDataDocumentProviderRequest getFiscalTransactionExtendedDataDocumentProviderRequest:
+                        return await Task.FromResult<Response>(GetFiscalTransactionExtendedData(getFiscalTransactionExtendedDataDocumentProviderRequest)).ConfigureAwait(false);
 
                     default:
                         throw new NotSupportedException(string.Format("Request '{0}' is not supported.", request.GetType()));
                 }
+            }
+
+            /// <summary>
+            /// Gets the fiscal transaction extended data.
+            /// </summary>
+            /// <param name="request">The request.</param>
+            /// <returns>The fiscal transaction extended data.</returns>
+            private static GetFiscalTransactionExtendedDataDocumentProviderResponse GetFiscalTransactionExtendedData(GetFiscalTransactionExtendedDataDocumentProviderRequest request)
+            {
+                var extendedData = new List<CommerceProperty>();
+                string documentNumber = string.Empty;
+
+                // If the response string cannot be parsed, extendedData and documentNumber will be empty and no exception will be thrown.
+                if (XmlSerializer<SalesTransactionRegistrationResponse>.TryDeserialize(request.FiscalRegistrationResult?.Response, out var salesTransactionResponse))
+                {
+                    string GetFiscalTagFieldValue(string elementName) => salesTransactionResponse.FiscalData?.FiscalTags?.SingleOrDefault(ft => ft.FieldName == elementName)?.FieldValue;
+
+                    CommerceProperty[] commerceProperties = new[]
+                    {
+                        new CommerceProperty(ExtensibleFiscalRegistrationExtendedDataType.QRCode.Name, salesTransactionResponse.FiscalData?.FiscalQRCode),
+                        new CommerceProperty(ExtensibleFiscalRegistrationExtendedDataType.ServiceTransactionId.Name, salesTransactionResponse.Receipt?.TransactionNumber),
+                        new CommerceProperty(ExtensibleFiscalRegistrationExtendedDataType.TransactionEnd.Name, salesTransactionResponse.Receipt?.ReceiptDateTimeStringValue),
+                        new CommerceProperty(ExtensibleFiscalRegistrationExtendedDataType.Signature.Name, salesTransactionResponse.FiscalData?.FiscalSignature),
+                        new CommerceProperty(ExtensibleFiscalRegistrationExtendedDataType.SequenceNumber.Name, salesTransactionResponse.SequenceNumber),
+                        new CommerceProperty(ExtensibleFiscalRegistrationExtendedDataType.Info.Name, GetFiscalTagFieldValue(InfoElementName)),
+                    };
+                    extendedData.AddRange(commerceProperties);
+                    documentNumber = salesTransactionResponse.Receipt?.TransactionNumber;
+                }
+
+                var registrationType = ExtensibleFiscalRegistrationType.CashSale;
+
+                return new GetFiscalTransactionExtendedDataDocumentProviderResponse(
+                    documentNumber ?? string.Empty,
+                    registrationType,
+                    ServiceName,
+                    request.RequestContext.GetPrincipal().CountryRegionIsoCode,
+                    extendedData);
+            }
+
+            /// <summary>
+            /// Gets sales order adjustment type.
+            /// </summary>
+            /// <param name="salesOrder">The sales order.</param>
+            /// <returns>The sales order adjustment type.</returns>
+            private static async Task<FiscalIntegrationSalesOrderAdjustmentType> GetSalesOrderAdjustmentType(RequestContext requestContext, SalesOrder salesOrder)
+            {
+                var request = new GetSalesOrderAdjustmentTypeRequest(salesOrder);
+                return (await requestContext.ExecuteAsync<SingleEntityDataServiceResponse<FiscalIntegrationSalesOrderAdjustmentType>>(request).ConfigureAwait(false)).Entity;
             }
 
             /// <summary>
@@ -111,7 +167,7 @@ namespace Contoso
                 if ((request.FiscalRegistrationResult.RegistrationStatus != FiscalIntegrationRegistrationStatus.Completed && string.IsNullOrWhiteSpace(request.FiscalRegistrationResult.Response))
                     || string.IsNullOrWhiteSpace(request.FiscalRegistrationResult.TransactionID))
                 {
-                    response = new GetFiscalRegisterResponseToSaveDocumentProviderResponse(String.Empty);
+                    response = new GetFiscalRegisterResponseToSaveDocumentProviderResponse(string.Empty);
                 }
                 else
                 {
@@ -178,17 +234,6 @@ namespace Contoso
                     new FiscalIntegrationDocument(string.Empty, FiscalIntegrationDocumentGenerationResultType.NotRequired);
 
                 return new GetFiscalDocumentDocumentProviderResponse(fiscalIntegrationDocument);
-            }
-
-            /// <summary>
-            /// Gets sales order adjustment type.
-            /// </summary>
-            /// <param name="salesOrder">The sales order.</param>
-            /// <returns>The sales order adjustment type.</returns>
-            private static async Task<FiscalIntegrationSalesOrderAdjustmentType> GetSalesOrderAdjustmentType(RequestContext requestContext, SalesOrder salesOrder)
-            {
-                var request = new GetSalesOrderAdjustmentTypeRequest(salesOrder);
-                return (await requestContext.ExecuteAsync<SingleEntityDataServiceResponse<FiscalIntegrationSalesOrderAdjustmentType>>(request).ConfigureAwait(false)).Entity;
             }
         }
     }

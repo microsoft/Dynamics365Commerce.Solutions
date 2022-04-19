@@ -26,19 +26,19 @@ namespace Contoso
             private const string ReceiptPositionPrintLinesElementName = "Lin";
 
             /// <summary>
-            /// The receipt positions array.
+            /// Gets or sets the receipt positions array.
             /// </summary>
             [XmlElement(ElementName = ReceiptPositionsElementName)]
             public List<ReceiptPosition> ReceiptPositions { get; set; }
 
             /// <summary>
-            /// The receipt position modifiers.
+            /// Gets or sets the receipt position modifiers.
             /// </summary>
             [XmlElement(ElementName = ReceiptPositionModifiersElementName)]
             public List<ReceiptPositionModifier> ReceiptPositionModifiers { get; set; }
 
             /// <summary>
-            /// The receipt position print lines.
+            /// Gets or sets the receipt position print lines.
             /// </summary>
             [XmlElement(ElementName = ReceiptPositionPrintLinesElementName)]
             public List<ReceiptPositionPrintLine> ReceiptPositionPrintLines { get; set; }

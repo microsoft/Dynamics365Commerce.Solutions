@@ -28,37 +28,37 @@ namespace Contoso
             private const string StartDateTimeAttributeName = "StartD";
 
             /// <summary>
-            /// The fiscal transaction id.
+            /// Gets or sets the fiscal transaction id.
             /// </summary>
             [XmlAttribute(TransactionIdAttributeName)]
             public string TransactionId { get; set; }
 
             /// <summary>
-            /// The fiscal signature.
+            /// Gets or sets the fiscal signature.
             /// </summary>
             [XmlElement(ElementName = FiscalSignatureElementName)]
             public string FiscalSignature { get; set; }
 
             /// <summary>
-            /// The fiscal link.
+            /// Gets or sets the fiscal link.
             /// </summary>
             [XmlElement(ElementName = FiscalLinkElementName)]
             public string FiscalLink { get; set; }
 
             /// <summary>
-            /// The fiscal QR code.
+            /// Gets or sets the fiscal QR code.
             /// </summary>
             [XmlElement(ElementName = QRCodeElementName)]
             public string FiscalQRCode { get; set; }
 
             /// <summary>
-            /// The fiscal tags.
+            /// Gets or sets the fiscal tags.
             /// </summary>
             [XmlElement(ElementName = FiscalTagElementName)]
             public FiscalTag[] FiscalTags { get; set; }
 
             /// <summary>
-            /// The fiscal transaction start DateTime.
+            /// Gets or sets the fiscal transaction start DateTime.
             /// </summary>
             [XmlAttribute(StartDateTimeAttributeName)]
             public string StartDateTime { get; set; }

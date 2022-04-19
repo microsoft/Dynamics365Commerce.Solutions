@@ -25,24 +25,31 @@ namespace Contoso
             private const string SequenceNumberAttributeName = "SQ";
             private const string RegistrationResultElementName = "Result";
             private const string FiscalDataElementName = "Fis";
+            private const string EfstaSimpleReceiptElementName = "ESR";
 
             /// <summary>
-            /// The sequence number.
+            /// Gets or sets the sequence number.
             /// </summary>
             [XmlAttribute(AttributeName = SequenceNumberAttributeName)]
             public int SequenceNumber { get; set; }
 
             /// <summary>
-            /// The registration result.
+            /// Gets or sets the registration result.
             /// </summary>
             [XmlElement(ElementName = RegistrationResultElementName)]
             public RegistrationResult RegistrationResult { get; set; }
 
             /// <summary>
-            /// The fiscal data.
+            /// Gets or sets the fiscal data.
             /// </summary>
             [XmlElement(ElementName = FiscalDataElementName)]
             public FiscalData FiscalData { get; set; }
+
+            /// <summary>
+            /// Gets or sets the receipt.
+            /// </summary>
+            [XmlElement(ElementName = EfstaSimpleReceiptElementName)]
+            public Receipt Receipt { get; set; }
         }
     }
 }

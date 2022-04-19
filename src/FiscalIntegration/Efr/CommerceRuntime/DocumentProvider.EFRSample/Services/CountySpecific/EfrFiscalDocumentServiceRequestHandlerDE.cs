@@ -191,7 +191,7 @@ namespace Contoso
             private static async Task<Response> GetDepositTenderLine(GetEfrDepositTenderLineRequest request)
             {
                 var getChannelTenderTypesDataRequest = new GetChannelTenderTypesDataRequest(request.RequestContext.GetPrincipal().ChannelId, QueryResultSettings.AllRecords);
-                var channelTenderTypes = request.RequestContext.Execute<EntityDataServiceResponse<TenderType>>(getChannelTenderTypesDataRequest).PagedEntityCollection;
+                var channelTenderTypes = (await request.RequestContext.ExecuteAsync<EntityDataServiceResponse<TenderType>>(getChannelTenderTypesDataRequest).ConfigureAwait(false)).PagedEntityCollection;
 
                 var customerAccountTenderTypeId = channelTenderTypes.Single(c => c.OperationType == RetailOperation.PayCustomerAccount || c.OperationType == RetailOperation.PayCustomerAccountExact).TenderTypeId;
                 var receiptPayment = new ReceiptPayment
@@ -422,7 +422,7 @@ namespace Contoso
                 var tenderLines = salesOrder.ActiveTenderLines;
 
                 var getChannelTenderTypesDataRequest = new GetChannelTenderTypesDataRequest(requestContext.GetPrincipal().ChannelId, QueryResultSettings.AllRecords);
-                var channelTenderTypes = requestContext.Execute<EntityDataServiceResponse<TenderType>>(getChannelTenderTypesDataRequest).PagedEntityCollection;
+                var channelTenderTypes = (await requestContext.ExecuteAsync<EntityDataServiceResponse<TenderType>>(getChannelTenderTypesDataRequest).ConfigureAwait(false)).PagedEntityCollection;
                 var giftCardTenderTypeIds = channelTenderTypes.Where(c => c.OperationType == RetailOperation.PayGiftCertificate || c.OperationType == RetailOperation.PayGiftCardExact).Select(c => c.TenderTypeId);
 
                 foreach (var line in tenderLines)

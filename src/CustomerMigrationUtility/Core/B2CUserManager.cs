@@ -1,10 +1,11 @@
 ﻿namespace Microsoft.Dynamics.Commerce.CustomerMigrationUtility.Core
 {
-    using Microsoft.IdentityModel.Clients.ActiveDirectory;
+    using Microsoft.Identity.Client;
     using Newtonsoft.Json.Linq;
     using System;
     using System.Collections;
     using System.Collections.Generic;
+    using System.Configuration;
     using System.Linq;
     using System.Net;
     using System.Net.Http;
@@ -16,8 +17,11 @@
     /// <summary>The B2C user manager class.</summary>
     public class B2CUserManager
     {
+        /// <summary>The AAD instance.</summary>
+        private static readonly string AADInstance = "https://login.microsoftonline.com/" + ConfigurationManager.AppSettings["AX-AAD-Tenant"];
+
         /// <summary>The group service resource id.</summary>
-        private static string aadGraphResourceId = "https://graph.windows.net/";
+        private static readonly string aadGraphResourceId = "https://graph.windows.net/";
 
         /// <summary>The API version.</summary>
         private static string aadGraphVersion = "api-version=1.6";
@@ -28,11 +32,8 @@
         /// <summary>The authentication result.</summary>
         private static AuthenticationResult authenticationResult = null;
 
-        /// <summary>The authentication context.</summary>
-        private AuthenticationContext authenticationContext;
-
-        /// <summary>The client credential.</summary>
-        private ClientCredential clientCredential;
+        /// <summary>The confidential client application.</summary>
+        private readonly IConfidentialClientApplication confidentialClientApplication;
 
         /// <summary>The logger.</summary>
         private Logger logger;
@@ -43,76 +44,11 @@
         /// <param name="clientSecret">The B2C client secret.</param>
         public B2CUserManager(string tenant, string clientId, string clientSecret)
         {
-            this.authenticationContext = new AuthenticationContext("https://login.microsoftonline.com/" + tenant);
-            this.clientCredential = new ClientCredential(clientId, clientSecret);
+            this.confidentialClientApplication = ConfidentialClientApplicationBuilder.Create(clientId)
+                          .WithClientSecret(clientSecret)
+                          .Build();
+
             this.logger = new Logger();
-        }
-
-        /// <summary>
-        /// Retrieves a list of all users.
-        /// </summary>
-        /// <returns></returns>
-        public IEnumerable<B2CUser> GetAllB2CAccounts(string tenant)
-        {
-            HttpResponseMessage httpResponse = null;
-            JObject jsonObject = null;
-            var httpClient = new HttpClient();
-
-            try
-            {
-                var userId = string.Empty;
-
-                if (authenticationResult == null || authenticationResult.ExpiresOn < DateTimeOffset.UtcNow.AddMinutes(5))
-                {
-                    this.logger.Trace("Acquiring the access token...");
-                    authenticationResult = this.authenticationContext.AcquireTokenAsync(aadGraphResourceId, this.clientCredential).Result;
-                    this.logger.Trace("Acquiring the access token is done.");
-                }
-
-                // Creating authentication header
-                var authenticationHeaderValue = new AuthenticationHeaderValue("Bearer", authenticationResult.AccessToken);
-
-                if (!tenant.EndsWith(".onmicrosoft.com"))
-                {
-                    tenant = tenant + ".onmicrosoft.com";
-                }
-
-                string url = $"{aadGraphResourceId}{tenant}/users?{aadGraphVersion}";
-                httpResponse = httpClient.GetAsync(url, authenticationHeaderValue).Result;
-                if (!httpResponse.IsSuccessStatusCode)
-                {
-                    var errorMessage = string.Empty;
-                }
-
-                var response = httpClient.GetContentAsync(httpResponse).Result;
-                jsonObject = JObject.Parse(response);
-            }
-            catch (Exception ex)
-            {
-                var errorMessage = "Exception : " + ex.Message.ToString() + "\n";
-
-                if (ex.InnerException != null && !string.IsNullOrEmpty(ex.InnerException.Message.ToString()))
-                {
-                    errorMessage += "InnerException : " + ex.InnerException.Message.ToString() + "\n";
-                }
-
-                if (httpResponse != null)
-                {
-                    var response = httpClient.GetContentAsync(httpResponse).Result;
-                    if (!string.IsNullOrEmpty(response))
-                    {
-                        errorMessage += "Service Failure Detail : " + response + "\n";
-                    }
-                }
-
-                this.logger.Error(errorMessage);
-            }
-
-            foreach (var user in jsonObject["value"])
-            {
-                string customerAccountNumber = (string)user["signInNames"].SingleOrDefault(v => (string)v["type"] == "username")["value"];
-                yield return new B2CUser((string)user["givenName"], (string)user["surname"], tenant, customerAccountNumber, null);
-            }
         }
 
 
@@ -132,7 +68,9 @@
                 if (authenticationResult == null || authenticationResult.ExpiresOn < DateTimeOffset.UtcNow.AddMinutes(5))
                 {
                     this.logger.Trace("Acquiring the access token...");
-                    authenticationResult = await this.authenticationContext.AcquireTokenAsync(aadGraphResourceId, this.clientCredential);
+                    authenticationResult = await this.confidentialClientApplication.AcquireTokenForClient(scopes: new string[] { $"{aadGraphResourceId}/.default" })
+                                  .WithAuthority(AADInstance)
+                                  .ExecuteAsync().ConfigureAwait(false);
                     this.logger.Trace("Acquiring the access token is done.");
                 }
 
@@ -270,7 +208,9 @@
                 if (authenticationResult == null || authenticationResult.ExpiresOn < DateTimeOffset.UtcNow.AddMinutes(5))
                 {
                     this.logger.Trace("Acquiring the access token...");
-                    authenticationResult = await this.authenticationContext.AcquireTokenAsync(aadGraphResourceId, this.clientCredential);
+                    authenticationResult = await this.confidentialClientApplication.AcquireTokenForClient(scopes: new string[] { $"{aadGraphResourceId}/.default" })
+                                  .WithAuthority(AADInstance)
+                                  .ExecuteAsync().ConfigureAwait(false);
                     this.logger.Trace("Acquiring the access token is done.");
                 }
 
@@ -364,7 +304,9 @@
 
                 if (authenticationResult == null || authenticationResult.ExpiresOn < DateTimeOffset.UtcNow.AddMinutes(5))
                 {
-                    authenticationResult = await this.authenticationContext.AcquireTokenAsync(aadGraphResourceId, this.clientCredential);
+                    authenticationResult = await this.confidentialClientApplication.AcquireTokenForClient(scopes: new string[] { $"{aadGraphResourceId}/.default" })
+                                                     .WithAuthority(AADInstance)
+                                                    .ExecuteAsync().ConfigureAwait(false);
                 }
 
                 // Creating authentication header

@@ -15,13 +15,6 @@ namespace Contoso
         using System.Collections.Generic;
         using System.Linq;
         using System.Threading.Tasks;
-        using Microsoft.Dynamics.Commerce.Runtime;
-        using Microsoft.Dynamics.Commerce.Runtime.DataModel;
-        using Microsoft.Dynamics.Commerce.Runtime.DataServices.Messages;
-        using Microsoft.Dynamics.Commerce.Runtime.FiscalIntegration.DocumentProvider.Messages;
-        using Microsoft.Dynamics.Commerce.Runtime.Handlers;
-        using Microsoft.Dynamics.Commerce.Runtime.Messages;
-        using Microsoft.Dynamics.Commerce.Runtime.Services.Messages;
         using Contoso.CommerceRuntime.DocumentProvider.DataModelEFR.Documents;
         using Contoso.CommerceRuntime.DocumentProvider.EFRSample.DocumentBuilders;
         using Contoso.CommerceRuntime.DocumentProvider.EFRSample.DocumentBuilders.Austria;
@@ -29,6 +22,13 @@ namespace Contoso
         using Contoso.CommerceRuntime.DocumentProvider.EFRSample.Extensions;
         using Contoso.CommerceRuntime.DocumentProvider.EFRSample.Messages.Austria;
         using Contoso.CommerceRuntime.DocumentProvider.EFRSample.Serializers;
+        using Microsoft.Dynamics.Commerce.Runtime;
+        using Microsoft.Dynamics.Commerce.Runtime.DataModel;
+        using Microsoft.Dynamics.Commerce.Runtime.DataServices.Messages;
+        using Microsoft.Dynamics.Commerce.Runtime.FiscalIntegration.DocumentProvider.Messages;
+        using Microsoft.Dynamics.Commerce.Runtime.Handlers;
+        using Microsoft.Dynamics.Commerce.Runtime.Messages;
+        using Microsoft.Dynamics.Commerce.Runtime.Services.Messages;
 
         /// <summary>
         /// The document provider for EFSTA (European Fiscal Standards Association) Fiscal Register (version 1.8.3) specific for Austria.
@@ -49,7 +49,7 @@ namespace Contoso
                 (int)FiscalIntegrationEventType.CreateCustomerOrder,
                 (int)FiscalIntegrationEventType.EditCustomerOrder,
                 (int)FiscalIntegrationEventType.CancelCustomerOrder,
-                (int)FiscalIntegrationEventType.CustomerAccountDeposit
+                (int)FiscalIntegrationEventType.CustomerAccountDeposit,
             };
 
             /// <summary>
@@ -81,6 +81,57 @@ namespace Contoso
             };
 
             /// <summary>
+            /// Gets sales order adjustment type.
+            /// </summary>
+            /// <param name="salesOrder">The sales order.</param>
+            /// <returns>The sales order adjustment type.</returns>
+            public static FiscalIntegrationSalesOrderAdjustmentType GetSalesOrderAdjustmentType(SalesOrder salesOrder)
+            {
+                ThrowIf.Null(salesOrder, nameof(salesOrder));
+
+                FiscalIntegrationSalesOrderAdjustmentType adjustmentType = FiscalIntegrationSalesOrderAdjustmentType.None;
+
+                if ((salesOrder.ExtensibleSalesTransactionType == ExtensibleSalesTransactionType.CustomerOrder ||
+                    salesOrder.ExtensibleSalesTransactionType == ExtensibleSalesTransactionType.AsyncCustomerOrder) &&
+                    (salesOrder.CustomerOrderMode == CustomerOrderMode.Pickup ||
+                    salesOrder.CustomerOrderMode == CustomerOrderMode.Return))
+                {
+                    // When it is customer order pick up or return, all sales lines are excluded (gift card can not be added to customer order).
+                    adjustmentType = FiscalIntegrationSalesOrderAdjustmentType.ExcludeNonGiftCards;
+                }
+                else
+                {
+                    adjustmentType = GetSalesOrderNonFiscalAdjustmentType(salesOrder);
+                }
+
+                return adjustmentType;
+            }
+
+            /// <summary>
+            /// Gets sales order adjustment type for non-fiscal (NF) document.
+            /// </summary>
+            /// <param name="salesOrder">The sales order.</param>
+            /// <returns>The sales order adjustment type.</returns>
+            public static FiscalIntegrationSalesOrderAdjustmentType GetSalesOrderNonFiscalAdjustmentType(SalesOrder salesOrder)
+            {
+                ThrowIf.Null(salesOrder, nameof(salesOrder));
+
+                FiscalIntegrationSalesOrderAdjustmentType adjustmentType = FiscalIntegrationSalesOrderAdjustmentType.None;
+
+                if (salesOrder.ExtensibleSalesTransactionType == ExtensibleSalesTransactionType.Sales)
+                {
+                    adjustmentType = FiscalIntegrationSalesOrderAdjustmentType.ExcludeNonGiftCards;
+                }
+                else if (salesOrder.ExtensibleSalesTransactionType == ExtensibleSalesTransactionType.CustomerOrder ||
+                    salesOrder.ExtensibleSalesTransactionType == ExtensibleSalesTransactionType.AsyncCustomerOrder)
+                {
+                    adjustmentType = FiscalIntegrationSalesOrderAdjustmentType.ExcludeCarryOutLines;
+                }
+
+                return adjustmentType;
+            }
+
+            /// <summary>
             /// Executes the specified request using the specified request context and handler.
             /// </summary>
             /// <param name="request">The request to execute.</param>
@@ -109,16 +160,6 @@ namespace Contoso
             }
 
             /// <summary>
-            /// Gets the supported registerable events document provider response.
-            /// </summary>
-            /// <returns>The supported registerable events document provider response.</returns>
-            private Task<Response> GetSupportedRegistrableEventsAsync()
-            {
-                var response = new GetSupportedRegistrableEventsDocumentProviderResponse(this.SupportedRegistrableFiscalEventsId.ToList(), this.SupportedRegistrableNonFiscalEventsId.ToList());
-                return Task.FromResult<Response>(response);
-            }
-
-            /// <summary>
             /// Gets the fiscal registration result.
             /// </summary>
             /// <param name="request">The request.</param>
@@ -130,7 +171,7 @@ namespace Contoso
                 if ((request.FiscalRegistrationResult.RegistrationStatus != FiscalIntegrationRegistrationStatus.Completed && string.IsNullOrWhiteSpace(request.FiscalRegistrationResult.Response))
                     || string.IsNullOrWhiteSpace(request.FiscalRegistrationResult.TransactionID))
                 {
-                    response = new GetFiscalRegisterResponseToSaveDocumentProviderResponse(String.Empty);
+                    response = new GetFiscalRegisterResponseToSaveDocumentProviderResponse(string.Empty);
                 }
                 else
                 {
@@ -158,7 +199,7 @@ namespace Contoso
                     case FiscalIntegrationEventType.CancelCustomerOrder:
                     case FiscalIntegrationEventType.Sale:
                         FiscalIntegrationSalesOrderAdjustmentType adjustmentType = GetSalesOrderAdjustmentType(request.SalesOrder);
-                        SalesOrder adjustedSalesOrder = null;
+                        SalesOrder adjustedSalesOrder;
 
                         if (adjustmentType != FiscalIntegrationSalesOrderAdjustmentType.None)
                         {
@@ -233,33 +274,6 @@ namespace Contoso
             }
 
             /// <summary>
-            /// Gets sales order adjustment type.
-            /// </summary>
-            /// <param name="salesOrder">The sales order.</param>
-            /// <returns>The sales order adjustment type.</returns>
-            public static FiscalIntegrationSalesOrderAdjustmentType GetSalesOrderAdjustmentType(SalesOrder salesOrder)
-            {
-                ThrowIf.Null(salesOrder, nameof(salesOrder));
-
-                FiscalIntegrationSalesOrderAdjustmentType adjustmentType = FiscalIntegrationSalesOrderAdjustmentType.None;
-
-                if ((salesOrder.ExtensibleSalesTransactionType == ExtensibleSalesTransactionType.CustomerOrder ||
-                    salesOrder.ExtensibleSalesTransactionType == ExtensibleSalesTransactionType.AsyncCustomerOrder) &&
-                    (salesOrder.CustomerOrderMode == CustomerOrderMode.Pickup ||
-                    salesOrder.CustomerOrderMode == CustomerOrderMode.Return))
-                {
-                    // When it is customer order pick up or return, all sales lines are excluded (gift card can not be added to customer order).
-                    adjustmentType = FiscalIntegrationSalesOrderAdjustmentType.ExcludeNonGiftCards;
-                }
-                else
-                {
-                    adjustmentType = GetSalesOrderNonFiscalAdjustmentType(salesOrder);
-                }
-
-                return adjustmentType;
-            }
-
-            /// <summary>
             /// Fills document adjustment.
             /// </summary>
             /// <param name="request">The get fiscal document request.</param>
@@ -280,30 +294,6 @@ namespace Contoso
             }
 
             /// <summary>
-            /// Gets sales order adjustment type for non-fiscal (NF) document.
-            /// </summary>
-            /// <param name="salesOrder">The sales order.</param>
-            /// <returns>The sales order adjustment type.</returns>
-            public static FiscalIntegrationSalesOrderAdjustmentType GetSalesOrderNonFiscalAdjustmentType(SalesOrder salesOrder)
-            {
-                ThrowIf.Null(salesOrder, nameof(salesOrder));
-
-                FiscalIntegrationSalesOrderAdjustmentType adjustmentType = FiscalIntegrationSalesOrderAdjustmentType.None;
-
-                if (salesOrder.ExtensibleSalesTransactionType == ExtensibleSalesTransactionType.Sales)
-                {
-                    adjustmentType = FiscalIntegrationSalesOrderAdjustmentType.ExcludeNonGiftCards;
-                }
-                else if (salesOrder.ExtensibleSalesTransactionType == ExtensibleSalesTransactionType.CustomerOrder ||
-                    salesOrder.ExtensibleSalesTransactionType == ExtensibleSalesTransactionType.AsyncCustomerOrder)
-                {
-                    adjustmentType = FiscalIntegrationSalesOrderAdjustmentType.ExcludeCarryOutLines;
-                }
-
-                return adjustmentType;
-            }
-
-            /// <summary>
             /// Gets sales order adjustment type.
             /// </summary>
             /// <param name="salesOrder">The sales order.</param>
@@ -312,6 +302,16 @@ namespace Contoso
             {
                 var request = new GetSalesOrderAdjustmentTypeRequest(salesOrder);
                 return (await requestContext.ExecuteAsync<SingleEntityDataServiceResponse<FiscalIntegrationSalesOrderAdjustmentType>>(request).ConfigureAwait(false)).Entity;
+            }
+
+            /// <summary>
+            /// Gets the supported registerable events document provider response.
+            /// </summary>
+            /// <returns>The supported registerable events document provider response.</returns>
+            private Task<Response> GetSupportedRegistrableEventsAsync()
+            {
+                var response = new GetSupportedRegistrableEventsDocumentProviderResponse(this.SupportedRegistrableFiscalEventsId.ToList(), this.SupportedRegistrableNonFiscalEventsId.ToList());
+                return Task.FromResult<Response>(response);
             }
         }
     }

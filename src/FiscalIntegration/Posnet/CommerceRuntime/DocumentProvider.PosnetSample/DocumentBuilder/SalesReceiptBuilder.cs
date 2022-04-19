@@ -28,7 +28,7 @@
             private Dictionary<string, int> tenderTypeMapping;
             private IEnumerable<Tuple<decimal, int>> vatRates;
             private ReadOnlyCollection<Item> productsInOrder;
-            private Lazy<List<FiscalIntegrationSalesDiscountFiscalText>> discountFiscalTexts;
+            private Lazy<Task<List<FiscalIntegrationSalesDiscountFiscalText>>> discountFiscalTexts;
             private GetFiscalDocumentDocumentProviderRequest Request;
 
             public SalesReceiptBuilder(GetFiscalDocumentDocumentProviderRequest request)
@@ -58,13 +58,13 @@
                     {
                         IEnumerable<SalesLine> salesLines = SalesOrderHelper.GetSalesLines(adjustedSalesOrder, Request);
                         productsInOrder = await SalesOrderHelper.GetProductsInSalesLinesAsync(salesLines, Request.RequestContext).ConfigureAwait(false);
-                        discountFiscalTexts = new Lazy<List<FiscalIntegrationSalesDiscountFiscalText>>(() => SalesOrderHelper.GetDiscountFiscalTextForSalesOrder(Request));
+                        discountFiscalTexts = new Lazy<Task<List<FiscalIntegrationSalesDiscountFiscalText>>>(() => SalesOrderHelper.GetDiscountFiscalTextForSalesOrder(Request));
 
                         commands = this.TransactionInit()
-                            .Concat(this.TransactionNipSet(adjustedSalesOrder))
-                            .Concat(this.GetCommands(salesLines, this.SalesLineToCommands))
+                            .Concat(await this.TransactionNipSet(adjustedSalesOrder).ConfigureAwait(false))
+                            .Concat(await this.GetCommands(salesLines, this.SalesLineToCommands).ConfigureAwait(false))
                             .Concat(this.GetDepositPayment(adjustedSalesOrder, Request.FiscalIntegrationFunctionalityProfile))
-                            .Concat(this.GetCommands(adjustedSalesOrder.ActiveTenderLines, this.TenderLineToCommands))
+                            .Concat(await this.GetCommands(adjustedSalesOrder.ActiveTenderLines, this.TenderLineToCommands).ConfigureAwait(false))
                             .Concat(this.TransactionEnd(adjustedSalesOrder))
                             .Concat(this.CounterStatus());
                     }
@@ -111,10 +111,17 @@
             /// <param name="mapper">Function to be applied.</param>
             /// <param name="request">A request.</param>
             /// <returns>Collection of commands requests.</returns>
-            private IEnumerable<IPosnetCommandRequest> GetCommands<TSource>(IEnumerable<TSource> source,
-                Func<TSource, IEnumerable<IPosnetCommandRequest>> mapper)
+            private async Task<IEnumerable<IPosnetCommandRequest>> GetCommands<TSource>(IEnumerable<TSource> source,
+                Func<TSource, Task<IEnumerable<IPosnetCommandRequest>>> mapper)
             {
-                return source.SelectMany(sourceItem => mapper(sourceItem));
+                var result = Enumerable.Empty<IPosnetCommandRequest>();
+
+                foreach (var item in source)
+                {
+                    result = result.Concat(await mapper(item).ConfigureAwait(false));
+                }
+
+                return result;
             }
 
             /// <summary>
@@ -122,7 +129,7 @@
             /// </summary>
             /// <param name="salesLine">A sales line.</param>            
             /// <returns>POSNET commands collection.</returns>
-            private IEnumerable<IPosnetCommandRequest> SalesLineToCommands(SalesLine salesLine)
+            private async Task<IEnumerable<IPosnetCommandRequest>> SalesLineToCommands(SalesLine salesLine)
             {
                 List<IPosnetCommandRequest> requests = new List<IPosnetCommandRequest>();
 
@@ -134,7 +141,7 @@
                     Price = Math.Round(salesLine.Price, SalesOrderHelper.AmountFractionalDigits)
                 };
 
-                this.InitializeSalesLineDiscountDetails(transactionLineRequest, salesLine);
+                await this.InitializeSalesLineDiscountDetails(transactionLineRequest, salesLine).ConfigureAwait(false);
 
                 requests.Add(PrinterRequestBuilder.BuildRequestCommand(transactionLineRequest));
                 return requests;
@@ -145,11 +152,11 @@
             /// </summary>
             /// <param name="transactionLineRequest">The line transaction request.</param>
             /// <param name="salesLine">A sales line.</param>
-            private void InitializeSalesLineDiscountDetails(TransactionLine transactionLineRequest, SalesLine salesLine)
+            private async Task InitializeSalesLineDiscountDetails(TransactionLine transactionLineRequest, SalesLine salesLine)
             {
                 if (salesLine.DiscountAmount != decimal.Zero && salesLine.DiscountLines.Any())
                 {
-                    var discountDetails = SalesOrderHelper.GetLineDiscountDetails(salesLine, discountFiscalTexts.Value);
+                    var discountDetails = SalesOrderHelper.GetLineDiscountDetails(salesLine, await discountFiscalTexts.Value.ConfigureAwait(false));
                     transactionLineRequest.DiscountSurcharge = true;
                     transactionLineRequest.DiscountSurchargeName = discountDetails.Item2;
                     transactionLineRequest.DuscountSurchargeAmount = discountDetails.Item1;
@@ -161,7 +168,7 @@
             /// </summary>
             /// <param name="tenderLine">A tender line.</param>
             /// <returns>POSNET commands collection.</returns>
-            private IEnumerable<IPosnetCommandRequest> TenderLineToCommands(TenderLine tenderLine)
+            private Task<IEnumerable<IPosnetCommandRequest>> TenderLineToCommands(TenderLine tenderLine)
             {
                 List<IPosnetCommandRequest> requests = new List<IPosnetCommandRequest>();
 
@@ -174,7 +181,7 @@
 
                 requests.Add(PrinterRequestBuilder.BuildRequestCommand(paymTrans));
 
-                return requests;
+                return Task.FromResult<IEnumerable<IPosnetCommandRequest>>(requests);
             }
 
             /// <summary>
@@ -328,11 +335,11 @@
             /// </summary>
             /// <param name="salesOrder">The sales order.</param>
             /// <returns>The POSNET command collection.</returns>
-            private IEnumerable<IPosnetCommandRequest> TransactionNipSet(SalesOrder salesOrder)
+            private async Task<IEnumerable<IPosnetCommandRequest>> TransactionNipSet(SalesOrder salesOrder)
             {
                 if (this.Request.RequestContext.Runtime.GetRequestHandlers<IRequestHandler>(typeof(GetFiscalCustomerDataDataRequest)).IsNullOrEmpty())
                 {
-                    yield break;
+                    return Enumerable.Empty<IPosnetCommandRequest>();
                 }
 
                 var request = new GetFiscalCustomerDataDataRequest(salesOrder.Id, salesOrder.TerminalId);
@@ -340,11 +347,11 @@
 
                 if (fiscalCustomerData == null)
                 {
-                    yield break;
+                    return Enumerable.Empty<IPosnetCommandRequest>();
                 }
 
                 var trNipSetRequest = new TransactionNipSet { Nip = fiscalCustomerData.VatId };
-                yield return PrinterRequestBuilder.BuildRequestCommand(trNipSetRequest);
+                return new[] { PrinterRequestBuilder.BuildRequestCommand(trNipSetRequest) };
             }
         }
     }

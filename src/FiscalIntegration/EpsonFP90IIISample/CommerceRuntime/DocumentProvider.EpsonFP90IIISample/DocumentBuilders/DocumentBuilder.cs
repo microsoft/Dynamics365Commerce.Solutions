@@ -211,7 +211,7 @@ namespace Contoso
                     bool isCarryingOutLine = SalesOrderHelper.IsCustomerOrderCreateOrEdit(adjustedSalesOrder) && salesLine.DeliveryMode == channelConfiguration.CarryoutDeliveryModeCode;
 
                     // For customer order, should print standard fiscal receipt for customer order pick up lines and return lines that has quantity.
-                    bool isPickingUpOrReturningLine = SalesOrderHelper.IsCustomerOrderPickupOrReturn(request.RequestContext, adjustedSalesOrder, channelConfiguration) && salesLine.Quantity != 0;
+                    bool isPickingUpOrReturningLine = await SalesOrderHelper.IsCustomerOrderPickupOrReturn(request.RequestContext, adjustedSalesOrder, channelConfiguration).ConfigureAwait(false) && salesLine.Quantity != 0;
 
                     if (adjustedSalesOrder.ExtensibleSalesTransactionType == ExtensibleSalesTransactionType.Sales
                         || adjustedSalesOrder.ExtensibleSalesTransactionType == ExtensibleSalesTransactionType.SalesInvoice

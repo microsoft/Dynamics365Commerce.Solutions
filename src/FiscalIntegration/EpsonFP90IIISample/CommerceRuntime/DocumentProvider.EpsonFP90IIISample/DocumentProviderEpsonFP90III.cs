@@ -14,6 +14,8 @@ namespace Contoso
         using System;
         using System.Collections.Generic;
         using System.Threading.Tasks;
+        using System.Xml.Linq;
+        using Contoso.CommerceRuntime.DocumentProvider.EpsonFP90IIISample.Constants;
         using Contoso.CommerceRuntime.DocumentProvider.EpsonFP90IIISample.DocumentBuilders;
         using Contoso.CommerceRuntime.DocumentProvider.EpsonFP90IIISample.Helpers;
         using Microsoft.Dynamics.Commerce.Runtime;
@@ -24,20 +26,16 @@ namespace Contoso
         using Microsoft.Dynamics.Commerce.Runtime.Services.Messages;
 
         /// <summary>
-        /// Sample for EPSON FP90III
+        /// Sample for EPSON FP90III.
         /// </summary>
         public class DocumentProviderEpsonFP90III : INamedRequestHandlerAsync
         {
+            private const string ServiceName = "EpsonFP90III";
+
             /// <summary>
             /// Gets the unique name for this request handler.
             /// </summary>
-            public string HandlerName
-            {
-                get
-                {
-                    return "EpsonFP90IIISample";
-                }
-            }
+            public string HandlerName => "EpsonFP90IIISample";
 
             /// <summary>
             /// Gets the supported fiscal integration event type.
@@ -50,7 +48,7 @@ namespace Contoso
                     {
                         (int)FiscalIntegrationEventType.Sale,
                         (int)FiscalIntegrationEventType.FiscalXReport,
-                        (int)FiscalIntegrationEventType.FiscalZReport
+                        (int)FiscalIntegrationEventType.FiscalZReport,
                     };
                 }
             }
@@ -66,6 +64,7 @@ namespace Contoso
                     {
                         typeof(GetFiscalDocumentDocumentProviderRequest),
                         typeof(GetSupportedRegistrableEventsDocumentProviderRequest),
+                        typeof(GetFiscalTransactionExtendedDataDocumentProviderRequest),
                     };
                 }
             }
@@ -81,24 +80,20 @@ namespace Contoso
 
                 DocumentLocalizerHelper.CultureName = request.RequestContext.LanguageId;
 
-                Type requestType = request.GetType();
-                Response response;
-               
+                switch (request)
+                {
+                    case GetFiscalDocumentDocumentProviderRequest getFiscalDocumentDocumentProviderRequest:
+                        return await this.GetFiscalDocumentAsync(getFiscalDocumentDocumentProviderRequest).ConfigureAwait(false);
 
-                if (requestType == typeof(GetFiscalDocumentDocumentProviderRequest))
-                {
-                    response = await this.GetFiscalDocumentAsync((GetFiscalDocumentDocumentProviderRequest)request).ConfigureAwait(false);
-                }
-                else if (requestType == typeof(GetSupportedRegistrableEventsDocumentProviderRequest))
-                {
-                    response = this.GetSupportedRegisterableEvents((GetSupportedRegistrableEventsDocumentProviderRequest)request);
-                }
-                else
-                {
-                    throw new NotSupportedException(string.Format("Request '{0}' is not supported.", request.GetType()));
-                }
+                    case GetSupportedRegistrableEventsDocumentProviderRequest getSupportedRegistrableEventsDocumentProviderRequest:
+                        return this.GetSupportedRegisterableEvents(getSupportedRegistrableEventsDocumentProviderRequest);
 
-                return response;
+                    case GetFiscalTransactionExtendedDataDocumentProviderRequest getFiscalTransactionExtendedDataDocumentProviderRequest:
+                        return await Task.FromResult<Response>(GetFiscalTransactionExtendedData(getFiscalTransactionExtendedDataDocumentProviderRequest)).ConfigureAwait(false);
+
+                    default:
+                        throw new NotSupportedException(string.Format("Request '{0}' is not supported.", request.GetType()));
+                }
             }
 
             /// <summary>
@@ -127,6 +122,7 @@ namespace Contoso
                         {
                             generationResultType = FiscalIntegrationDocumentGenerationResultType.NotRequired;
                         }
+
                         break;
 
                     case FiscalIntegrationEventType.FiscalXReport:
@@ -163,6 +159,35 @@ namespace Contoso
 
                 GetSupportedRegistrableEventsDocumentProviderResponse response = new GetSupportedRegistrableEventsDocumentProviderResponse(supportedFiscalEventTypes, new List<int>());
                 return response;
+            }
+
+            /// <summary>
+            /// Gets the fiscal transaction extended data.
+            /// </summary>
+            /// <param name="request">The request.</param>
+            /// <returns>The fiscal transaction extended data.</returns>
+            private GetFiscalTransactionExtendedDataDocumentProviderResponse GetFiscalTransactionExtendedData(GetFiscalTransactionExtendedDataDocumentProviderRequest request)
+            {
+                var extendedData = new List<CommerceProperty>();
+
+                var registerResponse = XElement.Parse(request.FiscalRegistrationResult?.Response);
+                var fiscalReceiptDate = FiscalPrinterResponseParser.ParseRegisterResponseInfo(registerResponse, FiscalPrinterResponseConstants.FiscalReceiptDateElement);
+                var fiscalReceiptNumber = FiscalPrinterResponseParser.ParseRegisterResponseInfo(registerResponse, FiscalPrinterResponseConstants.FiscalReceiptNumberElement);
+
+                extendedData.AddRange(new[]
+                    {
+                        new CommerceProperty(ExtensibleFiscalRegistrationExtendedDataType.TransactionEnd.Name, fiscalReceiptDate),
+                        new CommerceProperty(ExtensibleFiscalRegistrationExtendedDataType.ServiceTransactionId.Name, fiscalReceiptNumber),
+                    });
+
+                var registrationType = ExtensibleFiscalRegistrationType.CashSale;
+
+                return new GetFiscalTransactionExtendedDataDocumentProviderResponse(
+                    fiscalReceiptNumber ?? string.Empty,
+                    registrationType,
+                    ServiceName,
+                    request.RequestContext.GetPrincipal().CountryRegionIsoCode,
+                    extendedData);
             }
         }
     }

@@ -26,21 +26,21 @@ namespace Contoso
             private const string LineAmountAttributeName = "LAmt";
 
             /// <summary>
-            /// The reference position number.
+            /// Gets or sets the reference position number.
             /// </summary>
             [XmlAttribute(AttributeName = PositionNumberAttributeName)]
             [DefaultValue(0)]
             public int PositionNumber { get; set; }
 
             /// <summary>
-            /// The description.
+            /// Gets or sets the description.
             /// </summary>
             [XmlAttribute(AttributeName = DescriptionAttributeName)]
             [DefaultValue("")]
             public string Description { get; set; }
 
             /// <summary>
-            /// The print text.
+            /// Gets or sets the print text.
             /// </summary>
             [XmlAttribute(AttributeName = LineAmountAttributeName)]
             [DefaultValue("")]

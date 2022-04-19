@@ -27,27 +27,27 @@ namespace Contoso
             private const string AmountAttributeName = "Amt";
 
             /// <summary>
-            /// The modified position numbers.
+            /// Gets or sets the modified position numbers.
             /// </summary>
             [XmlAttribute(AttributeName = PositionNumberAttributeName)]
             [DefaultValue(0)]
             public int PositionNumber { get; set; }
 
             /// <summary>
-            /// The description.
+            /// Gets or sets the description.
             /// </summary>
             [XmlAttribute(AttributeName = DescriptionAttributeName)]
             [DefaultValue("")]
             public string Description { get; set; }
 
             /// <summary>
-            /// The delta amount.
+            /// Gets or sets the delta amount.
             /// </summary>
             [XmlIgnore]
             public decimal Amount { get; set; }
 
             /// <summary>
-            /// The delta amount formatted for serialization.
+            /// Gets or sets the delta amount formatted for serialization.
             /// </summary>
             [XmlAttribute(AttributeName = AmountAttributeName)]
             public string AmountStringValue

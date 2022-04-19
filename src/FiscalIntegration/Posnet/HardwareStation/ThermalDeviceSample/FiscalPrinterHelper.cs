@@ -2,10 +2,6 @@
 {
     namespace Commerce.HardwareStation.PosnetThermalFVFiscalPrinterSample
     {
-        using System;
-        using System.Collections.Generic;
-        using Contoso.Commerce.HardwareStation.PosnetThermalFVFiscalPrinterSample.DocumentModel;
-        using Contoso.Commerce.HardwareStation.PosnetThermalFVFiscalPrinterSample.DocumentModel.Protocol;
         using Contoso.Commerce.HardwareStation.PosnetThermalFVFiscalPrinterSample.Driver;
         using Microsoft.Dynamics.Commerce.HardwareStation.Peripherals.Entities;
 
@@ -14,14 +10,6 @@
         /// </summary>
         internal static class FiscalPrinterHelper
         {
-            private const string SetDateTimeCommandName = "rtcset";
-            private const string CancelPaymentCommandName = "trpaymentcanc";
-            private const string CancelTransactionCommandName = "trcancel";
-
-            private const string DateTimeRequestParameterName = "da";
-
-            private const string DateTimeFormat = @"yyyy-MM-dd;HH:mm";
-
             private const string LeverUpErrorMessage = "lever up";
             private const string NoAccessToMechanismErrorMessage = "no access to mechanism";
             private const string CoverUpErrorMessage = "cover up";
@@ -32,32 +20,6 @@
             private const string CutterErrorErrorMessage = "cutter error";
             private const string ChargerErrorErrorMessage = "charger error";
             private const string CoverUpWhenCuttingErrorMessage = "cover up when cutting";
-
-            /// <summary>
-            /// Creates an instance of <see cref="IPosnetDocumentRequest"/> with a request to set printer datetime to the local machine datetime.
-            /// </summary>
-            /// <returns>A new instace if <see cref="IPosnetDocumentRequest"/></returns>
-            internal static PosnetDocumentRequest CreateSynchronizeDateTimeRequest()
-            {
-                var commandParameterValue = new CommandParameterValue(DateTime.Now.ToString(DateTimeFormat), DataType.Alphanum);
-                var commandParameter = new CommandParameter(DateTimeRequestParameterName, commandParameterValue);
-                var commandRequest = new PosnetCommandRequest(CommandType.Request, SetDateTimeCommandName, new CommandParameter[] { commandParameter }, new Dictionary<string, DataType>());
-
-                return new PosnetDocumentRequest(new PosnetCommandRequest[] { commandRequest });
-            }
-
-            internal static IPosnetCommandRequest CreateCancelPaymentCommandRequest()
-            {
-                var commandRequest = new PosnetCommandRequest(CommandType.Request, CancelPaymentCommandName, new CommandParameter[0], new Dictionary<string, DataType>());
-                return commandRequest;
-            }
-
-            internal static IPosnetCommandRequest CreateCancelTransactionCommandRequest()
-            {
-                var commandRequest = new PosnetCommandRequest(CommandType.Request, CancelTransactionCommandName, new CommandParameter[0], new Dictionary<string, DataType>());
-                return commandRequest;
-            }
-
 
             /// <summary>
             /// Retrieves the error data.

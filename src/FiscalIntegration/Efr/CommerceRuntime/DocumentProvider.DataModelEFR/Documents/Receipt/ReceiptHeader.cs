@@ -23,7 +23,7 @@ namespace Contoso
             private const string TxtAttributeName = "Txt";
 
             /// <summary>
-            /// The header text.
+            /// Gets or sets the header text.
             /// </summary>
             [XmlAttribute(AttributeName = TxtAttributeName)]
             public string Txt { get; set; }

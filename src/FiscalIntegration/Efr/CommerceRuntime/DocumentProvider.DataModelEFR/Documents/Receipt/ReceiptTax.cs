@@ -29,20 +29,20 @@ namespace Contoso
             private const string TaxAmountAttributeName = "TAmt";
 
             /// <summary>
-            /// The tax group.
+            /// Gets or sets the tax group.
             /// </summary>
             [XmlAttribute(AttributeName = TaxGroupAttributeName)]
             [DefaultValue("")]
             public string TaxGroup { get; set; }
 
             /// <summary>
-            /// The tax percent.
+            /// Gets or sets the tax percent.
             /// </summary>
             [XmlIgnore]
             public decimal TaxPercent { get; set; }
 
             /// <summary>
-            /// The tax percent formatted for serialization.
+            /// Gets or sets the tax percent formatted for serialization.
             /// </summary>
             [XmlAttribute(AttributeName = TaxPercentAttributeName)]
             public string TaxPercentStringValue
@@ -59,13 +59,13 @@ namespace Contoso
             }
 
             /// <summary>
-            /// The amount without tax.
+            /// Gets or sets the amount without tax.
             /// </summary>
             [XmlIgnore]
             public decimal NetAmount { get; set; }
 
             /// <summary>
-            /// /// The amount without tax formatted for serialization.
+            /// Gets or sets /// The amount without tax formatted for serialization.
             /// </summary>
             [XmlAttribute(AttributeName = NetAmountAttributeName)]
             public string NetAmountStringValue
@@ -82,13 +82,13 @@ namespace Contoso
             }
 
             /// <summary>
-            /// The tax amount.
+            /// Gets or sets the tax amount.
             /// </summary>
             [XmlIgnore]
             public decimal TaxAmount { get; set; }
 
             /// <summary>
-            /// The tax amount formatted for serialization.
+            /// Gets or sets the tax amount formatted for serialization.
             /// </summary>
             [XmlAttribute(AttributeName = TaxAmountAttributeName)]
             public string TaxAmountStringValue
@@ -105,13 +105,13 @@ namespace Contoso
             }
 
             /// <summary>
-            /// The amount with tax.
+            /// Gets or sets the amount with tax.
             /// </summary>
             [XmlIgnore]
             public decimal GrossAmount { get; set; }
 
             /// <summary>
-            /// The amount with tax formatted for serialization.
+            /// Gets or sets the amount with tax formatted for serialization.
             /// </summary>
             [XmlAttribute(AttributeName = GrossAmountAttributeName)]
             public string GrossAmountStringValue

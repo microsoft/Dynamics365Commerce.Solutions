@@ -27,19 +27,19 @@ namespace Contoso
             private const string FiscalDataElementName = "Fis";
 
             /// <summary>
-            /// The sequence number.
+            /// Gets or sets the sequence number.
             /// </summary>
             [XmlAttribute(AttributeName = SequenceNumberAttributeName)]
             public int SequenceNumber { get; set; }
 
             /// <summary>
-            /// The registration result.
+            /// Gets or sets the registration result.
             /// </summary>
             [XmlElement(ElementName = RegistrationResultElementName)]
             public RegistrationResult RegistrationResult { get; set; }
 
             /// <summary>
-            /// The fiscal data.
+            /// Gets or sets the fiscal data.
             /// </summary>
             [XmlElement(ElementName = FiscalDataElementName)]
             public FiscalData FiscalData { get; set; }
