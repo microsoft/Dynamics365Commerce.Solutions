@@ -22,3 +22,6 @@ To run a sample, simply go into a sample from ***src/OnlineSDK/Samples/{Sample_N
 
 ## Connector Samples
 * [Configure and enable connectors](Samples/Configure%20and%20enable%20connectors/README.md)
+
+## Extensibility Samples
+* [Role based caching](Extensibility%20Samples/Role%20based%20caching/README.md)
