@@ -371,11 +371,7 @@
             /// <typeparam name="T">Type of the object to be serialized.</typeparam>
             /// <param name="value">Value of the object to be serialized.</param>
             /// <returns>Object as JSON string.</returns>
-            private static string SerializeToJson<T>(T value)
-            {
-                var jsonString = JsonConvert.SerializeObject(value, Formatting.Indented);
-                return Encoding.UTF8.GetString(Encoding.Default.GetBytes(jsonString));
-            }
+            private static string SerializeToJson<T>(T value) => JsonConvert.SerializeObject(value);
 
             /// <summary>
             /// Deserialized the object from JSON format.
@@ -387,7 +383,7 @@
             {
                 ThrowIf.NullOrWhiteSpace(value, nameof(value));
 
-                return JsonConvert.DeserializeObject<T>(value, new JsonSerializerSettings() { Formatting = Formatting.Indented });
+                return JsonConvert.DeserializeObject<T>(value);
             }
         }
     }

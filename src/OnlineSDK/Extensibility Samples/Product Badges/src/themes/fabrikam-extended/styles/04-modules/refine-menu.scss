@@ -1,0 +1,102 @@
+$ms-refine-submenu-item-rating-line-height: 28px;
+$ms-refine-submenu-item-rating-padding-left: 12px;
+$refine-menu-rating-margin-bottom: 10px;
+$refine-menu-submenu-item-line-height: 42px;
+$refine-menu-submenu-item-multi-select-line-height: 42px;
+
+.ms-refine-submenu__list {
+    border: 0;
+    margin: 0;
+    min-width: 0;
+    padding: 0;
+}
+
+.ms-refine-submenu-item {
+    display: block;
+    line-height: $refine-menu-submenu-item-line-height;
+
+    .refine-submenu-item {
+        &__rating {
+            padding-left: $ms-refine-submenu-item-rating-padding-left;
+            display: inline-block;
+
+            @include font-content-m(var(--msv-font-weight-light));
+        }
+    }
+
+    &__label {
+        @include font-content-m(var(--msv-font-weight-light));
+    }
+
+    .msc-swatch-container {
+        display: inline-block;
+        vertical-align: middle;
+
+        &__item {
+            min-width: 16px;
+            height: 16px;
+            margin: 0 0 0 10px;
+        }
+    }
+
+    .multi-select,
+    .multi-select-checked {
+        line-height: $refine-menu-submenu-item-multi-select-line-height;
+    }
+
+    .msc-rating {
+        @include font-content-m(var(--msv-font-weight-light));
+        margin-bottom: $refine-menu-rating-margin-bottom;
+    }
+
+    &.multi-select {
+        @include add-icon($msv-Checkbox, before, 400);
+    }
+
+    &.multi-select-checked {
+        @include add-icon($msv-Checkbox-Checked, before, 400);
+    }
+
+    &.single-select {
+        @include add-icon($msv-RadioBtnOff, before, 400);
+    }
+
+    &.single-select-checked {
+        @include add-icon($msv-RadioBtnOn, before, 400);
+    }
+
+    &.multi-select,
+    &.multi-select-checked,
+    &.single-select,
+    &.single-select-checked {
+        &::before {
+            vertical-align: middle;
+            font-size: var(--msv-body-font-size-xl);
+        }
+    }
+}
+
+.ms-refine-submenu__toggle_collapsed {
+    @include add-icon($msv-Add, after);
+}
+
+.ms-refine-submenu__toggle_expanded {
+    @include add-icon($msv-Remove, after);
+    @include font-content-l();
+}
+
+.msc-choice-summary__clear-all {
+    @include add-icon($msv-Cancel, after);
+}
+
+.ms-refine-submenu__range-refiner {
+    .slider__labels-item {
+        font-size: var(--msv-body-font-size-s);
+        line-height: $msv-line-height-s;
+        color: $msv-gray-900;
+    }
+}
+
+.ms-refine-submenu-item[aria-checked="true"] .msc-rating__count {
+    font-weight: bold;
+}

@@ -1,0 +1,18 @@
+$msv-invoice-summary-value-rtl-right:10px;
+$msv-invoice-summary-promo-code-margin-left:20px;
+
+[dir="rtl"] {
+    .msc-invoice-summary {
+        &__value {
+            margin-left: $msv-invoice-summary-value-rtl-right;
+            float: left;
+        }
+    }
+
+    .msc-promo-code {
+        &__input-box {
+            margin-left: $msv-invoice-summary-promo-code-margin-left;
+            margin-right: 0;
+        }
+    }
+}

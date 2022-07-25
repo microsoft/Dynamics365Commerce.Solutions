@@ -1,0 +1,13 @@
+$carousel-padding-left: 0;
+$carousel-padding-right: 20px;
+
+@media (min-width: $msv-breakpoint-l) {
+    [dir="rtl"] {
+        .ms-media-gallery {
+            .ms-media-gallery__carousel {
+                margin-left: $carousel-padding-left;
+                margin-right: $carousel-padding-right;
+            }
+        }
+    }
+}

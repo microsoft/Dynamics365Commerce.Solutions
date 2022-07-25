@@ -17,8 +17,8 @@ namespace Contoso
         using Microsoft.Dynamics.Commerce.Runtime.DataModel;
         using Contoso.CommerceRuntime.DocumentProvider.DataModelEFR.Documents;
         using Contoso.CommerceRuntime.DocumentProvider.EFRSample.Serializers;
-        using ReceiptsAustria = Microsoft.Dynamics.Commerce.Runtime.ReceiptsAustria.Contracts;
-        using ReceiptsCzech = Microsoft.Dynamics.Commerce.Runtime.ReceiptsCzechia.Contracts;
+        using ReceiptsAustria = Microsoft.Dynamics.Commerce.Runtime.Localization.Entities.Austria;
+        using ReceiptsCzech = Microsoft.Dynamics.Commerce.Runtime.Localization.Entities.Czechia;
 
         /// <summary>
         /// The fiscal register response extensions.

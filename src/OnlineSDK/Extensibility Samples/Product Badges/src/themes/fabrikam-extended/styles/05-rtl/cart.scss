@@ -1,0 +1,68 @@
+$cart-content-margin-right: 200px;
+$cart-content-mobile-vp-margin-right: 100px;
+$cart-remove-item-margin-right: 20px;
+$cart-content-margin-left-zero: 0;
+
+[dir="rtl"] {
+    .ms-cart {
+        .msc-cart-line {
+            &-group__extra-actions,
+            &__content,
+            &__error-message,
+            &__extra-actions {
+                margin-right: $cart-content-margin-right;
+                margin-left: $cart-content-margin-left-zero;
+            }
+        }
+
+        .msc-cart__promotion {
+            &_link {
+                margin-right: 8px;
+            }
+        }
+
+        .msc-cart-lines-item > .msc-cart-line__add-to-wishlist ~ .msc-cart-line__remove-item {
+            margin-right: auto;
+            margin-left: unset;
+        }
+
+        /* stylelint-disable-next-line no-descending-specificity -- Auto-suppressed. Please fix if possible. */
+        .msc-cart-lines-item > .msc-cart-line__add-to-wishlist, .msc-cart-lines-item > .msc-cart-line__remove-item {
+            margin-right: $cart-content-margin-right;
+            margin-left: unset;
+        }
+
+        .msc-cart__btn-addcarttotemplate-tooltip {
+            .msc-tooltip-inner {
+                text-align: right;
+            }
+        }
+    }
+
+    @media screen and (max-width: $msv-breakpoint-m) {
+        .ms-cart {
+            .msc-cart-line {
+                &-group__extra-actions,
+                &__content,
+                &__bopis-container,
+                &__error-message,
+                &__extra-actions {
+                    margin-right: $cart-content-mobile-vp-margin-right;
+                    margin-left: $cart-content-margin-left-zero;
+                }
+
+                &__product-savings {
+                    margin-left: unset;
+                    margin-right: 0;
+                    text-align: right;
+                }
+            }
+
+            .msc-cart-lines-item > .msc-cart-line__add-to-wishlist,
+            .msc-cart-lines-item > .msc-cart-line__remove-item {
+                margin-left: unset;
+                margin-right: $cart-content-mobile-vp-margin-right;
+            }
+        }
+    }
+}

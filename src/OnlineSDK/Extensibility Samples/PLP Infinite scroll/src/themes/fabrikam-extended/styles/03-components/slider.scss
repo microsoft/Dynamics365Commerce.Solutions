@@ -1,0 +1,11 @@
+$slider-focus-border-thickness: 1px;
+$slider-focus-border-style: dashed;
+$slider-focus-border-color: $msv-white;
+$slider-focus-outline-color: $msv-black;
+
+.slider__thumb__range:focus {
+    + .slider__thumb {
+        border: $slider-focus-border-thickness $slider-focus-border-style $slider-focus-border-color;
+        outline: $slider-focus-border-thickness $slider-focus-border-style $slider-focus-outline-color;
+    }
+}

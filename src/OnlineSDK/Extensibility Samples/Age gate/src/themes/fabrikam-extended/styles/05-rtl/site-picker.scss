@@ -1,0 +1,22 @@
+$rtl-site-picker-button-padding-right: 20px;
+$rtl-site-picker-button-padding-left: 10px;
+
+[dir="rtl"] {
+    @media (max-width: $msv-breakpoint-l) {
+        .ms-site-picker__drawer {
+            .drawer__button {
+                padding-left: $rtl-site-picker-button-padding-left;
+                padding-right: $rtl-site-picker-button-padding-right;
+
+                .drawer__buttontext {
+                    float: right;
+                }
+
+                .ms-site-picker__drawer-close,
+                .ms-site-picker__drawer-open {
+                    float: left;
+                }
+            }
+        }
+    }
+}

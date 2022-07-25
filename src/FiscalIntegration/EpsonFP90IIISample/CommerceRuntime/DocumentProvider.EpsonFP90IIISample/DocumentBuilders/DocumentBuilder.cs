@@ -14,7 +14,6 @@ namespace Contoso
         using System;
         using System.Collections.Generic;
         using System.Collections.ObjectModel;
-        using System.Globalization;
         using System.Linq;
         using System.Threading.Tasks;
         using System.Xml.Linq;
@@ -23,16 +22,18 @@ namespace Contoso
         using Microsoft.Dynamics.Commerce.Runtime;
         using Microsoft.Dynamics.Commerce.Runtime.DataModel;
         using Microsoft.Dynamics.Commerce.Runtime.DataModel.Italy.Entities;
+        using Microsoft.Dynamics.Commerce.Runtime.Localization.Entities.Italy;
         using Microsoft.Dynamics.Commerce.Runtime.DataServices.Messages;
         using Microsoft.Dynamics.Commerce.Runtime.FiscalIntegration.DocumentProvider.Messages;
         using Microsoft.Dynamics.Commerce.Runtime.Localization.Data.Services.Messages.Italy;
-
 
         /// <summary>
         /// Generates fiscal receipt document.
         /// </summary>
         public static class DocumentBuilder
         {
+            private const string TaxRegistrationIdFeatureName = "Dynamics.AX.Application.RetailTaxRegistrationIdEnableFeature_IT";
+
             /// <summary>
             /// Builds fiscal receipt document.
             /// </summary>
@@ -490,16 +491,32 @@ namespace Contoso
                 }
 
                 var request = new GetFiscalCustomerDataDataRequest(salesOrder.Id, salesOrder.TerminalId);
-                var fiscalCustomerDataResponse = await context.ExecuteAsync<SingleEntityDataServiceResponse<FiscalCustomerData>>(request).ConfigureAwait(false);
 
-                var fiscalCustomerData = fiscalCustomerDataResponse.Entity;
-
-                if (fiscalCustomerData == null)
+                if (await context.IsFeatureEnabledAsync(TaxRegistrationIdFeatureName, defaultValue: false).ConfigureAwait(false))
                 {
-                    return parentElement;
-                }
+                    var fiscalCustomerDataResponse = await context.ExecuteAsync<SingleEntityDataServiceResponse<FiscalCustomer>>(request).ConfigureAwait(false);
+                    var fiscalCustomer = fiscalCustomerDataResponse.Entity;
 
-                return DocumentElementBuilder.BuildFiscalCustomerLotteryCodeElement(parentElement, fiscalCustomerData.LotteryCode);
+                    if (fiscalCustomer == null)
+                    {
+                        return parentElement;
+                    }
+
+                    return DocumentElementBuilder.BuildFiscalCustomerLotteryCodeElement(parentElement, fiscalCustomer.LotteryCode);
+                } else
+                {
+#pragma warning disable CS0618 // Type or member is obsolete
+                    var fiscalCustomerDataResponse = await context.ExecuteAsync<SingleEntityDataServiceResponse<FiscalCustomerData>>(request).ConfigureAwait(false);
+#pragma warning restore CS0618 // Type or member is obsolete
+                    var fiscalCustomerData = fiscalCustomerDataResponse.Entity;
+
+                    if (fiscalCustomerData == null)
+                    {
+                        return parentElement;
+                    }
+
+                    return DocumentElementBuilder.BuildFiscalCustomerLotteryCodeElement(parentElement, fiscalCustomerData.LotteryCode);
+                }
             }
         }
     }

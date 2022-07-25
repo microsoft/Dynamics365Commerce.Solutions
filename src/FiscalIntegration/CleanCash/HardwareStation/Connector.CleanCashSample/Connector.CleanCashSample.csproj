@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <Import Project="..\..\CustomizationPackage.props" />
   <PropertyGroup>
-    <TargetFramework>net461</TargetFramework>
+    <TargetFramework>net472</TargetFramework>
     <AssemblyName>Contoso.HardwareStation.Connector.CleanCashSample</AssemblyName>
     <RootNamespace>Contoso.HardwareStation.Connector.CleanCashSample</RootNamespace>
     <DefaultLanguage>en-US</DefaultLanguage>

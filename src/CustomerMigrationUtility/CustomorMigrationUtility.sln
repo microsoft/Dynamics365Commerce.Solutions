@@ -5,12 +5,7 @@ VisualStudioVersion = 16.0.30104.148
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomerMigrationUtility.Client", "Client\CustomerMigrationUtility.Client.csproj", "{E4F97D07-F0AC-407D-80E2-7335FDE87779}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomerMigrationUtility.Core", "Core\CustomerMigrationUtility.Core.csproj", "{C9986B87-956E-4FB2-95FF-33E8D5B047EC}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{54778B19-D64D-4078-84D0-28F7C99213CC}"
-	ProjectSection(SolutionItems) = preProject
-		NuGet.Config = NuGet.Config
-	EndProjectSection
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustomerMigrationUtility.Core", "Core\CustomerMigrationUtility.Core.csproj", "{C9986B87-956E-4FB2-95FF-33E8D5B047EC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,0 +1,70 @@
+$msv-form-builder-label-margin-bottom: 4px;
+$msv-form-builder-max-flex-basis: 100%;
+$msv-form-builder-row-margin-top: 20px;
+$msv-form-builder-btn-margin-top: 20px;
+$msv-form-builder-section-spacing: 90px;
+$msv-form-builder-section-margin-m: 20px;
+
+:root {
+    --msv-form-builder-font-size: var(--msv-body-font-size-m);
+
+    // form
+    --msv-form-builder-form-input-bg: #{$msv-white};
+    --msv-form-builder-form-input-font-color: var(--msv-font-primary-color);
+    --msv-form-builder-form-input-border: transparent;
+
+    // heading
+    --msv-form-builder-heading-font-size: var(--msv-body-font-size-xl);
+    --msv-form-builder-heading-font-color: var(--msv-font-primary-color);
+
+    // submit button
+    --msv-form-builder-btn-bg: var(--msv-accent-brand-color);
+    --msv-form-builder-btn-font-color: var(--msv-font-secondary-color);
+    --msv-form-builder-btn-border: var(--msv-accent-brand-color);
+    --msv-form-builder-btn-font-size: var(--msv-body-font-size-m);
+}
+
+.msc-form-builder {
+    @include font-content(var(--msv-font-weight-normal), var(--msv-body-font-size-l), $msv-line-height-l);
+    color: var(--msv-font-primary-color);
+
+    &__heading {
+        @include font-content(var(--msv-font-weight-normal), var(--msv-form-builder-heading-font-size), $msv-line-height-xl);
+        color: var(--msv-form-builder-heading-font-color);
+    }
+
+    &__label {
+        @include font-content(var(--msv-font-weight-normal), var(--msv-form-builder-font-size), $msv-line-height-l);
+        color: var(--msv-form-builder-form-input-font-color);
+        display: block;
+        margin-bottom: $msv-form-builder-label-margin-bottom;
+        flex-basis: $msv-form-builder-max-flex-basis;
+    }
+
+    &__row {
+        margin-top: $msv-form-builder-row-margin-top;
+    }
+
+    &__input {
+        @include form-input-el(var(--msv-form-builder-form-input-bg),
+        var(--msv-form-builder-form-input-font-color),
+        var(--msv-form-builder-form-input-border));
+        width: 100%;
+        border: 1px solid $msv-gray-500;
+        font-size: --msv-form-builder-font-size;
+
+        &:focus {
+            border: 1px dashed $msv-gray-500;
+            outline: none;
+        }
+    }
+
+    &__btn-submit {
+        @include primary-button(var(--msv-form-builder-btn-bg),
+        var(--msv-form-builder-btn-font-color), var(--msv-form-builder-btn-border));
+        font-size: var(--msv-form-builder-btn-font-size);
+        margin-top: $msv-form-builder-btn-margin-top;
+        display: block;
+        width: 100%;
+    }
+}

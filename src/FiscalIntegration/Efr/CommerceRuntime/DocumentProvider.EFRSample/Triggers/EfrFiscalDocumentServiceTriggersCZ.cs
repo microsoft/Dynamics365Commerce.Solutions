@@ -24,7 +24,7 @@ namespace Contoso
         using Contoso.CommerceRuntime.DocumentProvider.EFRSample.Extensions;
         using Contoso.CommerceRuntime.DocumentProvider.EFRSample.Messages;
         using Contoso.CommerceRuntime.DocumentProvider.EFRSample.Serializers;
-        using ReceiptsCzech = Microsoft.Dynamics.Commerce.Runtime.ReceiptsCzechia.Contracts;
+        using ReceiptsCzech = Microsoft.Dynamics.Commerce.Runtime.Localization.Entities.Czechia;
 
         public sealed class EfrFiscalDocumentServiceTriggersCZ : ICountryRegionAware, IRequestTriggerAsync
         {

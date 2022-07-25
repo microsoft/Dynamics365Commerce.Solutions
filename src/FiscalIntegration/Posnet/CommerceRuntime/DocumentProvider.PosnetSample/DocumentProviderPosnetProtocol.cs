@@ -142,7 +142,7 @@ namespace Contoso
 
                 if (builtResult.DocumentGenerationResult == FiscalIntegrationDocumentGenerationResultType.Succeeded)
                 {
-                    jsonDocument = builtResult.Document.ToJson();
+                    jsonDocument = JsonConvert.SerializeObject(builtResult.Document);
                 }
 
                 FiscalIntegrationDocument fiscalIntegrationDocument = new FiscalIntegrationDocument(jsonDocument, builtResult.DocumentGenerationResult)

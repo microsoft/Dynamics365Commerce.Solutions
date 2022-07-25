@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <Import Project="..\..\CustomizationPackage.props" />
   <PropertyGroup>
-    <TargetFramework>net461</TargetFramework>
+    <TargetFramework>net472</TargetFramework>
     <AssemblyName>Contoso.HardwareStation.PosnetThermalFVFiscalPrinterSample</AssemblyName>
     <RootNamespace>Contoso.HardwareStation.PosnetThermalFVFiscalPrinterSample</RootNamespace>
     <DefaultLanguage>en-US</DefaultLanguage>

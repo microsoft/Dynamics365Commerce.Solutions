@@ -23,4 +23,28 @@
             </DisplayValue>
         </DisplayProperty>
     </ConfigurationProperty>
+    <ConfigurationProperty>
+        <Namespace>ConnectorSettingsInfo</Namespace>
+        <Name>CertificateProfileId</Name>
+        <ValueType>String</ValueType>
+        <ExtendedDataType>RetailUserDefinedCertificateProfileId</ExtendedDataType>
+        <StringValue></StringValue>
+        <DecimalValue>0</DecimalValue>
+        <BooleanValue>false</BooleanValue>
+        <DateValue>0001-01-01T00:00:00</DateValue>
+        <IntegerValue>0</IntegerValue>
+        <IsEncrypted>false</IsEncrypted>
+        <IsPassword>false</IsPassword>
+        <IsReadOnly>false</IsReadOnly>
+        <IsHidden>false</IsHidden>
+        <DisplayHeight>1</DisplayHeight>
+        <SequenceNumber>1</SequenceNumber>
+        <DisplayProperty>
+            <DisplayValue>
+                <LanguageId>EN-US</LanguageId>
+                <DisplayName>@Retail:RetailUserDefinedCertificateProfileId</DisplayName>
+                <Description>@Brazil_Retail:CertificateProfileHelpText</Description>
+            </DisplayValue>
+        </DisplayProperty>
+  </ConfigurationProperty>
 </ConfigurationProperties>

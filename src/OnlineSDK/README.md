@@ -24,4 +24,15 @@ To run a sample, simply go into a sample from ***src/OnlineSDK/Samples/{Sample_N
 * [Configure and enable connectors](Samples/Configure%20and%20enable%20connectors/README.md)
 
 ## Extensibility Samples
+* [Promo Code Affiliation](Extensibility%20Samples/Promo%20Code%20Affiliation/README.md)
 * [Role based caching](Extensibility%20Samples/Role%20based%20caching/README.md)
+* [Age gate](Extensibility%20Samples/Age%20gate/README.md)
+* [Media Gallery Video Support Without API](Extensibility%20Samples/Media%20Gallery%20Video%20Support%20Without%20API/README.md)
+* [PLP Infinite scroll](Extensibility%20Samples/PLP%20Infinite%20scroll/README.md)
+* [Pop Up](Extensibility%20Samples/Popup/README.md)
+* [Product Badge](Extensibility%20Samples/Product%20Badges/README.md)
+* [AddToCartProductCard](Extensibility%20Samples/AddToCartProductCard/README.md)
+* [Tile Navigation](Extensibility%20Samples/Tile%20Navigation/README.md)
+* [Wishlist Items Count](Extensibility%20Samples/Wishlist%20Items%20Count/README.md)
+* [Product Image Orientation](Extensibility%20Samples/Product%20Image%20Orientation/README.md)
+* [Sticky Header](Extensibility%20Samples/Sticky%20Header/README.md)

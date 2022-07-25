@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PopUpView renders correctly 1`] = `
+<div
+  autofocus=""
+  class=""
+  data-m-t="mock-type"
+  id=""
+>
+  <div
+    class=""
+  />
+  <div
+    class=""
+  >
+    <div />
+  </div>
+</div>
+`;
