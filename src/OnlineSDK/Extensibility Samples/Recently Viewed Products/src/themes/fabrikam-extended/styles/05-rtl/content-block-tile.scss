@@ -1,0 +1,9 @@
+[dir="rtl"] {
+    .ms-content-block {
+        &[data-m-layout="tile"] {
+            .ms-content-block__details {
+                text-align: right;
+            }
+        }
+    }
+}

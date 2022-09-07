@@ -22,14 +22,14 @@ namespace Contoso
             internal const string BooleanValueElement = "BooleanValue";
 
             /// <summary>
-            /// The inner text of Name element for SecretName property.
+            /// The inner text of Name element for CertificateStoreLocation property.
             /// </summary>
-            internal const string SecretName = "SecretName";
+            internal const string CertificateStoreLocation = "CertificateStoreLocation";
 
             /// <summary>
-            /// The inner text of Name element for LocalCertificateThumbprint property.
+            /// The inner text of Name element for CertificateStoreName property.
             /// </summary>
-            internal const string LocalCertificateThumbprint = "LocalCertificateThumbprint";
+            internal const string CertificateStoreName = "CertificateStoreName";
 
             /// <summary>
             /// The inner text of Namespace element for ConnectorSettingsInfo.
@@ -42,24 +42,14 @@ namespace Contoso
             internal const string HashAlgorithmName = "HashAlgorithmName";
 
             /// <summary>
-            /// The inner text of Name element for CertificateStoreName property.
-            /// </summary>
-            internal const string CertificateStoreName = "CertificateStoreName";
-
-            /// <summary>
-            /// The inner text of Name element for CertificateStoreLocation property.
-            /// </summary>
-            internal const string CertificateStoreLocation = "CertificateStoreLocation";
-
-            /// <summary>
-            /// The inner text of Name element for TryLocalCertificateFirst property.
-            /// </summary>
-            internal const string TryLocalCertificateFirst = "TryLocalCertificateFirst";
-
-            /// <summary>
             /// The inner text of Name element for IsReadyRequired property.
             /// </summary>
             internal const string IsReadyRequired = "IsReadyRequired";
+
+            /// <summary>
+            /// The inner text of Name element for LocalCertificateThumbprint property.
+            /// </summary>
+            internal const string LocalCertificateThumbprint = "LocalCertificateThumbprint";
 
             /// <summary>
             /// The name of the Name element.
@@ -77,9 +67,19 @@ namespace Contoso
             internal const string PropertyElement = "ConfigurationProperty";
 
             /// <summary>
+            /// The inner text of Name element for SecretName property.
+            /// </summary>
+            internal const string SecretName = "SecretName";
+
+            /// <summary>
             /// The StringValue element.
             /// </summary>
             internal const string StringValueElement = "StringValue";
+
+            /// <summary>
+            /// The inner text of Name element for TryLocalCertificateFirst property.
+            /// </summary>
+            internal const string TryLocalCertificateFirst = "TryLocalCertificateFirst";
         }
     }
 }

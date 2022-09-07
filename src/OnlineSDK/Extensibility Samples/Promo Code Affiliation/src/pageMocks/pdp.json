@@ -113,7 +113,7 @@
                                                 "logoImage": {
                                                     "$type": "image",
                                                     "_id": "MCsCx",
-                                                    "src": "https://images-us-ppe.cms.commerce.dynamics.com/cms/api/gfhwnkhdlh/imageFileData/MCsCy?ver=18c6",
+                                                    "src": "https://images-us-ppe.cms.dynamics365commerce.ms/cms/api/gfhwnkhdlh/imageFileData/MCsCy?ver=18c6",
                                                     "altText": "Fabrikam",
                                                     "location": {},
                                                     "copyright": "",
@@ -209,7 +209,7 @@
                                                                     "image": {
                                                                         "$type": "image",
                                                                         "_id": "MC7tpy",
-                                                                        "src": "https://images-us-ppe.cms.commerce.dynamics.com/cms/api/gfhwnkhdlh/imageFileData/MC7tpz?ver=04bc",
+                                                                        "src": "https://images-us-ppe.cms.dynamics365commerce.ms/cms/api/gfhwnkhdlh/imageFileData/MC7tpz?ver=04bc",
                                                                         "altText": "contact us",
                                                                         "copyright": "",
                                                                         "binaryHash": "z4uKWh1NYtpF4O08gPtwBg==",
@@ -254,7 +254,7 @@
                                                                             "image": {
                                                                                 "$type": "image",
                                                                                 "_id": "MC1NKG",
-                                                                                "src": "https://images-us-ppe.cms.commerce.dynamics.com/cms/api/gfhwnkhdlh/imageFileData/MC1NKH?ver=5944",
+                                                                                "src": "https://images-us-ppe.cms.dynamics365commerce.ms/cms/api/gfhwnkhdlh/imageFileData/MC1NKH?ver=5944",
                                                                                 "altText": "fgfg",
                                                                                 "location": {},
                                                                                 "copyright": "",
@@ -347,7 +347,7 @@
                                                                     "image": {
                                                                         "$type": "image",
                                                                         "_id": "LAlz0",
-                                                                        "src": "https://images-us-ppe.cms.commerce.dynamics.com/cms/api/gfhwnkhdlh/imageFileData/LAlz1?ver=cdc0",
+                                                                        "src": "https://images-us-ppe.cms.dynamics365commerce.ms/cms/api/gfhwnkhdlh/imageFileData/LAlz1?ver=cdc0",
                                                                         "altText": "Digital Gift Card",
                                                                         "location": {},
                                                                         "copyright": "",
@@ -390,7 +390,7 @@
                                                                     "image": {
                                                                         "$type": "image",
                                                                         "_id": "LA164M",
-                                                                        "src": "https://images-us-ppe.cms.commerce.dynamics.com/cms/api/gfhwnkhdlh/imageFileData/LA164R?ver=f344",
+                                                                        "src": "https://images-us-ppe.cms.dynamics365commerce.ms/cms/api/gfhwnkhdlh/imageFileData/LA164R?ver=f344",
                                                                         "altText": "KitImage1",
                                                                         "copyright": "",
                                                                         "binaryHash": "XfDspEA5xx3UcE4ZFycbAw==",
@@ -429,7 +429,7 @@
                                                                     "image": {
                                                                         "$type": "image",
                                                                         "_id": "MCy8b",
-                                                                        "src": "https://images-us-ppe.cms.commerce.dynamics.com/cms/api/gfhwnkhdlh/imageFileData/MCy96?ver=3940",
+                                                                        "src": "https://images-us-ppe.cms.dynamics365commerce.ms/cms/api/gfhwnkhdlh/imageFileData/MCy96?ver=3940",
                                                                         "altText": "No Data Available",
                                                                         "copyright": "",
                                                                         "binaryHash": "0pKmAZy/6Fb0sVAGByUucA==",
@@ -563,13 +563,13 @@
                                                             },
                                                             "mode": "findStores",
                                                             "searchRadiusUnit": "miles",
-                                                            "lookupRadius": 50.0,
+                                                            "lookupRadius": 200.0,
                                                             "style": "dialog",
                                                             "setAsPreferredStore": true,
                                                             "enablePickupFilterToShowStore": false,
                                                             "showAllStores": true,
                                                             "autoSuggestionEnabled": true,
-                                                            "autoSuggestOptions": { "maxResults": 5 }
+                                                            "autoSuggestOptions": { "maxResults": 10 }
                                                         },
                                                         "modules": {
                                                             "maps": [
@@ -604,7 +604,7 @@
                                                                     "siteImage": {
                                                                         "$type": "image",
                                                                         "_id": "MCfjwZ",
-                                                                        "src": "https://images-us-ppe.cms.commerce.dynamics.com/cms/api/gfhwnkhdlh/imageFileData/MCfjx0?ver=08c6",
+                                                                        "src": "https://images-us-ppe.cms.dynamics365commerce.ms/cms/api/gfhwnkhdlh/imageFileData/MCfjx0?ver=08c6",
                                                                         "altText": "BE_50.jpg",
                                                                         "focalRegion": { "x1": 60, "x2": 60, "y1": 29, "y2": 29 },
                                                                         "height": 50,
@@ -629,7 +629,7 @@
                                                                     "siteImage": {
                                                                         "$type": "image",
                                                                         "_id": "MCfjwZ",
-                                                                        "src": "https://images-us-ppe.cms.commerce.dynamics.com/cms/api/gfhwnkhdlh/imageFileData/MCfjx0?ver=08c6",
+                                                                        "src": "https://images-us-ppe.cms.dynamics365commerce.ms/cms/api/gfhwnkhdlh/imageFileData/MCfjx0?ver=08c6",
                                                                         "altText": "BE_50.jpg",
                                                                         "focalRegion": { "x1": 60, "x2": 60, "y1": 29, "y2": 29 },
                                                                         "height": 50,
@@ -654,7 +654,7 @@
                                                                     "siteImage": {
                                                                         "$type": "image",
                                                                         "_id": "MCeyHL",
-                                                                        "src": "https://images-us-ppe.cms.commerce.dynamics.com/cms/api/gfhwnkhdlh/imageFileData/MCeyHW?ver=ba09",
+                                                                        "src": "https://images-us-ppe.cms.dynamics365commerce.ms/cms/api/gfhwnkhdlh/imageFileData/MCeyHW?ver=ba09",
                                                                         "altText": "Flag",
                                                                         "height": 50,
                                                                         "quality": 94,
@@ -678,7 +678,7 @@
                                                                     "siteImage": {
                                                                         "$type": "image",
                                                                         "_id": "MCeyHL",
-                                                                        "src": "https://images-us-ppe.cms.commerce.dynamics.com/cms/api/gfhwnkhdlh/imageFileData/MCeyHW?ver=ba09",
+                                                                        "src": "https://images-us-ppe.cms.dynamics365commerce.ms/cms/api/gfhwnkhdlh/imageFileData/MCeyHW?ver=ba09",
                                                                         "altText": "Flag",
                                                                         "height": 50,
                                                                         "quality": 94,
@@ -702,7 +702,7 @@
                                                                     "siteImage": {
                                                                         "$type": "image",
                                                                         "_id": "MCeyHP",
-                                                                        "src": "https://images-us-ppe.cms.commerce.dynamics.com/cms/api/gfhwnkhdlh/imageFileData/MCeyI0?ver=4939",
+                                                                        "src": "https://images-us-ppe.cms.dynamics365commerce.ms/cms/api/gfhwnkhdlh/imageFileData/MCeyI0?ver=4939",
                                                                         "altText": "Flag",
                                                                         "copyright": "",
                                                                         "quality": 94,
@@ -726,7 +726,7 @@
                                                                     "siteImage": {
                                                                         "$type": "image",
                                                                         "_id": "MCeyHV",
-                                                                        "src": "https://images-us-ppe.cms.commerce.dynamics.com/cms/api/gfhwnkhdlh/imageFileData/MCeyHZ?ver=dc36",
+                                                                        "src": "https://images-us-ppe.cms.dynamics365commerce.ms/cms/api/gfhwnkhdlh/imageFileData/MCeyHZ?ver=dc36",
                                                                         "altText": "Flag",
                                                                         "copyright": "",
                                                                         "quality": 94,
@@ -750,7 +750,7 @@
                                                                     "siteImage": {
                                                                         "$type": "image",
                                                                         "_id": "MCfUtP",
-                                                                        "src": "https://images-us-ppe.cms.commerce.dynamics.com/cms/api/gfhwnkhdlh/imageFileData/MCfUtQ?ver=77f6",
+                                                                        "src": "https://images-us-ppe.cms.dynamics365commerce.ms/cms/api/gfhwnkhdlh/imageFileData/MCfUtQ?ver=77f6",
                                                                         "altText": "GB_50.jpg",
                                                                         "height": 46,
                                                                         "quality": 94,
@@ -774,7 +774,7 @@
                                                                     "siteImage": {
                                                                         "$type": "image",
                                                                         "_id": "MCfjx2",
-                                                                        "src": "https://images-us-ppe.cms.commerce.dynamics.com/cms/api/gfhwnkhdlh/imageFileData/MCfjx3?ver=016f",
+                                                                        "src": "https://images-us-ppe.cms.dynamics365commerce.ms/cms/api/gfhwnkhdlh/imageFileData/MCfjx3?ver=016f",
                                                                         "altText": "NL_50.jpg",
                                                                         "height": 56,
                                                                         "quality": 94,
@@ -798,7 +798,7 @@
                                                                     "siteImage": {
                                                                         "$type": "image",
                                                                         "_id": "MCeyHT",
-                                                                        "src": "https://images-us-ppe.cms.commerce.dynamics.com/cms/api/gfhwnkhdlh/imageFileData/MCeyI1?ver=0fbf",
+                                                                        "src": "https://images-us-ppe.cms.dynamics365commerce.ms/cms/api/gfhwnkhdlh/imageFileData/MCeyI1?ver=0fbf",
                                                                         "altText": "Flag",
                                                                         "copyright": "",
                                                                         "quality": 94,
@@ -822,7 +822,7 @@
                                                                     "siteImage": {
                                                                         "$type": "image",
                                                                         "_id": "MCeyHU",
-                                                                        "src": "https://images-us-ppe.cms.commerce.dynamics.com/cms/api/gfhwnkhdlh/imageFileData/MCeyHY?ver=0635",
+                                                                        "src": "https://images-us-ppe.cms.dynamics365commerce.ms/cms/api/gfhwnkhdlh/imageFileData/MCeyHY?ver=0635",
                                                                         "altText": "Flag",
                                                                         "height": 50,
                                                                         "quality": 94,
@@ -846,7 +846,7 @@
                                                                     "siteImage": {
                                                                         "$type": "image",
                                                                         "_id": "MCeyHU",
-                                                                        "src": "https://images-us-ppe.cms.commerce.dynamics.com/cms/api/gfhwnkhdlh/imageFileData/MCeyHY?ver=0635",
+                                                                        "src": "https://images-us-ppe.cms.dynamics365commerce.ms/cms/api/gfhwnkhdlh/imageFileData/MCeyHY?ver=0635",
                                                                         "altText": "Flag",
                                                                         "height": 50,
                                                                         "quality": 94,
@@ -870,7 +870,7 @@
                                                                     "siteImage": {
                                                                         "$type": "image",
                                                                         "_id": "MCfZou",
-                                                                        "src": "https://images-us-ppe.cms.commerce.dynamics.com/cms/api/gfhwnkhdlh/imageFileData/MCfZov?ver=0261",
+                                                                        "src": "https://images-us-ppe.cms.dynamics365commerce.ms/cms/api/gfhwnkhdlh/imageFileData/MCfZov?ver=0261",
                                                                         "altText": "JA_50.jpg",
                                                                         "height": 53,
                                                                         "quality": 94,
@@ -910,7 +910,7 @@
                                                         "image": {
                                                             "$type": "image",
                                                             "_id": "MCfjwZ",
-                                                            "src": "https://images-us-ppe.cms.commerce.dynamics.com/cms/api/gfhwnkhdlh/imageFileData/MCfjx0?ver=08c6",
+                                                            "src": "https://images-us-ppe.cms.dynamics365commerce.ms/cms/api/gfhwnkhdlh/imageFileData/MCfjx0?ver=08c6",
                                                             "altText": "BE_50.jpg",
                                                             "focalRegion": { "x1": 60, "x2": 60, "y1": 29, "y2": 29 },
                                                             "height": 50,
@@ -929,7 +929,7 @@
                                                         "image": {
                                                             "$type": "image",
                                                             "_id": "MCfjwZ",
-                                                            "src": "https://images-us-ppe.cms.commerce.dynamics.com/cms/api/gfhwnkhdlh/imageFileData/MCfjx0?ver=08c6",
+                                                            "src": "https://images-us-ppe.cms.dynamics365commerce.ms/cms/api/gfhwnkhdlh/imageFileData/MCfjx0?ver=08c6",
                                                             "altText": "BE_50.jpg",
                                                             "focalRegion": { "x1": 60, "x2": 60, "y1": 29, "y2": 29 },
                                                             "height": 50,
@@ -948,7 +948,7 @@
                                                         "image": {
                                                             "$type": "image",
                                                             "_id": "MCeyHL",
-                                                            "src": "https://images-us-ppe.cms.commerce.dynamics.com/cms/api/gfhwnkhdlh/imageFileData/MCeyHW?ver=ba09",
+                                                            "src": "https://images-us-ppe.cms.dynamics365commerce.ms/cms/api/gfhwnkhdlh/imageFileData/MCeyHW?ver=ba09",
                                                             "altText": "Flag",
                                                             "height": 50,
                                                             "quality": 94,
@@ -966,7 +966,7 @@
                                                         "image": {
                                                             "$type": "image",
                                                             "_id": "MCeyHL",
-                                                            "src": "https://images-us-ppe.cms.commerce.dynamics.com/cms/api/gfhwnkhdlh/imageFileData/MCeyHW?ver=ba09",
+                                                            "src": "https://images-us-ppe.cms.dynamics365commerce.ms/cms/api/gfhwnkhdlh/imageFileData/MCeyHW?ver=ba09",
                                                             "altText": "Flag",
                                                             "height": 50,
                                                             "quality": 94,
@@ -983,7 +983,7 @@
                                                         "image": {
                                                             "$type": "image",
                                                             "_id": "MCeyHP",
-                                                            "src": "https://images-us-ppe.cms.commerce.dynamics.com/cms/api/gfhwnkhdlh/imageFileData/MCeyI0?ver=4939",
+                                                            "src": "https://images-us-ppe.cms.dynamics365commerce.ms/cms/api/gfhwnkhdlh/imageFileData/MCeyI0?ver=4939",
                                                             "altText": "Flag",
                                                             "copyright": "",
                                                             "quality": 94,
@@ -1000,7 +1000,7 @@
                                                         "image": {
                                                             "$type": "image",
                                                             "_id": "MCeyHV",
-                                                            "src": "https://images-us-ppe.cms.commerce.dynamics.com/cms/api/gfhwnkhdlh/imageFileData/MCeyHZ?ver=dc36",
+                                                            "src": "https://images-us-ppe.cms.dynamics365commerce.ms/cms/api/gfhwnkhdlh/imageFileData/MCeyHZ?ver=dc36",
                                                             "altText": "Flag",
                                                             "copyright": "",
                                                             "quality": 94,
@@ -1017,7 +1017,7 @@
                                                         "image": {
                                                             "$type": "image",
                                                             "_id": "MCfUtP",
-                                                            "src": "https://images-us-ppe.cms.commerce.dynamics.com/cms/api/gfhwnkhdlh/imageFileData/MCfUtQ?ver=77f6",
+                                                            "src": "https://images-us-ppe.cms.dynamics365commerce.ms/cms/api/gfhwnkhdlh/imageFileData/MCfUtQ?ver=77f6",
                                                             "altText": "GB_50.jpg",
                                                             "height": 46,
                                                             "quality": 94,
@@ -1034,7 +1034,7 @@
                                                         "image": {
                                                             "$type": "image",
                                                             "_id": "MCfZou",
-                                                            "src": "https://images-us-ppe.cms.commerce.dynamics.com/cms/api/gfhwnkhdlh/imageFileData/MCfZov?ver=0261",
+                                                            "src": "https://images-us-ppe.cms.dynamics365commerce.ms/cms/api/gfhwnkhdlh/imageFileData/MCfZov?ver=0261",
                                                             "altText": "JA_50.jpg",
                                                             "height": 53,
                                                             "quality": 94,
@@ -1051,7 +1051,7 @@
                                                         "image": {
                                                             "$type": "image",
                                                             "_id": "MCfjx2",
-                                                            "src": "https://images-us-ppe.cms.commerce.dynamics.com/cms/api/gfhwnkhdlh/imageFileData/MCfjx3?ver=016f",
+                                                            "src": "https://images-us-ppe.cms.dynamics365commerce.ms/cms/api/gfhwnkhdlh/imageFileData/MCfjx3?ver=016f",
                                                             "altText": "NL_50.jpg",
                                                             "height": 56,
                                                             "quality": 94,
@@ -1068,7 +1068,7 @@
                                                         "image": {
                                                             "$type": "image",
                                                             "_id": "MCeyHT",
-                                                            "src": "https://images-us-ppe.cms.commerce.dynamics.com/cms/api/gfhwnkhdlh/imageFileData/MCeyI1?ver=0fbf",
+                                                            "src": "https://images-us-ppe.cms.dynamics365commerce.ms/cms/api/gfhwnkhdlh/imageFileData/MCeyI1?ver=0fbf",
                                                             "altText": "Flag",
                                                             "copyright": "",
                                                             "quality": 94,
@@ -1085,7 +1085,7 @@
                                                         "image": {
                                                             "$type": "image",
                                                             "_id": "MCeyHU",
-                                                            "src": "https://images-us-ppe.cms.commerce.dynamics.com/cms/api/gfhwnkhdlh/imageFileData/MCeyHY?ver=0635",
+                                                            "src": "https://images-us-ppe.cms.dynamics365commerce.ms/cms/api/gfhwnkhdlh/imageFileData/MCeyHY?ver=0635",
                                                             "altText": "Flag",
                                                             "height": 50,
                                                             "quality": 94,
@@ -1103,7 +1103,7 @@
                                                         "image": {
                                                             "$type": "image",
                                                             "_id": "MCeyHU",
-                                                            "src": "https://images-us-ppe.cms.commerce.dynamics.com/cms/api/gfhwnkhdlh/imageFileData/MCeyHY?ver=0635",
+                                                            "src": "https://images-us-ppe.cms.dynamics365commerce.ms/cms/api/gfhwnkhdlh/imageFileData/MCeyHY?ver=0635",
                                                             "altText": "Flag",
                                                             "height": 50,
                                                             "quality": 94,
@@ -1426,7 +1426,7 @@
                                                             "image": {
                                                                 "$type": "image",
                                                                 "_id": "MCsDj",
-                                                                "src": "https://images-us-ppe.cms.commerce.dynamics.com/cms/api/gfhwnkhdlh/imageFileData/MCsDk?ver=4a92",
+                                                                "src": "https://images-us-ppe.cms.dynamics365commerce.ms/cms/api/gfhwnkhdlh/imageFileData/MCsDk?ver=4a92",
                                                                 "copyright": "",
                                                                 "altText": "Facebook",
                                                                 "binaryHash": "eSssNLV3QebTU/R0wA1ZQA==",
@@ -1474,7 +1474,7 @@
                                                             "image": {
                                                                 "$type": "image",
                                                                 "_id": "MCsDp",
-                                                                "src": "https://images-us-ppe.cms.commerce.dynamics.com/cms/api/gfhwnkhdlh/imageFileData/MCsDq?ver=8565",
+                                                                "src": "https://images-us-ppe.cms.dynamics365commerce.ms/cms/api/gfhwnkhdlh/imageFileData/MCsDq?ver=8565",
                                                                 "copyright": "",
                                                                 "photographer": "multiple assets ",
                                                                 "altText": "Twitter",
@@ -1523,7 +1523,7 @@
                                                             "image": {
                                                                 "$type": "image",
                                                                 "_id": "MCsDm",
-                                                                "src": "https://images-us-ppe.cms.commerce.dynamics.com/cms/api/gfhwnkhdlh/imageFileData/MCsDn?ver=eb2a",
+                                                                "src": "https://images-us-ppe.cms.dynamics365commerce.ms/cms/api/gfhwnkhdlh/imageFileData/MCsDn?ver=eb2a",
                                                                 "copyright": "",
                                                                 "altText": "Instagram",
                                                                 "binaryHash": "GyWvoIQDWXVgg2Z+eTu9kQ==",
@@ -1566,17 +1566,7 @@
                                             "typeName": "footer-category",
                                             "id": "IDNMAxJzO_bzrh8ms-footer-category__3",
                                             "friendlyName": "Footer category 4",
-                                            "config": {},
-                                            "modules": {
-                                                "content": [
-                                                    {
-                                                        "typeName": "back-top-footer",
-                                                        "id": "IDNMAxJzO_bzrh8ms-back-top-footer",
-                                                        "friendlyName": "Back to top",
-                                                        "config": { "destination": "#", "ariaLabel": "Back to top" }
-                                                    }
-                                                ]
-                                            }
+                                            "config": {}
                                         },
                                         {
                                             "typeName": "footer-category",
@@ -1785,7 +1775,7 @@
                                                                         "icon": {
                                                                             "$type": "image",
                                                                             "_id": "MCsDj",
-                                                                            "src": "https://images-us-ppe.cms.commerce.dynamics.com/cms/api/gfhwnkhdlh/imageFileData/MCsDk?ver=4a92",
+                                                                            "src": "https://images-us-ppe.cms.dynamics365commerce.ms/cms/api/gfhwnkhdlh/imageFileData/MCsDk?ver=4a92",
                                                                             "copyright": "",
                                                                             "altText": "Facebook",
                                                                             "binaryHash": "eSssNLV3QebTU/R0wA1ZQA==",
@@ -1813,7 +1803,7 @@
                                                                         "icon": {
                                                                             "$type": "image",
                                                                             "_id": "MC5ACO",
-                                                                            "src": "https://images-us-ppe.cms.commerce.dynamics.com/cms/api/gfhwnkhdlh/imageFileData/MC5ACP?ver=f298",
+                                                                            "src": "https://images-us-ppe.cms.dynamics365commerce.ms/cms/api/gfhwnkhdlh/imageFileData/MC5ACP?ver=f298",
                                                                             "altText": "Twitter Share Button",
                                                                             "copyright": "",
                                                                             "quality": 100,
@@ -1839,7 +1829,7 @@
                                                                         "icon": {
                                                                             "$type": "image",
                                                                             "_id": "MC5y9R",
-                                                                            "src": "https://images-us-ppe.cms.commerce.dynamics.com/cms/api/gfhwnkhdlh/imageFileData/MC5y9S?ver=c056",
+                                                                            "src": "https://images-us-ppe.cms.dynamics365commerce.ms/cms/api/gfhwnkhdlh/imageFileData/MC5y9S?ver=c056",
                                                                             "altText": "Linkedin share ",
                                                                             "copyright": "",
                                                                             "quality": 100,
@@ -2268,17 +2258,17 @@
         },
         "DeviceType": "Pc",
         "experiments": { "userId": null, "activeExperiments": [] },
-        "tuid": "351f4184-24b4-6cc2-f6ae-af6c6832159d",
+        "tuid": "a4a7ae76-367d-5cd7-d31e-62009c4f5de3",
         "segmentRequestId": null,
         "missingSegments": {},
-        "requestUrl": "https://r1tie.fabrikam.com/modern/khaki-men-s-coat/68719490628.p?back=true",
+        "requestUrl": "https://r1tie.fabrikam.com/modern/leather-dress-coat/68719492919.p",
         "sitePath": "/modern",
         "CrossChannelIdentity": [],
-        "clientIPAddress": "2409:4070:2cb2:3bc7:982d:7c1d:b119:19df",
+        "clientIPAddress": "2409:4070:2c9d:30e3:b150:4224:92b0:8d5",
         "clientContext": {
             "deviceType": "Pc",
             "isBot": false,
-            "requestUserAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.54 Safari/537.36 Edg/101.0.1210.39"
+            "requestUserAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.53 Safari/537.36 Edg/103.0.1264.37"
         },
         "canonicalUrl": null,
         "canonicalDomain": "r1tie.fabrikam.com",
@@ -2321,8 +2311,7 @@
             "currentBaseUrl": "r1tie.fabrikam.com/modern",
             "isAutoRedirectEnabled": false
         },
-        "query": { "back": "true" },
-        "urlTokens": { "itemId": "68719490628", "recordId": "68719490628", "pageType": "Product" },
+        "urlTokens": { "itemId": "68719492919", "recordId": "68719492919", "pageType": "Product" },
         "apiSettings": {
             "baseUrl": "https://comme2e-tie-ring1f9397e098fb7bd4fret.cloud.retail.test.dynamics.com/",
             "retailServerEndpointOverrideDomain": null,
@@ -2331,7 +2320,7 @@
             "eCommerceCrossChannelId": null,
             "catalogId": 0,
             "oun": "128",
-            "baseImageUrl": "https://images-us-ppe.cms.commerce.dynamics.com/cms/api/gfhwnkhdlh/imageFileData/search?fileName=/",
+            "baseImageUrl": "https://images-us-ppe.cms.dynamics365commerce.ms/cms/api/gfhwnkhdlh/imageFileData/search?fileName=/",
             "ratingsReviewsEndpoint": "https://71d4e2df-e581-4d2a-8131-801e5dc8d536.rnr-ppe.ms",
             "ratingsReviewsProxyEndpoint": "https://r1tie.fabrikam.com/_msdyn365/rnr/",
             "rnr": {
@@ -2343,7 +2332,7 @@
         },
         "gridSettings": { "xs": { "w": 768 }, "sm": { "w": 991 }, "md": { "w": 1199 }, "lg": { "w": 1599 }, "xl": { "w": 1600 } },
         "debugMode": 0,
-        "operationId": "808177087024e14fa7792619c04942b0",
+        "operationId": "15a8adfee01bf74b951686f012d1b408",
         "siteTheme": "fabrikam-extended",
         "sameSiteRequired": true,
         "features": {
@@ -2354,6 +2343,7 @@
             "scnr_blob": true,
             "action_timeout": true,
             "clientRender_modules": true,
+            "optimize_client_hydrate": true,
             "client_optimize_hydrate": true,
             "allow_react_statics_in_body": true,
             "disable_cors": true,
@@ -2369,7 +2359,7 @@
         "telemetrySettings": {
             "eventHubEndPoint": "",
             "eventHubAuthToken": "",
-            "operationId": "808177087024e14fa7792619c04942b0",
+            "operationId": "15a8adfee01bf74b951686f012d1b408",
             "url": "",
             "clientAuth": "",
             "environmentId": "",
@@ -2387,7 +2377,7 @@
             "inventoryRanges": "all",
             "warehouseAggregation": "individual",
             "outOfStockThreshold": 0.0,
-            "productListInventoryDisplay": "default",
+            "productListInventoryDisplay": "sortOOS",
             "maxQuantityForCartLineItem": 10.0,
             "hideRating": false,
             "geolocationApiUrl": "https://dev.virtualearth.net/REST/v1/",
@@ -2396,15 +2386,15 @@
             "disableTooltip": false,
             "searchQueryStringParameter": "q",
             "searchInputMaxLength": 50.0,
-            "addToCartBehavior": "showNotification",
+            "addToCartBehavior": "showMiniCart",
             "giftCardSupported": "both",
             "breadcrumbType": "back",
             "shouldUseNewImageComponent": true,
             "placeholderImageName": "Placeholder.png",
-            "unitOfMeasureDisplayType": "buybox",
-            "shouldEnableSinglePaymentAuthorizationCheckout": false,
-            "dimensionsAsSwatchType": ["color", "size", "style"],
-            "dimensionsInProductCard": ["color", "size", "style"],
+            "unitOfMeasureDisplayType": "buyboxAndBrowse",
+            "shouldEnableSinglePaymentAuthorizationCheckout": true,
+            "dimensionsAsSwatchType": ["color", "style", "size"],
+            "dimensionsInProductCard": ["color", "size"],
             "dimensionToPreSelectInProductCard": "color",
             "isEnableShowOrHideSalesTaxECommerceEnabled": true
         },
@@ -2433,7 +2423,7 @@
             "cartSessionExpiration": 1.0,
             "imageQuality": 80.0,
             "maxDepth": 200.0,
-            "skipToMainText": "Skip to main",
+            "skipToMainText": "Skip to main chat",
             "enableCustomerAccountPayment": "all",
             "enableDefaultOrderQuantityLimits": "b2b",
             "parameterizedUrlPaths": ["/tv/episodes"]

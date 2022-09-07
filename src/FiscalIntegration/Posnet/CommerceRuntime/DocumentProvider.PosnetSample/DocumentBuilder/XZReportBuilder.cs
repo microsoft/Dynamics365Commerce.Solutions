@@ -29,7 +29,7 @@
             /// Builds fiscal document for X/Z report.
             /// </summary>
             /// <returns>The <see cref="PosnetFiscalDocumentBuildResult"/> instance.</returns>
-            public async Task<PosnetFiscalDocumentBuildResult> BuildAsync()
+            public Task<PosnetFiscalDocumentBuildResult> BuildAsync()
             {
                 IEnumerable<IPosnetCommandRequest> commands = null;
                 FiscalIntegrationEventType eventType = Request.FiscalDocumentRetrievalCriteria.FiscalRegistrationEventType;
@@ -48,7 +48,7 @@
                     throw new Exception($"Event type {eventType} is not supported.");
                 }
 
-                return await Task.FromResult(new PosnetFiscalDocumentBuildResult
+                return Task.FromResult(new PosnetFiscalDocumentBuildResult
                 {
                     Document = new PosnetDocumentRequest(commands),
                     DocumentAdjustment = new FiscalIntegrationDocumentAdjustment(),

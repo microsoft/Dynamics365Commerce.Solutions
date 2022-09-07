@@ -308,24 +308,24 @@ namespace Contoso
             private static async Task<IEnumerable<SalesLine>> GetSalesLines(RequestContext requestContext, SalesOrder salesOrder)
             {
                 var request = new GetEfrSalesLinesRequest(salesOrder);
-                return (await requestContext.ExecuteAsync<SingleEntityDataServiceResponse<IEnumerable<SalesLine>>>(request)).Entity;
+                return (await requestContext.ExecuteAsync<SingleEntityDataServiceResponse<IEnumerable<SalesLine>>>(request).ConfigureAwait(false)).Entity;
             }
 
             private static async Task<string> TranslateAsync(RequestContext requestContext, string cultureName, string textId)
             {
-                return (await requestContext.ExecuteAsync<SingleEntityDataServiceResponse<string>>(new LocalizeEfrResourceRequest(cultureName, textId))).Entity;
+                return (await requestContext.ExecuteAsync<SingleEntityDataServiceResponse<string>>(new LocalizeEfrResourceRequest(cultureName, textId)).ConfigureAwait(false)).Entity;
             }
 
             private static async Task<ReceiptPayment> PopulateEfrLocalizationInfoToPayment(RequestContext requestContext, ReceiptPayment receiptPayment)
             {
                 var request = new PopulateEfrLocalizationInfoToPaymentRequest(receiptPayment);
-                return (await requestContext.ExecuteAsync<SingleEntityDataServiceResponse<ReceiptPayment>>(request)).Entity;
+                return (await requestContext.ExecuteAsync<SingleEntityDataServiceResponse<ReceiptPayment>>(request).ConfigureAwait(false)).Entity;
             }
 
             private static async Task<ReceiptPayment> GetDepositTenderLine(RequestContext requestContext, SalesOrder salesOrder, FiscalIntegrationFunctionalityProfile fiscalIntegrationFunctionalityProfile)
             {
                 var request = new GetEfrDepositTenderLineRequest(salesOrder, fiscalIntegrationFunctionalityProfile);
-                return (await requestContext.ExecuteAsync<SingleEntityDataServiceResponse<ReceiptPayment>>(request)).Entity;
+                return (await requestContext.ExecuteAsync<SingleEntityDataServiceResponse<ReceiptPayment>>(request).ConfigureAwait(false)).Entity;
             }
 
             /// <summary>
@@ -345,7 +345,7 @@ namespace Contoso
             private static async Task<string> GetEfrTenderTypeName(RequestContext requestContext, string tenderTypeId)
             {
                 var request = new GetEfrGetTenderTypeNameRequest(tenderTypeId);
-                return (await requestContext.ExecuteAsync<SingleEntityDataServiceResponse<string>>(request)).Entity;
+                return (await requestContext.ExecuteAsync<SingleEntityDataServiceResponse<string>>(request).ConfigureAwait(false)).Entity;
             }
         }
     }

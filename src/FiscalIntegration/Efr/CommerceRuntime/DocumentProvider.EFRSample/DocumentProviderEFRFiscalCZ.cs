@@ -85,10 +85,10 @@ namespace Contoso
                         return await GetSupportedRegistrableEventsAsync().ConfigureAwait(false);
 
                     case GetFiscalDocumentDocumentProviderRequest getFiscalDocumentDocumentProviderRequest:
-                        return await GetFiscalDocumentResponseAsync(getFiscalDocumentDocumentProviderRequest);
+                        return await GetFiscalDocumentResponseAsync(getFiscalDocumentDocumentProviderRequest).ConfigureAwait(false);
 
                     case GetFiscalRegisterResponseToSaveDocumentProviderRequest getFiscalRegisterResponseToSaveDocumentProviderRequest:
-                        return await GetFiscalRegisterResponseToSaveAsync(getFiscalRegisterResponseToSaveDocumentProviderRequest);
+                        return await GetFiscalRegisterResponseToSaveAsync(getFiscalRegisterResponseToSaveDocumentProviderRequest).ConfigureAwait(false);
 
                     case GetFiscalTransactionExtendedDataDocumentProviderRequest getFiscalTransactionExtendedDataDocumentProviderRequest:
                         return await Task.FromResult<Response>(GetFiscalTransactionExtendedData(getFiscalTransactionExtendedDataDocumentProviderRequest)).ConfigureAwait(false);
@@ -174,7 +174,8 @@ namespace Contoso
 
                 FiscalIntegrationDocument fiscalIntegrationDocument = document != null ?
                     new FiscalIntegrationDocument(FiscalDocumentSerializer.Serialize(document), FiscalIntegrationDocumentGenerationResultType.Succeeded) :
-                    new FiscalIntegrationDocument(string.Empty, FiscalIntegrationDocumentGenerationResultType.NotRequired);
+                    new FiscalIntegrationDocument(document: string.Empty,
+                                                  resultType: FiscalIntegrationDocumentGenerationResultType.NotRequired);
 
                 return new GetFiscalDocumentDocumentProviderResponse(fiscalIntegrationDocument);
             }

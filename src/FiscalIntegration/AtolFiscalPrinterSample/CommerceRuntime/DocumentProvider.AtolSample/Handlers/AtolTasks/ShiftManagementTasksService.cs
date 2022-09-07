@@ -39,22 +39,17 @@ namespace Contoso
             /// </summary>
             /// <param name="request">Th request.</param>
             /// <returns>The response.</returns>
-            public async Task<Response> Execute(Request request)
+            public Task<Response> Execute(Request request)
             {
                 ThrowIf.Null(request, nameof(request));
 
-                Response response;
-
-                if (request is GetCloseShiftTaskDocumentProviderAtolRequest getCloseShiftTaskDocumentProviderAtolRequest)
+                switch (request)
                 {
-                    response = await this.GetCloseShiftTaskAsync(getCloseShiftTaskDocumentProviderAtolRequest).ConfigureAwait(false);
+                    case GetCloseShiftTaskDocumentProviderAtolRequest getCloseShiftTaskDocumentProviderAtolRequest:
+                        return GetCloseShiftTaskAsync(getCloseShiftTaskDocumentProviderAtolRequest);
+                    default:
+                        throw new NotSupportedException(string.Format("Request '{0}' is not supported.", request.GetType()));
                 }
-                else
-                {
-                    throw new NotSupportedException(string.Format("Request '{0}' is not supported.", request.GetType()));
-                }
-
-                return response;
             }
 
             /// <summary>
@@ -62,7 +57,7 @@ namespace Contoso
             /// </summary>
             /// <param name="request">The request.</param>
             /// <returns>The response.</returns>
-            private async Task<GetCloseShiftTaskDocumentProviderAtolResponse> GetCloseShiftTaskAsync(GetCloseShiftTaskDocumentProviderAtolRequest request)
+            private async Task<Response> GetCloseShiftTaskAsync(GetCloseShiftTaskDocumentProviderAtolRequest request)
             {
                 var connectorProfile = await request.RequestContext.ExecuteAsync<DeserializeDocumentProviderSettingsDocumentProviderAtolResponse>(new DeserializeDocumentProviderSettingsDocumentProviderAtolRequest(request.FiscalIntegrationFunctionalityProfile)).ConfigureAwait(false);
                 var closeShiftTask = new AtolCloseShiftTask()

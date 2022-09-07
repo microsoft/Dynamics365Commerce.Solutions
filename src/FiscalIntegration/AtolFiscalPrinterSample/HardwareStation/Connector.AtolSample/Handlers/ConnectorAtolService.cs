@@ -51,29 +51,20 @@ namespace Contoso
             /// </summary>
             /// <param name="request">Th request.</param>
             /// <returns>The response.</returns>
-            public async  Task<Response> Execute(Request request)
+            public Task<Response> Execute(Request request)
             {
                 ThrowIf.Null(request, nameof(request));
 
-                Type requestType = request.GetType();
-
-                if (request is InitializeFiscalDeviceRequest)
+                switch (request)
                 {
-                    return Initialize(request as InitializeFiscalDeviceRequest);
-                }
-                if (requestType == typeof(SubmitDocumentFiscalDeviceRequest))
-                {
-                    SubmitDocumentFiscalDeviceRequest submitDocumentRequest = (SubmitDocumentFiscalDeviceRequest)request;
-                    return await SubmitDocument(submitDocumentRequest);
-                }
-                else if (requestType == typeof(IsReadyFiscalDeviceRequest))
-                {
-                    IsReadyFiscalDeviceRequest isReadyRequest = (IsReadyFiscalDeviceRequest)request;
-                    return await IsReady(isReadyRequest);
-                }
-                else
-                {
-                    throw new NotSupportedException(string.Format("Request '{0}' is not supported.", requestType));
+                    case InitializeFiscalDeviceRequest initializeFiscalDeviceRequest:
+                        return Task.FromResult<Response>(Initialize(initializeFiscalDeviceRequest));
+                    case IsReadyFiscalDeviceRequest isReadyFiscalDeviceRequest:
+                        return IsReady(isReadyFiscalDeviceRequest);
+                    case SubmitDocumentFiscalDeviceRequest submitDocumentFiscalDeviceRequest:
+                        return SubmitDocument(submitDocumentFiscalDeviceRequest);
+                    default:
+                        throw new NotSupportedException($"Request '{request.GetType()}' is not supported.");
                 }
             }
 

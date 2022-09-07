@@ -1,0 +1,12 @@
+$msv-wishlist-item-remove-button-left: 0;
+
+[dir="rtl"] {
+    .ms-wishlist-items {
+        &__product {
+            &-remove-button {
+                left: $msv-wishlist-item-remove-button-left;
+                right: auto;
+            }
+        }
+    }
+}

@@ -56,27 +56,19 @@ namespace Contoso
             /// </summary>
             /// <param name="request">The request to execute.</param>
             /// <returns>The response of the request from the request handler.</returns>
-            public async Task<Response> Execute(Request request)
+            public Task<Response> Execute(Request request)
             {
                 ThrowIf.Null(request, nameof(request));
 
-                Type requestType = request.GetType();
-                Response response;
-
-                if (requestType == typeof(GetFiscalDocumentDocumentProviderRequest))
+                switch(request)
                 {
-                    response = await this.GetFiscalDocumentAsync((GetFiscalDocumentDocumentProviderRequest)request).ConfigureAwait(false);
+                    case GetFiscalDocumentDocumentProviderRequest getFiscalDocumentDocumentProviderRequest:
+                        return this.GetFiscalDocumentAsync(getFiscalDocumentDocumentProviderRequest);
+                    case GetSupportedRegistrableEventsDocumentProviderRequest _:
+                        return Task.FromResult(this.GetSupportedRegistrableEvents());
+                    default:
+                        throw new NotSupportedException($"Request '{request.GetType()}' is not supported.");
                 }
-                else if (requestType == typeof(GetSupportedRegistrableEventsDocumentProviderRequest))
-                {
-                    response = this.GetSupportedRegistrableEvents();
-                }
-                else
-                {
-                    throw new NotSupportedException($"Request '{request.GetType()}' is not supported.");
-                }
-
-                return response;
             }
 
             /// <summary>
@@ -84,7 +76,7 @@ namespace Contoso
             /// </summary>
             /// <param name="request">The request.</param>
             /// <returns>The fiscal document document provider response.</returns>
-            private async Task<GetFiscalDocumentDocumentProviderResponse> GetFiscalDocumentAsync(GetFiscalDocumentDocumentProviderRequest request)
+            private async Task<Response> GetFiscalDocumentAsync(GetFiscalDocumentDocumentProviderRequest request)
             {
                 FiscalIntegrationEventType eventType = request.FiscalDocumentRetrievalCriteria.FiscalRegistrationEventType;
                 FiscalIntegrationDocumentGenerationResultType generationResultType = FiscalIntegrationDocumentGenerationResultType.None;
@@ -118,7 +110,7 @@ namespace Contoso
             /// Gets the supported registrable events document provider response.
             /// </summary>
             /// <returns>The supported registrable events document provider response.</returns>
-            private GetSupportedRegistrableEventsDocumentProviderResponse GetSupportedRegistrableEvents()
+            private Response GetSupportedRegistrableEvents()
             {
                 return new GetSupportedRegistrableEventsDocumentProviderResponse(this.SupportedRegistrableEventsId.ToList(), new List<int>());
             }

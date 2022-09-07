@@ -113,7 +113,7 @@ namespace Contoso
                 string storeLocation = ConfigurationController.GetCertificateStoreLocation(serviceProperties);
                 X509Certificate2 certificate = null;
                 FiscalIntegrationServiceFailureDetails failureDetails = null;
-                var request = new GetUserDefinedSecretCertificateServiceRequest(string.Empty, string.Empty, thumbprint, storeName, storeLocation, null);
+                var request = new GetUserDefinedSecretCertificateServiceRequest(profileId: string.Empty, secretName: string.Empty, thumbprint: thumbprint, storeName: storeName, storeLocation: storeLocation, expirationInterval: null);
 
                 try
                 {

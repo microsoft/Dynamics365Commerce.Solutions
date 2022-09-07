@@ -409,7 +409,7 @@ namespace Contoso
             private static async Task<decimal> CalculateDepositSumForOrder(RequestContext requestContext, SalesOrder salesOrder)
             {
                 var request = new GetEfrDepositOrderSumRequest(salesOrder);
-                return (await requestContext.ExecuteAsync<SingleEntityDataServiceResponse<decimal>>(request)).Entity;
+                return (await requestContext.ExecuteAsync<SingleEntityDataServiceResponse<decimal>>(request).ConfigureAwait(false)).Entity;
             }
 
             /// <summary>
@@ -454,24 +454,24 @@ namespace Contoso
             private static async Task<string> GetSalesLineTaxGroups(RequestContext requestContext, SalesLine salesLine, FiscalIntegrationFunctionalityProfile fiscalIntegrationFunctionalityProfile)
             {
                 var request = new GetEfrSalesLineTaxGroupsRequest(salesLine, fiscalIntegrationFunctionalityProfile);
-                return (await requestContext.ExecuteAsync<SingleEntityDataServiceResponse<string>>(request)).Entity;
+                return (await requestContext.ExecuteAsync<SingleEntityDataServiceResponse<string>>(request).ConfigureAwait(false)).Entity;
             }
 
             private static async Task<IEnumerable<SalesLine>> GetSalesLines(RequestContext requestContext, SalesOrder salesOrder)
             {
                 var request = new GetEfrSalesLinesRequest(salesOrder);
-                return (await requestContext.ExecuteAsync<SingleEntityDataServiceResponse<IEnumerable<SalesLine>>>(request)).Entity;
+                return (await requestContext.ExecuteAsync<SingleEntityDataServiceResponse<IEnumerable<SalesLine>>>(request).ConfigureAwait(false)).Entity;
             }
             
             private static async Task<string> TranslateAsync(RequestContext requestContext, string cultureName, string textId)
             {
-                return (await requestContext.ExecuteAsync<SingleEntityDataServiceResponse<string>>(new LocalizeEfrResourceRequest(cultureName, textId))).Entity;
+                return (await requestContext.ExecuteAsync<SingleEntityDataServiceResponse<string>>(new LocalizeEfrResourceRequest(cultureName, textId)).ConfigureAwait(false)).Entity;
             }
 
             private static async Task<string> GetEfrTenderTypeName(RequestContext requestContext, string tenderTypeId)
             {
                 var request = new GetEfrGetTenderTypeNameRequest(tenderTypeId);
-                return (await requestContext.ExecuteAsync<SingleEntityDataServiceResponse<string>>(request)).Entity;
+                return (await requestContext.ExecuteAsync<SingleEntityDataServiceResponse<string>>(request).ConfigureAwait(false)).Entity;
             }
         }
     }

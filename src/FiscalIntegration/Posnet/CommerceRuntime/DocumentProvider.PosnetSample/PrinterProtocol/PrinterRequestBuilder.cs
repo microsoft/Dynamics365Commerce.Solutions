@@ -42,7 +42,7 @@
                                             BindingFlags.Instance);
                 foreach (var prop in props)
                 {
-                    var attributes = Attribute.GetCustomAttributes(prop, true);
+                    var attributes = Attribute.GetCustomAttributes(prop, inherit: true);
 
                     CommandParameterAttribute commandParmAttr = attributes.FirstOrDefault(x => x is CommandParameterAttribute) as CommandParameterAttribute;
                     CommandParametersResultAttribute resultParmAttr = attributes.FirstOrDefault(x => x is CommandParametersResultAttribute) as CommandParametersResultAttribute;

@@ -1,0 +1,54 @@
+:root {
+    --msv-loyalty-signup-font-size: var(--msv-body-font-size-s);
+    --msv-loyalty-signup-font-color: var(--msv-font-primary-color);
+
+    // heading
+    --msv-loyalty-signup-heading-font-size: var(--msv-body-font-size-xl);
+    --msv-loyalty-signup-heading-font-color: var(--msv-font-primary-color);
+
+    // link
+    --msv-loyalty-signup-link-color: #{$msv-link-color};
+    --msv-loyalty-signup-link-size: var(--msv-body-font-size-m);
+
+    // primary button
+    --msv-loyalty-signup-btn-bg: var(--msv-accent-brand-color);
+    --msv-loyalty-signup-btn-font-color: var(--msv-font-secondary-color);
+    --msv-loyalty-signup-btn-border: var(--msv-accent-brand-color);
+}
+
+.ms-loyalty-signup {
+    text-align: center;
+
+    &__heading {
+        @include font-content(var(--msv-font-weight-bold),
+        var(--msv-loyalty-signup-heading-font-size), $msv-line-height-xl);
+        color: var(--msv-loyalty-signup-heading-font-color);
+        margin-bottom: 10px;
+    }
+
+    &__text {
+        @include font-content(var(--msv-font-weight-normal),
+        var(--msv-loyalty-signup-font-size), $msv-line-height-s);
+        color: var(--msv-loyalty-signup-font-color);
+        margin-bottom: 10px;
+    }
+
+    &__terms {
+        @include button-link(var(--msv-loyalty-signup-link-color));
+        @include font-content(var(--msv-font-weight-normal),
+        var(--msv-loyalty-signup-link-size), $msv-line-height-m);
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    &__btn {
+        @include primary-button(var(--msv-loyalty-signup-btn-bg),
+        var(--msv-loyalty-signup-btn-font-color), var(--msv-loyalty-signup-btn-border));
+        margin-bottom: 10px;
+    }
+
+    &__signin {
+        @include primary-button(var(--msv-loyalty-signup-btn-bg),
+        var(--msv-loyalty-signup-btn-font-color), var(--msv-loyalty-signup-btn-border));
+    }
+}

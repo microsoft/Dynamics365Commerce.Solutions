@@ -12,6 +12,6 @@
     <PackageReference Include="Microsoft.Dynamics.Commerce.Runtime.Localization.Entities" Version="$(CommerceChannelPackagesVersion)" />
     <PackageReference Include="Microsoft.Dynamics.Commerce.Runtime.FIF.DocumentProvider.Messages" Version="$(CommerceChannelPackagesVersion)" />
     <PackageReference Include="Microsoft.Dynamics.Commerce.Sdk.Runtime" Version="$(CommerceSdkPackagesVersion)" />
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="$(NewtonsoftJsonVersion)" />
   </ItemGroup>
 </Project>

@@ -189,7 +189,7 @@ namespace Contoso
             private async Task<string> GetEfrTenderTypeName(string tenderTypeId)
             {
                 var request = new GetEfrGetTenderTypeNameRequest(tenderTypeId);
-                return (await this.documentBuilderData.RequestContext.ExecuteAsync<SingleEntityDataServiceResponse<string>>(request)).Entity;
+                return (await this.documentBuilderData.RequestContext.ExecuteAsync<SingleEntityDataServiceResponse<string>>(request).ConfigureAwait(false)).Entity;
             }
 
             /// <summary>

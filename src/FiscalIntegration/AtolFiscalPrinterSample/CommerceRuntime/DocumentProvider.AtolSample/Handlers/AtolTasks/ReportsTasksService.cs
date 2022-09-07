@@ -39,22 +39,17 @@ namespace Contoso
             /// </summary>
             /// <param name="request">The request.</param>
             /// <returns>The response.</returns>
-            public async Task<Response> Execute(Request request)
+            public Task<Response> Execute(Request request)
             {
                 ThrowIf.Null(request, nameof(request));
 
-                Response response;
-
-                if (request is GetReportXTaskDocumentProviderAtolRequest getReportXTaskDocumentProviderAtolRequest)
+                switch (request)
                 {
-                    response = await this.GetReportXTask(getReportXTaskDocumentProviderAtolRequest).ConfigureAwait(false);
+                    case GetReportXTaskDocumentProviderAtolRequest getReportXTaskDocumentProviderAtolRequest:
+                        return GetReportXTask(getReportXTaskDocumentProviderAtolRequest);
+                    default:
+                        throw new NotSupportedException($"Request '{request.GetType()}' is not supported.");
                 }
-                else
-                {
-                    throw new NotSupportedException(string.Format("Request '{0}' is not supported.", request.GetType()));
-                }
-
-                return response;
             }
 
             /// <summary>
@@ -62,7 +57,7 @@ namespace Contoso
             /// </summary>
             /// <param name="request">The request.</param>
             /// <returns>Th response.</returns>
-            private async Task<GetReportXTaskDocumentProviderAtolResponse> GetReportXTask(GetReportXTaskDocumentProviderAtolRequest request)
+            private async Task<Response> GetReportXTask(GetReportXTaskDocumentProviderAtolRequest request)
             {
                 SerializeToAtolCommandRequest serializeToAtolCommandRequest = new SerializeToAtolCommandRequest(new AtolPrintXReportTask());
                 var serializeToAtolCommandResponse = await request.RequestContext.ExecuteAsync<SerializeToAtolCommandResponse>(serializeToAtolCommandRequest).ConfigureAwait(false);

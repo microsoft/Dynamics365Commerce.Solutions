@@ -36,7 +36,7 @@ namespace Contoso
                 XmlSerializer xmlSerializer = new XmlSerializer(document.GetType());
 
                 XmlSerializerNamespaces ns = new XmlSerializerNamespaces();
-                ns.Add("", "");
+                ns.Add(prefix: "", ns: "");
 
                 using (StringWriter stringWriter = new StringWriter())
                 {

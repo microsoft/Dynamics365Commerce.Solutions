@@ -19,14 +19,6 @@ namespace Contoso
         public static class RegistrationResultCodeConstants
         {
             /// <summary>
-            /// Http status 200 OK.
-            /// </summary>
-            /// <remark>
-            /// Print receipt.
-            /// </remark>
-            public const string TransactionProcessedSuccessfully = "OK";
-
-            /// <summary>
             /// Http status 406 Not Acceptable.
             /// </summary>
             /// <remark>
@@ -41,6 +33,14 @@ namespace Contoso
             /// Terminate transaction.
             /// </remark>
             public const string InvalidRequestData = "BAD";
+
+            /// <summary>
+            /// Http status 200 OK.
+            /// </summary>
+            /// <remark>
+            /// Print receipt.
+            /// </remark>
+            public const string TransactionProcessedSuccessfully = "OK";
         }
     }
 }

@@ -80,20 +80,20 @@ namespace Contoso
             /// </summary>
             /// <param name="request">The request to execute.</param>
             /// <returns>The response of the request from the handler.</returns>
-            public async Task<Response> Execute(Request request)
+            public Task<Response> Execute(Request request)
             {
                 ThrowIf.Null(request, nameof(request));
 
                 switch (request)
                 {
                     case GetFiscalDocumentDocumentProviderRequest getFiscalDocumentDocumentProviderRequest:
-                        return await this.GetFiscalDocumentAsync(getFiscalDocumentDocumentProviderRequest).ConfigureAwait(false);
+                        return this.GetFiscalDocumentAsync(getFiscalDocumentDocumentProviderRequest);
 
                     case GetSupportedRegistrableEventsDocumentProviderRequest getSupportedRegistrableEventsDocumentProviderRequest:
-                        return await Task.FromResult(this.GetSupportedRegisterableEvents(getSupportedRegistrableEventsDocumentProviderRequest));
+                        return Task.FromResult(this.GetSupportedRegisterableEvents(getSupportedRegistrableEventsDocumentProviderRequest));
 
                     case GetFiscalTransactionExtendedDataDocumentProviderRequest getFiscalTransactionExtendedDataDocumentProviderRequest:
-                        return await Task.FromResult(this.GetFiscalTransactionExtendedData((GetFiscalTransactionExtendedDataDocumentProviderRequest)request));
+                        return Task.FromResult<Response>(this.GetFiscalTransactionExtendedData(getFiscalTransactionExtendedDataDocumentProviderRequest));
 
                     default:
                         throw new NotSupportedException(string.Format("Request '{0}' is not supported.", request.GetType()));

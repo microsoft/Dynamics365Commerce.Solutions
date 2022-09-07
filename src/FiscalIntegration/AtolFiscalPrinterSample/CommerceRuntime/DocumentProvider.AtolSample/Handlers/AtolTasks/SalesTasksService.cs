@@ -38,22 +38,17 @@ namespace Contoso
             /// </summary>
             /// <param name="request">Th request.</param>
             /// <returns>The response.</returns>
-            public async Task<Response> Execute(Request request)
+            public Task<Response> Execute(Request request)
             {
                 ThrowIf.Null(request, nameof(request));
 
-                Response response;
-
-                if (request is GetSalesOrderDocumentReceiptAtolRequest getSalesOrderDocumentReceiptAtolRequest)
+                switch (request)
                 {
-                    response = await this.GetFiscalDocumentAsync(getSalesOrderDocumentReceiptAtolRequest).ConfigureAwait(false);
+                    case GetSalesOrderDocumentReceiptAtolRequest getSalesOrderDocumentReceiptAtolRequest:
+                        return GetFiscalDocumentAsync(getSalesOrderDocumentReceiptAtolRequest);
+                    default:
+                        throw new NotSupportedException($"Request '{request.GetType()}' is not supported.");
                 }
-                else
-                {
-                    throw new NotSupportedException(string.Format("Request '{0}' is not supported.", request.GetType()));
-                }
-
-                return response;
             }
 
             /// <summary>
@@ -61,7 +56,7 @@ namespace Contoso
             /// </summary>
             /// <param name="request">The request.</param>
             /// <returns>The seles order document receipt provider response.</returns>
-            private async Task<GetSalesOrderDocumentReceiptAtolResponse> GetFiscalDocumentAsync(GetSalesOrderDocumentReceiptAtolRequest request)
+            private async Task<Response> GetFiscalDocumentAsync(GetSalesOrderDocumentReceiptAtolRequest request)
             {
                 var document = await DocumentBuilder.Build(request.RequestContext, request.SalesOrder, request.FiscalIntegrationFunctionalityProfile).ConfigureAwait(false);
                 var fiscalIntegrationDocument = new FiscalIntegrationDocument(document, FiscalIntegrationDocumentGenerationResultType.Succeeded);

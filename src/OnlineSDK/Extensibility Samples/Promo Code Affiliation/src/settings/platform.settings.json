@@ -2,5 +2,6 @@
     "namespaceExtensions": ["@msdyn365-commerce-marketplace"],
     "excludedModules": ["excluded-module"],
     "secretsManagerOUN": "128",
-    "clientSideDataActionTimeoutInMs": 10000    
+    "clientSideDataActionTimeoutInMs": 10000,
+    "enableImageOptimizeEvents": true    
 }

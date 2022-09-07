@@ -38,7 +38,7 @@ namespace Contoso
             /// <returns>The deposit position number.</returns>
             public static int GetDepositPositionNumber(IEnumerable<ReceiptPosition> positions)
             {
-                if (positions.Count() == 0)
+                if (!positions.Any())
                 {
                     return 1;
                 }

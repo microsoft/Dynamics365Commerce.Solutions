@@ -91,13 +91,13 @@ namespace Contoso
 
             private static async Task<string> TranslateAsync(RequestContext requestContext, string cultureName, string textId)
             {
-                return (await requestContext.ExecuteAsync<SingleEntityDataServiceResponse<string>>(new LocalizeEfrResourceRequest(cultureName, textId))).Entity;
+                return (await requestContext.ExecuteAsync<SingleEntityDataServiceResponse<string>>(new LocalizeEfrResourceRequest(cultureName, textId)).ConfigureAwait(false)).Entity;
             }
 
             private async Task<string> GetOperatorName(string staffId)
             {
                 var request = new GetEfrOperatorNameRequest(staffId);
-                return (await this.documentBuilderData.RequestContext.ExecuteAsync<SingleEntityDataServiceResponse<string>>(request)).Entity;
+                return (await this.documentBuilderData.RequestContext.ExecuteAsync<SingleEntityDataServiceResponse<string>>(request).ConfigureAwait(false)).Entity;
             }
         }
     }

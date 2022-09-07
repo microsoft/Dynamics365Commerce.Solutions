@@ -79,7 +79,7 @@ namespace Contoso
                     }
                 }
 
-                var response = new SubmitDocumentFiscalDeviceResponse(serviceResponse, resultType, failureDetails, string.Empty, userNotificationMessage);
+                var response = new SubmitDocumentFiscalDeviceResponse(response: serviceResponse, communicationResultType: resultType, failureDetails: failureDetails, fiscalPeripheralInfo: string.Empty, userNotificationMessage: userNotificationMessage);
 
                 return response;
             }

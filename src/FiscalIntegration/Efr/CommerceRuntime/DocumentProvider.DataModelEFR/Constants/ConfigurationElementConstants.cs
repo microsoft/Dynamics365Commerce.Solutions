@@ -16,9 +16,9 @@ namespace Contoso
         public static class ConfigurationElementConstants
         {
             /// <summary>
-            /// The inner text of namespace element for data mapping.
+            /// The BooleanValue element.
             /// </summary>
-            public const string FiscalServiceDataMappingInfo = "FiscalServiceDataMappingInfo";
+            public const string BooleanValueElement = "BooleanValue";
 
             /// <summary>
             /// The inner text of Namespace element for ConnectorConnectionInfo.
@@ -26,39 +26,9 @@ namespace Contoso
             public const string ConnectorConnectionInfo = "ConnectorConnectionInfo";
 
             /// <summary>
-            /// The name of the name element.
+            /// The inner text of Namespace element for ConnectorSettingsInfo.
             /// </summary>
-            public const string NameElement = "Name";
-
-            /// <summary>
-            /// The name of the namespace element.
-            /// </summary>
-            public const string NamespaceElement = "Namespace";
-
-            /// <summary>
-            /// The name of the property element.
-            /// </summary>
-            public const string PropertyElement = "ConfigurationProperty";
-
-            /// <summary>
-            /// The name of the root element.
-            /// </summary>
-            public const string RootElement = "ConfigurationProperties";
-
-            /// <summary>
-            /// The StringValue element.
-            /// </summary>
-            public const string StringValueElement = "StringValue";
-
-            /// <summary>
-            /// The inner text of Name element for EndPointAddress property.
-            /// </summary>
-            public const string EndPointAddress = "EndPointAddress";
-
-            /// <summary>
-            /// The inner text of Name element for tax rates mapping property.
-            /// </summary>
-            public const string TaxRatesMapping = "TaxRatesMapping";
+            public const string ConnectorSettingsInfo = "ConnectorSettingsInfo";
 
             /// <summary>
             /// The inner text of Name element for default tax group.
@@ -71,9 +41,19 @@ namespace Contoso
             public const string DepositTaxGroup = "DepositTaxGroup";
 
             /// <summary>
+            /// The inner text of Name element for EndPointAddress property.
+            /// </summary>
+            public const string EndPointAddress = "EndPointAddress";
+
+            /// <summary>
             /// The inner text of Name element for exempt tax group.
             /// </summary>
             public const string ExemptTaxGroup = "ExemptTaxGroup";
+
+            /// <summary>
+            /// The inner text of namespace element for data mapping.
+            /// </summary>
+            public const string FiscalServiceDataMappingInfo = "FiscalServiceDataMappingInfo";
 
             /// <summary>
             /// The IntegerValue element.
@@ -81,23 +61,14 @@ namespace Contoso
             public const string IntegerValueElement = "IntegerValue";
 
             /// <summary>
-            /// The inner text of Namespace element for ConnectorSettingsInfo.
+            /// The name of the name element.
             /// </summary>
-            public const string ConnectorSettingsInfo = "ConnectorSettingsInfo";
+            public const string NameElement = "Name";
 
             /// <summary>
-            /// The inner text of Name element for Timeout property.
+            /// The name of the namespace element.
             /// </summary>
-            public const string Timeout = "Timeout";
-
-            /// <summary>
-            /// The ShowUserNotificationMessage element name.
-            /// </summary>
-            public const string ShowUserNotificationMessage = "ShowUserNotificationMessage";
-
-            /// The inner text of Name element for tender type mapping property.
-            /// </summary>
-            public const string TenderTypeMapping = "TenderTypeMapping";
+            public const string NamespaceElement = "Namespace";
 
             /// <summary>
             /// The inner text of Name element for print customer data property.
@@ -105,9 +76,39 @@ namespace Contoso
             public const string PrintCustomerDataInReceipt = "PrintCustomerDataInReceipt";
 
             /// <summary>
-            /// The BooleanValue element.
+            /// The name of the property element.
             /// </summary>
-            public const string BooleanValueElement = "BooleanValue";
+            public const string PropertyElement = "ConfigurationProperty";
+
+            /// <summary>
+            /// The name of the root element.
+            /// </summary>
+            public const string RootElement = "ConfigurationProperties";
+
+            /// <summary>
+            /// The ShowUserNotificationMessage element name.
+            /// </summary>
+            public const string ShowUserNotificationMessage = "ShowUserNotificationMessage";
+
+            /// <summary>
+            /// The StringValue element.
+            /// </summary>
+            public const string StringValueElement = "StringValue";
+
+            /// <summary>
+            /// The inner text of Name element for tax rates mapping property.
+            /// </summary>
+            public const string TaxRatesMapping = "TaxRatesMapping";
+
+            /// The inner text of Name element for tender type mapping property.
+            /// </summary>
+            public const string TenderTypeMapping = "TenderTypeMapping";
+
+            /// <summary>
+            /// The inner text of Name element for Timeout property.
+            /// </summary>
+            public const string Timeout = "Timeout";
+
         }
     }
 }

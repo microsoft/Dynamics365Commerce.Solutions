@@ -39,20 +39,16 @@ namespace Contoso
             /// </summary>
             /// <param name="request">The incoming request message.</param>
             /// <returns>The outgoing response message.</returns>
-            public async Task<Response> Execute(Request request)
+            public Task<Response> Execute(Request request)
             {
-                Response response;
-
-                if (request is SerializeToAtolCommandRequest serializeToAtolCommandRequest)
+                switch (request)
                 {
-                    response = this.SerializeTask(serializeToAtolCommandRequest);
-                }
-                else
-                {
-                    throw new NotSupportedException(string.Format("Request '{0}' is not supported.", request.GetType()));
+                    case SerializeToAtolCommandRequest serializeToAtolCommandRequest:
+                        return Task.FromResult(SerializeTask(serializeToAtolCommandRequest));
+                    default:
+                        throw new NotSupportedException($"Request '{request.GetType()}' is not supported.");
                 }
 
-                return response;
             }
 
             /// <summary>
@@ -60,7 +56,7 @@ namespace Contoso
             /// </summary>
             /// <param name="request">The request.</param>
             /// <returns>The response containing the json string of the serialized command.</returns>
-            private SerializeToAtolCommandResponse SerializeTask(SerializeToAtolCommandRequest request)
+            private Response SerializeTask(SerializeToAtolCommandRequest request)
             {
                 string serializedCommand = string.Empty;
                 using (MemoryStream ms = new MemoryStream())

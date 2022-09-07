@@ -98,7 +98,7 @@ namespace Contoso
             /// <returns>The receipt position lines.</returns>
             private async Task<ReceiptPositionLines> CreateReceiptPositionLines()
             {
-                if (!(await this.CanСreateReceiptPosition()))
+                if (!(await this.CanСreateReceiptPosition().ConfigureAwait(false)))
                 {
                     return null;
                 }
@@ -159,26 +159,26 @@ namespace Contoso
                         }
 
                         return payment;
-                    }))
+                    })).ConfigureAwait(false)
                 ).ToList();
             }
 
             private async Task<bool> CanСreateReceiptPosition()
             {
                 var request = new GetEfrCanСreateReceiptPositionsRequest(this.documentBuilderData.SalesOrder);
-                return (await this.documentBuilderData.RequestContext.ExecuteAsync<SingleEntityDataServiceResponse<bool>>(request)).Entity;
+                return (await this.documentBuilderData.RequestContext.ExecuteAsync<SingleEntityDataServiceResponse<bool>>(request).ConfigureAwait(false)).Entity;
             }
 
             private async Task<string> GetEfrNonFiscalTransactionType()
             {
                 var request = new GetEfrNonFiscalTransactionTypeRequest(this.documentBuilderData.FiscalDocumentRetrievalCriteria.FiscalRegistrationEventType, this.documentBuilderData.SalesOrder);
-                return (await this.documentBuilderData.RequestContext.ExecuteAsync<SingleEntityDataServiceResponse<string>>(request)).Entity;
+                return (await this.documentBuilderData.RequestContext.ExecuteAsync<SingleEntityDataServiceResponse<string>>(request).ConfigureAwait(false)).Entity;
             }
 
             private async Task<string> GetEfrTenderTypeName(string tenderTypeId)
             {
                 var request = new GetEfrGetTenderTypeNameRequest(tenderTypeId);
-                return (await this.documentBuilderData.RequestContext.ExecuteAsync<SingleEntityDataServiceResponse<string>>(request)).Entity;
+                return (await this.documentBuilderData.RequestContext.ExecuteAsync<SingleEntityDataServiceResponse<string>>(request).ConfigureAwait(false)).Entity;
             }
         }
     }

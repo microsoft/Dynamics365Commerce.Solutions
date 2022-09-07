@@ -90,23 +90,23 @@ namespace Contoso
             /// </summary>
             /// <param name="request">The request to execute.</param>
             /// <returns>The response of the request from the request handler.</returns>
-            public async Task<Response> Execute(Request request)
+            public Task<Response> Execute(Request request)
             {
                 ThrowIf.Null(request, nameof(request));
 
                 switch (request)
                 {
                     case GetSupportedRegistrableEventsDocumentProviderRequest _:
-                        return await GetSupportedRegistrableEventsAsync().ConfigureAwait(false);
+                        return GetSupportedRegistrableEventsAsync();
 
                     case GetFiscalDocumentDocumentProviderRequest getFiscalDocumentDocumentProviderRequest:
-                        return await GetFiscalDocumentResponseAsync(getFiscalDocumentDocumentProviderRequest);
+                        return GetFiscalDocumentResponseAsync(getFiscalDocumentDocumentProviderRequest);
 
                     case GetFiscalTransactionExtendedDataDocumentProviderRequest getFiscalTransactionExtendedDataDocumentProviderRequest:
-                        return await Task.FromResult<Response>(GetFiscalTransactionExtendedData(getFiscalTransactionExtendedDataDocumentProviderRequest)).ConfigureAwait(false);
+                        return Task.FromResult<Response>(GetFiscalTransactionExtendedData(getFiscalTransactionExtendedDataDocumentProviderRequest));
 
                     case GetFiscalRegisterResponseToSaveDocumentProviderRequest getFiscalRegisterResponseToSaveDocumentProviderRequest:
-                        return await GetFiscalRegisterResponseToSaveAsync(getFiscalRegisterResponseToSaveDocumentProviderRequest);
+                        return GetFiscalRegisterResponseToSaveAsync(getFiscalRegisterResponseToSaveDocumentProviderRequest);
 
                     default:
                         throw new NotSupportedException(string.Format("Request '{0}' is not supported.", request.GetType()));
@@ -247,7 +247,8 @@ namespace Contoso
 
                 FiscalIntegrationDocument fiscalIntegrationDocument = document != null ?
                     new FiscalIntegrationDocument(FiscalDocumentSerializer.Serialize(document), FiscalIntegrationDocumentGenerationResultType.Succeeded) :
-                    new FiscalIntegrationDocument(string.Empty, FiscalIntegrationDocumentGenerationResultType.NotRequired);
+                    new FiscalIntegrationDocument(document: string.Empty,
+                                                  resultType: FiscalIntegrationDocumentGenerationResultType.NotRequired);
 
                 return new GetFiscalDocumentDocumentProviderResponse(fiscalIntegrationDocument);
             }

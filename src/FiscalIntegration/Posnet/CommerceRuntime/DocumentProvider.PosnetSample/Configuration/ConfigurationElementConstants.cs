@@ -11,9 +11,19 @@
         internal static class ConfigurationElementConstants
         {
             /// <summary>
+            /// The inner text of Name element for DepositPaymentType property.
+            /// </summary>
+            internal const string DepositPaymentType = "DepositPaymentType";
+
+            /// <summary>
             /// The inner text of Namespace element for FiscalServiceDataMappingInfo.
             /// </summary>
             internal const string FiscalPrinterDataMappingInfo = "FiscalServiceDataMappingInfo";
+
+            /// <summary>
+            /// The IntegerValue element.
+            /// </summary>
+            internal const string IntegerValueElement = "IntegerValue";
 
             /// <summary>
             /// The Name element.
@@ -41,11 +51,6 @@
             internal const string StringValueElement = "StringValue";
 
             /// <summary>
-            /// The IntegerValue element.
-            /// </summary>
-            internal const string IntegerValueElement = "IntegerValue";
-
-            /// <summary>
             /// The inner text of Name element for TenderTypeMapping property.
             /// </summary>
             internal const string TenderTypeMapping = "TenderTypeMapping";
@@ -54,11 +59,6 @@
             /// The inner text of Name element for VATRatesMapping property.
             /// </summary>
             internal const string VATRatesMapping = "VATRatesMapping";
-
-            /// <summary>
-            /// The inner text of Name element for DepositPaymentType property.
-            /// </summary>
-            internal const string DepositPaymentType = "DepositPaymentType";
         }
     }
 }

@@ -43,21 +43,18 @@ namespace Contoso
             /// </summary>
             /// <param name="request">Th request.</param>
             /// <returns>The response.</returns>
-            public async Task<Response> Execute(Request request)
+            public Task<Response> Execute(Request request)
             {
                 ThrowIf.Null(request, nameof(request));
 
-                Response response;
-                if (request is DeserializeDocumentProviderSettingsDocumentProviderAtolRequest deserializeDocumentProviderSettingsDocumentProviderAtolRequest)
+                switch (request)
                 {
-                    response = this.DeserializeConnectorFunctiolityProfile(deserializeDocumentProviderSettingsDocumentProviderAtolRequest);
-                }
-                else
-                {
-                    throw new NotSupportedException(string.Format("Request '{0}' is not supported.", request.GetType()));
-                }
+                    case DeserializeDocumentProviderSettingsDocumentProviderAtolRequest deserializeDocumentProviderSettingsDocumentProviderAtolRequest:
+                        return Task.FromResult<Response>(DeserializeConnectorFunctiolityProfile(deserializeDocumentProviderSettingsDocumentProviderAtolRequest));
 
-                return response;
+                    default:
+                        throw new NotSupportedException(string.Format("Request '{0}' is not supported.", request.GetType()));
+                }
             }
 
             /// <summary>

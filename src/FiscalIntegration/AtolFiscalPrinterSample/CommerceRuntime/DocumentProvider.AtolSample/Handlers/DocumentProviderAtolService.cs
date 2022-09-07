@@ -88,7 +88,7 @@ namespace Contoso
                         return this.GetFiscalTransactionExtendedData(getFiscalTransactionExtendedDataDocumentProviderRequest);
 
                     default:
-                        throw new NotSupportedException(string.Format("Request '{0}' is not supported.", request.GetType()));
+                        throw new NotSupportedException($"Request '{request.GetType()}' is not supported.");
                 }
             }
 

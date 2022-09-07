@@ -110,7 +110,7 @@ namespace Contoso
             /// <returns>The receipt position lines.</returns>
             private async Task<ReceiptPositionLines> CreateReceiptPositionLines()
             {
-                if (!(await this.CanСreateReceiptPosition()))
+                if (!(await this.CanСreateReceiptPosition().ConfigureAwait(false)))
                 {
                     return null;
                 }
@@ -237,79 +237,79 @@ namespace Contoso
             private async Task<bool> GetEfrIsSalesTransactionDocumentGenerationRequired()
             {
                 var request = new GetEfrIsSalesTransactionDocumentGenerationRequiredRequest(this.documentBuilderData.SalesOrder);
-                return (await this.documentBuilderData.RequestContext.ExecuteAsync<SingleEntityDataServiceResponse<bool>>(request)).Entity;
+                return (await this.documentBuilderData.RequestContext.ExecuteAsync<SingleEntityDataServiceResponse<bool>>(request).ConfigureAwait(false)).Entity;
             }
 
             private async Task<decimal> GetTotalAmount()
             {
                 var request = new GetEfrSalesTransactionTotalAmountRequest(this.documentBuilderData.SalesOrder);
-                return (await this.documentBuilderData.RequestContext.ExecuteAsync<SingleEntityDataServiceResponse<decimal>>(request)).Entity;
+                return (await this.documentBuilderData.RequestContext.ExecuteAsync<SingleEntityDataServiceResponse<decimal>>(request).ConfigureAwait(false)).Entity;
             }
 
             private async Task<string> GetOperatorName()
             {
                 var request = new GetEfrOperatorNameRequest(this.documentBuilderData.SalesOrder.StaffId);
-                return (await this.documentBuilderData.RequestContext.ExecuteAsync<SingleEntityDataServiceResponse<string>>(request)).Entity;
+                return (await this.documentBuilderData.RequestContext.ExecuteAsync<SingleEntityDataServiceResponse<string>>(request).ConfigureAwait(false)).Entity;
             }
 
             private async Task<string> GetEfrNonFiscalTransactionType()
             {
                 var request = new GetEfrNonFiscalTransactionTypeRequest(this.documentBuilderData.FiscalDocumentRetrievalCriteria.FiscalRegistrationEventType, this.documentBuilderData.SalesOrder);
-                return (await this.documentBuilderData.RequestContext.ExecuteAsync<SingleEntityDataServiceResponse<string>>(request)).Entity;
+                return (await this.documentBuilderData.RequestContext.ExecuteAsync<SingleEntityDataServiceResponse<string>>(request).ConfigureAwait(false)).Entity;
             }
 
             private async Task<DataModelEFR.Documents.Receipt> PopulateEfrLocalizationInfo(DataModelEFR.Documents.Receipt receipt)
             {
                 var request = new PopulateEfrLocalizationInfoRequest(receipt, this.documentBuilderData.SalesOrder);
-                return (await this.documentBuilderData.RequestContext.ExecuteAsync<SingleEntityDataServiceResponse<DataModelEFR.Documents.Receipt>>(request)).Entity;
+                return (await this.documentBuilderData.RequestContext.ExecuteAsync<SingleEntityDataServiceResponse<DataModelEFR.Documents.Receipt>>(request).ConfigureAwait(false)).Entity;
             }
 
             private async Task<DataModelEFR.Documents.Receipt> PopulateEfrCustomerData(DataModelEFR.Documents.Receipt receipt)
             {
                 var request = new PopulateEfrCustomerDataRequest(receipt, this.documentBuilderData.SalesOrder, this.documentBuilderData.FiscalIntegrationFunctionalityProfile);
-                return (await this.documentBuilderData.RequestContext.ExecuteAsync<SingleEntityDataServiceResponse<DataModelEFR.Documents.Receipt>>(request)).Entity;
+                return (await this.documentBuilderData.RequestContext.ExecuteAsync<SingleEntityDataServiceResponse<DataModelEFR.Documents.Receipt>>(request).ConfigureAwait(false)).Entity;
             }
 
             private async Task<bool> CanСreateReceiptPosition()
             {
                 var request = new GetEfrCanСreateReceiptPositionsRequest(this.documentBuilderData.SalesOrder);
-                return (await this.documentBuilderData.RequestContext.ExecuteAsync<SingleEntityDataServiceResponse<bool>>(request)).Entity;
+                return (await this.documentBuilderData.RequestContext.ExecuteAsync<SingleEntityDataServiceResponse<bool>>(request).ConfigureAwait(false)).Entity;
             }
 
             private async Task<List<ReceiptPayment>> CreateReceiptPaymentsAsync()
             {
                 var request = new GetEfrReceiptPaymentsRequest(this.documentBuilderData.SalesOrder, this.documentBuilderData.FiscalIntegrationFunctionalityProfile);
-                return (await this.documentBuilderData.RequestContext.ExecuteAsync<SingleEntityDataServiceResponse<List<ReceiptPayment>>>(request)).Entity;
+                return (await this.documentBuilderData.RequestContext.ExecuteAsync<SingleEntityDataServiceResponse<List<ReceiptPayment>>>(request).ConfigureAwait(false)).Entity;
             }
 
             private async Task<IEnumerable<SalesLine>> GetSalesLines()
             {
                 var request = new GetEfrSalesLinesRequest(this.documentBuilderData.SalesOrder);
-                return (await this.documentBuilderData.RequestContext.ExecuteAsync<SingleEntityDataServiceResponse<IEnumerable<SalesLine>>>(request)).Entity;
+                return (await this.documentBuilderData.RequestContext.ExecuteAsync<SingleEntityDataServiceResponse<IEnumerable<SalesLine>>>(request).ConfigureAwait(false)).Entity;
             }
 
             private async Task<string> GetSalesLineTaxGroups(SalesLine salesLine)
             {
                 var request = new GetEfrSalesLineTaxGroupsRequest(salesLine, this.documentBuilderData.FiscalIntegrationFunctionalityProfile);
-                return (await this.documentBuilderData.RequestContext.ExecuteAsync<SingleEntityDataServiceResponse<string>>(request)).Entity;
+                return (await this.documentBuilderData.RequestContext.ExecuteAsync<SingleEntityDataServiceResponse<string>>(request).ConfigureAwait(false)).Entity;
             }
 
             private async Task<List<ReceiptPosition>> PopulateCountryRegionSpecificPositions(List<ReceiptPosition> receiptPositions)
             {
                 var request = new PopulateCountryRegionSpecificPositionsRequest(receiptPositions, this.documentBuilderData.SalesOrder, this.documentBuilderData.FiscalIntegrationFunctionalityProfile);
-                return (await this.documentBuilderData.RequestContext.ExecuteAsync<SingleEntityDataServiceResponse<List<ReceiptPosition>>>(request)).Entity;
+                return (await this.documentBuilderData.RequestContext.ExecuteAsync<SingleEntityDataServiceResponse<List<ReceiptPosition>>>(request).ConfigureAwait(false)).Entity;
             }
 
             private async Task<ReceiptPosition> PopulateReferenceFields(ReceiptPosition receiptPosition, SalesLine salesLine)
             {
                 var request = new PopulateEfrReferenceFieldsRequest(receiptPosition, salesLine);
-                return (await this.documentBuilderData.RequestContext.ExecuteAsync<SingleEntityDataServiceResponse<ReceiptPosition>>(request)).Entity;
+                return (await this.documentBuilderData.RequestContext.ExecuteAsync<SingleEntityDataServiceResponse<ReceiptPosition>>(request).ConfigureAwait(false)).Entity;
             }
 
             private async Task<List<ReceiptTax>> GetReceiptTaxes()
             {
                 var request = new GetEfrReceiptTaxesRequest(this.documentBuilderData.SalesOrder, this.documentBuilderData.FiscalIntegrationFunctionalityProfile);
-                return (await this.documentBuilderData.RequestContext.ExecuteAsync<SingleEntityDataServiceResponse<List<ReceiptTax>>>(request)).Entity;
+                return (await this.documentBuilderData.RequestContext.ExecuteAsync<SingleEntityDataServiceResponse<List<ReceiptTax>>>(request).ConfigureAwait(false)).Entity;
             }
 
             /// <summary>

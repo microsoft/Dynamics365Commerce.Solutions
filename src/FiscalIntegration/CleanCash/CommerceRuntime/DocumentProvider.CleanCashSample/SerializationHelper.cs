@@ -35,8 +35,10 @@ namespace Contoso
                     DataContractJsonSerializer jsonSerializer = new DataContractJsonSerializer(cleanCashFiscalTransactionData.GetType());
                     jsonSerializer.WriteObject(memoryStream, cleanCashFiscalTransactionData);
                     memoryStream.Position = 0;
-                    StreamReader reader = new StreamReader(memoryStream);
-                    return await reader.ReadToEndAsync().ConfigureAwait(false);
+                    using (var reader = new StreamReader(memoryStream))
+                    {
+                        return await reader.ReadToEndAsync().ConfigureAwait(false);
+                    }
                 }
             }
         }

@@ -17,11 +17,6 @@ namespace Contoso
         internal static class ErrorCodeConstants
         {
             /// <summary>
-            /// The error code for the signing error.
-            /// </summary>
-            internal const string SigningError = "001";
-
-            /// <summary>
             /// The error code for the key vault certificate retrieval error.
             /// </summary>
             internal const string KeyVaultCertificateRetrievalError = "002";
@@ -30,6 +25,11 @@ namespace Contoso
             /// The error code for the local certificate retrieval error.
             /// </summary>
             internal const string LocalCertificateRetrievalError = "003";
+
+            /// <summary>
+            /// The error code for the signing error.
+            /// </summary>
+            internal const string SigningError = "001";
         }
     }
 }

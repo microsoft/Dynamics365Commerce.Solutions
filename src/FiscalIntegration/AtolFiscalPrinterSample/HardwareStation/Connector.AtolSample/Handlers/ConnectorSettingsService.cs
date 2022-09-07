@@ -41,23 +41,17 @@ namespace Contoso
             /// </summary>
             /// <param name="request">Th request.</param>
             /// <returns>The response.</returns>
-            public async Task<Response> Execute(Request request)
+            public Task<Response> Execute(Request request)
             {
                 ThrowIf.Null(request, nameof(request));
 
-                Type requestType = request.GetType();
-                Response response;
-
-                if (requestType == typeof(GetConnectorConfigurationConnectorAtolRequest))
+                switch(request)
                 {
-                    response = this.GetConnectorSettings((GetConnectorConfigurationConnectorAtolRequest)request);
+                    case GetConnectorConfigurationConnectorAtolRequest getConnectorConfigurationConnectorAtolRequest:
+                        return Task.FromResult<Response>(this.GetConnectorSettings(getConnectorConfigurationConnectorAtolRequest));
+                    default:
+                        throw new NotSupportedException($"Request '{request.GetType()}' is not supported.");
                 }
-                else
-                {
-                    throw new NotSupportedException(string.Format("Request '{0}' is not supported.", request.GetType()));
-                }
-
-                return response;
             }
 
             /// <summary>

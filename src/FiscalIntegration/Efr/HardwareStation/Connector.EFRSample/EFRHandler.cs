@@ -51,21 +51,16 @@ namespace Contoso
             {
                 ThrowIf.Null(request, nameof(request));
 
-                if (request is InitializeFiscalDeviceRequest)
+                switch (request)
                 {
-                    return this.Initialize(request as InitializeFiscalDeviceRequest);
-                }
-                else if (request is SubmitDocumentFiscalDeviceRequest)
-                {
-                    return this.SubmitDocument(request as SubmitDocumentFiscalDeviceRequest);
-                }
-                else if (request is IsReadyFiscalDeviceRequest)
-                {
-                    return this.IsReady(request as IsReadyFiscalDeviceRequest);                    
-                }
-                else
-                {
-                    throw new NotSupportedException(string.Format("Request '{0}' is not supported.", request.GetType()));
+                    case InitializeFiscalDeviceRequest initializeFiscalDeviceRequest:
+                        return Initialize(initializeFiscalDeviceRequest);
+                    case SubmitDocumentFiscalDeviceRequest submitDocumentFiscalDeviceRequest:
+                        return SubmitDocument(submitDocumentFiscalDeviceRequest);
+                    case IsReadyFiscalDeviceRequest isReadyFiscalDeviceRequest:
+                        return IsReady(isReadyFiscalDeviceRequest);
+                    default:
+                        throw new NotSupportedException(string.Format("Request '{0}' is not supported.", request.GetType()));
                 }
             }
 
@@ -80,7 +75,7 @@ namespace Contoso
 
                 InitializeFiscalDeviceResponse response;
 
-                response = new InitializeFiscalDeviceResponse(string.Empty, FiscalPeripheralCommunicationResultType.None, new FiscalPeripheralFailureDetails(), string.Empty);
+                response = new InitializeFiscalDeviceResponse(response: string.Empty, communicationResultType: FiscalPeripheralCommunicationResultType.None, failureDetails: new FiscalPeripheralFailureDetails(), fiscalPeripheralInfo: string.Empty);
 
                 return response;
             }
@@ -126,7 +121,10 @@ namespace Contoso
                                 IsRetryAllowed = true,
                                 FailureType = FiscalPeripheralFailureType.Timeout
                             };
-                            response = new SubmitDocumentFiscalDeviceResponse(string.Empty, FiscalPeripheralCommunicationResultType.Failed, failureDetails, string.Empty);
+                            response = new SubmitDocumentFiscalDeviceResponse(response: string.Empty,
+                                                                              communicationResultType: FiscalPeripheralCommunicationResultType.Failed,
+                                                                              failureDetails: failureDetails,
+                                                                              fiscalPeripheralInfo: string.Empty);
                         }
                     }
                 }
@@ -138,7 +136,10 @@ namespace Contoso
                         IsRetryAllowed = true,
                         FailureType = FiscalPeripheralFailureType.NotAvailable
                     };
-                    response = new SubmitDocumentFiscalDeviceResponse(string.Empty, FiscalPeripheralCommunicationResultType.Failed, failureDetails, string.Empty);
+                    response = new SubmitDocumentFiscalDeviceResponse(response: string.Empty,
+                                                                      communicationResultType: FiscalPeripheralCommunicationResultType.Failed,
+                                                                      failureDetails: failureDetails,
+                                                                      fiscalPeripheralInfo: string.Empty);
                 }
                 return response;
             }

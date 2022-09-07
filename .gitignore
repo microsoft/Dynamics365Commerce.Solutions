@@ -86,7 +86,6 @@ StyleCop.Cache
 build/.gen_oacr/
 build/oacr_exclude.ini
 *.tslint
-*.d.ts
 *.map
 *.generated
 *.rsp
@@ -122,3 +121,51 @@ devDependencies/
 
 # Ignore generated nuget packages
 *.nupkg
+
+project.lock.json
+artifacts/
+
+# Web workbench (sass)
+.sass-cache/
+
+# Others
+*.publishsettings
+node_modules/
+# package lock is not to be used in addition to npm shrinkwrap
+**/package-lock.json
+
+# exclude dist artifacts folder
+packages/**/dist
+packages/**/build
+
+logs
+*.log
+npm-debug.log*
+.DS_Store
+
+coverage
+node_modules
+build
+dist/
+lib/
+!sdk/**/dist/
+!starter-pack/**/dist
+!sdk/**/lib
+!starter-pack/**/lib
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+lib/module-registration*
+stats-build-warnings.json
+stats-build-errors.json
+gendef.lock
+integration-test-report.xml
+*.lock
+# permission
+*.pem
+
+# build artifacts
+version.json
+stats-client-*.json
+stats-server-*.json

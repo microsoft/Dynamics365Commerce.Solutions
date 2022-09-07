@@ -1,0 +1,12 @@
+$rtl-search-form-icon-padding-right: 10px;
+
+[dir="rtl"] {
+    .ms-search {
+        @media (min-width: $msv-breakpoint-l) {
+            &__icon-text {
+                padding-left: unset;
+                padding-right: $rtl-search-form-icon-padding-right;
+            }
+        }
+    }
+}

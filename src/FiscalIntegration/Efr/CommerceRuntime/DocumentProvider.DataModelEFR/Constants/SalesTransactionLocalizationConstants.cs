@@ -22,14 +22,14 @@ namespace Contoso
             public const string CustomerDeposit = "CustomerDeposit";
 
             /// <summary>
-            /// Deposit account label.
-            /// </summary>
-            public const string DepositAccount = "DepositAccount";
-
-            /// <summary>
             /// Deposit label.
             /// </summary>
             public const string Deposit = "Deposit";
+
+            /// <summary>
+            /// Deposit account label.
+            /// </summary>
+            public const string DepositAccount = "DepositAccount";
 
             /// <summary>
             /// Gift card label.

@@ -14,8 +14,10 @@ fixture('validate search page').page(url).beforeEach(async testController => {
 
 test('validate product badge', async (testController: TestController) => {
        const renderProductBadge = Selector('.ms-search-result-container__Products .ms-product-search-result__item').find('.msc-product-badges').child(0);
+       if(await Selector(renderProductBadge).with({ visibilityCheck: true })()){
        await testController
        .expect(renderProductBadge.exists)
        .ok('badge not found')
        .hover(renderProductBadge, { speed: 0.4 })
+       }
 });

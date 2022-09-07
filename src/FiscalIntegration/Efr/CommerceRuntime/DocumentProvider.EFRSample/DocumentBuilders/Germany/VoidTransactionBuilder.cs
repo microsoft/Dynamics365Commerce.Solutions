@@ -57,7 +57,7 @@ namespace Contoso
             private async Task<DataModelEFR.Documents.Receipt> PopulateEfrLocalizationInfo(DataModelEFR.Documents.Receipt receipt)
             {
                 var request = new PopulateEfrLocalizationInfoRequest(receipt, this.documentBuilderData.SalesOrder);
-                return (await this.documentBuilderData.RequestContext.ExecuteAsync<SingleEntityDataServiceResponse<DataModelEFR.Documents.Receipt>>(request)).Entity;
+                return (await this.documentBuilderData.RequestContext.ExecuteAsync<SingleEntityDataServiceResponse<DataModelEFR.Documents.Receipt>>(request).ConfigureAwait(false)).Entity;
             }
         }
     }

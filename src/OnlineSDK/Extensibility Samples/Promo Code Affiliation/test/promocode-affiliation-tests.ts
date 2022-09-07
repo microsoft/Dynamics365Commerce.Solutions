@@ -22,17 +22,16 @@ test('validate promo code on cart page', async (testController: TestController) 
         Selector(pdpVariant),
         { speed: 0.4 }
     ).wait(5000);
-    await testController.hover('.msc-add-to-cart', { speed: 0.4 });
     const addToCartButton = Selector('.msc-add-to-cart');
-    await Selector(addToCartButton).with({ visibilityCheck: true })();
-    await testController.hover(addToCartButton).expect(addToCartButton.visible).ok().click(
-        Selector(addToCartButton),
-        { speed: 0.4 }
-    );
-
-    await testController.navigateTo('https://localhost:4000/page/?mock=cart&theme=fabrikam-extended&promocode=WEEKLYAD');
-    if(await Selector('.msc-promo-code__line-value').with({ visibilityCheck: true })()) {
-        await testController.hover('.msc-promo-code__line-value', { speed: 0.4 })
+   if(await Selector(addToCartButton).with({ visibilityCheck: true })()){
+    const isDisabale = await Selector(addToCartButton).hasAttribute('disabled');
+    if(!isDisabale){ 
+        await testController.click(Selector(addToCartButton),{ speed: 0.4 });
+        await testController.navigateTo('https://localhost:4000/page/?mock=cart&theme=fabrikam-extended&promocode=WEEKLYAD');
+        if(await Selector('.msc-promo-code__line-value').with({ visibilityCheck: true })()) {
+            await testController.hover('.msc-promo-code__line-value', { speed: 0.4 })
+        }
     }
+   }
 });
 

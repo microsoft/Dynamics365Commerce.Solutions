@@ -40,22 +40,18 @@ namespace Contoso
             /// </summary>
             /// <param name="request">Th request.</param>
             /// <returns>The response.</returns>
-            public async Task<Response> Execute(Request request)
+            public Task<Response> Execute(Request request)
             {
                 ThrowIf.Null(request, nameof(request));
 
-                Response response;
-
-                if (request is GetPaymentsForSalesOrderAtolRequest getPaymentsForSalesOrderAtolRequest)
+                switch (request)
                 {
-                    response = await this.GetPaymentsAsync(getPaymentsForSalesOrderAtolRequest).ConfigureAwait(false);
-                }
-                else
-                {
-                    throw new NotSupportedException(string.Format("Request '{0}' is not supported.", request.GetType()));
-                }
+                    case GetPaymentsForSalesOrderAtolRequest getPaymentsForSalesOrderAtolRequest:
+                        return GetPaymentsAsync(getPaymentsForSalesOrderAtolRequest);
 
-                return response;
+                    default:
+                        throw new NotSupportedException(string.Format("Request '{0}' is not supported.", request.GetType()));
+                }
             }
 
             /// <summary>
@@ -63,7 +59,7 @@ namespace Contoso
             /// </summary>
             /// <param name="request">The request.</param>
             /// <returns>The list of payments for a sales order.</returns>
-            private async Task<GetPaymentsForSalesOrderAtolResponse> GetPaymentsAsync(GetPaymentsForSalesOrderAtolRequest request)
+            private async Task<Response> GetPaymentsAsync(GetPaymentsForSalesOrderAtolRequest request)
             {
                 DeserializeDocumentProviderSettingsDocumentProviderAtolRequest deserializeDocumentProviderSettingsDocumentProviderAtolRequest = new DeserializeDocumentProviderSettingsDocumentProviderAtolRequest(request.FiscalIntegrationFunctionalityProfile);
                 var deserializeDocumentProviderSettingsDocumentProviderAtolResponse = await request.RequestContext.ExecuteAsync<DeserializeDocumentProviderSettingsDocumentProviderAtolResponse>(deserializeDocumentProviderSettingsDocumentProviderAtolRequest).ConfigureAwait(false);

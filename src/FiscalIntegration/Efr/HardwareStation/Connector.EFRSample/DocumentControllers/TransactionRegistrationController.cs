@@ -35,13 +35,11 @@ namespace Contoso
             /// <param name="endPointAddress">The service endpoint address.</param>
             /// <param name="token">The cancellation token.</param>
             /// <returns>The response from printer.</returns>
-            public static async Task<string> RegisterAsync(string salesTransaction, string endPointAddress, CancellationToken token)
+            public static Task<string> RegisterAsync(string salesTransaction, string endPointAddress, CancellationToken token)
             {
-                string response = await RunPostRequestAsync(
+                return RunPostRequestAsync(
                         endPointAddress + "/" + RequestConstants.Register,
-                        salesTransaction, token)
-                    .ConfigureAwait(false);
-                return response;
+                        salesTransaction, token);
             }
 
             /// <summary>

@@ -14,8 +14,10 @@ fixture('validate product page').page(url).beforeEach(async testController => {
 
 test('validate product badge', async (testController: TestController) => {
     const renderBadge = Selector('.msc-product-badges');
+    if(await Selector(renderBadge).with({ visibilityCheck: true })()){
     await testController
     .expect(renderBadge.exists)
     .ok('badge not found')
     .hover(renderBadge, { speed: 0.4 });
+    }
 });
