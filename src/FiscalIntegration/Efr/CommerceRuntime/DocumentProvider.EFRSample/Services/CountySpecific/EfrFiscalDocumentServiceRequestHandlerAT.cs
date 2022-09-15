@@ -29,6 +29,8 @@ namespace Contoso
 
         public sealed class EfrFiscalDocumentServiceRequestHandlerAT : IRequestHandlerAsync, ICountryRegionAware
         {
+            private const decimal ExemptedTaxPercentage = decimal.Zero;
+
             public IEnumerable<string> SupportedCountryRegions
             {
                 get
@@ -157,8 +159,13 @@ namespace Contoso
             private static Task<Response> GetSalesLineTaxGroup(GetEfrSalesLineTaxGroupsRequest request)
             {
                 var salesLine = request.SalesLine;
+                string taxGroups = string.Empty;
 
-                var taxGroups = EfrCommonFunctions.JoinTaxCodes(GetTaxGroupsFromSalesLine(request.FiscalIntegrationFunctionalityProfile, salesLine));
+                var taxCodes = salesLine.TaxLines.Select(taxLine => taxLine.IsExempt 
+                    ? request.FiscalIntegrationFunctionalityProfile.GetTaxGroupByRate(ExemptedTaxPercentage)
+                    : request.FiscalIntegrationFunctionalityProfile.GetTaxGroupByRate(taxLine.Percentage));
+
+                taxGroups = EfrCommonFunctions.JoinTaxCodes(taxCodes);
 
                 Response response = new SingleEntityDataServiceResponse<string>(taxGroups);
 
@@ -246,19 +253,21 @@ namespace Contoso
                         TaxLine = tl
                     }))
                     .GroupBy(tl =>
-                        tl.TaxLine.Percentage
+                        tl.TaxLine.IsExempt ? ExemptedTaxPercentage : tl.TaxLine.Percentage
                     );
 
                 foreach (var taxLine in taxLinesGrpByPercentage)
                 {
+                    decimal netAmount = taxLine.Sum(l => (l.IsReturnLine ? -1 : 1) * Math.Abs(l.TaxLine.TaxBasis));
+                    decimal taxAmount = taxLine.Sum(l => l.TaxLine.IsExempt ? decimal.Zero : l.TaxLine.Amount);
                     receiptTaxes.Add(
                         new ReceiptTax
                         {
                             TaxGroup = fiscalIntegrationFunctionalityProfile.GetTaxGroupByRate(taxLine.Key),
                             TaxPercent = taxLine.Key,
-                            NetAmount = taxLine.Sum(l => (l.IsReturnLine ? -1 : 1) * Math.Abs(l.TaxLine.TaxBasis)),
-                            TaxAmount = taxLine.Sum(l => l.TaxLine.Amount),
-                            GrossAmount = taxLine.Sum(l => (l.IsReturnLine ? -1 : 1) * Math.Abs(l.TaxLine.TaxBasis) + l.TaxLine.Amount)
+                            NetAmount = netAmount,
+                            TaxAmount = taxAmount,
+                            GrossAmount = netAmount + taxAmount
                         });
                 }
 

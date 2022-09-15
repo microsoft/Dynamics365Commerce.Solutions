@@ -26,6 +26,7 @@ namespace Contoso
 
         public sealed class EfrFiscalDocumentServiceRequestHandlerDE : IRequestHandlerAsync, ICountryRegionAware
         {
+            private const decimal ExemptTaxPercentage = decimal.Zero;
             private static readonly IDictionary<FiscalIntegrationEventType, string> NonFiscalTransactionTypeDictionary =
                 new Dictionary<FiscalIntegrationEventType, string>
                 {
@@ -301,12 +302,14 @@ namespace Contoso
                     }))
                     .GroupBy(tl => new
                     {
-                        tl.TaxLine.Percentage,
+                        Percentage = tl.TaxLine.IsExempt ? ExemptTaxPercentage : tl.TaxLine.Percentage,
                         tl.TaxLine.IsExempt
                     });
 
                 foreach (var group in taxLinesGroupsByPercentageAndExemptSign)
                 {
+                    decimal netAmount = group.Sum(l => (l.IsReturnLine ? -1 : 1) * Math.Abs(l.TaxLine.TaxBasis));
+                    decimal taxAmount = group.Key.IsExempt ? decimal.Zero : group.Sum(l => l.TaxLine.Amount);
                     receiptTaxes.Add(
                         new ReceiptTax
                         {
@@ -314,9 +317,9 @@ namespace Contoso
                                 ? ConfigurationController.GetExemptTaxGroup(fiscalIntegrationFunctionalityProfile)
                                 : fiscalIntegrationFunctionalityProfile.GetTaxGroupByRate(group.Key.Percentage),
                             TaxPercent = group.Key.Percentage,
-                            NetAmount = group.Sum(l => (l.IsReturnLine ? -1 : 1) * Math.Abs(l.TaxLine.TaxBasis)),
-                            TaxAmount = group.Sum(l => l.TaxLine.Amount),
-                            GrossAmount = group.Sum(l => (l.IsReturnLine ? -1 : 1) * Math.Abs(l.TaxLine.TaxBasis) + l.TaxLine.Amount)
+                            NetAmount = netAmount,
+                            TaxAmount = taxAmount,
+                            GrossAmount = netAmount + taxAmount
                         });
                 }
 
