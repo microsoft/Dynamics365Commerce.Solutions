@@ -1,5 +1,5 @@
 {
-    "name": "Msdyn365.Commerce.Samples",
+    "name": "Msdyn365-Commerce-Samples",
     "version": "9.38",
     "private": true,
     "workspaces": {

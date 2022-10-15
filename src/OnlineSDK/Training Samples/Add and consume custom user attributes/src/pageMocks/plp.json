@@ -1,0 +1,1339 @@
+{
+    "exception": null,
+    "pageRoot": {
+        "typeName": "core-root",
+        "id": "core-root_zvwdq3t",
+        "friendlyName": "Core root 1",
+        "config": {},
+        "modules": {
+            "htmlHead": [
+                {
+                    "typeName": "list-page-summary",
+                    "id": "list-page-summary",
+                    "friendlyName": "List Page Summary",
+                    "config": { "title": "Fabrikam Category page", "faviconUrl": null }
+                }
+            ],
+            "body": [
+                {
+                    "typeName": "default-page",
+                    "id": "default-page",
+                    "friendlyName": "Default Page",
+                    "config": { "skipToMainText": "Skip to main content", "pageTheme": "fabrikam-extended" },
+                    "modules": {
+                        "footer": [
+                            {
+                                "typeName": "default-container",
+                                "id": "IDNMAxJzO_caviytw",
+                                "friendlyName": "Default container",
+                                "config": {
+                                    "heading": {},
+                                    "layout": "stacked",
+                                    "containerType": "container",
+                                    "childrenWidth": "four",
+                                    "className": "ms-footer"
+                                },
+                                "modules": {
+                                    "content": [
+                                        {
+                                            "typeName": "footer-category",
+                                            "id": "IDNMAxJzO_caviytw-footer-category",
+                                            "friendlyName": "Footer category",
+                                            "config": { "categoryClassName": "nav-item" },
+                                            "modules": {
+                                                "content": [
+                                                    {
+                                                        "typeName": "footer-item",
+                                                        "id": "IDNMAxJzO_caviytw-footer-item",
+                                                        "friendlyName": "Footer item",
+                                                        "config": {
+                                                            "heading": { "text": "Customer Service", "tag": "h2" },
+                                                            "link": { "linkText": "Link text ", "linkUrl": {} }
+                                                        }
+                                                    },
+                                                    {
+                                                        "typeName": "footer-item",
+                                                        "id": "IDNMAxJzO_caviytw-footer-item__1",
+                                                        "friendlyName": "Footer item 2",
+                                                        "config": {
+                                                            "heading": { "text": "", "tag": "h2" },
+                                                            "link": {
+                                                                "linkText": "FAQ",
+                                                                "linkUrl": {
+                                                                    "destinationUrl": "/modern/comingsoon",
+                                                                    "type": "internalLink"
+                                                                },
+                                                                "ariaLabel": "FAQ"
+                                                            }
+                                                        },
+                                                        "data": {}
+                                                    },
+                                                    {
+                                                        "typeName": "footer-item",
+                                                        "id": "IDNMAxJzO_caviytw-footer-item__2",
+                                                        "friendlyName": "Footer item 3",
+                                                        "config": {
+                                                            "heading": { "text": "", "tag": "h2" },
+                                                            "link": {
+                                                                "linkText": "Returns & refunds",
+                                                                "linkUrl": { "destinationUrl": "/modern/home", "type": "internalLink" },
+                                                                "ariaLabel": "delivery and returns"
+                                                            }
+                                                        },
+                                                        "data": {}
+                                                    },
+                                                    {
+                                                        "typeName": "footer-item",
+                                                        "id": "IDNMAxJzO_caviytw-footer-item__16",
+                                                        "friendlyName": "Footer item 17",
+                                                        "config": {
+                                                            "heading": { "text": "", "tag": "h2" },
+                                                            "link": {
+                                                                "linkText": "Terms and conditions",
+                                                                "linkUrl": {
+                                                                    "destinationUrl": "/modern/termsandconditions",
+                                                                    "type": "internalLink"
+                                                                }
+                                                            }
+                                                        },
+                                                        "data": {}
+                                                    },
+                                                    {
+                                                        "typeName": "footer-item",
+                                                        "id": "IDNMAxJzO_caviytw-footer-item__15",
+                                                        "friendlyName": "Footer item 16",
+                                                        "config": {
+                                                            "heading": { "text": "", "tag": "h2" },
+                                                            "link": {
+                                                                "linkText": "Privacy Policy",
+                                                                "linkUrl": {
+                                                                    "destinationUrl": "https://go.microsoft.com/fwlink/?LinkId=521839",
+                                                                    "type": "externalLink"
+                                                                },
+                                                                "ariaLabel": "Privacy policy for Fabrikam"
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "typeName": "footer-category",
+                                            "id": "IDNMAxJzO_caviytw-footer-category__0",
+                                            "friendlyName": "Footer category 1",
+                                            "config": { "categoryClassName": "nav-item" },
+                                            "modules": {
+                                                "content": [
+                                                    {
+                                                        "typeName": "footer-item",
+                                                        "id": "IDNMAxJzO_caviytw-footer-item__3",
+                                                        "friendlyName": "Footer item 4",
+                                                        "config": {
+                                                            "heading": { "text": "Fabrikam Store", "tag": "h2" },
+                                                            "link": { "linkText": "Link text ", "linkUrl": {} }
+                                                        }
+                                                    },
+                                                    {
+                                                        "typeName": "footer-item",
+                                                        "id": "IDNMAxJzO_caviytw-footer-item__0",
+                                                        "friendlyName": "Footer item 1",
+                                                        "config": {
+                                                            "heading": { "text": "", "tag": "h2" },
+                                                            "link": {
+                                                                "linkText": "Store locations",
+                                                                "linkUrl": { "destinationUrl": "/modern/home", "type": "internalLink" }
+                                                            }
+                                                        },
+                                                        "data": {}
+                                                    },
+                                                    {
+                                                        "typeName": "footer-item",
+                                                        "id": "IDNMAxJzO_caviytw-footer-item__5",
+                                                        "friendlyName": "Footer item 6",
+                                                        "config": {
+                                                            "heading": { "text": "", "tag": "h2" },
+                                                            "link": {
+                                                                "linkText": "Store hours",
+                                                                "linkUrl": {
+                                                                    "destinationUrl": "/modern/comingsoon",
+                                                                    "type": "internalLink"
+                                                                },
+                                                                "ariaLabel": "store and hours"
+                                                            }
+                                                        },
+                                                        "data": {}
+                                                    },
+                                                    {
+                                                        "typeName": "footer-item",
+                                                        "id": "IDNMAxJzO_caviytw-footer-item__4",
+                                                        "friendlyName": "Footer item 5",
+                                                        "config": {
+                                                            "heading": { "text": "", "tag": "h2" },
+                                                            "link": {
+                                                                "linkText": "Store events",
+                                                                "linkUrl": {
+                                                                    "destinationUrl": "/modern/comingsoon",
+                                                                    "type": "internalLink"
+                                                                },
+                                                                "ariaLabel": "store and services"
+                                                            }
+                                                        },
+                                                        "data": {}
+                                                    },
+                                                    {
+                                                        "typeName": "footer-item",
+                                                        "id": "IDNMAxJzO_caviytw-footer-item__6",
+                                                        "friendlyName": "Footer item 7",
+                                                        "config": {
+                                                            "heading": { "text": "", "tag": "h2" },
+                                                            "link": {
+                                                                "linkText": "Fabrikam store support",
+                                                                "linkUrl": {
+                                                                    "destinationUrl": "/modern/comingsoon",
+                                                                    "type": "internalLink"
+                                                                },
+                                                                "ariaLabel": "store events"
+                                                            }
+                                                        },
+                                                        "data": {}
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "typeName": "footer-category",
+                                            "id": "IDNMAxJzO_caviytw-footer-category__1",
+                                            "friendlyName": "Footer category 2",
+                                            "config": { "categoryClassName": "nav-item" },
+                                            "modules": {
+                                                "content": [
+                                                    {
+                                                        "typeName": "footer-item",
+                                                        "id": "IDNMAxJzO_caviytw-footer-item__7",
+                                                        "friendlyName": "Footer item 8",
+                                                        "config": {
+                                                            "heading": { "text": "About us", "tag": "h2" },
+                                                            "link": { "linkText": "Link text ", "linkUrl": {} }
+                                                        }
+                                                    },
+                                                    {
+                                                        "typeName": "footer-item",
+                                                        "id": "IDNMAxJzO_caviytw-footer-item__8",
+                                                        "friendlyName": "Footer item 9",
+                                                        "config": {
+                                                            "heading": { "text": "", "tag": "h2" },
+                                                            "link": {
+                                                                "linkText": "Our story",
+                                                                "linkUrl": {
+                                                                    "destinationUrl": "/modern/comingsoon",
+                                                                    "type": "internalLink"
+                                                                },
+                                                                "ariaLabel": "your account"
+                                                            }
+                                                        },
+                                                        "data": {}
+                                                    },
+                                                    {
+                                                        "typeName": "footer-item",
+                                                        "id": "IDNMAxJzO_caviytw-footer-item__9",
+                                                        "friendlyName": "Footer item 10",
+                                                        "config": {
+                                                            "heading": { "text": "", "tag": "h2" },
+                                                            "link": {
+                                                                "linkText": "Careers with Fabrikam",
+                                                                "linkUrl": {
+                                                                    "destinationUrl": "/modern/comingsoon",
+                                                                    "type": "internalLink"
+                                                                },
+                                                                "ariaLabel": "your orders"
+                                                            }
+                                                        },
+                                                        "data": {}
+                                                    },
+                                                    {
+                                                        "typeName": "footer-item",
+                                                        "id": "IDNMAxJzO_caviytw-footer-item__10",
+                                                        "friendlyName": "Footer item 11",
+                                                        "config": {
+                                                            "heading": { "text": "", "tag": "h2" },
+                                                            "link": {
+                                                                "linkText": "News",
+                                                                "linkUrl": {
+                                                                    "destinationUrl": "/modern/comingsoon",
+                                                                    "type": "internalLink"
+                                                                },
+                                                                "ariaLabel": "shipping rates"
+                                                            }
+                                                        },
+                                                        "data": {}
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "typeName": "footer-category",
+                                            "id": "IDNMAxJzO_caviytw-footer-category__2",
+                                            "friendlyName": "Footer category 3",
+                                            "config": { "categoryClassName": "nav-item social-items" },
+                                            "modules": {
+                                                "content": [
+                                                    {
+                                                        "typeName": "footer-item",
+                                                        "id": "IDNMAxJzO_caviytw-footer-item__11",
+                                                        "friendlyName": "Footer item 12",
+                                                        "config": {
+                                                            "heading": { "text": "Follow us", "tag": "h2" },
+                                                            "link": { "linkText": "Link text ", "linkUrl": {} }
+                                                        }
+                                                    },
+                                                    {
+                                                        "typeName": "footer-item",
+                                                        "id": "IDNMAxJzO_caviytw-footer-item__12",
+                                                        "friendlyName": "Footer item 13",
+                                                        "config": {
+                                                            "heading": { "text": "", "tag": "h2" },
+                                                            "link": {
+                                                                "linkText": "",
+                                                                "linkUrl": {
+                                                                    "destinationUrl": "https://www.facebook.com/",
+                                                                    "type": "externalLink"
+                                                                },
+                                                                "ariaLabel": "facebook",
+                                                                "openInNewTab": true
+                                                            },
+                                                            "image": {
+                                                                "$type": "image",
+                                                                "_id": "MCGfR",
+                                                                "src": "https://images-us-ppe.cms.commerce.dynamics.com/cms/api/tkrqsbwppd/imageFileData/MCGfS?ver=f19a",
+                                                                "copyright": "",
+                                                                "altText": "Facebook",
+                                                                "binaryHash": "eSssNLV3QebTU/R0wA1ZQA==",
+                                                                "location": {},
+                                                                "caption": "Facebook",
+                                                                "title": "Facebook",
+                                                                "imageSettings": {
+                                                                    "quality": 80,
+                                                                    "disableLazyLoad": false,
+                                                                    "lazyload": true,
+                                                                    "viewports": {
+                                                                        "xs": {
+                                                                            "w": 24,
+                                                                            "h": 24,
+                                                                            "q": "w=24&h=24&q=80&m=6&f=jpg",
+                                                                            "qe": "t=w24h24qhigh"
+                                                                        },
+                                                                        "lg": {
+                                                                            "w": 24,
+                                                                            "h": 24,
+                                                                            "q": "w=24&h=24&q=80&m=6&f=jpg",
+                                                                            "qe": "t=w24h24qhigh"
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
+                                                        "data": {}
+                                                    },
+                                                    {
+                                                        "typeName": "footer-item",
+                                                        "id": "IDNMAxJzO_caviytw-footer-item__13",
+                                                        "friendlyName": "Footer item 14",
+                                                        "config": {
+                                                            "heading": { "text": "", "tag": "h2" },
+                                                            "link": {
+                                                                "linkText": "",
+                                                                "linkUrl": {
+                                                                    "destinationUrl": "https://twitter.com/",
+                                                                    "type": "externalLink"
+                                                                },
+                                                                "ariaLabel": "twitter",
+                                                                "openInNewTab": true
+                                                            },
+                                                            "image": {
+                                                                "$type": "image",
+                                                                "_id": "MCGfX",
+                                                                "src": "https://images-us-ppe.cms.commerce.dynamics.com/cms/api/tkrqsbwppd/imageFileData/MCGfY?ver=42fa",
+                                                                "copyright": "",
+                                                                "photographer": "multiple assets ",
+                                                                "altText": "Twitter",
+                                                                "binaryHash": "x/thwGAjcoA078mylVnrig==",
+                                                                "location": {},
+                                                                "caption": "Twitter",
+                                                                "title": "Twitter",
+                                                                "imageSettings": {
+                                                                    "quality": 80,
+                                                                    "disableLazyLoad": false,
+                                                                    "lazyload": true,
+                                                                    "viewports": {
+                                                                        "xs": {
+                                                                            "w": 24,
+                                                                            "h": 24,
+                                                                            "q": "w=24&h=24&q=80&m=6&f=jpg",
+                                                                            "qe": "t=w24h24qhigh"
+                                                                        },
+                                                                        "lg": {
+                                                                            "w": 24,
+                                                                            "h": 24,
+                                                                            "q": "w=24&h=24&q=80&m=6&f=jpg",
+                                                                            "qe": "t=w24h24qhigh"
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
+                                                        "data": {}
+                                                    },
+                                                    {
+                                                        "typeName": "footer-item",
+                                                        "id": "IDNMAxJzO_caviytw-footer-item__14",
+                                                        "friendlyName": "Footer item 15",
+                                                        "config": {
+                                                            "heading": { "text": "", "tag": "h2" },
+                                                            "link": {
+                                                                "linkText": "",
+                                                                "linkUrl": {
+                                                                    "destinationUrl": "https://www.instagram.com/",
+                                                                    "type": "externalLink"
+                                                                },
+                                                                "openInNewTab": true
+                                                            },
+                                                            "image": {
+                                                                "$type": "image",
+                                                                "_id": "MCGfU",
+                                                                "src": "https://images-us-ppe.cms.commerce.dynamics.com/cms/api/tkrqsbwppd/imageFileData/MCGfV?ver=43bb",
+                                                                "copyright": "",
+                                                                "altText": "Instagram",
+                                                                "binaryHash": "GyWvoIQDWXVgg2Z+eTu9kQ==",
+                                                                "location": {},
+                                                                "caption": "Instagram",
+                                                                "title": "Instagram",
+                                                                "imageSettings": {
+                                                                    "quality": 80,
+                                                                    "disableLazyLoad": false,
+                                                                    "lazyload": true,
+                                                                    "viewports": {
+                                                                        "xs": {
+                                                                            "w": 24,
+                                                                            "h": 24,
+                                                                            "q": "w=24&h=24&q=80&m=6&f=jpg",
+                                                                            "qe": "t=w24h24qhigh"
+                                                                        },
+                                                                        "lg": {
+                                                                            "w": 24,
+                                                                            "h": 24,
+                                                                            "q": "w=24&h=24&q=80&m=6&f=jpg",
+                                                                            "qe": "t=w24h24qhigh"
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
+                                                        "data": {}
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "typeName": "footer-category",
+                                            "id": "IDNMAxJzO_caviytw-footer-category__3",
+                                            "friendlyName": "Footer category 4",
+                                            "config": {},
+                                            "modules": {
+                                                "content": [
+                                                    {
+                                                        "typeName": "back-top-footer",
+                                                        "id": "IDNMAxJzO_caviytw-back-top-footer",
+                                                        "friendlyName": "Back to top",
+                                                        "config": { "destination": "#", "ariaLabel": "Back to top" }
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "typeName": "footer-category",
+                                            "id": "IDNMAxJzO_caviytw-footer-category__4",
+                                            "friendlyName": "Footer category 5",
+                                            "config": {},
+                                            "modules": {
+                                                "content": [
+                                                    {
+                                                        "typeName": "back-top-footer",
+                                                        "id": "IDNMAxJzO_caviytw-back-top-footer__0",
+                                                        "friendlyName": "Back to top 1",
+                                                        "config": { "destination": "#", "ariaLabel": "Back to top" }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        ],
+                        "primary": [
+                            {
+                                "typeName": "default-container",
+                                "id": "default-container",
+                                "friendlyName": "Container",
+                                "config": { "heading": {}, "layout": "stacked", "containerType": "container", "childrenWidth": "four" },
+                                "modules": {
+                                    "content": [
+                                        {
+                                            "typeName": "breadcrumb",
+                                            "id": "breadcrumb",
+                                            "friendlyName": "Breadcrumb",
+                                            "config": {
+                                                "root": {
+                                                    "linkText": "Home",
+                                                    "linkUrl": { "destinationUrl": "/modern/", "type": "internalLink" }
+                                                }
+                                            },
+                                            "data": {}
+                                        },
+                                        {
+                                            "typeName": "custom-search-result-container",
+                                            "id": "custom-search-result-container",
+                                            "friendlyName": "Search result container",
+                                            "platform": { "layout": "mediumWidth" },
+                                            "config": {
+                                                "msdyn365__moduleLayout": "mediumWidth",
+                                                "itemsPerPage": 30.0,
+                                                "allowBackNavigation": true,
+                                                "imageSettings": {
+                                                    "quality": 80,
+                                                    "disableLazyLoad": true,
+                                                    "lazyload": true,
+                                                    "viewports": {
+                                                        "xs": {
+                                                            "w": 315,
+                                                            "h": 315,
+                                                            "q": "w=315&h=315&q=80&m=6&f=jpg",
+                                                            "qe": "t=w315h315qhigh"
+                                                        },
+                                                        "lg": {
+                                                            "w": 315,
+                                                            "h": 315,
+                                                            "q": "w=315&h=315&q=80&m=6&f=jpg",
+                                                            "qe": "t=w315h315qhigh"
+                                                        },
+                                                        "xl": {
+                                                            "w": 315,
+                                                            "h": 315,
+                                                            "q": "w=315&h=315&q=80&m=6&f=jpg",
+                                                            "qe": "t=w315h315qhigh"
+                                                        }
+                                                    }
+                                                },
+                                                "disableHierarchy": false,
+                                                "includeAttributes": true,
+                                                "enableAffiliationBasedPricing": true,
+                                                "updateRefinerPanel": false
+                                            },
+                                            "modules": {
+                                                "quickview": [
+                                                    {
+                                                        "typeName": "quickview",
+                                                        "id": "quickview",
+                                                        "friendlyName": "Product quick view",
+                                                        "platform": { "layout": "vertical" },
+                                                        "config": {
+                                                            "msdyn365__moduleLayout": "vertical",
+                                                            "titleHeadingTag": "h1",
+                                                            "minimumKeyInPrice": 10.0,
+                                                            "maximumKeyInPrice": 100.0,
+                                                            "thumbnailImageSettings": {
+                                                                "quality": 80,
+                                                                "disableLazyLoad": false,
+                                                                "lazyload": true,
+                                                                "viewports": {
+                                                                    "sm": {
+                                                                        "w": 40,
+                                                                        "h": 48,
+                                                                        "q": "w=40&h=48&q=80&m=6&f=jpg",
+                                                                        "qe": "t=w40h48qhigh"
+                                                                    },
+                                                                    "lg": {
+                                                                        "w": 40,
+                                                                        "h": 48,
+                                                                        "q": "w=40&h=48&q=80&m=6&f=jpg",
+                                                                        "qe": "t=w40h48qhigh"
+                                                                    },
+                                                                    "xl": {
+                                                                        "w": 40,
+                                                                        "h": 48,
+                                                                        "q": "w=40&h=48&q=80&m=6&f=jpg",
+                                                                        "qe": "t=w40h48qhigh"
+                                                                    }
+                                                                }
+                                                            },
+                                                            "galleryImageSettings": {
+                                                                "quality": 80,
+                                                                "disableLazyLoad": false,
+                                                                "lazyload": true,
+                                                                "viewports": {
+                                                                    "xs": {
+                                                                        "w": 256,
+                                                                        "h": 256,
+                                                                        "q": "w=256&h=256&q=80&m=6&f=jpg",
+                                                                        "qe": "t=w256h256qhigh"
+                                                                    },
+                                                                    "sm": {
+                                                                        "w": 256,
+                                                                        "h": 256,
+                                                                        "q": "w=256&h=256&q=80&m=6&f=jpg",
+                                                                        "qe": "t=w256h256qhigh"
+                                                                    },
+                                                                    "md": {
+                                                                        "w": 310,
+                                                                        "h": 310,
+                                                                        "q": "w=310&h=310&q=80&m=6&f=jpg",
+                                                                        "qe": "t=w310h310qhigh"
+                                                                    },
+                                                                    "lg": {
+                                                                        "w": 310,
+                                                                        "h": 310,
+                                                                        "q": "w=310&h=310&q=80&m=6&f=jpg",
+                                                                        "qe": "t=w310h310qhigh"
+                                                                    },
+                                                                    "xl": {
+                                                                        "w": 310,
+                                                                        "h": 310,
+                                                                        "q": "w=310&h=310&q=80&m=6&f=jpg",
+                                                                        "qe": "t=w310h310qhigh"
+                                                                    }
+                                                                }
+                                                            },
+                                                            "seeDetailsLinkText": "See Details"
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        ],
+                        "header": [
+                            {
+                                "typeName": "default-container",
+                                "id": "IDNMAwGxa_35tyevp",
+                                "friendlyName": "Default container",
+                                "config": { "heading": {}, "layout": "stacked", "containerType": "fluid", "childrenWidth": "four" },
+                                "modules": {
+                                    "content": [
+                                        {
+                                            "typeName": "cookie-compliance",
+                                            "id": "IDNMAwGxa_35tyevp-cookie-compliance",
+                                            "friendlyName": "Cookie compliance",
+                                            "config": {
+                                                "content": "<p>This site uses cookies for analytics and personalized content. Accept to continue.&nbsp;</p>\n",
+                                                "actionLinks": [
+                                                    {
+                                                        "linkText": "Learn more",
+                                                        "linkUrl": {
+                                                            "destinationUrl": "https://go.microsoft.com/fwlink/?linkid=845480",
+                                                            "type": "externalLink"
+                                                        },
+                                                        "ariaLabel": "Learn more about cookie compliance"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "typeName": "promo-banner",
+                                            "id": "IDNMAwGxa_35tyevp-promo-banner",
+                                            "friendlyName": "Promo banner",
+                                            "platform": { "layout": "mediumWidth" },
+                                            "config": {
+                                                "msdyn365__moduleLayout": "mediumWidth",
+                                                "bannerMessages": [
+                                                    { "text": "Shop for Thanksgiving SALE!!" },
+                                                    { "text": "Free Shipping with $25 purchase + Free Store Pickup" },
+                                                    { "text": "Sign up for emails & get extra 25% off! Exclusions apply" }
+                                                ],
+                                                "autoplay": true,
+                                                "dismissEnabled": false,
+                                                "hideFlipper": true,
+                                                "className": "alignment__center"
+                                            }
+                                        },
+                                        {
+                                            "typeName": "notifications-list",
+                                            "id": "IDNMAwGxa_35tyevp-notifications-list",
+                                            "friendlyName": "Notifications",
+                                            "config": {
+                                                "feed": "global",
+                                                "maxNotificationsCount": 5.0,
+                                                "minTopOffset": 20.0,
+                                                "maxTopOffset": 180.0,
+                                                "className": "msc-global-notifications-list-container"
+                                            }
+                                        },
+                                        {
+                                            "typeName": "header",
+                                            "id": "IDNMAwGxa_35tyevp-header",
+                                            "friendlyName": "Header",
+                                            "config": {
+                                                "logoImage": {
+                                                    "$type": "image",
+                                                    "_id": "MCIj0",
+                                                    "src": "https://images-us-ppe.cms.commerce.dynamics.com/cms/api/tkrqsbwppd/imageFileData/MCIj1?ver=d6a9",
+                                                    "copyright": "",
+                                                    "altText": "Fabrikam",
+                                                    "binaryHash": "zsDVVIqCDbkGaw7eITavoA==",
+                                                    "location": {},
+                                                    "title": "Fabrikam",
+                                                    "imageSettings": {
+                                                        "quality": 80,
+                                                        "disableLazyLoad": false,
+                                                        "lazyload": true,
+                                                        "viewports": {
+                                                            "xs": {
+                                                                "w": 132,
+                                                                "h": 28,
+                                                                "q": "w=132&h=28&q=80&m=6&f=jpg",
+                                                                "qe": "t=w132h28qhigh"
+                                                            },
+                                                            "lg": {
+                                                                "w": 160,
+                                                                "h": 48,
+                                                                "q": "w=160&h=48&q=80&m=6&f=jpg",
+                                                                "qe": "t=w160h48qhigh"
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "logoLink": {
+                                                    "linkText": "",
+                                                    "linkUrl": { "destinationUrl": "/modern/", "type": "internalLink" },
+                                                    "ariaLabel": "Fabrikam"
+                                                },
+                                                "myAccountLinks": [
+                                                    {
+                                                        "linkText": "My account",
+                                                        "linkUrl": { "destinationUrl": "/modern/myaccount", "type": "internalLink" },
+                                                        "ariaLabel": "My account"
+                                                    },
+                                                    {
+                                                        "linkText": "Order history",
+                                                        "linkUrl": { "destinationUrl": "/modern/orderhistory", "type": "internalLink" },
+                                                        "ariaLabel": "Order history"
+                                                    }
+                                                ]
+                                            },
+                                            "data": {},
+                                            "modules": {
+                                                "menuBar": [
+                                                    {
+                                                        "typeName": "navigation-menu",
+                                                        "id": "IDNMAwGxa_35tyevp-navigation-menu",
+                                                        "friendlyName": "Navigation menu",
+                                                        "config": {
+                                                            "categoryImageSettings": {
+                                                                "quality": 80,
+                                                                "disableLazyLoad": false,
+                                                                "lazyload": true,
+                                                                "viewports": {
+                                                                    "xs": {
+                                                                        "w": 300,
+                                                                        "h": 350,
+                                                                        "q": "w=300&h=350&q=80&m=6&f=jpg",
+                                                                        "qe": "t=w300h350qhigh"
+                                                                    },
+                                                                    "lg": {
+                                                                        "w": 300,
+                                                                        "h": 350,
+                                                                        "q": "w=300&h=350&q=80&m=6&f=jpg",
+                                                                        "qe": "t=w300h350qhigh"
+                                                                    },
+                                                                    "xl": {
+                                                                        "w": 300,
+                                                                        "h": 350,
+                                                                        "q": "w=300&h=350&q=80&m=6&f=jpg",
+                                                                        "qe": "t=w300h350qhigh"
+                                                                    }
+                                                                }
+                                                            },
+                                                            "menuLevelSupport": 4.0,
+                                                            "rootMenuNavigation": "Shop",
+                                                            "cmsNavItems": [
+                                                                {
+                                                                    "linkText": "Explore Fabrikam",
+                                                                    "linkUrl": {},
+                                                                    "imageLink": {},
+                                                                    "subMenus": [
+                                                                        {
+                                                                            "linkText": "Contact",
+                                                                            "linkUrl": {
+                                                                                "destinationUrl": "/modern/contact",
+                                                                                "type": "internalLink"
+                                                                            },
+                                                                            "imageLink": {}
+                                                                        },
+                                                                        {
+                                                                            "linkText": "Loyalty program",
+                                                                            "linkUrl": {
+                                                                                "destinationUrl": "/modern/loyalty-join",
+                                                                                "type": "internalLink"
+                                                                            },
+                                                                            "imageLink": {}
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            ],
+                                                            "categoryPromotionalContent": [],
+                                                            "navigationMenuSource": "all",
+                                                            "enableMultilevelMenu": false,
+                                                            "enabletopMenu": false,
+                                                            "displayCategoryImage": true,
+                                                            "displayPromotionalImage": true
+                                                        },
+                                                        "data": {}
+                                                    }
+                                                ],
+                                                "search": [
+                                                    {
+                                                        "typeName": "search",
+                                                        "id": "IDNMAwGxa_35tyevp-search",
+                                                        "friendlyName": "Search",
+                                                        "config": {
+                                                            "suggestionTypeCriterion": [],
+                                                            "topResultsCount": 6.0,
+                                                            "imageSettings": {
+                                                                "quality": 80,
+                                                                "disableLazyLoad": false,
+                                                                "lazyload": true,
+                                                                "viewports": {
+                                                                    "xs": {
+                                                                        "w": 80,
+                                                                        "h": 94,
+                                                                        "q": "w=80&h=94&q=80&m=6&f=jpg",
+                                                                        "qe": "t=w80h94qhigh"
+                                                                    },
+                                                                    "sm": {
+                                                                        "w": 148,
+                                                                        "h": 174,
+                                                                        "q": "w=148&h=174&q=80&m=6&f=jpg",
+                                                                        "qe": "t=w148h174qhigh"
+                                                                    },
+                                                                    "lg": {
+                                                                        "w": 148,
+                                                                        "h": 174,
+                                                                        "q": "w=148&h=174&q=80&m=6&f=jpg",
+                                                                        "qe": "t=w148h174qhigh"
+                                                                    }
+                                                                }
+                                                            },
+                                                            "hideSearchLabel": false,
+                                                            "disableSubmitSearch": false,
+                                                            "searchplaceholderText": "Search in Fabrikam",
+                                                            "shouldShowFullCategoryPath": true
+                                                        }
+                                                    }
+                                                ],
+                                                "cartIcon": [
+                                                    {
+                                                        "typeName": "cart-icon",
+                                                        "id": "IDNMAwGxa_35tyevp-cart-icon",
+                                                        "friendlyName": "Cart Icon",
+                                                        "config": {
+                                                            "imageSettings": {
+                                                                "quality": 80,
+                                                                "disableLazyLoad": false,
+                                                                "lazyload": true,
+                                                                "viewports": {
+                                                                    "xs": {
+                                                                        "w": 80,
+                                                                        "h": 94,
+                                                                        "q": "w=80&h=94&q=80&m=6&f=jpg",
+                                                                        "qe": "t=w80h94qhigh"
+                                                                    },
+                                                                    "sm": {
+                                                                        "w": 148,
+                                                                        "h": 174,
+                                                                        "q": "w=148&h=174&q=80&m=6&f=jpg",
+                                                                        "qe": "t=w148h174qhigh"
+                                                                    },
+                                                                    "lg": {
+                                                                        "w": 148,
+                                                                        "h": 174,
+                                                                        "q": "w=148&h=174&q=80&m=6&f=jpg",
+                                                                        "qe": "t=w148h174qhigh"
+                                                                    }
+                                                                }
+                                                            },
+                                                            "enableHoverCart": true
+                                                        }
+                                                    }
+                                                ],
+                                                "siteOptions": [
+                                                    {
+                                                        "typeName": "site-picker",
+                                                        "id": "IDNMAwGxa_35tyevp-site-picker",
+                                                        "friendlyName": "Site picker",
+                                                        "config": {
+                                                            "heading": { "text": "Choose your country", "tag": "h3" },
+                                                            "siteOptions": [
+                                                                {
+                                                                    "siteName": "United States",
+                                                                    "siteImage": {
+                                                                        "$type": "image",
+                                                                        "_id": "MCdyBe",
+                                                                        "src": "https://images-us-ppe.cms.commerce.dynamics.com/cms/api/tkrqsbwppd/imageFileData/MCdyBg?ver=1ca6",
+                                                                        "altText": "Flag",
+                                                                        "copyright": "",
+                                                                        "quality": 94,
+                                                                        "width": 83,
+                                                                        "height": 50,
+                                                                        "binaryHash": "DfNRRsGWdRhfuBuRzkAZDA==",
+                                                                        "title": "",
+                                                                        "imageSettings": {
+                                                                            "quality": 80,
+                                                                            "disableLazyLoad": false,
+                                                                            "lazyload": true
+                                                                        }
+                                                                    },
+                                                                    "siteRedirectUrl": {
+                                                                        "destinationUrl": "https://r3tie.fabrikam.com/modern",
+                                                                        "type": "externalLink"
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "siteName": "Canada (en-ca)",
+                                                                    "siteImage": {
+                                                                        "$type": "image",
+                                                                        "_id": "MCdw87",
+                                                                        "src": "https://images-us-ppe.cms.commerce.dynamics.com/cms/api/tkrqsbwppd/imageFileData/MCdw8a?ver=7aa5",
+                                                                        "altText": "Flag",
+                                                                        "copyright": "",
+                                                                        "quality": 94,
+                                                                        "width": 75,
+                                                                        "height": 50,
+                                                                        "binaryHash": "/MMypjKIWyYkKi1P2+INaw==",
+                                                                        "title": "",
+                                                                        "imageSettings": {
+                                                                            "quality": 80,
+                                                                            "disableLazyLoad": false,
+                                                                            "lazyload": true
+                                                                        }
+                                                                    },
+                                                                    "siteRedirectUrl": {
+                                                                        "destinationUrl": "https://r3tie.fabrikam.com/modern/en-ca",
+                                                                        "type": "externalLink"
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "siteName": "Canada (fr-ca)",
+                                                                    "siteImage": {
+                                                                        "$type": "image",
+                                                                        "_id": "MCdw87",
+                                                                        "src": "https://images-us-ppe.cms.commerce.dynamics.com/cms/api/tkrqsbwppd/imageFileData/MCdw8a?ver=7aa5",
+                                                                        "altText": "Flag",
+                                                                        "copyright": "",
+                                                                        "quality": 94,
+                                                                        "width": 75,
+                                                                        "height": 50,
+                                                                        "binaryHash": "/MMypjKIWyYkKi1P2+INaw==",
+                                                                        "title": "",
+                                                                        "imageSettings": {
+                                                                            "quality": 80,
+                                                                            "disableLazyLoad": false,
+                                                                            "lazyload": true
+                                                                        }
+                                                                    },
+                                                                    "siteRedirectUrl": {
+                                                                        "destinationUrl": "https://r3tie.fabrikam.com/modern/fr-ca",
+                                                                        "type": "externalLink"
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "siteName": "Japan",
+                                                                    "siteImage": {
+                                                                        "$type": "image",
+                                                                        "_id": "MCdw8e",
+                                                                        "src": "https://images-us-ppe.cms.commerce.dynamics.com/cms/api/tkrqsbwppd/imageFileData/MCdw8f?ver=d709",
+                                                                        "altText": "Flag",
+                                                                        "copyright": "",
+                                                                        "quality": 94,
+                                                                        "width": 75,
+                                                                        "height": 53,
+                                                                        "binaryHash": "O43RP74mYkHYiwQyOPV45A==",
+                                                                        "title": "",
+                                                                        "imageSettings": {
+                                                                            "quality": 80,
+                                                                            "disableLazyLoad": false,
+                                                                            "lazyload": true
+                                                                        }
+                                                                    },
+                                                                    "siteRedirectUrl": {
+                                                                        "destinationUrl": "https://r3tie.fabrikam.com/modern/ja",
+                                                                        "type": "externalLink"
+                                                                    }
+                                                                }
+                                                            ]
+                                                        },
+                                                        "data": {}
+                                                    }
+                                                ],
+                                                "storeSelector": [
+                                                    {
+                                                        "typeName": "store-selector",
+                                                        "id": "IDNMAwGxa_35tyevp-store-selector",
+                                                        "friendlyName": "Store selector",
+                                                        "config": {
+                                                            "termsOfServiceLink": { "linkText": "Link text ", "linkUrl": {} },
+                                                            "mode": "findStores",
+                                                            "searchRadiusUnit": "miles",
+                                                            "lookupRadius": 50.0,
+                                                            "style": "dialog",
+                                                            "setAsPreferredStore": true,
+                                                            "enablePickupFilterToShowStore": false,
+                                                            "showAllStores": true,
+                                                            "autoSuggestionEnabled": true,
+                                                            "autoSuggestOptions": { "maxResults": 5 }
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "typeName": "country-picker",
+                                            "id": "IDNMAwGxa_35tyevp-country-picker",
+                                            "friendlyName": "Country/region picker",
+                                            "config": {
+                                                "heading": { "text": "Heading", "tag": "h2" },
+                                                "countryList": [
+                                                    {
+                                                        "displayString": "America",
+                                                        "displaySubString": "en-us",
+                                                        "url": "https://r3tie.fabrikam.com/modern/en-us"
+                                                    },
+                                                    {
+                                                        "displayString": "japan",
+                                                        "displaySubString": "ja",
+                                                        "url": "https://r3tie.fabrikam.com/modern/ja"
+                                                    },
+                                                    {
+                                                        "displayString": "MExico",
+                                                        "displaySubString": "mx",
+                                                        "url": "https://r3tie.fabrikam.com/modern/mx"
+                                                    }
+                                                ],
+                                                "actionLink": { "linkText": "Link text ", "linkUrl": {} }
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "renderingContext": {
+        "User": {
+            "Cid": 0,
+            "IsAuthenticated": false,
+            "FirstName": null,
+            "LastName": null,
+            "MemberName": null,
+            "DisplayMemberName": null,
+            "Country": null,
+            "WindowsLiveId": null,
+            "SignInOutUrl": "https://r3tie.fabrikam.com:443/modern/onerf/signin?EEL=True&pcexp=True",
+            "SignInUrl": "https://r3tie.fabrikam.com:443/modern/onerf/signin?EEL=True&pcexp=True",
+            "SignOutUrl": "https://r3tie.fabrikam.com:443/modern/onerf/signout?pcexp=True",
+            "SilentSignInUrl": null,
+            "MeUrl": null,
+            "ErrorMessages": [],
+            "Name": null,
+            "Puid": 0,
+            "Muid": null,
+            "Xuid": null,
+            "Gamertag": null,
+            "AgeGroup": 0,
+            "BirthDate": null,
+            "CompactTicket": null,
+            "XboxLiveCompactTicket": null,
+            "IsChild": false,
+            "IsParent": false,
+            "FamilyId": 0,
+            "IsFamilySafetyUser": false,
+            "ProxyTicket": null,
+            "Token": null,
+            "IsEncrypted": false,
+            "TicketType": 0,
+            "AuthenticationType": 0,
+            "EmailAddress": null,
+            "SigninName": null,
+            "OrganizationId": "",
+            "ObjectIdentifier": null,
+            "Roles": null,
+            "ChannelId": null,
+            "RetailServerErrorCode": null,
+            "RetailServerErrorCorrelationId": null,
+            "RetailServerErrorMessage": null,
+            "CustomerAccountNumber": null,
+            "CatalogId": null,
+            "OptOutWebActivityTracking": null,
+            "IsB2b": false,
+            "IsOBORequest": false,
+            "Claims": null,
+            "TenantId": ""
+        },
+        "DeviceType": "Pc",
+        "experiments": { "userId": null, "activeExperiments": [] },
+        "tuid": "7e0ae077-c82a-c0f9-989e-3aaadfd86375",
+        "segmentRequestId": null,
+        "missingSegments": {},
+        "requestUrl": "https://r3tie.fabrikam.com/modern/fabrikam-fashion/menswear/68719478037.c",
+        "sitePath": "/modern",
+        "CrossChannelIdentity": [],
+        "clientIPAddress": "43.230.215.1",
+        "clientContext": {
+            "deviceType": "Pc",
+            "isBot": false,
+            "requestUserAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Safari/537.36"
+        },
+        "canonicalUrl": null,
+        "canonicalDomain": "r3tie.fabrikam.com",
+        "staticContext": { "staticCdnUrl": "/_scnr/", "staticCdnUrlWithLocale": "/en-us/_msdyn365/_scnr/" },
+        "user": {
+            "token": null,
+            "isAuthenticated": false,
+            "isSignedIn": false,
+            "signInUrl": "https://r3tie.fabrikam.com/_msdyn365/signin",
+            "signOutUrl": "https://r3tie.fabrikam.com/_msdyn365/signout",
+            "signUpUrl": "https://r3tie.fabrikam.com/_msdyn365/signup",
+            "editProfileUrl": "https://r3tie.fabrikam.com/_msdyn365/editprofile",
+            "signinName": null,
+            "firstName": null,
+            "lastName": null,
+            "optOutWebActivityTracking": false,
+            "isB2b": false,
+            "isOBORequest": false,
+            "tenantId": "",
+            "customerAccountNumber": null,
+            "catalogId": null,
+            "name": null,
+            "emailAddress": null,
+            "retailServerErrorCode": null,
+            "retailServerErrorMessage": null,
+            "userClaims": null
+        },
+        "previewContext": null,
+        "telemetryPageName": "Category",
+        "locale": "en-us",
+        "textDirection": "ltr",
+        "suggestedMarket": "IN",
+        "marketSettings": null,
+        "urlTokens": { "itemId": "68719478037", "recordId": "68719478037", "pageType": "Category", "categories": ["menswear"] },
+        "apiSettings": {
+            "baseUrl": "https://comme2e-tie-ring3812fc79932160db2ret.cloud.retail.test.dynamics.com/",
+            "retailServerEndpointOverrideDomain": null,
+            "channelId": 68719478279,
+            "eCommerceChannelId": "rpbpwaytjjr",
+            "eCommerceCrossChannelId": null,
+            "catalogId": 0,
+            "oun": "128",
+            "baseImageUrl": "https://images-us-ppe.cms.commerce.dynamics.com/cms/api/tkrqsbwppd/imageFileData/search?fileName=/",
+            "ratingsReviewsEndpoint": "https://6db8449a-1d47-42e7-9658-4a0eb96c4f1b.rnr-ppe.ms",
+            "ratingsReviewsProxyEndpoint": "https://r3tie.fabrikam.com/_msdyn365/rnr/",
+            "rnr": {
+                "id": "6db8449a-1d47-42e7-9658-4a0eb96c4f1b",
+                "url": "https://6db8449a-1d47-42e7-9658-4a0eb96c4f1b.rnr-ppe.ms",
+                "proxyUrl": "https://r3tie.fabrikam.com/_msdyn365/rnr/"
+            },
+            "externalCmsBaseUrls": null
+        },
+        "gridSettings": { "xs": { "w": 768 }, "sm": { "w": 991 }, "md": { "w": 1199 }, "lg": { "w": 1599 }, "xl": { "w": 1600 } },
+        "debugMode": 0,
+        "operationId": "7e4fcce7cd82cb4295ddc5c12708cfe8",
+        "siteTheme": "fabrikam-extended",
+        "sameSiteRequired": true,
+        "features": {
+            "enable_performance_analysis": true,
+            "enable_react_statics_in_body": true,
+            "enableAuthoringRemoveAndAddModule": true,
+            "enable_react_statics_in_body123": true,
+            "scnr_blob": true,
+            "action_timeout": true,
+            "clientRender_modules": true,
+            "optimize_client_hydrate": true,
+            "skip_external_link_catalogid": true,
+            "allow_react_statics_in_body": true,
+            "disable_cors": true,
+            "disable_server_cookie_encoding": true,
+            "enable_render_cache_all": true,
+            "disable_routeerrors_cache": true,
+            "disableRetailProxySW": true,
+            "disable_render_result_compression": true,
+            "async_chunks": true,
+            "defer_chunks": true,
+            "enableDataAnalytics": true
+        },
+        "pageFragmentStylePresetList": [],
+        "telemetrySettings": {
+            "eventHubEndPoint": "",
+            "eventHubAuthToken": "",
+            "operationId": "7e4fcce7cd82cb4295ddc5c12708cfe8",
+            "url": "",
+            "clientAuth": "",
+            "environmentId": "",
+            "commerceCoreEnvId": "",
+            "operationalInsightsInstrumentationKey": ""
+        }
+    },
+    "statusCode": 200,
+    "redirectUrl": null,
+    "appContext": {
+        "config": {
+            "isBulkPurchaseEnabled": true,
+            "enableStockCheck": true,
+            "inventoryLevel": "totalAvailable",
+            "inventoryRanges": "all",
+            "warehouseAggregation": "individual",
+            "outOfStockThreshold": 0.0,
+            "productListInventoryDisplay": "default",
+            "maxQuantityForCartLineItem": 5.0,
+            "hideRating": false,
+            "geolocationApiUrl": "https://dev.virtualearth.net/REST/v1/",
+            "reviewTextMaxLength": 500.0,
+            "reviewTitleMaxLength": 500.0,
+            "disableTooltip": false,
+            "searchQueryStringParameter": "q",
+            "searchInputMaxLength": 500.0,
+            "addToCartBehavior": "showModal",
+            "giftCardSupported": "both",
+            "breadcrumbType": "category",
+            "shouldUseNewImageComponent": true,
+            "placeholderImageName": "Placeholder.png",
+            "unitOfMeasureDisplayType": "buybox",
+            "shouldEnableSinglePaymentAuthorizationCheckout": false,
+            "dimensionsAsSwatchType": ["color", "size", "style"],
+            "dimensionsInProductCard": ["color", "style", "size"],
+            "dimensionToPreSelectInProductCard": "color",
+            "isEnableShowOrHideSalesTaxECommerceEnabled": true
+        },
+        "routes": {
+            "account": { "destinationUrl": "/modern/myaccount", "type": "internalLink" },
+            "accountProfile": { "destinationUrl": "/modern/profile-edit", "type": "internalLink" },
+            "backToShopping": { "destinationUrl": "/modern/home", "type": "internalLink" },
+            "cart": { "destinationUrl": "/modern/cart", "type": "internalLink" },
+            "checkout": { "destinationUrl": "/modern/checkout", "type": "internalLink" },
+            "home": { "destinationUrl": "/modern/", "type": "internalLink" },
+            "loyalty": { "destinationUrl": "/modern/loyalty", "type": "internalLink" },
+            "loyaltyJoin": { "destinationUrl": "/modern/loyalty-join", "type": "internalLink" },
+            "orderConfirmation": { "destinationUrl": "/modern/orderconfirmation", "type": "internalLink" },
+            "orderDetails": { "destinationUrl": "/modern/orderdetails", "type": "internalLink" },
+            "search": { "destinationUrl": "/modern/search", "type": "internalLink" },
+            "wishlist": { "destinationUrl": "/modern/wishlist", "type": "internalLink" },
+            "loyaltyTerms": { "destinationUrl": "/modern/loyalty-terms", "type": "internalLink" }
+        },
+        "platform": {
+            "maintenanceMode": false,
+            "enableBingMapGeoLoation": true,
+            "disableServerSideErrorChecking": false,
+            "enableRenderCaching": true,
+            "disableCookieCompliance": false,
+            "cartSessionExpiration": 1.0,
+            "imageQuality": 80.0,
+            "maxDepth": 200.0,
+            "skipToMainText": "Skip to main content",
+            "enableCustomerAccountPayment": "all",
+            "defaultPageSizeForAPI": 50.0
+        },
+        "contentSecurityPolicy": {
+            "disableContentSecurityPolicy": false,
+            "enableReportOnlyMode": false,
+            "enableNonce": false,
+            "child-src": [
+                "https://paymentacceptsample.cloud.dynamics.com",
+                "*.adyen.com",
+                "https://www.youtube.com/",
+                "https://gahp.net",
+                "https://www.google.com/",
+                "*.paypal.com",
+                "'self'"
+            ],
+            "connect-src": [
+                "*.bing.com",
+                "*.adyen.com",
+                "*.paypal.com",
+                "logx.optimizely.com",
+                "'self'",
+                "https://login.microsoftonline.com",
+                "https://*.commerce.dynamics.com",
+                "https://*.dynamics365commerce.ms",
+                "https://dc.services.visualstudio.com",
+                "https://images-us-ppe.cms.commerce.dynamics.com",
+                "https://images-us-ppe.cms.commerce.dynamics.com",
+                "https://r3tie.fabrikam.com",
+                "https://comme2e-tie-ring3812fc79932160db2ret.cloud.retail.test.dynamics.com/",
+                "https://6db8449a-1d47-42e7-9658-4a0eb96c4f1b.rnr-ppe.ms",
+                "https://CDI-EventHubs-INT.servicebus.windows.net/ms-eventhub-ingestion/publishers/r3tie/messages"
+            ],
+            "frame-ancestors": ["*.paypal.com"],
+            "frame-src": ["*.adyen.com", "*.paypal.com"],
+            "img-src": [
+                "https://checkoutshopper-test.adyen.com",
+                "*.virtualearth.net",
+                "*.adyen.com",
+                "*.paypal.com",
+                "'self'",
+                "data:",
+                "https://*.commerce.dynamics.com",
+                "https://*.dynamics365commerce.ms",
+                "https://images-us-ppe.cms.commerce.dynamics.com",
+                "https://images-us-ppe.cms.commerce.dynamics.com"
+            ],
+            "media-src": [
+                "*.paypal.com",
+                "'self'",
+                "https://ppe-streaming-video-mr-microsoft-com.akamaized.net",
+                "https://*.streaming.media.azure.net",
+                "https://*.commerce.dynamics.com",
+                "https://*.dynamics365commerce.ms",
+                "https://images-us-ppe.cms.commerce.dynamics.com",
+                "https://images-us-ppe.cms.commerce.dynamics.com"
+            ],
+            "script-src": [
+                "https://checkoutshopper-test.adyen.com",
+                "*.bing.com",
+                "*.virtualearth.net",
+                "*.adyen.com",
+                "*.paypal.com",
+                "'self'",
+                "'unsafe-inline'",
+                "'unsafe-eval'",
+                "https://*.commerce.dynamics.com",
+                "https://*.dynamics365commerce.ms",
+                "https://*.vo.msecnd.net",
+                "https://dc.services.visualstudio.com",
+                "https://dev.virtualearth.net",
+                "https://r3tie.fabrikam.com"
+            ],
+            "style-src": [
+                "*.bing.com",
+                "*.adyen.com",
+                "*.paypal.com",
+                "'self'",
+                "'unsafe-inline'",
+                "https://*.commerce.dynamics.com",
+                "https://*.dynamics365commerce.ms",
+                "https://r3tie.fabrikam.com",
+                ""
+            ],
+            "default-src": ["'self'", "https://*.commerce.dynamics.com", "https://*.dynamics365commerce.ms"],
+            "base-uri": ["'self'"],
+            "font-src": [
+                "'self'",
+                "https://*.commerce.dynamics.com",
+                "https://*.dynamics365commerce.ms",
+                "https://use.fontawesome.com",
+                "data:"
+            ],
+            "object-src": ["'self'"]
+        }
+    }
+}

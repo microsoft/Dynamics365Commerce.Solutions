@@ -1,5 +1,5 @@
 {
-  "name": "Msdyn365.Commerce.ExtensibilitySamples-Wishlist-Items-Count",
+  "name": "Msdyn365-Commerce-Samples.Wishlist-Items-Count",
   "version": "1.0.0",
   "private": true,
   "scripts": {

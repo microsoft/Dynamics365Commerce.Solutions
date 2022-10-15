@@ -15,6 +15,7 @@ namespace Contoso
         using System.Collections.Generic;
         using System.Net.Http;
         using System.Threading;
+        using System.Threading.Tasks;
         using Contoso.Commerce.HardwareStation.EFRSample.Constants;
         using Microsoft.Dynamics.Commerce.HardwareStation;
         using Microsoft.Dynamics.Commerce.HardwareStation.PeripheralRequests;
@@ -25,7 +26,7 @@ namespace Contoso
         /// <summary>
         /// Handler for EFSTA (European Fiscal Standards Association) Fiscal Register.
         /// </summary>
-        public class EFRHandler : INamedRequestHandler
+        public class EFRHandler : INamedRequestHandlerAsync
         {
             /// <summary>
             /// Gets name of the handler.
@@ -47,18 +48,18 @@ namespace Contoso
             /// </summary>
             /// <param name="request">The request.</param>
             /// <returns>The response.</returns>
-            public Response Execute(Request request)
+            public Task<Response> Execute(Request request)
             {
                 ThrowIf.Null(request, nameof(request));
 
                 switch (request)
                 {
                     case InitializeFiscalDeviceRequest initializeFiscalDeviceRequest:
-                        return Initialize(initializeFiscalDeviceRequest);
+                        return Task.FromResult(Initialize(initializeFiscalDeviceRequest));
                     case SubmitDocumentFiscalDeviceRequest submitDocumentFiscalDeviceRequest:
-                        return SubmitDocument(submitDocumentFiscalDeviceRequest);
+                        return Task.FromResult(SubmitDocument(submitDocumentFiscalDeviceRequest));
                     case IsReadyFiscalDeviceRequest isReadyFiscalDeviceRequest:
-                        return IsReady(isReadyFiscalDeviceRequest);
+                        return Task.FromResult(IsReady(isReadyFiscalDeviceRequest));
                     default:
                         throw new NotSupportedException(string.Format("Request '{0}' is not supported.", request.GetType()));
                 }

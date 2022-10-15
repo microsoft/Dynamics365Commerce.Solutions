@@ -1,5 +1,5 @@
 {
-  "name": "Msdyn365.Commerce.ExtensibilitySamples-PDP-PLP-Variant-Selection",
+  "name": "Msdyn365-Commerce-Samples.PDP-PLP-Variant-Selection",
   "version": "1.0.0",
   "private": true,
   "scripts": {

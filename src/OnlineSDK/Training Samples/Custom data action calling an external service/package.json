@@ -1,5 +1,5 @@
 {
-  "name": "Msdyn365.Commerce.Samples-Custom-data-action-calling-an-external-service",
+  "name": "Msdyn365-Commerce-Samples.Custom-data-action-calling-an-external-service",
   "version": "1.0.0",
   "private": true,
   "scripts": {

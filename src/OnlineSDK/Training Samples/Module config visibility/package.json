@@ -1,5 +1,5 @@
 {
-  "name": "Msdyn365.Commerce.Samples-Module-config-visibility",
+  "name": "Msdyn365-Commerce-Samples.Module-config-visibility",
   "version": "1.0.0",
   "private": true,
   "scripts": {

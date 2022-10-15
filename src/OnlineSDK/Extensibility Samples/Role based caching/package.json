@@ -1,5 +1,5 @@
 {
-  "name": "Msdyn365.Commerce.ExtensibilitySamples-Role-based-caching",
+  "name": "Msdyn365-Commerce-Samples.Role-based-caching",
   "version": "1.0.0",
   "private": true,
   "scripts": {

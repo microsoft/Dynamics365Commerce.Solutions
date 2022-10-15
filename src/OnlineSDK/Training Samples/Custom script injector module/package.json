@@ -1,5 +1,5 @@
 {
-  "name": "Msdyn365.Commerce.Samples-Custom-script-injector-module",
+  "name": "Msdyn365-Commerce-Samples.Custom-script-injector-module",
   "version": "1.0.0",
   "private": true,
   "scripts": {

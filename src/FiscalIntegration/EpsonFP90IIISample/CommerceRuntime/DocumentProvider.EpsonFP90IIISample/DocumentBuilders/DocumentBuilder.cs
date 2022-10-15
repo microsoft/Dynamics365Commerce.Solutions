@@ -485,7 +485,7 @@ namespace Contoso
             /// <returns>The element containing the fiscal customer lottery code element.</returns>
             private static async Task<XElement> BuildFiscalCustomerLotteryCodeAsync(RequestContext context, XElement parentElement, SalesOrder salesOrder)
             {
-                if (context.Runtime.GetRequestHandlers<IRequestHandler>(typeof(GetFiscalCustomerDataDataRequest)).IsNullOrEmpty())
+                if (context.Runtime.GetAsyncRequestHandlers<IRequestHandlerAsync>(typeof(GetFiscalCustomerDataDataRequest)).IsNullOrEmpty())
                 {
                     return parentElement;
                 }

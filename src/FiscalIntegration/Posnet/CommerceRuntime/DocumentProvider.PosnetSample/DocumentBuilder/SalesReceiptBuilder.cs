@@ -340,7 +340,7 @@
             /// <returns>The POSNET command collection.</returns>
             private async Task<IEnumerable<IPosnetCommandRequest>> TransactionNipSet(SalesOrder salesOrder)
             {
-                if (this.Request.RequestContext.Runtime.GetRequestHandlers<IRequestHandler>(typeof(GetFiscalCustomerDataDataRequest)).IsNullOrEmpty())
+                if (this.Request.RequestContext.Runtime.GetAsyncRequestHandlers<IRequestHandlerAsync>(typeof(GetFiscalCustomerDataDataRequest)).IsNullOrEmpty())
                 {
                     return Enumerable.Empty<IPosnetCommandRequest>();
                 }

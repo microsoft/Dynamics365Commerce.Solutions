@@ -11,16 +11,18 @@ namespace Contoso
 {
     namespace CommerceRuntime.DocumentProvider.EFRSample
     {
+        using System.Threading.Tasks;
         using Microsoft.Dynamics.Commerce.Runtime;
         using Microsoft.Dynamics.Commerce.Runtime.DataServices.Messages;
         using Microsoft.Dynamics.Retail.Resources.Strings;
         using Contoso.CommerceRuntime.DocumentProvider.DataModelEFR.Constants;
         using Contoso.CommerceRuntime.DocumentProvider.EFRSample.Messages;
+        using Microsoft.Dynamics.Commerce.Runtime.Messages;
 
         /// <summary>
         /// The request handler for the <see cref="LocalizeEfrResourceRequest"/>.
         /// </summary>
-        public sealed class LocalizeEfrResourceRequestHandler : SingleRequestHandler<LocalizeEfrResourceRequest, SingleEntityDataServiceResponse<string>>
+        public sealed class LocalizeEfrResourceRequestHandler : SingleAsyncRequestHandler<LocalizeEfrResourceRequest>
         {
             private readonly StringLocalizer stringLocalizer;
 
@@ -37,11 +39,11 @@ namespace Contoso
             /// </summary>
             /// <param name="request">The request.</param>
             /// <returns>The response.</returns>
-            protected override SingleEntityDataServiceResponse<string> Process(LocalizeEfrResourceRequest request)
+            protected override async Task<Response> Process(LocalizeEfrResourceRequest request)
             {
                 string fullTextId = SalesTransactionLocalizationConstants.LocalizationResourcePrefix + request.TextId;
                 string result = stringLocalizer.Translate(request.CultureName, fullTextId);
-                return new SingleEntityDataServiceResponse<string>(result);
+                return await Task.FromResult<Response>(new SingleEntityDataServiceResponse<string>(result));
             }
 
             /// <summary>

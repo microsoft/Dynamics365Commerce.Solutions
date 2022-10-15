@@ -1,5 +1,5 @@
 {
-  "name": "Msdyn365.Commerce.ExtensibilitySamples-Order-Summary-Tax",
+  "name": "Msdyn365-Commerce-Samples.Order-Summary-Tax",
   "version": "1.0.0",
   "private": true,
   "scripts": {

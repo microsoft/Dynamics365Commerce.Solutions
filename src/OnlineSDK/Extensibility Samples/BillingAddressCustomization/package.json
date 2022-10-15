@@ -1,5 +1,5 @@
 {
-  "name": "Msdyn365.Commerce.ExtensibilitySamples-BillingAddressCustomization",
+  "name": "Msdyn365-Commerce-Samples.Billing-Address-Customization",
   "version": "1.0.0",
   "private": true,
   "scripts": {

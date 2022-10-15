@@ -1,0 +1,67 @@
+$msv-notifications-success-color: #107C10;
+$msv-notifications-warning-color: #797775;
+$msv-notifications-error-color: #A80000;
+$msv-notifications-loading-spinner-size: 18px;
+$msv-notifications-header-padding: 8px;
+$msv-notifications-header-icon-font-size: $msv-icon-size-small;
+
+:root {
+    --msv-notifications-success-color: #{$msv-notifications-success-color};
+    --msv-notifications-warning-color: #{$msv-notifications-warning-color};
+    --msv-notifications-error-color: #{$msv-notifications-error-color};
+    --msv-notifications-loading-spinner-size: #{$msv-notifications-loading-spinner-size};
+    --msv-notifications-header-padding: #{$msv-notifications-header-padding};
+    --msv-notifications-header-icon-font-size: #{$msv-notifications-header-icon-font-size};
+}
+
+// System notification styles.
+.msc-notification-success {
+    .msc-notification-header {
+        &::before {
+            @include msv-icon();
+            content: $msv-success;
+            padding: var(--msv-notifications-header-padding);
+            font-size: var(--msv-notifications-header-icon-font-size);
+            color: var(--msv-notifications-success-color);
+        }
+    }
+}
+
+.msc-notification-warning {
+    .msc-notification-header {
+        &::before {
+            @include msv-icon();
+            content: $msv-warning;
+            padding: var(--msv-notifications-header-padding);
+            font-size: var(--msv-notifications-header-icon-font-size);
+            color: var(--msv-notifications-warning-color);
+        }
+    }
+}
+
+.msc-notification-error {
+    .msc-notification-header {
+        &::before {
+            @include msv-icon();
+            content: $msv-error;
+            padding: var(--msv-notifications-header-padding);
+            font-size: var(--msv-notifications-header-icon-font-size);
+            color: var(--msv-notifications-error-color);
+        }
+    }
+}
+
+.msc-notification-loading {
+    .msc-notification-title {
+        display: flex;
+
+        .ms-Spinner {
+            padding: 0 var(--msv-notifications-header-padding);
+
+            .ms-Spinner-circle {
+                width: var(--msv-notifications-loading-spinner-size);
+                height: var(--msv-notifications-loading-spinner-size);
+            }
+        }
+    }
+}

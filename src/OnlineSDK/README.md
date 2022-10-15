@@ -8,20 +8,23 @@ To run a sample, simply go into a sample from ***src/OnlineSDK/Samples/{Sample_N
 
 # Samples List
 ## Module Samples 
-* [Custom module](Samples/Custom%20module/README.md)
-* [Module localization and globalization](Samples/Module%20localization%20and%20globalization/README.md)
-* [Interactive components](Samples/Interactive%20components/README.md)
-* [Module config visibility](Samples/Module%20config%20visibility/README.md)
-* [Custom script injector](Samples/Custom%20script%20injector%20module/README.md)
-* [Clone a module library module](Samples/Clone%20a%20module%20library%20module/README.md)
+* [Custom module](Training%20Samples/Custom%20module/README.md)
+* [Module localization and globalization](Training%20Samples/Module%20localization%20and%20globalization/README.md)
+* [Interactive components](Training%20Samples/Interactive%20components/README.md)
+* [Module config visibility](Training%20Samples/Module%20config%20visibility/README.md)
+* [Custom script injector](Training%20Samples/Custom%20script%20injector%20module/README.md)
+* [Clone a module library module](Training%20Samples/Clone%20a%20module%20library%20module/README.md)
+* [Add and consume custom cartline attributes](Training%20Samples/Add%20and%20consume%20custom%20cartline%20attributes/README.md)
+* [Add and consume custom product attributes](Training%20Samples/Add%20and%20consume%20custom%20product%20attributes/README.md)
+* [Add and consume custom user attributes](Training%20Samples/Add%20and%20consume%20custom%20user%20attributes/README.md)
 
 ## Data Action Samples
-* [Call a core data action](Samples/Call%20a%20core%20data%20action/README.md)
-* [Call a Commerce Scale Unit API](Samples/Call%20a%20Commerce%20Scale%20Unit%20API/README.md)
-* [Custom data action calling an external service](Samples/Custom%20data%20action%20calling%20an%20external%20service/README.md)
+* [Call a core data action](Training%20Samples/Call%20a%20core%20data%20action/README.md)
+* [Call a Commerce Scale Unit API](Training%20Samples/Call%20a%20Commerce%20Scale%20Unit%20API/README.md)
+* [Custom data action calling an external service](Training%20Samples/Custom%20data%20action%20calling%20an%20external%20service/README.md)
 
 ## Connector Samples
-* [Configure and enable connectors](Samples/Configure%20and%20enable%20connectors/README.md)
+* [Configure and enable connectors](Training%20Samples/Configure%20and%20enable%20connectors/README.md)
 
 ## Extensibility Samples
 * [Promo Code Affiliation](Extensibility%20Samples/Promo%20Code%20Affiliation/README.md)
@@ -43,3 +46,7 @@ To run a sample, simply go into a sample from ***src/OnlineSDK/Samples/{Sample_N
 * [Billing Address Customization](Extensibility%20Samples/BillingAddressCustomization/README.md)
 * [Gift Wrap](Extensibility%20Samples/GiftWrap/README.md)
 * [Order Summary Tax](Extensibility%20Samples/Order%20Summary%20Tax/README.md)
+* [Media Gallery Video Support](Extensibility%20Samples/Media%20Gallery%20Video%20Support/README.md)
+* [Delivery Notes](Extensibility%20Samples/DeliveryNoteAttribute/README.md)
+* [Custom Drop Down Paging](Extensibility%20Samples/CustomDropDownPaging/README.md)
+* [PowerBI](Extensibility%20Samples/PowerBI/README.md)

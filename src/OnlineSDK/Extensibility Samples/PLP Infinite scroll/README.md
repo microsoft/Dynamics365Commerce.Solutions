@@ -1664,7 +1664,7 @@ The sample can now be tested in a web browser using the ```yarn start``` command
 
 ### 1.Test by using mock file
 
-Create a sample mock with name default-page.json under the **src/pageMocks** by taking mock from r1tie site PLP page of Men wear category.
+Create a sample mock with name default-page.json under the **src/pageMocks**. Use the sample PLP page mock located in src/PageMocks folder
 
 Note : To verify PLP infnite scroll using mock of search result container, find search-result-container module in mock and rename search-result-container to custom-search-result-container and add below config key in config section.
 config Key:
