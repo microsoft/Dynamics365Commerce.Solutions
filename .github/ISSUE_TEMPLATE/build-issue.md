@@ -16,13 +16,19 @@ Thank you!
 ## Build Issue
 ### Summary
 **Describe the issue**
+
 A clear and concise description of what the bug is and your solution/project structure. 
 
 **Version and Error Info**
+
 Commerce SDK Version:
+
 Visual Studio/Visual Studio Code/MSBuild Version:
+
 Does this happen every time the solution is built:
+
 Name of Project with Error:
+
 MSBuild Error:
 
 ### Reproducing the Issue
@@ -38,9 +44,7 @@ Steps to reproduce the behavior:
 3. Run command '....'
 4. See error
 
-**Screenshots**
-If applicable, add screenshots to help explain your problem.
-
 ### Additional context
 Are there errors when building the [Gas Station Sample](https://github.com/microsoft/Dynamics365Commerce.InStore/tree/release/9.41/src/StoreCommerceSamples/Solutions/GasStationSample) on your machine?
+
 MSBuild Diagnostic Log:
