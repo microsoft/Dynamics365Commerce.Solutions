@@ -37,7 +37,8 @@ Please include a link to a sample where this issue reproduces. You can create a 
 
 https://docs.github.com/en/get-started/quickstart/fork-a-repo
 -->
-Link to GitHub repo/solution where the issue is reproducible: 
+Link to GitHub repo/solution where the issue is reproducible:
+
 Steps to reproduce the behavior:
 1. Go to '...'
 2. Click on '....'
