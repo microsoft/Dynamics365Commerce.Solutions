@@ -30,7 +30,7 @@ Create a theme folder with name fabrikam-extended.
 
 Follow the instructions mentioned in [document](https://docs.microsoft.com/en-us/dynamics365/commerce/attribute-attributegroups-lifecycle) to crete the attribute **CustomAttribute** in HQ side.
 
-![Overview](docs/ProductAttributeValues.PNG)
+![Overview](docs/ProductAttributeValues.png)
 
 ### 2. Add a page load data action to the module definition file
 

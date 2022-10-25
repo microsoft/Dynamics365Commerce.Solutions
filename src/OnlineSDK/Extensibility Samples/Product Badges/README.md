@@ -7,7 +7,7 @@ License is listed in the [LICENSE](./LICENSE) file.
  
 ## Overview
 This sample will show how to add attribute driven product badges, which are configured in HQ. Support for badges will be added to the product browsing modules (product collection/search result/ active image) and the product details page with module configurations to enable them. Notice in the below image a badge added for the manufacturer of the product.
-![Overview](docs/image1.png)
+![Overview](docs/image1.PNG)
 
 ## Starter kit license
 License for starter kit is listed in the [LICENSE](./module-library/LICENSE) .
@@ -1026,7 +1026,7 @@ Note : for verifying product badge using mock of search result container, add be
 }
 
 ```
-a. ![appsetting](docs/image3.png)
+a. ![appsetting](docs/image3.PNG)
 
 ## Third party Image and Video Usage restrictions
 

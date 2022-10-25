@@ -11,15 +11,15 @@ This sample will demonstrate how to provide an E2E customization for saving the 
 
 **Addres book page screens**
 
-![Overview](docs/image1.png)
+![Overview](docs/image1.PNG)
 
-![Overview](docs/image2.png)
+![Overview](docs/image2.PNG)
 
 **Checkout page screen**
 
-![Overview](docs/image3.png)
+![Overview](docs/image3.PNG)
 
-![Overview](docs/image4.png)
+![Overview](docs/image4.PNG)
 
 ## Starter kit license
 License for starter kit is listed in the [LICENSE](./module-library/LICENSE) .
@@ -2249,13 +2249,13 @@ export default AccountManagementAddressView;
 
 Follow the instructions mentioned in [document](https://docs.microsoft.com/en-us/dynamics365/commerce/dev-itpro/order-attributes) to set up the attribute **BILLINGADDRESS** in HQ side and mapping with Channel.
 
-![Overview](docs/image5.png)
+![Overview](docs/image5.PNG)
 
 ### 7. HQ Extensions.
 
 The “BILLINGADDRESS” will be included as part of the cart line which on the sales order form in header details by using the chain of Commands (COC) and requires a headquarters extension. The extension is provided within this sample and will need to be deployed [Document](HQ/CustomerBillingAddress200622.axpp).
 
-![Overview](docs/image6.png)
+![Overview](docs/image6.PNG)
 
 Please see instructions on how to import the x++ project. 
 [document](https://docs.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/dev-tools/projects#import-an-axpp-file)
@@ -2270,7 +2270,7 @@ When order created from eCom, need to store the Billing address on Sales order H
 BillingAddress should be saved on the SalesOrder Form >>  SalesLine Details
 Account Receivable >> All Sales Orders >> double click on the selected order.
 
-![Overview](docs/image10.png)
+![Overview](docs/image10.PNG)
 
 ## Build and test module
 
@@ -2284,9 +2284,9 @@ Test the module using page mock, Go to browser and copy paste the below url to v
 
 Note: For above mock please update user token and module name in both page mock. In **addressbook.json** update module account-management-address to custom-account-management-address and in the **customcheckout.json** from checkout-billing-address to custom-checkout-billing-address.please refer below screen.
 
-![Overview](docs/image8.png)
+![Overview](docs/image8.PNG)
 
-![Overview](docs/image9.png)
+![Overview](docs/image9.PNG)
 
 ### 2 Test Integration test cases
 

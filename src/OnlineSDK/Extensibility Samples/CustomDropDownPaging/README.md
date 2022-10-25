@@ -8,11 +8,11 @@ License is listed in the [LICENSE](./LICENSE) file.
 ## Overview
 This sample will demonstrate custom pagination using custom page size selection through dropdown, when we select page size from drop down it will display number of products in a page with no of paging in the category/search result page.
 
-![Overview](docs/image1.png)
+![Overview](docs/image1.PNG)
 
-![Overview](docs/image2.png)
+![Overview](docs/image2.PNG)
 
-![Overview](docs/image3.png)
+![Overview](docs/image3.PNG)
 
 ## Starter kit license
 
@@ -1844,7 +1844,7 @@ Test the module using page mock, Go to browser and copy paste the below url to v
 
 Note : To verify PLP dropdown paging using mock of search result container, find search-result-container module in the mock and rename search-result-container to custom-search-result-container and the key "itemsPerPage" keep its value any one of as given in the dropddown value.
 (refer below screen).(https://localhost:4000/?mock=PLP.json)
-![Overview](docs/image1.png)
+![Overview](docs/image1.PNG)
 
 ### 2. Test Integration test case
 

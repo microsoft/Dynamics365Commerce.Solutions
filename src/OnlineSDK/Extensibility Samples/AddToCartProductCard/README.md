@@ -7,7 +7,7 @@ License is listed in the [LICENSE](./LICENSE) file.
 
 ## Overview
 This sample will show how to add an "Add to cart" button on the product cards in the product collection and/or product list/category page. If an item is out of stock, it will show as unavailable.
-![Overview](docs/image1.png)
+![Overview](docs/image1.PNG)
 
 ## Starter kit license
 License for starter kit is listed in the [LICENSE](./module-library/LICENSE) .

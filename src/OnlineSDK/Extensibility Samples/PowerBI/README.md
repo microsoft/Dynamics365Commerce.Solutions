@@ -8,9 +8,9 @@ License is listed in the [LICENSE](./LICENSE) file.
 ## Overview
 In this sample, you will learn how to embed Power BI on eCommerce
 
-![Overview](docs/Image1.png)
+![Overview](docs/image1.png)
 
-![Overview](docs/Image2.png)
+![Overview](docs/image2.png)
 ## Starter kit license
 License for starter kit is listed in the [LICENSE](./module-library/LICENSE).
 

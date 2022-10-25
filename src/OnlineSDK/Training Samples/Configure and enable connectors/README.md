@@ -25,7 +25,7 @@ This sample will cover the below list of connector types:
 ### Configure and enable connectors
 
 - You can add connectors to your Commerce site by adding them as a dependency in your **package.json** file and direclty configure the connector setting file. See Example below:
-![Configure and enable connectors](docs/image1.png)
+![Configure and enable connectors](docs/Image1.png)
 
 - Alternatively, you can implement them directly in your configuration package code under the \src\connectors directory.
 
@@ -976,26 +976,26 @@ Note:
 Below are the ways through which you can test if your experimentation connector is registerd successfully.
 
 1. Run **yarn start**, and above the started with port info message, you will see this below message
-![exp-connector-registered](docs/image2.png)
+![exp-connector-registered](docs/Image2.png)
 
 2. To check if you experimentation connector is registered successfully, after the server has successfully started. you can open this pagemock link: https://localhost:4000/page?mock=default-page and open the developer console on your browser. You will see the below message which means that the connector was successfully registed 
-![exp-connector-registere-2](docs/image4.png)
+![exp-connector-registere-2](docs/Image4.png)
 
 3. If you experimentation connector is registered successfully, after the server has successfully started, you can open this link: https://localhost:4000/_sdk/dapi/experiments and you should be able to see list of all experiments that are returned from your experimentation connector
-![exp-connector-registere-3](docs/image3.png)
+![exp-connector-registere-3](docs/Image3.png)
 
 ### 6. Deploy exeprimentation connector to an environment
 To deploy experimentation connector to an environment, run **yarn msdyn365 pack** command and upload the generated zip in the LCS. Once the package is successfully deployed the environment, you can see your experiment connector in the sitebuilder tool
 
 1) Click on experiments tab:
-![exp-connector-registere-4](docs/image5.png)
+![exp-connector-registere-4](docs/Image5.png)
 
 2) You will see your expeirmentation connector name:
-![exp-connector-registere-5](docs/image6.png)
+![exp-connector-registere-5](docs/Image6.png)
 
 
 3) When you click on the connect tab, you will see the list of experiments from your experimentation connector:
-![exp-connector-registere-6](docs/image7.png)
+![exp-connector-registere-6](docs/Image7.png)
 
 To connect your expeirments on pages, you can follow this online guide: https://docs.microsoft.com/en-us/dynamics365/commerce/experimentation-connect-edit#connect-your-experiment
 
@@ -1098,22 +1098,22 @@ More info on the properties of geoLookup connector can be found here: https://do
 Below are the ways through which you can test if your geoLookup connector is registerd successfully.
 
 1. Run **yarn start**, and above the started with port info message, you will see this below message
-![geoLookup-registered-1](docs/image8.png)
+![geoLookup-registered-1](docs/Image8.png)
 
 2. If you geoLookup connector is registered successfully, after the server has successfully started, you can open this link: https://localhost:4000/_sdk/dapi/segmentproviders and you should be able to see your geoLookup connector in the response.
-![geoLookup-registere-2](docs/image9.png)
+![geoLookup-registere-2](docs/Image9.png)
 
 ### 6. Deploy geoLookup connector to an environment
 To deploy geoLookup connector to an environment, run **yarn msdyn365 pack** command and upload the generated zip in the LCS. Once the package is successfully deployed the environment, you can see your geoLookup connector in the sitebuilder tool.
 
 1) Click on audience tab and create a new audience:
-![geoLookup-sitebuilder-1](docs/image10.png)
+![geoLookup-sitebuilder-1](docs/Image10.png)
 
 2) Select your newly created audience and create a new rule block
-![geoLookup-sitebuilder-2](docs/image11.png)
+![geoLookup-sitebuilder-2](docs/Image11.png)
 
 3) Click on the **Select a Provider** dropdown and you will see the **geoLocationTest** connector
-![geoLookup-sitebuilder-3](docs/image12.png)
+![geoLookup-sitebuilder-3](docs/Image12.png)
 
 
 # Configuring Segmentation connector
@@ -1225,19 +1225,19 @@ Note: The segmentation id should be same as the id defined in the **seg-test-con
 Below are the ways through which you can test if your segmentation connector is registerd successfully.
 
 1. Run **yarn start**, and above the started with port info message, you can open this link: https://localhost:4000/_sdk/dapi/segmentproviders and you should be able to see your segmentation connector in the response.
-![segmentation-registere](docs/image13.png)
+![segmentation-registere](docs/Image13.png)
 
 ### 6. Deploy segmentation connector to an environment
 To deploy segmentation connector to an environment, run **yarn msdyn365 pack** command and upload the generated zip in the LCS. Once the package is successfully deployed the environment, you can see your segmentation connector in the sitebuilder tool.
 
 1) Click on audience tab and create a new audience:
-![segmentation-sitebuilder-1](docs/image10.png)
+![segmentation-sitebuilder-1](docs/Image10.png)
 
 2) Select your newly created audience and create a new rule block
-![segmentation-sitebuilder-2](docs/image11.png)
+![segmentation-sitebuilder-2](docs/Image11.png)
 
 3) Click on the **Select a Provider** dropdown and you will see the **seg-test-connector** connector
-![segmentation-sitebuilder-3](docs/image14.png)
+![segmentation-sitebuilder-3](docs/Image14.png)
 
 
 

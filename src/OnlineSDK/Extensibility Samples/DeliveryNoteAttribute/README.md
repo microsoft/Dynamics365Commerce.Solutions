@@ -9,7 +9,7 @@ License is listed in the [LICENSE](./LICENSE) file.
 
 This sample will demonstrate how to add Delivery Notes as a cart attribute in shipping address section. When a customer places an order, in the shipping address customer can fill delivery notes which is updated in checkout cart to use this new attribute.
 
-![Overview](docs/image1.png)
+![Overview](docs/image1.PNG)
 
 ## Starter kit license
 License for starter kit is listed in the [LICENSE](./module-library/LICENSE) .
@@ -1511,13 +1511,13 @@ In this step, we will add the delivery notes style. In the file with name **chec
 
 Follow the instructions mentioned in [document](https://docs.microsoft.com/en-us/dynamics365/commerce/dev-itpro/order-attributes) to set up the attribute **DELIVERYNOTES** in HQ side and mapping with Channel.
 
-![Overview](docs/image2.png)
+![Overview](docs/image2.PNG)
 
 ### 8. HQ Extensions.
 
 The “DELIVERYNOTES” will be included as part of the cart line which on the sales order form in header details by using the chain of Commands (COC) and requires a headquarters extension. The extension is provided within this sample and will need to be deployed [Document](HQ/DeliveryNote.axpp).
 
-![Overview](docs/image3.png)
+![Overview](docs/image3.PNG)
 
 Please see instructions on how to import the x++ project. 
 [document](https://docs.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/dev-tools/projects#import-an-axpp-file)
@@ -1532,7 +1532,7 @@ When order created from eCom, need to store the Delivery Notes on Sales order He
 DeliveryNotes should be saved on the SalesOrder Form >>  SalesLine Details
 Account Receivable >> All Sales Orders >> double click on the selected order.
 
-![Overview](docs/image4.png)
+![Overview](docs/image4.PNG)
 
 ## Build and test module
 

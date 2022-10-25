@@ -9,9 +9,9 @@ License is listed in the [LICENSE](./LICENSE) file.
 
 This sample will demonstrate how to leverage a product attribute to enable a gift-wrapping option for a product on the product details and cart pages. When a customer selects the option, a gift wrap flag will be added to the corresponding cart line item.
 
-![Overview](docs/image1.png)
+![Overview](docs/image1.PNG)
 
-![Overview](docs/image2.png)
+![Overview](docs/image2.PNG)
 
 ## Starter kit license
 License for starter kit is listed in the [LICENSE](./module-library/LICENSE) .

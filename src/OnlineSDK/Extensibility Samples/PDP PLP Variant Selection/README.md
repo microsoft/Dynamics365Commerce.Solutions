@@ -8,7 +8,7 @@ License is listed in the [LICENSE](./LICENSE) file.
 ## Overview
 This sample provides the code customizations to add selectable color swatches to each product card that has color variants on the product list page. Once selected, the product DIM ID is added as a query string passed to the product detail page. The product details page will then check the query string parameter if passed in and ensure the variant is selected as part of the initial page load.
 
-![Overview](docs/Image1.png)
+![Overview](docs/image1.png)
 
 ## Starter kit license
 License for starter kit is listed in the [LICENSE](./module-library/LICENSE) .

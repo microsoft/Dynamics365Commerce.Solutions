@@ -139,7 +139,7 @@ Once the build has completed, you can view the module in interactive mode using 
 
 To see if your script in loaded in the head, please open the inspect tool (Ctrl + Shift + c) 
 
-![Module test](docs/image1.png)
+![Module test](docs/Image1.png)
 
 ### Note:
 
