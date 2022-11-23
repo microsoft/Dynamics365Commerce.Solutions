@@ -24,7 +24,7 @@
         </DisplayProperty>
     </ConfigurationProperty>
     <ConfigurationProperty>
-        <Namespace>ConnectorSettingsInfo</Namespace>
+        <Namespace>ConnectorConnectionInfo</Namespace>
         <Name>CertificateProfileId</Name>
         <ValueType>String</ValueType>
         <ExtendedDataType>RetailUserDefinedCertificateProfileId</ExtendedDataType>
