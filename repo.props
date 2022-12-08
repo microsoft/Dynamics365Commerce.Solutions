@@ -16,6 +16,6 @@
     <CommerceToolsPackagesVersion>[10.28.22314.4-preview,10.29)</CommerceToolsPackagesVersion>
     <CommercePaymentsPackagesVersion>[10.41.22328.2-preview,10.42)</CommercePaymentsPackagesVersion>
     <!-- Newtonsoft.Json -->
-    <NewtonsoftJsonVersion>13.0.1</NewtonsoftJsonVersion>
+    <NewtonsoftJsonVersion>13.0.2</NewtonsoftJsonVersion>
   </PropertyGroup>
 </Project>
