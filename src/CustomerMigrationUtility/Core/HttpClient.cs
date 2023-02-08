@@ -12,32 +12,10 @@
     /// <summary>Simple HTTP client wrapper.</summary>
     public class HttpClient
     {
+        private readonly static System.Net.Http.HttpClient client = new System.Net.Http.HttpClient();
+
         /// <summary>Time out in seconds</summary>
         public const int TimeOutSecs = 100;
-
-        /// <summary>Whether to validate server SSL certificates.</summary>
-        private bool serverSslValidation;
-
-        /// <summary>Initializes a new instance of the <see cref="HttpClient" /> class.</summary>       
-        public HttpClient()
-        {
-            // this.EnableServerSslValidation();
-
-            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
-        }
-
-
-        /// <summary>Disable SSL validation for server certificate.</summary>
-        public void DisableServerSslValidation()
-        {
-            this.serverSslValidation = false;
-        }
-
-        /// <summary>Enable SSL validation for server certificate.</summary>
-        public void EnableServerSslValidation()
-        {
-            this.serverSslValidation = true;
-        }
 
         /// <summary>Gets the requested URL.</summary>
         /// <param name="path">The path</param>        
@@ -48,7 +26,7 @@
                                                         AuthenticationHeaderValue authHeader,
                                                         List<KeyValuePair<string, string>> headers = null)
         {
-            return await this.SendAsync(HttpMethod.Get, null, path, authHeader, headers);
+            return await this.SendAsync(HttpMethod.Get, null, path, authHeader, headers).ConfigureAwait(false);
         }
 
         /// <summary>Gets the requested URL.</summary>
@@ -60,7 +38,7 @@
                                                         AuthenticationHeaderValue authHeader,
                                                         List<KeyValuePair<string, string>> headers = null)
         {
-            return await this.SendAsync(HttpMethod.Delete, null, path, authHeader, headers);
+            return await this.SendAsync(HttpMethod.Delete, null, path, authHeader, headers).ConfigureAwait(false);
         }
 
         /// <summary>Retrieves the content of the HTTP response message.</summary>
@@ -68,7 +46,7 @@
         /// <returns>Content of the response.</returns>
         public async Task<string> GetContentAsync(HttpResponseMessage response)
         {
-            return await response.Content.ReadAsStringAsync();
+            return await response.Content.ReadAsStringAsync().ConfigureAwait(false);
         }
 
         /// <summary>Patch to the requested URL.</summary>
@@ -82,7 +60,7 @@
                                                          AuthenticationHeaderValue authHeader,
                                                          List<KeyValuePair<string, string>> headers = null)
         {
-            return await this.SendAsync(new HttpMethod("Patch"), data, path, authHeader, headers);
+            return await this.SendAsync(new HttpMethod("Patch"), data, path, authHeader, headers).ConfigureAwait(false);
         }
 
 
@@ -97,7 +75,7 @@
                                                          AuthenticationHeaderValue authHeader,
                                                          List<KeyValuePair<string, string>> headers = null)
         {
-            return await this.SendAsync(HttpMethod.Post, data, path, authHeader, headers);
+            return await this.SendAsync(HttpMethod.Post, data, path, authHeader, headers).ConfigureAwait(false);
         }
 
         /// <summary>Send a HTTP request.</summary>
@@ -113,19 +91,18 @@
                                                           AuthenticationHeaderValue authHeader,
                                                           List<KeyValuePair<string, string>> headers = null)
         {
-            using (var client = new System.Net.Http.HttpClient())
+            
+            client.Timeout = TimeSpan.FromSeconds(TimeOutSecs);
+
+            using (var request = new HttpRequestMessage(method, path))
             {
-                client.Timeout = TimeSpan.FromSeconds(TimeOutSecs);
-
-                var request = new HttpRequestMessage(method, path);               
-
                 if (headers != null)
                 {
                     foreach (KeyValuePair<string, string> header in headers)
                     {
                         request.Headers.Add(header.Key, header.Value);
                     }
-                }                
+                }
 
                 if (method == HttpMethod.Post || method == new HttpMethod("PATCH"))
                 {
@@ -145,7 +122,7 @@
                 {
                     response =
                         await
-                        client.SendAsync(request, HttpCompletionOption.ResponseContentRead);
+                        client.SendAsync(request, HttpCompletionOption.ResponseContentRead).ConfigureAwait(false);
                 }
                 catch (TaskCanceledException e)
                 {
@@ -153,7 +130,7 @@
                         "The request was canceled, probably timed out (timeout: " + TimeOutSecs +
                         " secs).",
                         e);
-                }               
+                }
 
                 return response;
             }

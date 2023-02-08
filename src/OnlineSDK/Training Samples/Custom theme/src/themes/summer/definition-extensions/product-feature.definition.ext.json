@@ -1,0 +1,10 @@
+{
+    "$type": "definitionExtension",
+    "config": {
+        "subTitle": {
+            "type": "string",
+            "friendlyName": "Sub Title",
+            "description": "Sub Title for additional information"
+        }
+    }
+}

@@ -55,7 +55,9 @@ namespace Contoso.CommerceRuntime.PricingEngine
                 query.Parameters["@TVP_STRINGIDTABLETYPE"] = type;
                 query.Parameters["@dataAreaId"] = this.requestContext.GetChannelConfiguration().InventLocationDataAreaId;
 
+#pragma warning disable CS0618 // Type or member is obsolete. JUSTIFICATION: Required to satisfy PricingEngine synchronous contract
                 return databaseContext.ReadEntity<DiscountQualifyLine>(query);
+#pragma warning restore CS0618 // Type or member is obsolete
             }
         }
 

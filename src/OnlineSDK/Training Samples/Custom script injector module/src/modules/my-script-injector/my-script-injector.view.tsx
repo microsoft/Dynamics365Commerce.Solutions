@@ -10,7 +10,14 @@ import { IMyScriptInjectorViewProps } from './my-script-injector';
 export default (props: IMyScriptInjectorViewProps) => {
     return (
         <HtmlHeadInclude>
-            <script data-load-point='headStart' dangerouslySetInnerHTML={{ __html: props.config.inlineScript }} defer={props.config.defer} async={props.config.async} crossOrigin={props.config.crossorigin}/>
+            <script
+                data-load-point='headStart'
+                // eslint-disable-next-line react/no-danger
+                dangerouslySetInnerHTML={{ __html: props.config.inlineScript }}
+                defer={props.config.defer}
+                async={props.config.async}
+                crossOrigin={props.config.crossorigin}
+            />
             <p>This is a custom script injector module</p>
         </HtmlHeadInclude>
     );

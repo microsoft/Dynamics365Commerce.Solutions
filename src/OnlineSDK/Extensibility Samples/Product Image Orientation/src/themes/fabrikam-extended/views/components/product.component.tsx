@@ -1,11 +1,27 @@
-/*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
- *  Licensed under the MIT License. See License.txt in the project root for license information.
- *--------------------------------------------------------------------------------------------*/
+/*!
+ * Copyright (c) Microsoft Corporation.
+ * All rights reserved. See LICENSE in the project root for license information.
+ */
+
 import { getProductPageUrlSync } from '@msdyn365-commerce-modules/retail-actions';
-import { format, getPayloadObject, getTelemetryAttributes, ITelemetryContent, onTelemetryClick } from '@msdyn365-commerce-modules/utilities';
+import {
+    format,
+    getPayloadObject,
+    getTelemetryAttributes,
+    ITelemetryContent,
+    onTelemetryClick
+} from '@msdyn365-commerce-modules/utilities';
 import { PriceComponent, RatingComponent } from '@msdyn365-commerce/components';
-import { IComponent, IComponentProps, ICoreContext, IGridSettings, IImageData, IImageSettings, Image, msdyn365Commerce } from '@msdyn365-commerce/core';
+import {
+    IComponent,
+    IComponentProps,
+    ICoreContext,
+    IGridSettings,
+    IImageData,
+    IImageSettings,
+    Image,
+    msdyn365Commerce
+} from '@msdyn365-commerce/core';
 import { ProductPrice, ProductSearchResult } from '@msdyn365-commerce/retail-proxy';
 import React from 'react';
 
@@ -22,7 +38,7 @@ export interface IProductComponentProps extends IComponentProps<{ product?: Prod
     quickViewButton?: React.ReactNode;
 }
 
-export interface IProductComponent extends IComponent<IProductComponentProps> { }
+export interface IProductComponent extends IComponent<IProductComponentProps> {}
 
 const PriceComponentActions = {};
 
@@ -52,7 +68,7 @@ const ProductCard: React.FC<IProductComponentProps> = ({
                 imageOrientation = property.TextValue!;
             }
         });
-    imageOrientation = "Landscape";
+        imageOrientation = 'Landscape';
     }
     const productImageSettings = imageOrientation === 'Landscape' ? getLandscapeImageSettings(imageSettings) : imageSettings;
     let productUrl = getProductPageUrlSync(product.Name || '', product.RecordId, context && context.actionContext, undefined);
@@ -70,8 +86,12 @@ const ProductCard: React.FC<IProductComponentProps> = ({
             <a
                 href={productUrl}
                 onClick={onTelemetryClick(telemetryContent!, payLoad, product.Name!)}
-                aria-label={renderLabel(product.Name, context.cultureFormatter.formatCurrency(product.Price),
-                    product.AverageRating, ratingAriaLabel)}
+                aria-label={renderLabel(
+                    product.Name,
+                    context.cultureFormatter.formatCurrency(product.Price),
+                    product.AverageRating,
+                    ratingAriaLabel
+                )}
                 className='msc-product'
                 {...attribute}
             >
@@ -79,12 +99,21 @@ const ProductCard: React.FC<IProductComponentProps> = ({
                     {renderProductPlacementImage(productImageSettings, context.request.gridSettings, product.PrimaryImageUrl, product.Name)}
                 </div>
                 <div className='msc-product__details'>
-                    <h4 className='msc-product__title'>
-                        {product.Name}
-                    </h4>
-                    {renderPrice(context, typeName, id, product.BasePrice, product.Price, savingsText, freePriceText, originalPriceText, currentPriceText)}
+                    <h4 className='msc-product__title'>{product.Name}</h4>
+                    {renderPrice(
+                        context,
+                        typeName,
+                        id,
+                        product.BasePrice,
+                        product.Price,
+                        savingsText,
+                        freePriceText,
+                        originalPriceText,
+                        currentPriceText
+                    )}
                     {renderDescription(product.Description)}
-                    {!context.app.config.hideRating && renderRating(context, typeName, id, product.AverageRating, product.TotalRatings, ratingAriaLabel)}
+                    {!context.app.config.hideRating &&
+                        renderRating(context, typeName, id, product.AverageRating, product.TotalRatings, ratingAriaLabel)}
                 </div>
             </a>
             {quickViewButton && renderQuickView(quickViewButton, product.RecordId)}
@@ -110,15 +139,11 @@ function getLandscapeImageSettings(cmsImageSettings?: IImageSettings): IImageSet
 function renderLabel(name?: string, price?: string, rating?: number, ratingAriaLabel?: string): string {
     name = name || '';
     price = price || '';
-    return (`${name} ${price} ${getRatingAriaLabel(rating, ratingAriaLabel)}`);
+    return `${name} ${price} ${getRatingAriaLabel(rating, ratingAriaLabel)}`;
 }
 
 function renderDescription(description?: string): JSX.Element | null {
-    return (
-    <p className='msc-product__text'>
-        {description}
-    </p>
-    );
+    return <p className='msc-product__text'>{description}</p>;
 }
 
 function renderQuickView(quickview: React.ReactNode, item?: number): JSX.Element | undefined {
@@ -149,12 +174,19 @@ function updateProductUrl(productUrl: string, context: ICoreContext): string {
     return updatedUrl.pathname + srcUrl.search;
 }
 
-function renderRating(context: ICoreContext, typeName: string, id: string, avgRating?: number, totalRatings?: number, ariaLabel?: string): JSX.Element | null {
+function renderRating(
+    context: ICoreContext,
+    typeName: string,
+    id: string,
+    avgRating?: number,
+    totalRatings?: number,
+    ariaLabel?: string
+): JSX.Element | null {
     if (!avgRating) {
         return null;
     }
 
-    const numRatings = totalRatings && totalRatings.toString() || undefined;
+    const numRatings = (totalRatings && totalRatings.toString()) || undefined;
     const ratingAriaLabel = getRatingAriaLabel(avgRating, ariaLabel);
 
     return (
@@ -171,7 +203,17 @@ function renderRating(context: ICoreContext, typeName: string, id: string, avgRa
     );
 }
 
-function renderPrice(context: ICoreContext, typeName: string, id: string, basePrice?: number, adjustedPrice?: number, savingsText?: string, freePriceText?: string, originalPriceText?: string, currentPriceText?: string): JSX.Element | null {
+function renderPrice(
+    context: ICoreContext,
+    typeName: string,
+    id: string,
+    basePrice?: number,
+    adjustedPrice?: number,
+    savingsText?: string,
+    freePriceText?: string,
+    originalPriceText?: string,
+    currentPriceText?: string
+): JSX.Element | null {
     const price: ProductPrice = {
         BasePrice: basePrice,
         AdjustedPrice: adjustedPrice,
@@ -191,7 +233,12 @@ function renderPrice(context: ICoreContext, typeName: string, id: string, basePr
     );
 }
 
-function renderProductPlacementImage(imageSettings?: IImageSettings, gridSettings?: IGridSettings, imageUrl?: string, altText?: string): JSX.Element | null {
+function renderProductPlacementImage(
+    imageSettings?: IImageSettings,
+    gridSettings?: IGridSettings,
+    imageUrl?: string,
+    altText?: string
+): JSX.Element | null {
     if (!imageUrl || !gridSettings || !imageSettings) {
         return null;
     }
@@ -204,14 +251,11 @@ function renderProductPlacementImage(imageSettings?: IImageSettings, gridSetting
         imageSettings
     };
     imageProps.imageSettings.cropFocalRegion = true;
-    return (
-        <Image {...img} {...imageProps} loadFailureBehavior='empty' />
-    );
+    return <Image {...img} {...imageProps} loadFailureBehavior='empty' />;
 }
 
-export const ProductComponent: React.FunctionComponent<IProductComponentProps> = msdyn365Commerce.createComponentOverride<IProductComponent>(
-    'Product',
-    { component: ProductCard, ...PriceComponentActions }
-);
+export const ProductComponent: React.FunctionComponent<IProductComponentProps> = msdyn365Commerce.createComponentOverride<
+    IProductComponent
+>('Product', { component: ProductCard, ...PriceComponentActions });
 
 export default ProductComponent;

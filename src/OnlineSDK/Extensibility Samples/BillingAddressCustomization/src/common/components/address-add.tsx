@@ -1,7 +1,7 @@
-/*--------------------------------------------------------------
- * Copyright (c) Microsoft Corporation. All rights reserved.
- * See License.txt in the project root for license information.
- *--------------------------------------------------------------*/
+/*!
+ * Copyright (c) Microsoft Corporation.
+ * All rights reserved. See LICENSE in the project root for license information.
+ */
 
 import { Address } from '@msdyn365-commerce/retail-proxy/dist/Entities/CommerceTypes.g';
 import { Heading as HeadingData } from '@msdyn365-commerce-modules/data-types';

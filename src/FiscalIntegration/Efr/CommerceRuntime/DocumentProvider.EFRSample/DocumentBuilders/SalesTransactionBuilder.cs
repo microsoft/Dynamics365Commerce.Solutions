@@ -115,7 +115,7 @@ namespace Contoso
                     return null;
                 }
                 // get sales lines here && pass to methods
-                IEnumerable<SalesLine> salesLines = await GetSalesLines().ConfigureAwait(false);
+                var salesLines = (await GetSalesLines().ConfigureAwait(false)).ToList();
 
                 ReceiptPositionLines receiptPositionLines = new ReceiptPositionLines
                 {
@@ -130,7 +130,7 @@ namespace Contoso
             /// Creates receipt positions.
             /// </summary>
             /// <returns>The receipt positions.</returns>
-            private async Task<List<ReceiptPosition>> CreateReceiptPositionsAsync(IEnumerable<SalesLine> salesLines)
+            private async Task<List<ReceiptPosition>> CreateReceiptPositionsAsync(List<SalesLine> salesLines)
             {
                 List<ReceiptPosition> receiptPositions = new List<ReceiptPosition>();
                 IEnumerable<string> itemIds = salesLines.Select(l => l.ItemId);
@@ -222,7 +222,9 @@ namespace Contoso
             /// <returns>The receipt taxes.</returns>
             private async Task<List<ReceiptTax>> CreateReceiptTaxes()
             {
-                return await GetReceiptTaxes().ConfigureAwait(false);
+                var receiptTaxes = await GetReceiptTaxes().ConfigureAwait(false);
+
+                return receiptTaxes.ToList();
             }
 
             /// <summary>
@@ -306,10 +308,10 @@ namespace Contoso
                 return (await this.documentBuilderData.RequestContext.ExecuteAsync<SingleEntityDataServiceResponse<ReceiptPosition>>(request).ConfigureAwait(false)).Entity;
             }
 
-            private async Task<List<ReceiptTax>> GetReceiptTaxes()
+            private async Task<IEnumerable<ReceiptTax>> GetReceiptTaxes()
             {
                 var request = new GetEfrReceiptTaxesRequest(this.documentBuilderData.SalesOrder, this.documentBuilderData.FiscalIntegrationFunctionalityProfile);
-                return (await this.documentBuilderData.RequestContext.ExecuteAsync<SingleEntityDataServiceResponse<List<ReceiptTax>>>(request).ConfigureAwait(false)).Entity;
+                return (await this.documentBuilderData.RequestContext.ExecuteAsync<SingleEntityDataServiceResponse<IEnumerable<ReceiptTax>>>(request).ConfigureAwait(false)).Entity;
             }
 
             /// <summary>

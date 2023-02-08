@@ -1,7 +1,8 @@
-/*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
- *  Licensed under the MIT License. See License.txt in the project root for license information.
- *--------------------------------------------------------------------------------------------*/
+/*!
+ * Copyright (c) Microsoft Corporation.
+ * All rights reserved. See LICENSE in the project root for license information.
+ */
+
 import {
     imageSource,
     IMediaGalleryThumbnailItemViewProps,
@@ -45,6 +46,16 @@ enum CustomAttributes {
  */
 class MediaGalleryView extends React.Component<IMediaGalleryViewProps & IMediaGalleryProps<IMediaGalleryConfig & IMediaGalleryExtProps>> {
     private videoData: IVideoData | undefined;
+
+    private readonly defaultThumbnailImageSettings: IImageSettings = {
+        viewports: {
+            xs: { q: 'w=295&h=295&q=80&m=6&f=jpg', w: 295, h: 295 },
+            xl: { q: 'w=295&h=295&q=80&m=6&f=jpg', w: 295, h: 295 }
+        },
+        lazyload: true,
+        cropFocalRegion: true
+    };
+
     constructor(props: IMediaGalleryViewProps & IMediaGalleryProps<IMediaGalleryConfig & IMediaGalleryExtProps>) {
         super(props);
         this.state = {
@@ -85,6 +96,7 @@ class MediaGalleryView extends React.Component<IMediaGalleryViewProps & IMediaGa
      * @param props - The Media gallery view props from business layer.
      * @returns Return thumbnail view props which will be used to render empty images.
      */
+    // eslint-disable-next-line @typescript-eslint/naming-convention
     private readonly GetEmptyThumbnailItemComponent = (
         imageSettings: IImageSettings,
         props: IMediaGalleryViewProps
@@ -121,6 +133,7 @@ class MediaGalleryView extends React.Component<IMediaGalleryViewProps & IMediaGa
      * @param props - The Media gallery view props from business layer.
      * @returns Return thumbnail view props which will be used to render images.
      */
+    // eslint-disable-next-line @typescript-eslint/naming-convention
     private readonly GetThumbnailItemComponent = (
         image: IImageData,
         imageSettings: IImageSettings,
@@ -237,15 +250,6 @@ class MediaGalleryView extends React.Component<IMediaGalleryViewProps & IMediaGa
         return null;
     };
 
-    private readonly defaultThumbnailImageSettings: IImageSettings = {
-        viewports: {
-            xs: { q: 'w=295&h=295&q=80&m=6&f=jpg', w: 295, h: 295 },
-            xl: { q: 'w=295&h=295&q=80&m=6&f=jpg', w: 295, h: 295 }
-        },
-        lazyload: true,
-        cropFocalRegion: true
-    };
-
     /**
      * Render the Media gallery thumbnails to represent images in grid view.
      * @param thumbnails - The thumbnail view props.
@@ -284,6 +288,7 @@ class MediaGalleryView extends React.Component<IMediaGalleryViewProps & IMediaGa
      * @returns - Promise<AxiosResponse | undefined>.
      */
     private readonly getVideoMetadataFromApi = async (): Promise<void> => {
+        /* eslint-disable  @typescript-eslint/no-explicit-any */
         let videoData: any;
         const videoId = await this.getVideoIdfromProduct();
         if (videoId) {
@@ -305,7 +310,7 @@ class MediaGalleryView extends React.Component<IMediaGalleryViewProps & IMediaGa
         ArrayExtensions.validValues(
             attributes.map(item => {
                 if (item.Name?.toLocaleLowerCase() === CustomAttributes.videoIdAttribute.toLocaleLowerCase()) {
-                    customAttributeValue = item.TextValue || "";;
+                    customAttributeValue = item.TextValue || '';
                 }
             })
         );

@@ -1,8 +1,10 @@
-/**
- * Copyright (c) 2018 Microsoft Corporation
+/*!
+ * Copyright (c) Microsoft Corporation.
+ * All rights reserved. See LICENSE in the project root for license information.
  */
+
 import * as React from 'react';
-import { IDropdownItemProps, IDropdownProps} from './dropdown.props';
+import { IDropdownItemProps, IDropdownProps } from './dropdown.props';
 
 type IDropdownState = {
     /**
@@ -34,7 +36,7 @@ export class Dropdown extends React.PureComponent<IDropdownProps, IDropdownState
     }
 
     public render(): JSX.Element {
-        const {dropdownId, dropdownList, dropdownName, dropdownToggleName} = this.props;
+        const { dropdownId, dropdownList, dropdownName, dropdownToggleName } = this.props;
 
         return (
             <select
@@ -44,16 +46,28 @@ export class Dropdown extends React.PureComponent<IDropdownProps, IDropdownState
                 className='msc-dropdown__select'
                 onChange={this._onChanged}
             >
-                <option value='' aria-selected={this.state.selectedIndex === ''} selected={this.state.selectedIndex === ''} hidden disabled>{dropdownToggleName}</option>
+                <option value='' aria-selected={this.state.selectedIndex === ''} selected={this.state.selectedIndex === ''} hidden disabled>
+                    {dropdownToggleName}
+                </option>
                 {dropdownList.map(
-                    (item: IDropdownItemProps) => item && <option value={item.id} key={item.id} selected={this.state.selectedIndex === item.id.toString()} aria-selected={this.state.selectedIndex === item.id.toString()}>{item.value}</option>
+                    (item: IDropdownItemProps) =>
+                        item && (
+                            <option
+                                value={item.id}
+                                key={item.id}
+                                selected={this.state.selectedIndex === item.id.toString()}
+                                aria-selected={this.state.selectedIndex === item.id.toString()}
+                            >
+                                {item.value}
+                            </option>
+                        )
                 )}
             </select>
         );
     }
 
     private _onChanged = async (event: React.ChangeEvent<HTMLSelectElement>) => {
-        this.setState({selectedIndex: event.target.value});
+        this.setState({ selectedIndex: event.target.value });
 
         if (this.props.onChange) {
             await this.props.onChange({

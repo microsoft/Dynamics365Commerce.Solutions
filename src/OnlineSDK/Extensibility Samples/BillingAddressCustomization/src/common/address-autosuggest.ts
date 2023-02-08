@@ -1,7 +1,7 @@
-/*--------------------------------------------------------------
- * Copyright (c) Microsoft Corporation. All rights reserved.
- * See License.txt in the project root for license information.
- *--------------------------------------------------------------*/
+/*!
+ * Copyright (c) Microsoft Corporation.
+ * All rights reserved. See LICENSE in the project root for license information.
+ */
 
 import { ITelemetry } from '@msdyn365-commerce/core';
 import { IStoreSelectorStateManager } from '@msdyn365-commerce-modules/bopis-utilities';
@@ -80,6 +80,7 @@ export class AutoSuggest {
         this.autoSuggestManager = undefined;
     };
 
+    // eslint-disable-next-line @typescript-eslint/naming-convention
     public _loadMapAPI = async (storeSelectorStateManager: IStoreSelectorStateManager): Promise<void> => {
         await storeSelectorStateManager.loadMapApi({
             key: this.bingMapsApiKey,

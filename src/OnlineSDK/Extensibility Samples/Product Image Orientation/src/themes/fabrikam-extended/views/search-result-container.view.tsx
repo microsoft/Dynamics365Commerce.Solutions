@@ -1,16 +1,42 @@
-/*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
- *  Licensed under the MIT License. See License.txt in the project root for license information.
- *--------------------------------------------------------------------------------------------*/
+/*!
+ * Copyright (c) Microsoft Corporation.
+ * All rights reserved. See LICENSE in the project root for license information.
+ */
+
 import { Module, Node } from '@msdyn365-commerce-modules/utilities';
 import { ProductSearchResult } from '@msdyn365-commerce/retail-proxy';
 import * as React from 'react';
+import {
+    ICategoryHierarchyViewProps,
+    IRefineMenuViewProps,
+    ISearchResultContainerViewProps,
+    ISortByViewProps,
+    ITitleViewProps,
+    ISearchResultContainerProps,
+    ISearchResultModalViewProps
+} from '@msdyn365-commerce-modules/search-result-container';
 import { ProductComponent } from './components/product.component';
-import { ICategoryHierarchyViewProps, IRefineMenuViewProps, ISearchResultContainerViewProps, ISortByViewProps, ITitleViewProps, ISearchResultContainerProps, ISearchResultModalViewProps } from '@msdyn365-commerce-modules/search-result-container';
 
 const SearchResultContainerView: React.FC<ISearchResultContainerViewProps> = props => {
-    const { SearchResultContainer, pagination, ProductsContainer, ProductSectionContainer, choiceSummary, isMobile, modalToggle, searchResultModal, TitleViewProps,
-        refineMenu, categoryHierarchy, sortByOptions, CategoryNavContainer, RefineAndProductSectionContainer, errorMessage, FeatureSearchContainer, similarLookProduct } = props;
+    const {
+        SearchResultContainer,
+        pagination,
+        ProductsContainer,
+        ProductSectionContainer,
+        choiceSummary,
+        isMobile,
+        modalToggle,
+        searchResultModal,
+        TitleViewProps,
+        refineMenu,
+        categoryHierarchy,
+        sortByOptions,
+        CategoryNavContainer,
+        RefineAndProductSectionContainer,
+        errorMessage,
+        FeatureSearchContainer,
+        similarLookProduct
+    } = props;
     if (isMobile) {
         return (
             <Module {...SearchResultContainer}>
@@ -19,9 +45,7 @@ const SearchResultContainerView: React.FC<ISearchResultContainerViewProps> = pro
                 {choiceSummary}
                 {modalToggle}
                 {createSearchResultModal(searchResultModal, refineMenu, sortByOptions)}
-                <Node {...FeatureSearchContainer}>
-                    {similarLookProduct}
-                </Node>
+                <Node {...FeatureSearchContainer}>{similarLookProduct}</Node>
                 <Node {...ProductsContainer}>
                     {errorMessage}
                     {renderProducts(props)}
@@ -32,36 +56,47 @@ const SearchResultContainerView: React.FC<ISearchResultContainerViewProps> = pro
     }
     return (
         <Module {...SearchResultContainer}>
-        <Node {...CategoryNavContainer}>
-        {categoryHierarchy && renderCategoryHierarchy(categoryHierarchy)}
-        {TitleViewProps && renderTitleCount(TitleViewProps)}
-        </Node>
-        <Node {...RefineAndProductSectionContainer}>
-        {refineMenu && renderRefiner(refineMenu)}
-        <Node {...ProductSectionContainer}>
-            {TitleViewProps && renderTitle(TitleViewProps)}
-            {choiceSummary}
-            {sortByOptions && renderSort(sortByOptions)}
-            <Node {...FeatureSearchContainer}>
-                    {similarLookProduct}
-                </Node>
-            <Node {...ProductsContainer}>
-               {errorMessage}
-                {renderProducts(props)}
+            <Node {...CategoryNavContainer}>
+                {categoryHierarchy && renderCategoryHierarchy(categoryHierarchy)}
+                {TitleViewProps && renderTitleCount(TitleViewProps)}
             </Node>
-            {pagination}
-        </Node>
-        </Node>
-    </Module>
+            <Node {...RefineAndProductSectionContainer}>
+                {refineMenu && renderRefiner(refineMenu)}
+                <Node {...ProductSectionContainer}>
+                    {TitleViewProps && renderTitle(TitleViewProps)}
+                    {choiceSummary}
+                    {sortByOptions && renderSort(sortByOptions)}
+                    <Node {...FeatureSearchContainer}>{similarLookProduct}</Node>
+                    <Node {...ProductsContainer}>
+                        {errorMessage}
+                        {renderProducts(props)}
+                    </Node>
+                    {pagination}
+                </Node>
+            </Node>
+        </Module>
     );
-
 };
 
-const createSearchResultModal = (modalProps: ISearchResultModalViewProps, refineMenu: IRefineMenuViewProps, sortByDropDown: ISortByViewProps): JSX.Element => {
-    return React.cloneElement(modalProps.modal, {}, modalProps.modalHeader, createModalBody(modalProps, refineMenu, sortByDropDown), modalProps.modalFooter);
+const createSearchResultModal = (
+    modalProps: ISearchResultModalViewProps,
+    refineMenu: IRefineMenuViewProps,
+    sortByDropDown: ISortByViewProps
+): JSX.Element => {
+    return React.cloneElement(
+        modalProps.modal,
+        {},
+        modalProps.modalHeader,
+        createModalBody(modalProps, refineMenu, sortByDropDown),
+        modalProps.modalFooter
+    );
 };
 
-const createModalBody = (props: ISearchResultModalViewProps, refineMenu: IRefineMenuViewProps, sortByDropDown: ISortByViewProps): JSX.Element | null => {
+const createModalBody = (
+    props: ISearchResultModalViewProps,
+    refineMenu: IRefineMenuViewProps,
+    sortByDropDown: ISortByViewProps
+): JSX.Element | null => {
     if (sortByDropDown) {
         return React.cloneElement(props.modalBody, {}, renderSort(sortByDropDown), renderRefiner(refineMenu));
     }
@@ -75,9 +110,7 @@ const renderRefiner = (props: IRefineMenuViewProps): JSX.Element | null => {
             <Node {...RefinerSectionContainer}>
                 <Node {...RefineMenuContainer}>
                     {refiners.map((submenu, index) => (
-                        <React.Fragment key={index}>
-                            {submenu}
-                        </React.Fragment>
+                        <React.Fragment key={index}>{submenu}</React.Fragment>
                     ))}
                 </Node>
             </Node>
@@ -89,11 +122,7 @@ const renderRefiner = (props: IRefineMenuViewProps): JSX.Element | null => {
 const renderSort = (props: ISortByViewProps): JSX.Element | null => {
     const { SortingContainer, sortByDropDown } = props;
     if (sortByDropDown) {
-        return (
-            <Node {...SortingContainer}>
-                {sortByDropDown}
-            </Node>
-        );
+        return <Node {...SortingContainer}>{sortByDropDown}</Node>;
     }
     return null;
 };
@@ -101,6 +130,7 @@ const renderSort = (props: ISortByViewProps): JSX.Element | null => {
 const renderCategoryHierarchy = (props: ICategoryHierarchyViewProps): JSX.Element | null => {
     const { CategoryHierarchyContainer, categoryHierarchyList, categoryHierarchySeparator } = props;
     if (categoryHierarchyList) {
+        /* eslint-disable  @typescript-eslint/no-explicit-any */
         return (
             <Node {...CategoryHierarchyContainer}>
                 {categoryHierarchyList.map((category: any, index: number) => (
@@ -141,7 +171,12 @@ function renderProducts(props: ISearchResultContainerViewProps & ISearchResultCo
     return (
         <ul className='list-unstyled'>
             {products.map((product: ProductSearchResult, index: number) => (
-                <li className={`${liClass} ${getImageOrientation(product) === 'Landscape' ? 'product-placement__item-limage' : 'product-placement__item-pimage'}`} key={index} >
+                <li
+                    className={`${liClass} ${
+                        getImageOrientation(product) === 'Landscape' ? 'product-placement__item-limage' : 'product-placement__item-pimage'
+                    }`}
+                    key={index}
+                >
                     <ProductComponent
                         context={context}
                         imageSettings={config.imageSettings}
@@ -167,7 +202,7 @@ function getImageOrientation(product: ProductSearchResult): string {
             }
         });
     }
-    imageOrientation='Landscape';
+    imageOrientation = 'Landscape';
     return imageOrientation;
 }
 const renderTitleCount = (props: ITitleViewProps): JSX.Element | null => {
@@ -175,9 +210,7 @@ const renderTitleCount = (props: ITitleViewProps): JSX.Element | null => {
     if (title) {
         return (
             <Node {...TitleContainer}>
-                <h5>
-                    {title.titleCount}
-                </h5>
+                <h5>{title.titleCount}</h5>
             </Node>
         );
     }

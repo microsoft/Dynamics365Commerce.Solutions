@@ -1,3 +1,8 @@
+/*!
+ * Copyright (c) Microsoft Corporation.
+ * All rights reserved. See LICENSE in the project root for license information.
+ */
+
 import { ProductSearchResult, SortColumn } from '@msdyn365-commerce/retail-proxy';
 import getCollectionProducts, { GetFullProductsByCollectionInput } from './get-full-products-by-collection';
 import getMappedSearchConfiguration, { MappedSearchInput, sortOptions } from './get-mapped-search-configuration';

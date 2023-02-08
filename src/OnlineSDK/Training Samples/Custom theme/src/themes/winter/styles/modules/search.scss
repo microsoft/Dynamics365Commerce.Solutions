@@ -1,0 +1,531 @@
+@import "../common/00-settings/colors.scss";
+@import "../common/00-settings/font.scss";
+@import "../common/00-settings/icons.scss";
+@import "../common/00-settings/responsive-breakpoints.scss";
+@import "../common/02-generic/image.scss";
+@import "../common/01-tools/mixins.scss";
+
+$search-autoSuggest-results-item-font-size: 14px;
+$search-autoSuggest-categoryResults-item-height: 40px;
+$search-autoSuggest-categoryResults-item-padding: 0 24px;
+$search-autoSuggest-categoryResults-title-padding: 16px 24px 8px 12px;
+$search-autoSuggest-keywordResults-item-height: 40px;
+$search-autoSuggest-keywordResults-item-padding: 0 12px;
+$search-autoSuggest-productResults-item-height: 60px;
+$search-autoSuggest-productResults-item-font-size: 16px;
+$search-autoSuggest-productResults-item-padding-right: 20px;
+$search-autoSuggest-productResults-title-padding: 20px 12px 14px 12px;
+$search-searchForm-min-width: 240px;
+$search-searchForm-height: 40px;
+$search-autoSuggest-hover-color: $msv-gray-20;
+$search-autoSuggest-font-hover-background-color: $msv-gray-70;
+$search-placeholder-text-padding-left: 8px;
+$search-form-control-padding: 8px;
+$search-form-icon-height: $search-searchForm-height;
+$search-form-icon-size: 24px;
+$search-form-icon-margin-right: 9px;
+$search-form-icon-text-size: 14px;
+$search-form-icon-text-line-height: 20px;
+$search-form-submitBtn-height: 28px;
+$search-form-submitBtn-width: 48px;
+$search-form-inactive-width-desktop: 94px;
+$search-form-inactive-width-mobile: 48px;
+$search-form-padding-right: 20px;
+$search-form-padding-left: 5px;
+$search-form-submitBtn-border-radius: 0;
+$search-autoSuggest-loading-item-height: 48px;
+$search-autoSuggest-loading-item-padding: 13px 12px 14px 0;
+$search-spinner-circle-border-color: #FFFFFF rgba(255, 255, 255, 0.4) rgba(255, 255, 255, 0.4);
+
+//style presets
+:root {
+    --msv-search-bg: var(--msv-accent-brand-color);
+    --msv-search-font-color: var(--msv-font-secondary-color);
+    --msv-search-form-bg: #{$msv-gray-20};
+    --msv-search-form-search-btn-color: var(--msv-accent-brand-color);
+    --msv-search-form-cancel-btn-color: #{$msv-gray-20};
+    --msv-search-font-size: #{$msv-font-size-s};
+    --msv-search-form-placeholder-color: #{$msv-gray-50};
+}
+
+.ms-search {
+    button {
+        border: 1px solid transparent;
+
+        @include vfi();
+    }
+
+    picture {
+        grid-column: 1 / 2;
+        grid-row-end: span 2;
+        margin-bottom: auto;
+        margin-top: auto;
+    }
+
+    &__icon {
+        background: transparent;
+        cursor: pointer;
+        display: inline-flex;
+        font-family: $msv-primary-font-family;
+        font-size: $search-form-icon-text-size;
+        height: $search-form-icon-height;
+        line-height: $search-form-icon-text-line-height;
+        width: $search-form-inactive-width-mobile;
+
+        &::before {
+            @include msv-icon();
+            content: $msv-Search;
+            font-size: $search-form-icon-size;
+            vertical-align: text-bottom;
+        }
+
+        &-text {
+            display: none;
+        }
+    }
+
+    &__form-cancelSearch {
+        order: 2;
+
+        &::before {
+            @include msv-icon();
+            content: $msv-Cancel;
+            width: 14px;
+            text-align: center;
+            color: $msv-white;
+            font-size: $search-form-icon-size;
+            vertical-align: middle;
+        }
+    }
+
+    &__form-submitSearch {
+        color: var(--msv-search-font-color);
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-font-smoothing: antialiased;
+        margin-left: 12px;
+        background: none;
+        border: none;
+        order: 0;
+        height: 40px;
+
+        &::before {
+            @include msv-icon();
+            content: $msv-Search;
+            text-align: center;
+            font-size: $msv-icon-size-xs;
+            vertical-align: middle;
+        }
+    }
+
+    &__searchForm {
+        display: flex;
+        height: $search-searchForm-height;
+        justify-content: flex-end;
+        min-width: $search-searchForm-min-width;
+        padding-left: $search-form-padding-left;
+        padding-right: $search-form-padding-right;
+
+        @media (min-width: $msv-breakpoint-m) {
+            align-items: center;
+        }
+    }
+
+    &__form-control {
+        @include vfi();
+        border: 1px solid $msv-gray-20;
+        order: 1;
+        margin-left: $search-placeholder-text-padding-left;
+        width: 100%;
+        background-color: var(--msv-search-bg);
+        color: var(--msv-search-font-color);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+
+        &:focus {
+            outline-offset: -1px;
+            border: none;
+            outline: none;
+        }
+
+        &::-ms-clear {
+            display: none;
+        }
+
+        &::placeholder {
+            color: var(--msv-search-form-placeholder-color);
+        }
+    }
+
+    @media (max-width: $msv-breakpoint-m) {
+        &__form.bx-hide {
+            display: none;
+        }
+
+        &__form.bx-show {
+            z-index: 1001;
+            left: 0;
+            position: fixed;
+            width: $msv-width-full;
+            top: 0;
+            background-color: var(--ms-search-autosuggest-background-color);
+
+            .ms-search__form-cancelSearch {
+                align-items: center;
+                background-color: var(--msv-search-form-cancel-btn-color);
+                order: 1;
+                display: flex;
+                float: right;
+                width: 20px;
+                height: 20px;
+                margin-top: 12px;
+                margin-right: 12px;
+                padding: 0;
+
+                &::before {
+                    @include msv-icon();
+                    content: $msv-Cancel;
+                    width: 17px;
+                    text-align: center;
+                    color: var(--ms-search-autosuggest-results-font-color);
+                    font-size: $msv-icon-size-m;
+                }
+            }
+
+            .ms-search__searchForm {
+                display: flex;
+                justify-content: flex-end;
+                min-width: $search-searchForm-min-width;
+                padding: 0;
+                clear: both;
+                height: 48px;
+                border-bottom: 1px solid var(--ms-search-autosuggest-font-color);
+                margin-bottom: 8px;
+                margin-left: 16px;
+                margin-right: 16px;
+
+                .msc-autoSuggest__productResults-empty-mobile-content {
+                    background: $msv-gray-20;
+                    margin-top: 55px;
+                    width: 100%;
+                    justify-content: flex-end;
+                    clear: both;
+                    height: 87vh;
+                    margin-bottom: 8px;
+                    margin-left: 16px;
+                    margin-right: -16px;
+                    position: absolute;
+
+                    .msc-autoSuggest__productResults-empty-mobile-no-results-image {
+                        margin-top: 56px;
+
+                        img {
+                            margin: 0 auto;
+                        }
+                    }
+
+                    .msc-autoSuggest__productResults-empty-mobile-text-content {
+                        text-align: center;
+                        margin-top: 28px;
+                    }
+
+                    .msc-autoSuggest__productResults-empty-mobile-heading {
+                        font-family: $msv-font-segoe;
+                        font-size: 18px;
+                        line-height: 24px;
+                        letter-spacing: 0;
+                        color: $msv-white;
+                    }
+
+                    .msc-autoSuggest__productResults-empty-mobile-text {
+                        margin-top: 20px;
+                        line-height: 20px;
+                        letter-spacing: 0;
+                        text-align: center;
+                        color: $msv-gray-50;
+                    }
+                }
+            }
+
+            .ms-search__form-control {
+                @include vfi();
+                background-color: var(--msv-search-form-bg);
+                font-size: var(--msv-search-font-size);
+                color: var(--msv-search-font-color);
+                order: 0;
+                width: $msv-width-full;
+                border: none;
+                outline: none;
+                height: 20px;
+                padding: 0;
+                margin-top: 24px;
+
+                &:focus {
+                    border: none;
+                    outline: none;
+                }
+
+                &::-ms-clear {
+                    display: none;
+                }
+
+                @media screen and (-webkit-min-device-pixel-ratio: 0) {
+                    font-size: $msv-font-size-m;
+                }
+            }
+
+            .ms-search__form-control__clear.msc-btn {
+                @include font-body-regular-s();
+                color: var(--ms-search-autosuggest-results-font-color);
+                letter-spacing: 0.1em;
+                text-decoration-line: underline;
+                text-transform: uppercase;
+                border: none;
+                padding: 0;
+                height: 20px;
+                margin-top: 24px;
+
+                &:focus {
+                    border: 1px dashed $msv-white;
+                }
+            }
+        }
+
+        &__icon {
+            &::before {
+                font-size: $msv-icon-size-m;
+            }
+        }
+
+        .ms-search__form-submitSearch {
+            display: block;
+        }
+    }
+
+    @media (min-width: $msv-breakpoint-m) and (max-width: $msv-breakpoint-l) {
+        border: none;
+
+        &__label.bx-show {
+            display: block;
+        }
+
+        &__form.bx-hide {
+            display: none;
+        }
+
+        &__icon-text {
+            display: none;
+        }
+
+        &__label.bx-hide {
+            display: none;
+        }
+
+        &__form.bx-show {
+            display: block;
+            width: 100%;
+            background: transparent;
+            border: 1.5px solid $msv-gray-50;
+            border-radius: 30px;
+            position: initial;
+            height: 40px;
+
+            .ms-search__searchForm {
+                margin: 0;
+                border: none;
+                height: 100%;
+                padding-left: 5px;
+                padding-right: 20px;
+            }
+
+            .ms-search__form-control {
+                border: none;
+                order: 1;
+                padding-left: 8px;
+                padding-right: 40px;
+                width: $msv-width-full;
+                background: transparent;
+                color: $msv-white;
+                height: $search-form-submitBtn-height;
+                margin-top: 0;
+            }
+
+            .ms-search__form-control:focus {
+                border: none;
+                outline: none;
+            }
+
+            .ms-search__form-cancelSearch {
+                background: transparent;
+                order: 2;
+                height: $search-form-submitBtn-height;
+                margin: 0;
+            }
+
+            .ms-search__form-submitSearch {
+                order: 0;
+                align-items: center;
+                background-color: var(--msv-search-form-search-btn-color);
+                border-radius: $search-form-submitBtn-border-radius;
+                color: var(--msv-font-secondary-color);
+                height: $search-form-submitBtn-height;
+                width: $search-form-submitBtn-width;
+                padding: 0;
+                margin-left: 0;
+                bottom: 1px;
+                position: relative;
+
+                &::before {
+                    @include msv-icon();
+                    content: $msv-Search;
+                    text-align: center;
+                    transform: scaleX(-1);
+                    font-size: $msv-icon-size-m;
+                }
+            }
+        }
+
+        &__icon {
+            &::before {
+                font-size: $msv-icon-size-m;
+            }
+        }
+    }
+
+    @media (min-width: $msv-breakpoint-l) {
+        .ms-search__label.bx-show,
+        .ms-search__label.bx-hide {
+            display: none;
+        }
+
+        &__icon {
+            width: $search-form-inactive-width-desktop;
+
+            &::before {
+                margin-right: $search-form-icon-margin-right;
+                font-size: $msv-icon-size-m;
+            }
+        }
+    }
+}
+
+li.msc-autoSuggest__productResults-item {
+    padding-right: $search-autoSuggest-productResults-item-padding-right;
+}
+
+a.msc-autoSuggest__productResults-item {
+    font-size: $search-autoSuggest-productResults-item-font-size;
+    width: 100%;
+
+    .msc-autoSuggest__productResults-item-img {
+        margin: 0 auto;
+    }
+}
+
+.msc-autoSuggest {
+    &__categoryResults-item {
+        display: flex;
+        font-size: $search-autoSuggest-results-item-font-size;
+        height: $search-autoSuggest-categoryResults-item-height;
+
+        a {
+            @include vfi();
+            display: flex;
+            height: $search-autoSuggest-categoryResults-item-height;
+            line-height: $search-autoSuggest-categoryResults-item-height;
+            padding: $search-autoSuggest-categoryResults-item-padding;
+            width: 100%;
+        }
+
+        :hover {
+            background-color: $search-autoSuggest-hover-color;
+        }
+    }
+
+    &__categoryResults-title {
+        @include font-body-regular-s();
+        color: var(--msv-font-primary-color);
+        padding: $search-autoSuggest-categoryResults-title-padding;
+        text-transform: none;
+    }
+
+    &__keywordResults-item {
+        display: flex;
+        font-size: $search-autoSuggest-results-item-font-size;
+        height: $search-autoSuggest-keywordResults-item-height;
+
+        a {
+            @include vfi();
+            display: flex;
+            height: $search-autoSuggest-keywordResults-item-height;
+            line-height: $search-autoSuggest-keywordResults-item-height;
+            padding: $search-autoSuggest-keywordResults-item-padding;
+            width: 100%;
+        }
+
+        :hover {
+            background-color: $search-autoSuggest-hover-color;
+        }
+    }
+
+    &__productResults-item {
+        @include vfi();
+        display: flex;
+        height: $search-autoSuggest-productResults-item-height;
+
+        &-price {
+            grid-column: 2 / 2;
+        }
+
+        &-text {
+            grid-column: 2 / 2;
+        }
+
+        :hover {
+            background-color: $search-autoSuggest-font-hover-background-color;
+        }
+    }
+
+    &__productResults-title {
+        @include font-body-regular-s();
+        padding: $search-autoSuggest-productResults-title-padding;
+        color: var(--msv-font-primary-color);
+        text-transform: none;
+    }
+
+    &__screen-reader {
+        border: 0;
+        clip: rect(0, 0, 0, 0);
+        height: 1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        white-space: nowrap;
+        width: 1px;
+    }
+
+    &__loadingResult {
+        display: flex;
+        font-size: var(--msv-search-font-size);
+        height: $search-autoSuggest-loading-item-height;
+        padding: $search-autoSuggest-loading-item-padding;
+        width: 100%;
+        justify-content: flex-start;
+
+        .ms-Spinner-circle {
+            border-color: $search-spinner-circle-border-color;
+        }
+
+        .ms-Spinner-label {
+            text-transform: lowercase;
+            color: $msv-white;
+        }
+    }
+}
+
+@media (min-width: $msv-breakpoint-m) and (max-width: $msv-breakpoint-l) {
+    .ms-header__container .ms-header__topbar .ms-search {
+        height: 48px;
+        margin-left: 25px;
+    }
+}

@@ -14,6 +14,7 @@ namespace Contoso
         using System;
         using System.Collections.Generic;
         using System.Net.Http;
+        using System.Threading.Tasks;
         using Microsoft.Dynamics.Commerce.HardwareStation;
         using Microsoft.Dynamics.Commerce.HardwareStation.PeripheralRequests;
         using Microsoft.Dynamics.Commerce.HardwareStation.Peripherals.Entities;
@@ -23,7 +24,10 @@ namespace Contoso
         /// <summary>
         /// Fiscal peripheral device handler for EPSON FP-90III.
         /// </summary>
+#pragma warning disable CS0618 // Type or member is obsolete. JUSTIFICATION: TODO: transform to asynchronous handler
         public class EpsonFP90IIIHandler : INamedRequestHandler
+#pragma warning restore CS0618 // Type or member is obsolete
+
         {
             /// <summary>
             /// Gets name of the handler.
@@ -49,26 +53,18 @@ namespace Contoso
             {
                 ThrowIf.Null(request, nameof(request));
 
-                Type requestType = request.GetType();
-
-                if (requestType == typeof(SubmitDocumentFiscalDeviceRequest))
+                switch (request)
                 {
-                    SubmitDocumentFiscalDeviceRequest submitDocumentRequest = (SubmitDocumentFiscalDeviceRequest)request;
-                    return this.SubmitDocument(submitDocumentRequest);
-                }
-                else if (requestType == typeof(IsReadyFiscalDeviceRequest))
-                {
-                    IsReadyFiscalDeviceRequest isReadyRequest = (IsReadyFiscalDeviceRequest)request;
-                    return this.IsReady(isReadyRequest);
-                }
-                else if (requestType == typeof(InitializeFiscalDeviceRequest))
-                {
-                    InitializeFiscalDeviceRequest initializeRequest = (InitializeFiscalDeviceRequest)request;
-                    return this.Initialize(initializeRequest);
-                }
-                else
-                {
-                    throw new NotSupportedException(string.Format("Request '{0}' is not supported.", requestType));
+                    case SubmitDocumentFiscalDeviceRequest submitDocumentFiscalDeviceRequest:
+#pragma warning disable AvoidBlockingCallsAnalyzer // Avoid blocking asynchronous execution. JUSTIFICATION: remove when EpsonFP90IIIHandler will be transformed to asynchronous
+                        return this.SubmitDocument(submitDocumentFiscalDeviceRequest).GetAwaiter().GetResult();
+                    case IsReadyFiscalDeviceRequest isReadyFiscalDeviceRequest:
+                        return this.IsReady(isReadyFiscalDeviceRequest).GetAwaiter().GetResult();
+                    case InitializeFiscalDeviceRequest initializeFiscalDeviceRequest:
+                        return this.Initialize(initializeFiscalDeviceRequest).GetAwaiter().GetResult();
+#pragma warning restore AvoidBlockingCallsAnalyzer // Avoid blocking asynchronous execution.
+                    default:
+                        throw new NotSupportedException($"Request '{request.GetType()}' is not supported.");
                 }
             }
 
@@ -77,7 +73,7 @@ namespace Contoso
             /// </summary>
             /// <param name="request">The request.</param>
             /// <returns>The response.</returns>
-            private Response Initialize(InitializeFiscalDeviceRequest request)
+            private async Task<Response> Initialize(InitializeFiscalDeviceRequest request)
             {
                 ThrowIf.Null(request.Document, nameof(request.Document));
                 ThrowIf.Null(request.PeripheralInfo, nameof(request.PeripheralInfo));
@@ -95,8 +91,8 @@ namespace Contoso
                     try
                     {
                         PrinterCommunicationController communicationController = new PrinterCommunicationController();
-                        string fiscalPeripheralInfo = GetFiscalPrinterFullSerialNumber(communicationController, configuration);
-                        string responseFromPrinter = communicationController.SubmitDocumentAsync(document, configuration).GetAwaiter().GetResult();
+                        string fiscalPeripheralInfo = await GetFiscalPrinterFullSerialNumber(communicationController, configuration).ConfigureAwait(false);
+                        string responseFromPrinter = await communicationController.SubmitDocumentAsync(document, configuration).ConfigureAwait(false);
                         FiscalDeviceResponseBase responseBase = ResponseParser.ParseResponse<SubmitDocumentFiscalDeviceResponse>(responseFromPrinter);
 
                         // We use the communication result type always as succeeded, because time synchronization is not necessary. 
@@ -124,7 +120,7 @@ namespace Contoso
             /// </summary>
             /// <param name="request">The request.</param>
             /// <returns>The response.</returns>
-            private Response SubmitDocument(SubmitDocumentFiscalDeviceRequest request)
+            private async Task<Response> SubmitDocument(SubmitDocumentFiscalDeviceRequest request)
             {
                 ThrowIf.NullOrWhiteSpace(request.Document, nameof(request.Document));
                 ThrowIf.Null(request.PeripheralInfo, nameof(request.PeripheralInfo));
@@ -137,8 +133,8 @@ namespace Contoso
                 try
                 {
                     PrinterCommunicationController communicationController = new PrinterCommunicationController();
-                    string fiscalPeripheralInfo = GetFiscalPrinterFullSerialNumber(communicationController, configuration);
-                    string responseFromPrinter = communicationController.SubmitDocumentAsync(request.Document, configuration).ConfigureAwait(false).GetAwaiter().GetResult();
+                    string fiscalPeripheralInfo = await GetFiscalPrinterFullSerialNumber(communicationController, configuration).ConfigureAwait(false);
+                    string responseFromPrinter = await communicationController.SubmitDocumentAsync(request.Document, configuration).ConfigureAwait(false);
                     FiscalDeviceResponseBase responseBase = ResponseParser.ParseResponse<SubmitDocumentFiscalDeviceResponse>(responseFromPrinter);
                     response = new SubmitDocumentFiscalDeviceResponse(responseBase.Response, responseBase.CommunicationResultType, responseBase.FailureDetails, fiscalPeripheralInfo);
                 }
@@ -159,7 +155,7 @@ namespace Contoso
             /// </summary>
             /// <param name="request">The request.</param>
             /// <returns>The response.</returns>
-            private Response IsReady(IsReadyFiscalDeviceRequest request)
+            private async Task<Response> IsReady(IsReadyFiscalDeviceRequest request)
             {
                 ThrowIf.Null(request.PeripheralInfo, nameof(request.PeripheralInfo));
                 ThrowIf.NullOrWhiteSpace(request.PeripheralInfo.DeviceName, nameof(request.PeripheralInfo.DeviceName));
@@ -173,7 +169,7 @@ namespace Contoso
                 try
                 {
                     PrinterCommunicationController communicationController = new PrinterCommunicationController();
-                    string responseFromPrinter = communicationController.SubmitDocumentAsync(document, configuration).GetAwaiter().GetResult();
+                    string responseFromPrinter = await communicationController.SubmitDocumentAsync(document, configuration).ConfigureAwait(false);
                     FiscalDeviceResponseBase deviceResponseBase = ResponseParser.ParseResponse<FiscalDeviceResponseBase>(responseFromPrinter);
                     response = new IsReadyFiscalDeviceResponse(deviceResponseBase.CommunicationResultType == FiscalPeripheralCommunicationResultType.Succeeded);
                 }
@@ -190,7 +186,7 @@ namespace Contoso
             /// <param name="document">The document to submit.</param>
             /// <param name="configuration">The printers configuration.</param>
             /// <returns>The fiscal printer serial number.</returns>
-            private string GetFiscalPrinterFullSerialNumber(PrinterCommunicationController communicationController, ConfigurationModel configuration)
+            private async Task<string> GetFiscalPrinterFullSerialNumber(PrinterCommunicationController communicationController, ConfigurationModel configuration)
             {
                 string printerFullSerialNumber = string.Empty;
 
@@ -199,11 +195,11 @@ namespace Contoso
                 // to avoid interruption of the document submission to the printer.
                 try
                 {
-                    string responseFromPrinter = communicationController.SubmitDocumentAsync(BuiltInDocuments.GetRTModeStatus(), configuration).GetAwaiter().GetResult();
+                    string responseFromPrinter = await communicationController.SubmitDocumentAsync(BuiltInDocuments.GetRTModeStatus(), configuration).ConfigureAwait(false);
                     string printerRTModeStatus = ResponseParser.ParseDirectIOCommandResponseData(responseFromPrinter);
                     string rtType = printerRTModeStatus.Substring(2, 1);
 
-                    responseFromPrinter = communicationController.SubmitDocumentAsync(BuiltInDocuments.GetFiscalSerialNumber(), configuration).GetAwaiter().GetResult();
+                    responseFromPrinter = await communicationController.SubmitDocumentAsync(BuiltInDocuments.GetFiscalSerialNumber(), configuration).ConfigureAwait(false);
                     string fiscalSerialNumber = ResponseParser.ParseDirectIOCommandResponseData(responseFromPrinter);
                     string model = fiscalSerialNumber.Substring(8, 2);
                     string manufacture = fiscalSerialNumber.Substring(10, 2);

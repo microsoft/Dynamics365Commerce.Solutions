@@ -24,7 +24,6 @@ test('validate product Add to cart button visibilty', async (testController: Tes
     await testController.expect(renderPageDiv.exists).eql(true, 'product list found');
     const renderProduct = Selector('.ms-product-search-result__item').child(0);
     const addCartButton = Selector('.ms-search-result-container__Products .ms-product-search-result__item').child().find('.msc-add-to-cart');
-    console.log(addCartButton);
     await testController.hover(renderProduct,{ speed: 0.4 }).expect(renderProduct.visible).ok();
      await testController.hover(addCartButton,{ speed: 0.4 }).expect(addCartButton.visible).ok();
      await testController.hover(addCartButton).expect(addCartButton.visible).ok().click(

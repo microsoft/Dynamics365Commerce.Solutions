@@ -9,6 +9,7 @@ import { CacheType, IActionInput, IQueryResultSettings, ProductRefinerValue } fr
 import { actionDataAction, GetFullProductsByCollectionInput } from '../get-full-products-by-collection.action';
 
 describe('Role based caching test cases', () => {
+    /* eslint-disable  @typescript-eslint/no-explicit-any */
     const mockRequestContextJson: any = {
         url: {
             serverPageUrl: 'https://localhost:3000'
@@ -46,7 +47,7 @@ describe('Role based caching test cases', () => {
             SwatchColorHexCode: '#36A1F2',
             SwatchImageUrl: '',
             UnitText: '',
-            //@ts-ignore
+            // @ts-ignore
             '@odata.type': '#Microsoft.Dynamics.Commerce.Runtime.DataModel.ProductRefinerValue'
         }
     ];
@@ -66,7 +67,7 @@ describe('Role based caching test cases', () => {
             SwatchColorHexCode: '#6f2da8',
             SwatchImageUrl: '',
             UnitText: '',
-            //@ts-ignore
+            // @ts-ignore
             '@odata.type': '#Microsoft.Dynamics.Commerce.Runtime.DataModel.ProductRefinerValue'
         }
     ];
@@ -86,7 +87,7 @@ describe('Role based caching test cases', () => {
             SwatchColorHexCode: '#74c365',
             SwatchImageUrl: '',
             UnitText: '',
-            //@ts-ignore
+            // @ts-ignore
             '@odata.type': '#Microsoft.Dynamics.Commerce.Runtime.DataModel.ProductRefinerValue'
         }
     ];

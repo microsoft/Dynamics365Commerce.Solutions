@@ -16,6 +16,7 @@ export interface IHeaderConfig extends Msdyn365.IModuleConfig {
     signUpCustomerNotFound?: string;
     signUpMultipleCustomerFound?: string;
     shouldShowWishlistCount?: boolean;
+    clientRender?: boolean;
     useStickyHeader: boolean;
 }
 
@@ -28,12 +29,16 @@ export interface IHeaderResources {
     signInLinkAriaText: string;
     signOutLinkText: string;
     signOutLinkAriaText: string;
+    shoppingAsText: string;
+    switchCustomerLinkText: string;
+    switchCustomerLinkAriaText: string;
     headerPreferredStoreText: string;
     headerPreferredStoreAriaLabel: string;
     signUpCustomerNotFoundTitle: string;
     signUpMultipleCustomerFoundTitle: string;
     closeNotificationLabel: string;
     wishlistCountLabel: string;
+    headerAriaLabel: string;
 }
 
 export interface ILogoLinkData {

@@ -1,7 +1,7 @@
-/*--------------------------------------------------------------
- * Copyright (c) Microsoft Corporation. All rights reserved.
- * See License.txt in the project root for license information.
- *--------------------------------------------------------------*/
+/*!
+ * Copyright (c) Microsoft Corporation.
+ * All rights reserved. See LICENSE in the project root for license information.
+ */
 
 /* eslint-disable no-duplicate-imports */
 // import * as Msdyn365 from '@msdyn365-commerce/core';
@@ -130,52 +130,6 @@ class AccountManagementAddress extends React.Component<ICustomAccountManagementA
             this.props.telemetry
         );
     }
-
-    /**
-     * On Suggestion Selected Function.
-     * @param result - Microsoft.Maps.ISuggestionResult.
-     */
-    @action
-    private readonly _onSuggestionSelected = async (result: Microsoft.Maps.ISuggestionResult): Promise<void> => {
-        this._clearAddressFields();
-        const address = this.addressFormat.getTranformedAddress(result, this.stateProvinceInfo);
-        set(this.addUpdateAddress, { Street: '' });
-        set(this.addUpdateAddress, { ZipCode: address.ZipCode });
-        set(this.addUpdateAddress, { CountyName: address.CountyName });
-        set(this.addUpdateAddress, { City: address.City });
-        set(this.addUpdateAddress, { State: address.State });
-        set(this.addUpdateAddress, { DistrictName: address.DistrictName });
-        set(this.addUpdateAddress, { FullAddress: address.FullAddress });
-
-        // Bing autosuggest put the complete address in the Street input box. Updating the street input box to show only street address.
-        setTimeout(() => {
-            set(this.addUpdateAddress, { Street: address.Street });
-        }, 0);
-    };
-
-    /**
-     * Clear Address Fields.
-     */
-    @action
-    private readonly _clearAddressFields = (): void => {
-        const addressFormatItem = this.addressFormat.getAddressFormat(
-            this.addUpdateAddress.ThreeLetterISORegionName || this.countryRegionId
-        );
-        addressFormatItem.forEach(format => {
-            if (this.addUpdateAddress[format.name] !== undefined && !this.autoSuggest?.excludedAddressFields.includes(format.name)) {
-                this.addressFormat[format.name] = '';
-            }
-        });
-        this._clearValidation();
-    };
-
-    /**
-     * Clear Validation Function.
-     */
-    @action
-    private readonly _clearValidation = (): void => {
-        this.validationError = {};
-    };
 
     public async componentDidMount(): Promise<void> {
         const {
@@ -335,6 +289,52 @@ class AccountManagementAddress extends React.Component<ICustomAccountManagementA
 
         return renderView(viewProps) as React.ReactElement;
     }
+
+    /**
+     * On Suggestion Selected Function.
+     * @param result - Microsoft.Maps.ISuggestionResult.
+     */
+    @action
+    private readonly _onSuggestionSelected = async (result: Microsoft.Maps.ISuggestionResult): Promise<void> => {
+        this._clearAddressFields();
+        const address = this.addressFormat.getTranformedAddress(result, this.stateProvinceInfo);
+        set(this.addUpdateAddress, { Street: '' });
+        set(this.addUpdateAddress, { ZipCode: address.ZipCode });
+        set(this.addUpdateAddress, { CountyName: address.CountyName });
+        set(this.addUpdateAddress, { City: address.City });
+        set(this.addUpdateAddress, { State: address.State });
+        set(this.addUpdateAddress, { DistrictName: address.DistrictName });
+        set(this.addUpdateAddress, { FullAddress: address.FullAddress });
+
+        // Bing autosuggest put the complete address in the Street input box. Updating the street input box to show only street address.
+        setTimeout(() => {
+            set(this.addUpdateAddress, { Street: address.Street });
+        }, 0);
+    };
+
+    /**
+     * Clear Address Fields.
+     */
+    @action
+    private readonly _clearAddressFields = (): void => {
+        const addressFormatItem = this.addressFormat.getAddressFormat(
+            this.addUpdateAddress.ThreeLetterISORegionName || this.countryRegionId
+        );
+        addressFormatItem.forEach(format => {
+            if (this.addUpdateAddress[format.name] !== undefined && !this.autoSuggest?.excludedAddressFields.includes(format.name)) {
+                this.addressFormat[format.name] = '';
+            }
+        });
+        this._clearValidation();
+    };
+
+    /**
+     * Clear Validation Function.
+     */
+    @action
+    private readonly _clearValidation = (): void => {
+        this.validationError = {};
+    };
 
     /**
      * Method data initialization.

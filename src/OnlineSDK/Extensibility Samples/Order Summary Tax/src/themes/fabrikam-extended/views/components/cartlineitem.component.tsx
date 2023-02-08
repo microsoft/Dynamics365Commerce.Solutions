@@ -1,7 +1,7 @@
-/*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
- *  Licensed under the MIT License. See License.txt in the project root for license information.
- *--------------------------------------------------------------------------------------------*/
+/*!
+ * Copyright (c) Microsoft Corporation.
+ * All rights reserved. See LICENSE in the project root for license information.
+ */
 
 import { ArrayExtensions, getFallbackImageUrl } from '@msdyn365-commerce-modules/retail-actions';
 import { getPayloadObject, getTelemetryAttributes, IncrementalQuantity, ITelemetryContent } from '@msdyn365-commerce-modules/utilities';
@@ -114,12 +114,13 @@ const CartLineItemFunctions = {
         }
 
         return Product.Dimensions.map(productDimension => {
-
             if (productDimension.DimensionTypeValue === 1) {
                 return (
                     <div key={`${Product.RecordId}ProductDimensions1`} className='msc-cart-line__product-variant-item'>
-                        <span className='msc-cart-line__product-variant-color'>{DimensionStrings.colorString}:
-                        <span className='name'>{productDimension.DimensionValue && productDimension.DimensionValue.Value}</span></span>
+                        <span className='msc-cart-line__product-variant-color'>
+                            {DimensionStrings.colorString}:
+                            <span className='name'>{productDimension.DimensionValue && productDimension.DimensionValue.Value}</span>
+                        </span>
                     </div>
                 );
             }
@@ -127,8 +128,10 @@ const CartLineItemFunctions = {
             if (productDimension.DimensionTypeValue === 2) {
                 return (
                     <div key={`${Product.RecordId}ProductDimensions2`} className='msc-cart-line__product-variant-item'>
-                        <span className='msc-cart-line__product-configuration'>{DimensionStrings.configString}:
-                        <span className='name'>{productDimension.DimensionValue && productDimension.DimensionValue.Value}</span></span>
+                        <span className='msc-cart-line__product-configuration'>
+                            {DimensionStrings.configString}:
+                            <span className='name'>{productDimension.DimensionValue && productDimension.DimensionValue.Value}</span>
+                        </span>
                     </div>
                 );
             }
@@ -136,8 +139,10 @@ const CartLineItemFunctions = {
             if (productDimension.DimensionTypeValue === 3) {
                 return (
                     <div key={`${Product.RecordId}ProductDimensions3`} className='msc-cart-line__product-variant-item'>
-                        <span className='msc-cart-line__product-variant-size'>{DimensionStrings.sizeString}:
-                        <span className='name'>{productDimension.DimensionValue && productDimension.DimensionValue.Value}</span></span>
+                        <span className='msc-cart-line__product-variant-size'>
+                            {DimensionStrings.sizeString}:
+                            <span className='name'>{productDimension.DimensionValue && productDimension.DimensionValue.Value}</span>
+                        </span>
                     </div>
                 );
             }
@@ -145,8 +150,10 @@ const CartLineItemFunctions = {
             if (productDimension.DimensionTypeValue === 4) {
                 return (
                     <div key={`${Product.RecordId}ProductDimensions4`} className='msc-cart-line__product-variant-item'>
-                        <span className='msc-cart-line__product-variant-style'>{Product.IsGiftCard ? DimensionStrings.amountString : DimensionStrings.styleString}:
-                        <span className='name'>{productDimension.DimensionValue && productDimension.DimensionValue.Value}</span></span>
+                        <span className='msc-cart-line__product-variant-style'>
+                            {Product.IsGiftCard ? DimensionStrings.amountString : DimensionStrings.styleString}:
+                            <span className='name'>{productDimension.DimensionValue && productDimension.DimensionValue.Value}</span>
+                        </span>
                     </div>
                 );
             }
@@ -158,18 +165,22 @@ const CartLineItemFunctions = {
         if (!props.inventoryInformationLabel) {
             return null;
         }
-        const inventoryCssName = props.inventoryLabelClassName ? `msc-cart-line__product-inventory-label ${props.inventoryLabelClassName}` : 'msc-cart-line__product-inventory-label';
-        return (
-            <span className={inventoryCssName}>{props.inventoryInformationLabel}</span>
-        );
+        const inventoryCssName = props.inventoryLabelClassName
+            ? `msc-cart-line__product-inventory-label ${props.inventoryLabelClassName}`
+            : 'msc-cart-line__product-inventory-label';
+        return <span className={inventoryCssName}>{props.inventoryInformationLabel}</span>;
     },
     renderShippingLabel: (props: ICartLineProps) => {
         const pickupDeliveryModeCode = props.context.request.channel?.PickupDeliveryModeCode;
         const channelDeliveryOptionConfig = props.channelDeliveryOptionConfig;
         const cartline = props.data.cartLine;
         let hasShippingMethod = false;
-        if(channelDeliveryOptionConfig !== undefined) {
-            hasShippingMethod = !!cartline.DeliveryMode && channelDeliveryOptionConfig?.PickupDeliveryModeCodes?.some(deliveryMode => deliveryMode !== cartline.DeliveryMode) ? true : false;
+        if (channelDeliveryOptionConfig !== undefined) {
+            hasShippingMethod =
+                !!cartline.DeliveryMode &&
+                channelDeliveryOptionConfig?.PickupDeliveryModeCodes?.some(deliveryMode => deliveryMode !== cartline.DeliveryMode)
+                    ? true
+                    : false;
         } else {
             hasShippingMethod = !!cartline.DeliveryMode && cartline.DeliveryMode !== pickupDeliveryModeCode ? true : false;
         }
@@ -185,7 +196,7 @@ const CartLineItemFunctions = {
 
         const freightFee = shippingChargeLines.reduce((chargeTotal, chargeLine) => {
             return chargeTotal + (chargeLine.CalculatedAmount || 0);
-        },                                            0);
+        }, 0);
 
         const priceComponent = (
             <PriceComponent
@@ -205,41 +216,46 @@ const CartLineItemFunctions = {
         return (
             <>
                 <label className='msc-cart-line__freight-label'>{`${props.resources.shippingChargesText}:`}</label>
-                <span className='shipping-value'>
-                    {priceComponent}
-                </span>
+                <span className='shipping-value'>{priceComponent}</span>
             </>
         );
     },
     renderOtherCharges: (props: ICartLineProps) => {
         const cartline = props.data.cartLine;
-        const otherCharges = cartline.ChargeLines?.filter((chargeline) => !chargeline.IsShipping);
+        const otherCharges = cartline.ChargeLines?.filter(chargeline => !chargeline.IsShipping);
 
-        return otherCharges && otherCharges.map((otherCharge, key) => {
-            return otherCharge && otherCharge.CalculatedAmount ? (
-                <div className='msc-cart-line__other-charges' key={key}>
-                    <label className='msc-cart-line__other-charges-label'>{`${otherCharge.Description}:`}</label>
-                    <span className='other-charge-value'>
-                        <PriceComponent
-                            data={{
-                                price: {
-                                    // @ts-ignore
-                                    CustomerContextualPrice: otherCharge.CalculatedAmount
-                                }
-                            }}
-                            context={props.context}
-                            id={props.id}
-                            typeName={props.typeName}
-                            className='msc-cart-line__other-charges-actual'
-                        />
-                    </span>
-                </div>
-            ) : '';
-        }) || undefined;
+        return (
+            (otherCharges &&
+                otherCharges.map((otherCharge, key) => {
+                    return otherCharge && otherCharge.CalculatedAmount ? (
+                        <div className='msc-cart-line__other-charges' key={key}>
+                            <label className='msc-cart-line__other-charges-label'>{`${otherCharge.Description}:`}</label>
+                            <span className='other-charge-value'>
+                                <PriceComponent
+                                    data={{
+                                        price: {
+                                            // @ts-ignore
+                                            CustomerContextualPrice: otherCharge.CalculatedAmount
+                                        }
+                                    }}
+                                    context={props.context}
+                                    id={props.id}
+                                    typeName={props.typeName}
+                                    className='msc-cart-line__other-charges-actual'
+                                />
+                            </span>
+                        </div>
+                    ) : (
+                        ''
+                    );
+                })) ||
+            undefined
+        );
     }
 };
 
 // tslint:disable-next-line:max-func-body-length
+// eslint-disable-next-line no-redeclare
 const CartLine: React.FC<ICartLineProps> = (props: ICartLineProps) => {
     const { isSalesLine, productUrl, resources } = props;
     const { product, cartLine } = props.data;
@@ -255,10 +271,10 @@ const CartLine: React.FC<ICartLineProps> = (props: ICartLineProps) => {
     const fallbackImageUrl = product && getFallbackImageUrl(product.ItemId, props.context.actionContext.requestContext.apiSettings);
     const productDimensions = product && CartLineItemFunctions.renderProductDimensions(product, destructDimensionStrings);
     const imageSettings = props.imageSettings;
-    if(imageSettings) {
+    if (imageSettings) {
         imageSettings.cropFocalRegion = true;
     }
-   // const renderDisountLines = CartLineItemFunctions.renderDiscountLines(props);
+    // const renderDisountLines = CartLineItemFunctions.renderDiscountLines(props);
     const renderInventoryLabel = CartLineItemFunctions.renderInventoryLabel(props);
     const renderShippingLabel = CartLineItemFunctions.renderShippingLabel(props);
     const renderOtherCharges = CartLineItemFunctions.renderOtherCharges(props);
@@ -338,18 +354,22 @@ const CartLine: React.FC<ICartLineProps> = (props: ICartLineProps) => {
         nodes.push(
             <div className='msc-cart-line__product-savings'>
                 <PriceComponent
-                    data={isSalesLine ? {
-                        price: {
-                            // @ts-ignore
-                            CustomerContextualPrice: props.data.cartLine.NetAmount,
-                            BasePrice: props.data.cartLine.Price
-                        }
-                    } : {
-                            price: {
-                                CustomerContextualPrice: props.data.cartLine.NetAmountWithoutTax,
-                                BasePrice: props.data.cartLine.NetPrice
-                            }
-                        }}
+                    data={
+                        isSalesLine
+                            ? {
+                                  price: {
+                                      // @ts-ignore
+                                      CustomerContextualPrice: props.data.cartLine.NetAmount,
+                                      BasePrice: props.data.cartLine.Price
+                                  }
+                              }
+                            : {
+                                  price: {
+                                      CustomerContextualPrice: props.data.cartLine.NetAmountWithoutTax,
+                                      BasePrice: props.data.cartLine.NetPrice
+                                  }
+                              }
+                    }
                     context={props.context}
                     id={props.id}
                     typeName={props.typeName}
@@ -357,30 +377,34 @@ const CartLine: React.FC<ICartLineProps> = (props: ICartLineProps) => {
                     originalPriceText={resources.originalPriceText}
                     currentPriceText={resources.currentPriceText}
                 />
-                {
-                    props.data.cartLine.DiscountAmount && props.data.cartLine.DiscountAmount > 0 &&
+                {(props.data.cartLine.DiscountAmount && props.data.cartLine.DiscountAmount > 0 && (
                     <>
-                        <span className='msc-cart-line__product-savings-label'>{` ${props.resources.discountStringText || 'Discount'} `}</span>
+                        <span className='msc-cart-line__product-savings-label'>{` ${props.resources.discountStringText ||
+                            'Discount'} `}</span>
                         <PriceComponent
-                            data={props.isSalesLine ? {
-                                price: {
-                                    // @ts-ignore
-                                    CustomerContextualPrice: props.data.cartLine.PeriodicDiscount
-                                }
-                            } : {
-                                    price: {
-                                        CustomerContextualPrice: props.data.cartLine.DiscountAmountWithoutTax,
-                                        BasePrice: props.data.cartLine.DiscountAmount
-                                    }
-                                }}
+                            data={
+                                props.isSalesLine
+                                    ? {
+                                          price: {
+                                              // @ts-ignore
+                                              CustomerContextualPrice: props.data.cartLine.PeriodicDiscount
+                                          }
+                                      }
+                                    : {
+                                          price: {
+                                              CustomerContextualPrice: props.data.cartLine.DiscountAmountWithoutTax,
+                                              BasePrice: props.data.cartLine.DiscountAmount
+                                          }
+                                      }
+                            }
                             context={props.context}
                             id={props.id}
                             typeName={props.typeName}
                             className='msc-cart-line__product-savings-text'
                         />
-                    </> ||
-                    null
-                }
+                    </>
+                )) ||
+                    null}
             </div>
         );
 
@@ -390,29 +414,43 @@ const CartLine: React.FC<ICartLineProps> = (props: ICartLineProps) => {
     return (
         <div className='msc-cart-line'>
             <div className='msc-cart-line__product-image'>
-                <Image src={props.primaryImageUrl || ''} fallBackSrc={fallbackImageUrl} altText={productName} gridSettings={props.gridSettings} imageSettings={imageSettings} loadFailureBehavior='empty' />
+                <Image
+                    src={props.primaryImageUrl || ''}
+                    fallBackSrc={fallbackImageUrl}
+                    altText={productName}
+                    gridSettings={props.gridSettings}
+                    imageSettings={imageSettings}
+                    loadFailureBehavior='empty'
+                />
             </div>
             <div className='msc-cart-line__content'>
                 <div className='msc-cart-line__product'>
-                    <a className='msc-cart-line__product-title' href={productUrl} {...prodAttribute} >{productName}</a>
-                    {ArrayExtensions.hasElements(productDimensions) ?
-                        <div className='msc-cart-line__product-variants'>{productDimensions}</div> :
+                    <a className='msc-cart-line__product-title' href={productUrl} {...prodAttribute}>
+                        {productName}
+                    </a>
+                    {ArrayExtensions.hasElements(productDimensions) ? (
+                        <div className='msc-cart-line__product-variants'>{productDimensions}</div>
+                    ) : (
                         ''
-                    }
+                    )}
                     <div className='msc-cart-line__product-price'>
                         <PriceComponent
-                            data={isSalesLine ? {
-                                price: {
-                                    // @ts-ignore
-                                    CustomerContextualPrice: props.data.cartLine.TotalAmount,
-                                    BasePrice: props.data.cartLine.Price
-                                }
-                            } : {
-                                    price: {
-                                        CustomerContextualPrice: props.data.cartLine.TotalAmount,
-                                        BasePrice: props.data.cartLine.NetPrice
-                                    }
-                                }}
+                            data={
+                                isSalesLine
+                                    ? {
+                                          price: {
+                                              // @ts-ignore
+                                              CustomerContextualPrice: props.data.cartLine.TotalAmount,
+                                              BasePrice: props.data.cartLine.Price
+                                          }
+                                      }
+                                    : {
+                                          price: {
+                                              CustomerContextualPrice: props.data.cartLine.TotalAmount,
+                                              BasePrice: props.data.cartLine.NetPrice
+                                          }
+                                      }
+                            }
                             context={props.context}
                             id={props.id}
                             typeName={props.typeName}
@@ -420,14 +458,10 @@ const CartLine: React.FC<ICartLineProps> = (props: ICartLineProps) => {
                         />
                     </div>
                     {renderInventoryLabel}
-                    {props.showShippingChargesForLineItems && <div className='msc-cart-line__freight'>
-                        {renderShippingLabel}
-                    </div>}
+                    {props.showShippingChargesForLineItems && <div className='msc-cart-line__freight'>{renderShippingLabel}</div>}
                     {renderOtherCharges}
                 </div>
-                {
-                    _generateQuantityandPrice()
-                }
+                {_generateQuantityandPrice()}
             </div>
         </div>
     );

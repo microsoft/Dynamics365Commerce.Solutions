@@ -92,7 +92,7 @@
             /// <returns></returns>
             private string GetPropertyValue(XDocument configuration, string namespaceValue, string nameValue)
             {
-                var descendants = configuration.Descendants(ConfigurationElementConstants.RootElement).Descendants(ConfigurationElementConstants.PropertyElement);
+                var descendants = configuration.Descendants(ConfigurationElementConstants.RootElement).Descendants(ConfigurationElementConstants.PropertyElement).ToList();
                 XElement element = GetElementByNamespaceAndName(descendants, namespaceValue, nameValue);
                 return this.ReadValue(element);
             }
@@ -135,7 +135,7 @@
             /// <param name="namespaceValue">The namespace name.</param>
             /// <param name="nameValue">The name of the element.</param>
             /// <returns>The <see cref="XElement"/> with the specified namespace and name.</returns>
-            private static XElement GetElementByNamespaceAndName(IEnumerable<XElement> elements, string namespaceValue, string nameValue)
+            private static XElement GetElementByNamespaceAndName(List<XElement> elements, string namespaceValue, string nameValue)
             {
                 if (!elements.Any())
                 {

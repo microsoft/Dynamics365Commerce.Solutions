@@ -14,6 +14,7 @@ export interface IOrderConfirmationConfig extends Msdyn365.IModuleConfig {
     contactNumber?: string;
     imageSettings?: Msdyn365.IImageSettings;
     className?: string;
+    clientRender?: boolean;
 }
 
 export interface IOrderConfirmationResources {

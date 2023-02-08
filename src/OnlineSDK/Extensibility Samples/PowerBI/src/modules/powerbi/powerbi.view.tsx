@@ -2,6 +2,7 @@
  * Copyright (c) Microsoft Corporation.
  * All rights reserved. See LICENSE in the project root for license information.
  */
+
 import * as React from 'react';
 import { Heading } from '@msdyn365-commerce-modules/utilities';
 import PowerBiReportsListComponent from './components/powerbi-reportsList.component';

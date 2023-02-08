@@ -1,7 +1,7 @@
-/*--------------------------------------------------------------
- * Copyright (c) Microsoft Corporation. All rights reserved.
- * See License.txt in the project root for license information.
- *--------------------------------------------------------------*/
+/*!
+ * Copyright (c) Microsoft Corporation.
+ * All rights reserved. See LICENSE in the project root for license information.
+ */
 
 /* eslint-disable no-duplicate-imports */
 import {
@@ -20,10 +20,12 @@ import { getSearchConfigurationAsync } from '@msdyn365-commerce/retail-proxy/dis
 import { buildCacheKey } from '@msdyn365-commerce-modules/retail-actions';
 
 // TODO: import from commerce entities when available
+// eslint-disable-next-line @typescript-eslint/naming-convention
 interface SearchConfiguration {
     ProductSortColumns?: SortColumn[];
 }
 
+// eslint-disable-next-line @typescript-eslint/naming-convention
 export interface MappedSearchConfiguration {
     key: string;
     sortColumn: SortColumn;

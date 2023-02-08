@@ -196,7 +196,7 @@ namespace Contoso
             private async Task<FiscalIntegrationDocument> GetSalesOrderFiscalDocument(GetFiscalDocumentDocumentProviderRequest request)
             {
                 var fiscalIntegrationDocument = new FiscalIntegrationDocument(document: string.Empty, resultType: FiscalIntegrationDocumentGenerationResultType.NotRequired);
-                var salesOrderAdjustmentResponse = this.AdjustSalesOrderAsync(request.SalesOrder, request.RequestContext).ConfigureAwait(false).GetAwaiter().GetResult();
+                var salesOrderAdjustmentResponse = await this.AdjustSalesOrderAsync(request.SalesOrder, request.RequestContext).ConfigureAwait(false);
 
                 var salesOrder = salesOrderAdjustmentResponse == null ? request.SalesOrder : salesOrderAdjustmentResponse.SalesOrder;
                 fiscalIntegrationDocument.DocumentAdjustment = salesOrderAdjustmentResponse?.DocumentAdjustment;

@@ -101,7 +101,7 @@ namespace Contoso
             /// <returns>Converted string from tax lines dictionary</returns>
             private string GetVATStrValue(Dictionary<int, CleanCashTaxLine> cleanCashTaxLines, int taxLineId)
             {
-                CleanCashTaxLine cleanCashTaxLine = cleanCashTaxLines.ContainsKey(taxLineId) ? cleanCashTaxLines[taxLineId] : new CleanCashTaxLine();
+                CleanCashTaxLine cleanCashTaxLine = cleanCashTaxLines.TryGetValue(taxLineId, out CleanCashTaxLine value) ? value : new CleanCashTaxLine();
                 return string.Format(VatStringFormat, Math.Abs(cleanCashTaxLine.TaxPercentage).ToString(DecimalNumberFormat, this.swedishCulture), cleanCashTaxLine.TaxAmount.ToString(DecimalNumberFormat, this.swedishCulture));
             }
         }

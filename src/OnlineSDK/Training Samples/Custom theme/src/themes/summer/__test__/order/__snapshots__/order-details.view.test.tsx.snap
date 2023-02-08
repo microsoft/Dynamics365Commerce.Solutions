@@ -1,0 +1,552 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`OrderDetails renders sales order with amount 1`] = `
+<div
+  class="ms-order-details"
+  data-m-t="mock-type"
+  id=""
+>
+  <div
+    class="ms-order-details__order-information"
+  >
+    <span
+      class="ms-order-details__order-information-sales-id"
+    >
+      Order ID: 012660
+    </span>
+    <span
+      class="ms-order-details__order-information-count"
+    >
+      3 items
+    </span>
+    <span
+      class="msc-price ms-order-details__order-information-amount"
+    >
+      <span
+        class="msc-price__actual"
+        itemprop="price"
+      >
+        $319.50
+      </span>
+    </span>
+    <div>
+      <span
+        class="ms-order-details__order-information-channel-reference-id"
+      >
+        Confirmation Id 
+        <span>
+          C764D04GLDEN
+        </span>
+      </span>
+      <div
+        aria-labelledby="qrCodeSrText"
+        class="ms-order-details__order-information-qr-code"
+      >
+        <canvas
+          height="80"
+          style="height:80px;width:80px"
+          width="80"
+        />
+        <span
+          class="qrcode-screenreader-text"
+          id="qrCodeSrText"
+        >
+          Scan QR code
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ms-order-details__groups"
+  >
+    <div
+      class="ms-order-details__group-deliveryType-ship salesStatus-processing"
+    >
+      <div
+        class="ms-order-details__group-delivery "
+      >
+        <span
+          class="ms-order-details__group-delivery-heading"
+        >
+          <span
+            class="ms-order-details__devliery-type"
+          >
+            Delivery
+          </span>
+        </span>
+        <span
+          class="ms-order-details__group-delivery-total-items"
+        >
+          (1 item)
+        </span>
+      </div>
+      <div
+        class="ms-order-details__sales-lines_container"
+      >
+        <div
+          class="ms-order-details__sales-lines ms-order-details__sales-lines__selection-global-disabled"
+        >
+          <div
+            class="ms-order-details__sales-line ms-order-details__sales-line__selection-disabled ms-order-details__sales-line__selection-global-disabled ms-order-details__sales-line__available-product"
+          >
+            <div
+              class="ms-order-details__sales-line-checkbox-control ms-order-details__sales-line-checkbox-control__selection-disabled ms-order-details__sales-line-checkbox-control__selection-global-disabled ms-order-details__sales-line-checkbox-control__available-product ms-order-details__sales-line-checkbox-control__unselected"
+            >
+              <div
+                class="msc-cart-line"
+              >
+                <div
+                  class="msc-cart-line__product-image"
+                >
+                  <picture>
+                    <source
+                      data-srcset="https://img-prod-cms-mr-microsoft-com.akamaized.net/cms/api/fabrikam/imageFileData/search?fileName=/Products%2F81307_000_001.png&fallback=/Products/81307_000_001.png&w=80&h=80&m=6&cropfocalregion=true"
+                      media="(max-width:768px)"
+                    />
+                    <source
+                      data-srcset="https://img-prod-cms-mr-microsoft-com.akamaized.net/cms/api/fabrikam/imageFileData/search?fileName=/Products%2F81307_000_001.png&fallback=/Products/81307_000_001.png&w=147&h=147&m=6&cropfocalregion=true"
+                      media="(min-width:769px) and (max-width:1600px)"
+                    />
+                    <img
+                      alt="Red Leather Bag"
+                      class="msc-main_image msc_image lazyload"
+                      data-src="https://img-prod-cms-mr-microsoft-com.akamaized.net/cms/api/fabrikam/imageFileData/search?fileName=/Products%2F81307_000_001.png&fallback=/Products/81307_000_001.png&m=6&cropfocalregion=true"
+                      fallbacksrc="https://cms-ppe-imageresizer-mr.trafficmanager.net/cms/api/fabrikamsb/imageFileData/search?fileName=/Products%2F81307_000_001.png"
+                      loadfailurebehavior="empty"
+                      requestcontext="[object Object]"
+                      src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                      style="visibility:hidden"
+                    />
+                  </picture>
+                </div>
+                <div
+                  class="msc-cart-line__content"
+                >
+                  <div
+                    class="msc-cart-line__product"
+                  >
+                    <a
+                      class="msc-cart-line__product-title"
+                      href="http://localhost/red-leather-bag/22565430654.p?catalogid=0"
+                    >
+                      Red Leather Bag
+                    </a>
+                    <div
+                      class="msc-cart-line__sales-agreement-prompt"
+                    />
+                  </div>
+                  <div
+                    class="msc-cart-line__quantity single-quantity"
+                  >
+                    <label
+                      class="quantity-label"
+                    >
+                      Quantity:
+                    </label>
+                    <span
+                      class="quantity-value"
+                    >
+                      1
+                    </span>
+                  </div>
+                  <div
+                    class="msc-cart-line__product-price"
+                  />
+                </div>
+              </div>
+            </div>
+            <a
+              aria-label="Buy it again for Red Leather Bag"
+              class="ms-order-details__sales-line-btn-buy-it-again msc-btn"
+              href="http://localhost/red-leather-bag/22565430654.p?catalogid=0"
+              title="Buy it again for Red Leather Bag"
+            >
+              Buy it again
+            </a>
+          </div>
+          <span
+            class="ms-order-details__sales-status"
+          >
+            Processing
+          </span>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ms-order-details__group-deliveryType-pickup salesStatus-processing"
+    >
+      <div
+        class="ms-order-details__group-delivery "
+      >
+        <span
+          class="ms-order-details__group-delivery-heading"
+        />
+        <span
+          class="ms-order-details__group-delivery-total-items"
+        >
+          (2 items)
+        </span>
+      </div>
+      <div
+        class="ms-order-details__sales-lines_container"
+      >
+        <div
+          class="ms-order-details__sales-lines ms-order-details__sales-lines__selection-global-disabled"
+        >
+          <div
+            class="ms-order-details__sales-line ms-order-details__sales-line__selection-disabled ms-order-details__sales-line__selection-global-disabled ms-order-details__sales-line__available-product"
+          >
+            <div
+              class="ms-order-details__sales-line-checkbox-control ms-order-details__sales-line-checkbox-control__selection-disabled ms-order-details__sales-line-checkbox-control__selection-global-disabled ms-order-details__sales-line-checkbox-control__available-product ms-order-details__sales-line-checkbox-control__unselected"
+            >
+              <div
+                class="msc-cart-line"
+              >
+                <div
+                  class="msc-cart-line__product-image"
+                >
+                  <picture>
+                    <source
+                      data-srcset="https://img-prod-cms-mr-microsoft-com.akamaized.net/cms/api/fabrikam/imageFileData/search?fileName=/Products%2F81307_000_001.png&fallback=/Products/81308_000_001.png&w=80&h=80&m=6&cropfocalregion=true"
+                      media="(max-width:768px)"
+                    />
+                    <source
+                      data-srcset="https://img-prod-cms-mr-microsoft-com.akamaized.net/cms/api/fabrikam/imageFileData/search?fileName=/Products%2F81307_000_001.png&fallback=/Products/81308_000_001.png&w=147&h=147&m=6&cropfocalregion=true"
+                      media="(min-width:769px) and (max-width:1600px)"
+                    />
+                    <img
+                      alt="Brown Leather Bag"
+                      class="msc-main_image msc_image lazyload"
+                      data-src="https://img-prod-cms-mr-microsoft-com.akamaized.net/cms/api/fabrikam/imageFileData/search?fileName=/Products%2F81307_000_001.png&fallback=/Products/81308_000_001.png&m=6&cropfocalregion=true"
+                      fallbacksrc="https://cms-ppe-imageresizer-mr.trafficmanager.net/cms/api/fabrikamsb/imageFileData/search?fileName=/Products%2F81308_000_001.png"
+                      loadfailurebehavior="empty"
+                      requestcontext="[object Object]"
+                      src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                      style="visibility:hidden"
+                    />
+                  </picture>
+                </div>
+                <div
+                  class="msc-cart-line__content"
+                >
+                  <div
+                    class="msc-cart-line__product"
+                  >
+                    <a
+                      class="msc-cart-line__product-title"
+                      href="http://localhost/brown-leather-bag/22565430655.p?catalogid=0"
+                    >
+                      Brown Leather Bag
+                    </a>
+                    <div
+                      class="msc-cart-line__product-variants"
+                    >
+                      <div
+                        class="msc-cart-line__product-variant-item"
+                      >
+                        <span
+                          class="msc-cart-line__product-variant-color"
+                        >
+                          Color:
+                          <span
+                            class="name"
+                          >
+                            Brown
+                          </span>
+                        </span>
+                      </div>
+                      <div
+                        class="msc-cart-line__product-variant-item"
+                      >
+                        <span
+                          class="msc-cart-line__product-variant-size"
+                        >
+                          Size:
+                          <span
+                            class="name"
+                          >
+                            Map
+                          </span>
+                        </span>
+                      </div>
+                      <div
+                        class="msc-cart-line__product-variant-item"
+                      >
+                        <span
+                          class="msc-cart-line__product-variant-style"
+                        >
+                          Style:
+                          <span
+                            class="name"
+                          >
+                            Cool
+                          </span>
+                        </span>
+                      </div>
+                    </div>
+                    <div
+                      class="msc-cart-line__sales-agreement-prompt"
+                    />
+                  </div>
+                  <div
+                    class="msc-cart-line__quantity"
+                  >
+                    <label
+                      class="quantity-label"
+                    >
+                      Quantity:
+                    </label>
+                    <span
+                      class="quantity-value"
+                    >
+                      2
+                    </span>
+                  </div>
+                  <div
+                    class="msc-cart-line__product-price"
+                  />
+                </div>
+              </div>
+            </div>
+            <a
+              aria-label="Buy it again for Brown Leather Bag"
+              class="ms-order-details__sales-line-btn-buy-it-again msc-btn"
+              href="http://localhost/brown-leather-bag/22565430655.p?catalogid=0"
+              title="Buy it again for Brown Leather Bag"
+            >
+              Buy it again
+            </a>
+          </div>
+          <span
+            class="ms-order-details__sales-status"
+          >
+            Processing
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ms-order-details__order-summary-container"
+  >
+    <div
+      class="ms-order-details__order-summary"
+    >
+      <p
+        class="ms-order-details__order-summary-heading"
+      >
+        Order summary
+      </p>
+      <p
+        class="ms-order-details__order-summary-line-subtotal"
+      >
+        <span
+          class="ms-order-details__order-summary-label"
+        >
+          Subtotal
+        </span>
+        <span
+          class="msc-price ms-order-details__order-summary-price"
+        >
+          <span
+            class="msc-price__actual"
+            itemprop="price"
+          >
+            $300.00
+          </span>
+        </span>
+      </p>
+      <p
+        class="ms-order-details__order-summary-line-shipping"
+      >
+        <span
+          class="ms-order-details__order-summary-label"
+        >
+          Shipping
+        </span>
+        <span
+          class="msc-price ms-order-details__order-summary-price"
+        >
+          <span
+            class="msc-price__actual"
+            itemprop="price"
+          >
+            FREE
+          </span>
+        </span>
+      </p>
+      <p
+        class="ms-order-details__order-summary-line-total-amount"
+      >
+        <span
+          class="ms-order-details__order-summary-label"
+        >
+          Grand total
+        </span>
+        <span
+          class="msc-price ms-order-details__order-summary-price"
+        >
+          <span
+            class="msc-price__actual"
+            itemprop="price"
+          >
+            $319.50
+          </span>
+        </span>
+      </p>
+    </div>
+    <div
+      class="ms-order-details__payment-methods"
+    >
+      <div
+        class="ms-order-details__payment-methods-title"
+      >
+        Payment method
+      </div>
+      <div
+        class="ms-order-details__payment-methods-line"
+      >
+        <p
+          class="ms-order-details__payment-methods-card"
+        >
+          VISA card ending in 1111
+        </p>
+        <p
+          class="ms-order-details__payment-methods-card-amount-info"
+        >
+          Amount covered:
+          <span
+            class="msc-price ms-order-details__payment-methods-card-amount"
+          >
+            <span
+              class="msc-price__actual"
+              itemprop="price"
+            >
+              $10.00
+            </span>
+          </span>
+        </p>
+      </div>
+      <div
+        class="ms-order-details__payment-methods-line"
+      >
+        <p
+          class="ms-order-details__payment-methods-gift-card-number"
+        >
+          Gift card ending in 00_3
+        </p>
+        <p
+          class="ms-order-details__payment-methods-gift-card-amount-info"
+        >
+          Amount covered:
+          <span
+            class="msc-price ms-order-details__payment-methods-gift-card-amount"
+          >
+            <span
+              class="msc-price__actual"
+              itemprop="price"
+            >
+              $100.00
+            </span>
+          </span>
+        </p>
+      </div>
+      <div
+        class="ms-order-details__payment-methods-line"
+      >
+        <p
+          class="ms-order-details__payment-methods-cash"
+        >
+          Cash
+        </p>
+        <p
+          class="ms-order-details__payment-methods-cash-amount-info"
+        >
+          Amount covered:
+          <span
+            class="msc-price ms-order-details__payment-methods-cash-amount"
+          >
+            <span
+              class="msc-price__actual"
+              itemprop="price"
+            >
+              $100.00
+            </span>
+          </span>
+        </p>
+      </div>
+      <div
+        class="ms-order-details__payment-methods-line"
+      >
+        <p
+          class="ms-order-details__payment-methods-loyalty-number"
+        >
+          Loyalty card used 890609
+        </p>
+        <p
+          class="ms-order-details__payment-methods-loyalty-amount-info"
+        >
+          Amount covered:
+          <span
+            class="msc-price ms-order-details__payment-methods-loyalty-amount"
+          >
+            <span
+              class="msc-price__actual"
+              itemprop="price"
+            >
+              $100.00
+            </span>
+          </span>
+        </p>
+      </div>
+      <div
+        class="ms-order-details__payment-methods-line"
+      >
+        <p
+          class="ms-order-details__payment-methods-customer-account"
+        >
+          Customer Account 005221
+        </p>
+        <p
+          class="ms-order-details__payment-methods-customer-account-info"
+        >
+          Amount covered:
+          <span
+            class="msc-price ms-order-details__payment-methods-customer-account-amount"
+          >
+            <span
+              class="msc-price__actual"
+              itemprop="price"
+            >
+              $400.00
+            </span>
+          </span>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ms-order-details__help"
+  >
+    <p
+      class="ms-order-details__help-title"
+    >
+      Need help?
+    </p>
+    <span
+      class="ms-order-details__help-label"
+    >
+      Call
+    </span>
+    <a
+      aria-label="Need help, call 123-456-7890"
+      class="ms-order-details__help-content-number"
+      data-bi-id="12345"
+      data-m="{\\"id\\":\\"12345\\",\\"key1\\":\\"val1\\"}\\""
+      href="tel:123-456-7890"
+    >
+      123-456-7890
+    </a>
+  </div>
+</div>
+`;

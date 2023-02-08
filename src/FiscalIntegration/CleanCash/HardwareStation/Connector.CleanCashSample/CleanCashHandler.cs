@@ -23,7 +23,9 @@ namespace Contoso
         /// <summary>
         /// Fiscal peripheral device handler for CleanCash.
         /// </summary>
+#pragma warning disable CS0618 // Type or member is obsolete. JUSTIFICATION: TODO: transform to asynchronous handler
         public class CleanCashHandler : INamedRequestHandler
+#pragma warning restore CS0618 // Type or member is obsolete
         {
             /// <summary>
             /// Gets name of the handler.

@@ -65,12 +65,21 @@ namespace Contoso
                     FirstSignatureValue : SequentialSignatureDataFormatter.GetLastSignatureFromResponse(this.LastRegisteredResponse);
                 IEnumerable<SalesLine> salesLines = this.adjustedSalesOrder.ActiveSalesLines.Where(line => !line.IsInvoiceLine);
 
+                decimal totalAmoutIncludingTax = 0;
+                decimal totalAmountExcludingTax = 0;
+
+                foreach(SalesLine salesLine in salesLines)
+                {
+                    totalAmoutIncludingTax += salesLine.TotalAmount;
+                    totalAmountExcludingTax += salesLine.TotalAmount - salesLine.TaxAmount;
+                }
+
                 dataToRegisterFields.Add(lastSignatureFromResponse);
                 dataToRegisterFields.Add(SequentialSignatureDataFormatter.GetFormattedDate(this.adjustedSalesOrder.TransactionDateTime));
                 dataToRegisterFields.Add(SequentialSignatureDataFormatter.GetFormattedTime(this.adjustedSalesOrder.TransactionDateTime));
                 dataToRegisterFields.Add(SequentialSignatureDataFormatter.GetFormattedSequentialNumber(this.SequentialNumber));
-                dataToRegisterFields.Add(SequentialSignatureDataFormatter.GetFormattedAmount(salesLines.Sum(line => line.TotalAmount)));
-                dataToRegisterFields.Add(SequentialSignatureDataFormatter.GetFormattedAmount(salesLines.Sum(line => line.TotalAmount - line.TaxAmount)));
+                dataToRegisterFields.Add(SequentialSignatureDataFormatter.GetFormattedAmount(totalAmoutIncludingTax));
+                dataToRegisterFields.Add(SequentialSignatureDataFormatter.GetFormattedAmount(totalAmountExcludingTax));
 
                 return Task.FromResult(SequentialSignatureDataFormatter.GetFormattedDataToRegister(dataToRegisterFields));
             }

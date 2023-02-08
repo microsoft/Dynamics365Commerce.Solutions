@@ -1,0 +1,20 @@
+$error-page-content-card-padding: 32px;
+$error-page-content-card-card-title-margin: 20px;
+
+.ms-content-card {
+    padding: $error-page-content-card-padding;
+
+    .ms-content-card__details {
+        .card-title {
+            margin: $error-page-content-card-card-title-margin;
+            display: flex;
+            align-items: center;
+
+            @include font-content-xl(var(--msv-font-weight-normal));
+        }
+
+        .card-text {
+            @include font-content-s(var(--msv-font-weight-normal));
+        }
+    }
+}

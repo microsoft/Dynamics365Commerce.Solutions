@@ -1,3 +1,8 @@
+/*!
+ * Copyright (c) Microsoft Corporation.
+ * All rights reserved. See LICENSE in the project root for license information.
+ */
+
 import { IProductsDimensionsAvailabilities } from '@msdyn365-commerce/commerce-entities';
 import { generateImageUrl, getProductPageUrlSync } from '@msdyn365-commerce-modules/retail-actions';
 import { format, ITelemetryContent } from '@msdyn365-commerce-modules/utilities';
@@ -9,8 +14,7 @@ import MsDyn365, {
     IGridSettings,
     IImageData,
     IImageSettings,
-    Image,
-    IRequestContext
+    Image
 } from '@msdyn365-commerce/core';
 import { ProductPrice, ProductSearchResult } from '@msdyn365-commerce/retail-proxy';
 import { AttributeValue } from '@msdyn365-commerce/retail-proxy/dist/Entities/CommerceTypes.g';
@@ -62,6 +66,9 @@ interface IProductCardState {
  * @extends {React.PureComponent<IProductComponentProps>}
  */
 
+/**
+ *
+ */
 export default class ProductCard extends React.PureComponent<IProductComponentProps, IProductCardState> {
     private productUrl: string;
     constructor(props: IProductComponentProps) {
@@ -77,6 +84,8 @@ export default class ProductCard extends React.PureComponent<IProductComponentPr
     }
 
     // tslint:disable-next-line:max-func-body-length cyclomatic-complexity
+
+    // eslint-disable-next-line complexity
     public render(): JSX.Element | null {
         const {
             data,
@@ -132,11 +141,11 @@ export default class ProductCard extends React.PureComponent<IProductComponentPr
         const colorImgMapping = [];
 
         // converting object keys to lower case
-        // tslint:disable-next-line:no-any
+        /* eslint-disable  @typescript-eslint/no-explicit-any */
         let colorHexMappingObj: any[] = [];
         if (colorHexMapping && colorHexMapping.length > 0) {
             // tslint:disable-next-line:no-any
-            colorHexMappingObj = colorHexMapping.map((item: any, index: number) => {
+            colorHexMappingObj = colorHexMapping.map((item: any) => {
                 return (
                     // tslint:disable-next-line:ban-comma-operator
                     // eslint-disable-next-line no-sequences
@@ -146,7 +155,7 @@ export default class ProductCard extends React.PureComponent<IProductComponentPr
         }
 
         // converting object keys to lower case
-        // tslint:disable-next-line:no-any
+        /* eslint-disable  @typescript-eslint/no-explicit-any */
         let colorImageVariantMappingObj: any[] = [];
         if (colorImageVariantMapping && colorImageVariantMapping.length > 0) {
             // tslint:disable-next-line:no-any
@@ -166,6 +175,7 @@ export default class ProductCard extends React.PureComponent<IProductComponentPr
                     ...colorHexMappingObj[i],
                     // use 'id' as lowercase as we are converting the keys to lowercase
                     // tslint:disable-next-line:no-any
+                    // eslint-disable-next-line @typescript-eslint/no-explicit-any
                     ...colorImageVariantMappingObj.find((item: any) => item.id === colorHexMappingObj[i].id)
                 });
             }
@@ -190,7 +200,7 @@ export default class ProductCard extends React.PureComponent<IProductComponentPr
             imgURL =
                 generateImageUrl(
                     `Products/${colorImgMapping[0]?.url.toString().replace(/ /g, '')}`,
-                    (this.props.context.request as IRequestContext).apiSettings
+                    this.props.context.request.apiSettings
                 ) || 'undefined';
             this.setState({ autoSelectedItemId: colorImgMapping[0].id });
             this.setProductUrl();
@@ -244,7 +254,7 @@ export default class ProductCard extends React.PureComponent<IProductComponentPr
         );
     }
 
-    // tslint:disable-next-line:no-any
+    /* eslint-disable  @typescript-eslint/no-explicit-any */
     private productNavigation = (productUrl?: string) => (e: any): any => {
         let productUrlDimid = productUrl;
         if (this.props.includeProductNavWithDimIdConfig) {
@@ -335,8 +345,7 @@ export default class ProductCard extends React.PureComponent<IProductComponentPr
         if (item && item.hasOwnProperty('url')) {
             // @ts-ignore making this.props.context.request as type IRequestContext as this.props.context interface doesnot have requestContext
             // tslint:disable-next-line:prefer-template
-            const imgURL =
-                generateImageUrl(`Products/${item.url}`, (this.props.context.request as IRequestContext).apiSettings) || 'undefined';
+            const imgURL = generateImageUrl(`Products/${item.url}`, this.props.context.request.apiSettings) || 'undefined';
             this.setState({ selectedItemId: item.id, imageUrl: imgURL, productId: productId });
         } else {
             if (item && Object.values(item)[2]) {

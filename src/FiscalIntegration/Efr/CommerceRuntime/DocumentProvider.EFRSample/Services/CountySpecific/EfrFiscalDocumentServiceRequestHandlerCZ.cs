@@ -187,9 +187,9 @@ namespace Contoso
 
             private static async Task<Response> GetEfrReceiptTaxes(GetEfrReceiptTaxesRequest request)
             {
-                List<ReceiptTax> receiptTaxes = await GetEfrReceiptTaxes(request.RequestContext, request.SalesOrder, request.FiscalIntegrationFunctionalityProfile).ConfigureAwait(false);
+                IEnumerable<ReceiptTax> receiptTaxes = await GetEfrReceiptTaxes(request.RequestContext, request.SalesOrder, request.FiscalIntegrationFunctionalityProfile).ConfigureAwait(false);
 
-                Response response = new SingleEntityDataServiceResponse<List<ReceiptTax>>(receiptTaxes);
+                Response response = new SingleEntityDataServiceResponse<IEnumerable<ReceiptTax>>(receiptTaxes);
 
                 return response;
             }

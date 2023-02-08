@@ -18,7 +18,7 @@ test('validate category page', async (testController: TestController) => {
 });
 
 test('validate category page for cutomer type anonymous', async (testController: TestController) => {
-    const refinerChoice = Selector('.ms-choice-summary-by-category').find("[data-bi-id='" + "Picton Blu" + "']");
+    const refinerChoice = Selector('.ms-choice-summary-by-category').find("[data-bi-id='" + "Picton Blu_" + "']");
     await testController.hover(refinerChoice,{ speed: 0.4 }).expect(refinerChoice.visible).ok();
     await testController .expect(refinerChoice.innerText).eql("Picton Blu", 'Could not find refiner type');
 });

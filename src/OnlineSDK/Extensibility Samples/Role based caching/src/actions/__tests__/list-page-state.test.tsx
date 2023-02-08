@@ -1,3 +1,8 @@
+/*!
+ * Copyright (c) Microsoft Corporation.
+ * All rights reserved. See LICENSE in the project root for license information.
+ */
+
 import { IActionContext, ICreateActionContext } from '@msdyn365-commerce/core-internal';
 import { createListPageInput, listPageStateAction, ListPageStateInput } from '../list-page-state';
 

@@ -1176,7 +1176,8 @@
                                                         }
                                                     }
                                                 },
-                                                "showAvailablePromotions": false
+                                                "showAvailablePromotions": false,
+                                                "showGuestCheckoutButton": true
                                             },
                                             "modules": {
                                                 "storeSelector": [

@@ -14,6 +14,8 @@
     /// <summary>The B2C user manager class.</summary>
     public class B2CUserManager
     {
+        private readonly static HttpClient httpClient = new HttpClient();
+
         /// <summary>The AAD instance.</summary>
         private static readonly string AADInstance = "https://login.microsoftonline.com/" + ConfigurationManager.AppSettings["AX-AAD-Tenant"];
 
@@ -56,7 +58,6 @@
         public async Task<Response> CreateB2CAccount(B2CUser user, bool updatePasswordInExistingAccount)
         {
             HttpResponseMessage httpResponse = null;
-            var httpClient = new HttpClient();
 
             try
             {
@@ -67,7 +68,8 @@
                     this.logger.Trace("Acquiring the access token...");
                     authenticationResult = await this.confidentialClientApplication.AcquireTokenForClient(scopes: new string[] { $"{aadGraphResourceId}/.default" })
                                   .WithAuthority(AADInstance)
-                                  .ExecuteAsync().ConfigureAwait(false);
+                                  .ExecuteAsync()
+                                  .ConfigureAwait(false);
                     this.logger.Trace("Acquiring the access token is done.");
                 }
 
@@ -93,8 +95,8 @@
                     url = $"{aadGraphResourceId}{user.Tenant}/users?$filter=userIdentities/any(x:x/issuer eq '{user.ExternalIssuer}' and x/issuerUserId eq X'{hex}')&{aadGraphVersion}";
                 }
 
-                httpResponse = await httpClient.GetAsync(url, authenticationHeaderValue);
-                var response = await httpClient.GetContentAsync(httpResponse);
+                httpResponse = await httpClient.GetAsync(url, authenticationHeaderValue).ConfigureAwait(false);
+                var response = await httpClient.GetContentAsync(httpResponse).ConfigureAwait(false);
                 if (!httpResponse.IsSuccessStatusCode)
                 {
                     var errorMessage = string.Empty;
@@ -107,14 +109,14 @@
                     this.logger.Trace($"Checking the user account with email: {user.EMail} in B2C is failed.");
                 }
 
-                response = await httpClient.GetContentAsync(httpResponse);
+                response = await httpClient.GetContentAsync(httpResponse).ConfigureAwait(false);
 
                 if (response.IndexOf(user.EMail, StringComparison.OrdinalIgnoreCase) < 0)
                 {
                     url = $"{aadGraphResourceId}{user.Tenant}/users?{aadGraphVersion}";
 
                     this.logger.Trace($"Creating new account with ({user.EMail}) in B2C.");
-                    httpResponse = await httpClient.PostAsync(user.CreateAccountRequestObject(), url, authenticationHeaderValue);
+                    httpResponse = await httpClient.PostAsync(user.CreateAccountRequestObject(), url, authenticationHeaderValue).ConfigureAwait(false);
 
                     if (!httpResponse.IsSuccessStatusCode)
                     {
@@ -122,7 +124,7 @@
                         return new Response(Status.Failed);
                     }
 
-                    response = await httpClient.GetContentAsync(httpResponse);
+                    response = await httpClient.GetContentAsync(httpResponse).ConfigureAwait(false);
                     var jsonObject = JObject.Parse(response);
 
                     return new Response(Status.Success, jsonObject["objectId"].ToString());
@@ -148,9 +150,9 @@
                         url = $"{aadGraphResourceId}{user.Tenant}/users/{objectId}?{aadGraphVersion}";
 
                         this.logger.Trace($"Update the new password for the account: {user.EMail} in B2C.");
-                        httpResponse = await httpClient.PatchAsync(requestObject, url, authenticationHeaderValue);
+                        httpResponse = await httpClient.PatchAsync(requestObject, url, authenticationHeaderValue).ConfigureAwait(false);
 
-                        response = await httpClient.GetContentAsync(httpResponse);
+                        response = await httpClient.GetContentAsync(httpResponse).ConfigureAwait(false);
                         if (!httpResponse.IsSuccessStatusCode)
                         {
                             this.logger.Trace($"Update the new password for the account: {user.EMail}) in B2C is failed.");
@@ -176,7 +178,7 @@
 
                 if (httpResponse != null)
                 {
-                    var response = await httpClient.GetContentAsync(httpResponse);
+                    var response = await httpClient.GetContentAsync(httpResponse).ConfigureAwait(false);
                     if (!string.IsNullOrEmpty(response))
                     {
                         errorMessage += "Service Failure Detail : " + response + "\n";
@@ -195,9 +197,7 @@
         public async Task<Response> DisableB2CAccount(B2CUser user)
         {
             HttpResponseMessage httpResponse = null;
-            var httpClient = new HttpClient();
             Status status = Status.NotFound;
-
             try
             {
                 var userId = string.Empty;
@@ -222,7 +222,7 @@
                 this.logger.Trace($"Checking the user account: {user.CustomerAccountNumber} in B2C");
                 string url = $"{aadGraphResourceId}{user.Tenant}/users?$filter=signInNames/any(x:x/value%20eq%20%27{WebUtility.UrlEncode(user.CustomerAccountNumber)}%27)&{aadGraphVersion}";
 
-                httpResponse = await httpClient.GetAsync(url, authenticationHeaderValue);
+                httpResponse = await httpClient.GetAsync(url, authenticationHeaderValue).ConfigureAwait(false);
 
                 if (!httpResponse.IsSuccessStatusCode)
                 {
@@ -230,7 +230,7 @@
                     return new Response(Status.Failed);
                 }
 
-                var response = await httpClient.GetContentAsync(httpResponse);
+                var response = await httpClient.GetContentAsync(httpResponse).ConfigureAwait(false);
 
                 if (response.IndexOf(user.CustomerAccountNumber, StringComparison.OrdinalIgnoreCase) < 0)
                 {
@@ -245,9 +245,9 @@
                     var requestObject = new { accountEnabled = false };
 
                     this.logger.Trace($"Disabling the account: {user.CustomerAccountNumber} in B2C.");
-                    httpResponse = httpClient.PatchAsync(requestObject, url, authenticationHeaderValue).Result;
+                    httpResponse = await httpClient.PatchAsync(requestObject, url, authenticationHeaderValue).ConfigureAwait(false);
 
-                    response = await httpClient.GetContentAsync(httpResponse);
+                    response = await httpClient.GetContentAsync(httpResponse).ConfigureAwait(false);
                     if (!httpResponse.IsSuccessStatusCode)
                     {
                         status = Status.Failed;
@@ -271,7 +271,7 @@
 
                 if (httpResponse != null)
                 {
-                    var response = await httpClient.GetContentAsync(httpResponse);
+                    var response = await httpClient.GetContentAsync(httpResponse).ConfigureAwait(false);
                     if (!string.IsNullOrEmpty(response))
                     {
                         errorMessage += "Service Failure Detail : " + response + "\n";
@@ -293,7 +293,6 @@
             string tenant)
         {
             HttpResponseMessage httpResponse = null;
-            var httpClient = new HttpClient();
 
             try
             {
@@ -317,7 +316,7 @@
 
                 var url = aadGraphResourceId + tenant + "/users/" + UserId + "?" + aadGraphVersion;
 
-                httpResponse = await httpClient.PatchAsync(requestObject, url, authenticationHeaderValue);
+                httpResponse = await httpClient.PatchAsync(requestObject, url, authenticationHeaderValue).ConfigureAwait(false);
 
                 return new Response(!httpResponse.IsSuccessStatusCode ? Status.Failed : Status.Success, UserId);
             }
@@ -332,7 +331,7 @@
 
                 if (httpResponse != null)
                 {
-                    var response = await httpClient.GetContentAsync(httpResponse);
+                    var response = await httpClient.GetContentAsync(httpResponse).ConfigureAwait(false);
                     if (!string.IsNullOrEmpty(response))
                     {
                         errorMessage += "Service Failure Detail : " + response + "\n";
@@ -378,34 +377,36 @@
             }
 
             // Generating the password in secured string
-            var secureString = new SecureString();
-            foreach (char chr in password.ToCharArray())
+            using (var secureString = new SecureString())
             {
-                secureString.AppendChar(chr);
-            }
-
-            try
-            {
-                Microsoft.Identity.Client.IPublicClientApplication app = Microsoft.Identity.Client.PublicClientApplicationBuilder
-                   .Create(nonInteractiveClientId)
-                   .WithB2CAuthority(string.Format("https://{0}/tfp/{1}.onmicrosoft.com/{2}/oauth2/v2.0/authorize", loginDomain, tenant, nonInteractivePolicyId))
-                   .Build();
-
-                var authResult = await app.AcquireTokenByUsernamePassword(new string[] { scope }, userName, secureString).ExecuteAsync();
-
-                return authResult?.AccessToken;
-            }
-            catch (Exception ex)
-            {
-                var errorMessage = "Exception : " + ex.Message.ToString() + "\n";
-
-                if (ex.InnerException != null && !string.IsNullOrEmpty(ex.InnerException.Message.ToString()))
+                foreach (char chr in password.ToCharArray())
                 {
-                    errorMessage += "InnerException : " + ex.InnerException.Message.ToString() + "\n";
+                    secureString.AppendChar(chr);
                 }
 
-                this.logger.Error(errorMessage, false);
-                return null;
+                try
+                {
+                    Microsoft.Identity.Client.IPublicClientApplication app = Microsoft.Identity.Client.PublicClientApplicationBuilder
+                       .Create(nonInteractiveClientId)
+                       .WithB2CAuthority(string.Format("https://{0}/tfp/{1}.onmicrosoft.com/{2}/oauth2/v2.0/authorize", loginDomain, tenant, nonInteractivePolicyId))
+                       .Build();
+
+                    var authResult = await app.AcquireTokenByUsernamePassword(new string[] { scope }, userName, secureString).ExecuteAsync().ConfigureAwait(false);
+
+                    return authResult?.AccessToken;
+                }
+                catch (Exception ex)
+                {
+                    var errorMessage = "Exception : " + ex.Message.ToString() + "\n";
+
+                    if (ex.InnerException != null && !string.IsNullOrEmpty(ex.InnerException.Message.ToString()))
+                    {
+                        errorMessage += "InnerException : " + ex.InnerException.Message.ToString() + "\n";
+                    }
+
+                    this.logger.Error(errorMessage, false);
+                    return null;
+                }
             }
         }
 

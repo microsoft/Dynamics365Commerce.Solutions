@@ -222,7 +222,7 @@ namespace Contoso
                         string department = await departmentResolver.GetDepartmentNumberAsync(request.RequestContext, Math.Round(salesLine.TaxRatePercent, 2), adjustedSalesOrder.ReceiptId, salesLine.ProductId, salesLine.IsGiftCardLine).ConfigureAwait(false);
 
                         // Item code, Item name, Quantity
-                        rootElement = await DocumentElementBuilder.BuildPrintRecItemOrRecFundElementAsync(rootElement, adjustedSalesOrder, salesLine, products, request, department);
+                        rootElement = await DocumentElementBuilder.BuildPrintRecItemOrRecFundElementAsync(rootElement, adjustedSalesOrder, salesLine, products, request, department).ConfigureAwait(false);
 
                         // Amount, a fiscal printer calculates amount automatically.
 

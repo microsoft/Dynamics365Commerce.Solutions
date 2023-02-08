@@ -1,3 +1,8 @@
+/*!
+ * Copyright (c) Microsoft Corporation.
+ * All rights reserved. See LICENSE in the project root for license information.
+ */
+
 import * as React from 'react';
 
 import { IImageData } from '@msdyn365-commerce/core';

@@ -229,7 +229,7 @@ namespace Contoso
             {
                 List<ReceiptTax> receiptTaxes = await GetEfrReceiptTaxes(request.RequestContext, request.SalesOrder, request.FiscalIntegrationFunctionalityProfile).ConfigureAwait(false);
 
-                Response response = new SingleEntityDataServiceResponse<List<ReceiptTax>>(receiptTaxes);
+                Response response = new SingleEntityDataServiceResponse<IEnumerable<ReceiptTax>>(receiptTaxes);
 
                 return response;
             }

@@ -1,6 +1,8 @@
-/**
- * Copyright (c) 2018 Microsoft Corporation
+/*!
+ * Copyright (c) Microsoft Corporation.
+ * All rights reserved. See LICENSE in the project root for license information.
  */
+
 export interface IDropdownProps {
     /**
      * @friendlyName dropdownId

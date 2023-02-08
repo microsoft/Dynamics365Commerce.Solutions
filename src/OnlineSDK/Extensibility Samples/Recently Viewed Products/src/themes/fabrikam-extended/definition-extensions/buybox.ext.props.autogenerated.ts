@@ -25,6 +25,7 @@ export interface IBuyboxConfig extends Msdyn365.IModuleConfig {
     minimumKeyInPrice?: number;
     maximumKeyInPrice?: number;
     className?: string;
+    clientRender?: boolean;
     trackRecentlyViewedItems?: boolean;
     maxRecentlyViewedItemsCount?: number;
     recentlyViewedProductsCookieName?: string;
@@ -116,6 +117,10 @@ export interface IBuyboxResources {
     priceRangeSeparator: string;
     bulkPurchaseLinkText: string;
     swatchItemAriaLabel: string;
+    salesAgreementPricePrompt: string;
+    salesAgreementExpirationDatePrompt: string;
+    salesAgreementCommittedQuantityPrompt: string;
+    salesAgreementRemainingQuantityPrompt: string;
     decrementButtonAriaLabel: string;
     incrementButtonAriaLabel: string;
 }
@@ -128,5 +133,6 @@ export interface IBuyboxProps<T> extends Msdyn365.IModule<T> {
         storeSelector: React.ReactNode[];
         textBlocks: React.ReactNode[];
         socialShare: React.ReactNode[];
+        productComparisonButton: React.ReactNode[];
     };
 }

@@ -23,6 +23,8 @@ namespace Contoso
         /// </summary>
         internal class PrinterCommunicationController
         {
+            private readonly static HttpClient client = new HttpClient(new HttpClientHandler() { ClientCertificateOptions = ClientCertificateOption.Automatic } );
+
             /// <summary>
             /// Submits document to the printer.
             /// </summary>
@@ -34,19 +36,12 @@ namespace Contoso
                 ThrowIf.Null(configuration, nameof(configuration));
                 ThrowIf.NullOrWhiteSpace(configuration.EndPointAddress, nameof(configuration.EndPointAddress));
 
-                var handler = new HttpClientHandler
+                using (HttpRequestMessage request = new HttpRequestMessage()
                 {
-                    ClientCertificateOptions = ClientCertificateOption.Automatic,
-                };
-
-                using (HttpClient client = new HttpClient(handler))
+                    RequestUri = new Uri(configuration.EndPointAddress),
+                    Method = HttpMethod.Post
+                })
                 {
-                    HttpRequestMessage request = new HttpRequestMessage()
-                    {
-                        RequestUri = new Uri(configuration.EndPointAddress),
-                        Method = HttpMethod.Post
-                    };
-
                     XDocument xmlDocument = this.WrapDocumentInEnvelope(document);
                     request.Content = new StringContent(xmlDocument.ToString(), Encoding.UTF8, "text/xml");
 

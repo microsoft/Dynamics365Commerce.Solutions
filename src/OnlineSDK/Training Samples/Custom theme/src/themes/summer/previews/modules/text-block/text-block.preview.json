@@ -1,0 +1,12 @@
+{
+    "id": "R1Module1",
+    "config": {
+      "paragraph": "${textBlock_paragraph_theme}"
+    },
+    "resources": {
+      "textBlock_paragraph_theme": {
+        "value": "<h5>To get started right away, just select any placeholder text (such as this) and start typing to replace it with your own.</h5>"
+      }
+    },
+    "typeName": "text-block"
+  }

@@ -15,6 +15,8 @@ Website landing Page: End user can land to website with promo code in URL.
 Empty Cart: Apply the promo code from URL to the empty cart.
 Cart with products: Apply promo-code automatically on the cart.
 
+![promocode](docs/image1.PNG)
+
 ## Starter kit license
 License for starter kit is listed in the [LICENSE](./module-library/LICENSE) .
 
@@ -191,7 +193,7 @@ export default headerView;
 
 The sample can now be tested in a web browser using the ```yarn start``` command.
 
-Go to browser and open the site with theme (https://localhost:4000/modern?theme=fabrikam-extended) and navigate to cart page , then apply promocode in the url as query string like "&promocode=WEEKLYAD",final url will be (https://localhost:4000/modern?theme=fabrikam-extended&promocode=WEEKLYAD)
+Go to browser and open the site with theme (https://localhost:4000/?theme=fabrikam-extended) and navigate to cart page , then apply promocode in the url as query string like "&promocode=WEEKLYAD",final url will be (https://localhost:4000/?theme=fabrikam-extended&promocode=WEEKLYAD)
 
 ## Third party Image and Video Usage restrictions
 

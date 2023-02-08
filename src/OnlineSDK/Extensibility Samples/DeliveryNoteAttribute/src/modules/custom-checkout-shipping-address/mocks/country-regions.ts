@@ -1,7 +1,7 @@
-/*--------------------------------------------------------------
- * Copyright (c) Microsoft Corporation. All rights reserved.
- * See License.txt in the project root for license information.
- *--------------------------------------------------------------*/
+/*!
+ * Copyright (c) Microsoft Corporation.
+ * All rights reserved. See LICENSE in the project root for license information.
+ */
 
 const mockCountryRegions = [
     {
@@ -5576,7 +5576,7 @@ const mockCountryRegions = [
     {
         CountryRegionId: 'FJI',
         ShortName: 'Fiji',
-        LongName: 'Republic of the Fiji Islands',
+        LongName: 'The Republic of Fiji',
         ISOCode: 'FJ',
         TimeZone: 0,
         LanguageId: 'en-us',
@@ -11326,7 +11326,7 @@ const mockCountryRegions = [
     {
         CountryRegionId: 'MMR',
         ShortName: 'Myanmar',
-        LongName: 'Union of Myanmar',
+        LongName: 'Republic of the Union of Myanmar',
         ISOCode: 'MM',
         TimeZone: 0,
         LanguageId: 'en-us',

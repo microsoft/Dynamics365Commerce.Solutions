@@ -12,6 +12,7 @@
     "format:fix": "yarn prettier **/**.{ts,tsx} --write",
     "lint": "yarn eslint src/**/*.{ts,tsx}",
     "lint:fix": "yarn eslint src/**/*.{ts,tsx} --fix",
+    "fix-eslint":"node --max_old_space_size=8192 ../../node_modules/eslint/bin/eslint.js --rulesdir ../../eslint-custom-rules --quiet --fix --cache --cache-location ../../.eslintcache **\\*.{ts,tsx}",
     "precommit": "lint-staged",
     "start": "SET NODE_OPTIONS=--max_old_space_size=4096 && yarn msdyn365b start local --use-eslint",
     "start:prod": "SET NODE_ENV=production && node build/server.js"

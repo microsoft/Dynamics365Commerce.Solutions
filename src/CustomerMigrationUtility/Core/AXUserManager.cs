@@ -12,6 +12,8 @@
     /// <summary>The AX user manager class.</summary>
     public class AXUserManager
     {
+        private static readonly HttpClient httpClient = new HttpClient();
+
         /// <summary>The provider id.</summary>
         private static readonly string ProviderIdValue = ConfigurationManager.AppSettings["ProviderId"];
 
@@ -63,8 +65,7 @@
         public async Task<Response> CreateAccount(JObject requestPayload, string userToken, string retailServerEndpoint, string operatingUnitNumber)
         {
             HttpResponseMessage httpResponse = null;
-            var httpClient = new HttpClient();
-
+            
             try
             {
                 // Creating authentication header
@@ -86,12 +87,12 @@
 
                 this.logger.Trace("Checking the customer account in AX");
 
-                httpResponse = await httpClient.GetAsync(url, authenticationHeaderValue, headers);
+                httpResponse = await httpClient.GetAsync(url, authenticationHeaderValue, headers).ConfigureAwait(false);
 
                 if (httpResponse.IsSuccessStatusCode && requestPayload != null)
                 {
                     this.logger.Trace("Customer account is already exist in AX.");
-                    var response = await httpClient.GetContentAsync(httpResponse);
+                    var response = await httpClient.GetContentAsync(httpResponse).ConfigureAwait(false);
                     var jsonObject = JObject.Parse(response);
                     var accountNumber = jsonObject["AccountNumber"].ToString();
                     requestPayload["AccountNumber"] = accountNumber;
@@ -99,7 +100,7 @@
                     url = retailServerEndpoint + "Customers('" + accountNumber + "')?api-version=7.3";
 
                     this.logger.Trace("Updating the exiting customer in AX.");
-                    httpResponse = await httpClient.PatchAsync(requestPayload, url, authenticationHeaderValue, headers);
+                    httpResponse = await httpClient.PatchAsync(requestPayload, url, authenticationHeaderValue, headers).ConfigureAwait(false);
 
                     if (!httpResponse.IsSuccessStatusCode)
                     {
@@ -114,7 +115,7 @@
                     url = retailServerEndpoint + "Customers?api-version=7.3";
 
                     this.logger.Trace("Creating new customer in AX.");
-                    httpResponse = await httpClient.PostAsync(requestPayload, url, authenticationHeaderValue, headers);
+                    httpResponse = await httpClient.PostAsync(requestPayload, url, authenticationHeaderValue, headers).ConfigureAwait(false);
 
                     if (!httpResponse.IsSuccessStatusCode)
                     {
@@ -122,7 +123,7 @@
                         return new Response(Status.Failed);
                     }
 
-                    var response = await httpClient.GetContentAsync(httpResponse);
+                    var response = await httpClient.GetContentAsync(httpResponse).ConfigureAwait(false);
 
                     var jsonObject = JObject.Parse(response);
                     return new Response(Status.Success, jsonObject["AccountNumber"].ToString());
@@ -139,7 +140,7 @@
 
                 if (httpResponse != null)
                 {
-                    var response = await httpClient.GetContentAsync(httpResponse);
+                    var response = await httpClient.GetContentAsync(httpResponse).ConfigureAwait(false);
                     if (!string.IsNullOrEmpty(response))
                     {
                         errorMessage += "Service Failure Detail : " + response + "\n";
@@ -190,7 +191,7 @@
 
             httpResponse = await httpClient.PostAsync(externalIdToCustomerMap,
                 AXOdataUrl + ExternalIdToCustomerMaps,
-                authenticationHeaderValue);
+                authenticationHeaderValue).ConfigureAwait(false);
 
             if (!httpResponse.IsSuccessStatusCode)
             {

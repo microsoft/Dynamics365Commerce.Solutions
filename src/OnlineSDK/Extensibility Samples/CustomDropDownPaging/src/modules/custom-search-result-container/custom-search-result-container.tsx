@@ -1,7 +1,7 @@
-/*--------------------------------------------------------------
- * Copyright (c) Microsoft Corporation. All rights reserved.
- * See License.txt in the project root for license information.
- *--------------------------------------------------------------*/
+/*!
+ * Copyright (c) Microsoft Corporation.
+ * All rights reserved. See LICENSE in the project root for license information.
+ */
 
 /* eslint-disable no-duplicate-imports */
 import {
@@ -202,6 +202,15 @@ export default class SearchResultContainer extends React.PureComponent<
     private readonly defaultPageNumber = 0;
 
     private readonly catalogId = getCatalogId(this.props.context.request);
+
+    public static getFriendlyName(locale: string, nameTranslations?: TextValueTranslation[]): string | undefined {
+        let nameTranslation: TextValueTranslation | undefined;
+        if (locale && nameTranslations && ArrayExtensions.hasElements(nameTranslations)) {
+            nameTranslation = nameTranslations.find(item => item.Language!.toLowerCase() === locale.toLowerCase());
+        }
+
+        return nameTranslation?.Text;
+    }
 
     public constructor(props: ICustomSearchResultContainerProps<ICustomSearchResultContainerData>, state: ISearchResultContainerState) {
         super(props);
@@ -424,15 +433,6 @@ export default class SearchResultContainer extends React.PureComponent<
             });
         }
         this._updateViewport();
-    }
-
-    public static getFriendlyName(locale: string, nameTranslations?: TextValueTranslation[]): string | undefined {
-        let nameTranslation: TextValueTranslation | undefined;
-        if (locale && nameTranslations && ArrayExtensions.hasElements(nameTranslations)) {
-            nameTranslation = nameTranslations.find(item => item.Language!.toLowerCase() === locale.toLowerCase());
-        }
-
-        return nameTranslation?.Text;
     }
 
     public async componentDidMount(): Promise<void> {

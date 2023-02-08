@@ -38,12 +38,8 @@ namespace Contoso
             /// <returns>The deposit position number.</returns>
             public static int GetDepositPositionNumber(IEnumerable<ReceiptPosition> positions)
             {
-                if (!positions.Any())
-                {
-                    return 1;
-                }
-
-                return positions.Max(c => c.PositionNumber) + 1;
+                return positions.DefaultIfEmpty(new ReceiptPosition() { PositionNumber = 0 })
+                    .Max(c => c.PositionNumber) + 1;
             }
 
             /// <summary>

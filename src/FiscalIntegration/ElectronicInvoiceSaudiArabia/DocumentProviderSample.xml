@@ -23,34 +23,4 @@
             </DisplayValue>
         </DisplayProperty>
     </ConfigurationProperty>
-    <ConfigurationProperty>
-        <Namespace>FiscalServiceDataMappingInfo</Namespace>
-        <Name>PaymentMeansCodeMapping</Name>
-        <ValueType>String</ValueType>
-        <StringValue>
-            [
-              {"PaymentMeansCode":"10", "PaymentMethod":"Cash"},
-              {"PaymentMeansCode":"30", "PaymentMethod":"CreditTransfer"},
-              {"PaymentMeansCode":"42", "PaymentMethod":"BankAccount"},
-              {"PaymentMeansCode":"48", "PaymentMethod":"BankCard"}
-            ]
-        </StringValue>
-        <DecimalValue>0</DecimalValue>
-        <BooleanValue>false</BooleanValue>
-        <DateValue>0001-01-01T00:00:00</DateValue>
-        <IntegerValue>0</IntegerValue>
-        <IsEncrypted>false</IsEncrypted>
-        <IsPassword>false</IsPassword>
-        <IsReadOnly>false</IsReadOnly>
-        <IsHidden>false</IsHidden>
-        <DisplayHeight>5</DisplayHeight>
-        <SequenceNumber>1</SequenceNumber>
-    <DisplayProperty>
-      <DisplayValue>
-        <LanguageId>EN-US</LanguageId>
-        <DisplayName>@RetailFiscalIntegration:PaymentMeansCodeMapping</DisplayName>
-        <Description>@RetailFiscalIntegration:PaymentMeansCodeMappingDescription</Description>
-      </DisplayValue>
-    </DisplayProperty>
-  </ConfigurationProperty>
 </ConfigurationProperties>

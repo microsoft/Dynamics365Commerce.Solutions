@@ -1,0 +1,296 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header view tests render correctly no sign in info 1`] = `
+<div
+  class="module-class-HeaderTag"
+  data-m-t="mock-type"
+  id=""
+>
+  <div
+    class="module-class-HeaderContainer"
+  >
+    <div
+      class="module-class-HeaderTopBar"
+    >
+      {NavIcon}{LogoComponent}{Search}{WishlistIconDesktop}
+      <div
+        class="module-class-Divider"
+      />
+      {CartIcon}{siteOptions}
+    </div>
+    <div
+      class="ms-header__collapsible-hamburger collapse show"
+    >
+      <div
+        class="module-class-MobileMenuLinks"
+      >
+        {Search}{WishlistIconMobile}{siteOptions}
+      </div>
+      <div
+        class="module-class-Divider"
+      />
+      {NavigationMenu}
+    </div>
+    <div
+      class="ms-header__desktop-view"
+    >
+      {NavigationMenu}
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Header view tests render correctly no signed out 1`] = `
+<div
+  class="module-class-HeaderTag"
+  data-m-t="mock-type"
+  id=""
+>
+  <div
+    class="module-class-HeaderContainer"
+  >
+    <div
+      class="module-class-HeaderTopBar"
+    >
+      {NavIcon}{LogoComponent}{Search}
+      <div
+        class="module-class-AccountInfoDropdownParent account-desktop"
+      >
+        {SignIn}
+      </div>
+      {WishlistIconDesktop}
+      <div
+        class="module-class-Divider"
+      />
+      {CartIcon}{SiteOptions}
+    </div>
+    <div
+      class="ms-header__collapsible-hamburger collapse show"
+    >
+      <div
+        class="module-class-MobileMenuLinks"
+      >
+        {Search}
+        <div
+          class="ms-header__drawer module-class-AccountInfoDropdownParent account-mobile"
+        >
+          {SignIn}
+        </div>
+        {WishlistIconMobile}{SiteOptions}
+      </div>
+      <div
+        class="module-class-Divider"
+      />
+      {NavigationMenu}
+    </div>
+    <div
+      class="ms-header__desktop-view"
+    >
+      {NavigationMenu}
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Header view tests render correctly signed in 1`] = `
+<div
+  class="module-class-HeaderTag"
+  data-m-t="mock-type"
+  id=""
+>
+  <div
+    class="module-class-HeaderContainer"
+  >
+    <div
+      class="module-class-HeaderTopBar"
+    >
+      {NavIcon}{LogoComponent}{Search}
+      <div
+        class="module-class-AccountInfoDropdownParent account-desktop"
+      >
+        {accountInfoDropdownButton}
+        <div
+          class="module-class-AccountInfoDropdownPopoverConent"
+        >
+          {accountLink1}{accountLink2}{accountLink3}{SignOut}
+        </div>
+      </div>
+      {WishlistIconDesktop}
+      <div
+        class="module-class-Divider"
+      />
+      {CartIcon}{SiteOptions}
+    </div>
+    <div
+      class="ms-header__collapsible-hamburger collapse show"
+    >
+      <div
+        class="module-class-MobileMenuLinks"
+      >
+        {Search}
+        <div
+          class="drawer ms-header__drawer module-class-AccountInfoDropdownParent account-mobile"
+        >
+          <button
+            aria-expanded="false"
+            class="drawer__button msc-btn btn-secondary btn-block"
+            type="button"
+          >
+            <span
+              class="drawer__buttontext __start"
+            >
+              First Name
+            </span>
+            <span
+              class="drawer__glyph ms-header__drawer-close drawer__glyph__end"
+            />
+          </button>
+          <div
+            class="collapse"
+          >
+            <div>
+              {accountLink1}{accountLink2}{accountLink3}{SignOut}
+            </div>
+          </div>
+        </div>
+        {WishlistIconMobile}{SiteOptions}
+      </div>
+      <div
+        class="module-class-Divider"
+      />
+      {NavigationMenu}
+    </div>
+    <div
+      class="ms-header__desktop-view"
+    >
+      {NavigationMenu}
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Header view tests render correctly signed in with parameter 1`] = `
+<div
+  class="module-class-HeaderTag"
+  data-m-t="mock-type"
+  id=""
+>
+  <div
+    class="module-class-HeaderContainer"
+  >
+    <div
+      class="module-class-HeaderTopBar"
+    >
+      {NavIcon}{LogoComponent}{Search}
+      <div
+        class="module-class-AccountInfoDropdownParent account-desktop"
+      >
+        {accountInfoDropdownButton}
+        <div
+          class="module-class-AccountInfoDropdownPopoverConent"
+        >
+          {accountLink1}{accountLink2}{accountLink3}{SignOut}
+        </div>
+      </div>
+      {WishlistIconDesktop}
+      <div
+        class="module-class-Divider"
+      />
+      {CartIcon}{SiteOptions}
+    </div>
+    <div
+      class="ms-header__collapsible-hamburger collapse show"
+    >
+      <div
+        class="module-class-MobileMenuLinks"
+      >
+        {Search}
+        <div
+          class="drawer ms-header__drawer module-class-AccountInfoDropdownParent account-mobile"
+        >
+          <button
+            aria-expanded="false"
+            class="drawer__button msc-btn btn-secondary btn-block"
+            type="button"
+          >
+            <span
+              class="drawer__buttontext __start"
+            />
+            <span
+              class="drawer__glyph ms-header__drawer-close drawer__glyph__end"
+            />
+          </button>
+          <div
+            class="collapse"
+          >
+            <div>
+              {accountLink1}{accountLink2}{accountLink3}{SignOut}
+            </div>
+          </div>
+        </div>
+        {WishlistIconMobile}{SiteOptions}
+      </div>
+      <div
+        class="module-class-Divider"
+      />
+      {NavigationMenu}
+    </div>
+    <div
+      class="ms-header__desktop-view"
+    >
+      {NavigationMenu}
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Header view tests render correctly signed in with with customer 1`] = `
+<div
+  class="module-class-HeaderTag"
+  data-m-t="mock-type"
+  id=""
+>
+  <div
+    class="module-class-HeaderContainer"
+  >
+    <div
+      class="module-class-HeaderTopBar"
+    >
+      {NavIcon}{LogoComponent}
+      <div
+        class="module-class-AccountInfoDropdownParent account-desktop"
+      >
+        {accountInfoDropdownButton}
+        <div
+          class="module-class-AccountInfoDropdownPopoverConent"
+        >
+          {SignOut}
+        </div>
+      </div>
+      {WishlistIconDesktop}
+      <div
+        class="module-class-Divider"
+      />
+      {CartIcon}{SiteOptions}
+    </div>
+    <div
+      class="ms-header__collapsible-hamburger collapse show"
+    >
+      <div
+        class="module-class-MobileMenuLinks"
+      >
+        {WishlistIconMobile}{SiteOptions}
+      </div>
+      <div
+        class="module-class-Divider"
+      />
+      {NavigationMenu}
+    </div>
+    <div
+      class="ms-header__desktop-view"
+    >
+      {NavigationMenu}
+    </div>
+  </div>
+</div>
+`;

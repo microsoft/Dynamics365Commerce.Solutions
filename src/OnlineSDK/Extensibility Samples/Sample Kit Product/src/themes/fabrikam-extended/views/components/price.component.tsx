@@ -1,7 +1,7 @@
-/*--------------------------------------------------------------
- * Copyright (c) Microsoft Corporation. All rights reserved.
- * See License.txt in the project root for license information.
- *--------------------------------------------------------------*/
+/*!
+ * Copyright (c) Microsoft Corporation.
+ * All rights reserved. See LICENSE in the project root for license information.
+ */
 
 import { IComponent, IComponentProps, msdyn365Commerce } from '@msdyn365-commerce/core';
 import { ProductPrice } from '@msdyn365-commerce/retail-proxy';
@@ -39,8 +39,7 @@ export interface IPriceComponentProps extends IComponentProps<{ price: ProductPr
     isSalesAgreementPriceFeatureEnabled?: boolean;
     salesAgreementLineId?: number;
 }
-export interface IPriceComponent extends IComponent<IPriceComponentProps> {
-}
+export interface IPriceComponent extends IComponent<IPriceComponentProps> {}
 
 const priceComponentActions = {};
 
@@ -69,10 +68,12 @@ const Price: React.FC<IPriceComponentProps> = (props: IPriceComponentProps): JSX
  */
 const showStrikethroughPricing = (props: IPriceComponentProps): boolean => {
     const originalPrice = getOriginalPrice(props);
-    if (props.isPriceMinMaxEnabled &&
+    if (
+        props.isPriceMinMaxEnabled &&
         props.data.price.MaxVariantPrice &&
         props.data.price.MinVariantPrice &&
-        props.data.price.MaxVariantPrice > props.data.price.MinVariantPrice) {
+        props.data.price.MaxVariantPrice > props.data.price.MinVariantPrice
+    ) {
         return props.data.price.MinVariantPrice < originalPrice;
     }
 
@@ -107,10 +108,12 @@ const renderCurrentPrice = (props: IPriceComponentProps): JSX.Element => {
     const initialPrice: string = formatCurrency(props, props.data.price.CustomerContextualPrice, true);
     const maxVariantPrice: string = formatCurrency(props, props.data.price.MaxVariantPrice, false);
     const minVariantPrice: string = formatCurrency(props, props.data.price.MinVariantPrice, false);
-    if (props.isPriceMinMaxEnabled &&
+    if (
+        props.isPriceMinMaxEnabled &&
         props.data.price.MaxVariantPrice &&
         props.data.price.MinVariantPrice &&
-        props.data.price.MaxVariantPrice > props.data.price.MinVariantPrice) {
+        props.data.price.MaxVariantPrice > props.data.price.MinVariantPrice
+    ) {
         return (
             <span className='msc-price__pricerange' itemProp='price'>
                 {' '}
@@ -126,9 +129,11 @@ const renderCurrentPrice = (props: IPriceComponentProps): JSX.Element => {
             </span>
         );
     }
-    return (<span className='msc-price__actual' itemProp='price'>
-        {initialPrice}
-    </span>);
+    return (
+        <span className='msc-price__actual' itemProp='price'>
+            {initialPrice}
+        </span>
+    );
 };
 
 const renderCurrentPriceWithOriginalPrice = (props: IPriceComponentProps): JSX.Element => {
@@ -139,23 +144,13 @@ const renderCurrentPriceWithOriginalPrice = (props: IPriceComponentProps): JSX.E
         <>
             <span className='sr-only'>
                 {' '}
-                {props.originalPriceText}
-                {' '}
-                {initialPrice}
-                {' '}
-                {props.currentPriceText}
-                {' '}
-                {renderCurrentPrice(props)}
+                {props.originalPriceText} {initialPrice} {props.currentPriceText} {renderCurrentPrice(props)}
             </span>
             <span className='msc-price__strikethrough' aria-hidden='true'>
                 {initialPrice}
             </span>
-            <span aria-hidden='true'>
-                {renderCurrentPrice(props)}
-            </span>
-            {props.savingsText && <span className='msc-price__savings'>
-                {props.savingsText}
-            </span>}
+            <span aria-hidden='true'>{renderCurrentPrice(props)}</span>
+            {props.savingsText && <span className='msc-price__savings'>{props.savingsText}</span>}
         </>
     );
 };
@@ -164,6 +159,5 @@ export const PriceComponent: React.FunctionComponent<IPriceComponentProps> = msd
     'Price',
     { component: Price, ...priceComponentActions }
 );
-
 
 export default PriceComponent;

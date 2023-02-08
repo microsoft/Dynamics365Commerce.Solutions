@@ -1,7 +1,7 @@
-/*--------------------------------------------------------------
- * Copyright (c) Microsoft Corporation. All rights reserved.
- * See License.txt in the project root for license information.
- *--------------------------------------------------------------*/
+/*!
+ * Copyright (c) Microsoft Corporation.
+ * All rights reserved. See LICENSE in the project root for license information.
+ */
 
 import MsDyn365, { IComponentProps, IGridSettings, IImageSettings, Image, msdyn365Commerce } from '@msdyn365-commerce/core';
 import { getCartState, ICartState } from '@msdyn365-commerce/global-state';
@@ -470,6 +470,7 @@ const CatalogLabelComponent: React.FC<ICartLineProps> = (props: ICartLineProps) 
     return <div className='msc-cart-line__catalog-label'>{catalog.Name}</div>;
 };
 
+// eslint-disable-next-line no-redeclare
 const CartLine: React.FC<ICartLineProps> = (props: ICartLineProps) => {
     const { isSalesLine, productUrl, resources } = props;
     const { product, cartLine } = props.data;
@@ -502,6 +503,7 @@ const CartLine: React.FC<ICartLineProps> = (props: ICartLineProps) => {
     const [isGiftWrap, setIsGiftWrap] = React.useState<boolean>(false);
 
     const getAttributeValue = (cartLine: CartLine, attributeName: string): boolean => {
+        /* eslint-disable  @typescript-eslint/no-explicit-any */
         const attribute: any =
             cartLine.AttributeValues &&
             cartLine.AttributeValues.find((attributeValueBase: AttributeValueBase) => attributeValueBase.Name === attributeName);
@@ -541,12 +543,12 @@ const CartLine: React.FC<ICartLineProps> = (props: ICartLineProps) => {
             });
 
             const newCart = {
-                Id: cart.Id!,
+                Id: cart.Id,
                 CartLines: cartLinesObj
             };
 
             await updateCartLinesAsync({ callerContext: props.context.actionContext }, newCart.Id.toString(), newCart.CartLines);
-            await updateAsync({ callerContext: props.context.actionContext }, newCart!);
+            await updateAsync({ callerContext: props.context.actionContext }, newCart);
         };
 
         return (

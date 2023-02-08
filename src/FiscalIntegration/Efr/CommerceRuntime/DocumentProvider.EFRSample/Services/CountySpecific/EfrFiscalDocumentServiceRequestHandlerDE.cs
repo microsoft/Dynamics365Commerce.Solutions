@@ -212,9 +212,9 @@ namespace Contoso
 
             private static async Task<Response> GetEfrReceiptTaxes(GetEfrReceiptTaxesRequest request)
             {
-                List<ReceiptTax> receiptTaxes = await GetEfrReceiptTaxes(request.RequestContext, request.SalesOrder, request.FiscalIntegrationFunctionalityProfile).ConfigureAwait(false);
+                IEnumerable<ReceiptTax> receiptTaxes = await GetEfrReceiptTaxes(request.RequestContext, request.SalesOrder, request.FiscalIntegrationFunctionalityProfile).ConfigureAwait(false);
 
-                Response response = new SingleEntityDataServiceResponse<List<ReceiptTax>>(receiptTaxes);
+                Response response = new SingleEntityDataServiceResponse<IEnumerable<ReceiptTax>>(receiptTaxes);
 
                 return response;
             }
@@ -276,13 +276,13 @@ namespace Contoso
                 return new SingleEntityDataServiceResponse<List<ReceiptPayment>>(result);
             }
 
-            private static async Task<List<ReceiptTax>> GetEfrReceiptTaxes(RequestContext requestContext, SalesOrder salesOrder, FiscalIntegrationFunctionalityProfile fiscalIntegrationFunctionalityProfile)
+            private static async Task<IEnumerable<ReceiptTax>> GetEfrReceiptTaxes(RequestContext requestContext, SalesOrder salesOrder, FiscalIntegrationFunctionalityProfile fiscalIntegrationFunctionalityProfile)
             {
                 List<ReceiptTax> receiptTaxes = await GetSalesOrderReceiptTaxes(requestContext, salesOrder, fiscalIntegrationFunctionalityProfile).ConfigureAwait(false);
 
+                var receiptTaxesWithGiftCards = await GetGiftCardsReceiptTaxes(requestContext, salesOrder, fiscalIntegrationFunctionalityProfile).ConfigureAwait(false);
 
-                return receiptTaxes
-                    .Concat(GetGiftCardsReceiptTaxes(requestContext, salesOrder, fiscalIntegrationFunctionalityProfile)).ToList();
+                return receiptTaxes.Concat(receiptTaxesWithGiftCards);
             }
 
             /// <summary>
@@ -333,31 +333,39 @@ namespace Contoso
             /// Gets receipt taxes of gift card lines.
             /// </summary>
             /// <returns>The receipt taxes collection.</returns>
-            private static ReceiptTax[] GetGiftCardsReceiptTaxes(RequestContext requestContext, SalesOrder salesOrder, FiscalIntegrationFunctionalityProfile fiscalIntegrationFunctionalityProfile)
+            private static async Task<ReceiptTax[]> GetGiftCardsReceiptTaxes(RequestContext requestContext, SalesOrder salesOrder, FiscalIntegrationFunctionalityProfile fiscalIntegrationFunctionalityProfile)
             {
-                return salesOrder.ActiveSalesLines.Where(c => c.IsGiftCardLine)
-                                .Select(sl =>
-                                {
-                                    var lineTaxGroup = GetSalesLineTaxGroups(requestContext, sl, fiscalIntegrationFunctionalityProfile).ConfigureAwait(false).GetAwaiter().GetResult();
-                                    if (string.IsNullOrEmpty(lineTaxGroup))
-                                    {
-                                        lineTaxGroup = ConfigurationController.GetDepositTaxGroup(fiscalIntegrationFunctionalityProfile);
-                                    }
-                                    return new ReceiptTax
-                                    {
-                                        TaxGroup = lineTaxGroup,
-                                        NetAmount = sl.NetAmount,
-                                        GrossAmount = sl.GrossAmount
-                                    };
-                                })
-                                .GroupBy(rt => rt.TaxGroup)
-                                .Select(rtGrouped => new ReceiptTax
-                                {
-                                    TaxGroup = rtGrouped.Key,
-                                    NetAmount = rtGrouped.Sum(r => r.NetAmount),
-                                    GrossAmount = rtGrouped.Sum(r => r.GrossAmount)
-                                })
-                                .ToArray();
+                var filterOrders = salesOrder.ActiveSalesLines.Where(c => c.IsGiftCardLine);
+
+                var receipTaxes = new List<ReceiptTax>();
+
+                foreach (var sl in filterOrders)
+                {
+                    var lineTaxGroup = await GetSalesLineTaxGroups(requestContext, sl, fiscalIntegrationFunctionalityProfile).ConfigureAwait(false);
+                    if (string.IsNullOrEmpty(lineTaxGroup))
+                    {
+                        lineTaxGroup = ConfigurationController.GetDepositTaxGroup(fiscalIntegrationFunctionalityProfile);
+                    }
+
+                    var tax = new ReceiptTax
+                    {
+                        TaxGroup = lineTaxGroup,
+                        NetAmount = sl.NetAmount,
+                        GrossAmount = sl.GrossAmount
+                    };
+
+                    receipTaxes.Add(tax);
+                }
+
+                return receipTaxes
+                    .GroupBy(rt => rt.TaxGroup)
+                    .Select(rtGrouped => new ReceiptTax
+                    {
+                        TaxGroup = rtGrouped.Key,
+                        NetAmount = rtGrouped.Sum(r => r.NetAmount),
+                        GrossAmount = rtGrouped.Sum(r => r.GrossAmount)
+                    })
+                    .ToArray();
             }
 
             /// <summary>

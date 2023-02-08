@@ -1,21 +1,17 @@
-/*--------------------------------------------------------------
- * Copyright (c) Microsoft Corporation. All rights reserved.
- * See License.txt in the project root for license information.
- *--------------------------------------------------------------*/
+/*!
+ * Copyright (c) Microsoft Corporation.
+ * All rights reserved. See LICENSE in the project root for license information.
+ */
+
 import { createObservableDataAction, IAction, IActionContext, ICreateActionContext } from '@msdyn365-commerce/core';
 import { CacheType, IActionInput } from '@msdyn365-commerce/retail-proxy';
 import { getPowerBIReportByReportIdAndGroupIdAsync } from '../../../themes/fabrikam-extended/data-actions/DataActionExtension.g';
 import { IPowerBi } from '../../../themes/fabrikam-extended/data-actions/DataServiceEntities.g';
 
+/**
+ *
+ */
 export class GetPowerBiReportInput implements IActionInput {
-    public shouldCacheOutput = () => true;
-
-    public getCacheKey = () => 'GetPowerBiReport';
-
-    public getCacheObjectType = () => 'GetPowerBiReport';
-
-    public dataCacheType = (): CacheType => 'none';
-
     public workspaceId?: string;
 
     public reportId?: string;
@@ -23,6 +19,14 @@ export class GetPowerBiReportInput implements IActionInput {
     public roleName?: string;
 
     public reportView?: string;
+
+    public shouldCacheOutput = () => true;
+
+    public getCacheKey = () => 'GetPowerBiReport';
+
+    public getCacheObjectType = () => 'GetPowerBiReport';
+
+    public dataCacheType = (): CacheType => 'none';
 }
 
 const createInput = (args: ICreateActionContext<{ workspaceId: string; reportId: string; role: string; reportView: string }>) => {

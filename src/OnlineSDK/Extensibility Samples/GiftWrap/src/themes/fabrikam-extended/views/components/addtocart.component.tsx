@@ -1,16 +1,32 @@
-/*--------------------------------------------------------------
- * Copyright (c) Microsoft Corporation. All rights reserved.
- * See License.txt in the project root for license information.
- *--------------------------------------------------------------*/
+/*!
+ * Copyright (c) Microsoft Corporation.
+ * All rights reserved. See LICENSE in the project root for license information.
+ */
 
-import MsDyn365, { IActionContext, getCatalogId, IComponent, IComponentProps, IGridSettings, IImageSettings, msdyn365Commerce, TelemetryEvent } from '@msdyn365-commerce/core';
+import MsDyn365, {
+    IActionContext,
+    getCatalogId,
+    IComponent,
+    IComponentProps,
+    IGridSettings,
+    IImageSettings,
+    msdyn365Commerce,
+    TelemetryEvent
+} from '@msdyn365-commerce/core';
 import { getCartState, ICartActionResult, ICartState } from '@msdyn365-commerce/global-state';
 import {
     Cart,
     CommerceProperty,
-    CartLineValidationResults, CartsDataActions, format,
-    ProductAvailableQuantity, ProductDimension, ProductPrice,
-    ProductsDataActions, ProductSearchCriteria, ProductType, SimpleProduct
+    CartLineValidationResults,
+    CartsDataActions,
+    format,
+    ProductAvailableQuantity,
+    ProductDimension,
+    ProductPrice,
+    ProductsDataActions,
+    ProductSearchCriteria,
+    ProductType,
+    SimpleProduct
 } from '@msdyn365-commerce/retail-proxy';
 import { ErrorNotification, NotificationsManager } from '@msdyn365-commerce-modules/notifications-core';
 import { ArrayExtensions, generateProductImageUrl, ObjectExtensions } from '@msdyn365-commerce-modules/retail-actions';
@@ -20,7 +36,14 @@ import React, { useState } from 'react';
 
 import { updateAsync, updateCartLinesAsync } from '@msdyn365-commerce/retail-proxy/dist/DataActions/CartsDataActions.g';
 
-import { IItemsAddedToCartResources,ItemsAddedToCartDialogComponent, ItemSuccessfullyAddedToCartNotification, MultiItemsSuccessfullyAddedToCartNotification, OrderDetailsProduct, PriceComponent } from '@msdyn365-commerce/components';
+import {
+    IItemsAddedToCartResources,
+    ItemsAddedToCartDialogComponent,
+    ItemSuccessfullyAddedToCartNotification,
+    MultiItemsSuccessfullyAddedToCartNotification,
+    OrderDetailsProduct,
+    PriceComponent
+} from '@msdyn365-commerce/components';
 
 /**
  * Interface for add to cart resources.
@@ -101,7 +124,13 @@ export interface IAddToCartComponentProps extends IComponentProps<{ product: Sim
 /**
  * Cart action Failure reason type.
  */
-export declare type ICartActionFailureReason = 'EMPTYINPUT' | 'MISSINGDIMENSION' | 'OUTOFSTOCK' | 'CARTACTIONFAILED' | 'INVALIDCUSTOMAMOUNT' | 'UPDATECARTLINEATTRIBUTE';
+export declare type ICartActionFailureReason =
+    | 'EMPTYINPUT'
+    | 'MISSINGDIMENSION'
+    | 'OUTOFSTOCK'
+    | 'CARTACTIONFAILED'
+    | 'INVALIDCUSTOMAMOUNT'
+    | 'UPDATECARTLINEATTRIBUTE';
 
 /**
  * Interface for add to cart failure result.
@@ -117,14 +146,12 @@ export interface IAddToCartFailureResult {
 /**
  * This setting defines Gift Wrap Key.
  */
- export const GiftWrapKey = 'isGiftWrap';
- 
+export const GiftWrapKey = 'isGiftWrap';
 
 /**
  * This setting defines the experience when a product is added to cart. Corresponds to the configuration in Fabrikam.
  */
 export enum AddToCartBehavior {
-
     /**
      * Navigate to cart page.
      */
@@ -208,8 +235,7 @@ const getAddToCartInputFromProps = async (props: IAddToCartComponentProps) => {
             Ids: props.products.map(product => product.productId)
         };
 
-        const searchResult = await ProductsDataActions.searchByCriteriaAsync(
-            { callerContext: actionContext }, searchCriteriaInput);
+        const searchResult = await ProductsDataActions.searchByCriteriaAsync({ callerContext: actionContext }, searchCriteriaInput);
         const productSearchResultsWithImages = searchResult.map(productSearchResult => {
             const newProductSearchResult = { ...productSearchResult };
             const newImageUrl = generateProductImageUrl(newProductSearchResult, apiSettings);
@@ -265,10 +291,11 @@ const getAddToCartInputFromProps = async (props: IAddToCartComponentProps) => {
  * @param setDisabled -- The set disable call back.
  * @param openModal -- The open modal call back.
  */
-const addOneItemToCart = async (props: IAddToCartComponentProps,
+const addOneItemToCart = async (
+    props: IAddToCartComponentProps,
     setDisabled: (disabled: boolean) => void,
-    openModal: (opened: boolean) => void): Promise<void> => {
-
+    openModal: (opened: boolean) => void
+): Promise<void> => {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access -- read config file.
     const addToCartBehavior = props.context.app.config.addToCartBehavior;
     const data = props.data;
@@ -294,9 +321,15 @@ const addOneItemToCart = async (props: IAddToCartComponentProps,
 
     if (addToCartResult.status === 'SUCCESS') {
         const value = getProductExtensionProperty(props.data?.product!, GiftWrapKey);
-        updateCartLineAttributeValues(props.context.actionContext, cartState.cart, props.data?.product!, GiftWrapKey, value.toString()).catch(error => {
-             propagateError(props, { failureReason: 'UPDATECARTLINEATTRIBUTE', cartActionResult: addToCartResult });
-        });;
+        updateCartLineAttributeValues(
+            props.context.actionContext,
+            cartState.cart,
+            props.data?.product!,
+            GiftWrapKey,
+            value.toString()
+        ).catch(error => {
+            propagateError(props, { failureReason: 'UPDATECARTLINEATTRIBUTE', cartActionResult: addToCartResult });
+        });
         if (props.dialogStrings && addToCartBehavior === AddToCartBehavior.showModal) {
             setDisabled(false);
             openModal(true);
@@ -316,17 +349,24 @@ const addOneItemToCart = async (props: IAddToCartComponentProps,
                 props.typeName
             );
             NotificationsManager.instance().addNotification(notification);
-        } else if (MsDyn365.isBrowser && props.navigationUrl && !props.isNavigationToCartPageDisabled &&
-                    (addToCartBehavior === undefined || addToCartBehavior === AddToCartBehavior.goToCart)) {
+        } else if (
+            MsDyn365.isBrowser &&
+            props.navigationUrl &&
+            !props.isNavigationToCartPageDisabled &&
+            (addToCartBehavior === undefined || addToCartBehavior === AddToCartBehavior.goToCart)
+        ) {
             window.location.assign(props.navigationUrl);
         } else {
             setDisabled(false);
         }
         propagateResult(props, addToCartResult);
     } else {
-        NotificationsManager.instance().addNotification(new ErrorNotification(
-            addToCartResult.errorDetails?.LocalizedMessage ?? 'Add to cart failed',
-            props.dialogStrings?.closeNotificationLabel ?? ''));
+        NotificationsManager.instance().addNotification(
+            new ErrorNotification(
+                addToCartResult.errorDetails?.LocalizedMessage ?? 'Add to cart failed',
+                props.dialogStrings?.closeNotificationLabel ?? ''
+            )
+        );
 
         propagateError(props, { failureReason: 'CARTACTIONFAILED', cartActionResult: addToCartResult });
         setDisabled(false);
@@ -343,7 +383,8 @@ const addOneItemToCart = async (props: IAddToCartComponentProps,
  * @param addToCartInput - Input used for adding to cart.
  * @param addToCartResult - Result of adding to cart.
  */
-const handleAddItemsToCartSuccess = async (props: IAddToCartComponentProps,
+const handleAddItemsToCartSuccess = async (
+    props: IAddToCartComponentProps,
     setDisabled: (disabled: boolean) => void,
     setItemsAddedToCartDialogOpen: (opened: boolean) => void,
     setErrorMessage: (message: string) => void,
@@ -352,17 +393,19 @@ const handleAddItemsToCartSuccess = async (props: IAddToCartComponentProps,
         product: SimpleProduct;
         count: number;
     }[],
-    addToCartResult: ICartActionResult) => {
-
+    addToCartResult: ICartActionResult
+) => {
     // Validate cart for line errors.
     const validationResult: CartLineValidationResults = await CartsDataActions.validateForCheckoutAsync(
         { callerContext: props.context.actionContext, bypassCache: 'none' },
-        cartState.cart.Id, cartState.cart.Version
+        cartState.cart.Id,
+        cartState.cart.Version
     );
     const errorCount = (validationResult.ValidationFailuresByCartLines ?? []).length;
     const singleErrorCount = 1;
     const errorText = errorCount === singleErrorCount ? props.dialogStrings?.oneErrorText : props.dialogStrings?.multiErrorsText;
-    const errorMessage = errorCount > zero ? format(props.dialogStrings?.validationErrorMessage ?? '', errorCount.toString(), errorText) : '';
+    const errorMessage =
+        errorCount > zero ? format(props.dialogStrings?.validationErrorMessage ?? '', errorCount.toString(), errorText) : '';
 
     setErrorMessage(errorMessage);
 
@@ -392,10 +435,15 @@ const handleAddItemsToCartSuccess = async (props: IAddToCartComponentProps,
             props.navigationUrl,
             props.telemetryContent!,
             props.id,
-            props.typeName);
+            props.typeName
+        );
         NotificationsManager.instance().addNotification(notification);
-    } else if (MsDyn365.isBrowser && props.navigationUrl && !props.isNavigationToCartPageDisabled &&
-                (addToCartBehavior === undefined || addToCartBehavior === AddToCartBehavior.goToCart)) {
+    } else if (
+        MsDyn365.isBrowser &&
+        props.navigationUrl &&
+        !props.isNavigationToCartPageDisabled &&
+        (addToCartBehavior === undefined || addToCartBehavior === AddToCartBehavior.goToCart)
+    ) {
         window.location.assign(props.navigationUrl);
     } else {
         setDisabled(false);
@@ -410,11 +458,12 @@ const handleAddItemsToCartSuccess = async (props: IAddToCartComponentProps,
  * @param setItemsAddedToCartDialogOpen -- The open modal call back.
  * @param setErrorMessage -- The set error message call back.
  */
-const addItemsToCart = async (props: IAddToCartComponentProps,
+const addItemsToCart = async (
+    props: IAddToCartComponentProps,
     setDisabled: (disabled: boolean) => void,
     setItemsAddedToCartDialogOpen: (opened: boolean) => void,
-    setErrorMessage: (message: string) => void): Promise<void> => {
-
+    setErrorMessage: (message: string) => void
+): Promise<void> => {
     const addToCartInput = await getAddToCartInputFromProps(props);
 
     if (!ArrayExtensions.hasElements(addToCartInput)) {
@@ -426,18 +475,30 @@ const addItemsToCart = async (props: IAddToCartComponentProps,
 
     if (addToCartResult.status === 'SUCCESS') {
         await handleAddItemsToCartSuccess(
-            props, setDisabled, setItemsAddedToCartDialogOpen, setErrorMessage,
-            cartState, addToCartInput, addToCartResult);
+            props,
+            setDisabled,
+            setItemsAddedToCartDialogOpen,
+            setErrorMessage,
+            cartState,
+            addToCartInput,
+            addToCartResult
+        );
     } else {
         if (props.dialogStrings?.buyAgainNotificationTitle) {
             // For buy again show simple error notification.
-            NotificationsManager.instance().addNotification(new ErrorNotification(
-                props.dialogStrings.buyAgainNotificationTitle,
-                props.dialogStrings.buyAgainNotificationCloseAriaLabel ?? ''));
+            NotificationsManager.instance().addNotification(
+                new ErrorNotification(
+                    props.dialogStrings.buyAgainNotificationTitle,
+                    props.dialogStrings.buyAgainNotificationCloseAriaLabel ?? ''
+                )
+            );
         } else {
-            NotificationsManager.instance().addNotification(new ErrorNotification(
-                addToCartResult.errorDetails?.LocalizedMessage ?? 'Add to cart failed',
-                props.dialogStrings?.closeNotificationLabel ?? ''));
+            NotificationsManager.instance().addNotification(
+                new ErrorNotification(
+                    addToCartResult.errorDetails?.LocalizedMessage ?? 'Add to cart failed',
+                    props.dialogStrings?.closeNotificationLabel ?? ''
+                )
+            );
         }
 
         propagateError(props, { failureReason: 'CARTACTIONFAILED', cartActionResult: addToCartResult });
@@ -453,36 +514,44 @@ export interface IAddtoCartComponent extends IComponent<IAddToCartComponentProps
 }
 
 const getProductExtensionProperty = (product: SimpleProduct, extensionPropertyKey: string): boolean => {
-    const property = product.ExtensionProperties && product.ExtensionProperties.find((extension: CommerceProperty) => extension.Key === extensionPropertyKey);
+    const property =
+        product.ExtensionProperties &&
+        product.ExtensionProperties.find((extension: CommerceProperty) => extension.Key === extensionPropertyKey);
     if (property) {
         return property.Value?.BooleanValue || false;
     } else {
         return false;
     }
-}
+};
 
-const updateCartLineAttributeValues = async (actionContext: IActionContext, cart: Cart, product: SimpleProduct, attributekey: string, value: string) => {
-	const cartLinesObj = cart.CartLines!.filter(cartLine => cartLine.ProductId === product.RecordId);
+const updateCartLineAttributeValues = async (
+    actionContext: IActionContext,
+    cart: Cart,
+    product: SimpleProduct,
+    attributekey: string,
+    value: string
+) => {
+    const cartLinesObj = cart.CartLines!.filter(cartLine => cartLine.ProductId === product.RecordId);
 
-	// TODO: add line level attributes
-	cartLinesObj![0].AttributeValues = cartLinesObj![0].AttributeValues!.filter(p=> p.Name !== attributekey);
+    // TODO: add line level attributes
+    cartLinesObj[0].AttributeValues = cartLinesObj[0].AttributeValues!.filter(p => p.Name !== attributekey);
 
-	cartLinesObj![0].AttributeValues?.push({
-		// @ts-expect-error -- Need to provide data type.
-		'@odata.type': '#Microsoft.Dynamics.Commerce.Runtime.DataModel.AttributeTextValue',
-		ExtensionProperties: [],
-		Name: attributekey,
-		TextValue: value,
-		TextValueTranslations: []
-	});
+    cartLinesObj[0].AttributeValues?.push({
+        // @ts-expect-error -- Need to provide data type.
+        '@odata.type': '#Microsoft.Dynamics.Commerce.Runtime.DataModel.AttributeTextValue',
+        ExtensionProperties: [],
+        Name: attributekey,
+        TextValue: value,
+        TextValueTranslations: []
+    });
 
-	const newCart = {
-		Id: cart.Id!,
-		CartLines: cartLinesObj
-	};
+    const newCart = {
+        Id: cart.Id,
+        CartLines: cartLinesObj
+    };
 
-	await updateCartLinesAsync({ callerContext: actionContext }, newCart.Id.toString(), newCart.CartLines, cart.Version);
-	await updateAsync({ callerContext: actionContext }, newCart!);
+    await updateCartLinesAsync({ callerContext: actionContext }, newCart.Id.toString(), newCart.CartLines, cart.Version);
+    await updateAsync({ callerContext: actionContext }, newCart);
 };
 
 /**
@@ -494,13 +563,14 @@ const updateCartLineAttributeValues = async (actionContext: IActionContext, cart
  * @param setItemsAddedToCartDialogOpen - Sets items added to cart while dialog is open.
  * @param setErrorMessage - Error message.
  */
-const onClick = async (_event: React.MouseEvent<HTMLElement>,
+const onClick = async (
+    _event: React.MouseEvent<HTMLElement>,
     props: IAddToCartComponentProps,
     setDisabled: (disabled: boolean) => void,
     openModal: (opened: boolean) => void,
     setItemsAddedToCartDialogOpen: (opened: boolean) => void,
-    setErrorMessage: (message: string) => void): Promise<void> => {
-
+    setErrorMessage: (message: string) => void
+): Promise<void> => {
     if (!ArrayExtensions.hasElements(props.products)) {
         const cartError = addToCartError(props);
 
@@ -512,7 +582,8 @@ const onClick = async (_event: React.MouseEvent<HTMLElement>,
         setDisabled(true);
     }
 
-    const hasOrderDetailsProducts = ArrayExtensions.hasElements(props.orderDetailsProducts) && props.orderDetailsProducts.length > defaultQuantity;
+    const hasOrderDetailsProducts =
+        ArrayExtensions.hasElements(props.orderDetailsProducts) && props.orderDetailsProducts.length > defaultQuantity;
     const hasProducts = ArrayExtensions.hasElements(props.products) && props.products.length > defaultQuantity;
 
     const hasMultipleProducts = hasOrderDetailsProducts || hasProducts;
@@ -541,10 +612,12 @@ export const AddToCartFunctionalComponent: React.FC<IAddToCartComponentProps> = 
     const [modalOpen, setModalOpen] = useState(false);
     const [isItemsAddedToCartDialogOpen, setItemsAddedToCartDialogOpen] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
-    const [addToCartInput, setAddToCartInput] = useState<{
-        product: SimpleProduct;
-        count: number;
-    }[]>([]);
+    const [addToCartInput, setAddToCartInput] = useState<
+        {
+            product: SimpleProduct;
+            count: number;
+        }[]
+    >([]);
 
     const onClickHandler = async (event: React.MouseEvent<HTMLElement>) => {
         await AddToCartComponentActions.onClick(event, props, setDisabled, setModalOpen, setItemsAddedToCartDialogOpen, setErrorMessage);
@@ -566,7 +639,10 @@ export const AddToCartFunctionalComponent: React.FC<IAddToCartComponentProps> = 
             freePriceText={props.dialogStrings?.freePriceText}
             originalPriceText={props.dialogStrings?.originalPriceText}
             currentPriceText={props.dialogStrings?.currentPriceText}
-        />) : '';
+        />
+    ) : (
+        ''
+    );
 
     const popupProps: IPopupProps = {
         context: props.context,
@@ -662,7 +738,16 @@ const getLinkText = (props: IAddToCartComponentProps): string => {
  * @returns The add to cart failure result.
  */
 const addToCartError = (props: IAddToCartComponentProps): IAddToCartFailureResult | undefined => {
-    const { data, productAvailability, isCustomPriceSelected, customPriceAmount, maximumKeyInPrice, minimumKeyInPrice, defaultMaximumKeyInPrice = 100, defaultMinimumKeyInPrice = 10 } = props;
+    const {
+        data,
+        productAvailability,
+        isCustomPriceSelected,
+        customPriceAmount,
+        maximumKeyInPrice,
+        minimumKeyInPrice,
+        defaultMaximumKeyInPrice = 100,
+        defaultMinimumKeyInPrice = 10
+    } = props;
 
     if (!data || !data.product.RecordId) {
         // No product exists, won't be able to add to cart
@@ -670,7 +755,9 @@ const addToCartError = (props: IAddToCartComponentProps): IAddToCartFailureResul
     }
 
     if (data.product.Dimensions) {
-        const missingDimensions = data.product.Dimensions.filter(dimension => !(dimension.DimensionValue && dimension.DimensionValue.Value));
+        const missingDimensions = data.product.Dimensions.filter(
+            dimension => !(dimension.DimensionValue && dimension.DimensionValue.Value)
+        );
 
         if (ArrayExtensions.hasElements(missingDimensions)) {
             // At least one dimension with no value exists on the product, won't be able to add to cart
@@ -687,9 +774,12 @@ const addToCartError = (props: IAddToCartComponentProps): IAddToCartFailureResul
     }
 
     // When Custom price is selected, if there is no keyed-in price or keyed-in price is out of limit, should return error.
-    if (isCustomPriceSelected &&
-        (!customPriceAmount || customPriceAmount > (maximumKeyInPrice || defaultMaximumKeyInPrice) ||
-        customPriceAmount < (minimumKeyInPrice || defaultMinimumKeyInPrice))) {
+    if (
+        isCustomPriceSelected &&
+        (!customPriceAmount ||
+            customPriceAmount > (maximumKeyInPrice || defaultMaximumKeyInPrice) ||
+            customPriceAmount < (minimumKeyInPrice || defaultMinimumKeyInPrice))
+    ) {
         return { failureReason: 'INVALIDCUSTOMAMOUNT' };
     }
 
@@ -713,8 +803,14 @@ const shouldShowOutOfStock = (props: IAddToCartComponentProps, includeCurrentQua
         return false;
     }
 
-    if (props.isLoading || props.isProductQuantityLoading || props.isUpdatingDimension ||
-        props.isLoadingDeliveryOptions || props.isUpdatingDeliveryOptions || props.isAddServiceItemToCart) {
+    if (
+        props.isLoading ||
+        props.isProductQuantityLoading ||
+        props.isUpdatingDimension ||
+        props.isLoadingDeliveryOptions ||
+        props.isUpdatingDeliveryOptions ||
+        props.isAddServiceItemToCart
+    ) {
         // Out of stock turn off, don't bother showing out of stock
         return false;
     }
@@ -738,9 +834,11 @@ const shouldShowOutOfStock = (props: IAddToCartComponentProps, includeCurrentQua
 
     const includedQuantityNumber = includeCurrentQuantity && props.quantity ? props.quantity : defaultQuantity;
 
-    return !((props.productAvailability &&
+    return !(
+        props.productAvailability &&
         props.productAvailability.AvailableQuantity !== undefined &&
-        props.productAvailability.AvailableQuantity >= includedQuantityNumber));
+        props.productAvailability.AvailableQuantity >= includedQuantityNumber
+    );
 };
 
 const isIntermediateState = (props: IAddToCartComponentProps): boolean => {
@@ -758,11 +856,9 @@ const isIntermediateState = (props: IAddToCartComponentProps): boolean => {
     return true;
 };
 
-// @ts-expect-error
-export const AddToCartComponent: React.FunctionComponent<IAddToCartComponentProps> = msdyn365Commerce.createComponentOverride<IAddtoCartComponent>(
-    'AddToCart',
-    { component: AddToCartFunctionalComponent, ...AddToCartComponentActions }
-);
-
+export const AddToCartComponent: React.FunctionComponent<IAddToCartComponentProps> = msdyn365Commerce.createComponentOverride<
+    // @ts-expect-error -- Compatible issue with the component override.
+    IAddtoCartComponent
+>('AddToCart', { component: AddToCartFunctionalComponent, ...AddToCartComponentActions });
 
 export default AddToCartComponent;

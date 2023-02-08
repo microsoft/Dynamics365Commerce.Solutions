@@ -1,0 +1,608 @@
+{
+    "exception": null,
+    "pageRoot": {
+        "typeName": "core-root",
+        "id": "core-root_qcgewk3",
+        "friendlyName": "Core root 1",
+        "config": {},
+        "modules": {
+            "body": [
+                {
+                    "typeName": "default-page",
+                    "id": "default-page",
+                    "friendlyName": "Default Page",
+                    "config": {
+                        "pageCacheTTL": 3600.0,
+                        "pageCacheTTR": 120.0,
+                        "skipToMainText": "Skip to main content",
+                        "shouldCachePage": true,
+                        "pageTheme": "summer"
+                    },
+                    "modules": {
+                        "primary": [
+                            {
+                                "typeName": "default-container",
+                                "id": "default-container",
+                                "friendlyName": "Content container",
+                                "config": { "heading": {}, "layout": "stacked", "containerType": "container", "childrenWidth": "four" },
+                                "modules": {
+                                    "content": [
+                                        {
+                                            "typeName": "breadcrumb",
+                                            "id": "breadcrumb",
+                                            "friendlyName": "Breadcrumb",
+                                            "config": {
+                                                "root": {
+                                                    "linkText": "My account",
+                                                    "linkUrl": { "destinationUrl": "/myaccount", "type": "internalLink" },
+                                                    "ariaLabel": "My account"
+                                                },
+                                                "links": [
+                                                    {
+                                                        "linkText": "Order History",
+                                                        "linkUrl": { "destinationUrl": "/orderhistory", "type": "internalLink" },
+                                                        "ariaLabel": "Order History"
+                                                    }
+                                                ]
+                                            },
+                                            "data": {}
+                                        },
+                                        {
+                                            "typeName": "spacer",
+                                            "id": "spacer__0",
+                                            "friendlyName": "Spacer 2x",
+                                            "config": { "spacerHeight": "spacer2x" }
+                                        },
+                                        {
+                                            "typeName": "order-history",
+                                            "id": "order-history",
+                                            "friendlyName": "Order history",
+                                            "config": {
+                                                "heading": { "text": "Your orders", "tag": "h1" },
+                                                "imageSettings": {
+                                                    "quality": 80,
+                                                    "disableLazyLoad": true,
+                                                    "lazyload": true,
+                                                    "viewports": {
+                                                        "xs": { "w": 80, "h": 80, "q": "w=80&h=80&q=80&m=6&f=jpg", "qe": "t=w80h80qhigh" },
+                                                        "lg": {
+                                                            "w": 120,
+                                                            "h": 120,
+                                                            "q": "w=120&h=120&q=80&m=6&f=jpg",
+                                                            "qe": "t=w120h120qhigh"
+                                                        },
+                                                        "xl": {
+                                                            "w": 180,
+                                                            "h": 180,
+                                                            "q": "w=180&h=180&q=80&m=6&f=jpg",
+                                                            "qe": "t=w180h180qhigh"
+                                                        }
+                                                    }
+                                                },
+                                                "showChannelInfo": true,
+                                                "pageSize": 3.0,
+                                                "isGridViewEnabled": true
+                                            }
+                                        },
+                                        {
+                                            "typeName": "spacer",
+                                            "id": "spacer__1",
+                                            "friendlyName": "Spacer 8x",
+                                            "config": { "spacerHeight": "spacer8x" }
+                                        }
+                                    ]
+                                }
+                            }
+                        ],
+                        "subheader": [
+                            {
+                                "typeName": "default-container",
+                                "id": "default-container__0",
+                                "friendlyName": "Hero container",
+                                "config": { "heading": {}, "layout": "stacked", "containerType": "fluid", "childrenWidth": "four" },
+                                "modules": {
+                                    "content": [
+                                        {
+                                            "typeName": "content-block",
+                                            "id": "content-block",
+                                            "friendlyName": "Content block",
+                                            "platform": { "layout": "slim-hero-medium" },
+                                            "config": {
+                                                "msdyn365__moduleLayout": "slim-hero-medium",
+                                                "heading": { "text": "Order History", "tag": "h2" },
+                                                "image": {
+                                                    "$type": "image",
+                                                    "_id": "MCKPy",
+                                                    "src": "https://images-us-ppe.cms.dynamics365commerce.ms/cms/api/ksrwclmwmr/imageFileData/MCKPz?ver=9cb5",
+                                                    "copyright": "",
+                                                    "altText": "Hero-Overlay-PaddleBoarding-2.png",
+                                                    "binaryHash": "rYwqRErpIrv06uFmYYycZg==",
+                                                    "title": "Hero-Overlay-PaddleBoarding-2.png",
+                                                    "imageSettings": {
+                                                        "quality": 80,
+                                                        "disableLazyLoad": true,
+                                                        "lazyload": true,
+                                                        "viewports": {
+                                                            "xs": {
+                                                                "w": 360,
+                                                                "h": 188,
+                                                                "q": "w=360&h=188&q=80&m=6&f=jpg",
+                                                                "qe": "t=w360h188qhigh"
+                                                            },
+                                                            "sm": {
+                                                                "w": 768,
+                                                                "h": 172,
+                                                                "q": "w=768&h=172&q=80&m=6&f=jpg",
+                                                                "qe": "t=w768h172qhigh"
+                                                            },
+                                                            "md": {
+                                                                "w": 1700,
+                                                                "h": 216,
+                                                                "q": "w=1700&h=216&q=80&m=6&f=jpg",
+                                                                "qe": "t=w1700h216qhigh"
+                                                            },
+                                                            "lg": {
+                                                                "w": 1700,
+                                                                "h": 216,
+                                                                "q": "w=1700&h=216&q=80&m=6&f=jpg",
+                                                                "qe": "t=w1700h216qhigh"
+                                                            },
+                                                            "xl": {
+                                                                "w": 1700,
+                                                                "h": 216,
+                                                                "q": "w=1700&h=216&q=80&m=6&f=jpg",
+                                                                "qe": "t=w1700h216qhigh"
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "links": [
+                                                    {
+                                                        "linkText": "BACK TO SHOPPING",
+                                                        "linkUrl": { "destinationUrl": "/", "type": "internalLink" },
+                                                        "ariaLabel": "BACK TO SHOPPING"
+                                                    }
+                                                ],
+                                                "actionableRegion": "linksOnly",
+                                                "imageLink": {},
+                                                "className": "textplacement__left"
+                                            },
+                                            "data": {}
+                                        },
+                                        {
+                                            "typeName": "spacer",
+                                            "id": "spacer",
+                                            "friendlyName": "Spacer 2x",
+                                            "config": { "spacerHeight": "spacer2x" }
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                }
+            ],
+            "htmlHead": [
+                {
+                    "typeName": "default-page-summary",
+                    "id": "default-page-summary",
+                    "friendlyName": "Default page summary",
+                    "config": { "title": "Order History", "faviconUrl": null }
+                },
+                {
+                    "typeName": "default-metatags",
+                    "id": "IDNMAid2_l3hbk6j",
+                    "friendlyName": "Default metatags",
+                    "config": {
+                        "metaTags": [
+                            "<link rel=\"shortcut icon\" href=\"https://images-us-prod.cms.commerce.dynamics.com/cms/api/rqfnmflkvf/imageFileData/MCEfW\">"
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "renderingContext": {
+        "User": {
+            "AuthenticationType": 1,
+            "IsAuthenticated": true,
+            "EmailAddress": "BusinessUser1@fabrikam.com",
+            "FirstName": "Business1",
+            "LastName": "Test",
+            "MemberName": "Business1 Test",
+            "DisplayMemberName": "Business1 Test",
+            "ErrorMessages": null,
+            "Puid": 0,
+            "Muid": null,
+            "AgeGroup": 0,
+            "Cid": 0,
+            "SignInUrl": "https://ring1tie.adventure-works.com/orderhistory/onerf/signin?EEL=True",
+            "MeUrl": null,
+            "Name": "Business1 Test",
+            "Country": null,
+            "OptOutWebActivityTracking": "false",
+            "IsB2b": false,
+            "IsOBORequest": false,
+            "ObjectIdentifier": "d943a1c9-6e65-4ab2-914e-554555bee3f0",
+            "CustomerAccountNumber": "005749",
+            "CatalogId": "0",
+            "RetailServerErrorMessage": null,
+            "RetailServerErrorCorrelationId": null,
+            "RetailServerErrorCode": null,
+            "ChannelId": "5637144607",
+            "SignOutUrl": "https://ring1tie.adventure-works.com/orderhistory/onerf/signout",
+            "BirthDate": "0001-01-01T00:00:00",
+            "WindowsLiveId": null,
+            "CompactTicket": null,
+            "XboxLiveCompactTicket": null,
+            "Gamertag": null,
+            "Xuid": null,
+            "IsChild": false,
+            "IsParent": false,
+            "FamilyId": 0,
+            "IsFamilySafetyUser": false,
+            "ProxyTicket": null,
+            "Token": "",
+            "SigninName": "Business1 Test",
+            "Claims": [
+                { "Key": "exp", "Value": "1667519790" },
+                { "Key": "nbf", "Value": "1667516190" },
+                { "Key": "ver", "Value": "1.0" },
+                { "Key": "iss", "Value": "https://login.fabrikam.com/071808c3-0213-4f43-b5e2-df01266e44ae/v2.0/" },
+                {
+                    "Key": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier",
+                    "Value": "d943a1c9-6e65-4ab2-914e-554555bee3f0"
+                },
+                { "Key": "aud", "Value": "5f63f50d-d7e7-4a4e-8534-e87599fc0fd9" },
+                {
+                    "Key": "nonce",
+                    "Value": "638031128152878608.ZDBiZWVjNjEtNmYzZi00ZDZlLWIxMTQtNGQyMWJjZjA2NjdhNzkyZjFhMjctYWY4OS00MTA0LThiOGEtOTdiMGNjZGEyYmQ5"
+                },
+                { "Key": "iat", "Value": "1667516190" },
+                { "Key": "auth_time", "Value": "1667516190" },
+                { "Key": "http://schemas.microsoft.com/identity/claims/objectidentifier", "Value": "d943a1c9-6e65-4ab2-914e-554555bee3f0" },
+                { "Key": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname", "Value": "Business1" },
+                { "Key": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname", "Value": "Test" },
+                { "Key": "emails", "Value": "BusinessUser1@fabrikam.com" },
+                { "Key": "tfp", "Value": "B2C_1_R1Tie_AW_SISU" },
+                { "Key": "c_hash", "Value": "xqWLcdFGnt1BH3MptqxDqQ" },
+                { "Key": "ChannelId", "Value": "5637144607" },
+                { "Key": "CustomerAccountNumber", "Value": "005749" },
+                { "Key": "CatalogId", "Value": "0" },
+                { "Key": "IsB2b", "Value": "False" },
+                { "Key": "OptOutWebActivityTracking", "Value": "false" }
+            ],
+            "Roles": [],
+            "OrganizationId": "",
+            "TenantId": null,
+            "InternalAccessToken": null
+        },
+        "DeviceType": "Pc",
+        "experiments": { "userId": null, "activeExperiments": [] },
+        "tuid": "a4a7ae76-367d-5cd7-d31e-62009c4f5de3",
+        "segmentRequestId": null,
+        "missingSegments": {},
+        "requestUrl": "https://ring1tie.adventure-works.com/orderhistory",
+        "sitePath": null,
+        "CrossChannelIdentity": [],
+        "clientIPAddress": "73.48.151.1",
+        "clientContext": {
+            "deviceType": "Pc",
+            "isBot": false,
+            "requestUserAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36 Edg/107.0.1418.26"
+        },
+        "canonicalUrl": "https://ring1tie.adventure-works.com/orderhistory",
+        "canonicalDomain": "ring1tie.adventure-works.com",
+        "staticContext": { "staticCdnUrl": "/_scnr/", "staticCdnUrlWithLocale": "/en-us/_msdyn365/_scnr/" },
+        "user": {
+            "token": "",
+            "isAuthenticated": true,
+            "isSignedIn": true,
+            "signInUrl": "https://ring1tie.adventure-works.com/_msdyn365/signin",
+            "signOutUrl": "https://ring1tie.adventure-works.com/_msdyn365/signout",
+            "signUpUrl": "https://ring1tie.adventure-works.com/_msdyn365/signup",
+            "editProfileUrl": "https://ring1tie.adventure-works.com/_msdyn365/editprofile",
+            "signinName": "Business1 Test",
+            "firstName": "Business1",
+            "lastName": "Test",
+            "c1AccessToken": null,
+            "optOutWebActivityTracking": false,
+            "isB2b": false,
+            "isOBORequest": false,
+            "tenantId": null,
+            "customerAccountNumber": "005749",
+            "catalogId": "0",
+            "name": "Business1 Test",
+            "emailAddress": "BusinessUser1@fabrikam.com",
+            "retailServerErrorCode": null,
+            "retailServerErrorMessage": null,
+            "userClaims": {}
+        },
+        "previewContext": null,
+        "telemetryPageName": "Order history",
+        "locale": "en-us",
+        "textDirection": "ltr",
+        "suggestedMarket": "US",
+        "marketSettings": null,
+        "urlTokens": {},
+        "apiSettings": {
+            "baseUrl": "https://scu7aoxn5it31752957-rs.su.retail.test.dynamics.com/",
+            "retailServerEndpointOverrideDomain": null,
+            "channelId": 5637144607,
+            "eCommerceChannelId": "rpbpwaytjjr",
+            "eCommerceCrossChannelId": null,
+            "catalogId": 0,
+            "oun": "067",
+            "baseImageUrl": "https://images-us-ppe.cms.dynamics365commerce.ms/cms/api/ksrwclmwmr/imageFileData/search?fileName=/",
+            "ratingsReviewsEndpoint": "https://7ac8a7f2-0905-4a20-8440-74b674a2cddc.rnr-ppe.ms",
+            "ratingsReviewsProxyEndpoint": "https://ring1tie.adventure-works.com/_msdyn365/rnr/",
+            "rnr": {
+                "id": "7ac8a7f2-0905-4a20-8440-74b674a2cddc",
+                "url": "https://7ac8a7f2-0905-4a20-8440-74b674a2cddc.rnr-ppe.ms",
+                "proxyUrl": "https://ring1tie.adventure-works.com/_msdyn365/rnr/"
+            },
+            "externalCmsBaseUrls": null
+        },
+        "gridSettings": { "xs": { "w": 767 }, "sm": { "w": 991 }, "md": { "w": 1199 }, "lg": { "w": 1599 }, "xl": { "w": 1600 } },
+        "debugMode": 0,
+        "operationId": "dc1ebe88bb9a4144b2261301c7c568da",
+        "siteTheme": "adventureworks",
+        "sameSiteRequired": true,
+        "features": {
+            "enable_performance_analysis": true,
+            "enable_react_statics_in_body": true,
+            "enableAuthoringRemoveAndAddModule": true,
+            "enable_react_statics_in_body123": true,
+            "scnr_blob": true,
+            "action_timeout": true,
+            "GeoCookieExpirationTimeOf7days": true,
+            "clientRender_modules": true,
+            "optimize_client_hydrate": true,
+            "enable_sdk_app_cache_compute": true,
+            "disable_new_geoLocation_cookie_contract": true,
+            "skip_external_link_catalogid": true,
+            "allow_react_statics_in_body": true,
+            "disable_cors": true,
+            "disable_server_cookie_encoding": true,
+            "enable_service_worker": true,
+            "enable_render_cache_all": true,
+            "disable_routeerrors_cache": true,
+            "disableRetailProxySW": true,
+            "disable_render_result_compression": true,
+            "async_chunks": true,
+            "defer_chunks": true
+        },
+        "pageFragmentStylePresetList": [],
+        "telemetrySettings": {
+            "eventHubEndPoint": "",
+            "eventHubAuthToken": "",
+            "operationId": "dc1ebe88bb9a4144b2261301c7c568da",
+            "url": "",
+            "clientAuth": "",
+            "environmentId": "",
+            "commerceCoreEnvId": "",
+            "operationalInsightsInstrumentationKey": ""
+        }
+    },
+    "statusCode": 200,
+    "redirectUrl": null,
+    "appContext": {
+        "config": {
+            "isBulkPurchaseEnabled": true,
+            "enableStockCheck": true,
+            "inventoryLevel": "totalAvailable",
+            "inventoryRanges": "all",
+            "warehouseAggregation": "individual",
+            "outOfStockThreshold": 0.0,
+            "productListInventoryDisplay": "hideOOS",
+            "maxQuantityForCartLineItem": 5.0,
+            "hideRating": false,
+            "geolocationApiUrl": "https://dev.virtualearth.net/REST/v1/",
+            "reviewTextMaxLength": 500.0,
+            "reviewTitleMaxLength": 50.0,
+            "disableTooltip": false,
+            "searchQueryStringParameter": "q",
+            "searchInputMaxLength": 50.0,
+            "addToCartBehavior": "showMiniCart",
+            "giftCardSupported": "both",
+            "breadcrumbType": "categoryAndBack",
+            "shouldUseNewImageComponent": true,
+            "placeholderImageName": "placeholder.png",
+            "unitOfMeasureDisplayType": "buyboxAndBrowse",
+            "shouldEnableSinglePaymentAuthorizationCheckout": true,
+            "dimensionsAsSwatchType": ["size", "color"],
+            "dimensionsInProductCard": ["color"],
+            "dimensionToPreSelectInProductCard": "color",
+            "isEnableShowOrHideSalesTaxECommerceEnabled": true,
+            "canRenderAsyncCustomerDataAsUnmodifiable": true,
+            "productComparisonDesktopProductsLimit": 10.0,
+            "productComparisonMobileProductsLimit": 6.0,
+            "maxRecentlyViewedItemsCount": 10.0,
+            "displayGreyPlaceHolders": true,
+            "maxQuantityForProductListLineItem": 5.0,
+            "shouldEnableCheckoutErrorDisplayMessaging": true
+        },
+        "routes": {
+            "account": { "destinationUrl": "/myaccount", "type": "internalLink" },
+            "accountProfile": { "destinationUrl": "/profile-edit", "type": "internalLink" },
+            "backToShopping": { "destinationUrl": "/home", "type": "internalLink" },
+            "cart": { "destinationUrl": "/cart", "type": "internalLink" },
+            "checkout": { "destinationUrl": "/checkout", "type": "internalLink" },
+            "home": { "destinationUrl": "/", "type": "internalLink" },
+            "loyalty": { "destinationUrl": "/loyalty", "type": "internalLink" },
+            "loyaltyJoin": { "destinationUrl": "/loyalty-join", "type": "internalLink" },
+            "orderConfirmation": { "destinationUrl": "/orderconfirmation", "type": "internalLink" },
+            "orderDetails": { "destinationUrl": "/orderdetails", "type": "internalLink" },
+            "search": { "destinationUrl": "/search", "type": "internalLink" },
+            "wishlist": { "destinationUrl": "/wishlist", "type": "internalLink" },
+            "loyaltyTerms": { "destinationUrl": "/loyalty-terms", "type": "internalLink" }
+        },
+        "platform": {
+            "dnsPrefetchUrls": ["optimizely.com"],
+            "maintenanceMode": false,
+            "enableBingMapGeoLoation": true,
+            "disableServerSideErrorChecking": false,
+            "enableRenderCaching": true,
+            "disableCookieCompliance": false,
+            "cartSessionExpiration": 0.0,
+            "imageQuality": 80.0,
+            "maxDepth": 200.0,
+            "skipToMainText": "Skip to main",
+            "enableCustomerAccountPayment": "all",
+            "enableDefaultOrderQuantityLimits": "all",
+            "parameterizedUrlPaths": []
+        },
+        "contentSecurityPolicy": {
+            "disableContentSecurityPolicy": false,
+            "enableReportOnlyMode": false,
+            "enableNonce": false,
+            "child-src": [
+                "https://checkoutshopper-test.adyen.com",
+                "https://paymentacceptsample.cloud.dynamics.com",
+                "https://www.youtube.com/",
+                "https://gahp.net",
+                "https://www.google.com/",
+                "*.paypal.com",
+                "https://www.clarity.ms",
+                "https://customervoice.microsoft.com/",
+                "*.bing.com",
+                "https://oc-cdn-ocprod.azureedge.net",
+                "*.google.com",
+                "https://applepay.cdn-apple.com",
+                "'self'"
+            ],
+            "connect-src": [
+                "https://checkoutshopper-test.adyen.com",
+                "*.adyen.com",
+                "*.bing.com",
+                "*.paypal.com",
+                "https://www.clarity.ms",
+                "https://preview.threekit.com",
+                "https://api.livecommerceweb.com",
+                "https://api.livecommerceweb.com",
+                "https://login.microsoftonline.com",
+                "https://oc-cdn-ocprod.azureedge.net",
+                "https://powerva.microsoft.com",
+                "https://directline.botframework.com",
+                "wss://directline.botframework.com",
+                "*.google.com",
+                "https://applepay.cdn-apple.com",
+                "'self'",
+                "https://login.microsoftonline.com",
+                "https://*.commerce.dynamics.com",
+                "https://*.dynamics365commerce.ms",
+                "https://dc.services.visualstudio.com",
+                "https://images-us-ppe.cms.dynamics365commerce.ms",
+                "https://images-us-ppe.cms.dynamics365commerce.ms",
+                "https://ring1tie.adventure-works.com",
+                "https://scu7aoxn5it31752957-rs.su.retail.test.dynamics.com/",
+                "https://7ac8a7f2-0905-4a20-8440-74b674a2cddc.rnr-ppe.ms"
+            ],
+            "font-src": [
+                "https://static2.sharepointonline.com/",
+                "https://fonts.gstatic.com/",
+                "https://oc-cdn-ocprod.azureedge.net",
+                "'self'",
+                "https://*.commerce.dynamics.com",
+                "https://*.dynamics365commerce.ms",
+                "https://use.fontawesome.com",
+                "data:"
+            ],
+            "frame-ancestors": [
+                "https://www.youtube.com/",
+                "https://www.w3.org/",
+                "https://www.google.com/",
+                "https://streaming-east-ppe.cms.commerce.dynamics.com/",
+                "https://www.adventure-works.com/",
+                "https://oc-cdn-ocprod.azureedge.net",
+                "*.paypal.com",
+                "https://applepay.cdn-apple.com"
+            ],
+            "frame-src": [
+                "https://livecommerceweb.com/",
+                "https://checkoutshopper-test.adyen.com/",
+                "https://customervoice.microsoft.com/",
+                "https://www.adventure-works.com/",
+                "https://oc-cdn-ocprod.azureedge.net",
+                "*.paypal.com",
+                "*.google.com",
+                "https://applepay.cdn-apple.com"
+            ],
+            "img-src": [
+                "https://checkoutshopper-test.adyen.com",
+                "*.adyen.com",
+                "*.virtualearth.net",
+                "https://mfpembedcdnmsit.azureedge.net",
+                "*.azureedge.net",
+                "https://preview.threekit.com",
+                "*.virtualearth.net",
+                "https://api.livecommerceweb.com",
+                "https://c.clarity.ms",
+                "https://c.bing.com",
+                "https://oc-cdn-ocprod.azureedge.net",
+                "*.paypal.com",
+                "*.google.com",
+                "https://applepay.cdn-apple.com",
+                "'self'",
+                "data:",
+                "https://*.commerce.dynamics.com",
+                "https://*.dynamics365commerce.ms",
+                "https://images-us-ppe.cms.dynamics365commerce.ms",
+                "https://images-us-ppe.cms.dynamics365commerce.ms"
+            ],
+            "media-src": [
+                "https://oc-cdn-ocprod.azureedge.net",
+                "'self'",
+                "https://ppe-streaming-video-mr-microsoft-com.akamaized.net",
+                "https://*.streaming.media.azure.net",
+                "https://*.commerce.dynamics.com",
+                "https://*.dynamics365commerce.ms",
+                "https://images-us-ppe.cms.dynamics365commerce.ms",
+                "https://images-us-ppe.cms.dynamics365commerce.ms"
+            ],
+            "object-src": ["https://oc-cdn-ocprod.azureedge.net", "'self'"],
+            "script-src": [
+                "https://checkoutshopper-test.adyen.com",
+                "*.adyen.com",
+                "*.bing.com",
+                "*.virtualearth.net",
+                "*.paypal.com",
+                "*.paypal.com",
+                "https://www.clarity.ms",
+                "https://mfpembedcdnmsit.azureedge.net",
+                "https://preview.threekit.com",
+                "https://oc-cdn-ocprod.azureedge.net",
+                "*.google.com",
+                "https://applepay.cdn-apple.com",
+                "'self'",
+                "'unsafe-inline'",
+                "'unsafe-eval'",
+                "https://*.commerce.dynamics.com",
+                "https://*.dynamics365commerce.ms",
+                "https://*.vo.msecnd.net",
+                "https://dc.services.visualstudio.com",
+                "https://dev.virtualearth.net",
+                "https://ring1tie.adventure-works.com"
+            ],
+            "style-src": [
+                "https://checkoutshopper-test.adyen.com",
+                "*.adyen.com",
+                "*.bing.com",
+                "https://mfpembedcdnmsit.azureedge.net",
+                "*.bing.com",
+                "https://fonts.googleapis.com",
+                "https://oc-cdn-ocprod.azureedge.net",
+                "*.google.com",
+                "https://applepay.cdn-apple.com",
+                "'self'",
+                "'unsafe-inline'",
+                "https://*.commerce.dynamics.com",
+                "https://*.dynamics365commerce.ms",
+                "https://ring1tie.adventure-works.com",
+                ""
+            ],
+            "default-src": ["'self'", "https://*.commerce.dynamics.com", "https://*.dynamics365commerce.ms"],
+            "base-uri": ["'self'"]
+        }
+    }
+}

@@ -11,7 +11,14 @@ const _renderImage = (productImageUrl: string, productName: string): JSX.Element
     return <img src={productImageUrl} alt={productName} className='img-fluid p-3' />;
 };
 
-const _renderInfo = (productName: string, productInfo: string, productPrice: string, buttonInfo: string, buttonId: string, priceId: string): JSX.Element => {
+const _renderInfo = (
+    productName: string,
+    productInfo: string,
+    productPrice: string,
+    buttonInfo: string,
+    buttonId: string,
+    priceId: string
+): JSX.Element => {
     return (
         <div className='container'>
             <h2>{productName}</h2>
@@ -35,7 +42,7 @@ export default (props: IProductFeatureViewProps) => {
         right = _renderInfo(productName, productInfo, productPrice, buttonInfo, 'button_1', 'price_1');
     } else {
         right = _renderImage(productImageUrl, productName);
-        left = _renderInfo(productName, productInfo, productPrice, buttonInfo, 'button_2','price_2');
+        left = _renderInfo(productName, productInfo, productPrice, buttonInfo, 'button_2', 'price_2');
     }
 
     return (

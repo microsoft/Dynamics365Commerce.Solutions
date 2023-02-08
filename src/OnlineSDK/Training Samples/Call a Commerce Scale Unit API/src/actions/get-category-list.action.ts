@@ -1,3 +1,8 @@
+/*!
+ * Copyright (c) Microsoft Corporation.
+ * All rights reserved. See LICENSE in the project root for license information.
+ */
+
 import { createObservableDataAction, IAction, ICreateActionContext } from '@msdyn365-commerce/core';
 import { Category, retailAction } from '@msdyn365-commerce/retail-proxy';
 import { createGetCategoriesInput } from '@msdyn365-commerce/retail-proxy/dist/DataActions/CategoriesDataActions.g';

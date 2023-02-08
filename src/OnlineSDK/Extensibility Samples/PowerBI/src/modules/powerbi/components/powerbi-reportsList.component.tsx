@@ -1,7 +1,8 @@
-/*--------------------------------------------------------------
- * Copyright (c) Microsoft Corporation. All rights reserved.
- * See License.txt in the project root for license information.
- *--------------------------------------------------------------*/
+/*!
+ * Copyright (c) Microsoft Corporation.
+ * All rights reserved. See LICENSE in the project root for license information.
+ */
+
 import * as React from 'react';
 import { factories, models, service } from 'powerbi-client';
 import { getReportsFromPowerBIGroupAsync } from '../../../themes/fabrikam-extended/data-actions/DataActionExtension.g';
@@ -25,6 +26,9 @@ interface IPowerBiReportsListState {
 let reportContainer: HTMLElement;
 let reportRef: React.Ref<HTMLDivElement>;
 let loading: JSX.Element;
+/**
+ *
+ */
 export default class PowerBiReportsListComponent extends React.PureComponent<IPowerBiReportsListProps, IPowerBiReportsListState> {
     public constructor(props: IPowerBiReportsListProps) {
         super(props);
@@ -75,6 +79,7 @@ export default class PowerBiReportsListComponent extends React.PureComponent<IPo
                             ) {
                                 const classReport = `msc-power-bi-report-name ${selectedReportId === listData.Id ? 'selected' : ''}`;
                                 return (
+                                    // eslint-disable-next-line react/jsx-key
                                     <li>
                                         <button
                                             className={classReport}
@@ -101,7 +106,7 @@ export default class PowerBiReportsListComponent extends React.PureComponent<IPo
         this.setState({
             selectedReportId: reportId
         });
-        let embedConfiguration = {
+        const embedConfiguration = {
             type: 'report',
             tokenType: models.TokenType.Embed,
             accessToken: token,

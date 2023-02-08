@@ -1,7 +1,7 @@
-/*--------------------------------------------------------------
- * Copyright (c) Microsoft Corporation. All rights reserved.
- * See License.txt in the project root for license information.
- *--------------------------------------------------------------*/
+/*!
+ * Copyright (c) Microsoft Corporation.
+ * All rights reserved. See LICENSE in the project root for license information.
+ */
 
 import MsDyn365, {
     CacheType,
@@ -302,7 +302,7 @@ export async function customAction(
         SwatchColorHexCode: '#36A1F2',
         SwatchImageUrl: '',
         UnitText: '',
-        //@ts-ignore
+        // @ts-ignore
         '@odata.type': '#Microsoft.Dynamics.Commerce.Runtime.DataModel.ProductRefinerValue'
     };
 
@@ -320,7 +320,7 @@ export async function customAction(
         SwatchColorHexCode: '#6f2da8',
         SwatchImageUrl: '',
         UnitText: '',
-        //@ts-ignore
+        // @ts-ignore
         '@odata.type': '#Microsoft.Dynamics.Commerce.Runtime.DataModel.ProductRefinerValue'
     };
 
@@ -338,7 +338,7 @@ export async function customAction(
         SwatchColorHexCode: '#74c365',
         SwatchImageUrl: '',
         UnitText: '',
-        //@ts-ignore
+        // @ts-ignore
         '@odata.type': '#Microsoft.Dynamics.Commerce.Runtime.DataModel.ProductRefinerValue'
     };
     const channelInventoryConfiguration = await getInventoryConfigurationAsync({ callerContext: context });

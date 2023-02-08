@@ -13,7 +13,6 @@ fixture('Default Page tests').page(url);
 const getWindowLocation = ClientFunction(() => window.location);
 
 test('validate renderPage div render', async (testController: TestController) => {
-    console.log('url: ', await getWindowLocation());
     const renderPageDiv = Selector('#renderPage');
     await testController.expect(renderPageDiv.exists).eql(true, 'Could not find default page container');
 });

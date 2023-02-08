@@ -39,11 +39,11 @@ namespace Contoso
             /// </summary>
             /// <param name="request">The request.</param>
             /// <returns>The response.</returns>
-            protected override async Task<Response> Process(LocalizeEfrResourceRequest request)
+            protected override Task<Response> Process(LocalizeEfrResourceRequest request)
             {
                 string fullTextId = SalesTransactionLocalizationConstants.LocalizationResourcePrefix + request.TextId;
                 string result = stringLocalizer.Translate(request.CultureName, fullTextId);
-                return await Task.FromResult<Response>(new SingleEntityDataServiceResponse<string>(result));
+                return Task.FromResult<Response>(new SingleEntityDataServiceResponse<string>(result));
             }
 
             /// <summary>

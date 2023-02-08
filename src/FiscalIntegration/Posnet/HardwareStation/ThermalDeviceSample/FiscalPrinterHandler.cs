@@ -19,7 +19,9 @@
         /// <summary>
         /// The fiscal printer manager.
         /// </summary>
+#pragma warning disable CS0618 // Type or member is obsolete. JUSTIFICATION: TODO: transform to asynchronous handler
         public class FiscalPrinterHandler : INamedRequestHandler
+#pragma warning restore CS0618 // Type or member is obsolete
         {
             private static PosnetDriver posnetDriver;
             private static readonly object syncObject = new object();
@@ -153,7 +155,7 @@
             /// <returns>The response.</returns>
             private Response SubmitDocument(SubmitDocumentFiscalDeviceRequest request)
             {
-                IEnumerable<IPosnetCommandResponse> responses = null;
+                List<IPosnetCommandResponse> responses = null;
                 try
                 {
                     ThrowIf.NullOrWhiteSpace(request.Document, nameof(request.Document));
@@ -223,7 +225,7 @@
             /// </summary>
             /// <param name="posnetRequest">Posnet document request.</param>
             /// <returns>Collection of responses to the individual commands.</returns>
-            private static IEnumerable<IPosnetCommandResponse> ProcessDocument(PosnetDocumentRequest posnetRequest)
+            private static List<IPosnetCommandResponse> ProcessDocument(PosnetDocumentRequest posnetRequest)
             {
                 ThrowIf.Null(posnetRequest?.Commands, nameof(posnetRequest));
 

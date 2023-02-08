@@ -24,6 +24,7 @@ export interface IOrderDetailsConfig extends Msdyn365.IModuleConfig {
     isReorderingEnabled?: boolean;
     isGridViewEnabled?: boolean;
     className?: string;
+    clientRender?: boolean;
 }
 
 export interface IOrderDetailsResources {

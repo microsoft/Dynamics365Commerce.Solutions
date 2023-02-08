@@ -123,6 +123,10 @@ export interface IBuyboxResources {
     priceRangeSeparator: string;
     bulkPurchaseLinkText: string;
     swatchItemAriaLabel: string;
+    salesAgreementPricePrompt: string;
+    salesAgreementExpirationDatePrompt: string;
+    salesAgreementCommittedQuantityPrompt: string;
+    salesAgreementRemainingQuantityPrompt: string;
     decrementButtonAriaLabel: string;
     incrementButtonAriaLabel: string;
     productDetailsText: string;
@@ -141,6 +145,7 @@ export interface IBuyboxProps<T> extends Msdyn365.IModule<T> {
         storeSelector: React.ReactNode[];
         textBlocks: React.ReactNode[];
         socialShare: React.ReactNode[];
+        productComparisonButton: React.ReactNode[];
         additionalContent: React.ReactNode[];
         freeReturnsContent: React.ReactNode[];
         StoreSelector: React.ReactNode[];

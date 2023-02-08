@@ -5576,7 +5576,7 @@ const mockCountryRegions = [
     {
         CountryRegionId: 'FJI',
         ShortName: 'Fiji',
-        LongName: 'Republic of the Fiji Islands',
+        LongName: 'The Republic of Fiji',
         ISOCode: 'FJ',
         TimeZone: 0,
         LanguageId: 'en-us',
@@ -11107,7 +11107,7 @@ const mockCountryRegions = [
     {
         CountryRegionId: 'MKD',
         ShortName: 'Macedonia, Former Yugoslav Republic of',
-        LongName: 'Republic of Macedonia',
+        LongName: 'North Macedonia',
         ISOCode: 'MK',
         TimeZone: 0,
         LanguageId: 'en-us',
@@ -11326,7 +11326,7 @@ const mockCountryRegions = [
     {
         CountryRegionId: 'MMR',
         ShortName: 'Myanmar',
-        LongName: 'Union of Myanmar',
+        LongName: 'Republic of the Union of Myanmar',
         ISOCode: 'MM',
         TimeZone: 0,
         LanguageId: 'en-us',

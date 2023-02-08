@@ -156,7 +156,7 @@ $search-result-list-item-width: 314px;
 
 // refiner section
 .ms-search-result-container__refiner-section {
-    display: block;
+    display: none;
     padding-right: $search-result-container-refiner-section-padding-right;
     width: $search-result-container-refiner-section-width;
 

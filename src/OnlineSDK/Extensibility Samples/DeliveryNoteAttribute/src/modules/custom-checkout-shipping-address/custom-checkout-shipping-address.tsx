@@ -1,7 +1,7 @@
-/*--------------------------------------------------------------
- * Copyright (c) Microsoft Corporation. All rights reserved.
- * See License.txt in the project root for license information.
- *--------------------------------------------------------------*/
+/*!
+ * Copyright (c) Microsoft Corporation.
+ * All rights reserved. See LICENSE in the project root for license information.
+ */
 
 /* eslint-disable no-duplicate-imports */
 import {
@@ -193,89 +193,6 @@ class CheckoutShippingAddress extends React.Component<ICheckoutAddressProps, ICh
             this.props.telemetry
         );
         this.deliveryNotesRef = React.createRef();
-    }
-
-    /**
-     * Initialize pickup group.
-     */
-    @action
-    private readonly _initPickupGroup = async (): Promise<void> => {
-        const pickupCartLines: CartLine[] = this._getCartLinesforDelivery();
-        const cartLines: ICartLineWithProduct[] = [];
-
-        try {
-            const products = await this._getProductsByCartLines(
-                this.props.data.checkout.result?.checkoutCart.cart.ChannelId || 0,
-                pickupCartLines
-            );
-            for (const line of pickupCartLines) {
-                const product: SimpleProduct | undefined = products.find(x => x.RecordId === line.ProductId);
-                cartLines.push({ cartLine: line, product });
-            }
-            this.setState({ shippingGroups: cartLines });
-        } catch (error) {
-            this.props.telemetry.error(error);
-            this.setState({ shippingGroups: [] });
-        }
-    };
-
-    /**
-     * On suggestion selected.
-     * @param result - Suggestion result interface.
-     */
-    @action
-    private readonly _onSuggestionSelected = async (result: Microsoft.Maps.ISuggestionResult): Promise<void> => {
-        this._clearAddressFields();
-        const address = this.addressFormat.getTranformedAddress(result, this.stateProvinceInfo);
-        const timeout = 0;
-        set(this.addUpdateAddress, { Street: '' });
-        set(this.addUpdateAddress, { ZipCode: address.ZipCode });
-        set(this.addUpdateAddress, { CountyName: address.CountyName });
-        set(this.addUpdateAddress, { City: address.City });
-        set(this.addUpdateAddress, { State: address.State });
-        set(this.addUpdateAddress, { DistrictName: address.DistrictName });
-        set(this.addUpdateAddress, { FullAddress: address.FullAddress });
-
-        // Bing autosuggest put the complete address in the Street input box. Updating the street input box to show only street address.
-        setTimeout(() => {
-            set(this.addUpdateAddress, { Street: address.Street });
-        }, timeout);
-    };
-
-    /**
-     * Method to clear address fields.
-     */
-    @action
-    private readonly _clearAddressFields = (): void => {
-        const addressFormatItem = this.addressFormat.getAddressFormat(
-            this.addUpdateAddress.ThreeLetterISORegionName || this.countryRegionId
-        );
-        for (const formatAddress of addressFormatItem) {
-            if (
-                this.addUpdateAddress[formatAddress.name] !== undefined &&
-                !this.autoSuggest?.excludedAddressFields.includes(formatAddress.name)
-            ) {
-                this.addressFormat[formatAddress.name] = '';
-            }
-        }
-        this._clearValidation();
-    };
-
-    /**
-     * Method to clear validation.
-     */
-    @action
-    private readonly _clearValidation = (): void => {
-        this.validationError = {};
-    };
-
-    public get expressPaymentDetailsFromCartPage(): IExpressPaymentDetails | null {
-        // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition -- Explicitly check for null/undefined.
-        const properties =
-            this.props.data.cart?.result?.cart?.ExtensionProperties?.find(property => property.Key === 'expressPaymentDetails')?.Value
-                ?.StringValue ?? '';
-
-        return properties ? (JSON.parse(properties) as IExpressPaymentDetails) : null;
     }
 
     public async componentDidMount(): Promise<void> {
@@ -499,6 +416,89 @@ class CheckoutShippingAddress extends React.Component<ICheckoutAddressProps, ICh
         };
 
         return renderView(viewProps) as React.ReactElement;
+    }
+
+    /**
+     * Initialize pickup group.
+     */
+    @action
+    private readonly _initPickupGroup = async (): Promise<void> => {
+        const pickupCartLines: CartLine[] = this._getCartLinesforDelivery();
+        const cartLines: ICartLineWithProduct[] = [];
+
+        try {
+            const products = await this._getProductsByCartLines(
+                this.props.data.checkout.result?.checkoutCart.cart.ChannelId || 0,
+                pickupCartLines
+            );
+            for (const line of pickupCartLines) {
+                const product: SimpleProduct | undefined = products.find(x => x.RecordId === line.ProductId);
+                cartLines.push({ cartLine: line, product });
+            }
+            this.setState({ shippingGroups: cartLines });
+        } catch (error) {
+            this.props.telemetry.error(error);
+            this.setState({ shippingGroups: [] });
+        }
+    };
+
+    /**
+     * On suggestion selected.
+     * @param result - Suggestion result interface.
+     */
+    @action
+    private readonly _onSuggestionSelected = async (result: Microsoft.Maps.ISuggestionResult): Promise<void> => {
+        this._clearAddressFields();
+        const address = this.addressFormat.getTranformedAddress(result, this.stateProvinceInfo);
+        const timeout = 0;
+        set(this.addUpdateAddress, { Street: '' });
+        set(this.addUpdateAddress, { ZipCode: address.ZipCode });
+        set(this.addUpdateAddress, { CountyName: address.CountyName });
+        set(this.addUpdateAddress, { City: address.City });
+        set(this.addUpdateAddress, { State: address.State });
+        set(this.addUpdateAddress, { DistrictName: address.DistrictName });
+        set(this.addUpdateAddress, { FullAddress: address.FullAddress });
+
+        // Bing autosuggest put the complete address in the Street input box. Updating the street input box to show only street address.
+        setTimeout(() => {
+            set(this.addUpdateAddress, { Street: address.Street });
+        }, timeout);
+    };
+
+    /**
+     * Method to clear address fields.
+     */
+    @action
+    private readonly _clearAddressFields = (): void => {
+        const addressFormatItem = this.addressFormat.getAddressFormat(
+            this.addUpdateAddress.ThreeLetterISORegionName || this.countryRegionId
+        );
+        for (const formatAddress of addressFormatItem) {
+            if (
+                this.addUpdateAddress[formatAddress.name] !== undefined &&
+                !this.autoSuggest?.excludedAddressFields.includes(formatAddress.name)
+            ) {
+                this.addressFormat[formatAddress.name] = '';
+            }
+        }
+        this._clearValidation();
+    };
+
+    /**
+     * Method to clear validation.
+     */
+    @action
+    private readonly _clearValidation = (): void => {
+        this.validationError = {};
+    };
+
+    public get expressPaymentDetailsFromCartPage(): IExpressPaymentDetails | null {
+        // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition -- Explicitly check for null/undefined.
+        const properties =
+            this.props.data.cart?.result?.cart?.ExtensionProperties?.find(property => property.Key === 'expressPaymentDetails')?.Value
+                ?.StringValue ?? '';
+
+        return properties ? (JSON.parse(properties) as IExpressPaymentDetails) : null;
     }
 
     /**

@@ -54,9 +54,8 @@ namespace Contoso
                 {
                     int cleanCashVATRegisterId = taxMappings[tax.TaxCode];
 
-                    if (cleanCashTaxLines.ContainsKey(cleanCashVATRegisterId))
+                    if (cleanCashTaxLines.TryGetValue(cleanCashVATRegisterId, out var cleanCashTaxLine))
                     {
-                        var cleanCashTaxLine = cleanCashTaxLines[cleanCashVATRegisterId];
 
                         if (cleanCashTaxLine.TaxPercentage != tax.Percentage)
                         {
@@ -67,7 +66,7 @@ namespace Contoso
                     }
                     else
                     {
-                        var cleanCashTaxLine = new CleanCashTaxLine(tax.Amount, tax.Percentage);
+                        cleanCashTaxLine = new CleanCashTaxLine(tax.Amount, tax.Percentage);
                         cleanCashTaxLines.Add(cleanCashVATRegisterId, cleanCashTaxLine);
                     }
                 }

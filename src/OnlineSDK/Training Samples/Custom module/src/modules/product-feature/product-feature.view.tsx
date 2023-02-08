@@ -11,7 +11,13 @@ const _renderImage = (productImageUrl: string, productName: string): JSX.Element
     return <img src={productImageUrl} alt={productName} className='img-fluid p-3' />;
 };
 
-const _renderInfo = (productName: string, productInfo: string, productPrice: string, buttonInfo: string, productTitleId:string): JSX.Element => {
+const _renderInfo = (
+    productName: string,
+    productInfo: string,
+    productPrice: string,
+    buttonInfo: string,
+    productTitleId: string
+): JSX.Element => {
     return (
         <div className='container'>
             <h2 id={productTitleId}>{productName}</h2>

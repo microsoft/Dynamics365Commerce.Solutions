@@ -1,28 +1,53 @@
-/*--------------------------------------------------------------
- * Copyright (c) Microsoft Corporation. All rights reserved.
- * See License.txt in the project root for license information.
- *--------------------------------------------------------------*/
+/*!
+ * Copyright (c) Microsoft Corporation.
+ * All rights reserved. See LICENSE in the project root for license information.
+ */
 
 import { IProductsDimensionsAvailabilities } from '@msdyn365-commerce/commerce-entities';
 import {
-    IComponent, IComponentProps, ICoreContext, IGridSettings,
-    IImageData, IImageProps, IImageSettings, Image, IRequestContext, msdyn365Commerce
+    IComponent,
+    IComponentProps,
+    ICoreContext,
+    IGridSettings,
+    IImageData,
+    IImageProps,
+    IImageSettings,
+    Image,
+    IRequestContext,
+    msdyn365Commerce
 } from '@msdyn365-commerce/core';
 import { AttributeSwatch, ProductDimension, ProductPrice, ProductSearchResult } from '@msdyn365-commerce/retail-proxy';
 import {
-    ArrayExtensions, checkIfShouldDisplayAsSwatch, convertDimensionTypeToProductDimensionType,
+    ArrayExtensions,
+    checkIfShouldDisplayAsSwatch,
+    convertDimensionTypeToProductDimensionType,
     Dictionary,
-    DimensionSwatchDisplayTypes, DimensionTypes, generateImageUrl,
-    getProductPageUrlSync, StringExtensions
+    DimensionSwatchDisplayTypes,
+    DimensionTypes,
+    generateImageUrl,
+    getProductPageUrlSync,
+    StringExtensions
 } from '@msdyn365-commerce-modules/retail-actions';
-import { format, getPayloadObject, getTelemetryAttributes, ITelemetryContent, onTelemetryClick } from '@msdyn365-commerce-modules/utilities';
+import {
+    format,
+    getPayloadObject,
+    getTelemetryAttributes,
+    ITelemetryContent,
+    onTelemetryClick
+} from '@msdyn365-commerce-modules/utilities';
 import React, { useState } from 'react';
 
 // import { IPriceComponentResources, PriceComponent } from '../price/price.components';
 // import { ISwatchItem } from '../product-dimension';
 // import { RatingComponent } from '../rating/rating.component';
 // import { ProductComponentSwatchComponent } from './components';
-import { IPriceComponentResources, PriceComponent, ISwatchItem, RatingComponent, ProductComponentSwatchComponent } from '@msdyn365-commerce/components';
+import {
+    IPriceComponentResources,
+    PriceComponent,
+    ISwatchItem,
+    RatingComponent,
+    ProductComponentSwatchComponent
+} from '@msdyn365-commerce/components';
 
 export interface IProductComponentProps extends IComponentProps<{ product?: ProductSearchResult }> {
     className?: string;
@@ -43,7 +68,7 @@ export interface IProductComponentProps extends IComponentProps<{ product?: Prod
     swatchItemAriaLabel?: string;
 }
 
-export interface IProductComponent extends IComponent<IProductComponentProps> { }
+export interface IProductComponent extends IComponent<IProductComponentProps> {}
 
 export enum BadgesDisplayTypes {
     none = 'none',
@@ -53,10 +78,10 @@ export enum BadgesDisplayTypes {
 /**
  * This setting defines the inventory levels supported.
  */
- export declare enum InventoryLevels {
-    physicalAvailable = "physicalAvailable",
-    totalAvailable = "totalAvailable",
-    threshold = "inventoryThreshold"
+export declare enum InventoryLevels {
+    physicalAvailable = 'physicalAvailable',
+    totalAvailable = 'totalAvailable',
+    threshold = 'inventoryThreshold'
 }
 /**
  * Represents app configuration for dimensions.
@@ -74,7 +99,6 @@ export interface IDimensionsConfig {
     inventoryLevel?: InventoryLevels;
     dimensionToPreSelectInProductCard?: DimensionTypes;
 }
-
 
 const PriceComponentActions = {};
 
@@ -130,7 +154,9 @@ const ProductCard: React.FC<IProductComponentProps> = ({
             return null;
         }
 
-        const colorAttribute = productData.AttributeValues.find(attributeValue => attributeValue.KeyName?.toLocaleLowerCase() === DimensionTypes.color);
+        const colorAttribute = productData.AttributeValues.find(
+            attributeValue => attributeValue.KeyName?.toLocaleLowerCase() === DimensionTypes.color
+        );
         if (!ArrayExtensions.hasElements(colorAttribute?.Swatches)) {
             return null;
         }
@@ -152,8 +178,9 @@ const ProductCard: React.FC<IProductComponentProps> = ({
             return productData?.PrimaryImageUrl;
         }
         const defaultSwatch = getDefaultColorSwatchSelected(productData);
-        return defaultSwatch && ArrayExtensions.hasElements(defaultSwatch.ProductImageUrls) ? generateImageUrl(
-            defaultSwatch.ProductImageUrls[0], coreContext.request.apiSettings) : productData?.PrimaryImageUrl;
+        return defaultSwatch && ArrayExtensions.hasElements(defaultSwatch.ProductImageUrls)
+            ? generateImageUrl(defaultSwatch.ProductImageUrls[0], coreContext.request.apiSettings)
+            : productData?.PrimaryImageUrl;
     }
 
     /**
@@ -163,7 +190,11 @@ const ProductCard: React.FC<IProductComponentProps> = ({
      * @param  productData - Product card to be rendered.
      * @returns The product card image url.
      */
-    function getProductPageUrlFromDefaultSwatch(coreContext: ICoreContext, productUrl: string, productData?: ProductSearchResult): string | undefined {
+    function getProductPageUrlFromDefaultSwatch(
+        coreContext: ICoreContext,
+        productUrl: string,
+        productData?: ProductSearchResult
+    ): string | undefined {
         const siteContext = coreContext as ICoreContext<IDimensionsApp>;
         const dimensionToPreSelectInProductCard = siteContext.app.config.dimensionToPreSelectInProductCard;
         if (dimensionToPreSelectInProductCard === DimensionTypes.none) {
@@ -195,28 +226,33 @@ const ProductCard: React.FC<IProductComponentProps> = ({
      * @param coreContext - Context of the caller.
      * @param swatchItem - Dimension swatch selected.
      */
-    const updatePageAndImageUrl = React.useCallback((coreContext: ICoreContext, swatchItem: ISwatchItem) => {
-        const dimensionType = swatchItem.dimensionType;
-        selectedSwatchItems.setValue(dimensionType, swatchItem);
-        if (StringExtensions.isNullOrWhitespace(swatchItem.value)) {
-            return;
-        }
-        const queryString = `${dimensionType}=${swatchItem.value}`;
-        let productPageUrlWithSwatch = '';
-        if (productPageUrl.includes(dimensionType)) {
-            const newUrl = new URL(productPageUrl, coreContext.request.apiSettings.baseUrl);
-            newUrl.searchParams.delete(dimensionType);
-            productPageUrlWithSwatch = updateProductUrl(newUrl.toString(), context, queryString);
-        } else {
-            productPageUrlWithSwatch = updateProductUrl(productPageUrl, context, queryString);
-        }
-        setProductPageUrl(productPageUrlWithSwatch);
-        if (dimensionType === DimensionTypes.color) {
-            const swatchProductImageUrl = ArrayExtensions.hasElements(swatchItem.productImageUrls) ? swatchItem.productImageUrls[0] : undefined;
-            const newImageUrl = generateImageUrl(swatchProductImageUrl, coreContext.request.apiSettings);
-            setProductImageUrl(newImageUrl);
-        }
-    }, [selectedSwatchItems, context, productPageUrl]);
+    const updatePageAndImageUrl = React.useCallback(
+        (coreContext: ICoreContext, swatchItem: ISwatchItem) => {
+            const dimensionType = swatchItem.dimensionType;
+            selectedSwatchItems.setValue(dimensionType, swatchItem);
+            if (StringExtensions.isNullOrWhitespace(swatchItem.value)) {
+                return;
+            }
+            const queryString = `${dimensionType}=${swatchItem.value}`;
+            let productPageUrlWithSwatch = '';
+            if (productPageUrl.includes(dimensionType)) {
+                const newUrl = new URL(productPageUrl, coreContext.request.apiSettings.baseUrl);
+                newUrl.searchParams.delete(dimensionType);
+                productPageUrlWithSwatch = updateProductUrl(newUrl.toString(), context, queryString);
+            } else {
+                productPageUrlWithSwatch = updateProductUrl(productPageUrl, context, queryString);
+            }
+            setProductPageUrl(productPageUrlWithSwatch);
+            if (dimensionType === DimensionTypes.color) {
+                const swatchProductImageUrl = ArrayExtensions.hasElements(swatchItem.productImageUrls)
+                    ? swatchItem.productImageUrls[0]
+                    : undefined;
+                const newImageUrl = generateImageUrl(swatchProductImageUrl, coreContext.request.apiSettings);
+                setProductImageUrl(newImageUrl);
+            }
+        },
+        [selectedSwatchItems, context, productPageUrl]
+    );
 
     if (!product) {
         return null;
@@ -225,25 +261,37 @@ const ProductCard: React.FC<IProductComponentProps> = ({
     const checkIfShouldDisplayAttributeBadges = (
         attribute: string,
         context: ICoreContext<IDimensionsApp>,
-        displayType: BadgesDisplayTypes = BadgesDisplayTypes.none): boolean => {
-    
+        displayType: BadgesDisplayTypes = BadgesDisplayTypes.none
+    ): boolean => {
         // Shift() is used to take the first element on the attributes provided if removed all atributes are going to be rendered .shift();
         if (!context.app.config.dimensionsInBadgeAtribute) {
             return false;
         }
         const compareDimentions = context.app.config.dimensionsInBadgeAtribute.split(',').shift();
-        const attributeList = compareDimentions ? compareDimentions.toLocaleLowerCase().trim().split(' ').join('') : '';
-        const newAttribute = attribute.toLocaleLowerCase().trim().split(' ').join('');
-    
+        const attributeList = compareDimentions
+            ? compareDimentions
+                  .toLocaleLowerCase()
+                  .trim()
+                  .split(' ')
+                  .join('')
+            : '';
+        const newAttribute = attribute
+            .toLocaleLowerCase()
+            .trim()
+            .split(' ')
+            .join('');
+
         const dimensionsToDisplayOnProductCard = context.app.config.enableBadgeOnModule;
-        if (!ArrayExtensions.hasElements(dimensionsToDisplayOnProductCard) ||
+        if (
+            !ArrayExtensions.hasElements(dimensionsToDisplayOnProductCard) ||
             dimensionsToDisplayOnProductCard.includes(BadgesDisplayTypes.none) ||
             !dimensionsToDisplayOnProductCard.includes(displayType) ||
             !context.app.config.isAtributeBadgeEnabled ||
-            attributeList !== newAttribute) {
+            attributeList !== newAttribute
+        ) {
             return false;
         }
-    
+
         return true;
     };
 
@@ -269,39 +317,50 @@ const ProductCard: React.FC<IProductComponentProps> = ({
         })
     );
 
-    const swatchItems = ArrayExtensions.validValues(product.AttributeValues?.map(item => {
-        const dimensionTypeValue = item.KeyName?.toLocaleLowerCase() ?? '';
-        const shouldDisplayAsSwatch = checkIfShouldDisplayAsSwatch(
-            dimensionTypeValue as DimensionTypes,
-            context as ICoreContext<IDimensionsApp>,
-            DimensionSwatchDisplayTypes.productCard);
-        if (!shouldDisplayAsSwatch) {
-            return null;
-        }
+    const swatchItems = ArrayExtensions.validValues(
+        product.AttributeValues?.map(item => {
+            const dimensionTypeValue = item.KeyName?.toLocaleLowerCase() ?? '';
+            const shouldDisplayAsSwatch = checkIfShouldDisplayAsSwatch(
+                dimensionTypeValue as DimensionTypes,
+                context as ICoreContext<IDimensionsApp>,
+                DimensionSwatchDisplayTypes.productCard
+            );
+            if (!shouldDisplayAsSwatch) {
+                return null;
+            }
 
-        const siteContext = context as ICoreContext<IDimensionsApp>;
-        const dimensionToPreSelectInProductCard = siteContext.app.config.dimensionToPreSelectInProductCard;
-        const dimensionType = dimensionTypeValue as DimensionTypes;
-        const swatches = item.Swatches?.map<ISwatchItem>(swatchItem => {
-            return {
-                itemId: `${item.RecordId ?? ''}-${dimensionTypeValue}-${swatchItem.SwatchValue ?? ''}`,
-                value: swatchItem.SwatchValue ?? '',
-                dimensionType,
-                colorHexCode: swatchItem.SwatchColorHexCode,
-                imageUrl: swatchItem.SwatchImageUrl,
-                productImageUrls: swatchItem.ProductImageUrls,
-                isDefault: swatchItem.IsDefault,
-                swatchItemAriaLabel: swatchItemAriaLabel ? format(swatchItemAriaLabel, dimensionType) : '',
-                isDisabled: enableStockCheck && dimensionAvailabilities?.find(
-                    dimensionAvailability => dimensionAvailability.value === (swatchItem.SwatchValue ?? ''))?.isDisabled
-            };
-        }) ?? [];
-        if (dimensionToPreSelectInProductCard !== DimensionTypes.none && ArrayExtensions.hasElements(swatches) &&
-            !swatches.some(swatch => swatch.isDefault) && dimensionType === DimensionTypes.color) {
-            swatches[0].isDefault = true;
-        }
-        return { recordId: item.RecordId, swatches };
-    }));
+            const siteContext = context as ICoreContext<IDimensionsApp>;
+            const dimensionToPreSelectInProductCard = siteContext.app.config.dimensionToPreSelectInProductCard;
+            const dimensionType = dimensionTypeValue as DimensionTypes;
+            const swatches =
+                item.Swatches?.map<ISwatchItem>(swatchItem => {
+                    return {
+                        itemId: `${item.RecordId ?? ''}-${dimensionTypeValue}-${swatchItem.SwatchValue ?? ''}`,
+                        value: swatchItem.SwatchValue ?? '',
+                        dimensionType,
+                        colorHexCode: swatchItem.SwatchColorHexCode,
+                        imageUrl: swatchItem.SwatchImageUrl,
+                        productImageUrls: swatchItem.ProductImageUrls,
+                        isDefault: swatchItem.IsDefault,
+                        swatchItemAriaLabel: swatchItemAriaLabel ? format(swatchItemAriaLabel, dimensionType) : '',
+                        isDisabled:
+                            enableStockCheck &&
+                            dimensionAvailabilities?.find(
+                                dimensionAvailability => dimensionAvailability.value === (swatchItem.SwatchValue ?? '')
+                            )?.isDisabled
+                    };
+                }) ?? [];
+            if (
+                dimensionToPreSelectInProductCard !== DimensionTypes.none &&
+                ArrayExtensions.hasElements(swatches) &&
+                !swatches.some(swatch => swatch.isDefault) &&
+                dimensionType === DimensionTypes.color
+            ) {
+                swatches[0].isDefault = true;
+            }
+            return { recordId: item.RecordId, swatches };
+        })
+    );
 
     // Construct telemetry attribute to render
     const payLoad = getPayloadObject('click', telemetryContent!, '', product.RecordId.toString());
@@ -317,15 +376,12 @@ const ProductCard: React.FC<IProductComponentProps> = ({
      * @returns The node representing markup for unit of measure component.
      */
     function renderProductUnitOfMeasure(unitOfMeasure?: string): JSX.Element | null {
-
         if (!unitOfMeasure) {
             return null;
         }
         return (
             <div className='msc-product__unit-of-measure'>
-                <span>
-                    {unitOfMeasure}
-                </span>
+                <span>{unitOfMeasure}</span>
             </div>
         );
     }
@@ -342,9 +398,7 @@ const ProductCard: React.FC<IProductComponentProps> = ({
 
         return (
             <div className='msc-product__availability'>
-                <span>
-                    {inventoryAvailabilityLabel}
-                </span>
+                <span>{inventoryAvailabilityLabel}</span>
             </div>
         );
     }
@@ -360,18 +414,16 @@ const ProductCard: React.FC<IProductComponentProps> = ({
 
         return (
             <div className='msc-product__dimensions'>
-                {
-                    swatchItems.map(item => {
-                        return (
-                            <ProductComponentSwatchComponent
-                                key={item.recordId}
-                                context={context}
-                                onSelectDimension={updatePageAndImageUrl}
-                                swatches={item.swatches}
-                            />
-                        );
-                    })
-                }
+                {swatchItems.map(item => {
+                    return (
+                        <ProductComponentSwatchComponent
+                            key={item.recordId}
+                            context={context}
+                            onSelectDimension={updatePageAndImageUrl}
+                            swatches={item.swatches}
+                        />
+                    );
+                })}
             </div>
         );
     }
@@ -380,7 +432,7 @@ const ProductCard: React.FC<IProductComponentProps> = ({
      * Gets the react node for render badges.
      * @returns The product badge component.
      */
-     function renderProductBadge(): JSX.Element | null {
+    function renderProductBadge(): JSX.Element | null {
         if (!ArrayExtensions.hasElements(badgeAttributeItems)) {
             return null;
         }
@@ -462,11 +514,12 @@ const ProductCard: React.FC<IProductComponentProps> = ({
         rating?: number,
         ratingAriaLabelText?: string,
         reviewCount?: number,
-        ratingCountAriaLabelText?: string): string {
+        ratingCountAriaLabelText?: string
+    ): string {
         const reviewCountArialableText = getReviewAriaLabel(reviewCount, ratingCountAriaLabelText ?? '');
-        return (
-            `${name ?? ''} ${price ?? ''} ${getRatingAriaLabel(rating, ratingAriaLabelText)}${reviewCountArialableText ? ` ${reviewCountArialableText}` : ''}`
-        );
+        return `${name ?? ''} ${price ?? ''} ${getRatingAriaLabel(rating, ratingAriaLabelText)}${
+            reviewCountArialableText ? ` ${reviewCountArialableText}` : ''
+        }`;
     }
 
     /**
@@ -480,9 +533,13 @@ const ProductCard: React.FC<IProductComponentProps> = ({
      * @returns React component for product image.
      */
     function renderProductPlacementImage(
-        productCardimageSettings?: IImageSettings, gridSettings?: IGridSettings,
-        imageUrl?: string, fallbackImageUrl?: string, altText?: string, requestContext?: IRequestContext): JSX.Element | null {
-
+        productCardimageSettings?: IImageSettings,
+        gridSettings?: IGridSettings,
+        imageUrl?: string,
+        fallbackImageUrl?: string,
+        altText?: string,
+        requestContext?: IRequestContext
+    ): JSX.Element | null {
         if (!imageUrl || !gridSettings || !productCardimageSettings) {
             return null;
         }
@@ -495,12 +552,7 @@ const ProductCard: React.FC<IProductComponentProps> = ({
         imageProps.gridSettings = gridSettings;
         imageProps.imageSettings = productCardimageSettings;
         imageProps.imageSettings.cropFocalRegion = true;
-        return (
-            <Image
-                {...image} {...imageProps} loadFailureBehavior='empty'
-                requestContext={requestContext}
-            />
-        );
+        return <Image {...image} {...imageProps} loadFailureBehavior='empty' requestContext={requestContext} />;
     }
 
     /**
@@ -518,9 +570,19 @@ const ProductCard: React.FC<IProductComponentProps> = ({
      * @param  currentPriceResourceText - Product price current text.
      * @returns React component for Product price.
      */
-    function renderPrice(coreContext: ICoreContext, moduleTypeName: string, moduleId: string, basePrice?: number, adjustedPrice?: number,
-        maxVariantPrice?: number, minVariantPrice?: number, savingsPriceResourceText?: string, freePriceResourceText?: string,
-        originalPriceResourceText?: string, currentPriceResourceText?: string): JSX.Element | null {
+    function renderPrice(
+        coreContext: ICoreContext,
+        moduleTypeName: string,
+        moduleId: string,
+        basePrice?: number,
+        adjustedPrice?: number,
+        maxVariantPrice?: number,
+        minVariantPrice?: number,
+        savingsPriceResourceText?: string,
+        freePriceResourceText?: string,
+        originalPriceResourceText?: string,
+        currentPriceResourceText?: string
+    ): JSX.Element | null {
         const price: ProductPrice = {
             BasePrice: basePrice,
             AdjustedPrice: adjustedPrice,
@@ -551,9 +613,7 @@ const ProductCard: React.FC<IProductComponentProps> = ({
      * @returns The product description component.
      */
     function renderDescription(description?: string): JSX.Element | null {
-        return (<p className='msc-product__text'>
-            {description}
-        </p>);
+        return <p className='msc-product__text'>{description}</p>;
     }
 
     /**
@@ -566,8 +626,14 @@ const ProductCard: React.FC<IProductComponentProps> = ({
      * @param  ariaLabel - Aria label for rating.
      * @returns React component for Product rating.
      */
-    function renderRating(coreContext: ICoreContext, moduleTypeName: string, moduleId: string, avgRating?: number,
-        totalRatings?: number, ariaLabel?: string): JSX.Element | null {
+    function renderRating(
+        coreContext: ICoreContext,
+        moduleTypeName: string,
+        moduleId: string,
+        avgRating?: number,
+        totalRatings?: number,
+        ariaLabel?: string
+    ): JSX.Element | null {
         if (!avgRating) {
             return null;
         }
@@ -594,29 +660,50 @@ const ProductCard: React.FC<IProductComponentProps> = ({
     return (
         <>
             <a
-                href={productPageUrl} onClick={onTelemetryClick(telemetryContent!, payLoad, product.Name!)}
+                href={productPageUrl}
+                onClick={onTelemetryClick(telemetryContent!, payLoad, product.Name!)}
                 aria-label={renderLabel(
                     product.Name,
                     context.cultureFormatter.formatCurrency(product.Price),
-                    product.AverageRating, ratingAriaLabel,
-                    product.TotalRatings, ratingCountAriaLabel)}
-                className='msc-product' {...attribute}>
+                    product.AverageRating,
+                    ratingAriaLabel,
+                    product.TotalRatings,
+                    ratingCountAriaLabel
+                )}
+                className='msc-product'
+                {...attribute}
+            >
                 <div className='msc-product__image'>
                     {renderProductPlacementImage(
-                        imageSettings, context.request.gridSettings, productImageUrl,
-                        product.PrimaryImageUrl, product.Name, context.actionContext.requestContext)}
+                        imageSettings,
+                        context.request.gridSettings,
+                        productImageUrl,
+                        product.PrimaryImageUrl,
+                        product.Name,
+                        context.actionContext.requestContext
+                    )}
                 </div>
-                <h4 className='msc-product__title'>
-                    {product.Name}
-                </h4>
+                <h4 className='msc-product__title'>{product.Name}</h4>
             </a>
             {renderProductDimensions()}
             <div className='msc-product__details'>
-                {renderPrice(context, typeName, id, product.BasePrice, product.Price,
-                    product.MaxVariantPrice, product.MinVariantPrice, savingsText, freePriceText, originalPriceText, currentPriceText)}
+                {renderPrice(
+                    context,
+                    typeName,
+                    id,
+                    product.BasePrice,
+                    product.Price,
+                    product.MaxVariantPrice,
+                    product.MinVariantPrice,
+                    savingsText,
+                    freePriceText,
+                    originalPriceText,
+                    currentPriceText
+                )}
                 {isUnitOfMeasureEnabled && renderProductUnitOfMeasure(product.DefaultUnitOfMeasure)}
                 {renderDescription(product.Description)}
-                {!context.app.config.hideRating && renderRating(context, typeName, id, product.AverageRating, product.TotalRatings, ratingAriaLabel)}
+                {!context.app.config.hideRating &&
+                    renderRating(context, typeName, id, product.AverageRating, product.TotalRatings, ratingAriaLabel)}
                 {renderProductAvailability(inventoryLabel)}
             </div>
             {renderProductBadge()}
@@ -625,10 +712,8 @@ const ProductCard: React.FC<IProductComponentProps> = ({
     );
 };
 
-export const ProductComponent: React.FunctionComponent<IProductComponentProps> = msdyn365Commerce.createComponentOverride<IProductComponent>(
-    'Product',
-    { component: ProductCard, ...PriceComponentActions }
-);
-
+export const ProductComponent: React.FunctionComponent<IProductComponentProps> = msdyn365Commerce.createComponentOverride<
+    IProductComponent
+>('Product', { component: ProductCard, ...PriceComponentActions });
 
 export default ProductComponent;

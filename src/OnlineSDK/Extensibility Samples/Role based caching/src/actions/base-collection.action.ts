@@ -1,7 +1,7 @@
-/*--------------------------------------------------------------
- * Copyright (c) Microsoft Corporation. All rights reserved.
- * See License.txt in the project root for license information.
- *--------------------------------------------------------------*/
+/*!
+ * Copyright (c) Microsoft Corporation.
+ * All rights reserved. See LICENSE in the project root for license information.
+ */
 
 import { CacheType, getCatalogId, IActionInput, IAny, ICommerceApiSettings, ICreateActionContext, IGeneric } from '@msdyn365-commerce/core';
 import { convertToString, IQueryResultSettings, ProductRefinerValue, SortColumn } from '@msdyn365-commerce/retail-proxy';
@@ -97,6 +97,7 @@ export class BaseCollectionInput implements IActionInput {
         const cacheKey = buildCacheKey(
             // eslint-disable-next-line @typescript-eslint/restrict-template-expressions -- disabling this as inputs can be undefined depending on page type
             `${this.pageType}-${this.customerType}-${this.locale}-${this.category || this.searchText}-${this.catalogId}-${this.refiners.map(
+                // eslint-disable-next-line @typescript-eslint/restrict-plus-operands
                 refiner => `${refiner.RefinerRecordId + (refiner.LeftValueBoundString || '') + (refiner.RightValueBoundString || '')}-`
             )}-${convertToString(queryResultSettings)}`,
             this.apiSettings,

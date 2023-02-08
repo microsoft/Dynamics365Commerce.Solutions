@@ -1,7 +1,7 @@
-/*--------------------------------------------------------------
- * Copyright (c) Microsoft Corporation. All rights reserved.
- * See License.txt in the project root for license information.
- *--------------------------------------------------------------*/
+/*!
+ * Copyright (c) Microsoft Corporation.
+ * All rights reserved. See LICENSE in the project root for license information.
+ */
 
 /* eslint-disable no-duplicate-imports */
 import {
@@ -10,7 +10,14 @@ import {
     IProductsDimensionsAvailabilities
 } from '@msdyn365-commerce/commerce-entities';
 import MsDyn365, { getCatalogId, ICoreContext } from '@msdyn365-commerce/core';
-import { format, ProductPrice, ProductRefinerValue, SortColumn, TextValueTranslation, ProductSearchResult } from '@msdyn365-commerce/retail-proxy';
+import {
+    format,
+    ProductPrice,
+    ProductRefinerValue,
+    SortColumn,
+    TextValueTranslation,
+    ProductSearchResult
+} from '@msdyn365-commerce/retail-proxy';
 import {
     ArrayExtensions,
     DimensionAvailabilitiesForProductSearchResultInput,
@@ -185,6 +192,15 @@ export default class SearchResultContainer extends React.PureComponent<
 
     private readonly catalogId = getCatalogId(this.props.context.request);
 
+    public static getFriendlyName(locale: string, nameTranslations?: TextValueTranslation[]): string | undefined {
+        let nameTranslation: TextValueTranslation | undefined;
+        if (locale && nameTranslations && ArrayExtensions.hasElements(nameTranslations)) {
+            nameTranslation = nameTranslations.find(item => item.Language!.toLowerCase() === locale.toLowerCase());
+        }
+
+        return nameTranslation?.Text;
+    }
+
     public constructor(props: ICustomSearchResultContainerProps<ICustomSearchResultContainerData>, state: ISearchResultContainerState) {
         super(props);
         this._viewport =
@@ -356,15 +372,6 @@ export default class SearchResultContainer extends React.PureComponent<
         this._updateViewport();
     }
 
-    public static getFriendlyName(locale: string, nameTranslations?: TextValueTranslation[]): string | undefined {
-        let nameTranslation: TextValueTranslation | undefined;
-        if (locale && nameTranslations && ArrayExtensions.hasElements(nameTranslations)) {
-            nameTranslation = nameTranslations.find(item => item.Language!.toLowerCase() === locale.toLowerCase());
-        }
-
-        return nameTranslation?.Text;
-    }
-
     public async componentDidMount(): Promise<void> {
         if (MsDyn365.isBrowser && window.addEventListener) {
             window.addEventListener('resize', this._updateViewport);
@@ -406,13 +413,13 @@ export default class SearchResultContainer extends React.PureComponent<
 
         const customer = this.props.data.customerInformation.result;
         const custmerAttributes = (customer && customer.Attributes) || [];
-        const customUserAttribute = custmerAttributes.find(att => att.Name === "customUserAttribute");
+        const customUserAttribute = custmerAttributes.find(att => att.Name === 'customUserAttribute');
         const customerAge = customUserAttribute?.AttributeValue?.IntegerValue;
-        if(customerAge === 1985) {
+        if (customerAge === 1985) {
             products = products.filter(product => {
                 const productAttributeValues = product.AttributeValues;
-                const productCustomAttribute = productAttributeValues?.find(att => att.Name === "customAttribute")
-                if(productCustomAttribute?.TextValue === "NoShow") {
+                const productCustomAttribute = productAttributeValues?.find(att => att.Name === 'customAttribute');
+                if (productCustomAttribute?.TextValue === 'NoShow') {
                     return false;
                 }
                 return true;

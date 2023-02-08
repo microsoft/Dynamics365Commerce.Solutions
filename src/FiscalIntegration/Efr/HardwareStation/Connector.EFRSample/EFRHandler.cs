@@ -28,6 +28,8 @@ namespace Contoso
         /// </summary>
         public class EFRHandler : INamedRequestHandlerAsync
         {
+            public readonly static HttpClient httpClient = new HttpClient(new HttpClientHandler());
+
             /// <summary>
             /// Gets name of the handler.
             /// </summary>
@@ -57,9 +59,9 @@ namespace Contoso
                     case InitializeFiscalDeviceRequest initializeFiscalDeviceRequest:
                         return Task.FromResult(Initialize(initializeFiscalDeviceRequest));
                     case SubmitDocumentFiscalDeviceRequest submitDocumentFiscalDeviceRequest:
-                        return Task.FromResult(SubmitDocument(submitDocumentFiscalDeviceRequest));
+                        return SubmitDocument(submitDocumentFiscalDeviceRequest);
                     case IsReadyFiscalDeviceRequest isReadyFiscalDeviceRequest:
-                        return Task.FromResult(IsReady(isReadyFiscalDeviceRequest));
+                        return IsReady(isReadyFiscalDeviceRequest);
                     default:
                         throw new NotSupportedException(string.Format("Request '{0}' is not supported.", request.GetType()));
                 }
@@ -86,7 +88,7 @@ namespace Contoso
             /// </summary>
             /// <param name="request">The request.</param>
             /// <returns>The response.</returns>
-            private Response SubmitDocument(SubmitDocumentFiscalDeviceRequest request)
+            private async Task<Response> SubmitDocument(SubmitDocumentFiscalDeviceRequest request)
             {
                 ThrowIf.NullOrWhiteSpace(request.Document, nameof(request.Document));
                 ThrowIf.Null(request.PeripheralInfo, nameof(request.PeripheralInfo));
@@ -108,9 +110,12 @@ namespace Contoso
                             timeoutCancellationTokenSource.Token
                         );
 
-                        if (task.Wait(timeoutValue > 0 ? timeoutValue : Timeout.Infinite))
+                        timeoutValue = timeoutValue > 0 ? timeoutValue : Timeout.Infinite;
+                        Task firstCompletedTask = await Task.WhenAny(task, Task.Delay(timeoutValue)).ConfigureAwait(false);
+
+                        if (firstCompletedTask == task)
                         {
-                            string responseFromService = task.Result;
+                            string responseFromService = await task.ConfigureAwait(false);
                             response = FiscalDeviceResponseParser.ParseSubmitDocumentFiscalDeviceResponse(responseFromService, includeUserNotificationMessage);
                         }
                         else
@@ -150,7 +155,7 @@ namespace Contoso
             /// </summary>
             /// <param name="request">The request.</param>
             /// <returns>The response.</returns>
-            private Response IsReady(IsReadyFiscalDeviceRequest request)
+            private async Task<Response> IsReady(IsReadyFiscalDeviceRequest request)
             {
                 ThrowIf.Null(request.PeripheralInfo, $"{nameof(request)}.{nameof(request.PeripheralInfo)}");
                 ThrowIf.NullOrWhiteSpace(request.PeripheralInfo.DeviceName, $"{nameof(request)}.{nameof(request.PeripheralInfo)}.{nameof(request.PeripheralInfo.DeviceName)}");
@@ -162,13 +167,19 @@ namespace Contoso
                 {
                     var timeoutValue = ConfigurationController.GetTimeoutValue(request.PeripheralInfo.DeviceProperties);
                     var endpointAddress = ConfigurationController.GetEndpointAddress(request.PeripheralInfo.DeviceProperties);
-                    var task = new HttpClient().GetAsync(endpointAddress + "/" + RequestConstants.State);
-                    if (task.Wait(timeoutValue > 0 ? timeoutValue : Timeout.Infinite))
+                    var task = httpClient.GetAsync(endpointAddress + "/" + RequestConstants.State);
+
+                    timeoutValue = timeoutValue > 0 ? timeoutValue : Timeout.Infinite;
+                    Task firstCompletedTask = await Task.WhenAny(task, Task.Delay(timeoutValue)).ConfigureAwait(false);
+
+                    if (firstCompletedTask == task)
                     {
-                        response = new IsReadyFiscalDeviceResponse(task.Result.StatusCode == System.Net.HttpStatusCode.OK);
+                        var httpResponse = await task.ConfigureAwait(false);
+
+                        response = new IsReadyFiscalDeviceResponse(httpResponse.StatusCode == System.Net.HttpStatusCode.OK);
                     }
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                 }
 

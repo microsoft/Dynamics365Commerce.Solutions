@@ -2,6 +2,7 @@
  * Copyright (c) Microsoft Corporation.
  * All rights reserved. See LICENSE in the project root for license information.
  */
+
 import * as React from 'react';
 import * as renderer from 'react-test-renderer';
 import { buildMockModuleProps } from '@msdyn365-commerce/core-internal';
