@@ -5,6 +5,11 @@
     <Version>$(MajorVersion).$(BuildNumber)</Version>
   </PropertyGroup>
   <PropertyGroup>
+    <!-- Workaround for breaking changes in PackageDefinitions metadata. https://github.com/dotnet/sdk/issues/30809 -->
+    <!-- TODO: avoid of the PackageDefinitions usage. -->
+    <EmitLegacyAssetsFileItems>true</EmitLegacyAssetsFileItems>
+  </PropertyGroup>
+  <PropertyGroup>
     <Publisher Condition="'$(Publisher)' == ''">CN=Contoso Ltd.</Publisher>
     <PublisherDisplayName Condition="'$(PublisherDisplayName)' == ''">Contoso Ltd.</PublisherDisplayName>
   </PropertyGroup>
