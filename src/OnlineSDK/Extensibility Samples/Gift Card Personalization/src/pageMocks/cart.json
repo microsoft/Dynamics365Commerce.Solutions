@@ -34,7 +34,7 @@
                         "pageCacheTTR": 120.0,
                         "skipToMainText": "Skip to main content",
                         "shouldCachePage": false,
-                        "pageTheme": "adventureworks"
+                        "pageTheme": "summer"
                     },
                     "modules": {
                         "header": [
@@ -2067,18 +2067,6 @@
                                                             "className": "textplacement__left"
                                                         }
                                                     }
-                                                ],
-                                                "paymentExpress": [
-                                                    {
-                                                        "typeName": "checkout-express",
-                                                        "id": "checkout-express",
-                                                        "friendlyName": "Payment express",
-                                                        "config": {
-                                                            "heading": { "text": "Heading", "tag": "h2" },
-                                                            "iFrameHeightOverride": 75.0,
-                                                            "paymentTenderType": "Paypal"
-                                                        }
-                                                    }
                                                 ]
                                             }
                                         }
@@ -2312,7 +2300,6 @@
             "signinName": null,
             "firstName": null,
             "lastName": null,
-            "c1AccessToken": "",
             "optOutWebActivityTracking": false,
             "isB2b": false,
             "isOBORequest": false,
@@ -2353,7 +2340,7 @@
         "gridSettings": { "xs": { "w": 767 }, "sm": { "w": 991 }, "md": { "w": 1199 }, "lg": { "w": 1599 }, "xl": { "w": 1600 } },
         "debugMode": 0,
         "operationId": "05ee49712d41f041b0dfd43e6b874b4f",
-        "siteTheme": "adventureworks",
+        "siteTheme": "summer",
         "sameSiteRequired": true,
         "features": {
             "enable_performance_analysis": true,

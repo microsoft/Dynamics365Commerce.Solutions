@@ -7,7 +7,7 @@ export default async function checkErrors(): Promise<void> {
     await t.expect(error[0]).notOk();
 }
 
-const url = 'http://localhost:4000/page?mock=plp&theme=fabrikam-extended';
+const url = 'http://localhost:4000/page?mock=plp&mockUser=true&theme=fabrikam-extended';
 fixture('Custom User Attribute').page(url).beforeEach(async testController => {
     await testController.maximizeWindow();
 });

@@ -54,7 +54,7 @@ test('validate no gift card personalization if cart does not have gift card', as
         .wait(5000);
     //cart page
     await testController.navigateTo('http://localhost:4000/page?mock=cart');
-    const cartPage = Selector('.msc-order-summary__checkout__action .msc-cart__btn-guestcheckout');
+    const cartPage = Selector('.msc-cart__btn-guestcheckout');
     await testController
         .hover(cartPage)
         .expect(cartPage.visible)

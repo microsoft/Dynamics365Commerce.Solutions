@@ -533,7 +533,7 @@ export default OrderHistoryView;
 
 #### 3. Build a page mock
 
-To test the **order confirmation** module changes, create a new mock file **order-confirmation.json** under the **src/pageMocks** directory.
+To test the **order history** module changes, create a new mock file **order-history.json** under the **src/pageMocks** directory.
 
 The page mock contains page theme information pointing to **summer** custom theme.
 
@@ -543,7 +543,7 @@ Similarly, page mocks can be created for order-history and order-details page.
 
 The theme can now be built and tested in a web browser using the ```yarn start``` command.
 
-Once the build has completed, you should see an output stating that the server has started. From within a local browser, you can test the implementation with the following URL **https://localhost:4000/page?mock=order-confirmation**. The sales order lines attributes **InventoryLocationId** and **SalesTaxGroupId** should be rendered onto the order-confirmation page.
+Once the build has completed, you should see an output stating that the server has started. From within a local browser, you can test the implementation with the following URL **https://localhost:4000/page?mock=order-history**. The sales order lines attributes **InventoryLocationId** and **SalesTaxGroupId** should be rendered onto the order-confirmation page.
 
 ![Page mock](docs/sample3.png)
 
@@ -552,7 +552,7 @@ Once the build has completed, you should see an output stating that the server h
 Once the build is completed and server has started running, the integration test cases for this sample can be tested in a browser by navigating to
 **\\Expose salesorder salesline attributes\\** in a CLI and executing the following sample command.
 
-`yarn testcafe chrome .\test\order-confirmation-tests.ts -s .\`
+`yarn testcafe chrome .\test\order-history-tests.ts -s .\`
 
 ## Third party image and video usage restrictions
 

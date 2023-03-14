@@ -16,7 +16,7 @@ test('validate PDP PLP varient selection', async (testController: TestController
     console.log('url: ', await getWindowLocation());   
        const colorButton = Selector(".Color");
        await testController.click(colorButton);
-       const refinerChoice = Selector('.ms-refine-submenu-item').find("[data-exp-event-id='" + "Category.custom-search-result-container.Brown.click" + "']");
+       const refinerChoice = Selector('.ms-refine-submenu-item').find("[data-exp-event-id='" + "Category Details-128-0-68719478037.custom-search-result-container.Brown.click" + "']");
        await testController.click(refinerChoice);
        await testController.navigateTo('https://localhost:4000/page/?mock=pdp&theme=fabrikam-extended&dimid=Brown');
        const renderProductBadge = Selector('.ms-search-result-container__Products .ms-product-search-result__item');

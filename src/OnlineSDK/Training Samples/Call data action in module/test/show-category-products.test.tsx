@@ -7,7 +7,7 @@ export default async function checkErrors(): Promise<void> {
     await t.expect(error[0]).notOk();
 }
 
-const url = 'http://localhost:4000/page?mock=show-category-products&skip=5&theme=fabrikam';
+const url = 'http://localhost:4000/page?mock=show-category-products&skip=5&theme=fabrikam-extended';
 
 fixture('validate plp page')
     .page(url)

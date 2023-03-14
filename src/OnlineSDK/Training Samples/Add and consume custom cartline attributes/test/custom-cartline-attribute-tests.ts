@@ -26,14 +26,6 @@ test(`Validate Custom Cartline Attribute`, async testController => {
         .ok()
         .click(Selector(cookieAccept), { speed: 0.4 });
 
-    const stayOnthisBtn = Selector('.ms-country-picker__current-site');
-    await testController.expect(stayOnthisBtn.exists).eql(true, 'Stay on this button found');
-    await testController
-        .hover(stayOnthisBtn)
-        .expect(stayOnthisBtn.visible)
-        .ok()
-        .click(Selector(stayOnthisBtn), { speed: 0.4 });
-
     const pdpPage = Selector('.ms-buybox__content');
     await testController.expect(pdpPage.exists).eql(true, 'pdp page found');
     const sizeSelector = Selector('.msc-swatch-container .msc-swatch-container__item-22565421956');

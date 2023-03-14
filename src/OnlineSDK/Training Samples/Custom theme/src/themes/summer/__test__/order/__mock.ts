@@ -656,5 +656,9 @@ export const mockConfigResources = {
     originalPriceText: 'originalPriceText',
     currentPriceText: 'currentPriceText',
     qrCodeSrText: 'Scan QR code',
-    orderDetailsUnavailableProductText: 'orderDetailsUnavailableProductText'
+    orderDetailsUnavailableProductText: 'orderDetailsUnavailableProductText',
+    orderPlacedByText: 'orderPlacedByText',
+    orderPlacedByFullText: 'orderPlacedByFullText',
+    orderOnBehalfOfText: 'orderOnBehalfOfText',
+    orderPlacedByYouText: 'orderPlacedByYouText'
 };

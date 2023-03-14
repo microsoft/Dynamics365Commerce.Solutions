@@ -9,6 +9,7 @@
 
 namespace Contoso.CommerceRuntime.PricingEngine
 {
+    using Microsoft.Dynamics.Commerce.Runtime.DataModel;
     using Microsoft.Dynamics.Commerce.Runtime.Services.PricingEngine;
 
     /// <summary>
@@ -24,6 +25,7 @@ namespace Contoso.CommerceRuntime.PricingEngine
         {
             PricingEngineExtensionRepository.RegisterDiscountableItemGroupKeyConstructor(new FreeMoneyAmountDiscountableItemGroupKeyConstructor());
             PricingEngineExtensionRepository.RegisterPriorityDiscountBaseAmountCalculator(new BaseReductionForAmountCapDiscountBaseAmountCalculator());
+            PricingEngineExtensionRepository.RegisterDiscountPackage(new DiscountPackageDecimalMixAndMatchDiscount(ExtensiblePeriodicDiscountOfferType.MixAndMatch));
         }
     }
 }

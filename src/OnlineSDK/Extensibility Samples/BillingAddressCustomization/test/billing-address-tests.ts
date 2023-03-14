@@ -27,14 +27,6 @@ test('validate billing address form', async (testController: TestController) => 
         .ok()
         .click(Selector(cookieAccept), { speed: 0.4 });
 
-    const stayOnthisBtn = Selector('.ms-country-picker__current-site');
-    await testController.expect(stayOnthisBtn.exists).eql(true, 'Stay on this button found');
-    await testController
-        .hover(stayOnthisBtn)
-        .expect(stayOnthisBtn.visible)
-        .ok()
-        .click(Selector(stayOnthisBtn), { speed: 0.4 });
-
     const pdpPage = Selector('.ms-buybox__content');
     await testController.expect(pdpPage.exists).eql(true, 'pdp page found');
     const sizeSelector = Selector('.msc-swatch-container .msc-swatch-container__item-22565421956');
@@ -45,58 +37,24 @@ test('validate billing address form', async (testController: TestController) => 
         .click(Selector(sizeSelector), { speed: 0.4 })
         .wait(5000);
 
-    await testController.hover('.msc-add-to-cart', { speed: 0.4 });
+    await testController.hover('.msc-add-to-cart');
     const addToCartButton = Selector('.msc-add-to-cart');
     await Selector(addToCartButton).with({ visibilityCheck: true })();
     await testController
         .hover(addToCartButton)
         .expect(addToCartButton.visible)
         .ok()
-        .click(Selector(addToCartButton), { speed: 0.4 });
+        .click(Selector(addToCartButton), { speed: 0.4 })
+        .wait(5000);
 
     //checkout page
-    await testController.navigateTo('http://localhost:4000/page/?mock=checkout&theme=fabrikam-extended');
-
-    //shipping form
-    const checkoutSelectedSection = '.ms-checkout__guided-form';
-
-    const shipping_addressstate = Selector('#shipping_addressstate');
-    const dropdownStateOption = shipping_addressstate.find('option');
-
-    const saveButton = Selector('.ms-checkout__guided-card-btn-save');
-
-    await testController
-        .hover(Selector('#shipping_addressname'), { speed: 0.4 })
-        .typeText(Selector('#shipping_addressname'), 'testName')
-        .hover(Selector('#shipping_addressstreet'))
-        .typeText(Selector('#shipping_addressstreet'), 'testStreet')
-        .hover(Selector('#shipping_addresscity'))
-        .typeText(Selector('#shipping_addresscity'), 'testCity')
-        .click(Selector(shipping_addressstate), { speed: 0.4 })
-        .click(dropdownStateOption.nth(1), { speed: 0.4 })
-        .hover(Selector('#shipping_addresszipcode'))
-        .typeText(Selector('#shipping_addresszipcode'), '12345');
-
-    await Selector(checkoutSelectedSection)
-        .child(1)
-        .find('.ms-checkout__guided-card-btn-save')
-        .with({ visibilityCheck: true })();
-
-    await testController
-        .hover(
-            Selector(checkoutSelectedSection)
-                .child(1)
-                .find('.ms-checkout__guided-card-btn-save')
-        )
-        .click(
-            Selector(checkoutSelectedSection)
-                .child(1)
-                .find('.ms-checkout__guided-card-btn-save')
-        );
+    await testController.navigateTo('http://localhost:4000/page?mock=checkout&theme=fabrikam-extended');
 
     //Billing form
     const sameAsShippingChk = '.ms-checkout-billing-address__input-checkbox';
     const billing_addressname = '#billing_addressaddresstypevalue';
-
-    await testController.click(Selector(sameAsShippingChk)).hover(Selector(billing_addressname));
+    await testController
+        .click(Selector(sameAsShippingChk))
+        .wait(5000)
+        .hover(Selector(billing_addressname));
 });

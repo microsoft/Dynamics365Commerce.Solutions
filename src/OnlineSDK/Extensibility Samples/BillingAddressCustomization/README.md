@@ -51,7 +51,7 @@ Add below data action key under **src/modules/custom-checkout-shipping-address/c
 
 ```
 
-### 3. Add logic for billing address attribute in the custom-checkout-billing-address.tsx 
+### 3. Add logic for billing address attribute in the custom-checkout-billing-address.tsx
 Implement the logic as shown below in the sample code to add billing address in the checkout page in **src/modules/custom-checkout-billing-address/custom-checkout-billing-address.tsx**.
 
 
@@ -2278,11 +2278,11 @@ The sample can now be tested in a web browser using the ```yarn start``` command
 
 ### 1.Test by using mock file
 
-Please refer mock file under the **src/pageMocks/addressbook.json** and **src/pageMocks/customcheckout.json**.
+Please refer mock file under the **src/pageMocks/addressbook.json** and **src/pageMocks/checkout.json**.
 
 Test the module using page mock, Go to browser and copy paste the below url to verify delivery notes in checkout page.https://localhost:4000/page?mock=addressbook&theme=fabrikam-extended and  https://localhost:4000/page?mock=addressbook&theme=fabrikam-extended
 
-Note: For above mock please update user token and module name in both page mock. In **addressbook.json** update module account-management-address to custom-account-management-address and in the **customcheckout.json** from checkout-billing-address to custom-checkout-billing-address.please refer below screen.
+Note: For above mock please update user token and module name in both page mock. In **addressbook.json** update module account-management-address to custom-account-management-address and in the **checkout.json** from checkout-billing-address to custom-checkout-billing-address.please refer below screen.
 
 ![Overview](docs/image8.PNG)
 

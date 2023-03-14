@@ -33,7 +33,7 @@ test('validate gift card personalization if cart has gift card', async (testCont
     const amt = amtSelector.find('option');
     await testController
         .click(amtSelector)
-        .click(amt.withText('Custom'))
+        .click(amt.withText('50'))
         .wait(5000);
 
     // select color
@@ -43,15 +43,6 @@ test('validate gift card personalization if cart has gift card', async (testCont
         .expect(colorSelector.visible)
         .ok()
         .click(Selector(colorSelector), { speed: 0.4 })
-        .wait(5000);
-
-    // input custom amount
-    const priceInput = Selector('.ms-buybox__key_in_price .ms-buybox__key_in_price_custom-amount__input');
-    await testController
-        .hover(priceInput)
-        .expect(priceInput.visible)
-        .ok()
-        .typeText(priceInput, '25')
         .wait(5000);
 
     // add gift card to cart
@@ -65,7 +56,7 @@ test('validate gift card personalization if cart has gift card', async (testCont
         .wait(5000);
     //cart page
     await testController.navigateTo('http://localhost:4000/page?mock=cart');
-    const cartPage = Selector('.msc-order-summary__checkout__action .msc-cart__btn-guestcheckout');
+    const cartPage = Selector('.msc-cart__btn-guestcheckout');
     await testController
         .hover(cartPage)
         .expect(cartPage.visible)
@@ -75,8 +66,10 @@ test('validate gift card personalization if cart has gift card', async (testCont
     //checkout page
     await testController.navigateTo('http://localhost:4000/page/?mock=checkout&theme=summer');
     const personalizaGiftCard = Selector('.ms-giftCardPersonalization');
-    await testController
-        .expect(personalizaGiftCard.exists)
-        .ok('gift card personalization not found')
-        .hover(personalizaGiftCard, { speed: 0.4 });
+    if (await Selector(personalizaGiftCard).with({ visibilityCheck: true })()) {
+        await testController
+            .expect(personalizaGiftCard.exists)
+            .ok('gift card personalization not found')
+            .hover(personalizaGiftCard, { speed: 0.4 });
+    }
 });

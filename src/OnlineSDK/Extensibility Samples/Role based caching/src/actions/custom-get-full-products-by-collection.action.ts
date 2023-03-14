@@ -290,8 +290,8 @@ export async function customAction(
     // change the below refiners as per requirement
     const anonymousRefiner: ProductRefinerValue = {
         RefinerRecordId: 11290923669,
-        RightValueBoundString: 'Picton Blu',
-        LeftValueBoundString: 'Picton Blu',
+        RightValueBoundString: 'Brown',
+        LeftValueBoundString: 'Brown',
         RefinerSourceValue: 1,
         Count: 3,
         DataTypeValue: 5,

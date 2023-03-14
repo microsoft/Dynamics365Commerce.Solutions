@@ -21,6 +21,6 @@ const getWindowLocation = ClientFunction(() => window.location);
 test('validate cart route', async (testController: TestController) => {
     const cartIcon = Selector('.ms-cart-icon')
         .find('a')
-        .withAttribute('href', '/modern/cart');
+        .withAttribute('href', '/cart');
     await testController.expect(cartIcon.exists).eql(true, 'Could not find cart route');
 });

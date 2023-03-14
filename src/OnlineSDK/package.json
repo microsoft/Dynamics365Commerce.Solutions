@@ -1,6 +1,6 @@
 {
     "name": "Msdyn365-Commerce-Samples",
-    "version": "9.42",
+    "version": "9.43",
     "private": true,
     "workspaces": {
         "packages": [
@@ -26,8 +26,8 @@
         "@msdyn365-commerce/eslint-config": "^1.0.0",
         "@types/fs-extra": "^5.0.4",
         "@types/jest": "^23.3.10",
-        "@types/node-fetch": "^2.1.4",
         "@types/node": "18.11.9",
+        "@types/node-fetch": "^2.1.4",
         "@types/react": "16.9.0",
         "@types/react-dom": "16.0.11",
         "@types/react-test-renderer": "^16.0.2",
@@ -63,11 +63,11 @@
         "@types/qrcode.react": "1.0.1"
     },
     "dependencies": {
-        "@msdyn365-commerce-modules/starter-pack": "9.42.38-preview.0",
-        "@msdyn365-commerce-modules/fabrikam-design-kit": "9.42.38-preview.0",
+        "@msdyn365-commerce-modules/starter-pack": "9.43",
+        "@msdyn365-commerce-modules/fabrikam-design-kit": "9.43",
         "@msdyn365-commerce/bootloader": "^1.0.0",
-        "@msdyn365-commerce/retail-proxy": "9.42.4-preview.0",
-        "@msdyn365-commerce-theme/adventureworks-theme-kit": "9.42.38-preview.0",
+        "@msdyn365-commerce/retail-proxy": "9.43",
+        "@msdyn365-commerce-theme/adventureworks-theme-kit": "9.43",
         "@msdyn365-commerce-modules/msdyn365-exp-test-connector": "^1.0.0",
         "reactstrap": "^6.5.0",
         "stack-trace": "^0.0.10",

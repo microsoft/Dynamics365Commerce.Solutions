@@ -5,7 +5,6 @@
 
 import { Selector, test } from 'testcafe';
 import fetch from 'node-fetch';
-import * as https from 'https';
 
 fixture('Custom module test').page('https://localhost:4000/modules?type=product-feature&theme=spring');
 test('validate renderPage div render', async (testController: TestController) => {
@@ -26,10 +25,9 @@ test('validate product heading is rendering on the page', async (testController:
 });
 
 fixture`DAPI preview API Test`.before(async ctx => {
-    const agent = new https.Agent({
-        rejectUnauthorized: false
-    });
-    const modulePreviewRes = await fetch('https://localhost:4000/_sdk/dapi/previews?module=product-feature',  { headers: {}, agent });
+    // @ts-ignore
+    process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = 0;
+    const modulePreviewRes = await fetch('https://localhost:4000/_sdk/dapi/previews?module=product-feature');
     ctx.modulePreviewRes = modulePreviewRes;
     const modulePreviewResBuffer = await modulePreviewRes.buffer();
     const modulePreviewResJSON = JSON.parse(modulePreviewResBuffer.toString());

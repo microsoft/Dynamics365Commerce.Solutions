@@ -5,13 +5,11 @@
 
 import { test } from 'testcafe';
 import fetch from 'node-fetch';
-import * as https from 'https';
 
 fixture`MOdule config visiblity schema test`.before(async ctx => {
-    const agent = new https.Agent({
-        rejectUnauthorized: false
-    });
-    const res = await fetch('https://localhost:4000/_sdk/dapi/modules',  { headers: {}, agent });
+    // @ts-ignore
+    process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = 0;
+    const res = await fetch('https://localhost:4000/_sdk/dapi/modules');
     ctx.res = res;
     const resBuffer = await res.buffer();
     const resJSON = JSON.parse(resBuffer.toString());

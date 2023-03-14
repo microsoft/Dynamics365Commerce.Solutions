@@ -2081,84 +2081,6 @@
                                             "modules": {
                                                 "checkoutInformation": [
                                                     {
-                                                        "typeName": "checkout-express-payment-container",
-                                                        "id": "IDNMAx6y4_d5n0m7n-checkout-express-payment-container",
-                                                        "friendlyName": "Checkout express payment container",
-                                                        "config": {
-                                                            "checkoutExpressPaymentContainerHeading": {
-                                                                "text": "Express Checkout",
-                                                                "tag": "h2"
-                                                            }
-                                                        },
-                                                        "modules": {
-                                                            "primary": [
-                                                                {
-                                                                    "typeName": "text-block",
-                                                                    "id": "IDNMAx6y4_d5n0m7n-text-block__0",
-                                                                    "friendlyName": "Text block",
-                                                                    "config": {
-                                                                        "paragraph": "<p>Using Express Payments options may exchange address and contact information you select between services to pre-fill the checkout form.</p>"
-                                                                    }
-                                                                },
-                                                                {
-                                                                    "typeName": "checkout-express",
-                                                                    "id": "IDNMAx6y4_d5n0m7n-checkout-express",
-                                                                    "friendlyName": "Payment express",
-                                                                    "config": {
-                                                                        "heading": { "text": "", "tag": "h2" },
-                                                                        "iFrameHeightOverride": 60.0,
-                                                                        "paymentTenderType": "Paypal"
-                                                                    }
-                                                                },
-                                                                {
-                                                                    "typeName": "checkout-express",
-                                                                    "id": "IDNMAx6y4_d5n0m7n-checkout-express__0",
-                                                                    "friendlyName": "Payment express 1",
-                                                                    "config": {
-                                                                        "heading": { "text": "", "tag": "h2" },
-                                                                        "iFrameHeightOverride": 60.0,
-                                                                        "paymentTenderType": "GooglePay"
-                                                                    }
-                                                                }
-                                                            ]
-                                                        }
-                                                    },
-                                                    {
-                                                        "typeName": "checkout-pickup",
-                                                        "id": "IDNMAx6y4_d5n0m7n-checkout-pickup",
-                                                        "friendlyName": "Pickup information",
-                                                        "platform": { "layout": "mediumWidth" },
-                                                        "config": {
-                                                            "msdyn365__moduleLayout": "mediumWidth",
-                                                            "heading": { "text": "Pickup Information", "tag": "h2" },
-                                                            "imageSettings": {
-                                                                "quality": 80,
-                                                                "disableLazyLoad": false,
-                                                                "lazyload": true,
-                                                                "viewports": {
-                                                                    "xs": {
-                                                                        "w": 108,
-                                                                        "h": 108,
-                                                                        "q": "w=108&h=108&q=80&m=6&f=jpg",
-                                                                        "qe": "t=w108h108qhigh"
-                                                                    },
-                                                                    "lg": {
-                                                                        "w": 108,
-                                                                        "h": 108,
-                                                                        "q": "w=108&h=108&q=80&m=6&f=jpg",
-                                                                        "qe": "t=w108h108qhigh"
-                                                                    },
-                                                                    "xl": {
-                                                                        "w": 108,
-                                                                        "h": 108,
-                                                                        "q": "w=108&h=108&q=80&m=6&f=jpg",
-                                                                        "qe": "t=w108h108qhigh"
-                                                                    }
-                                                                }
-                                                            }
-                                                        }
-                                                    },
-                                                    {
                                                         "typeName": "gift-card-personalization",
                                                         "id": "IDNMAx6y4_d5n0m7n-gift-card-personalization",
                                                         "friendlyName": "Gift card personalization",
@@ -2398,7 +2320,6 @@
             "signinName": null,
             "firstName": null,
             "lastName": null,
-            "c1AccessToken": "",
             "optOutWebActivityTracking": false,
             "isB2b": false,
             "isOBORequest": false,
@@ -2439,7 +2360,7 @@
         "gridSettings": { "xs": { "w": 767 }, "sm": { "w": 991 }, "md": { "w": 1199 }, "lg": { "w": 1599 }, "xl": { "w": 1600 } },
         "debugMode": 0,
         "operationId": "234ccd0fbbb0b445bf07efc667d18431",
-        "siteTheme": "adventureworks",
+        "siteTheme": "summer",
         "sameSiteRequired": true,
         "features": {
             "enable_performance_analysis": true,

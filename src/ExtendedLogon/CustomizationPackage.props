@@ -1,0 +1,12 @@
+<Project>
+  <Import Project="..\..\repo.props" />
+
+  <PropertyGroup>
+    <PackagePublisher Condition="'$(PackagePublisher)' == ''">$(Publisher)</PackagePublisher>
+    <PackagePublisherDisplayName Condition="'$(PackagePublisherDisplayName)' == ''">$(PublisherDisplayName)</PackagePublisherDisplayName>
+    <PackageVersion Condition="'$(PackageVersion)' == ''">$(Version)</PackageVersion>
+    <PackageName Condition="'$(PackageName)' == ''">Contoso.Commerce.ExtendedLogon</PackageName>
+    <PackageDisplayName Condition="'$(PackageDisplayName)' == ''">Contoso Commerce End-To-End Solution Extended Logon Sample</PackageDisplayName>
+    <PackageDescription Condition="'$(PackageDescription)' == ''">Contoso Commerce End-To-End Solution Extended Logon Sample</PackageDescription>
+  </PropertyGroup>
+</Project>

@@ -150,7 +150,7 @@
                                                                 "linkText": "Order lookup",
                                                                 "linkUrl": {
                                                                     "type": "externalLink",
-                                                                    "destinationUrl": "https://r1tie.fabrikam.com/modern/orderlookup"
+                                                                    "destinationUrl": "https://ring1tie.fabrikam.com/orderlookup"
                                                                 },
                                                                 "ariaLabel": "Order lookup"
                                                             }
@@ -1016,7 +1016,7 @@
                                                                     "text": "Fabrikam content",
                                                                     "linkUrl": {
                                                                         "type": "externalLink",
-                                                                        "destinationUrl": "https://r1tie.fabrikam.com/modern/fabrikam-fashion-us/virtual-catalog/68719488536.c"
+                                                                        "destinationUrl": "https://ring1tie.fabrikam.com/fabrikam-fashion-us/virtual-catalog/68719488536.c"
                                                                     }
                                                                 },
                                                                 {
@@ -1255,7 +1255,7 @@
                                                                     },
                                                                     "siteRedirectUrl": {
                                                                         "type": "externalLink",
-                                                                        "destinationUrl": "https://r1tie.fabrikam.com/modern/fr-be"
+                                                                        "destinationUrl": "https://ring1tie.fabrikam.com/fr-be"
                                                                     }
                                                                 },
                                                                 {
@@ -1280,7 +1280,7 @@
                                                                     },
                                                                     "siteRedirectUrl": {
                                                                         "type": "externalLink",
-                                                                        "destinationUrl": "https://r1tie.fabrikam.com/modern/nl-be"
+                                                                        "destinationUrl": "https://ring1tie.fabrikam.com/nl-be"
                                                                     }
                                                                 },
                                                                 {
@@ -1304,7 +1304,7 @@
                                                                     },
                                                                     "siteRedirectUrl": {
                                                                         "type": "externalLink",
-                                                                        "destinationUrl": "https://r1tie.fabrikam.com/modern/en-ca"
+                                                                        "destinationUrl": "https://ring1tie.fabrikam.com/en-ca"
                                                                     }
                                                                 },
                                                                 {
@@ -1328,7 +1328,7 @@
                                                                     },
                                                                     "siteRedirectUrl": {
                                                                         "type": "externalLink",
-                                                                        "destinationUrl": "https://r1tie.fabrikam.com/modern/fr-ca"
+                                                                        "destinationUrl": "https://ring1tie.fabrikam.com/fr-ca"
                                                                     }
                                                                 },
                                                                 {
@@ -1352,7 +1352,7 @@
                                                                     },
                                                                     "siteRedirectUrl": {
                                                                         "type": "externalLink",
-                                                                        "destinationUrl": "https://r1tie.fabrikam.com/modern/fr-fr"
+                                                                        "destinationUrl": "https://ring1tie.fabrikam.com/fr-fr"
                                                                     }
                                                                 },
                                                                 {
@@ -1376,7 +1376,7 @@
                                                                     },
                                                                     "siteRedirectUrl": {
                                                                         "type": "externalLink",
-                                                                        "destinationUrl": "https://r1tie.fabrikam.com/modern/de"
+                                                                        "destinationUrl": "https://ring1tie.fabrikam.com/de"
                                                                     }
                                                                 },
                                                                 {
@@ -1400,7 +1400,7 @@
                                                                     },
                                                                     "siteRedirectUrl": {
                                                                         "type": "externalLink",
-                                                                        "destinationUrl": "https://r1tie.fabrikam.com/modern/eu"
+                                                                        "destinationUrl": "https://ring1tie.fabrikam.com/eu"
                                                                     }
                                                                 },
                                                                 {
@@ -1424,7 +1424,7 @@
                                                                     },
                                                                     "siteRedirectUrl": {
                                                                         "type": "externalLink",
-                                                                        "destinationUrl": "https://r1tie.fabrikam.com/modern/nl"
+                                                                        "destinationUrl": "https://ring1tie.fabrikam.com/nl"
                                                                     }
                                                                 },
                                                                 {
@@ -1448,7 +1448,7 @@
                                                                     },
                                                                     "siteRedirectUrl": {
                                                                         "type": "externalLink",
-                                                                        "destinationUrl": "https://r1tie.fabrikam.com/modern/en-nz"
+                                                                        "destinationUrl": "https://ring1tie.fabrikam.com/en-nz"
                                                                     }
                                                                 },
                                                                 {
@@ -1496,7 +1496,7 @@
                                                                     },
                                                                     "siteRedirectUrl": {
                                                                         "type": "externalLink",
-                                                                        "destinationUrl": "https://r1tie.fabrikam.com/modern/es"
+                                                                        "destinationUrl": "https://ring1tie.fabrikam.com/es"
                                                                     }
                                                                 },
                                                                 {
@@ -1520,7 +1520,7 @@
                                                                     },
                                                                     "siteRedirectUrl": {
                                                                         "type": "externalLink",
-                                                                        "destinationUrl": "https://r1tie.fabrikam.com/modern/ja"
+                                                                        "destinationUrl": "https://ring1tie.fabrikam.com/ja"
                                                                     }
                                                                 }
                                                             ]
@@ -1555,7 +1555,7 @@
                                                             "title": "BE_50.jpg",
                                                             "imageSettings": { "quality": 80, "disableLazyLoad": false, "lazyload": true }
                                                         },
-                                                        "url": "https://r1tie.fabrikam.com/modern/fr-be"
+                                                        "url": "https://ring1tie.fabrikam.com/fr-be"
                                                     },
                                                     {
                                                         "displayString": "Belgium",
@@ -1574,7 +1574,7 @@
                                                             "title": "BE_50.jpg",
                                                             "imageSettings": { "quality": 80, "disableLazyLoad": false, "lazyload": true }
                                                         },
-                                                        "url": "https://r1tie.fabrikam.com/modern/nl-be"
+                                                        "url": "https://ring1tie.fabrikam.com/nl-be"
                                                     },
                                                     {
                                                         "displayString": "Canada",
@@ -1592,7 +1592,7 @@
                                                             "title": "",
                                                             "imageSettings": { "quality": 80, "disableLazyLoad": false, "lazyload": true }
                                                         },
-                                                        "url": "https://r1tie.fabrikam.com/modern/en-ca"
+                                                        "url": "https://ring1tie.fabrikam.com/en-ca"
                                                     },
                                                     {
                                                         "displayString": "Canada",
@@ -1610,7 +1610,7 @@
                                                             "title": "",
                                                             "imageSettings": { "quality": 80, "disableLazyLoad": false, "lazyload": true }
                                                         },
-                                                        "url": "https://r1tie.fabrikam.com/modern/fr-ca"
+                                                        "url": "https://ring1tie.fabrikam.com/fr-ca"
                                                     },
                                                     {
                                                         "displayString": "France",
@@ -1627,7 +1627,7 @@
                                                             "title": "",
                                                             "imageSettings": { "quality": 80, "disableLazyLoad": false, "lazyload": true }
                                                         },
-                                                        "url": "https://r1tie.fabrikam.com/modern/fr-fr"
+                                                        "url": "https://ring1tie.fabrikam.com/fr-fr"
                                                     },
                                                     {
                                                         "displayString": "Germany",
@@ -1644,7 +1644,7 @@
                                                             "title": "",
                                                             "imageSettings": { "quality": 80, "disableLazyLoad": false, "lazyload": true }
                                                         },
-                                                        "url": "https://r1tie.fabrikam.com/modern/de"
+                                                        "url": "https://ring1tie.fabrikam.com/de"
                                                     },
                                                     {
                                                         "displayString": "Great Britian",
@@ -1661,7 +1661,7 @@
                                                             "title": "GB_50.jpg",
                                                             "imageSettings": { "quality": 80, "disableLazyLoad": false, "lazyload": true }
                                                         },
-                                                        "url": "https://r1tie.fabrikam.com/modern/eu"
+                                                        "url": "https://ring1tie.fabrikam.com/eu"
                                                     },
                                                     {
                                                         "displayString": "Japan",
@@ -1678,7 +1678,7 @@
                                                             "title": "JA_50.jpg",
                                                             "imageSettings": { "quality": 80, "disableLazyLoad": false, "lazyload": true }
                                                         },
-                                                        "url": "https://r1tie.fabrikam.com/modern/ja"
+                                                        "url": "https://ring1tie.fabrikam.com/ja"
                                                     },
                                                     {
                                                         "displayString": "Netherlands",
@@ -1695,7 +1695,7 @@
                                                             "title": "NL_50.jpg",
                                                             "imageSettings": { "quality": 80, "disableLazyLoad": false, "lazyload": true }
                                                         },
-                                                        "url": "https://r1tie.fabrikam.com/modern/nl"
+                                                        "url": "https://ring1tie.fabrikam.com/nl"
                                                     },
                                                     {
                                                         "displayString": "New Zealand",
@@ -1712,7 +1712,7 @@
                                                             "title": "",
                                                             "imageSettings": { "quality": 80, "disableLazyLoad": false, "lazyload": true }
                                                         },
-                                                        "url": "https://r1tie.fabrikam.com/modern/en-nz"
+                                                        "url": "https://ring1tie.fabrikam.com/en-nz"
                                                     },
                                                     {
                                                         "displayString": "United states",
@@ -1747,7 +1747,7 @@
                                                             "title": "",
                                                             "imageSettings": { "quality": 80, "disableLazyLoad": false, "lazyload": true }
                                                         },
-                                                        "url": "https://r1tie.fabrikam.com/modern/es"
+                                                        "url": "https://ring1tie.fabrikam.com/es"
                                                     }
                                                 ],
                                                 "actionLink": { "linkText": "", "linkUrl": {} }
@@ -1819,8 +1819,8 @@
         "tuid": "a4a7ae76-367d-5cd7-d31e-62009c4f5de3",
         "segmentRequestId": null,
         "missingSegments": {},
-        "requestUrl": "https://r1tie.fabrikam.com/modern/fabrikam-fashion-us/men-wear/68719478037.c",
-        "sitePath": "/modern",
+        "requestUrl": "https://ring1tie.fabrikam.com/fabrikam-fashion-us/men-wear/68719478037.c",
+        "sitePath": "null",
         "CrossChannelIdentity": [],
         "clientIPAddress": "2409:4070:2cb2:3bc7:982d:7c1d:b119:19df",
         "clientContext": {
@@ -1862,11 +1862,11 @@
         "marketSettings": {
             "countryRegion": "IN",
             "localeItems": [
-                { "locale": "es", "localeBaseUrl": "r1tie.fabrikam.com/modern/es", "isDefaultLocale": false },
-                { "locale": "en-nz", "localeBaseUrl": "r1tie.fabrikam.com/modern/en-nz", "isDefaultLocale": false },
-                { "locale": "en-us", "localeBaseUrl": "r1tie.fabrikam.com/deleteme/2", "isDefaultLocale": false }
+                { "locale": "es", "localeBaseUrl": "ring1tie.fabrikam.com/es", "isDefaultLocale": false },
+                { "locale": "en-nz", "localeBaseUrl": "ring1tie.fabrikam.com/en-nz", "isDefaultLocale": false },
+                { "locale": "en-us", "localeBaseUrl": "ring1tie.fabrikam.com/deleteme/2", "isDefaultLocale": false }
             ],
-            "currentBaseUrl": "r1tie.fabrikam.com/modern",
+            "currentBaseUrl": "ring1tie.fabrikam.com",
             "isAutoRedirectEnabled": false
         },
         "urlTokens": { "itemId": "68719478037", "recordId": "68719478037", "pageType": "Category", "categories": ["men-wear"] },
@@ -1957,7 +1957,7 @@
             "isEnableShowOrHideSalesTaxECommerceEnabled": true,
             "isAtributeBadgeEnabled": true,
             "enableBadgeOnModule": ["browsing", "PDP"],
-            "dimensionsInBadgeAtribute": "WatchStrapType,camera,water resistance,WatchStrapType,inventory availability,brand,color"
+            "dimensionsInBadgeAtribute": "brand,WatchStrapType,camera,water resistance,WatchStrapType,inventory availability,brand,color"
         },
         "routes": {
             "account": { "destinationUrl": "/modern/myaccount", "type": "internalLink" },

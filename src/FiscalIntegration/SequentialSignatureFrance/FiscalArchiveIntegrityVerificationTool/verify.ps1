@@ -1135,12 +1135,16 @@ function ConvertTo-AuditEventMetadata-2140 {
     Initializes the labels object from the resource file which corresponds to the current culture.
 #>
 function Initialize-Labels {
+    $resourcesDirectoryName = "resources"
+    $resourcesFileName = "resources.resjson"
+    $defaultCultureName = "en-US"
     $script:Labels = @{}
     $currentCultureName = (Get-Culture).Name
-    $labelsPath = [IO.Path]::Combine($PSScriptRoot, "resources", $currentCultureName, "resources.resjson")
-    if (Test-Path $labelsPath) {
-        $script:Labels = Get-Content $labelsPath | ConvertFrom-Json
+    $labelsPath = [IO.Path]::Combine($PSScriptRoot, $resourcesDirectoryName, $currentCultureName, $resourcesFileName)
+    if (-not (Test-Path $labelsPath)) {
+        $labelsPath = [IO.Path]::Combine($PSScriptRoot, $resourcesDirectoryName, $defaultCultureName, $resourcesFileName)
     }
+    $script:Labels = Get-Content $labelsPath | ConvertFrom-Json
 }
 
 #endregion
