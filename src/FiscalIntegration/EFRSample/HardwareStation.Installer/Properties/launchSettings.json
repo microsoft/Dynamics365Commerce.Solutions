@@ -1,6 +1,10 @@
 {
   "profiles": {
+<<<<<<<< HEAD:src/FiscalIntegration/EFRSample/HardwareStation.Installer/Properties/launchSettings.json
     "Contoso.EFRSample.HardwareStation.Installer": {
+========
+    "Contoso.EFRSample.StoreCommerce.Installer": {
+>>>>>>>> eb315dce310e0a388435ad385164aea735c99d86:src/FiscalIntegration/EFRSample/StoreCommerce.Installer/Properties/launchSettings.json
       "commandName": "Project",
       "commandLineArgs": "install"
     }
