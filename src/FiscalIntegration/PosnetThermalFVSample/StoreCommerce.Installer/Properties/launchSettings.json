@@ -1,6 +1,6 @@
 {
   "profiles": {
-    "Contoso.ModernPos.Installer": {
+    "Contoso.PosnetThermalFVSample.StoreCommerce.Installer": {
       "commandName": "Project",
       "commandLineArgs": "install"
     }

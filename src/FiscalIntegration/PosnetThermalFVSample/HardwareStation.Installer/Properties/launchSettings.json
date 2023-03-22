@@ -1,6 +1,6 @@
 {
   "profiles": {
-    "Contoso.HardwareStation.Installer": {
+    "Contoso.PosnetThermalFVSample.HardwareStation.Installer": {
       "commandName": "Project",
       "commandLineArgs": "install"
     }

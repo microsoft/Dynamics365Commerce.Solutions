@@ -1,21 +1,19 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.1585
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33403.182
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DocumentProvider.EpsonFP90IIISample", "CommerceRuntime\DocumentProvider.EpsonFP90IIISample\DocumentProvider.EpsonFP90IIISample.csproj", "{13AB62FA-3028-455D-AF05-BAE0B0FFE19F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Contoso.EpsonFP90IIISample.CommerceRuntime", "CommerceRuntime\Contoso.EpsonFP90IIISample.CommerceRuntime.csproj", "{13AB62FA-3028-455D-AF05-BAE0B0FFE19F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Connector.EpsonFP90IIISample", "HardwareStation\EpsonFP90IIIFiscalDeviceSample\Connector.EpsonFP90IIISample.csproj", "{72CB1AC9-50EC-4A7F-B8DD-8A72D2EC2B05}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Contoso.EpsonFP90IIISample.HardwareStation", "HardwareStation\Contoso.EpsonFP90IIISample.HardwareStation.csproj", "{72CB1AC9-50EC-4A7F-B8DD-8A72D2EC2B05}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HardwareStation.EpsonFP90III.Installer", "HardwareStation\HardwareStation.EpsonFP90III.Installer\HardwareStation.EpsonFP90III.Installer.csproj", "{8ADCE7C1-31B6-430B-B585-A48B44572219}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Contoso.EpsonFP90IIISample.HardwareStation.Installer", "HardwareStation.Installer\Contoso.EpsonFP90IIISample.HardwareStation.Installer.csproj", "{8ADCE7C1-31B6-430B-B585-A48B44572219}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScaleUnit.EpsonFP90III.Installer", "ScaleUnit\ScaleUnit.EpsonFP90III.Installer\ScaleUnit.EpsonFP90III.Installer.csproj", "{23F9D46E-4C58-4701-82C6-7EAE862C7F29}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Contoso.EpsonFP90IIISample.ScaleUnit.Installer", "ScaleUnit.Installer\Contoso.EpsonFP90IIISample.ScaleUnit.Installer.csproj", "{23F9D46E-4C58-4701-82C6-7EAE862C7F29}"
 EndProject
-Project("{262852C6-CD72-467D-83FE-5EEB1973A190}") = "ModernPos.EpsonFP90III", "ModernPOS\ModernPos.EpsonFP90III\ModernPos.EpsonFP90III.jsproj", "{20292722-7895-4388-812B-837317D7FC0C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Contoso.EpsonFP90IIISample.StoreCommerce.Installer", "StoreCommerce.Installer\Contoso.EpsonFP90IIISample.StoreCommerce.Installer.csproj", "{3FFB943E-3057-48A8-B6CB-6C63EFE461EB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModernPos.EpsonFP90III.Installer", "ModernPOS\ModernPos.EpsonFP90III.Installer\ModernPos.EpsonFP90III.Installer.csproj", "{3FFB943E-3057-48A8-B6CB-6C63EFE461EB}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScaleUnit.EpsonFP90III", "ScaleUnit\ScaleUnit.EpsonFP90III\ScaleUnit.EpsonFP90III.csproj", "{B38E7B8E-D38F-4232-8B76-27185464B52A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Contoso.EpsonFP90IIISample.ScaleUnit", "ScaleUnit\Contoso.EpsonFP90IIISample.ScaleUnit.csproj", "{B38E7B8E-D38F-4232-8B76-27185464B52A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,18 +55,6 @@ Global
 		{23F9D46E-4C58-4701-82C6-7EAE862C7F29}.Release|Any CPU.Build.0 = Release|Any CPU
 		{23F9D46E-4C58-4701-82C6-7EAE862C7F29}.Release|x86.ActiveCfg = Release|Any CPU
 		{23F9D46E-4C58-4701-82C6-7EAE862C7F29}.Release|x86.Build.0 = Release|Any CPU
-		{20292722-7895-4388-812B-837317D7FC0C}.Debug|Any CPU.ActiveCfg = Debug|x86
-		{20292722-7895-4388-812B-837317D7FC0C}.Debug|Any CPU.Build.0 = Debug|x86
-		{20292722-7895-4388-812B-837317D7FC0C}.Debug|Any CPU.Deploy.0 = Debug|x86
-		{20292722-7895-4388-812B-837317D7FC0C}.Debug|x86.ActiveCfg = Debug|x86
-		{20292722-7895-4388-812B-837317D7FC0C}.Debug|x86.Build.0 = Debug|x86
-		{20292722-7895-4388-812B-837317D7FC0C}.Debug|x86.Deploy.0 = Debug|x86
-		{20292722-7895-4388-812B-837317D7FC0C}.Release|Any CPU.ActiveCfg = Release|x86
-		{20292722-7895-4388-812B-837317D7FC0C}.Release|Any CPU.Build.0 = Release|x86
-		{20292722-7895-4388-812B-837317D7FC0C}.Release|Any CPU.Deploy.0 = Release|x86
-		{20292722-7895-4388-812B-837317D7FC0C}.Release|x86.ActiveCfg = Release|x86
-		{20292722-7895-4388-812B-837317D7FC0C}.Release|x86.Build.0 = Release|x86
-		{20292722-7895-4388-812B-837317D7FC0C}.Release|x86.Deploy.0 = Release|x86
 		{3FFB943E-3057-48A8-B6CB-6C63EFE461EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3FFB943E-3057-48A8-B6CB-6C63EFE461EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3FFB943E-3057-48A8-B6CB-6C63EFE461EB}.Debug|x86.ActiveCfg = Debug|Any CPU

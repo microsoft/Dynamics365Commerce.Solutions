@@ -1,6 +1,3 @@
-> [!WARNING]
-> Because of limitations of the [new independent packaging and extension model](https://docs.microsoft.com/dynamics365/commerce/dev-itpro/build-pipeline), it can't currently be used for this fiscal integration sample. You must use the [previous version](https://docs.microsoft.com/en-us/dynamics365/commerce/localizations/emea-ita-fpi-sample) of the fiscal printer integration sample for Italy that is available in the Retail SDK on a developer virtual machine (VM) in Microsoft Dynamics Lifecycle Services (LCS).
-
 # Overview
 
 This folder contains the source code and configuration files of the sample of integration of Dynamics 365 Commerce with a fiscal printer for Italy. The sample extends the [fiscal integration functionality](https://docs.microsoft.com/en-us/dynamics365/commerce/localizations/fiscal-integration-for-retail-channel) so that it works with [Epson FP-90III Series](https://www.epson.it/products/sd/pos-printer/epson-fp-90iii-series) printers from Epson, and it enables communication with a fiscal printer in the web server mode via the EpsonFPMate web-service using Fiscal ePOS-Print API.

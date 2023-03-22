@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Contoso.EFRSample.HardwareStation.Installer": {
+      "commandName": "Project",
+      "commandLineArgs": "install"
+    }
+  }
+}

@@ -53,28 +53,28 @@ steps:
     inputs:
       targetType: filePath
       filePath: ./Pipeline/PowerShellScripts/CopyFileToDestination.ps1
-      arguments: '-RelativePath "$(Build.SourcesDirectory)\$(SolutionDirectory)\HardwareStation.Installer" -File "Contoso.PosnetThermalFVSample.HardwareStation.Installer.exe" -DestinationFullName "$(Build.ArtifactStagingDirectory)\HardwareStation.PosnetThermalFVFiscalPrinter.Installer_$(Build.BuildNumber).exe"'
+      arguments: '-RelativePath "$(Build.SourcesDirectory)\$(SolutionDirectory)\HardwareStation.Installer" -File "Contoso.PosnetThermalFVSample.HardwareStation.Installer.exe" -DestinationFullName "$(Build.ArtifactStagingDirectory)\Contoso.PosnetThermalFVSample.HardwareStation.Installer_$(Build.BuildNumber).exe"'
 
   - task: PowerShell@2
     displayName: 'Copy Scale Unit Installer to Artifact directory'
     inputs:
       targetType: filePath
       filePath: ./Pipeline/PowerShellScripts/CopyFileToDestination.ps1
-      arguments: '-RelativePath "$(Build.SourcesDirectory)\$(SolutionDirectory)\ScaleUnit.Installer" -File "Contoso.PosnetThermalFVSample.ScaleUnit.Installer.exe" -DestinationFullName "$(Build.ArtifactStagingDirectory)\ScaleUnit.Posnet.Installer_$(Build.BuildNumber).exe"'
+      arguments: '-RelativePath "$(Build.SourcesDirectory)\$(SolutionDirectory)\ScaleUnit.Installer" -File "Contoso.PosnetThermalFVSample.ScaleUnit.Installer.exe" -DestinationFullName "$(Build.ArtifactStagingDirectory)\Contoso.PosnetThermalFVSample.ScaleUnit.Installer_$(Build.BuildNumber).exe"'
 
   - task: PowerShell@2
-    displayName: 'Copy Modern POS Installer to Artifact directory'
+    displayName: 'Copy Store Commerce Installer to Artifact directory'
     inputs:
       targetType: filePath
       filePath: ./Pipeline/PowerShellScripts/CopyFileToDestination.ps1
-      arguments: '-RelativePath "$(Build.SourcesDirectory)\$(SolutionDirectory)\StoreCommerce.Installer" -File "Contoso.PosnetThermalFVSample.StoreCommerce.Installer.exe" -DestinationFullName "$(Build.ArtifactStagingDirectory)\ModernPos.Posnet.Installer_$(Build.BuildNumber).exe"'
+      arguments: '-RelativePath "$(Build.SourcesDirectory)\$(SolutionDirectory)\StoreCommerce.Installer" -File "Contoso.PosnetThermalFVSample.StoreCommerce.Installer.exe" -DestinationFullName "$(Build.ArtifactStagingDirectory)\Contoso.PosnetThermalFVSample.StoreCommerce.Installer_$(Build.BuildNumber).exe"'
 
   - task: PowerShell@2
     displayName: 'Sign Files'
     inputs:
       targetType: filePath
       filePath: ./Pipeline/PowerShellScripts/CodeSign.ps1
-      arguments: '-TenantId $(TenantId) -ApplicationId $(ApplicationId) -ApplicationSecretValue $(SecretValue) -AzureKeyVaultURI $(AzureKeyVaultURI) -CertificateName $(CertificateName) -Timestamp $(Timestamp) -TimestampDigest "sha256" -Files "$(Build.ArtifactStagingDirectory)\HardwareStation.PosnetThermalFVFiscalPrinter.Installer_$(Build.BuildNumber).exe $(Build.ArtifactStagingDirectory)\ScaleUnit.Posnet.Installer_$(Build.BuildNumber).exe $(Build.ArtifactStagingDirectory)\ModernPos.Posnet.Installer_$(Build.BuildNumber).exe"'
+      arguments: '-TenantId $(TenantId) -ApplicationId $(ApplicationId) -ApplicationSecretValue $(SecretValue) -AzureKeyVaultURI $(AzureKeyVaultURI) -CertificateName $(CertificateName) -Timestamp $(Timestamp) -TimestampDigest "sha256" -Files "$(Build.ArtifactStagingDirectory)\Contoso.PosnetThermalFVSample.HardwareStation.Installer_$(Build.BuildNumber).exe $(Build.ArtifactStagingDirectory)\Contoso.PosnetThermalFVSample.ScaleUnit.Installer_$(Build.BuildNumber).exe $(Build.ArtifactStagingDirectory)\Contoso.PosnetThermalFVSample.StoreCommerce.Installer_$(Build.BuildNumber).exe"'
 
   - task: PublishBuildArtifacts@1
     displayName: 'Publish Artifact: drop'

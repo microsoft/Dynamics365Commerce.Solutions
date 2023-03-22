@@ -8,9 +8,6 @@
 	<PackageReference Include="Microsoft.Dynamics.Commerce.Sdk.Installers.StoreCommerce" Version="$(CommerceSdkPackagesVersion)" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Pos\Contoso.PosnetThermalFVSample.Pos.csproj">
-	  <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
-	</ProjectReference>
 	<ProjectReference Include="..\CommerceRuntime\Contoso.PosnetThermalFVSample.CommerceRuntime.csproj">
 	  <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
 	</ProjectReference>
