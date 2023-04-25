@@ -169,22 +169,25 @@ namespace Contoso
             private GetFiscalTransactionExtendedDataDocumentProviderResponse GetFiscalTransactionExtendedData(GetFiscalTransactionExtendedDataDocumentProviderRequest request)
             {
                 var extendedData = new List<CommerceProperty>();
+                string fiscalReceiptNumber = string.Empty;
+                string response = request.FiscalRegistrationResult?.Response;
 
-                var registerResponse = XElement.Parse(request.FiscalRegistrationResult?.Response);
-                var fiscalReceiptDate = FiscalPrinterResponseParser.ParseRegisterResponseInfo(registerResponse, FiscalPrinterResponseConstants.FiscalReceiptDateElement);
-                var fiscalReceiptNumber = FiscalPrinterResponseParser.ParseRegisterResponseInfo(registerResponse, FiscalPrinterResponseConstants.FiscalReceiptNumberElement);
+                if (!string.IsNullOrEmpty(response))
+                {
+                    var registerResponse = XElement.Parse(response);
+                    var fiscalReceiptDate = FiscalPrinterResponseParser.ParseRegisterResponseInfo(registerResponse, FiscalPrinterResponseConstants.FiscalReceiptDateElement);
+                    fiscalReceiptNumber = FiscalPrinterResponseParser.ParseRegisterResponseInfo(registerResponse, FiscalPrinterResponseConstants.FiscalReceiptNumberElement);
 
-                extendedData.AddRange(new[]
-                    {
+                    extendedData.AddRange(new[]
+                        {
                         new CommerceProperty(ExtensibleFiscalRegistrationExtendedDataType.TransactionEnd.Name, fiscalReceiptDate),
                         new CommerceProperty(ExtensibleFiscalRegistrationExtendedDataType.ServiceTransactionId.Name, fiscalReceiptNumber),
                     });
-
-                var registrationType = ExtensibleFiscalRegistrationType.CashSale;
+                }
 
                 return new GetFiscalTransactionExtendedDataDocumentProviderResponse(
                     fiscalReceiptNumber ?? string.Empty,
-                    registrationType,
+                    ExtensibleFiscalRegistrationType.CashSale,
                     ServiceName,
                     request.RequestContext.GetPrincipal().CountryRegionIsoCode,
                     extendedData);
