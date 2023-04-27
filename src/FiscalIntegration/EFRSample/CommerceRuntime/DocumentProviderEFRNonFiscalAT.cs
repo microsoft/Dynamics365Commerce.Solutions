@@ -231,6 +231,11 @@ namespace Contoso
                 if (builder != null)
                 {
                     document = await builder.BuildAsync().ConfigureAwait(false);
+
+                    if (document != null && !string.IsNullOrEmpty(((SalesTransactionRegistrationRequest)document).Receipt.NonFiscalTransactionType))
+                    {
+                        ((SalesTransactionRegistrationRequest)document).Receipt.TransactionNumber += "_NF";
+                    }
                 }
 
                 FiscalIntegrationDocument fiscalIntegrationDocument = document != null ?
