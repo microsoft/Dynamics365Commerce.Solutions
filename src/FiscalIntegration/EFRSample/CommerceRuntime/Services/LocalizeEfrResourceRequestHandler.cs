@@ -9,7 +9,7 @@
 
 namespace Contoso
 {
-    namespace CommerceRuntime.DocumentProvider.EFRSample
+    namespace EFRSample.CommerceRuntime
     {
         using System.Threading.Tasks;
         using Microsoft.Dynamics.Commerce.Runtime;
