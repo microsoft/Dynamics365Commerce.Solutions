@@ -5,7 +5,7 @@
     <PackagePublisher Condition="'$(PackagePublisher)' == ''">$(Publisher)</PackagePublisher>
     <PackagePublisherDisplayName Condition="'$(PackagePublisherDisplayName)' == ''">$(PublisherDisplayName)</PackagePublisherDisplayName>
     <PackageVersion Condition="'$(PackageVersion)' == ''">$(Version)</PackageVersion>
-    <PackageName Condition="'$(PackageName)' == ''">Contoso.Commerce.AtolSample</PackageName>
+    <PackageName Condition="'$(PackageName)' == ''">Contoso.AtolSample</PackageName>
     <PackageDisplayName Condition="'$(PackageDisplayName)' == ''">Contoso Scale Unit Example Commerce Customization</PackageDisplayName>
     <PackageDescription Condition="'$(PackageDescription)' == ''">Contoso Scale Unit Example Commerce Customization</PackageDescription>
   </PropertyGroup>

@@ -11,11 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HardwareStation.AtolFiscalP
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScaleUnit.AtolFiscalPrinter.Installer", "ScaleUnit\ScaleUnit.AtolFiscalPrinter.Installer\ScaleUnit.AtolFiscalPrinter.Installer.csproj", "{51D17EBC-E576-4D1D-A913-08A3692C8C7A}"
 EndProject
-Project("{262852C6-CD72-467D-83FE-5EEB1973A190}") = "ModernPos.AtolFiscalPrinter", "ModernPOS\ModernPos.AtolFiscalPrinter\ModernPos.AtolFiscalPrinter.jsproj", "{20292722-7895-4388-812B-837317D7FC0C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScaleUnit.AtolFiscalPrinter", "ScaleUnit\ScaleUnit.AtolFiscalPrinter\ScaleUnit.AtolFiscalPrinter.csproj", "{5D3DE148-481C-4A86-9B2C-0194E5E00DF9}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModernPos.AtolFiscalPrinter.Installer", "ModernPOS\ModernPos.AtolFiscalPrinter.Installer\ModernPos.AtolFiscalPrinter.Installer.csproj", "{81568802-8F08-4F1F-93A6-731525F5777D}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScaleUnit.AtolFiscalPrinter", "ScaleUnit\ScaleUnit.AtolFiscalPrinter\ScaleUnit.AtolFiscalPrinter.csproj", "{5D3DE148-481C-4A86-9B2C-0194E5E00DF9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Contoso.AtolFiscalPrinter.StoreCommerce.Installer", "StoreCommerce.Installer\Contoso.AtolFiscalPrinter.StoreCommerce.Installer.csproj", "{76607701-6351-4011-976A-390F9BE66818}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -75,32 +73,6 @@ Global
 		{51D17EBC-E576-4D1D-A913-08A3692C8C7A}.Release|x64.Build.0 = Release|Any CPU
 		{51D17EBC-E576-4D1D-A913-08A3692C8C7A}.Release|x86.ActiveCfg = Release|Any CPU
 		{51D17EBC-E576-4D1D-A913-08A3692C8C7A}.Release|x86.Build.0 = Release|Any CPU
-		{20292722-7895-4388-812B-837317D7FC0C}.Debug|Any CPU.ActiveCfg = Debug|x86
-		{20292722-7895-4388-812B-837317D7FC0C}.Debug|Any CPU.Build.0 = Debug|x86
-		{20292722-7895-4388-812B-837317D7FC0C}.Debug|Any CPU.Deploy.0 = Debug|x86
-		{20292722-7895-4388-812B-837317D7FC0C}.Debug|x64.ActiveCfg = Debug|x86
-		{20292722-7895-4388-812B-837317D7FC0C}.Debug|x86.ActiveCfg = Debug|x86
-		{20292722-7895-4388-812B-837317D7FC0C}.Debug|x86.Build.0 = Debug|x86
-		{20292722-7895-4388-812B-837317D7FC0C}.Debug|x86.Deploy.0 = Debug|x86
-		{20292722-7895-4388-812B-837317D7FC0C}.Release|Any CPU.ActiveCfg = Release|x86
-		{20292722-7895-4388-812B-837317D7FC0C}.Release|Any CPU.Build.0 = Release|x86
-		{20292722-7895-4388-812B-837317D7FC0C}.Release|Any CPU.Deploy.0 = Release|x86
-		{20292722-7895-4388-812B-837317D7FC0C}.Release|x64.ActiveCfg = Release|x86
-		{20292722-7895-4388-812B-837317D7FC0C}.Release|x86.ActiveCfg = Release|x86
-		{20292722-7895-4388-812B-837317D7FC0C}.Release|x86.Build.0 = Release|x86
-		{20292722-7895-4388-812B-837317D7FC0C}.Release|x86.Deploy.0 = Release|x86
-		{81568802-8F08-4F1F-93A6-731525F5777D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{81568802-8F08-4F1F-93A6-731525F5777D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{81568802-8F08-4F1F-93A6-731525F5777D}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{81568802-8F08-4F1F-93A6-731525F5777D}.Debug|x64.Build.0 = Debug|Any CPU
-		{81568802-8F08-4F1F-93A6-731525F5777D}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{81568802-8F08-4F1F-93A6-731525F5777D}.Debug|x86.Build.0 = Debug|Any CPU
-		{81568802-8F08-4F1F-93A6-731525F5777D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{81568802-8F08-4F1F-93A6-731525F5777D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{81568802-8F08-4F1F-93A6-731525F5777D}.Release|x64.ActiveCfg = Release|Any CPU
-		{81568802-8F08-4F1F-93A6-731525F5777D}.Release|x64.Build.0 = Release|Any CPU
-		{81568802-8F08-4F1F-93A6-731525F5777D}.Release|x86.ActiveCfg = Release|Any CPU
-		{81568802-8F08-4F1F-93A6-731525F5777D}.Release|x86.Build.0 = Release|Any CPU
 		{5D3DE148-481C-4A86-9B2C-0194E5E00DF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5D3DE148-481C-4A86-9B2C-0194E5E00DF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5D3DE148-481C-4A86-9B2C-0194E5E00DF9}.Debug|x64.ActiveCfg = Debug|Any CPU
@@ -113,6 +85,18 @@ Global
 		{5D3DE148-481C-4A86-9B2C-0194E5E00DF9}.Release|x64.Build.0 = Release|Any CPU
 		{5D3DE148-481C-4A86-9B2C-0194E5E00DF9}.Release|x86.ActiveCfg = Release|Any CPU
 		{5D3DE148-481C-4A86-9B2C-0194E5E00DF9}.Release|x86.Build.0 = Release|Any CPU
+		{76607701-6351-4011-976A-390F9BE66818}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76607701-6351-4011-976A-390F9BE66818}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76607701-6351-4011-976A-390F9BE66818}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{76607701-6351-4011-976A-390F9BE66818}.Debug|x64.Build.0 = Debug|Any CPU
+		{76607701-6351-4011-976A-390F9BE66818}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{76607701-6351-4011-976A-390F9BE66818}.Debug|x86.Build.0 = Debug|Any CPU
+		{76607701-6351-4011-976A-390F9BE66818}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76607701-6351-4011-976A-390F9BE66818}.Release|Any CPU.Build.0 = Release|Any CPU
+		{76607701-6351-4011-976A-390F9BE66818}.Release|x64.ActiveCfg = Release|Any CPU
+		{76607701-6351-4011-976A-390F9BE66818}.Release|x64.Build.0 = Release|Any CPU
+		{76607701-6351-4011-976A-390F9BE66818}.Release|x86.ActiveCfg = Release|Any CPU
+		{76607701-6351-4011-976A-390F9BE66818}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
