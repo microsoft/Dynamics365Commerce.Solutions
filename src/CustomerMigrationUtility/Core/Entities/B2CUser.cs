@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Dynamic;
 using System.Text;
@@ -114,38 +115,30 @@ namespace Microsoft.Dynamics.Commerce.CustomerMigrationUtility.Core
         /// Creates a request object to generate a account in AAD B2C.
         /// </summary>
         /// <returns>The local account request object.</returns>
-        public object CreateAccountRequestObject()
+        public object CreateAccountRequestObject(string b2cTenant)
         {
             dynamic accountRequestObject = new ExpandoObject();
 
             accountRequestObject.accountEnabled = true;
             accountRequestObject.surName = this.Surname;
             accountRequestObject.givenName = this.GivenName;
-            accountRequestObject.displayName = string.Format($"{this.GivenName} {this.Surname}");
+            accountRequestObject.displayName = $"{this.GivenName} {this.Surname}";
             accountRequestObject.passwordPolicies = "DisablePasswordExpiration";
             accountRequestObject.passwordProfile = new
             {
                 password = this.TemporaryPassword,
-                forceChangePasswordNextLogin = false
+                forceChangePasswordNextSignIn = false
             };
 
             if (this.HasExternalIdentity())
             {
-                accountRequestObject.creationType = null;
-
-                var encodedExternalIssuerUserId=Convert.ToBase64String(Encoding.UTF8.GetBytes(this.ExternalIssuerUserId));
-
                 accountRequestObject.otherMails = new[] { this.EMail };
                 accountRequestObject.userPrincipalName = $"{Guid.NewGuid().ToString()}@{this.Tenant}";
-                accountRequestObject.userIdentities = new[] { new { issuer = this.ExternalIssuer, issuerUserId = encodedExternalIssuerUserId } };
-                accountRequestObject.signInNames = new[] { new { type = "emailAddress", value = this.EMail } };
+                accountRequestObject.identities = new[] { new { signInType = "federated", issuer = this.ExternalIssuer, issuerAssignedId = this.ExternalIssuerUserId }, new { signInType = "AXCustomerAccountNumber", issuer = b2cTenant, issuerAssignedId = this.CustomerAccountNumber } };
             }
             else
             {
-                // This is required only if we add to extended property.
-              //  accountRequestObject.EXTENDEDPROPERTY = "true";
-                accountRequestObject.creationType = "LocalAccount";
-                accountRequestObject.signInNames = new[] { new { type = "emailAddress", value = this.EMail } };
+                accountRequestObject.identities = new[] { new { signInType = "emailAddress", issuer = b2cTenant, issuerAssignedId = this.EMail }, new { signInType = "AXCustomerAccountNumber", issuer = b2cTenant, issuerAssignedId = this.CustomerAccountNumber } };
             }
 
             return accountRequestObject;

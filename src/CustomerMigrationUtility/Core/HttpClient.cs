@@ -12,10 +12,10 @@
     /// <summary>Simple HTTP client wrapper.</summary>
     public class HttpClient
     {
-        private readonly static System.Net.Http.HttpClient client = new System.Net.Http.HttpClient();
-
         /// <summary>Time out in seconds</summary>
         public const int TimeOutSecs = 100;
+
+        private readonly static System.Net.Http.HttpClient client = new System.Net.Http.HttpClient() { Timeout = TimeSpan.FromSeconds(TimeOutSecs) };
 
         /// <summary>Gets the requested URL.</summary>
         /// <param name="path">The path</param>        
@@ -91,9 +91,6 @@
                                                           AuthenticationHeaderValue authHeader,
                                                           List<KeyValuePair<string, string>> headers = null)
         {
-            
-            client.Timeout = TimeSpan.FromSeconds(TimeOutSecs);
-
             using (var request = new HttpRequestMessage(method, path))
             {
                 if (headers != null)

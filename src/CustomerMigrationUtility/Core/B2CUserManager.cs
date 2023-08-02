@@ -16,14 +16,17 @@
     {
         private readonly static HttpClient httpClient = new HttpClient();
 
+        /// <summary>The B2CTenant. e.g. XXX.onmicrosoft.com</summary>
+        private static readonly string B2CTenant = ConfigurationManager.AppSettings["B2CTenant"];
+
         /// <summary>The AAD instance.</summary>
-        private static readonly string AADInstance = "https://login.microsoftonline.com/" + ConfigurationManager.AppSettings["AX-AAD-Tenant"];
+        private static readonly string AADInstance = $"https://login.microsoftonline.com/{B2CTenant}";
 
         /// <summary>The group service resource id.</summary>
-        private static readonly string aadGraphResourceId = "https://graph.windows.net/";
+        private static readonly string aadGraphResourceId = "https://graph.microsoft.com/";
 
         /// <summary>The API version.</summary>
-        private static string aadGraphVersion = "api-version=1.6";
+        private static string msGraphVersion = "v1.0";
 
         /// <summary>The B2C shared custom domain.</summary>
         private const string B2CSharedDomain = "{0}.b2clogin.com";
@@ -58,7 +61,6 @@
         public async Task<Response> CreateB2CAccount(B2CUser user, bool updatePasswordInExistingAccount)
         {
             HttpResponseMessage httpResponse = null;
-
             try
             {
                 var userId = string.Empty;
@@ -87,12 +89,11 @@
 
                 if (string.IsNullOrWhiteSpace(user.ExternalIssuerUserId))
                 {
-                    url = $"{aadGraphResourceId}{user.Tenant}/users?$filter=signInNames/any(x:x/value%20eq%20%27{WebUtility.UrlEncode(user.EMail)}%27)&{aadGraphVersion}";
+                    url = $"{aadGraphResourceId}{msGraphVersion}/users?$select=id,identities,otherMails,userPrincipalName&$filter=identities/any(x:x/issuerAssignedId eq '{WebUtility.UrlEncode(user.EMail)}' and c/issuer eq '{ConfigurationManager.AppSettings["B2CTenant"]}')";
                 }
                 else
                 {
-                    var hex = ToBase16String(Encoding.UTF8.GetBytes(user.ExternalIssuerUserId));
-                    url = $"{aadGraphResourceId}{user.Tenant}/users?$filter=userIdentities/any(x:x/issuer eq '{user.ExternalIssuer}' and x/issuerUserId eq X'{hex}')&{aadGraphVersion}";
+                    url = $"{aadGraphResourceId}{msGraphVersion}/users?$select=id,identities,otherMails,userPrincipalName&$filter=identities/any(x:x/issuerAssignedId eq '{user.ExternalIssuerUserId}' and c/issuer eq '{user.ExternalIssuer}')";
                 }
 
                 httpResponse = await httpClient.GetAsync(url, authenticationHeaderValue).ConfigureAwait(false);
@@ -109,14 +110,12 @@
                     this.logger.Trace($"Checking the user account with email: {user.EMail} in B2C is failed.");
                 }
 
-                response = await httpClient.GetContentAsync(httpResponse).ConfigureAwait(false);
-
                 if (response.IndexOf(user.EMail, StringComparison.OrdinalIgnoreCase) < 0)
                 {
-                    url = $"{aadGraphResourceId}{user.Tenant}/users?{aadGraphVersion}";
+                    url = $"{aadGraphResourceId}{msGraphVersion}/users";
 
                     this.logger.Trace($"Creating new account with ({user.EMail}) in B2C.");
-                    httpResponse = await httpClient.PostAsync(user.CreateAccountRequestObject(), url, authenticationHeaderValue).ConfigureAwait(false);
+                    httpResponse = await httpClient.PostAsync(user.CreateAccountRequestObject(B2CTenant), url, authenticationHeaderValue).ConfigureAwait(false);
 
                     if (!httpResponse.IsSuccessStatusCode)
                     {
@@ -127,12 +126,12 @@
                     response = await httpClient.GetContentAsync(httpResponse).ConfigureAwait(false);
                     var jsonObject = JObject.Parse(response);
 
-                    return new Response(Status.Success, jsonObject["objectId"].ToString());
+                    return new Response(Status.Success, jsonObject["id"].ToString());
                 }
                 else
                 {
                     var jsonObject = JObject.Parse(response);
-                    var existinguserId = jsonObject["value"][0]["objectId"].ToString();
+                    var existinguserId = jsonObject["value"][0]["id"].ToString();
 
                     if (updatePasswordInExistingAccount)
                     {
@@ -147,7 +146,7 @@
 
                         var objectId = jsonObject["value"][0]["objectId"].ToString();
 
-                        url = $"{aadGraphResourceId}{user.Tenant}/users/{objectId}?{aadGraphVersion}";
+                        url = $"{aadGraphResourceId}{msGraphVersion}/users/{objectId}";
 
                         this.logger.Trace($"Update the new password for the account: {user.EMail} in B2C.");
                         httpResponse = await httpClient.PatchAsync(requestObject, url, authenticationHeaderValue).ConfigureAwait(false);
@@ -220,7 +219,7 @@
                 }
 
                 this.logger.Trace($"Checking the user account: {user.CustomerAccountNumber} in B2C");
-                string url = $"{aadGraphResourceId}{user.Tenant}/users?$filter=signInNames/any(x:x/value%20eq%20%27{WebUtility.UrlEncode(user.CustomerAccountNumber)}%27)&{aadGraphVersion}";
+                string url = $"{aadGraphResourceId}{msGraphVersion}/users?$select=id,identities,otherMails,userPrincipalName&$filter=identities/any(x:x/issuerAssignedId eq '{WebUtility.UrlEncode(user.CustomerAccountNumber)}' and c/issuer eq '{B2CTenant}')";
 
                 httpResponse = await httpClient.GetAsync(url, authenticationHeaderValue).ConfigureAwait(false);
 
@@ -239,8 +238,8 @@
                 else
                 {
                     var jsonObject = JObject.Parse(response);
-                    var objectId = jsonObject["value"][0]["objectId"].ToString();
-                    url = $"{aadGraphResourceId}{user.Tenant}/users/{objectId}?{aadGraphVersion}";
+                    var objectId = jsonObject["value"][0]["id"].ToString();
+                    url = $"{aadGraphResourceId}{msGraphVersion}/users/{objectId}";
 
                     var requestObject = new { accountEnabled = false };
 
@@ -314,7 +313,7 @@
                 }
                 var requestObject = new { passwordProfile = new { forceChangePasswordNextLogin = true } };
 
-                var url = aadGraphResourceId + tenant + "/users/" + UserId + "?" + aadGraphVersion;
+                var url = $"{aadGraphResourceId}{msGraphVersion}/users/{UserId}";
 
                 httpResponse = await httpClient.PatchAsync(requestObject, url, authenticationHeaderValue).ConfigureAwait(false);
 
@@ -425,18 +424,6 @@
             }
 
             return res.ToString();
-        }
-
-        private string ToBase16String(byte[] inArray)
-        {
-            StringBuilder result = new StringBuilder(inArray.Length * 2);
-
-            for (int i = 0; i < inArray.Length; i++)
-            {
-                result.AppendFormat("{0:X}", inArray[i]);
-            }
-
-            return result.ToString();
         }
     }
 }
