@@ -91,7 +91,13 @@ namespace Contoso
 
                 try
                 {
-                    var getSignedDataRequest = new GetDataSignatureRequest(request.Document, getCertificateResult.Certificate, hashAlgorithmName, Encoding.UTF8);
+                    // Please check the current cash register specification for the padding to be used.
+                    var getSignedDataRequest = new GetDataSignatureRequest(
+                        request.Document,
+                        getCertificateResult.Certificate,
+                        hashAlgorithmName,
+                        Encoding.UTF8,
+                        RSASignaturePadding.Pkcs1); // CodeQL [SM03799]: Cannot be set to Pss only, since Pkcs1 padding is currently still required by Norwegian cash register.
                     response = await SignData(getSignedDataRequest, request.RequestContext).ConfigureAwait(false);
                 }
                 catch (NotSupportedException)

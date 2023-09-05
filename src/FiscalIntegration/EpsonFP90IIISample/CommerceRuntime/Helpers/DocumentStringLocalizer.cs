@@ -16,8 +16,9 @@ namespace Contoso
 
         public class DocumentStringLocalizer : StringLocalizer
         {
-            public DocumentStringLocalizer() 
-                : base(typeof(DocumentStringLocalizer).Namespace + ".Properties.Resources.Resource", typeof(DocumentStringLocalizer).GetTypeInfo().Assembly)
+            public DocumentStringLocalizer() : base(
+                resouceFileName: "Contoso.EpsonFP90IIISample.CommerceRuntime.Properties.Resources.Resource",
+                assembly: typeof(DocumentStringLocalizer).GetTypeInfo().Assembly)
             {
             }
         }

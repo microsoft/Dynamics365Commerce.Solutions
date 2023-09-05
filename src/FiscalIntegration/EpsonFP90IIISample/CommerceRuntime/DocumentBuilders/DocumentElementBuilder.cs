@@ -265,8 +265,11 @@ namespace Contoso
             public static XElement BuildFiscalCustomerLotteryCodeElement(XElement parentElement, string lotteryCode, string operatorId = DocumentAttributeConstants.DefaultTaxCodeOperatorId)
             {
                 ThrowIf.Null(parentElement, nameof(parentElement));
-                ThrowIf.NullOrWhiteSpace(lotteryCode, nameof(lotteryCode));
-                ThrowIf.NullOrWhiteSpace(operatorId, nameof(operatorId));
+
+                if (string.IsNullOrWhiteSpace(operatorId) || string.IsNullOrWhiteSpace(lotteryCode))
+                {
+                    return parentElement;
+                }
 
                 var directIOElement = new XElement(DocumentElementConstants.directIO);
                 var notUsed = "0000";
