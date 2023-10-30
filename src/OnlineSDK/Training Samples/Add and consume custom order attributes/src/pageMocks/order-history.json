@@ -11,49 +11,21 @@
                     "typeName": "default-page",
                     "id": "default-page",
                     "friendlyName": "Default Page",
-                    "config": {
-                        "skipToMainText": "Skip to main content",
-                        "pageTheme": "fabrikam-extended"
-                    },
+                    "config": { "skipToMainText": "Skip to main content", "pageTheme": "summer" },
                     "modules": {
                         "header": [
                             {
                                 "typeName": "default-container",
                                 "id": "IDNMAwGxa_c26y77k",
                                 "friendlyName": "Default container",
-                                "config": {
-                                    "heading": {},
-                                    "layout": "stacked",
-                                    "containerType": "fluid",
-                                    "childrenWidth": "four"
-                                },
+                                "config": { "heading": {}, "layout": "stacked", "containerType": "fluid", "childrenWidth": "four" },
                                 "modules": {
                                     "content": [
-                                        {
-                                            "typeName": "cookie-compliance",
-                                            "id": "IDNMAwGxa_c26y77k-cookie-compliance",
-                                            "friendlyName": "Cookie compliance",
-                                            "config": {
-                                                "content": "<p>This site uses cookies for analytics and personalized content. Accept to continue.&nbsp;</p>\n",
-                                                "actionLinks": [
-                                                    {
-                                                        "linkText": "Learn more",
-                                                        "linkUrl": {
-                                                            "destinationUrl": "https://go.microsoft.com/fwlink/?linkid=845480",
-                                                            "type": "externalLink"
-                                                        },
-                                                        "ariaLabel": "Learn more about cookie compliance"
-                                                    }
-                                                ]
-                                            }
-                                        },
                                         {
                                             "typeName": "promo-banner",
                                             "id": "IDNMAwGxa_c26y77k-promo-banner",
                                             "friendlyName": "Promo banner",
-                                            "platform": {
-                                                "layout": "mediumWidth"
-                                            },
+                                            "platform": { "layout": "mediumWidth" },
                                             "config": {
                                                 "msdyn365__moduleLayout": "mediumWidth",
                                                 "bannerMessages": [
@@ -62,10 +34,7 @@
                                                         "links": [
                                                             {
                                                                 "linkText": "Shop now",
-                                                                "linkUrl": {
-                                                                    "type": "categoryLink",
-                                                                    "categoryId": 68719478055
-                                                                },
+                                                                "linkUrl": { "type": "categoryLink", "categoryId": 68719478055 },
                                                                 "ariaLabel": "Shop now"
                                                             }
                                                         ]
@@ -75,10 +44,7 @@
                                                         "links": [
                                                             {
                                                                 "linkText": "Shop now",
-                                                                "linkUrl": {
-                                                                    "type": "categoryLink",
-                                                                    "categoryId": 68719478053
-                                                                },
+                                                                "linkUrl": { "type": "categoryLink", "categoryId": 68719478053 },
                                                                 "ariaLabel": "Shop now"
                                                             }
                                                         ]
@@ -96,9 +62,9 @@
                                             "friendlyName": "Notifications",
                                             "config": {
                                                 "feed": "global",
-                                                "maxNotificationsCount": 5,
-                                                "minTopOffset": 20,
-                                                "maxTopOffset": 100,
+                                                "maxNotificationsCount": 5.0,
+                                                "minTopOffset": 20.0,
+                                                "maxTopOffset": 100.0,
                                                 "className": "msc-global-notifications-list-container"
                                             }
                                         },
@@ -138,127 +104,31 @@
                                                 },
                                                 "logoLink": {
                                                     "linkText": "",
-                                                    "linkUrl": {
-                                                        "destinationUrl": "/",
-                                                        "type": "internalLink"
-                                                    },
+                                                    "linkUrl": { "destinationUrl": "/", "type": "internalLink" },
                                                     "ariaLabel": "Fabrikam"
                                                 },
                                                 "myAccountLinks": [
                                                     {
                                                         "linkText": "My account",
-                                                        "linkUrl": {
-                                                            "destinationUrl": "/myaccount",
-                                                            "type": "internalLink"
-                                                        },
+                                                        "linkUrl": { "destinationUrl": "/myaccount", "type": "internalLink" },
                                                         "ariaLabel": "My account"
                                                     },
                                                     {
                                                         "linkText": "Order history",
-                                                        "linkUrl": {
-                                                            "destinationUrl": "/orderhistory",
-                                                            "type": "internalLink"
-                                                        },
+                                                        "linkUrl": { "destinationUrl": "/orderhistory", "type": "internalLink" },
                                                         "ariaLabel": "Order history"
                                                     }
                                                 ]
                                             },
                                             "data": {},
                                             "modules": {
-                                                "menuBar": [
-                                                    {
-                                                        "typeName": "navigation-menu",
-                                                        "id": "IDNMAwGxa_c26y77k-navigation-menu",
-                                                        "friendlyName": "Navigation menu",
-                                                        "config": {
-                                                            "categoryImageSettings": {
-                                                                "quality": 80,
-                                                                "disableLazyLoad": false,
-                                                                "lazyload": true,
-                                                                "viewports": {
-                                                                    "xs": {
-                                                                        "w": 300,
-                                                                        "h": 350,
-                                                                        "q": "w=300&h=350&q=80&m=6&f=jpg",
-                                                                        "qe": "t=w300h350qhigh"
-                                                                    },
-                                                                    "lg": {
-                                                                        "w": 300,
-                                                                        "h": 350,
-                                                                        "q": "w=300&h=350&q=80&m=6&f=jpg",
-                                                                        "qe": "t=w300h350qhigh"
-                                                                    },
-                                                                    "xl": {
-                                                                        "w": 300,
-                                                                        "h": 350,
-                                                                        "q": "w=300&h=350&q=80&m=6&f=jpg",
-                                                                        "qe": "t=w300h350qhigh"
-                                                                    }
-                                                                }
-                                                            },
-                                                            "menuLevelSupport": 5,
-                                                            "rootMenuNavigation": "Home",
-                                                            "cmsNavItems": [
-                                                                {
-                                                                    "linkText": "Explore Fabrikam",
-                                                                    "linkUrl": {},
-                                                                    "imageLink": {},
-                                                                    "subMenus": [
-                                                                        {
-                                                                            "linkText": "Contact",
-                                                                            "linkUrl": {
-                                                                                "destinationUrl": "/contact",
-                                                                                "type": "internalLink"
-                                                                            },
-                                                                            "ariaLabel": "Contact us",
-                                                                            "imageLink": {},
-                                                                            "subMenus": [
-                                                                                {
-                                                                                    "linkText": "Sub Menu Link text ",
-                                                                                    "linkUrl": {},
-                                                                                    "ariaLabel": "",
-                                                                                    "imageLink": {}
-                                                                                }
-                                                                            ]
-                                                                        },
-                                                                        {
-                                                                            "linkText": "Loyalty program",
-                                                                            "linkUrl": {
-                                                                                "destinationUrl": "/loyalty-join",
-                                                                                "type": "internalLink"
-                                                                            },
-                                                                            "imageLink": {}
-                                                                        }
-                                                                    ]
-                                                                },
-                                                                {
-                                                                    "linkText": "Open in new tab",
-                                                                    "linkUrl": {
-                                                                        "destinationUrl": "www.microsoft.com",
-                                                                        "type": "externalLink"
-                                                                    },
-                                                                    "imageLink": {},
-                                                                    "ariaLabel": "",
-                                                                    "openInNewTab": true
-                                                                }
-                                                            ],
-                                                            "categoryPromotionalContent": [],
-                                                            "navigationMenuSource": "all",
-                                                            "enableMultilevelMenu": false,
-                                                            "enabletopMenu": false,
-                                                            "displayCategoryImage": true,
-                                                            "displayPromotionalImage": true
-                                                        },
-                                                        "data": {}
-                                                    }
-                                                ],
                                                 "search": [
                                                     {
                                                         "typeName": "search",
                                                         "id": "IDNMAwGxa_c26y77k-search",
                                                         "friendlyName": "Search",
                                                         "config": {
-                                                            "topResultsCount": 5,
+                                                            "topResultsCount": 5.0,
                                                             "imageSettings": {
                                                                 "quality": 80,
                                                                 "disableLazyLoad": false,
@@ -293,9 +163,7 @@
                                                         "typeName": "cart-icon",
                                                         "id": "IDNMAwGxa_c26y77k-cart-icon",
                                                         "friendlyName": "Cart icon",
-                                                        "platform": {
-                                                            "layout": "mediumWidth"
-                                                        },
+                                                        "platform": { "layout": "mediumWidth" },
                                                         "config": {
                                                             "msdyn365__moduleLayout": "mediumWidth",
                                                             "imageSettings": {
@@ -334,20 +202,15 @@
                                                         "id": "IDNMAwGxa_c26y77k-store-selector",
                                                         "friendlyName": "Store selector",
                                                         "config": {
-                                                            "termsOfServiceLink": {
-                                                                "linkText": "Link text ",
-                                                                "linkUrl": {}
-                                                            },
+                                                            "termsOfServiceLink": { "linkText": "Link text ", "linkUrl": {} },
                                                             "mode": "findStores",
                                                             "searchRadiusUnit": "miles",
-                                                            "lookupRadius": 50,
+                                                            "lookupRadius": 50.0,
                                                             "style": "dialog",
                                                             "setAsPreferredStore": true,
                                                             "showAllStores": true,
                                                             "autoSuggestionEnabled": true,
-                                                            "autoSuggestOptions": {
-                                                                "maxResults": 5
-                                                            }
+                                                            "autoSuggestOptions": { "maxResults": 5 }
                                                         },
                                                         "modules": {
                                                             "maps": [
@@ -356,10 +219,7 @@
                                                                     "id": "IDNMAwGxa_c26y77k-map",
                                                                     "friendlyName": "Map",
                                                                     "config": {
-                                                                        "heading": {
-                                                                            "text": "Heading",
-                                                                            "tag": "h2"
-                                                                        },
+                                                                        "heading": { "text": "Heading", "tag": "h2" },
                                                                         "pushpinOptions": {
                                                                             "size": 1.5,
                                                                             "color": "#616365",
@@ -504,9 +364,7 @@
                                             "typeName": "footer-category",
                                             "id": "IDNMAxJzO_5lztnip-footer-category",
                                             "friendlyName": "Footer category",
-                                            "config": {
-                                                "categoryClassName": "nav-item"
-                                            },
+                                            "config": { "categoryClassName": "nav-item" },
                                             "modules": {
                                                 "content": [
                                                     {
@@ -514,14 +372,8 @@
                                                         "id": "IDNMAxJzO_5lztnip-footer-item",
                                                         "friendlyName": "Footer item",
                                                         "config": {
-                                                            "heading": {
-                                                                "text": "Customer Service",
-                                                                "tag": "h2"
-                                                            },
-                                                            "link": {
-                                                                "linkText": "Link text ",
-                                                                "linkUrl": {}
-                                                            }
+                                                            "heading": { "text": "Customer Service", "tag": "h2" },
+                                                            "link": { "linkText": "Link text ", "linkUrl": {} }
                                                         }
                                                     },
                                                     {
@@ -529,16 +381,10 @@
                                                         "id": "IDNMAxJzO_5lztnip-footer-item__1",
                                                         "friendlyName": "Footer item 2",
                                                         "config": {
-                                                            "heading": {
-                                                                "text": "",
-                                                                "tag": "h2"
-                                                            },
+                                                            "heading": { "text": "", "tag": "h2" },
                                                             "link": {
                                                                 "linkText": "FAQ",
-                                                                "linkUrl": {
-                                                                    "destinationUrl": "/comingsoon",
-                                                                    "type": "internalLink"
-                                                                },
+                                                                "linkUrl": { "destinationUrl": "/comingsoon", "type": "internalLink" },
                                                                 "ariaLabel": "FAQ"
                                                             }
                                                         },
@@ -549,16 +395,10 @@
                                                         "id": "IDNMAxJzO_5lztnip-footer-item__2",
                                                         "friendlyName": "Footer item 3",
                                                         "config": {
-                                                            "heading": {
-                                                                "text": "",
-                                                                "tag": "h2"
-                                                            },
+                                                            "heading": { "text": "", "tag": "h2" },
                                                             "link": {
                                                                 "linkText": "Returns & refunds",
-                                                                "linkUrl": {
-                                                                    "destinationUrl": "/returns",
-                                                                    "type": "internalLink"
-                                                                },
+                                                                "linkUrl": { "destinationUrl": "/returns", "type": "internalLink" },
                                                                 "ariaLabel": "delivery and returns"
                                                             }
                                                         },
@@ -569,10 +409,7 @@
                                                         "id": "IDNMAxJzO_5lztnip-footer-item__16",
                                                         "friendlyName": "Footer item 17",
                                                         "config": {
-                                                            "heading": {
-                                                                "text": "",
-                                                                "tag": "h2"
-                                                            },
+                                                            "heading": { "text": "", "tag": "h2" },
                                                             "link": {
                                                                 "linkText": "Terms and conditions",
                                                                 "linkUrl": {
@@ -588,10 +425,7 @@
                                                         "id": "IDNMAxJzO_5lztnip-footer-item__15",
                                                         "friendlyName": "Footer item 16",
                                                         "config": {
-                                                            "heading": {
-                                                                "text": "",
-                                                                "tag": "h2"
-                                                            },
+                                                            "heading": { "text": "", "tag": "h2" },
                                                             "link": {
                                                                 "linkText": "Privacy Policy",
                                                                 "linkUrl": {
@@ -606,21 +440,13 @@
                                                         "typeName": "footer-item",
                                                         "id": "IDNMAxJzO_5lztnip-footer-item__17",
                                                         "friendlyName": "Footer item 18",
-                                                        "platform": {
-                                                            "layout": "mediumWidth"
-                                                        },
+                                                        "platform": { "layout": "mediumWidth" },
                                                         "config": {
                                                             "msdyn365__moduleLayout": "mediumWidth",
-                                                            "heading": {
-                                                                "text": "",
-                                                                "tag": "h2"
-                                                            },
+                                                            "heading": { "text": "", "tag": "h2" },
                                                             "link": {
                                                                 "linkText": "Order Lookup",
-                                                                "linkUrl": {
-                                                                    "destinationUrl": "/orderlookup",
-                                                                    "type": "internalLink"
-                                                                },
+                                                                "linkUrl": { "destinationUrl": "/orderlookup", "type": "internalLink" },
                                                                 "ariaLabel": "Order Lookup",
                                                                 "openInNewTab": false
                                                             }
@@ -634,9 +460,7 @@
                                             "typeName": "footer-category",
                                             "id": "IDNMAxJzO_5lztnip-footer-category__0",
                                             "friendlyName": "Footer category 1",
-                                            "config": {
-                                                "categoryClassName": "nav-item"
-                                            },
+                                            "config": { "categoryClassName": "nav-item" },
                                             "modules": {
                                                 "content": [
                                                     {
@@ -644,14 +468,8 @@
                                                         "id": "IDNMAxJzO_5lztnip-footer-item__3",
                                                         "friendlyName": "Footer item 4",
                                                         "config": {
-                                                            "heading": {
-                                                                "text": "Fabrikam Store",
-                                                                "tag": "h2"
-                                                            },
-                                                            "link": {
-                                                                "linkText": "Link text ",
-                                                                "linkUrl": {}
-                                                            }
+                                                            "heading": { "text": "Fabrikam Store", "tag": "h2" },
+                                                            "link": { "linkText": "Link text ", "linkUrl": {} }
                                                         }
                                                     },
                                                     {
@@ -659,16 +477,10 @@
                                                         "id": "IDNMAxJzO_5lztnip-footer-item__0",
                                                         "friendlyName": "Footer item 1",
                                                         "config": {
-                                                            "heading": {
-                                                                "text": "",
-                                                                "tag": "h2"
-                                                            },
+                                                            "heading": { "text": "", "tag": "h2" },
                                                             "link": {
                                                                 "linkText": "Store locations",
-                                                                "linkUrl": {
-                                                                    "destinationUrl": "/storelocator",
-                                                                    "type": "internalLink"
-                                                                }
+                                                                "linkUrl": { "destinationUrl": "/storelocator", "type": "internalLink" }
                                                             }
                                                         },
                                                         "data": {}
@@ -678,16 +490,10 @@
                                                         "id": "IDNMAxJzO_5lztnip-footer-item__5",
                                                         "friendlyName": "Footer item 6",
                                                         "config": {
-                                                            "heading": {
-                                                                "text": "",
-                                                                "tag": "h2"
-                                                            },
+                                                            "heading": { "text": "", "tag": "h2" },
                                                             "link": {
                                                                 "linkText": "Store hours",
-                                                                "linkUrl": {
-                                                                    "destinationUrl": "/comingsoon",
-                                                                    "type": "internalLink"
-                                                                },
+                                                                "linkUrl": { "destinationUrl": "/comingsoon", "type": "internalLink" },
                                                                 "ariaLabel": "store and hours"
                                                             }
                                                         },
@@ -698,16 +504,10 @@
                                                         "id": "IDNMAxJzO_5lztnip-footer-item__4",
                                                         "friendlyName": "Footer item 5",
                                                         "config": {
-                                                            "heading": {
-                                                                "text": "",
-                                                                "tag": "h2"
-                                                            },
+                                                            "heading": { "text": "", "tag": "h2" },
                                                             "link": {
                                                                 "linkText": "Store events",
-                                                                "linkUrl": {
-                                                                    "destinationUrl": "/comingsoon",
-                                                                    "type": "internalLink"
-                                                                },
+                                                                "linkUrl": { "destinationUrl": "/comingsoon", "type": "internalLink" },
                                                                 "ariaLabel": "store and services"
                                                             }
                                                         },
@@ -718,16 +518,10 @@
                                                         "id": "IDNMAxJzO_5lztnip-footer-item__6",
                                                         "friendlyName": "Footer item 7",
                                                         "config": {
-                                                            "heading": {
-                                                                "text": "",
-                                                                "tag": "h2"
-                                                            },
+                                                            "heading": { "text": "", "tag": "h2" },
                                                             "link": {
                                                                 "linkText": "Fabrikam store support",
-                                                                "linkUrl": {
-                                                                    "destinationUrl": "/comingsoon",
-                                                                    "type": "internalLink"
-                                                                },
+                                                                "linkUrl": { "destinationUrl": "/comingsoon", "type": "internalLink" },
                                                                 "ariaLabel": "store events"
                                                             }
                                                         },
@@ -740,9 +534,7 @@
                                             "typeName": "footer-category",
                                             "id": "IDNMAxJzO_5lztnip-footer-category__1",
                                             "friendlyName": "Footer category 2",
-                                            "config": {
-                                                "categoryClassName": "nav-item"
-                                            },
+                                            "config": { "categoryClassName": "nav-item" },
                                             "modules": {
                                                 "content": [
                                                     {
@@ -750,14 +542,8 @@
                                                         "id": "IDNMAxJzO_5lztnip-footer-item__7",
                                                         "friendlyName": "Footer item 8",
                                                         "config": {
-                                                            "heading": {
-                                                                "text": "About us",
-                                                                "tag": "h2"
-                                                            },
-                                                            "link": {
-                                                                "linkText": "Link text ",
-                                                                "linkUrl": {}
-                                                            }
+                                                            "heading": { "text": "About us", "tag": "h2" },
+                                                            "link": { "linkText": "Link text ", "linkUrl": {} }
                                                         }
                                                     },
                                                     {
@@ -765,16 +551,10 @@
                                                         "id": "IDNMAxJzO_5lztnip-footer-item__8",
                                                         "friendlyName": "Footer item 9",
                                                         "config": {
-                                                            "heading": {
-                                                                "text": "",
-                                                                "tag": "h2"
-                                                            },
+                                                            "heading": { "text": "", "tag": "h2" },
                                                             "link": {
                                                                 "linkText": "Our story",
-                                                                "linkUrl": {
-                                                                    "destinationUrl": "/comingsoon",
-                                                                    "type": "internalLink"
-                                                                },
+                                                                "linkUrl": { "destinationUrl": "/comingsoon", "type": "internalLink" },
                                                                 "ariaLabel": "your account"
                                                             }
                                                         },
@@ -785,16 +565,10 @@
                                                         "id": "IDNMAxJzO_5lztnip-footer-item__9",
                                                         "friendlyName": "Footer item 10",
                                                         "config": {
-                                                            "heading": {
-                                                                "text": "",
-                                                                "tag": "h2"
-                                                            },
+                                                            "heading": { "text": "", "tag": "h2" },
                                                             "link": {
                                                                 "linkText": "Careers with Fabrikam",
-                                                                "linkUrl": {
-                                                                    "destinationUrl": "/comingsoon",
-                                                                    "type": "internalLink"
-                                                                },
+                                                                "linkUrl": { "destinationUrl": "/comingsoon", "type": "internalLink" },
                                                                 "ariaLabel": "your orders"
                                                             }
                                                         },
@@ -805,16 +579,10 @@
                                                         "id": "IDNMAxJzO_5lztnip-footer-item__10",
                                                         "friendlyName": "Footer item 11",
                                                         "config": {
-                                                            "heading": {
-                                                                "text": "",
-                                                                "tag": "h2"
-                                                            },
+                                                            "heading": { "text": "", "tag": "h2" },
                                                             "link": {
                                                                 "linkText": "News",
-                                                                "linkUrl": {
-                                                                    "destinationUrl": "/comingsoon",
-                                                                    "type": "internalLink"
-                                                                },
+                                                                "linkUrl": { "destinationUrl": "/comingsoon", "type": "internalLink" },
                                                                 "ariaLabel": "shipping rates"
                                                             }
                                                         },
@@ -827,9 +595,7 @@
                                             "typeName": "footer-category",
                                             "id": "IDNMAxJzO_5lztnip-footer-category__2",
                                             "friendlyName": "Footer category 3",
-                                            "config": {
-                                                "categoryClassName": "nav-item social-items"
-                                            },
+                                            "config": { "categoryClassName": "nav-item social-items" },
                                             "modules": {
                                                 "content": [
                                                     {
@@ -837,14 +603,8 @@
                                                         "id": "IDNMAxJzO_5lztnip-footer-item__11",
                                                         "friendlyName": "Footer item 12",
                                                         "config": {
-                                                            "heading": {
-                                                                "text": "Follow us",
-                                                                "tag": "h2"
-                                                            },
-                                                            "link": {
-                                                                "linkText": "Link text ",
-                                                                "linkUrl": {}
-                                                            }
+                                                            "heading": { "text": "Follow us", "tag": "h2" },
+                                                            "link": { "linkText": "Link text ", "linkUrl": {} }
                                                         }
                                                     },
                                                     {
@@ -852,10 +612,7 @@
                                                         "id": "IDNMAxJzO_5lztnip-footer-item__12",
                                                         "friendlyName": "Footer item 13",
                                                         "config": {
-                                                            "heading": {
-                                                                "text": "",
-                                                                "tag": "h2"
-                                                            },
+                                                            "heading": { "text": "", "tag": "h2" },
                                                             "link": {
                                                                 "linkText": "",
                                                                 "linkUrl": {
@@ -903,10 +660,7 @@
                                                         "id": "IDNMAxJzO_5lztnip-footer-item__13",
                                                         "friendlyName": "Footer item 14",
                                                         "config": {
-                                                            "heading": {
-                                                                "text": "",
-                                                                "tag": "h2"
-                                                            },
+                                                            "heading": { "text": "", "tag": "h2" },
                                                             "link": {
                                                                 "linkText": "",
                                                                 "linkUrl": {
@@ -955,10 +709,7 @@
                                                         "id": "IDNMAxJzO_5lztnip-footer-item__14",
                                                         "friendlyName": "Footer item 15",
                                                         "config": {
-                                                            "heading": {
-                                                                "text": "",
-                                                                "tag": "h2"
-                                                            },
+                                                            "heading": { "text": "", "tag": "h2" },
                                                             "link": {
                                                                 "linkText": "",
                                                                 "linkUrl": {
@@ -1014,10 +765,7 @@
                                                         "typeName": "back-top-footer",
                                                         "id": "IDNMAxJzO_5lztnip-back-top-footer",
                                                         "friendlyName": "Back to top",
-                                                        "config": {
-                                                            "destination": "#",
-                                                            "ariaLabel": "Back to top"
-                                                        }
+                                                        "config": { "destination": "#", "ariaLabel": "Back to top" }
                                                     }
                                                 ]
                                             }
@@ -1033,10 +781,7 @@
                                                         "typeName": "back-top-footer",
                                                         "id": "IDNMAxJzO_5lztnip-back-top-footer__0",
                                                         "friendlyName": "Back to top 1",
-                                                        "config": {
-                                                            "destination": "#",
-                                                            "ariaLabel": "Back to top"
-                                                        }
+                                                        "config": { "destination": "#", "ariaLabel": "Back to top" }
                                                     }
                                                 ]
                                             }
@@ -1050,12 +795,7 @@
                                 "typeName": "default-container",
                                 "id": "default-container",
                                 "friendlyName": "Container",
-                                "config": {
-                                    "heading": {},
-                                    "layout": "stacked",
-                                    "containerType": "container",
-                                    "childrenWidth": "four"
-                                },
+                                "config": { "heading": {}, "layout": "stacked", "containerType": "container", "childrenWidth": "four" },
                                 "modules": {
                                     "content": [
                                         {
@@ -1063,7 +803,7 @@
                                             "id": "text-block",
                                             "friendlyName": "Text Block",
                                             "config": {
-                                                "paragraph": "<p><a href=\"https://ring1tie.fabrikam.com/myaccount\">My account</a>&nbsp;/ Order history</p><p>&nbsp;</p><p>&nbsp;</p>",
+                                                "paragraph": "<p><a href=\"/myaccount\">My account</a>&nbsp;/ Order History</p>\n\n<p>&nbsp;</p>\n\n<p>&nbsp;</p>\n",
                                                 "className": "breadcrumb"
                                             }
                                         },
@@ -1072,10 +812,7 @@
                                             "id": "order-history",
                                             "friendlyName": "Order history",
                                             "config": {
-                                                "heading": {
-                                                    "text": "Order history",
-                                                    "tag": "h2"
-                                                },
+                                                "heading": { "text": "Order history", "tag": "h2" },
                                                 "imageSettings": {
                                                     "quality": 80,
                                                     "disableLazyLoad": false,
@@ -1102,7 +839,7 @@
                                                     }
                                                 },
                                                 "showChannelInfo": true,
-                                                "pageSize": 8,
+                                                "pageSize": 4.0,
                                                 "isGridViewEnabled": true,
                                                 "shouldShowCount": true
                                             }
@@ -1119,10 +856,7 @@
                     "typeName": "default-page-summary",
                     "id": "default-page-summary",
                     "friendlyName": "Default page summary",
-                    "config": {
-                        "title": "Order History",
-                        "faviconUrl": null
-                    }
+                    "config": { "title": "Order History", "faviconUrl": null }
                 },
                 {
                     "typeName": "default-metatags",
@@ -1140,32 +874,24 @@
     "renderingContext": {
         "User": null,
         "DeviceType": "Pc",
-        "GeoD365giCookieString": null,
-        "GeoNodeResponse": null,
-        "experiments": {
-            "userId": "10e37ade-4129-1bfc-c97d-402a03902294",
-            "activeExperiments": []
-        },
+        "experiments": { "userId": "10e37ade-4129-1bfc-c97d-402a03902294", "activeExperiments": [] },
         "tuid": "a4a7ae76-367d-5cd7-d31e-62009c4f5de3",
         "segmentRequestId": null,
         "missingSegments": {},
         "requestUrl": "https://ring1tie.fabrikam.com/orderhistory",
         "sitePath": null,
         "CrossChannelIdentity": [],
-        "clientIPAddress": "98.36.8.1",
+        "clientIPAddress": "103.28.246.1",
         "clientContext": {
             "deviceType": "Pc",
             "isBot": false,
-            "requestUserAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36 Edg/113.0.1774.42"
+            "requestUserAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36"
         },
         "canonicalUrl": "https://ring1tie.fabrikam.com/orderhistory",
         "canonicalDomain": "ring1tie.fabrikam.com",
-        "staticContext": {
-            "staticCdnUrl": "/_scnr/",
-            "staticCdnUrlWithLocale": "/en-us/_msdyn365/_scnr/"
-        },
+        "staticContext": { "staticCdnUrl": "/_scnr/", "staticCdnUrlWithLocale": "/en-us/_msdyn365/_scnr/" },
         "user": {
-            "token": "eyJhbGciOiJSUzI1NiIsImtpZCI6Ilg1ZVhrNHh5b2pORnVtMWtsMll0djhkbE5QNC1jNTdkTzZRR1RWQndhTmsiLCJ0eXAiOiJKV1QifQ.eyJ2ZXIiOiIxLjAiLCJpc3MiOiJodHRwczovL2xvZ2luLmZhYnJpa2FtLmNvbS8wNzE4MDhjMy0wMjEzLTRmNDMtYjVlMi1kZjAxMjY2ZTQ0YWUvdjIuMC8iLCJzdWIiOiJkOTQzYTFjOS02ZTY1LTRhYjItOTE0ZS01NTQ1NTViZWUzZjAiLCJhdWQiOiI1ZjYzZjUwZC1kN2U3LTRhNGUtODUzNC1lODc1OTlmYzBmZDkiLCJleHAiOjE2ODQ1MzU3OTQsIm5vbmNlIjoiNjM4MjAxMjg5OTMwMzQ0ODYyLk1HRTJZalV4WkdVdE1XRTNOUzAwTVRFeUxXSXhZakV0WlRWalltRTFaalppWm1KaU5UZGxZVEZpWm1JdFpUSXpOeTAwTkRGakxXRTVPVEF0TkdOaE5qQXdaVE5tWWpWaCIsImlhdCI6MTY4NDUzMjE5NCwiYXV0aF90aW1lIjoxNjg0NTMyMTk0LCJvaWQiOiJkOTQzYTFjOS02ZTY1LTRhYjItOTE0ZS01NTQ1NTViZWUzZjAiLCJnaXZlbl9uYW1lIjoiQnVzaW5lc3MxIiwiZmFtaWx5X25hbWUiOiJUZXN0IiwiZW1haWxzIjpbIkJ1c2luZXNzVXNlcjFAZmFicmlrYW0uY29tIl0sInRmcCI6IkIyQ18xX1IxVGllX0ZCS01fU0lTVSIsImNfaGFzaCI6Ik14RGV6dEk5TWdWUFg1YkYxa1o1OFEiLCJuYmYiOjE2ODQ1MzIxOTR9.Jry0Mwx7vVnqMx_mIw2_qMd28x4MWHL1xpvlFgbj-EyTOjTs_Aj_pjoOqgWy6y9-nKL2FY7_kF6vb2jUNFqo8641vTMdOL1jLzBy-L2QUYnNebioBcOB5KBT8TpFqqp72nArWA7zy0PPGdpJtcjvHrsIovnXbSwnRPYSw7hJSH0aRV6kfAawsTdr8OsQYU3L3IouPeOZgLhJGABN2aNpoBVtaLP2zULpFEgQeK7aXzIxyHhw4UjniD-83CljLSKE7m_NQqFt6Gxzl74fAqlO9N7qlOeenrkoKXmNdood_-Y7PNGS5IoLAXO3-WjztqaH69uyIJ2VnOiym2TOiFUmmw",
+            "token": null,
             "isAuthenticated": true,
             "isSignedIn": true,
             "signInUrl": "https://ring1tie.fabrikam.com/_msdyn365/signin",
@@ -1175,7 +901,6 @@
             "signinName": "Business1 Test",
             "firstName": "Business1",
             "lastName": "Test",
-            "c1AccessToken": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ii1LSTNROW5OUjdiUm9meG1lWm9YcWJIWkdldyIsImtpZCI6Ii1LSTNROW5OUjdiUm9meG1lWm9YcWJIWkdldyJ9.eyJhdWQiOiJkNjA1OTQ1Ny1jYThhLTQ3ZGItYTAwMy1iNjcxNGFhNmJjYjciLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC8zMjdiYzNmNC0yNmVmLTQzMDMtYTc1Ni01OTRiYWVkM2RkODEvIiwiaWF0IjoxNjg0NTMzODA1LCJuYmYiOjE2ODQ1MzM4MDUsImV4cCI6MTY4NDUzNzcwNSwiYWlvIjoiQWFRQVcvOFRBQUFBcjA5bWdGdUdJbU1ubm9oY0ZqT015RGVsZmpaOEp1TWRKc2pDOXVlWkVjblVveHJtUVo3NmZySjRDaTA0Z21VTlZJdGREWERGSmZmRHNqaURjWGVjcXVYY3l5QUVyblJwV1hWaURxMVB2K0RlMmthS251UDdRV1pmM3pIc1V0NmVIMUNlTUlzZmRMT3lkYzZVeVdIdWNEb3UzdllTVSsxWEk0MVVJbG5VbEdNVjJXS0lIa29CNDBaZEdMaXAzeGZOQ0ZZSC9yM25yMjRrTVJVeFhGVEs1QT09IiwiYWx0c2VjaWQiOiI1OjoxMDAzMjAwMjEzMjA0M0FGIiwiYW1yIjpbInJzYSJdLCJjX2hhc2giOiIyQk1LcDBrZ193LVJlanMybkxsX0ZBIiwiZW1haWwiOiJ2LWphc29udnVlQG1pY3Jvc29mdC5jb20iLCJpZHAiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC83MmY5ODhiZi04NmYxLTQxYWYtOTFhYi0yZDdjZDAxMWRiNDcvIiwiaXBhZGRyIjoiOTguMzYuOC4yMiIsIm5hbWUiOiJKYXNvbiBWdWUgKEhDTCBURUNITk9MT0dJRVMgQ09SUE9SQVRFIFNFUikiLCJub25jZSI6IjYzODIwMTMwOTA0NzU5OTIyNy5ZekF6WTJZeVlUTXRZV1ZrT1MwMFlqQTNMVGsxTkRNdE1URTNNR1kyWkRVME9UZGpZamMzWVdReE5UUXRNek0xTkMwME9HSTNMV0k0T0RRdE9ERXhaRFJpTmpnNFpHTTEiLCJvaWQiOiJlZTFiNGRkNy1kZWFjLTQwY2UtOTkzYS04ZTU2MmI5Y2MzYTIiLCJwdWlkIjoiMTAwMzIwMDIxOTZCODE1MiIsInJoIjoiMC5BUUVBOU1ON011OG1BME9uVmxsTHJ0UGRnVmVVQmRhS3l0dEhvQU8yY1VxbXZMYzNBSkEuIiwic3ViIjoiaVNqN0twRHp0MGpPMXBEU0ljS0F4VGh3WlB5VWJNMllSZ1ROODJUdkZTWSIsInRpZCI6IjMyN2JjM2Y0LTI2ZWYtNDMwMy1hNzU2LTU5NGJhZWQzZGQ4MSIsInVuaXF1ZV9uYW1lIjoidi1qYXNvbnZ1ZUBtaWNyb3NvZnQuY29tIiwidXRpIjoidmh1Q0F1bEUwRTZYWWVLM2t0TFNBQSIsInZlciI6IjEuMCJ9.DJhTOb4Z39f6QA6Hobqtt15IF405dpDxvCrGdqUXWB6mdA7QbvLfAQgflPx-Ddi1aJh-JycriELZnZCXH-DSJF6b_aQ3mvqWgnkcS1MVEYU7ntuOHa5n2onvTo3pLovLTXUYOCKaoaQENjUUWjm63_yODADrUJld7RbP42OqZG7MgvcFiXZiJhOr67VucV3aPqxJDpa73Ax-1OYhrpAMvTRb-I-xyiFZz5CJbANMTu5XNOE_TMknWEcz9WeJXr3BwPupoB8b4ZPLpKA-lWAzXYOIFM0L4Qdq-7jM0_vYRuCuYCoI9iWzVRAxB9gqFRopfBozTMK-6-1MLhIwZ5-78w",
             "optOutWebActivityTracking": false,
             "isB2b": false,
             "isOBORequest": false,
@@ -1209,36 +934,17 @@
             "ratingsReviewsProxyEndpoint": "https://ring1tie.fabrikam.com/_msdyn365/rnr/",
             "imageResizerEndPoint": "https://images-us-ppe.cms.dynamics365commerce.ms",
             "imageResizerEndPointPreview": "https://us-ppe-imageresizer-preview-tm.cms.commerce.dynamics.com",
-            "CMSImagepreviewEndPoint": "https://dynamicsproviderapi.azurewebsites.net/api/v1/commerce-ring1tie/productsmedia/oun/{ounid}/product/{productid}?locale=en-us",
             "rnr": {
                 "id": "7ac8a7f2-0905-4a20-8440-74b674a2cddc",
                 "url": "https://7ac8a7f2-0905-4a20-8440-74b674a2cddc.rnr-ppe.ms",
                 "proxyUrl": "https://ring1tie.fabrikam.com/_msdyn365/rnr/"
             },
-            "externalCmsBaseUrls": {
-                "sitecore": "https://dynamics365-sandbox.stylelabs.io/api/public/content/ "
-            }
+            "externalCmsBaseUrls": { "sitecore": "https://dynamics365-sandbox.stylelabs.io/api/public/content/ " }
         },
-        "gridSettings": {
-            "xs": {
-                "w": 768
-            },
-            "sm": {
-                "w": 991
-            },
-            "md": {
-                "w": 1199
-            },
-            "lg": {
-                "w": 1599
-            },
-            "xl": {
-                "w": 1600
-            }
-        },
+        "gridSettings": { "xs": { "w": 768 }, "sm": { "w": 991 }, "md": { "w": 1199 }, "lg": { "w": 1599 }, "xl": { "w": 1600 } },
         "debugMode": 0,
-        "operationId": "5ae807fdf35fabcc35b928a355cf59ee",
-        "siteTheme": "fabrikam",
+        "operationId": "177963d8ae21bd4887239b2946d2395d",
+        "siteTheme": "summer",
         "sameSiteRequired": true,
         "features": {
             "enable_performance_analysis": true,
@@ -1258,7 +964,6 @@
             "disable_cors": true,
             "remove_domain_qsp": true,
             "disable_server_cookie_encoding": true,
-            "enable_service_worker": true,
             "enable_render_cache_all": true,
             "disable_routeerrors_cache": true,
             "disableRetailProxySW": true,
@@ -1272,7 +977,7 @@
         "telemetrySettings": {
             "eventHubEndPoint": "",
             "eventHubAuthToken": "",
-            "operationId": "5ae807fdf35fabcc35b928a355cf59ee",
+            "operationId": "177963d8ae21bd4887239b2946d2395d",
             "url": "",
             "clientAuth": "",
             "environmentId": "",
@@ -1288,95 +993,49 @@
             "enableStockCheck": true,
             "inventoryLevel": "totalAvailable",
             "inventoryRanges": "all",
-            "warehouseAggregation": "individual",
-            "outOfStockThreshold": 0,
+            "warehouseAggregation": "multiple",
+            "outOfStockThreshold": 0.0,
             "productListInventoryDisplay": "default",
-            "maxQuantityForCartLineItem": 10,
+            "maxQuantityForCartLineItem": 6.0,
             "hideRating": false,
             "geolocationApiUrl": "https://dev.virtualearth.net/REST/v1/",
-            "reviewTextMaxLength": 498,
-            "reviewTitleMaxLength": 498,
+            "reviewTextMaxLength": 498.0,
+            "reviewTitleMaxLength": 498.0,
             "disableTooltip": false,
             "searchQueryStringParameter": "q",
-            "searchInputMaxLength": 50,
+            "searchInputMaxLength": 50.0,
             "addToCartBehavior": "showModal",
             "giftCardSupported": "both",
             "breadcrumbType": "categoryAndBack",
             "shouldUseNewImageComponent": true,
             "unitOfMeasureDisplayType": "buyboxAndBrowse",
-            "shouldEnableSinglePaymentAuthorizationCheckout": false,
-            "dimensionsAsSwatchType": [
-                "size",
-                "color"
-            ],
-            "dimensionsInProductCard": [
-                "size",
-                "color"
-            ],
+            "shouldEnableSinglePaymentAuthorizationCheckout": true,
+            "dimensionsAsSwatchType": ["size", "color"],
+            "dimensionsInProductCard": ["size", "color"],
             "dimensionToPreSelectInProductCard": "color",
             "isEnableShowOrHideSalesTaxECommerceEnabled": true,
             "canRenderAsyncCustomerDataAsUnmodifiable": true,
-            "productComparisonDesktopProductsLimit": 10,
-            "productComparisonMobileProductsLimit": 5,
-            "maxRecentlyViewedItemsCount": 10,
+            "productComparisonDesktopProductsLimit": 10.0,
+            "productComparisonMobileProductsLimit": 5.0,
+            "maxRecentlyViewedItemsCount": 10.0,
             "displayGreyPlaceHolders": true,
-            "maxQuantityForProductListLineItem": 10,
-            "shouldEnableCheckoutErrorDisplayMessaging": true,
-            "OmniChannelMedia": true
+            "maxQuantityForProductListLineItem": 10.0,
+            "shouldEnableCheckoutErrorDisplayMessaging": false
         },
         "routes": {
-            "account": {
-                "destinationUrl": "/myaccount",
-                "type": "internalLink"
-            },
-            "accountProfile": {
-                "destinationUrl": "/profile-edit",
-                "type": "internalLink"
-            },
-            "backToShopping": {
-                "destinationUrl": "/home",
-                "type": "internalLink"
-            },
-            "cart": {
-                "destinationUrl": "/cart",
-                "type": "internalLink"
-            },
-            "checkout": {
-                "destinationUrl": "/checkout",
-                "type": "internalLink"
-            },
-            "home": {
-                "destinationUrl": "/",
-                "type": "internalLink"
-            },
-            "loyalty": {
-                "destinationUrl": "/loyalty",
-                "type": "internalLink"
-            },
-            "loyaltyJoin": {
-                "destinationUrl": "/loyalty-join",
-                "type": "internalLink"
-            },
-            "orderConfirmation": {
-                "destinationUrl": "/orderconfirmation",
-                "type": "internalLink"
-            },
-            "orderDetails": {
-                "destinationUrl": "/orderdetails",
-                "type": "internalLink"
-            },
-            "search": {
-                "destinationUrl": "/search",
-                "type": "internalLink"
-            },
-            "wishlist": {
-                "destinationUrl": "/wishlist",
-                "type": "internalLink"
-            },
-            "loyaltyTerms": {
-                "destinationUrl": "/loyalty-terms",
-                "type": "internalLink"
-            }
+            "account": { "destinationUrl": "/myaccount", "type": "internalLink" },
+            "accountProfile": { "destinationUrl": "/profile-edit", "type": "internalLink" },
+            "backToShopping": { "destinationUrl": "/home", "type": "internalLink" },
+            "cart": { "destinationUrl": "/cart", "type": "internalLink" },
+            "checkout": { "destinationUrl": "/checkout", "type": "internalLink" },
+            "home": { "destinationUrl": "/", "type": "internalLink" },
+            "loyalty": { "destinationUrl": "/loyalty", "type": "internalLink" },
+            "loyaltyJoin": { "destinationUrl": "/loyalty-join", "type": "internalLink" },
+            "orderConfirmation": { "destinationUrl": "/orderconfirmation", "type": "internalLink" },
+            "orderDetails": { "destinationUrl": "/orderdetails", "type": "internalLink" },
+            "search": { "destinationUrl": "/search", "type": "internalLink" },
+            "wishlist": { "destinationUrl": "/wishlist", "type": "internalLink" },
+            "loyaltyTerms": { "destinationUrl": "/loyalty-terms", "type": "internalLink" }
         },
         "platform": {
             "maintenanceMode": false,
@@ -1384,23 +1043,18 @@
             "disableServerSideErrorChecking": false,
             "enableRenderCaching": false,
             "disableCookieCompliance": false,
-            "cartSessionExpiration": 1,
-            "imageQuality": 80,
-            "maxDepth": 200,
+            "cartSessionExpiration": 1.0,
+            "imageQuality": 80.0,
+            "maxDepth": 200.0,
             "skipToMainText": "Skip to main content",
             "enableCustomerAccountPayment": "all",
-            "enableDefaultOrderQuantityLimits": "all",
-            "defaultPageSizeForAPI": 999
+            "enableDefaultOrderQuantityLimits": "all"
         },
         "contentSecurityPolicy": {
             "disableContentSecurityPolicy": false,
             "enableReportOnlyMode": true,
-            "enableNonce": true,
-            "child-src": [
-                "https://checkoutshopper-test.adyen.com",
-                "https://paymentacceptsample.cloud.dynamics.com",
-                "'self'"
-            ],
+            "enableNonce": false,
+            "child-src": ["https://checkoutshopper-test.adyen.com", "https://paymentacceptsample.cloud.dynamics.com", "'self'"],
             "connect-src": [
                 "https://checkoutshopper-test.adyen.com",
                 "*.bing.com",
@@ -1462,17 +1116,9 @@
                 "https://ring1tie.fabrikam.com",
                 ""
             ],
-            "default-src": [
-                "'self'",
-                "https://*.commerce.dynamics.com",
-                "https://*.dynamics365commerce.ms"
-            ],
-            "base-uri": [
-                "'self'"
-            ],
-            "object-src": [
-                "'self'"
-            ],
+            "default-src": ["'self'", "https://*.commerce.dynamics.com", "https://*.dynamics365commerce.ms"],
+            "base-uri": ["'self'"],
+            "object-src": ["'self'"],
             "media-src": [
                 "'self'",
                 "https://ppe-streaming-video-mr-microsoft-com.akamaized.net",

@@ -20,6 +20,7 @@ To run a sample, simply go into a sample from ***src/OnlineSDK/Samples/{Sample_N
 * [Sharing state across modules](Training%20Samples/Sharing%20state%20across%20modules/README.md)
 * [App settings](Training%20Samples/SampleAppSettings/README.md)
 * [Cookie sample within module](Training%20Samples/Using%20cookies%20within%20a%20module/README.md)
+* [Add and consume custom order attributes](Training%20Samples/Add%20and%20consume%20custom%20order%20attributes/README.md)
 
 ## Data Action Samples
 * [Call a core data action](Training%20Samples/Call%20a%20core%20data%20action/README.md)

@@ -97,5 +97,7 @@ export const mockResources = {
     shoppingAsText: 'Shopping',
     switchCustomerLinkText: 'Switch',
     switchCustomerLinkAriaText: 'Switch Aria Text',
-    headerAriaLabel: 'Header'
+    headerAriaLabel: 'Header',
+    headerPreferredDistributorText: 'Preferred distributor',
+    headerPreferredDistributorAriaLabel: 'Preferred distributor'
 };

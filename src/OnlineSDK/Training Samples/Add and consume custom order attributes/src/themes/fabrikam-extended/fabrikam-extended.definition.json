@@ -1,6 +1,6 @@
 {
-    "$type": "themeModule",
-    "description": "This is SDK template theme module",
-    "friendlyName": "fabrikam-extended",
-    "name": "fabrikam-extended"
+	"$type": "themeModule",
+	"friendlyName": "fabrikam-extended",
+	"name": "fabrikam-extended",
+	"description": "This is fabrikam-extended theme."
 }

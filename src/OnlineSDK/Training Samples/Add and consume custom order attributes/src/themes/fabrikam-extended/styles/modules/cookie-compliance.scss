@@ -1,0 +1,76 @@
+@import "../common/00-settings/colors.scss";
+@import "../common/00-settings/font.scss";
+@import "../common/00-settings/responsive-breakpoints.scss";
+@import "../common/02-generic/button.scss";
+@import "../common/01-tools/layout.scss";
+@import "../common/00-settings/icons.scss";
+
+// desktop
+$cookie-compliance_container-padding-l: 40px;
+$cookie-compliance_accept-btn-margin-top: 20px;
+$cookie-compliance_text-margin-bottom: 20px;
+$cookie-compliance_margin-left-right-mobile: 16px;
+$cookie-compliance_right-margin-desktop: 60px;
+$cookie-compliance_right-margin-tablet: 24px;
+$cookie-compliance_bottom-desktop: 40px;
+$cookie-compliance_bottom-tablet: 40px;
+$cookie-compliance_bottom-mobile: 20px;
+
+// style preset
+:root {
+    // background
+    --msv-cookie-compliance-bg-color: var(--msv-bg-color);
+
+    // font
+    --msv-cookie-compliance-font-color: var(--msv-font-primary-color);
+    --msv-cookie-compliance-font-size: $msv-font-size-m;
+
+    // border
+    --msv-cookie-compliance-border-color: $msv-gray-50;
+}
+
+.ms-cookie-compliance {
+    background-color: var(--msv-cookie-compliance-bg-color);
+    border: 1px solid var(--msv-cookie-compliance-border-color);
+    border-radius: 8px;
+    box-shadow: $msv-depth8;
+    color: var(--msv-cookie-compliance-font-color);
+    font-size: var(--msv-cookie-compliance-font-size);
+    padding: $cookie-compliance_container-padding-l;
+    position: fixed;
+    min-height: fit-content;
+    z-index: 6000;
+
+    @media screen and (max-width: $msv-breakpoint-m) {
+        bottom: $cookie-compliance_bottom-mobile;
+        margin-left: $cookie-compliance_margin-left-right-mobile;
+        margin-right: $cookie-compliance_margin-left-right-mobile;
+        width: calc((4 * #{$msv-column-width-l}) - #{2 * $cookie-compliance_margin-left-right-mobile});
+    }
+
+    @media screen and (max-width: $msv-breakpoint-l) and (min-width: $msv-breakpoint-m) {
+        bottom: $cookie-compliance_bottom-tablet;
+        right: $cookie-compliance_right-margin-tablet;
+        width: calc(4 * #{$msv-column-width-m});
+    }
+
+    @media screen and (min-width: $msv-breakpoint-l) {
+        bottom: $cookie-compliance_bottom-desktop;
+        right: $cookie-compliance_right-margin-desktop;
+        width: calc(4 * #{$msv-column-width-s});
+    }
+
+    &__accept-button {
+        @include primary-button-light();
+        margin-top: $cookie-compliance_accept-btn-margin-top;
+    }
+
+    &__cta-layer .link {
+        @include link-regular-m();
+    }
+
+    &__text {
+        @include font-body-regular-m();
+        margin-bottom: $cookie-compliance_text-margin-bottom;
+    }
+}

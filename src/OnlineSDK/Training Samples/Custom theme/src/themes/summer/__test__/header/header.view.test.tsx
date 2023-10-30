@@ -30,7 +30,9 @@ const resources = {
     shoppingAsText: '',
     switchCustomerLinkText: '',
     switchCustomerLinkAriaText: '',
-    headerAriaLabel: ''
+    headerAriaLabel: '',
+    headerPreferredDistributorText: '',
+    headerPreferredDistributorAriaLabel: ''
 };
 describe('Header view tests', () => {
     it('render correctly no sign in info', () => {

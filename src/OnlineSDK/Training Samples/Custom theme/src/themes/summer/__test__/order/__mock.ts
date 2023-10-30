@@ -660,5 +660,7 @@ export const mockConfigResources = {
     orderPlacedByText: 'orderPlacedByText',
     orderPlacedByFullText: 'orderPlacedByFullText',
     orderOnBehalfOfText: 'orderOnBehalfOfText',
-    orderPlacedByYouText: 'orderPlacedByYouText'
+    orderPlacedByYouText: 'orderPlacedByYouText',
+    orderDetailsConfirmedShipDateText: 'orderDetailsConfirmedShipDateText',
+    orderDetailsConfirmedShipDateTextForTableHeader: 'orderDetailsConfirmedShipDateTextForTableHeader'
 };

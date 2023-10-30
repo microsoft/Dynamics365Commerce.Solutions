@@ -66,7 +66,9 @@ export const OrderHistoryGroup: React.FC<IGroup> = ({ groupProps, delivery, sale
                 {salesLines.map((salesLine: ISalesLine) => (
                     <div key={salesLine.data.salesLine.LineId}>
                         <React.Fragment key={salesLine.data.salesLine.LineId}>{salesLine.salesLine}</React.Fragment>
-                        <div className='salesline_inventory'>Attribute Values: {salesLine.data.salesLine.AttributeValues}</div>
+                        <div className='salesline_inventory'>
+                            Attribute Values: {salesLine.data.salesLine.AttributeValues && salesLine.data.salesLine.AttributeValues[0].Name}
+                        </div>
                     </div>
                 ))}
             </Node>

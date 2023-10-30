@@ -3,21 +3,8 @@
  * All rights reserved. See LICENSE in the project root for license information.
  */
 
+/* eslint-disable no-duplicate-imports */
 import * as React from 'react';
 
-/**
- * CoreComponent component
- * @extends {React.PureComponent<IScriptInjectorProps>}
- */
-
-class FabrikamExtended extends React.PureComponent {
-    constructor(props: {}) {
-        super(props);
-    }
-
-    public render(): JSX.Element | null {
-        return <script />;
-    }
-}
-
-export default FabrikamExtended;
+// TODO: Current build require at least one tsx file
+export default () => <div />;

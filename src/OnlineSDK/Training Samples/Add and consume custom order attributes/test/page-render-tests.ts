@@ -7,33 +7,27 @@ export default async function checkErrors(): Promise<void> {
     await t.expect(error[0]).notOk();
 }
 
-const url = 'http://localhost:4000/page?mock=default-page';
-fixture('Default Page tests').page(url);
-
-const getWindowLocation = ClientFunction(() => window.location);
-
-test('validate renderPage div render', async (testController: TestController) => {
-    console.log('url: ', await getWindowLocation());
-    const renderPageDiv = Selector('#renderPage');
-    await testController.expect(renderPageDiv.exists).eql(true, 'Could not find default page container');
+const url = 'http://localhost:4000/page?mock=order-history&mockUser=true&theme=fabrikam-extended';
+fixture('validate order history page').page(url).beforeEach(async testController => {
+    await testController.maximizeWindow();
 });
 
-test('validate title is rendered on the page', async (testController: TestController) => {
-    const pageTitle = Selector('main .ms-content-block__title');
+test('validate render order history', async (testController: TestController) => {
+    const orderHistory = Selector('.ms-order-history');
+    if(await Selector(orderHistory).with({ visibilityCheck: true })()){
     await testController
-            .expect(pageTitle.exists) 
-            .eql(true, 'Could not find title on the page');
-     await testController
-            .expect(pageTitle.innerText) 
-            .eql('Heading', 'Incorrect title rendered');
+    .expect(orderHistory.exists)
+    .ok('sales order attribute not found')
+    .hover(orderHistory, { speed: 0.4 });
+    }
 });
 
-test('validate pageText is rendered on the page', async (testController: TestController) => {
-    const pageText = Selector('main .ms-content-block__text');
+test('validate render attribute value', async (testController: TestController) => {
+    const attribute = Selector('.salesline_inventory');
+    if(await Selector(attribute).with({ visibilityCheck: true })()){
     await testController
-            .expect(pageText.exists) 
-            .eql(true, 'Could not find page text on the page');
-    await testController
-            .expect(pageText.innerText) 
-            .eql('Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.', 'Incorrect page text rendered on the page');
+    .expect(attribute.exists)
+    .ok('sales order attribute not found')
+    .hover(attribute, { speed: 0.4 });
+    }
 });
