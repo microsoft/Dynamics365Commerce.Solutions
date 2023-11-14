@@ -14,11 +14,11 @@
     <PublisherDisplayName Condition="'$(PublisherDisplayName)' == ''">Contoso Ltd.</PublisherDisplayName>
   </PropertyGroup>
   <PropertyGroup>
-    <CommerceSdkPackagesVersion>[9.48.23312.5-preview,9.49)</CommerceSdkPackagesVersion>
+    <CommerceSdkPackagesVersion>[9.48.23318.5-preview,9.49)</CommerceSdkPackagesVersion>
     <CommercePosPackagesVersion>[9.48.*,9.49)</CommercePosPackagesVersion>
-    <CommerceChannelPackagesVersion>[9.48.23310.3-preview,9.49)</CommerceChannelPackagesVersion>
-    <CommerceHwsPackagesVersion>[9.48.23311.3-preview,9.49)</CommerceHwsPackagesVersion>
-    <CommerceToolsPackagesVersion>[10.32.23270.1,10.33)</CommerceToolsPackagesVersion>
+    <CommerceChannelPackagesVersion>[9.48.23318.1-preview,9.49)</CommerceChannelPackagesVersion>
+    <CommerceHwsPackagesVersion>[9.48.23318.1-preview,9.49)</CommerceHwsPackagesVersion>
+    <CommerceToolsPackagesVersion>[10.32.23313.2,10.33)</CommerceToolsPackagesVersion>
     <CommercePaymentsPackagesVersion>[10.48.23290.2-preview,10.49)</CommercePaymentsPackagesVersion>
     <!-- Newtonsoft.Json -->
     <NewtonsoftJsonVersion>13.0.2</NewtonsoftJsonVersion>
