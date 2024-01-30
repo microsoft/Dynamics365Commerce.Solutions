@@ -63,13 +63,6 @@ steps:
       arguments: '-RelativePath "$(Build.SourcesDirectory)\$(SolutionDirectory)\ScaleUnit\ScaleUnit.AtolFiscalPrinter.Installer" -File "ScaleUnit.AtolFiscalPrinter.Installer.exe" -DestinationFullName "$(Build.ArtifactStagingDirectory)\ScaleUnit.AtolFiscalPrinter.Installer_$(Build.BuildNumber).exe"'
 
   - task: PowerShell@2
-    displayName: 'Copy Modern POS Installer to Artifact directory'
-    inputs:
-      targetType: filePath
-      filePath: ./Pipeline/PowerShellScripts/CopyFileToDestination.ps1
-      arguments: '-RelativePath "$(Build.SourcesDirectory)\$(SolutionDirectory)\ModernPos\ModernPos.AtolFiscalPrinter.Installer" -File "ModernPos.AtolFiscalPrinter.Installer.exe" -DestinationFullName "$(Build.ArtifactStagingDirectory)\ModernPos.AtolFiscalPrinter.Installer_$(Build.BuildNumber).exe"'
-
-  - task: PowerShell@2
     displayName: 'Sign Files'
     inputs:
       targetType: filePath
