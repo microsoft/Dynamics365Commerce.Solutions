@@ -102,14 +102,12 @@ namespace Contoso.CommerceRuntime.PricingEngine
 
         private static bool OfferShouldReduceDiscountBaseAmount(int itemGroupIndex, AppliedDiscountApplication a)
         {
-            var discount = a.DiscountApplication.Discount as AmountCapDiscount;
-
-            if (discount == null)
+            if (a.DiscountApplication.Discount is AmountCapDiscount discount)
             {
-                return false;
+                return a.ItemGroupIndexToDiscountLineQuantitiesLookup.ContainsKey(itemGroupIndex) && discount.ApplyBaseReduction;
             }
 
-            return a.ItemGroupIndexToDiscountLineQuantitiesLookup.ContainsKey(itemGroupIndex) && discount.ApplyBaseReduction;
+            return false;
         }
 
         private static decimal GetFreeMoneyAmount(SalesLine salesLine)

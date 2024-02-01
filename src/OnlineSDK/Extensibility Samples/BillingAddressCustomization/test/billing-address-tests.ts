@@ -31,6 +31,7 @@ test('validate billing address form', async (testController: TestController) => 
     await testController.expect(pdpPage.exists).eql(true, 'pdp page found');
     const sizeSelector = Selector('.msc-swatch-container .msc-swatch-container__item-22565421956');
     await testController
+        .wait(1000)
         .hover(sizeSelector)
         .expect(sizeSelector.visible)
         .ok()

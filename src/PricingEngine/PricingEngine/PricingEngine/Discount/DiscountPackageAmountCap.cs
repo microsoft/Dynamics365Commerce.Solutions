@@ -24,14 +24,14 @@ namespace Contoso.CommerceRuntime.PricingEngine
     /// </remarks>
     public class DiscountPackageAmountCap : IDiscountPackage
     {
-        private IDataAccessorAmountCap amountCapDataAccessor;
+        private readonly IDataAccessorDiscountAmountCap amountCapDataAccessor;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="DiscountPackageAmountCap" /> class.
         /// </summary>
         /// <param name="amountCapDataAccessor">Amount cap data accessor.</param>
         /// <remarks>Data accessor interface to support both Channel And AX.</remarks>
-        public DiscountPackageAmountCap(IDataAccessorAmountCap amountCapDataAccessor)
+        public DiscountPackageAmountCap(IDataAccessorDiscountAmountCap amountCapDataAccessor)
         {
             this.amountCapDataAccessor = amountCapDataAccessor;
         }
@@ -75,8 +75,7 @@ namespace Contoso.CommerceRuntime.PricingEngine
 
                 foreach (DiscountAmountCap cap in caps)
                 {
-                    AmountCapDiscount discount = offerIdToDiscountMap[cap.OfferId] as AmountCapDiscount;
-                    if (discount != null)
+                    if (offerIdToDiscountMap[cap.OfferId] is AmountCapDiscount discount)
                     {
                         discount.DiscountAmountCap = cap.AmountCap;
                         discount.ApplyBaseReduction = cap.ApplyBaseReduction;

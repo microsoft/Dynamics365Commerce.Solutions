@@ -17,7 +17,6 @@ namespace Contoso.CommerceRuntime.PricingEngine
     /// Represents a discount qualify line.
     /// </summary>
     [DataContract]
-    [System.Diagnostics.CodeAnalysis.SuppressMessage("Maintainability", "DR1717:AssertTypesAreInExpectedNamespace", Justification = "Sample code")]
     public class DiscountQualifyLine : CommerceEntity
     {
         private const string RecordIdColumn = "RECID";

@@ -553,6 +553,7 @@ const ProductCard: React.FC<IProductComponentProps> = ({
         );
     }
     const _renderCartButton = (): JSX.Element => {
+        debugger;
         const product1: SimpleProduct = {
             RecordId: data.product?.RecordId!,
             ItemId: data.product?.ItemId,
@@ -580,7 +581,7 @@ const ProductCard: React.FC<IProductComponentProps> = ({
             AvailableQuantity: 1
         };
         return (
-            <Node className='ms-search-result-container__add-to-cart-container'>
+            <Node tag={'div'} className='ms-search-result-container__add-to-cart-container'>
                 <AddToCartComponent
                     addToCartText='Add to cart'
                     outOfStockText='Out of stock'
@@ -643,8 +644,8 @@ const ProductCard: React.FC<IProductComponentProps> = ({
                     renderRating(context, typeName, id, product.AverageRating, product.TotalRatings, ratingAriaLabel)}
                 {renderProductAvailability(inventoryLabel)}
             </div>
-            {_renderCartButton()}
             {quickViewButton && renderQuickView(quickViewButton, product.RecordId)}
+            {_renderCartButton()}
         </>
     );
 };

@@ -66,14 +66,14 @@ namespace Contoso
 
                         this.CollectPricingPropertiesForSalesTransactionOrSalesLine(attributeLinkGroups, PricingAttributeSourceLevel.Line, PricingAttributeKeyToOverwrite, salesLine.GetProperty(PricingAttributeKeyToOverwrite), request);
                     }
-                    else if (request.AttributeSource.SourceEntity is Customer customer)
+                    else if (request.AttributeSource.SourceEntity is Customer)
                     {
                         const string CustomizedTableName = "CustomizedTableName";
                         const string CustomizedFieldName = "CustomizedFieldName";
 
                         await this.CollectPricingPropertiesForCustomerOrItemAsync(attributeLinkGroups, PricingAttributeSourceLevel.Header, CustomizedTableName, CustomizedFieldName, request, databaseContext).ConfigureAwait(false);
                     }
-                    else if (request.AttributeSource.SourceEntity is Item item)
+                    else if (request.AttributeSource.SourceEntity is Item)
                     {
                         const string CustomizedTableName = "CustomizedTableName";
                         const string CustomizedFieldName = "CustomizedFieldName";

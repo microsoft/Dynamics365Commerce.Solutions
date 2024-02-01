@@ -1,28 +1,25 @@
 <Project>
   <PropertyGroup>
     <BuildNumber Condition="'$(BuildNumber)' == ''">0.0</BuildNumber>
-    <MajorVersion>9.48</MajorVersion>
+    <MajorVersion>9.49</MajorVersion>
     <Version>$(MajorVersion).$(BuildNumber)</Version>
   </PropertyGroup>
-
   <PropertyGroup>
     <!-- Workaround for breaking changes in PackageDefinitions metadata. https://github.com/dotnet/sdk/issues/30809 -->
     <!-- TODO: avoid of the PackageDefinitions usage. -->
     <EmitLegacyAssetsFileItems>true</EmitLegacyAssetsFileItems>
   </PropertyGroup>
-
   <PropertyGroup>
     <Publisher Condition="'$(Publisher)' == ''">CN=Contoso Ltd.</Publisher>
     <PublisherDisplayName Condition="'$(PublisherDisplayName)' == ''">Contoso Ltd.</PublisherDisplayName>
   </PropertyGroup>
-
   <PropertyGroup>
-    <CommerceSdkPackagesVersion>[9.48.*,9.49)</CommerceSdkPackagesVersion>
-    <CommercePosPackagesVersion>[9.48.*,9.49)</CommercePosPackagesVersion>
-    <CommerceChannelPackagesVersion>[9.48.*,9.49)</CommerceChannelPackagesVersion>
-    <CommerceHwsPackagesVersion>[9.48.*,9.49)</CommerceHwsPackagesVersion>
-    <CommerceToolsPackagesVersion>[10.32.*,10.33)</CommerceToolsPackagesVersion>
-    <CommercePaymentsPackagesVersion>[10.48.*,10.49)</CommercePaymentsPackagesVersion>
+    <CommerceSdkPackagesVersion>[9.49.24032.5-preview,9.50)</CommerceSdkPackagesVersion>
+    <CommercePosPackagesVersion>[9.49.*,9.50)</CommercePosPackagesVersion>
+    <CommerceChannelPackagesVersion>[9.49.24030.11-preview,9.50)</CommerceChannelPackagesVersion>
+    <CommerceHwsPackagesVersion>[9.49.23364.1-preview,9.50)</CommerceHwsPackagesVersion>
+    <CommerceToolsPackagesVersion>[10.33.24031.3-preview,10.34)</CommerceToolsPackagesVersion>
+    <CommercePaymentsPackagesVersion>[10.49.23364.1-preview,10.50)</CommercePaymentsPackagesVersion>
     <!-- Newtonsoft.Json -->
     <NewtonsoftJsonVersion>13.0.2</NewtonsoftJsonVersion>
   </PropertyGroup>

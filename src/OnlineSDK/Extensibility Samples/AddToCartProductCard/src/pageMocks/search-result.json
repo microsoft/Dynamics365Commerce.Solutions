@@ -35,7 +35,7 @@
                     "typeName": "default-page",
                     "id": "default-page",
                     "friendlyName": "Default Page",
-                    "config": { "skipToMainText": "Skip to main content", "pageTheme": "fabrikam" },
+                    "config": { "skipToMainText": "Skip to main content", "pageTheme": "fabrikam-extended" },
                     "modules": {
                         "footer": [
                             {
@@ -1073,7 +1073,7 @@
         "gridSettings": { "xs": { "w": 768 }, "sm": { "w": 991 }, "md": { "w": 1199 }, "lg": { "w": 1599 }, "xl": { "w": 1600 } },
         "debugMode": 0,
         "operationId": "3a4181df46f24449a2940d15ab3a4516",
-        "siteTheme": "fabrikam",
+        "siteTheme": "fabrikam-extended",
         "sameSiteRequired": true,
         "features": {
             "enable_performance_analysis": true,

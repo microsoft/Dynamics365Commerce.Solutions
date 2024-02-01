@@ -17,6 +17,8 @@ namespace Contoso
         using Microsoft.Dynamics.Commerce.Runtime;
         using Microsoft.Dynamics.Commerce.Runtime.Messages;
         using Microsoft.Dynamics.Commerce.Runtime.Services.Messages;
+        using Contoso.CommerceRuntime.PricingEngine;
+        using PE = Microsoft.Dynamics.Commerce.Runtime.Services.PricingEngine;
 
         /// <summary>
         /// Sample customization of pricing service.
@@ -88,6 +90,10 @@ namespace Contoso
                 ThrowIf.Null(request, nameof(request));
                 ThrowIf.Null(request.RequestContext, "request.RequestContext");
                 ThrowIf.Null(request.Transaction, "request.Transaction");
+
+                // Uncomment to register amount cap discount.
+                // PE.IDiscountPackage package = new DiscountPackageAmountCap(new ChannelDataAccessorDiscountAmountCap(request.RequestContext));
+                // PE.PricingEngineExtensionRepository.RegisterDiscountPackage(package);
 
                 var response = await request.RequestContext.Runtime.ExecuteNextAsync<GetPriceServiceResponse>(this, request, request.RequestContext, skipRequestTriggers: false).ConfigureAwait(false);
 
