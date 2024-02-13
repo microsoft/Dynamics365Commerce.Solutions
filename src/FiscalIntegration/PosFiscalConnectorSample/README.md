@@ -21,6 +21,10 @@ For more details on how to configure fiscal integration, please refer to [Set up
 In order to use POS fiscal connector, the fiscal device or service must be configured to use HTTPS.
 * For information about how to set up HTTPS in EFR, please refer to 'EFR Reference' (http://public.efsta.net/efr/).
 
+If extension to be used with Cloud POS and/or Store Commerce Android/iOS additional EFSTA service configuration is required to avoid blocking by CORS policy:
+EFSTA service configuration -> Profile -> EFR Control -> Attributes:
+HttpServer_AllowOrigin=https://scu****************-cpos.su.retail.dynamics.com
+
 Please ensure that the client devices which run Cloud POS or Modern POS use TLS 1.2 and later. TLS 1.0 and 1.1 must be disabled.
 
 # YAML and pipeline
