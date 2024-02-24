@@ -32,7 +32,8 @@ const resources = {
     switchCustomerLinkAriaText: '',
     headerAriaLabel: '',
     headerPreferredDistributorText: '',
-    headerPreferredDistributorAriaLabel: ''
+    headerPreferredDistributorAriaLabel: '',
+    signInCustomerNotAuthorizedTitle: ''
 };
 describe('Header view tests', () => {
     it('render correctly no sign in info', () => {

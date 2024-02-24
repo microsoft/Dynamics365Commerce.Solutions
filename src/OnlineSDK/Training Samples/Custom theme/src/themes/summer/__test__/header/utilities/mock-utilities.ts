@@ -99,5 +99,6 @@ export const mockResources = {
     switchCustomerLinkAriaText: 'Switch Aria Text',
     headerAriaLabel: 'Header',
     headerPreferredDistributorText: 'Preferred distributor',
-    headerPreferredDistributorAriaLabel: 'Preferred distributor'
+    headerPreferredDistributorAriaLabel: 'Preferred distributor',
+    signInCustomerNotAuthorizedTitle: 'Customer not authorized'
 };
