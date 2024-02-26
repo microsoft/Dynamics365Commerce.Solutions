@@ -20,6 +20,7 @@ export const enum titleHeadingTag {
 export interface IBuyboxConfig extends Msdyn365.IModuleConfig {
     titleHeadingTag?: titleHeadingTag;
     enableShopSimilarLooks?: boolean;
+    imageSettings?: Msdyn365.IImageSettings;
     enableShopSimilarDescription?: boolean;
     enableKeyInPrice?: boolean;
     minimumKeyInPrice?: number;

@@ -21,7 +21,8 @@ Follow the instructions mentioned in [document](https://docs.microsoft.com/en-us
 Follow the instructions mentioned in [document](https://docs.microsoft.com/en-us/dynamics365/commerce/e-commerce-extensibility/create-theme) to create the custom theme,in this sample, we'll assume a custom theme has been cloned from the fabrikam theme named "fabrikam-extended".
 
 ### Deploy CRT changes
-Copy the folder from **src\OnlineSDK\Extensibility Samples\PowerBI\CloudScaleUnitExtensionPackage.zip** and save in the system, and follow the instructions mentioned in [document](https://docs.microsoft.com/en-us/dynamics365/commerce/dev-itpro/csu-packaging#deploy-the-package-to-csu).
+Go to [Scale Unit GitHub repo](https://github.com/microsoft/Dynamics365Commerce.ScaleUnit) download that repo and build the ScaleUnit.sln solution. This will generate a CloudScaleUnitExtensionPackage.zip output file that you can store it in your local machine. To deploy the extension package, follow the instructions mentioned in [document](https://docs.microsoft.com/en-us/dynamics365/commerce/dev-itpro/csu-packaging#deploy-the-package-to-csu).
+
 
 ## Detailed Steps to create powerbi module
 ### 1.Add powerbi module
