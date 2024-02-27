@@ -169,3 +169,7 @@ integration-test-report.xml
 version.json
 stats-client-*.json
 stats-server-*.json
+
+# Ignore generated build artifacts
+.pid
+.sign/
