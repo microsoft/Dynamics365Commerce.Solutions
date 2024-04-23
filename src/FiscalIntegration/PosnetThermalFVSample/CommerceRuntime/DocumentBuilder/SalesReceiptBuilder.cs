@@ -15,7 +15,6 @@
         using Contoso.Commerce.Runtime.DocumentProvider.PosnetSample.PosnetProtocol.Requests;
         using Microsoft.Dynamics.Commerce.Runtime;
         using Microsoft.Dynamics.Commerce.Runtime.DataModel;
-        using Microsoft.Dynamics.Commerce.Runtime.DataModel.Poland.Entities;
         using Microsoft.Dynamics.Commerce.Runtime.DataServices.Messages;
         using Microsoft.Dynamics.Commerce.Runtime.FiscalIntegration.DocumentProvider.Messages;
         using Microsoft.Dynamics.Commerce.Runtime.Localization.Data.Services.Messages.Poland;
@@ -346,30 +345,17 @@
                 }
 
                 var request = new GetFiscalCustomerDataDataRequest(salesOrder.Id, salesOrder.TerminalId);
-                if (await this.Request.RequestContext.IsFeatureEnabledAsync(TaxRegistrationIdFeatureName, defaultValue: false).ConfigureAwait(false))
+
+                var fiscalCustomer = (await this.Request.RequestContext.ExecuteAsync<SingleEntityDataServiceResponse<FiscalCustomer>>(request).ConfigureAwait(false)).Entity;
+
+                if (fiscalCustomer == null)
                 {
-                    var fiscalCustomer = (await this.Request.RequestContext.ExecuteAsync<SingleEntityDataServiceResponse<FiscalCustomer>>(request).ConfigureAwait(false)).Entity;
-
-                    if (fiscalCustomer == null)
-                    {
-                        return Enumerable.Empty<IPosnetCommandRequest>();
-                    }
-
-                    var trNipSetRequest = new TransactionNipSet { Nip = fiscalCustomer.VatId };
-                    return new[] { PrinterRequestBuilder.BuildRequestCommand(trNipSetRequest) };
+                    return Enumerable.Empty<IPosnetCommandRequest>();
                 }
-                else
-                {
-                    var fiscalCustomerData = (await this.Request.RequestContext.ExecuteAsync<SingleEntityDataServiceResponse<FiscalCustomerData>>(request).ConfigureAwait(false)).Entity;
 
-                    if (fiscalCustomerData == null)
-                    {
-                        return Enumerable.Empty<IPosnetCommandRequest>();
-                    }
+                var trNipSetRequest = new TransactionNipSet { Nip = fiscalCustomer.VatId };
 
-                    var trNipSetRequest = new TransactionNipSet { Nip = fiscalCustomerData.VatId };
-                    return new[] { PrinterRequestBuilder.BuildRequestCommand(trNipSetRequest) };
-                }
+                return new[] { PrinterRequestBuilder.BuildRequestCommand(trNipSetRequest) };
             }
         }
     }
