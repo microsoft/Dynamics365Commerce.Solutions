@@ -22,11 +22,6 @@ export const enum thumbnailsOrientation {
     horizontal = 'horizontal'
 }
 
-export const enum altTextSource {
-    product = 'product',
-    cms = 'cms'
-}
-
 export interface IMediaGalleryConfig extends Msdyn365.IModuleConfig {
     imageSource?: imageSource;
     images?: Msdyn365.IImageData[];
@@ -39,15 +34,10 @@ export interface IMediaGalleryConfig extends Msdyn365.IModuleConfig {
     thumbnailImageSettings?: Msdyn365.IImageSettings;
     galleryImageSettings?: Msdyn365.IImageSettings;
     shouldHideMasterProductImagesForVariant?: boolean;
-    altTextSource?: altTextSource;
     showPaginationTooltip?: boolean;
     shouldUpdateOnPartialDimensionSelection?: boolean;
     className?: string;
     skipImageValidation?: boolean;
-    autoplay?: boolean;
-    mute?: boolean;
-    playPauseTrigger?: boolean;
-    controls?: boolean;
     clientRender?: boolean;
 }
 
@@ -56,21 +46,6 @@ export interface IMediaGalleryResources {
     previousScreenshotFlipperText: string;
     fullScreenTitleText: string;
     ariaLabelForSlide: string;
-    playLabel: string;
-    pauseLabel: string;
-    pausedLabel: string;
-    playingLabel: string;
-    unMuteLabel: string;
-    muteLabel: string;
-    fullScreenLabel: string;
-    exitFullScreenLabel: string;
-    seekBarLabel: string;
-    videoTimeDurationLabel: string;
-    closedCaptionLabel: string;
-    optionButtonLabel: string;
-    sliderThumbLabel: string;
-    volumeThumbLabel: string;
-    playVideoTitleText: string;
 }
 
 export interface IMediaGalleryProps<T> extends Msdyn365.IModule<T> {

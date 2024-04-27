@@ -32,7 +32,6 @@ export interface IContentBlockConfig extends Msdyn365.IModuleConfig {
     actionableRegion?: actionableRegion;
     imageLink?: Msdyn365.ILinkData;
     imageAriaLabel?: string;
-    backgroundColor?: string;
     className?: string;
     clientRender?: boolean;
     textplacement?: textplacement;

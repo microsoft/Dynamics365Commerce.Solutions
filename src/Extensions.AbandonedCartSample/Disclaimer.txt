@@ -1,0 +1,4 @@
+By enabling this feature, your data may be shared with third-party systems that you select. 
+You control what data, if any, that you provide to the third-party. 
+You understand that the data handling, geographical boundaries and compliance standards of the third-party may not be the same as Microsoft D365 Commerce.
+Your privacy is important to us.To learn more read our Privacy Statement at https://go.microsoft.com/fwlink/?LinkId=521839.
