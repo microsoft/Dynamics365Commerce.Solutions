@@ -15,7 +15,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Azure.Identity" Version="1.10.4" />
+    <PackageReference Include="Azure.Identity" Version="1.11.0" />
     <PackageReference Include="Azure.Security.KeyVault.Secrets" Version="4.5.0" />
     <PackageReference Include="Microsoft.Azure.Cosmos" Version="3.38.0" />
     <PackageReference Include="Microsoft.Dynamics.Commerce.Proxy.ScaleUnit" Version="$(CommerceSdkPackagesVersion)" />
