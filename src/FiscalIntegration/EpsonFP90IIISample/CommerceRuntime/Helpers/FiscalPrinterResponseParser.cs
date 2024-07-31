@@ -60,7 +60,8 @@ namespace Contoso
             /// <returns>The element value.</returns>
             private static string GetElementValue(XElement element, string elementName)
             {
-                return element.Descendants(FiscalPrinterResponseConstants.AddInfoElement).Elements(elementName).SingleOrDefault().Value;
+                var elementFound = element.Descendants(FiscalPrinterResponseConstants.AddInfoElement).Elements(elementName).SingleOrDefault();
+                return elementFound?.Value ?? string.Empty;
             }
 
         }

@@ -2,7 +2,7 @@
   "$schema": "./devDependencies/schemas/manifestSchema.json",
   "name": "Fiscal POS Connector Sample",
   "description": "Enables connection to fiscal devices and services from POS.",
-  "publisher": "Microsoft",
+  "publisher": "Contoso",
   "version": "7.2.0",
   "minimumPosVersion": "9.35.0.0",
   "components": {
