@@ -54,6 +54,7 @@ namespace Contoso
 
                 this.request = request;
                 this.salesOrder = request.SalesOrder;
+                swedishCulture.NumberFormat.NegativeSign = "-";	
             }
 
             /// <summary>
