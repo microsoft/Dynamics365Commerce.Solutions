@@ -14,7 +14,8 @@
       "lint:fix": "yarn eslint src/**/*.{ts,tsx} --fix",
       "precommit": "lint-staged",
       "start": "SET NODE_OPTIONS=--max_old_space_size=4096 && yarn msdyn365b start local --use-eslint",
-      "start:prod": "SET NODE_ENV=production && node build/server.js"
+      "start:prod": "SET NODE_ENV=production && node build/server.js",
+      "rimraf": "../../node_modules/rimraf/bin.js"
   },
   "lint-staged": {
       "*.(j|t)s(x)?": [
