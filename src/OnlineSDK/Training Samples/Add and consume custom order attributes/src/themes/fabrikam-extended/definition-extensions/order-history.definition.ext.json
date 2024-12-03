@@ -1,9 +1,0 @@
-{
-    "$type": "definitionExtension",
-    "dataActions": {
-        "productAttributes": {
-            "path": "@msdyn365-commerce-modules/order-management/dist/lib/actions/get-sales-order-with-hydrations",
-            "runOn": "server"
-        }
-    }
-}

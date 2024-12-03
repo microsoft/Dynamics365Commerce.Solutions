@@ -1,8 +1,0 @@
-{
-  "profiles": {
-    "Contoso.AtolFiscalPrinter.StoreCommerce.Installer": {
-      "commandName": "Project",
-      "commandLineArgs": "install"
-    }
-  }
-}
