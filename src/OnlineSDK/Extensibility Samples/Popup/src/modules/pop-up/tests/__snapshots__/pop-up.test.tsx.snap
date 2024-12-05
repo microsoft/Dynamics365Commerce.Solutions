@@ -1,5 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`PopUp renders correctly 1`] = `null`;
-
-exports[`PopUp renders correctly with out heading 1`] = `null`;

@@ -1,9 +1,0 @@
-{
-    "$type": "definitionExtension",
-    "resources":{
-        "otherCharges": {
-            "comment": "String associated with other charge line display text",
-            "value": "Other charges"
-        }
-    }
-}
