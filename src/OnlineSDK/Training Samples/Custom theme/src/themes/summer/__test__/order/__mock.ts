@@ -662,5 +662,12 @@ export const mockConfigResources = {
     orderOnBehalfOfText: 'orderOnBehalfOfText',
     orderPlacedByYouText: 'orderPlacedByYouText',
     orderDetailsConfirmedShipDateText: 'orderDetailsConfirmedShipDateText',
-    orderDetailsConfirmedShipDateTextForTableHeader: 'orderDetailsConfirmedShipDateTextForTableHeader'
+    orderDetailsConfirmedShipDateTextForTableHeader: 'orderDetailsConfirmedShipDateTextForTableHeader',
+    noteLabel: 'Note',
+    orderDetailsRequestDeliveryDateText: 'Label for request delivery date',
+    orderDetailsRequestDeliveryDateTextForTableHeader: 'Label for header request delivery date',
+    orderDetailsAddressText: 'Label for address',
+    orderDetailsAddressTextForTableHeader: 'Label for header address',
+    viewTrackingButtonLabel: 'View Tracking Button Label',
+    trackingOkButtonLabel: 'Tracking Ok Button Label'
 };

@@ -15,7 +15,8 @@
     "precommit": "lint-staged",
     "start": "SET NODE_OPTIONS=--max_old_space_size=12288 && yarn msdyn365b start local --use-eslint",
     "start:prod": "SET NODE_ENV=production && node build/server.js",
-    "integration": "integration"
+    "integration": "integration",
+    "rimraf": "../../node_modules/rimraf/bin.js"
   },
   "lint-staged": {
     "*.(j|t)s(x)?": [
