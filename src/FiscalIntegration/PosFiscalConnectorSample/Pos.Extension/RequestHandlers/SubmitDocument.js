@@ -50,4 +50,4 @@ System.register(["PosApi/Extend/RequestHandlers/FiscalIntegrationRequestHandlers
         }
     };
 });
-//# sourceMappingURL=D:/a/_work/r1/a/r/src/FiscalIntegration/PosFiscalConnectorSample/Pos.Extension/RequestHandlers/SubmitDocument.js.map
+//# sourceMappingURL=C:/__w/1/s/r/src/FiscalIntegration/PosFiscalConnectorSample/Pos.Extension/RequestHandlers/SubmitDocument.js.map
