@@ -1,0 +1,21 @@
+:root {
+    // error
+    --msv-iframe-error-message-bg: var(--msv-error-color);
+    --msv-iframe-error-message-border: var(--msv-error-color);
+    --msv-iframe-error-message-color: var(--msv-font-secondary-color);
+}
+
+.ms-iframe {
+    .ms-iframe__content {
+        width: 100%;
+    }
+
+    .ms-iframe__error-message {
+        width: 100%;
+        background-color: var(--msv-iframe-error-message-bg);
+        border: 1px solid var(--msv-iframe-error-message-border);
+        color: var(--msv-iframe-error-message-color);
+        padding: 18px;
+        margin-bottom: 20px;
+    }
+}

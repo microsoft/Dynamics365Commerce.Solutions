@@ -1,0 +1,26 @@
+$msv-cart-line-remove-item-margin-right: 108px;
+
+[dir="rtl"] {
+    .ms-cart-icon__flyout-container {
+        .msc-flyout-inner {
+            text-align: right;
+        }
+
+        .msc-cart-line__content {
+            text-align: right;
+        }
+
+        .msc-cart-line__remove-item {
+            margin-right: $msv-cart-line-remove-item-margin-right;
+        }
+
+        .ms-cart-icon__subtotal {
+            text-align: left;
+        }
+
+        .msc-flyout__close-button {
+            left: 20px;
+            right: unset;
+        }
+    }
+}

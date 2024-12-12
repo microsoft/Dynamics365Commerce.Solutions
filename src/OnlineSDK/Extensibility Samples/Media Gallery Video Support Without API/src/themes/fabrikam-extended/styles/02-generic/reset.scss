@@ -1,0 +1,109 @@
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: $msv-primary-font-family;
+    background: var(--msv-bg-color);
+    color: var(--msv-font-primary-color);
+    font-size: var(--msv-body-font-size-m);
+
+    @include fabrikam-font();
+    min-height: 100vh;
+    scroll-behavior: smooth;
+    text-rendering: optimizeSpeed;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+    margin: 0;
+}
+
+header {
+    background: var(--msv-bg-color);
+}
+
+/* Remove list styles and default padding on ul, ol elements with a class attribute */
+ul[class],
+ol[class] {
+    list-style: none;
+    padding: 0;
+}
+
+a {
+    background-color: transparent;
+    border: 1px solid transparent;
+    color: var(--msv-font-primary-color);
+    display: inline-flex;
+    text-decoration: none;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+    text-decoration-skip-ink: auto;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Make images easier to work with */
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* Natural flow and rhythm in articles by default */
+article > * + * {
+    margin-top: 1em;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+textarea {
+    resize: none;
+}
+
+/* Remove all animations and transitions for people that prefer not to see them */
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        /* stylelint-disable declaration-no-important -- Auto-suppressed. Please fix if possible. */
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+        /* stylelint-enable declaration-no-important -- Auto-suppressed. Please fix if possible. */
+    }
+}

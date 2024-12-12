@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`OrderHistory renders OrderHistory correctly 1`] = `
+<div
+  class="class"
+  id=""
+>
+  <div
+    class="xyz"
+  >
+    &lt;h1&gt;heading&lt;/h1&gt;
+  </div>
+  <div />
+  <div
+    class="ms-order-history__empty-message-container"
+  >
+    <div />
+  </div>
+  <div
+    class="class"
+  >
+    <div
+      class="class"
+    >
+      <div
+        class="class"
+      >
+        <div />
+        <div />
+        <div />
+        <div />
+        <div />
+        <div />
+        <div />
+      </div>
+      <div
+        class="class"
+      >
+        <div
+          class="class"
+        />
+      </div>
+      <div />
+    </div>
+  </div>
+  <div />
+</div>
+`;

@@ -1,0 +1,30 @@
+{
+  "name": "Msdyn365-Commerce-Samples.Custom-module-Sharing-State",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "analyze": "SET ANALYZE_BUNDLE=true && yarn msdyn365b start --use-eslint",
+    "analyze:prod": "SET ANALYZE_BUNDLE=true && yarn msdyn365b build --use-eslint",
+    "build": "SET NODE_OPTIONS=--max_old_space_size=4096 && yarn msdyn365b build --use-eslint",
+    "build:prod": "yarn clean && SET NODE_OPTIONS=--max_old_space_size=4096 && yarn msdyn365b build --use-eslint",
+    "clean": "yarn rimraf build lib dist .tmp gendef.lock",
+    "format": "yarn prettier **/**.{ts,tsx}",
+    "format:fix": "yarn prettier **/**.{ts,tsx} --write",
+    "lint": "yarn eslint src/**/*.{ts,tsx}",
+    "lint:fix": "yarn eslint src/**/*.{ts,tsx} --fix",
+    "precommit": "lint-staged",
+    "start": "SET NODE_OPTIONS=--max_old_space_size=4096 && yarn msdyn365b start local --use-eslint",
+    "start:prod": "SET NODE_ENV=production && node build/server.js",
+    "rimraf": "../../node_modules/rimraf/bin.js"
+  },
+  "lint-staged": {
+    "*.(j|t)s(x)?": [
+      "yarn format:fix",
+      "yarn lint:fix",
+      "git add"
+    ]
+  },
+  "jest": {
+    "preset": "@msdyn365-commerce/cli-internal"
+  }
+}

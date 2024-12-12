@@ -1,0 +1,165 @@
+$msv-checkout-loyalty-margin-bottom: 20px;
+$msv-checkout-loyalty-max-flex-basis: 100%;
+
+$msv-checkout-loyalty-drawer-margin-top: 12px;
+$msv-checkout-loyalty-drawer-margin-left: 9px;
+$msv-checkout-loyalty-drawer-button-border: none;
+$msv-checkout-loyalty-drawer-button-padding: 0;
+$msv-checkout-loyalty-drawer-button-icon-margin-left: 8px;
+
+$msv-checkout-loyalty-details-p-margin-top: 9px;
+$msv-checkout-loyalty-details-program-width: 300px;
+
+$msv-checkout-loyalty-amount-margin-top: 12px;
+
+$msv-checkout-loyalty-remove-btn-bg-color: transparent;
+$msv-checkout-loyalty-remove-btn-border: none;
+$msv-checkout-loyalty-remove-btn-text-decoration: underline;
+
+$msv-checkout-loyalty-amount-input-height: 32px;
+$msv-checkout-loyalty-amount-input-width:50%;
+$msv-checkout-loyalty-amount-input-border-radius: 2px;
+$msv-checkout-loyalty-amount-input-padding: 6px 8px;
+
+$msv-checkout-loyalty-amount-button-height: 32px;
+$msv-checkout-loyalty-amount-max-flex-basis: 100%;
+$msv-checkout-loyalty-amount-button-margin-left: 10px;
+
+.ms-checkout-loyalty {
+    font-size: $msv-text-size;
+    line-height: $msv-text-line-height;
+    display: flex;
+    flex-flow: row wrap;
+    margin-bottom: $msv-checkout-loyalty-margin-bottom;
+
+    &__heading {
+        font-weight: $msv-font-weight-600;
+        font-size: $msv-heading-text-size;
+        line-height: $msv-heading-line-height;
+        color: $msv-text-color;
+        flex-basis: $msv-checkout-loyalty-max-flex-basis;
+    }
+
+    &__applied {
+        .ms-checkout-loyalty__heading {
+            font-size: $msv-text-size;
+            line-height: $msv-text-line-height;
+        }
+    }
+
+    &__card-number {
+        display: none;
+    }
+
+    &__drawer {
+        margin-top: $msv-checkout-loyalty-drawer-margin-top;
+        flex-basis: $msv-checkout-loyalty-max-flex-basis;
+
+        .collapse {
+            display: none;
+        }
+
+        .collapse.show {
+            display: initial;
+        }
+    }
+
+    &__applied-value {
+        margin-left: $msv-checkout-loyalty-drawer-margin-left;
+        font-weight: $msv-font-weight-600;
+    }
+
+    &-remove-btn {
+        @include secondary-button();
+        background-color: $msv-checkout-loyalty-remove-btn-bg-color;
+        border: $msv-checkout-loyalty-remove-btn-border;
+        min-height: $msv-checkout-loyalty-amount-button-height;
+        text-decoration: $msv-checkout-loyalty-remove-btn-text-decoration;
+    }
+
+    .drawer__button {
+        background-color: transparent;
+        border: $msv-checkout-loyalty-drawer-button-border;
+        padding: $msv-checkout-loyalty-drawer-button-padding;
+        cursor: pointer;
+        color: $msv-link-color;
+
+        &::after {
+            @include msv-icon();
+            content: $msv-ChevronDown;
+            margin-left: $msv-checkout-loyalty-drawer-button-icon-margin-left;
+        }
+    }
+
+    .drawer__button[aria-expanded="true"] {
+        &::after {
+            @include msv-icon();
+            content: $msv-ChevronUp;
+            margin-left: $msv-checkout-loyalty-drawer-button-icon-margin-left;
+        }
+    }
+
+    &__program {
+        width: $msv-checkout-loyalty-details-program-width;
+
+        span {
+            margin-top: $msv-checkout-loyalty-details-p-margin-top;
+        }
+
+        &-title {
+            display: block;
+            font-size: $msv-font-size-m;
+            font-weight: $msv-font-weight-600;
+        }
+
+        &-points {
+            float: right;
+            font-weight: $msv-font-weight-600;
+        }
+
+        &-available,
+        &-expiring {
+            display: inline-block;
+        }
+    }
+
+    &__covered {
+        &-text {
+            float: right;
+        }
+    }
+
+    &__amount {
+        flex-basis: $msv-checkout-loyalty-amount-max-flex-basis;
+        margin-top: $msv-checkout-loyalty-amount-margin-top;
+
+        &-label {
+            display: block;
+            font-weight: $msv-font-weight-600;
+            font-size: $msv-heading-text-size;
+            line-height: $msv-heading-line-height;
+            margin-bottom: $msv-checkout-gift-card-input-label-margin-bottom;
+            flex-basis: $msv-checkout-gift-card-max-flex-basis;
+        }
+
+        &-input {
+            background-color: var(--msv-bg-color);
+            border: 1px solid $msv-gray-120;
+            border-radius: $msv-checkout-loyalty-amount-input-border-radius;
+            height: $msv-checkout-loyalty-amount-input-height;
+            cursor: pointer;
+            padding: $msv-checkout-loyalty-amount-input-padding;
+            width: $msv-checkout-loyalty-amount-input-width;
+        }
+
+        &-button {
+            @include secondary-button();
+            min-height: $msv-checkout-loyalty-amount-button-height;
+            margin-left: $msv-checkout-loyalty-amount-button-margin-left;
+        }
+    }
+
+    .drawer__buttontext {
+        display: flex;
+    }
+}

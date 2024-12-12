@@ -1,0 +1,71 @@
+$rtl-flipper-top-position: -40px;
+$rtl-carousel-strip-padding-left: 30px;
+$rtl-ss-carousel-padding-top: -22px;
+
+[dir="rtl"] {
+    .msc-carousel {
+        &__control__next__icon,
+        &__control__prev__icon {
+            width: 100%;
+        }
+
+        &__control__next {
+            right: unset;
+            left: 0;
+
+            &__icon {
+                @include add-icon($msv-ChevronLeft);
+                margin-right: unset;
+            }
+        }
+
+        &__control__prev {
+            left: unset;
+            right: 0;
+
+            &__icon {
+                @include add-icon($msv-ChevronRight);
+                margin-left: unset;
+            }
+        }
+    }
+
+    .msc-ss-carousel {
+        &-strip {
+            padding-left: $rtl-carousel-strip-padding-left;
+        }
+
+        > button:nth-child(1) {
+            left: 56px;
+            right: auto;
+        }
+
+        .msc-flipper {
+            position: absolute;
+            right: auto;
+            top: $rtl-ss-carousel-padding-top;
+        }
+
+        &__flipper {
+            right: 0;
+            top: $rtl-flipper-top-position;
+
+            .msi-chevron-left {
+                @include add-icon($msv-ChevronRight);
+            }
+
+            .msi-chevron-right {
+                @include add-icon($msv-ChevronLeft);
+            }
+
+            &--next {
+                right: 42px;
+                left: 0;
+            }
+        }
+
+        &-slide {
+            float: left;
+        }
+    }
+}

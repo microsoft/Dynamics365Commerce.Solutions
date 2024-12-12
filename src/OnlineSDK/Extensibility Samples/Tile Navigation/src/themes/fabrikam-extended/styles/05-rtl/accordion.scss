@@ -1,0 +1,12 @@
+
+[dir="rtl"] {
+    .ms-accordion {
+        &-item {
+            &__drawer {
+                .drawer__button {
+                    text-align: right;
+                }
+            }
+        }
+    }
+}

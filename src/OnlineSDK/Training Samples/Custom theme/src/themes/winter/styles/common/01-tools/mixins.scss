@@ -1,0 +1,192 @@
+$msv-font-family-rubik-regular: "Rubik-Regular";
+
+@mixin make-container-padding($paddings: $grid-gutter-widths, $breakpoints: $grid-breakpoints) {
+    @each $breakpoint, $padding in $paddings {
+        @include media-breakpoint-up($breakpoint, $breakpoints) {
+            padding-left: $padding;
+            padding-right: $padding;
+        }
+    }
+}
+
+@mixin basicTruncation {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+@mixin basic-outline-offset(
+    $outline-width: 1px,
+    $outline-style: dashed,
+    $outline-color: $msv-black,
+    $outline-offset: -1px
+) {
+    outline: $outline-width $outline-style $outline-color;
+    outline-offset: $outline-offset;
+}
+
+@mixin msv-rubik-regular($font-weight: 400, $font-style: normal, $font-size: 16px, $line-height: 24px) {
+    font-family: $msv-font-family-rubik-regular;
+    font-weight: $font-weight;
+    font-style: $font-style;
+    font-size: $font-size;
+    line-height: $line-height;
+}
+
+@mixin font-awesome-icon($icon: "") {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: $icon;
+    display: inline;
+}
+
+@mixin screen-reader() {
+    /* stylelint-disable-next-line declaration-no-important -- Auto-suppressed. Please fix if possible. */
+    position: absolute !important;
+    /* stylelint-disable-next-line declaration-no-important -- Auto-suppressed. Please fix if possible. */
+    overflow: hidden !important;
+    /* stylelint-disable-next-line declaration-no-important -- Auto-suppressed. Please fix if possible. */
+    clip: rect(1px, 1px, 1px, 1px) !important;
+    /* stylelint-disable-next-line declaration-no-important -- Auto-suppressed. Please fix if possible. */
+    width: 1px !important;
+    /* stylelint-disable-next-line declaration-no-important -- Auto-suppressed. Please fix if possible. */
+    height: 1px !important;
+    /* stylelint-disable-next-line declaration-no-important -- Auto-suppressed. Please fix if possible. */
+    border: 0 !important;
+    /* stylelint-disable-next-line declaration-no-important -- Auto-suppressed. Please fix if possible. */
+    padding: 0 !important;
+    /* stylelint-disable-next-line declaration-no-important -- Auto-suppressed. Please fix if possible. */
+    margin: 0 !important;
+}
+
+// Form elements
+
+@mixin error-message() {
+    @include font-content-m($font-weight-bold);
+    display: block;
+    color: $red;
+}
+
+@mixin form-input-label() {
+    @include font-content-l();
+    display: block;
+    margin-bottom: 4px;
+}
+
+@mixin form-input-checkbox() {
+    height: 18px;
+    width: 18px;
+}
+
+@mixin form-input-el() {
+    @include font-content-m();
+    height: 32px;
+    padding: 4px 8px;
+    background-clip: border-box;
+}
+
+@mixin form-input-el-error() {
+    border: 1px dashed $msv-error-color;
+    border-left: 3px solid $msv-error-color;
+}
+
+@mixin form-input-error-message() {
+    @include error-message();
+    margin-bottom: 4px;
+
+    &::before {
+        @include font-awesome-icon($alert-icon);
+        margin-right: 8px;
+    }
+}
+
+@mixin alert {
+    background-color: $pink;
+    border: 1px solid $red;
+    max-width: 512px;
+    padding: 8px;
+}
+
+@mixin alert-title {
+    @include error-message();
+    margin-bottom: 10px;
+    margin-top: 2px;
+
+    &::before {
+        @include font-awesome-icon($alert-icon);
+        margin-right: 8px;
+    }
+}
+
+@mixin button-default() {
+    @include font-content-l();
+    padding: 12px 20px;
+    height: 48px;
+    min-width: 160px;
+}
+
+@mixin button-icon {
+    width: 48px;
+    height: 48px;
+}
+
+@mixin vfi {
+    &:focus {
+        border: 1px dashed $msv-white;
+        outline: 1px dashed $msv-gray-20;
+    }
+
+    @supports (-webkit-touch-callout: none) {
+        &:focus {
+            border: none;
+            outline: 0;
+        }
+    }
+}
+
+@mixin vfi-psuedo($selector: after, $offset: -2px, $position: relative) {
+    position: $position;
+
+    &:focus {
+        outline: 1px dashed $msv-white;
+
+        &:#{$selector} {
+            position: absolute;
+            content: "";
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: transparent;
+            outline: 1px dashed $msv-black;
+            outline-offset: $offset;
+        }
+    }
+}
+
+@mixin validation($bg-color, $border, $color) {
+    background-color: $bg-color;
+    border: 1px solid $border;
+    color: $color;
+}
+
+@mixin validation-success($bg-color: transparent, $border: transparent, $color: var(--msv-font-primary-color)) {
+    @include validation($bg-color, $border, $color);
+}
+
+@mixin validation-error($bg-color: var(--msv-error-color),
+$border:  var(--msv-error-color), $color: var(--msv-font-secondary-color)) {
+    @include validation($bg-color, $border, $color);
+}
+
+@mixin divider($direction) {
+    border-#{$direction}: 1.5px solid #{$msv-divider-color};
+}
+
+@mixin clearfix() {
+    &::after {
+        display: block;
+        content: "";
+        clear: both;
+    }
+}

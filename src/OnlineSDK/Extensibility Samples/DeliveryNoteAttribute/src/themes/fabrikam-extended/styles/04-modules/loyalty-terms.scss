@@ -1,0 +1,93 @@
+$msv-checkbox-size: 14px;
+
+:root {
+    --msv-loyalty-terms-font-size: var(--msv-body-font-size-s);
+    --msv-loyalty-terms-font-color: var(--msv-font-primary-color);
+
+    // heading
+    --msv-loyalty-terms-heading-font-size: var(--msv-body-font-size-xl);
+    --msv-loyalty-terms-heading-font-color: var(--msv-font-primary-color);
+
+    // title
+    --msv-loyalty-terms-title-font-size: var(--msv-body-font-size-l);
+    --msv-loyalty-terms-title-font-color: var(--msv-font-primary-color);
+
+    // primary button
+    --msv-loyalty-terms-primary-btn-bg: var(--msv-accent-brand-color);
+    --msv-loyalty-terms-primary-btn-font-color: var(--msv-font-secondary-color);
+    --msv-loyalty-terms-primary-btn-border: var(--msv-accent-brand-color);
+
+    // secondary button
+    --msv-loyalty-terms-secondary-btn-bg: var(--msv-secondary-button-background-color);
+    --msv-loyalty-terms-secondary-btn-font-color: var(--msv-font-primary-color);
+    --msv-loyalty-terms-secondary-btn-border: var(--msv-accent-brand-color);
+}
+
+.ms-loyalty-terms {
+    &__heading {
+        @include font-content(var(--msv-font-weight-normal),
+        var(--msv-loyalty-terms-heading-font-size), $msv-line-height-xl);
+        color: var(--msv-loyalty-terms-heading-font-color);
+    }
+
+    &__modal-body {
+        .ms-text-block {
+            h2 {
+                @include font-content(var(--msv-font-weight-bold),
+                var(--msv-loyalty-terms-title-font-size), $msv-line-height-xl);
+                color: var(--msv-loyalty-terms-title-font-color);
+            }
+
+            p {
+                @include font-content(var(--msv-font-weight-normal),
+                var(--msv-loyalty-terms-font-size), $msv-line-height-s);
+                color: var(--msv-loyalty-terms-font-color);
+            }
+        }
+    }
+
+    &__checkbox {
+        @include add-icon($msv-Checkbox);
+        -webkit-appearance: none;
+        position: relative;
+        height: $msv-checkbox-size;
+        width: $msv-checkbox-size;
+        margin-right: 8px;
+        vertical-align: middle;
+
+        &::before {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        &:checked {
+            @include add-icon($msv-Checkbox-Checked);
+        }
+    }
+
+    &__agree {
+        @include font-content(var(--msv-font-weight-normal),
+        var(--msv-loyalty-terms-font-size), $msv-line-height-s);
+        color: var(--msv-loyalty-terms-font-color);
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    &__toggle {
+        @include primary-button(var(--msv-loyalty-terms-primary-btn-bg),
+        var(--msv-loyalty-terms-primary-btn-font-color), var(--msv-loyalty-terms-primary-btn-border));
+    }
+
+    &__submit {
+        @include primary-button(var(--msv-loyalty-terms-primary-btn-bg),
+        var(--msv-loyalty-terms-primary-btn-font-color), var(--msv-loyalty-terms-primary-btn-border));
+        margin-right: 8px;
+    }
+
+    &__cancel {
+        @include secondary-button(var(--msv-loyalty-terms-secondary-btn-bg),
+        var(--msv-loyalty-terms-secondary-btn-font-color), var(--msv-loyalty-terms-secondary-btn-border));
+    }
+}

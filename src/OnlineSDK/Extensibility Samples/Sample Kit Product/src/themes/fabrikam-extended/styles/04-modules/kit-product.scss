@@ -1,0 +1,16 @@
+ // product-kit
+.ms-buybox__kit-product-description__item,
+.msc-cartline__kit-product-description__item {
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    font-weight: var(--msv-font-weight-light);
+    font-size: var(--msv-buybox-text-font-size);
+    line-height: 21px;
+    text-transform: none;
+    color: var(--msv-buybox-text-font-color);
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+li.ms-buybox__kit-product-description__item a {
+    cursor: pointer;
+}

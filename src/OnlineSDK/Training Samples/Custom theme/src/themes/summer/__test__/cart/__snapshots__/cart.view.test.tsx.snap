@@ -1,0 +1,1723 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Cart view unit tests - View renders correctly with all attributes 1`] = `
+<div
+  class="className"
+  data-m-t="mock-type"
+  id="mock-id"
+>
+  &lt;h1&gt;Cart&lt;/h1&gt;
+  <div
+    class="node-class-CartlinesWrapper"
+  >
+    <div
+      class="msc-cart-lines-item"
+    >
+      &lt;div&gt;foo&lt;/div&gt;
+      <div
+        class="msc-cart-line__extra-actions"
+      >
+        &lt;div&gt;foo&lt;/div&gt;&lt;button&gt;button&lt;/button&gt;
+      </div>
+    </div>
+    <div
+      class="msc-cart-lines-item"
+    >
+      &lt;div&gt;foo&lt;/div&gt;
+      <div
+        class="msc-cart-line__bopis"
+      >
+        <div
+          class="msc-cart-line__bopis-method"
+        >
+          <span
+            class="ship"
+          />
+        </div>
+        <button
+          class="msc-cart-line__bopis-btn msc-btn"
+          type="button"
+        />
+      </div>
+      &lt;button&gt;button&lt;/button&gt;
+    </div>
+  </div>
+  <div
+    class="node-class-OrderSummaryWrapper"
+  >
+    <h2>
+      mockTextHeading
+    </h2>
+    <div
+      class=""
+    >
+      <p>
+        mockTextP
+      </p>
+      <span>
+        Foo
+      </span>
+      <span>
+        Foo
+      </span>
+      <span>
+        Foo
+      </span>
+      <span>
+        Foo
+      </span>
+      <span>
+        Foo
+      </span>
+    </div>
+    <div
+      class="node-class-Wrapper"
+    >
+      {header}{}{}
+    </div>
+    &lt;button&gt;button&lt;/button&gt;&lt;button&gt;button&lt;/button&gt;&lt;button&gt;button&lt;/button&gt;
+  </div>
+  {storeSelector}
+</div>
+`;
+
+exports[`Cart view unit tests - View renders correctly with loading message 1`] = `
+<div
+  class="className"
+  data-m-t="mock-type"
+  id="mock-id"
+>
+  <h2>
+    mockTextHeading
+  </h2>
+  <div
+    class="node-class-CartlinesWrapper"
+  >
+    <div
+      class="msc-cart__empty-cart"
+    >
+      <p
+        class="msc-cart-line"
+      >
+        foo
+      </p>
+      <button>
+        button
+      </button>
+    </div>
+  </div>
+  <div
+    class="node-class-OrderSummaryWrapper"
+  >
+    <h2>
+      mockTextHeading
+    </h2>
+    <div
+      class=""
+    >
+      <p>
+        mockTextP
+      </p>
+      <span>
+        Foo
+      </span>
+      <span>
+        Foo
+      </span>
+      <span>
+        Foo
+      </span>
+      <span>
+        Foo
+      </span>
+    </div>
+    <button>
+      button
+    </button>
+    <button>
+      button
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Cart view unit tests - View renders correctly with loading message with props 1`] = `
+<div
+  class="className"
+  data-m-t="mock-type"
+  id="mock-id"
+>
+  <h2>
+    mockTextHeading
+  </h2>
+  <div
+    class="node-class-CartlinesWrapper"
+  >
+    loading
+  </div>
+  <div
+    class="node-class-OrderSummaryWrapper"
+  >
+    <h2>
+      mockTextHeading
+    </h2>
+    <div
+      class=""
+    >
+      <p>
+        mockTextP
+      </p>
+      <span>
+        Foo
+      </span>
+      <span>
+        Foo
+      </span>
+      <span>
+        Foo
+      </span>
+      <span>
+        Foo
+      </span>
+    </div>
+    <button>
+      button
+    </button>
+    <button>
+      button
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Cart view unit tests - View renders correctly with no cartlines 1`] = `
+<div
+  class="className"
+  data-m-t="mock-type"
+  id="mock-id"
+>
+  <h2>
+    mockTextHeading
+  </h2>
+  <div
+    class="node-class-CartlinesWrapper"
+  />
+  <div
+    class="node-class-OrderSummaryWrapper"
+  >
+    <h2>
+      mockTextHeading
+    </h2>
+    <div
+      class=""
+    >
+      <p>
+        mockTextP
+      </p>
+      <span>
+        Foo
+      </span>
+      <span>
+        Foo
+      </span>
+      <span>
+        Foo
+      </span>
+      <span>
+        Foo
+      </span>
+      <span>
+        Foo
+      </span>
+    </div>
+    <button>
+      button
+    </button>
+    <button>
+      button
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Cart view unit tests - View renders correctly with no orderSummary lines 1`] = `
+<div
+  class="className"
+  data-m-t="mock-type"
+  id="mock-id"
+>
+  <h2>
+    mockTextHeading
+  </h2>
+  <div
+    class="node-class-CartlinesWrapper"
+  />
+  <div
+    class="node-class-OrderSummaryWrapper"
+  >
+    <h2>
+      mockTextHeading
+    </h2>
+    <button>
+      button
+    </button>
+    <button>
+      button
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Cart view unit tests - View renders correctly with no orderSummarylines with discount lines 1`] = `
+<div
+  class="className"
+  data-m-t="mock-type"
+  id="mock-id"
+>
+  <h2>
+    mockTextHeading
+  </h2>
+  <div
+    class="node-class-CartlinesWrapper"
+  />
+  <div
+    class="node-class-OrderSummaryWrapper"
+  >
+    <h2>
+      mockTextHeading
+    </h2>
+    <div
+      class=""
+    >
+      <p>
+        mockTextP
+      </p>
+      <span>
+        Foo
+      </span>
+      <span>
+        Foo
+      </span>
+      <span>
+        Foo
+      </span>
+      <span>
+        Foo
+      </span>
+      <span>
+        Foo
+      </span>
+    </div>
+    <button>
+      button
+    </button>
+    <button>
+      button
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Cart view unit tests - View renders correctly with no orderSummarylines without discount lines 1`] = `
+<div
+  class="className"
+  data-m-t="mock-type"
+  id="mock-id"
+>
+  <h2>
+    mockTextHeading
+  </h2>
+  <div
+    class="node-class-CartlinesWrapper"
+  />
+  <div
+    class="node-class-OrderSummaryWrapper"
+  >
+    <h2>
+      mockTextHeading
+    </h2>
+    <div
+      class=""
+    >
+      <p>
+        mockTextP
+      </p>
+      <span>
+        Foo
+      </span>
+      <span>
+        Foo
+      </span>
+      <span>
+        Foo
+      </span>
+      <span>
+        Foo
+      </span>
+    </div>
+    <button>
+      button
+    </button>
+    <button>
+      button
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Cart view unit tests - View renders correctly with promotions 1`] = `
+<CartView
+  CartlinesWrapper={
+    Object {
+      "className": "node-class-CartlinesWrapper",
+    }
+  }
+  OrderSummaryWrapper={
+    Object {
+      "className": "node-class-OrderSummaryWrapper",
+    }
+  }
+  app={
+    Object {
+      "config": Object {},
+    }
+  }
+  backToShoppingButton={
+    <button>
+      button
+    </button>
+  }
+  cart={
+    Object {
+      "hasInvoiceLine": true,
+    }
+  }
+  cartDataResult={true}
+  cartEmptyText="This cart is empty"
+  cartLinesGroup={
+    Array [
+      Array [
+        Object {
+          "addToOrderTemplate": undefined,
+          "addToWishlist": undefined,
+          "cartline": <div />,
+          "data": Object {
+            "cartline": Object {
+              "DeliveryMode": "1",
+            },
+          },
+          "pickUpInStore": Object {
+            "ContainerProps": Object {
+              "className": "msc-cart-line__bopis",
+            },
+            "callbacks": Object {
+              "toggleBopis": [MockFunction] {
+                "calls": Array [
+                  Array [
+                    true,
+                  ],
+                  Array [
+                    false,
+                  ],
+                ],
+                "results": Array [
+                  Object {
+                    "type": "return",
+                    "value": undefined,
+                  },
+                  Object {
+                    "type": "return",
+                    "value": undefined,
+                  },
+                ],
+              },
+            },
+            "isBopisSelected": true,
+            "shippingMethod": <div />,
+          },
+          "remove": <div />,
+        },
+      ],
+    ]
+  }
+  cartlines={
+    Object {
+      "data": Object {
+        "cartline": Array [
+          Object {
+            "DeliveryMode": "",
+          },
+        ],
+      },
+    }
+  }
+  checkoutAsGuestButton={
+    <button>
+      button
+    </button>
+  }
+  className="className"
+  config={Object {}}
+  context={
+    Object {
+      "actionContext": Object {
+        "chainAction": [Function],
+        "get": [Function],
+        "getAll": [Function],
+        "requestContext": Object {
+          "apiSettings": Object {
+            "baseImageUrl": "https://cms-ppe-imageresizer-mr.trafficmanager.net/cms/api/fabrikamsb/imageFileData/search?fileName=/",
+            "baseUrl": "mockBaseUrl",
+            "catalogId": 2,
+            "channelId": 1,
+            "eCommerceChannelId": "",
+            "oun": "mockOUN",
+            "ratingsReviewsEndpoint": "",
+            "retailServerProxyVersion": "9.0.0",
+            "rnr": Object {
+              "id": "",
+              "proxyUrl": "",
+              "url": "",
+            },
+          },
+          "app": Object {},
+          "canonicalDomain": "contoso.com",
+          "canonicalUrl": "https://contoso.com",
+          "cookies": Object {
+            "deleteConsentCookie": [Function],
+            "get": [Function],
+            "getAccountSelectionCookie": [Function],
+            "getCartCookie": [Function],
+            "getCheckoutCartCookie": [Function],
+            "getTargetIdCookie": [Function],
+            "isConsentGiven": [Function],
+            "remove": [Function],
+            "removeAccountSelectionCookie": [Function],
+            "removeCheckoutCartCookie": [Function],
+            "set": [Function],
+            "setAccountSelectionCookie": [Function],
+            "setCartCookie": [Function],
+            "setCheckoutCartCookie": [Function],
+            "setConsentCookie": [Function],
+          },
+          "device": Object {
+            "Type": "pc",
+          },
+          "features": Object {},
+          "gridSettings": Object {
+            "lg": Object {
+              "w": 1600,
+            },
+            "md": Object {
+              "w": 1200,
+            },
+            "sm": Object {
+              "w": 992,
+            },
+            "xl": Object {
+              "w": 1800,
+            },
+            "xs": Object {
+              "w": 768,
+            },
+          },
+          "headers": Object {},
+          "locale": "en-us",
+          "operationId": "mockOperationId",
+          "pageData": Object {},
+          "params": Object {
+            "concatJs": Object {
+              "hasValue": false,
+              "isTruthy": false,
+              "value": undefined,
+            },
+            "isDebug": false,
+            "isEditor": false,
+            "isPerfAnalysis": false,
+            "isPreview": false,
+            "theme": "",
+          },
+          "sessionStorage": Object {
+            "getCheckoutCartData": [Function],
+            "getDataFromStorage": [Function],
+            "removeCheckoutCartData": [Function],
+            "removeDataFromStorage": [Function],
+            "setCheckoutCartData": [Function],
+            "setDataInStorage": [Function],
+          },
+          "siteStylePreset": "",
+          "siteTheme": "default",
+          "telemetryData": Object {
+            "Checkout": Array [
+              Object {
+                "Products": Array [
+                  Object {
+                    "productCategoryId": "9754",
+                    "productCategoryName": "Sunglasses",
+                    "productChannelId": 18629762,
+                    "productChannelName": "store",
+                    "productCurrency": "USD",
+                    "productId": "970374",
+                    "productName": "Aviator",
+                    "productPrice": 120,
+                    "productQuantity": 1,
+                    "productSku": "special",
+                  },
+                ],
+                "cartId": "097504969642348742",
+                "cartVersion": "12432",
+                "orderId": "",
+              },
+            ],
+            "ProductPageView": Object {
+              "productCategoryId": "",
+              "productCategoryName": "",
+              "productChannelId": 18629762,
+              "productChannelName": "",
+              "productCurrency": "",
+              "productId": "08439484",
+              "productName": "Awesome Tie",
+              "productPrice": 98,
+              "productQuantity": "",
+              "productSku": "",
+            },
+          },
+          "telemetrySettings": Object {
+            "environmentId": "Development",
+            "eventHubAuthToken": "",
+            "eventHubEndPoint": "",
+            "instrumentationKey": "",
+            "operationId": "mockOperationId",
+            "operationalInsightsInstrumentationKey": "",
+            "optOutWebActivityTracking": false,
+          },
+          "textDirection": "ltr",
+          "themeOverride": Object {
+            "disableDefault": false,
+            "url": "",
+          },
+          "url": Object {
+            "requestUrl": "https://contoso.com/",
+            "staticCdnUrl": "string",
+          },
+          "urlTokens": Object {},
+          "user": Object {
+            "isAuthenticated": false,
+            "isB2b": true,
+            "optOutWebActivityTracking": false,
+            "token": "mockToken",
+          },
+        },
+        "runAllActionsInQueue": [Function],
+        "telemetry": Object {
+          "critical": [Function],
+          "debug": [Function],
+          "error": [Function],
+          "exception": [Function],
+          "information": [Function],
+          "log": [Function],
+          "logEvent": [Function],
+          "setTelemetryAttribute": [Function],
+          "setTelemetryModuleContext": [Function],
+          "setTelemetryRequestContext": [Function],
+          "trace": [Function],
+          "trackDependency": [Function],
+          "trackEvent": [Function],
+          "trackMetric": [Function],
+          "warning": [Function],
+        },
+        "trace": [Function],
+        "update": [Function],
+      },
+      "app": Object {},
+      "cultureFormatter": CultureInfoFormatter {
+        "currencyCode": "USD",
+        "dateFormatterConstructor": [Function],
+        "formatCurrency": [Function],
+        "formatDate": [Function],
+        "formatNumber": [Function],
+        "formatTime": [Function],
+        "locale": "en-us",
+        "numFormatterConstructor": [Function],
+        "queryString": undefined,
+      },
+      "request": Object {
+        "apiSettings": Object {
+          "baseImageUrl": "https://cms-ppe-imageresizer-mr.trafficmanager.net/cms/api/fabrikamsb/imageFileData/search?fileName=/",
+          "baseUrl": "mockBaseUrl",
+          "catalogId": 2,
+          "channelId": 1,
+          "eCommerceChannelId": "",
+          "oun": "mockOUN",
+          "ratingsReviewsEndpoint": "",
+          "retailServerProxyVersion": "9.0.0",
+          "rnr": Object {
+            "id": "",
+            "proxyUrl": "",
+            "url": "",
+          },
+        },
+        "app": Object {},
+        "canonicalDomain": "contoso.com",
+        "canonicalUrl": "https://contoso.com",
+        "cookies": Object {
+          "deleteConsentCookie": [Function],
+          "get": [Function],
+          "getAccountSelectionCookie": [Function],
+          "getCartCookie": [Function],
+          "getCheckoutCartCookie": [Function],
+          "getTargetIdCookie": [Function],
+          "isConsentGiven": [Function],
+          "remove": [Function],
+          "removeAccountSelectionCookie": [Function],
+          "removeCheckoutCartCookie": [Function],
+          "set": [Function],
+          "setAccountSelectionCookie": [Function],
+          "setCartCookie": [Function],
+          "setCheckoutCartCookie": [Function],
+          "setConsentCookie": [Function],
+        },
+        "device": Object {
+          "Type": "pc",
+        },
+        "features": Object {},
+        "gridSettings": Object {
+          "lg": Object {
+            "w": 1600,
+          },
+          "md": Object {
+            "w": 1200,
+          },
+          "sm": Object {
+            "w": 992,
+          },
+          "xl": Object {
+            "w": 1800,
+          },
+          "xs": Object {
+            "w": 768,
+          },
+        },
+        "headers": Object {},
+        "locale": "en-us",
+        "operationId": "mockOperationId",
+        "pageData": Object {},
+        "params": Object {
+          "concatJs": Object {
+            "hasValue": false,
+            "isTruthy": false,
+            "value": undefined,
+          },
+          "isDebug": false,
+          "isEditor": false,
+          "isPerfAnalysis": false,
+          "isPreview": false,
+          "theme": "",
+        },
+        "sessionStorage": Object {
+          "getCheckoutCartData": [Function],
+          "getDataFromStorage": [Function],
+          "removeCheckoutCartData": [Function],
+          "removeDataFromStorage": [Function],
+          "setCheckoutCartData": [Function],
+          "setDataInStorage": [Function],
+        },
+        "siteStylePreset": "",
+        "siteTheme": "default",
+        "telemetryData": Object {
+          "Checkout": Array [
+            Object {
+              "Products": Array [
+                Object {
+                  "productCategoryId": "9754",
+                  "productCategoryName": "Sunglasses",
+                  "productChannelId": 18629762,
+                  "productChannelName": "store",
+                  "productCurrency": "USD",
+                  "productId": "970374",
+                  "productName": "Aviator",
+                  "productPrice": 120,
+                  "productQuantity": 1,
+                  "productSku": "special",
+                },
+              ],
+              "cartId": "097504969642348742",
+              "cartVersion": "12432",
+              "orderId": "",
+            },
+          ],
+          "ProductPageView": Object {
+            "productCategoryId": "",
+            "productCategoryName": "",
+            "productChannelId": 18629762,
+            "productChannelName": "",
+            "productCurrency": "",
+            "productId": "08439484",
+            "productName": "Awesome Tie",
+            "productPrice": 98,
+            "productQuantity": "",
+            "productSku": "",
+          },
+        },
+        "telemetrySettings": Object {
+          "environmentId": "Development",
+          "eventHubAuthToken": "",
+          "eventHubEndPoint": "",
+          "instrumentationKey": "",
+          "operationId": "mockOperationId",
+          "operationalInsightsInstrumentationKey": "",
+          "optOutWebActivityTracking": false,
+        },
+        "textDirection": "ltr",
+        "themeOverride": Object {
+          "disableDefault": false,
+          "url": "",
+        },
+        "url": Object {
+          "requestUrl": "https://contoso.com/",
+          "staticCdnUrl": "string",
+        },
+        "urlTokens": Object {},
+        "user": Object {
+          "isAuthenticated": false,
+          "isB2b": true,
+          "optOutWebActivityTracking": false,
+          "token": "mockToken",
+        },
+      },
+      "telemetry": Object {
+        "critical": [Function],
+        "debug": [Function],
+        "error": [Function],
+        "exception": [Function],
+        "information": [Function],
+        "log": [Function],
+        "logEvent": [Function],
+        "setTelemetryAttribute": [Function],
+        "setTelemetryModuleContext": [Function],
+        "setTelemetryRequestContext": [Function],
+        "trace": [Function],
+        "trackDependency": [Function],
+        "trackEvent": [Function],
+        "trackMetric": [Function],
+        "warning": [Function],
+      },
+    }
+  }
+  data={Object {}}
+  dataActions={Object {}}
+  friendlyName="Mock Id"
+  id="mock-id"
+  invoiceSummaryLineitems={
+    Object {
+      "giftCard": <div />,
+      "invoices": <div />,
+      "loyalty": <div />,
+      "orderTotal": <div />,
+    }
+  }
+  multiplePickUpEnabled={true}
+  orderSummaryHeading={
+    <h2>
+      mockTextHeading
+    </h2>
+  }
+  orderSummaryLineitems={
+    Object {
+      "orderTotal": <span>
+        Foo
+      </span>,
+      "shipping": <span>
+        Foo
+      </span>,
+      "subtotal": <span>
+        Foo
+      </span>,
+      "tax": <span>
+        Foo
+      </span>,
+    }
+  }
+  promoCode={
+    <p>
+      mockTextP
+    </p>
+  }
+  promotionOptions={
+    Object {
+      "promotionDialog": <div>
+        Foo
+      </div>,
+      "promotionMessage": <React.Fragment>
+        <span
+          className="msi-promotion-icon"
+        />
+        <span>
+          Foo
+        </span>
+      </React.Fragment>,
+      "promotionMessageWrapper": Object {
+        "className": "msc-cart__promotion",
+      },
+      "promotionSeeAllLink": <a
+        className="msc-cart__promotion_link"
+        href="http://www.xyz.com"
+      >
+         
+        Foo
+         
+      </a>,
+    }
+  }
+  renderModuleAttributes={[Function]}
+  renderView={[Function]}
+  resources={
+    Object {
+      "emailshippingText": "foo",
+      "emptyCartText": "foo",
+      "pickUpText": "foo",
+      "shippingText": "foo",
+    }
+  }
+  telemetry={
+    Object {
+      "critical": [Function],
+      "debug": [Function],
+      "error": [Function],
+      "exception": [Function],
+      "information": [Function],
+      "log": [Function],
+      "logEvent": [Function],
+      "setTelemetryAttribute": [Function],
+      "setTelemetryModuleContext": [Function],
+      "setTelemetryRequestContext": [Function],
+      "trace": [Function],
+      "trackDependency": [Function],
+      "trackEvent": [Function],
+      "trackMetric": [Function],
+      "warning": [Function],
+    }
+  }
+  title={
+    <h2>
+      mockTextHeading
+    </h2>
+  }
+  typeName="mock-type"
+>
+  <div
+    className="className"
+    data-m-t="mock-type"
+    id="mock-id"
+  >
+    <h2>
+      mockTextHeading
+    </h2>
+    <ForwardRef
+      className="msc-cart__promotion"
+    >
+      <div
+        className="msc-cart__promotion"
+      >
+        <span
+          className="msi-promotion-icon"
+        />
+        <span>
+          Foo
+        </span>
+        <a
+          className="msc-cart__promotion_link"
+          href="http://www.xyz.com"
+        >
+           
+          Foo
+           
+        </a>
+        <div>
+          Foo
+        </div>
+      </div>
+    </ForwardRef>
+    <div
+      className="msc-cart-lines-group"
+    >
+      <div
+        className="msc-cart-lines-group-wraper"
+      >
+        <div
+          className="msc-cart-lines-group-wraper__bopis-heading"
+        >
+          <p
+            className="msc-cart-lines-group-wraper__bopis-heading-foo-icon"
+          />
+          <p
+            className="msc-cart-lines-group-wraper__bopis-heading-foo"
+          >
+            foo
+          </p>
+          <ForwardRef
+            className="msc-cart-lines-group-wraper__bopis-heading-title"
+          >
+            <div
+              className="msc-cart-lines-group-wraper__bopis-heading-title"
+            >
+              <p
+                className="msc-cart-lines-group-wraper__bopis-heading-title-st"
+              >
+                , 
+              </p>
+              <p
+                className="msc-cart-lines-group-wraper__bopis-heading-title-ct"
+              >
+                (
+                0
+                 
+                )
+              </p>
+            </div>
+          </ForwardRef>
+        </div>
+        <div
+          className="msc-cart-lines-item"
+          key="0-true"
+        >
+          <div />
+          <ForwardRef
+            className="msc-cart-line-group__extra-actions"
+          >
+            <div
+              className="msc-cart-line-group__extra-actions"
+            >
+              <div />
+            </div>
+          </ForwardRef>
+        </div>
+      </div>
+    </div>
+    <ForwardRef
+      className="node-class-OrderSummaryWrapper"
+    >
+      <div
+        className="node-class-OrderSummaryWrapper"
+      >
+        <h2>
+          mockTextHeading
+        </h2>
+        <ForwardRef>
+          <div
+            className=""
+          >
+            <div />
+            <div />
+            <div />
+            <div />
+          </div>
+        </ForwardRef>
+        <button>
+          button
+        </button>
+        <button>
+          button
+        </button>
+      </div>
+    </ForwardRef>
+  </div>
+</CartView>
+`;
+
+exports[`Cart view unit tests - View renders correctly with promotions and DeliveryMode 1`] = `
+<div
+  class="className"
+  data-m-t="mock-type"
+  id="mock-id"
+>
+  <h2>
+    mockTextHeading
+  </h2>
+  <div
+    class="node-class-CartlinesWrapper"
+  >
+    <div
+      class="msc-cart-lines-item"
+    >
+      <div>
+        Foo
+      </div>
+      <div
+        class="msc-cart-line__bopis"
+      >
+        <div
+          class="msc-cart-line__bopis-method"
+        >
+          <span
+            class="ship"
+          />
+        </div>
+        <button
+          class="msc-cart-line__bopis-btn msc-btn"
+          type="button"
+        />
+      </div>
+      <button>
+        button
+      </button>
+    </div>
+    <div
+      class="msc-cart-lines-item"
+    >
+      <div>
+        Foo
+      </div>
+      <div
+        class="msc-cart-line__bopis"
+      >
+        <div
+          class="msc-cart-line__bopis-method"
+        >
+          <span
+            class="ship"
+          />
+        </div>
+        <button
+          class="msc-cart-line__bopis-btn msc-btn"
+          type="button"
+        />
+      </div>
+      <button>
+        button
+      </button>
+    </div>
+  </div>
+  <div
+    class="node-class-OrderSummaryWrapper"
+  >
+    <h2>
+      mockTextHeading
+    </h2>
+    <div
+      class=""
+    >
+      <p>
+        mockTextP
+      </p>
+      <span>
+        Foo
+      </span>
+      <span>
+        Foo
+      </span>
+      <span>
+        Foo
+      </span>
+      <span>
+        Foo
+      </span>
+      <span>
+        Foo
+      </span>
+    </div>
+    <div
+      class="node-class-Wrapper"
+    >
+      {header}{}{}
+    </div>
+    <button>
+      button
+    </button>
+    <button>
+      button
+    </button>
+    <button>
+      button
+    </button>
+  </div>
+  {storeSelector}
+</div>
+`;
+
+exports[`Cart view unit tests - View renders correctly without OrderSummaryErrors 1`] = `
+<CartView
+  CartlinesWrapper={
+    Object {
+      "className": "node-class-CartlinesWrapper",
+    }
+  }
+  OrderSummaryErrors={
+    Object {
+      "Wrapper": Object {
+        "className": "node-class-Wrapper",
+      },
+      "errors": Array [
+        "{}",
+        "{}",
+      ],
+      "header": "{header}",
+    }
+  }
+  OrderSummaryWrapper={
+    Object {
+      "className": "node-class-OrderSummaryWrapper",
+    }
+  }
+  app={
+    Object {
+      "config": Object {},
+    }
+  }
+  backToShoppingButton={
+    <button>
+      button
+    </button>
+  }
+  cart={
+    Object {
+      "hasInvoiceLine": true,
+    }
+  }
+  cartDataResult={true}
+  cartlines={
+    Array [
+      Object {
+        "addToOrderTemplate": undefined,
+        "addToWishlist": undefined,
+        "cartline": <div>
+          Foo
+        </div>,
+        "data": Object {
+          "cartline": Object {
+            "DeliveryMode": 1,
+          },
+        },
+        "pickUpInStore": Object {
+          "ContainerProps": Object {
+            "className": "msc-cart-line__bopis",
+          },
+          "callbacks": Object {
+            "toggleBopis": [Function],
+          },
+          "isBopisSelected": false,
+          "shippingMethod": <div>
+            Foo
+          </div>,
+        },
+        "remove": <button>
+          button
+        </button>,
+      },
+      Object {
+        "addToOrderTemplate": undefined,
+        "addToWishlist": undefined,
+        "cartline": <div>
+          Foo
+        </div>,
+        "data": Object {
+          "cartline": Object {
+            "DeliveryMode": 160,
+          },
+        },
+        "pickUpInStore": Object {
+          "ContainerProps": Object {
+            "className": "msc-cart-line__bopis",
+          },
+          "callbacks": Object {
+            "toggleBopis": [Function],
+          },
+          "defaultComponent": <div>
+            Foo
+          </div>,
+          "isBopisSelected": false,
+        },
+        "remove": <button>
+          button
+        </button>,
+      },
+    ]
+  }
+  checkoutAsGuestButton={
+    <button>
+      button
+    </button>
+  }
+  checkoutAsSignInUserButton={
+    <button>
+      button
+    </button>
+  }
+  className="className"
+  config={Object {}}
+  context={
+    Object {
+      "actionContext": Object {
+        "chainAction": [Function],
+        "get": [Function],
+        "getAll": [Function],
+        "requestContext": Object {
+          "apiSettings": Object {
+            "baseImageUrl": "https://cms-ppe-imageresizer-mr.trafficmanager.net/cms/api/fabrikamsb/imageFileData/search?fileName=/",
+            "baseUrl": "mockBaseUrl",
+            "catalogId": 2,
+            "channelId": 1,
+            "eCommerceChannelId": "",
+            "oun": "mockOUN",
+            "ratingsReviewsEndpoint": "",
+            "retailServerProxyVersion": "9.0.0",
+            "rnr": Object {
+              "id": "",
+              "proxyUrl": "",
+              "url": "",
+            },
+          },
+          "app": Object {},
+          "canonicalDomain": "contoso.com",
+          "canonicalUrl": "https://contoso.com",
+          "cookies": Object {
+            "deleteConsentCookie": [Function],
+            "get": [Function],
+            "getAccountSelectionCookie": [Function],
+            "getCartCookie": [Function],
+            "getCheckoutCartCookie": [Function],
+            "getTargetIdCookie": [Function],
+            "isConsentGiven": [Function],
+            "remove": [Function],
+            "removeAccountSelectionCookie": [Function],
+            "removeCheckoutCartCookie": [Function],
+            "set": [Function],
+            "setAccountSelectionCookie": [Function],
+            "setCartCookie": [Function],
+            "setCheckoutCartCookie": [Function],
+            "setConsentCookie": [Function],
+          },
+          "device": Object {
+            "Type": "pc",
+          },
+          "features": Object {},
+          "gridSettings": Object {
+            "lg": Object {
+              "w": 1600,
+            },
+            "md": Object {
+              "w": 1200,
+            },
+            "sm": Object {
+              "w": 992,
+            },
+            "xl": Object {
+              "w": 1800,
+            },
+            "xs": Object {
+              "w": 768,
+            },
+          },
+          "headers": Object {},
+          "locale": "en-us",
+          "operationId": "mockOperationId",
+          "pageData": Object {},
+          "params": Object {
+            "concatJs": Object {
+              "hasValue": false,
+              "isTruthy": false,
+              "value": undefined,
+            },
+            "isDebug": false,
+            "isEditor": false,
+            "isPerfAnalysis": false,
+            "isPreview": false,
+            "theme": "",
+          },
+          "sessionStorage": Object {
+            "getCheckoutCartData": [Function],
+            "getDataFromStorage": [Function],
+            "removeCheckoutCartData": [Function],
+            "removeDataFromStorage": [Function],
+            "setCheckoutCartData": [Function],
+            "setDataInStorage": [Function],
+          },
+          "siteStylePreset": "",
+          "siteTheme": "default",
+          "telemetryData": Object {
+            "Checkout": Array [
+              Object {
+                "Products": Array [
+                  Object {
+                    "productCategoryId": "9754",
+                    "productCategoryName": "Sunglasses",
+                    "productChannelId": 18629762,
+                    "productChannelName": "store",
+                    "productCurrency": "USD",
+                    "productId": "970374",
+                    "productName": "Aviator",
+                    "productPrice": 120,
+                    "productQuantity": 1,
+                    "productSku": "special",
+                  },
+                ],
+                "cartId": "097504969642348742",
+                "cartVersion": "12432",
+                "orderId": "",
+              },
+            ],
+            "ProductPageView": Object {
+              "productCategoryId": "",
+              "productCategoryName": "",
+              "productChannelId": 18629762,
+              "productChannelName": "",
+              "productCurrency": "",
+              "productId": "08439484",
+              "productName": "Awesome Tie",
+              "productPrice": 98,
+              "productQuantity": "",
+              "productSku": "",
+            },
+          },
+          "telemetrySettings": Object {
+            "environmentId": "Development",
+            "eventHubAuthToken": "",
+            "eventHubEndPoint": "",
+            "instrumentationKey": "",
+            "operationId": "mockOperationId",
+            "operationalInsightsInstrumentationKey": "",
+            "optOutWebActivityTracking": false,
+          },
+          "textDirection": "ltr",
+          "themeOverride": Object {
+            "disableDefault": false,
+            "url": "",
+          },
+          "url": Object {
+            "requestUrl": "https://contoso.com/",
+            "staticCdnUrl": "string",
+          },
+          "urlTokens": Object {},
+          "user": Object {
+            "isAuthenticated": false,
+            "isB2b": true,
+            "optOutWebActivityTracking": false,
+            "token": "mockToken",
+          },
+        },
+        "runAllActionsInQueue": [Function],
+        "telemetry": Object {
+          "critical": [Function],
+          "debug": [Function],
+          "error": [Function],
+          "exception": [Function],
+          "information": [Function],
+          "log": [Function],
+          "logEvent": [Function],
+          "setTelemetryAttribute": [Function],
+          "setTelemetryModuleContext": [Function],
+          "setTelemetryRequestContext": [Function],
+          "trace": [Function],
+          "trackDependency": [Function],
+          "trackEvent": [Function],
+          "trackMetric": [Function],
+          "warning": [Function],
+        },
+        "trace": [Function],
+        "update": [Function],
+      },
+      "app": Object {},
+      "cultureFormatter": CultureInfoFormatter {
+        "currencyCode": "USD",
+        "dateFormatterConstructor": [Function],
+        "formatCurrency": [Function],
+        "formatDate": [Function],
+        "formatNumber": [Function],
+        "formatTime": [Function],
+        "locale": "en-us",
+        "numFormatterConstructor": [Function],
+        "queryString": undefined,
+      },
+      "request": Object {
+        "apiSettings": Object {
+          "baseImageUrl": "https://cms-ppe-imageresizer-mr.trafficmanager.net/cms/api/fabrikamsb/imageFileData/search?fileName=/",
+          "baseUrl": "mockBaseUrl",
+          "catalogId": 2,
+          "channelId": 1,
+          "eCommerceChannelId": "",
+          "oun": "mockOUN",
+          "ratingsReviewsEndpoint": "",
+          "retailServerProxyVersion": "9.0.0",
+          "rnr": Object {
+            "id": "",
+            "proxyUrl": "",
+            "url": "",
+          },
+        },
+        "app": Object {},
+        "canonicalDomain": "contoso.com",
+        "canonicalUrl": "https://contoso.com",
+        "cookies": Object {
+          "deleteConsentCookie": [Function],
+          "get": [Function],
+          "getAccountSelectionCookie": [Function],
+          "getCartCookie": [Function],
+          "getCheckoutCartCookie": [Function],
+          "getTargetIdCookie": [Function],
+          "isConsentGiven": [Function],
+          "remove": [Function],
+          "removeAccountSelectionCookie": [Function],
+          "removeCheckoutCartCookie": [Function],
+          "set": [Function],
+          "setAccountSelectionCookie": [Function],
+          "setCartCookie": [Function],
+          "setCheckoutCartCookie": [Function],
+          "setConsentCookie": [Function],
+        },
+        "device": Object {
+          "Type": "pc",
+        },
+        "features": Object {},
+        "gridSettings": Object {
+          "lg": Object {
+            "w": 1600,
+          },
+          "md": Object {
+            "w": 1200,
+          },
+          "sm": Object {
+            "w": 992,
+          },
+          "xl": Object {
+            "w": 1800,
+          },
+          "xs": Object {
+            "w": 768,
+          },
+        },
+        "headers": Object {},
+        "locale": "en-us",
+        "operationId": "mockOperationId",
+        "pageData": Object {},
+        "params": Object {
+          "concatJs": Object {
+            "hasValue": false,
+            "isTruthy": false,
+            "value": undefined,
+          },
+          "isDebug": false,
+          "isEditor": false,
+          "isPerfAnalysis": false,
+          "isPreview": false,
+          "theme": "",
+        },
+        "sessionStorage": Object {
+          "getCheckoutCartData": [Function],
+          "getDataFromStorage": [Function],
+          "removeCheckoutCartData": [Function],
+          "removeDataFromStorage": [Function],
+          "setCheckoutCartData": [Function],
+          "setDataInStorage": [Function],
+        },
+        "siteStylePreset": "",
+        "siteTheme": "default",
+        "telemetryData": Object {
+          "Checkout": Array [
+            Object {
+              "Products": Array [
+                Object {
+                  "productCategoryId": "9754",
+                  "productCategoryName": "Sunglasses",
+                  "productChannelId": 18629762,
+                  "productChannelName": "store",
+                  "productCurrency": "USD",
+                  "productId": "970374",
+                  "productName": "Aviator",
+                  "productPrice": 120,
+                  "productQuantity": 1,
+                  "productSku": "special",
+                },
+              ],
+              "cartId": "097504969642348742",
+              "cartVersion": "12432",
+              "orderId": "",
+            },
+          ],
+          "ProductPageView": Object {
+            "productCategoryId": "",
+            "productCategoryName": "",
+            "productChannelId": 18629762,
+            "productChannelName": "",
+            "productCurrency": "",
+            "productId": "08439484",
+            "productName": "Awesome Tie",
+            "productPrice": 98,
+            "productQuantity": "",
+            "productSku": "",
+          },
+        },
+        "telemetrySettings": Object {
+          "environmentId": "Development",
+          "eventHubAuthToken": "",
+          "eventHubEndPoint": "",
+          "instrumentationKey": "",
+          "operationId": "mockOperationId",
+          "operationalInsightsInstrumentationKey": "",
+          "optOutWebActivityTracking": false,
+        },
+        "textDirection": "ltr",
+        "themeOverride": Object {
+          "disableDefault": false,
+          "url": "",
+        },
+        "url": Object {
+          "requestUrl": "https://contoso.com/",
+          "staticCdnUrl": "string",
+        },
+        "urlTokens": Object {},
+        "user": Object {
+          "isAuthenticated": false,
+          "isB2b": true,
+          "optOutWebActivityTracking": false,
+          "token": "mockToken",
+        },
+      },
+      "telemetry": Object {
+        "critical": [Function],
+        "debug": [Function],
+        "error": [Function],
+        "exception": [Function],
+        "information": [Function],
+        "log": [Function],
+        "logEvent": [Function],
+        "setTelemetryAttribute": [Function],
+        "setTelemetryModuleContext": [Function],
+        "setTelemetryRequestContext": [Function],
+        "trace": [Function],
+        "trackDependency": [Function],
+        "trackEvent": [Function],
+        "trackMetric": [Function],
+        "warning": [Function],
+      },
+    }
+  }
+  data={Object {}}
+  dataActions={Object {}}
+  friendlyName="Mock Id"
+  id="mock-id"
+  multiplePickUpEnabled={true}
+  orderSummaryHeading={
+    <h2>
+      mockTextHeading
+    </h2>
+  }
+  orderSummaryLineitems={
+    Object {
+      "orderTotal": <span>
+        Foo
+      </span>,
+      "shipping": <span>
+        Foo
+      </span>,
+      "subtotal": <span>
+        Foo
+      </span>,
+      "tax": <span>
+        Foo
+      </span>,
+      "totalDiscounts": <span>
+        Foo
+      </span>,
+    }
+  }
+  promoCode={
+    <p>
+      mockTextP
+    </p>
+  }
+  renderModuleAttributes={[Function]}
+  renderView={[Function]}
+  resources={
+    Object {
+      "emailshippingText": "foo",
+      "emptyCartText": "foo",
+      "pickUpText": "foo",
+      "shippingText": "foo",
+    }
+  }
+  storeSelector="{storeSelector}"
+  telemetry={
+    Object {
+      "critical": [Function],
+      "debug": [Function],
+      "error": [Function],
+      "exception": [Function],
+      "information": [Function],
+      "log": [Function],
+      "logEvent": [Function],
+      "setTelemetryAttribute": [Function],
+      "setTelemetryModuleContext": [Function],
+      "setTelemetryRequestContext": [Function],
+      "trace": [Function],
+      "trackDependency": [Function],
+      "trackEvent": [Function],
+      "trackMetric": [Function],
+      "warning": [Function],
+    }
+  }
+  title={
+    <h2>
+      mockTextHeading
+    </h2>
+  }
+  typeName="mock-type"
+>
+  <div
+    className="className"
+    data-m-t="mock-type"
+    id="mock-id"
+  >
+    <h2>
+      mockTextHeading
+    </h2>
+    <div
+      className="msc-cartline-wraper"
+    >
+      <div
+        className="msc-cart__empty-cart"
+      >
+        <p
+          className="msc-cart-line"
+        >
+          foo
+        </p>
+        <button>
+          button
+        </button>
+      </div>
+    </div>
+    <ForwardRef
+      className="node-class-OrderSummaryWrapper"
+    >
+      <div
+        className="node-class-OrderSummaryWrapper"
+      >
+        <h2>
+          mockTextHeading
+        </h2>
+        <ForwardRef
+          className="node-class-Wrapper"
+        >
+          <div
+            className="node-class-Wrapper"
+          >
+            {header}
+            {}
+            {}
+          </div>
+        </ForwardRef>
+        <button>
+          button
+        </button>
+        <button>
+          button
+        </button>
+        <button>
+          button
+        </button>
+      </div>
+    </ForwardRef>
+    {storeSelector}
+  </div>
+</CartView>
+`;

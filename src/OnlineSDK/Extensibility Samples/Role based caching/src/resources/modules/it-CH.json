@@ -1,0 +1,263 @@
+{
+    "@msdyn365-commerce-theme.adventureworks.pickUpMethodLabel": {
+        "value": "Metodo di prelievo",
+        "_value.comment": "The label for pickup method dropdown"
+    },
+    "@msdyn365-commerce-theme.adventureworks.distanceString": {
+        "value": "({distance} {preferredDistanceUnit})",
+        "_value.comment": "The distance to the store from current location"
+    },
+    "@msdyn365-commerce-theme.adventureworks.closeDistanceString": {
+        "value": "(&lt;1 {preferredDistanceUnit})",
+        "_value.comment": "The distance to the store from current location"
+    },
+    "@msdyn365-commerce-theme.adventureworks.storeHoursDayPeriod": {
+        "value": "{startDay}-{endDay}",
+        "_value.comment": "To display the store hours day period"
+    },
+    "@msdyn365-commerce-theme.adventureworks.storeHoursDay": {
+        "value": "{startDay}",
+        "_value.comment": "To display the store hours day"
+    },
+    "@msdyn365-commerce-theme.adventureworks.headingForEmptyOrderTemplateList": {
+        "value": "Non è stato creato alcun modello di ordine.",
+        "_value.comment": "To show the heading if order template is empty"
+    },
+    "@msdyn365-commerce-theme.adventureworks.textForEmptyOrderTemplateList": {
+        "value": "I modelli di ordine vengono salvati nel conto. È possibile riutilizzarli in futuro per velocizzare il processo di pagamento.",
+        "_value.comment": "To show the text if order template is empty"
+    },
+    "@msdyn365-commerce-theme.adventureworks.headingForEmptyUserOrganizationList": {
+        "value": "Non è disponibile nessun utente organizzazione in questo momento.",
+        "_value.comment": "The heading to show if business organization list is empty"
+    },
+    "@msdyn365-commerce-theme.adventureworks.textForEmptyUserOrganizationList": {
+        "value": "Gli utenti organizzazione vengono visualizzati qui per riferimento una volta che vengono aggiunti.",
+        "_value.comment": "The text to show if business organization list is empty"
+    },
+    "@msdyn365-commerce-theme.adventureworks.filterText": {
+        "value": "Filtro",
+        "_value.comment": "Text display as refiner title"
+    },
+    "@msdyn365-commerce-theme.adventureworks.modalTitle": {
+        "value": "Filtra e ordina",
+        "_value.comment": "Text display as modal title."
+    },
+    "@msdyn365-commerce-theme.adventureworks.categorySuggestionHeading": {
+        "value": "In categorie",
+        "_value.comment": "Category suggestion type search results list heading title"
+    },
+    "@msdyn365-commerce-theme.adventureworks.clearSearchButtonText": {
+        "value": "Cancella",
+        "_value.comment": "Clear Search string Button text"
+    },
+    "@msdyn365-commerce-theme.adventureworks.emptyMobileSearchText": {
+        "value": "Iniziare a digitare per cercare il prodotto.",
+        "_value.comment": "Empty text when in mboile view port"
+    },
+    "@msdyn365-commerce-theme.adventureworks.emptyMobileSearchTextHeading": {
+        "value": "Cerca",
+        "_value.comment": "Empty text when in mboile view port"
+    },
+    "@msdyn365-commerce-theme.adventureworks.keywordsHeading": {
+        "value": "Parole chiave",
+        "_value.comment": "Keyword suggestion type search results list heading title"
+    },
+    "@msdyn365-commerce-theme.adventureworks.noResultContentHeadingText": {
+        "value": "Prova una parola chiave diversa",
+        "_value.comment": "No Result Content Heading text"
+    },
+    "@msdyn365-commerce-theme.adventureworks.noResultContentParagraphText": {
+        "value": "Nessun prodotto trovato per la parola chiave immessa.",
+        "_value.comment": "No Result Content Paragraph text"
+    },
+    "@msdyn365-commerce-theme.adventureworks.noResultText": {
+        "value": "Nessun risultato",
+        "_value.comment": "No Result text"
+    },
+    "@msdyn365-commerce-theme.adventureworks.productSuggestionHeading": {
+        "value": "Prodotti",
+        "_value.comment": "Product suggestion type search results list heading title"
+    },
+    "@msdyn365-commerce-theme.adventureworks.searchSuggestionHeading": {
+        "value": "Cerca {0}",
+        "_value.comment": "search suggestion in search results list heading title"
+    },
+    "@msdyn365-commerce-theme.adventureworks.totalPriceFormatString": {
+        "value": "Subtotale: ",
+        "_value.comment": "String associated with total price to display. Price = formatted price"
+    },
+    "@msdyn365-commerce-theme.adventureworks.cartQtyLabel": {
+        "_value.comment": "string to be shown for cart item quantity",
+        "value": "{0}"
+    },
+    "@msdyn365-commerce-theme.adventureworks.emptyPrice": {
+        "_value.comment": "Empty cart price",
+        "value": "0.00"
+    },
+    "@msdyn365-commerce-theme.adventureworks.checkoutButtonTitle": {
+        "value": "Paga ora",
+        "_value.comment": "Label for checkout button"
+    },
+    "@msdyn365-commerce-theme.adventureworks.yetToBeCalculatedText": {
+        "value": "Da definire",
+        "_value.comment": "String associated with to be calculated display text"
+    },
+    "@msdyn365-commerce-theme.adventureworks.estimatedShippingLabel": {
+        "value": "Spedizione",
+        "_value.comment": "Label of shipping"
+    },
+    "@msdyn365-commerce-theme.adventureworks.pickUpText": {
+        "value": "Prelievo",
+        "_value.comment": "Text for pick up group heading"
+    },
+    "@msdyn365-commerce-theme.adventureworks.promoCodeHeadingText": {
+        "value": "Pagamento",
+        "_value.comment": "Heading text for promo code"
+    },
+    "@msdyn365-commerce-theme.adventureworks.selectRatingLabel": {
+        "value": "Valutazione del prodotto complessiva",
+        "_value.comment": "Label for selecting the rating while writing a review"
+    },
+    "@msdyn365-commerce-theme.adventureworks.reviewTitleLabel": {
+        "value": "Titolo recensione",
+        "_value.comment": "Label for the title of the review"
+    },
+    "@msdyn365-commerce-theme.adventureworks.reviewTextLabel": {
+        "value": "Recensione dell'utente",
+        "_value.comment": "Label for the review text"
+    },
+    "@msdyn365-commerce-theme.adventureworks.wasReviewHelpfulText": {
+        "value": "La recensione è stata utile?",
+        "_value.comment": "The text for the question to ask user if the review was helpful."
+    },
+    "@msdyn365-commerce-theme.adventureworks.numberOfReviewsString": {
+        "value": "{0} recensioni",
+        "_value.comment": "Number of reviews string"
+    },
+    "@msdyn365-commerce-theme.adventureworks.goToCartButtonTitle": {
+        "value": "Visualizza carrello",
+        "_value.comment": "Label for go to cart button"
+    },
+    "@msdyn365-commerce-theme.adventureworks.allCategoryMenuText": {
+        "value": "Acquista tutto",
+        "_value.comment": "Menu text for all categories"
+    },
+    "@msdyn365-commerce-theme.adventureworks.joinLoyaltyButtonText": {
+        "value": "Registrati per AW Rewards",
+        "_value.comment": "Join loyalty program button text"
+    },
+    "@msdyn365-commerce-theme.adventureworks.numberOfProducts": {
+        "value": "({0})",
+        "_value.comment": "String to define the number of products returned found for a search term"
+    },
+    "@msdyn365-commerce-theme.adventureworks.oneProduct": {
+        "value": "(1)",
+        "_value.comment": "String to define the only one product being returned for search"
+    },
+    "@msdyn365-commerce-theme.adventureworks.seeMoreButtonText": {
+        "value": "ULTERIORI INFORMAZIONI",
+        "_value.comment": "See more button text"
+    },
+    "@msdyn365-commerce-theme.adventureworks.hamburgerAriaLabel": {
+        "value": "Espandi menu di spostamento per visualizzare l'elenco degli articoli",
+        "_value.comment": "The aria label used for view hamburger"
+    },
+    "@msdyn365-commerce-theme.adventureworks.mobileHamburgerAriaLabel": {
+        "value": "Espandi menu di spostamento per visualizzare l'elenco degli articoli",
+        "_value.comment": "The aria label used for mobile view hamburger"
+    },
+    "@msdyn365-commerce-theme.adventureworks.signUpButtonArialabel": {
+        "value": "Iscrizione",
+        "_value.comment": "Sign-up button aria label"
+    },
+    "@msdyn365-commerce-theme.adventureworks.addressStreetLabel": {
+        "value": "Nome della via *",
+        "_value.comment": "Label for the Street field"
+    },
+    "@msdyn365-commerce-theme.adventureworks.addressStreetLabelOptional": {
+        "value": "Nome della via",
+        "_value.comment": "Label for the Street field"
+    },
+    "@msdyn365-commerce-theme.adventureworks.addressStreetRequiredErrorMessage": {
+        "value": "Il nome della via è obbligatorio",
+        "_value.comment": "Error message to display when street is not provided"
+    },
+    "@msdyn365-commerce-theme.adventureworks.jobTitleLabel": {
+        "value": "Posizione",
+        "_value.comment": "Text display as label for job title textbox."
+    },
+    "@msdyn365-commerce-theme.adventureworks.addToWishlistButtonText": {
+        "value": "Aggiungi a lista dei desideri",
+        "_value.comment": "Label for add to wishlist button"
+    },
+    "@msdyn365-commerce-theme.adventureworks.invoicePaymentInvoiceTotal": {
+        "value": "Fattura totale",
+        "_value.comment": "Text for invoice total amount payment line"
+    },
+    "@msdyn365-commerce-theme.adventureworks.createOrderTemplateFromCartButton": {
+        "value": "Aggiungi articoli al modello di ordine",
+        "_value.comment": "Label for creating creating template from cart button"
+    },
+    "@msdyn365-commerce-theme.adventureworks.continueShoppingButtonTitle": {
+        "value": "Continua gli acquisti",
+        "_value.comment": "Back to shopping label on b2b requests page"
+    },
+    "@msdyn365-commerce-theme.adventureworks.headingForEmptyRequestStatus": {
+        "value": "Non è disponibile nessuna richiesta in questo momento.",
+        "_value.comment": "The heading to show if b2b requests is empty"
+    },
+    "@msdyn365-commerce-theme.adventureworks.textForEmptyRequestStatus": {
+        "value": "Le richieste vengono visualizzate qui per riferimento una volta che sono state inviate.",
+        "_value.comment": "The text to show if b2b requests is empty"
+    },
+    "@msdyn365-commerce-theme.adventureworks.ariaLabelForSelectedSwatchValue": {
+        "value": "{dimensionValue} selezionato",
+        "_value.comment": "Aria label for the selected value in dimension swatch"
+    },
+    "@msdyn365-commerce-theme.adventureworks.availabilityAtPreferredStoreText": {
+        "value": "Disponibilità in {0}:",
+        "_value.comment": "Availability at preferred store"
+    },
+    "@msdyn365-commerce-theme.adventureworks.inStockText": {
+        "value": "In magazzino",
+        "_value.comment": "Text for when item is in stock"
+    },
+    "@msdyn365-commerce-theme.adventureworks.shopSimilarLooksText": {
+        "value": "Immagine simile",
+        "_value.comment": "Text to show on Shop similar looks button"
+    },
+    "@msdyn365-commerce-theme.adventureworks.shopSimilarDescriptionText": {
+        "value": "Descrizione simile",
+        "_value.comment": "Text to show on Shop similar description button"
+    },
+    "@msdyn365-commerce-theme.adventureworks.salesLineQuantityText": {
+        "value": "Quantità",
+        "_value.comment": "Sales line quantity label"
+    },
+    "@msdyn365-commerce-theme.adventureworks.orderSummaryHeading": {
+        "value": "Totale ordine",
+        "_value.comment": "Order summary heading"
+    },
+    "@msdyn365-commerce-theme.adventureworks.priceText": {
+        "value": "Prezzo",
+        "_value.comment": "Price text"
+    },
+    "@msdyn365-commerce-theme.adventureworks.shopText": {
+        "value": "Altri modi di fare acquisti",
+        "_value.comment": "More ways to shop description text"
+    },
+    "@msdyn365-commerce-theme.adventureworks.descriptionText": {
+        "value": "Descrizione",
+        "_value.comment": "Description text"
+    },
+    "@msdyn365-commerce-theme.adventureworks.findText": {
+        "value": "Metodi di prelievo e consegna",
+        "_value.comment": "Pickup and Delivery Methods text"
+    },
+    "@msdyn365-commerce-theme.adventureworks.skuText": {
+        "value": "SKU:",
+        "_value.comment": "SKU text"
+    }
+
+}

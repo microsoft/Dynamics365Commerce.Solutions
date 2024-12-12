@@ -1,0 +1,22 @@
+$rtl-feature-content-textplacement-left-margin: auto 20px auto 40px;
+$rtl-feature-content-textplacement-right-margin: auto 40px auto 20px;
+
+[dir="rtl"] {
+    .ms-content-block {
+        &[data-m-layout="left-right"] {
+            @media screen and (min-width: $msv-breakpoint-m) {
+                &.textplacement__left {
+                    .ms-content-block__details {
+                        margin: $rtl-feature-content-textplacement-left-margin;
+                    }
+                }
+
+                &.textplacement__right {
+                    .ms-content-block__details {
+                        margin: $rtl-feature-content-textplacement-right-margin;
+                    }
+                }
+            }
+        }
+    }
+}

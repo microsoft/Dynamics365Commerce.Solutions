@@ -1,0 +1,48 @@
+[dir="rtl"] {
+    .ms-order-history {
+        &__ms-order-history-filter {
+            margin-left: unset;
+            margin-right: auto;
+
+            @media screen and (min-width: $msv-breakpoint-m) {
+                margin-left: 5px;
+            }
+        }
+
+        &__ms-order-history-view-modes {
+            @media screen and (min-width: $msv-breakpoint-m) {
+                border-right: 1px solid var(--msv-order-history-border);
+                border-left: unset;
+                margin-left: unset;
+                margin-right: 12px;
+                padding-left: unset;
+                padding-right: 12px;
+            }
+        }
+
+        &__table-list {
+            &__header {
+                text-align: right;
+
+                &__row__column-with-number {
+                    text-align: left;
+                }
+            }
+
+            &__row {
+                &__column-with-number {
+                    text-align: left;
+                }
+
+                &__extra-actions-cell__actions-container button {
+                    text-align: right;
+
+                    &::before {
+                        margin-right: unset;
+                        margin-left: 12px;
+                    }
+                }
+            }
+        }
+    }
+}

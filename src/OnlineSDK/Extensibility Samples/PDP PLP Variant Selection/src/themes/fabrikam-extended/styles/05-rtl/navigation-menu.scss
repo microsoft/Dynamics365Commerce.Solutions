@@ -1,0 +1,45 @@
+$rtl-nav-button-margin-right: 8px;
+$rtl-nav-parent-menu-margin-left: 24px;
+
+[dir="rtl"] {
+    .ms-nav {
+        @media screen and (min-width: $msv-breakpoint-l) {
+            &__list {
+                &__item__button {
+                    &::after {
+                        margin-left: unset;
+                        margin-right: $rtl-nav-button-margin-right;
+                    }
+                }
+            }
+
+            .ms-nav__list {
+                .ms-nav__list__item:first-child {
+                    margin-right: 0;
+                    margin-left: $rtl-nav-parent-menu-margin-left;
+                }
+
+                .havecateImage {
+                    float: right;
+                }
+            }
+        }
+    }
+
+    @media screen and (min-width: $msv-breakpoint-xl) {
+        .ms-nav {
+            >.ms-nav__list {
+                >.ms-nav__list__item {
+                    >.ms-nav__feature {
+                        >.category-image-container {
+                            >.category-image {
+                                clear: left;
+                                float: left;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

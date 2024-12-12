@@ -1,0 +1,76 @@
+:root {
+    --msv-tab-heading-font-size: var(--msv-body-font-size-xl);
+    --msv-tab-heading-font-color: var(--msv-font-primary-color);
+    --msv-tab-font-size: var(--msv-body-font-size-s);
+    --msv-tab-font-color: var(--msv-font-primary-color);
+}
+
+.ms-tab {
+    &-header-section {
+        margin: 5px 5px 20px 5px;
+
+        &__heading {
+            @include font-content(var(--msv-font-weight-heavy), var(--msv-tab-heading-font-size), $msv-line-height-xl);
+            color: var(--msv-tab-heading-font-color);
+        }
+    }
+
+    @media (min-width: $msv-breakpoint-m) {
+        &-header-section {
+            display: flex;
+            margin: 5px 5px 20px 5px;
+        }
+    }
+
+    &-tabs-section {
+        display: flex;
+
+        &-li {
+            cursor: pointer;
+            padding: 10px;
+            margin-right: 10px;
+            position: relative;
+
+            :hover {
+                text-decoration: none;
+            }
+
+            .ms-tab-item-header {
+                @include font-content(var(--msv-font-weight-normal), var(--msv-tab-font-size), $msv-line-height-s);
+                color: var(--msv-tab-font-color);
+            }
+
+            &[aria-selected="true"] {
+                ::before {
+                    background-color: $msv-blue;
+                }
+            }
+
+            /* stylelint-disable-next-line no-descending-specificity -- Auto-suppressed. Please fix if possible. */
+            ::before {
+                background-color: transparent;
+                bottom: 0;
+                content: "";
+                height: 2px;
+                left: 8px;
+                position: absolute;
+                right: 8px;
+                transition: background-color 0.267s cubic-bezier(0.1, 0.25, 0.75, 0.9);
+            }
+        }
+
+        li:last-of-type {
+            margin-right: 0;
+        }
+    }
+
+    &-content-section {
+        margin-top: 20px;
+    }
+
+    &-item-content__content {
+        &[aria-hidden="true"] {
+            display: none;
+        }
+    }
+}

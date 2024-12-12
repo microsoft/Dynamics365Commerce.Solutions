@@ -1,0 +1,11 @@
+$msv-alert-icon-margin: 8px;
+
+[dir="rtl"] {
+    .msc-alert,
+    .msc-alert__header {
+        .msi-exclamation-triangle {
+            margin-right: unset;
+            margin-left: $msv-alert-icon-margin;
+        }
+    }
+}

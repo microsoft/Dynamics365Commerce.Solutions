@@ -1,0 +1,32 @@
+{
+  "id": "PopUpModule",
+  "config": {
+    "heading": "Subscribe"
+  },
+  "typeName": "pop-up",
+  "modules": {
+    "content": [
+      {
+        "typeName": "text-block",
+        "id": "text-block",
+        "friendlyName": "Text block",
+        "config": {
+          "paragraph": "<p><u><a aria-label=\"My account\" href=\"/myaccount\">My account</a></u> /<a href=\"/orderhistory\">&nbsp;<u>Order history</u></a>/&nbsp;Order details</p>\n\n<p>&nbsp;</p>\n",
+          "className": "breadcrumb"
+        }
+      },
+      {
+        "typeName": "subscribe",
+        "id": "IDNLAkOv_jrna7iv-subscribe",
+        "friendlyName": "Subscribe 1",
+        "config": {
+            "heading": {
+                "text": "Sign up for AW newsletter",
+                "tag": "h2"
+            },
+            "paragraph": "<p>Latest trends, styles &amp; promotions. Are you on the list? Subscribe and get the latest hot deals!</p>\n"
+        }
+    }
+    ]
+  }
+}

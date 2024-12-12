@@ -1,0 +1,157 @@
+$msv-checkout-payment-instrument-min-height: 80px;
+$msv-checkout-payment-instrument-card-title-margin-bottom: 8px;
+$msv-checkout-payment-instrument-address-title-margin-bottom: 8px;
+$msv-checkout-payment-instrument-address-title-margin-top: 20px;
+$msv-checkout-payment-instrument-loading-dimension: 100%;
+$msv-checkout-payment-instrument-border: 0;
+$msv-checkout-payment-container-padding: 0;
+$msv-checkout-payment-container-margin-zero: 0;
+$msv-checkout-payment-ready-margin-bottom: 20px;
+$msv-checkout-payment-ready-flex-basis: 100%;
+$msv-checkout-payment-ready-margin-left: 10px;
+$msv-checkout-payment-card-title-margin-bottom: 10px;
+$msv-checkout-payment-instrument-mutation-observer-margin-top: 20px;
+$msv-checkout-payment-instrument-heading-margin-bottom: 8px;
+$msv-checkout-payment-instrument-paypal-max-width: 300px;
+
+//style presets
+:root {
+    --msv-checkout-payment-instrument-bg: #{$msv-gray-100};
+    --msv-checkout-payment-instrument-font-size: var(--msv-body-font-size-m);
+
+    // heading
+    --msv-checkout-payment-instrument-heading-font-size: var(--msv-body-font-size-s);
+}
+
+.checkout-payment-instrument {
+    position: relative;
+    min-height: $msv-checkout-payment-instrument-min-height;
+
+    &__loading-background {
+        display: flex;
+        height: $msv-checkout-payment-instrument-loading-dimension;
+        position: absolute;
+        width: $msv-checkout-payment-instrument-loading-dimension;
+        background-color: var(--msv-checkout-payment-instrument-bg);
+
+        .waiting {
+            display: block;
+            margin: auto;
+        }
+    }
+
+    &__iframe {
+        border: $msv-checkout-payment-instrument-border;
+        width: $msv-checkout-payment-instrument-loading-dimension;
+    }
+
+    &__show {
+        &-card-title {
+            font-weight: var(--msv-font-weight-bold);
+            line-height: $msv-line-height-s;
+            margin-bottom: $msv-checkout-payment-instrument-card-title-margin-bottom;
+        }
+
+        &-billing-address-title {
+            margin-bottom: $msv-checkout-payment-instrument-card-title-margin-bottom;
+            margin-top: $msv-checkout-payment-instrument-address-title-margin-top;
+        }
+
+        &-card-name,
+        &-card-number,
+        &-card-expiration,
+        &-billing-address-1,
+        &-billing-address-2,
+        &-billing-address-3 {
+            margin-bottom: $msv-checkout-payment-container-margin-zero;
+        }
+    }
+}
+
+.ms-checkout-payment-instrument {
+    &__overlay-modal {
+        display: none;
+    }
+}
+
+.ms-checkout-payment-instrument-paypal {
+    .ms-checkout-payment-instrument__add {
+        max-width: $msv-checkout-payment-instrument-paypal-max-width;
+    }
+}
+
+.ms-checkout-section-container {
+    padding-left: $msv-checkout-payment-container-padding;
+    padding-right: $msv-checkout-payment-container-padding;
+}
+
+.ms-checkout__guided-card.ready {
+    .ms-checkout-payment-instrument {
+        margin-bottom: $msv-checkout-payment-ready-margin-bottom;
+
+        &__show {
+            display: flex;
+            flex-flow: row wrap;
+        }
+
+        &__card-title {
+            @include font-content(
+                $font-weight: var(--msv-font-weight-bold),
+                $font-size: var(--msv-checkout-payment-instrument-heading-font-size),
+                $line-height: $msv-line-height-s
+            );
+            flex-basis: $msv-checkout-payment-ready-flex-basis;
+            margin-bottom: $msv-checkout-payment-instrument-heading-margin-bottom;
+        }
+
+        &__billing-address-title {
+            @include font-content(
+                $font-weight: var(--msv-font-weight-bold),
+                $font-size: var(--msv-checkout-payment-instrument-heading-font-size),
+                $line-height: $msv-line-height-s
+            );
+            flex-basis: $msv-checkout-payment-ready-flex-basis;
+            margin-bottom: $msv-checkout-payment-instrument-address-title-margin-bottom;
+            margin-top: $msv-checkout-payment-instrument-address-title-margin-top;
+        }
+
+        &__card-number,
+        &__card-expiration,
+        &__card-type-id {
+            margin-left: $msv-checkout-payment-ready-margin-left;
+        }
+
+        &__card-name,
+        &__card-number,
+        &__card-expiration,
+        &__card-type-id {
+            font-weight: var(--msv-font-weight-normal);
+            font-size: $msv-text-size;
+            line-height: $msv-line-height-m;
+        }
+
+        &__card-type-id {
+            text-transform: lowercase;
+
+            &::first-letter {
+                text-transform: uppercase;
+            }
+        }
+
+        &__billing-address-1,
+        &__billing-address-2,
+        &__billing-address-3 {
+            @include font-content(
+                $font-weight: var(--msv-font-weight-light),
+                $font-size: var(--msv-checkout-payment-instrument-font-size),
+                $line-height: $msv-line-height-m
+            );
+        }
+    }
+}
+
+.ms-checkout__guided-card.updating {
+    .ms-checkout-payment-instrument__mutation-observer {
+        margin-top: $msv-checkout-payment-instrument-mutation-observer-margin-top;
+    }
+}
