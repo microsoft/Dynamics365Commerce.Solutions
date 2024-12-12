@@ -1,0 +1,176 @@
+@import "../common/00-settings/colors.scss";
+@import "../common/00-settings/font.scss";
+@import "../common/00-settings/responsive-breakpoints.scss";
+@import "../common/01-tools/mixins.scss";
+@import "../common/00-settings/icons.scss";
+@import "../common/02-generic/button.scss";
+@import "../common/02-generic/form.scss";
+
+$msv-gift-card-balance-check-max-flex-basis: 100%;
+$msv-gift-card-balance-check-padding: 32px;
+$msv-gift-card-balance-check-input-label-margin-bottom: 8px;
+$msv-gift-card-balance-check-button-margin-left: 0;
+$msv-gift-card-balance-check-button-margin-top: 20px;
+$msv-gift-card-balance-check-input-pin-exp-text-margin-top: 4px;
+$msv-gift-card-balance-check-input-pin-exp-text-min-width: 120px;
+$msv-gift-card-balance-check-input-pin-exp-text-width: 100%;
+$msv-gift-card-balance-check-item-margin-top: 25px;
+$msv-gift-card-balance-check-item-text-width: 60%;
+$msv-gift-card-balance-check-input-fields-padding-right: 20px;
+$msv-gift-card-balance-check-input-num-fields-width: 50%;
+$msv-gift-card-balance-input-pin-exp-fields-margin-top: 20px;
+$msv-gift-card-balance-input-fields-min-width: 130px;
+$msv-gift-card-balance-input-fields-width: 25%;
+
+//style presets
+:root {
+    --msv-gift-card-balance-check-font-size: #{$msv-font-size-s};
+    --msv-gift-card-balance-check-font-color: var(--msv-font-primary-color);
+
+    // error color
+    --msv-gift-card-balance-error-color: #{$msv-red};
+    --msv-gift-card-balance-error-bg: transparent;
+    --msv-gift-card-balance-error-border: transparent;
+}
+
+.ms-gift-card-balance-check {
+    padding-bottom: $msv-gift-card-balance-check-padding;
+    padding-top: $msv-gift-card-balance-check-padding;
+
+    &__form {
+        flex-flow: row wrap;
+        display: flex;
+    }
+
+    &__input-label, &__input-pin-label, &__input-exp-label {
+        @include form-input-label();
+        color: var(--msv-gift-card-balance-check-font-color);
+        display: block;
+        margin-bottom: $msv-gift-card-balance-check-input-label-margin-bottom;
+        flex-basis: $msv-gift-card-balance-check-max-flex-basis;
+    }
+
+    &__input-text {
+        font-size: var(--msv-gift-card-balance-check-font-size);
+        width: 100%;
+
+        @include form-input-box();
+        padding: 6px 8px;
+    }
+
+    &__input-fields {
+        width: 100%;
+        display: inline-block;
+        flex-grow: 1;
+    }
+
+    &__input-pin-num-text {
+        @include font-body-regular-m();
+        width: 100%;
+    }
+
+    &__input-pin-text,
+    &__input-exp-text {
+        font-size: var(--msv-gift-card-balance-check-font-size);
+        display: block;
+        margin-top: $msv-gift-card-balance-check-input-pin-exp-text-margin-top;
+        min-width: $msv-gift-card-balance-check-input-pin-exp-text-min-width;
+        width: $msv-gift-card-balance-check-input-pin-exp-text-width;
+
+        @include form-input-box();
+
+        &::placeholder {
+            color: $msv-gray-300;
+        }
+    }
+
+    &__input-alert-label {
+        @include form-input-alert-message();
+        display: block;
+    }
+
+    &__input-pin-fields, &__input-exp-fields {
+        display: inline-block;
+        margin-top: $msv-gift-card-balance-input-pin-exp-fields-margin-top;
+        min-width: $msv-gift-card-balance-input-fields-min-width;
+        width: $msv-gift-card-balance-input-fields-width;
+    }
+
+    &__input-pin-fields {
+        padding-right: $msv-gift-card-balance-check-input-fields-padding-right;
+    }
+
+    &__btn-apply {
+        @include primary-button-light();
+        margin-top: $msv-gift-card-balance-check-button-margin-top;
+        width: 100%;
+        order: 3;
+    }
+
+    &__input-error {
+        width: 100%;
+        display: flex;
+        order: 2;
+
+        @include font-body-regular-s();
+
+        color: var(--msv-gift-card-balance-error-color);
+        border: 1px solid var(--msv-gift-card-balance-error-bg);
+        background-color: var(--msv-gift-card-balance-error-border);
+
+        @include add-icon($msv-times-circle, $icon-weight: $msv-outline-icon-weight);
+        margin-top: 13px;
+
+        &::before {
+            margin-right: 10px;
+            font-size: $msv-font-size-ml;
+        }
+    }
+
+    &__item {
+        margin-top: $msv-gift-card-balance-check-item-margin-top;
+    }
+
+    &__item-text {
+        font-weight: var(--msv-font-weight-normal);
+        font-size: $msv-text-size;
+        line-height: $msv-line-height-m;
+        width: $msv-gift-card-balance-check-item-text-width;
+    }
+
+    @media screen and (min-width: $msv-breakpoint-l) {
+        &__input-text {
+            flex-grow: 1;
+        }
+
+        &__input-fields {
+            width: 100%;
+
+            .ms-checkout-gift-card {
+                &__input-num-label {
+                    display: flex;
+                }
+
+                &__input-text {
+                    width: 100%;
+                }
+            }
+        }
+
+        &__input-num-fields {
+            display: inline-block;
+            width: $msv-gift-card-balance-check-input-num-fields-width;
+            padding-right: 20px;
+
+            .ms-checkout-gift-card__input-label {
+                display: block;
+            }
+        }
+
+        &__btn-apply {
+            margin-left: $msv-gift-card-balance-check-button-margin-left;
+            margin-top: $msv-gift-card-balance-check-button-margin-top;
+            width: auto;
+        }
+    }
+}

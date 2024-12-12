@@ -1,0 +1,519 @@
+// style-presets
+:root {
+    // primary button
+    --msc-pay-invoice-error-primary-btn-bg: var(--msv-accent-brand-color);
+    --msc-pay-invoice-error-primary-btn-font-color: var(--msv-font-secondary-color);
+    --msc-pay-invoice-error-primary-btn-border: var(--msv-accent-brand-color);
+
+    // secondary button
+    --msc-pay-invoice-error-secondary-btn-bg: var(--msv-secondary-button-background-color);
+    --msc-pay-invoice-error-secondary-btn-font-color: var(--msv-font-primary-color);
+    --msc-pay-invoice-error-secondary-btn-border: var(--msv-accent-brand-color);
+}
+
+.msc-invoices-list {
+    @include font-content(var(--msv-font-weight-normal), var(--msv-body-font-size-m), $msv-line-height-m);
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+
+        &-heading {
+            @include font-content(var(--msv-font-weight-normal), var(--msv-body-font-size-xl), $msv-line-height-xl);
+            color: var(--msv-font-primary-color);
+            height: 40px;
+            margin: 20px 0;
+        }
+
+        &-description {
+            margin: 20px 0;
+
+            &-title {
+                font-size: 18px;
+                font-weight: 400;
+                line-height: 23.54px;
+                text-align: right;
+            }
+
+            &-amount {
+                font-size: 36px;
+                font-weight: 400;
+                line-height: 47.09px;
+                text-align: right;
+            }
+
+            &-count {
+                font-size: 16px;
+                font-weight: 300;
+                line-height: 20.93px;
+                text-align: right;
+            }
+        }
+    }
+
+    &__container {
+        &__header {
+            &__make-payment {
+                @include primary-button();
+
+                @media only screen and (max-width: $msv-breakpoint-l) {
+                    width: 100%;
+                }
+            }
+        }
+
+        &__content {
+            margin-top: 20px;
+
+            &__table {
+                width: 100%;
+                border-collapse: collapse;
+
+                .checkbox-container {
+                    align-items: center;
+                    justify-content: center;
+                    display: flex;
+                    position: relative;
+                    min-width: 50px;
+                    cursor: pointer;
+                    font-size: 22px;
+                    -webkit-user-select: none;
+                    -moz-user-select: none;
+                    -ms-user-select: none;
+                    user-select: none;
+                    height: 19px;
+
+                    .checkbox-input {
+                        position: absolute;
+                        opacity: 0;
+                        cursor: pointer;
+                        height: 17px;
+                        width: 17px;
+                    }
+
+                    .checkmark {
+                        position: absolute;
+                        top: 0;
+                        height: 19px;
+                        width: 19px;
+                        background-color: transparent;
+                        border: 1px solid var(--msv-accent-brand-color);
+                        border-radius: 1rem;
+                    }
+
+                    .checkmark::after {
+                        content: "";
+                        position: absolute;
+                        display: none;
+                        left: 6px;
+                        top: 2.25px;
+                        width: 5px;
+                        height: 10px;
+                        border: solid $msv-yellow;
+                        background-color: $msv-green;
+                        border-width: 0 1.75px 1.75px 0;
+                        -webkit-transform: rotate(45deg);
+                        -ms-transform: rotate(45deg);
+                        transform: rotate(45deg);
+                    }
+
+                    input:checked ~ .checkmark {
+                        background-color: var(--msv-accent-brand-color);
+                    }
+
+                    input:checked ~ .checkmark::after {
+                        display: block;
+                    }
+
+                    input.checkbox-input:focus ~ .checkmark {
+                        outline: 1px dashed;
+                    }
+                }
+
+                &__header {
+                    text-align: left;
+
+                    @include divider(bottom);
+
+                    &__row {
+                        height: 50px;
+
+                        th {
+                            font-style: normal;
+                            font-weight: normal;
+                            font-size: 16px;
+                            line-height: 21px;
+                        }
+                    }
+                }
+
+                &__row {
+                    height: 81px;
+
+                    @include divider(bottom);
+
+                    &__open-invoice {
+                        text-decoration: underline;
+                        cursor: pointer;
+                    }
+
+                    &__pay-invoice {
+                        @include secondary-button();
+                        font-size: unset;
+                    }
+
+                    &__extra-actions-cell {
+                        &__toggle {
+                            @include add-icon($msv-Ellipses-V);
+                            background: none;
+                            height: 82px;
+                        }
+
+                        &__actions-container {
+                            align-items: flex-start;
+                            background: $msv-white;
+                            border-radius: 2px;
+                            box-shadow: 0 3.2px 7.2px rgba(0, 0, 0, 0.132), 0 0.6px 1.8px rgba(0, 0, 0, 0.108);
+                            flex-direction: column;
+                            height: auto;
+                            padding-left: 0;
+                            position: absolute;
+                            left: 0;
+                            width: 100%;
+                            z-index: 10;
+
+                            &__view-details {
+                                @include add-icon($msv-List);
+                            }
+
+                            &__pay-invoice {
+                                @include add-icon($msv-Arrow-Right-In-Circle, before, $msv-outline-icon-weight);
+                            }
+
+                            &__requestInvoiceButton {
+                                @include add-icon($msv-envelope);
+                                margin-left: 0;
+                                margin-right: 0;
+                                font-size: unset;
+                            }
+
+                            button {
+                                background: none;
+                                height: 60px;
+                                padding: 0 8px;
+                                text-align: left;
+                                width: 100%;
+
+                                &::before {
+                                    margin-right: 12px;
+                                    width: 16px;
+                                    color: var(--msv-accent-brand-color);
+                                }
+                            }
+                        }
+                    }
+
+                    &__requestInvoiceButton {
+                        margin-left: 20px;
+                        margin-right: 20px;
+
+                        @include secondary-button();
+                        font-size: unset;
+                    }
+
+                    td:last-child {
+                        display: inline-flex;
+                        height: 0;
+                    }
+                }
+            }
+        }
+    }
+
+    &__filter {
+        padding-bottom: 20px;
+
+        @media screen and (min-width: $msv-breakpoint-m) {
+            position: absolute;
+            right: 0;
+        }
+
+        @media screen and (min-width: $msv-breakpoint-m) and (max-width: $msv-breakpoint-l) {
+            position: relative;
+        }
+
+        &__expand-filter-button {
+            background-color: unset;
+            min-width: 140px;
+
+            &::after {
+                @include msv-icon();
+                content: $msv-ChevronDown;
+                font-size: var(--msv-header-font-size);
+                text-align: center;
+                vertical-align: text-bottom;
+                line-height: 1.2;
+                margin: 0 8px;
+            }
+        }
+
+        &__expand-filter-button[aria-expanded="true"] {
+            &::after {
+                content: $msv-ChevronUp;
+            }
+        }
+
+        .msc-popover {
+            background-color: var(--msv-header-bg);
+            background-clip: padding-box;
+            border: 1px solid $msv-gray-500;
+            display: block;
+            left: 0;
+            max-width: $account-links-max-width;
+            position: absolute;
+            top: 0;
+            word-wrap: break-word;
+            z-index: 1060;
+
+            button {
+                align-items: center;
+                background-color: transparent;
+                border: 1px solid transparent;
+                display: flex;
+                font-size: 16px;
+                line-height: 20px;
+                padding: 0 20px;
+                height: 48px;
+                width: 100%;
+                cursor: pointer;
+
+                &:hover {
+                    text-decoration: none;
+                }
+            }
+
+            .msc-btn {
+                color: var(--msv-header-font-color);
+                font-weight: var(--msv-font-weight-normal);
+                height: $popover-menu-item-height;
+            }
+
+            .msc-arrow {
+                display: block;
+                height: 0.5rem;
+                margin: 0 0.3rem;
+                position: absolute;
+                top: calc((0.5rem + 1px) * -1);
+                width: 1rem;
+
+                &::before,
+                &::after {
+                    border-color: transparent;
+                    border-style: solid;
+                    border-width: 0 0.5rem 0.5rem 0.5rem;
+                    content: "";
+                    display: block;
+                    position: absolute;
+                }
+
+                &::before {
+                    border-bottom-color: $msv-gray-500;
+                    top: 0;
+                }
+
+                &::after {
+                    border-bottom-color: var(--msv-border-color);
+                    top: 1px;
+                }
+            }
+        }
+    }
+
+    &__empty-lines__container {
+        text-align: center;
+        padding-top: 80px;
+
+        &__title {
+            font-size: 24px;
+            line-height: 31px;
+        }
+
+        &__description {
+            font-size: 16px;
+            line-height: 21px;
+            margin-top: 20px;
+        }
+
+        &__actions__continue-shopping {
+            @include primary-button();
+            margin: 40px auto;
+            display: block;
+            width: fit-content;
+
+            @media only screen and (max-width: $msv-breakpoint-l) {
+                width: 100%;
+            }
+        }
+    }
+
+    &__load-more {
+        @include primary-button();
+
+        margin-top: 20px;
+
+        &.is-busy {
+            @include add-spinner(before);
+        }
+    }
+
+    &__requestInvoice {
+        &__submitRequest {
+            @include primary-button();
+            padding: 10px;
+            width: 150px;
+            font-size: $msv-font-size-l;
+            line-height: $msv-line-height-l;
+        }
+
+        &__cancelRequest {
+            @include secondary-button();
+            padding: 10px;
+            width: 150px;
+            margin-left: 20px;
+            margin-right: 20px;
+            font-size: $msv-font-size-l;
+            line-height: $msv-line-height-l;
+        }
+
+        &__sendToEmail {
+            font-weight: var(--msv-font-weight-bold);
+            padding-top: 10px;
+        }
+
+        &__modalBody {
+            font-size: $msv-font-size-l;
+            min-height: 300px;
+        }
+
+        &__selectedInvoiceButton {
+            margin-left: 10px;
+            margin-right: 10px;
+            padding-bottom: 5px;
+        }
+
+        &__search {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            width: 100%;
+        }
+
+        &__searchBar {
+            height: 48px;
+
+            @media screen and (max-width: 450px) {
+                width: 250px;
+            }
+
+            @media screen and (min-width: 450px) {
+                width: 400px;
+            }
+        }
+
+        &__searchButton {
+            @include add-icon($msv-Search);
+
+            background-color: var(--msv-accent-brand-color);
+            border: 1px solid var(--msv-accent-brand-color);
+            color: var(--msv-font-secondary-color);
+            padding: 10px 10px;
+            width: 48px;
+            height: 48px;
+        }
+
+        &__searchResultDisplay {
+            margin-top: 30px;
+            margin-bottom: 10px;
+            border-top: 1px solid;
+            padding-top: 10px;
+            display: block;
+            font-size: $msv-font-size-m;
+        }
+
+        &__searchResultNumber {
+            font-weight: var(--msv-font-weight-bold);
+        }
+
+        &__filteredInvoiceResult {
+            margin-bottom: 10px;
+        }
+    }
+
+    &__requestInvoiceButton {
+        margin-left: 20px;
+        margin-right: 20px;
+
+        @include secondary-button();
+
+        @media only screen and (max-width: $msv-breakpoint-l) {
+            display: block;
+            margin-top: 20px;
+            margin-left: 0;
+            margin-right: 0;
+            width: 100%;
+        }
+    }
+}
+
+.msc-pay-invoice-error-dialog {
+    &__header.msc-modal__header {
+        margin-bottom: 40px;
+    }
+
+    &__body.msc-modal__body {
+        margin-bottom: 30px;
+    }
+
+    &__error {
+        &-title {
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 24px;
+            margin-bottom: 4px;
+        }
+
+        &-description {
+            font-size: 18px;
+            font-weight: 600;
+            line-height: 24px;
+        }
+    }
+
+    &__dialog__footer {
+        margin-top: 10px;
+    }
+
+    &__review-shopping-bag-button {
+        @include primary-button(var(--msc-pay-invoice-error-primary-btn-bg),
+        var(--msc-pay-invoice-error-primary-btn-font-color), var(--msc-pay-invoice-error-primary-btn-border));
+    }
+
+    &__cancel-button {
+        @include secondary-button(var(--msc-pay-invoice-error-secondary-btn-bg),
+        var(--msc-pay-invoice-error-secondary-btn-font-color), var(--msc-pay-invoice-error-secondary-btn-border));
+        margin-left: 9px;
+    }
+
+    @media screen and (max-width: $msv-breakpoint-m) {
+        .msc-pay-invoice-error-dialog {
+            &__review-shopping-bag-button {
+                margin-bottom: 12px;
+                width: 100%;
+            }
+
+            &__cancel-button {
+                margin-left: 0;
+                width: 100%;
+            }
+        }
+    }
+}

@@ -1,0 +1,76 @@
+$msv-modal-width: 640px;
+$msv-modal-padding: 20px;
+$msv-modal-button-padding: 5px;
+$msv-modal-horizontal-alignment-right: 1.75rem 1.5rem auto auto;
+$msv-modal-horizontal-alignment-center: 1.75rem auto;
+$msv-modal-horizontal-alignment-left: 1.75rem auto auto 1.5rem;
+$msv-modal-vertical-alignment-top: flex-start;
+$msv-modal-vertical-alignment-center: center;
+$msv-modal-vertical-alignment-bottom: flex-end;
+$msv-modal-z-index: 1050;
+$msv-size-m: 360px;
+
+/* stylelint-disable-next-line no-descending-specificity -- Auto-suppressed. Please fix if possible. */
+.msc-modal__dialog.ms-pop-up {
+    align-items: $msv-modal-vertical-alignment-top;
+    max-width: $msv-modal-width;
+    margin: $msv-modal-horizontal-alignment-center;
+    pointer-events: none;
+    position: relative;
+    width: auto;
+
+    @media (min-width: map-get($grid-breakpoints, 'md')) {
+        max-width: 866px;
+    }
+
+    & .msc-modal__content {
+        color: var(--msv-font-primary-color);
+        background-clip: padding-box;
+        background-color: var(--msv-bg-color);
+        border: 1px solid $msv-gray-120;
+        display: flex;
+        flex-direction: column;
+        outline: 0;
+        pointer-events: auto;
+        position: relative;
+        width: 100%;
+
+        & .msc-modal__header {
+            padding: $msv-modal-padding;
+            align-items: flex-start;
+            border-color: transparent;
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+
+            .msc-modal__title {
+                @include font-content-xl();
+                margin: 0;
+                text-transform: none;
+
+                @media screen and (max-width: $msv-size-m) {
+                    font-size: 22px;
+                }
+            }
+
+            .msc-modal__close-button {
+                @include add-icon($msv-x-shape);
+                @include vfi();
+                background-color: transparent;
+                border: 0;
+                color: var(--msv-font-primary-color);
+                font-size: 20px;
+                padding: $msv-modal-button-padding;
+                position: absolute;
+                right: 15px;
+                text-shadow: 0 1px 0 var(--msv-bg-color);
+                top: 50%;
+                transform: translateY(-50%);
+            }
+        }
+
+        & .msc-modal__body {
+            padding: $msv-modal-padding;
+        }
+    }
+}

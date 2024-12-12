@@ -1,0 +1,41 @@
+div#reportContainer {
+    height: 75vh;
+}
+
+h2.ms-power-bi__heading {
+    margin-bottom: 20px;
+}
+
+.msc-power-bi-report-list {
+    display: flex;
+    .msc-power-bi-report-name {
+        background-color: var(--msv-secondary-button-background-color);
+        border: 0px solid var(--msv-accent-brand-color);
+        color: var(--msv-font-primary-color);
+        padding: 12px;
+        min-width: 148px;
+        margin: 5px 0;
+        width: 148px;
+        &.selected{
+            background-color: var(--msv-accent-brand-color);
+        }
+    }
+
+    ul {
+        padding-left: 5px;
+        padding-right: 12px;
+        box-shadow: 1px 0 $msv-secondary;
+    }
+
+    li{
+        list-style: none;
+    }
+    button {
+        cursor: pointer;
+    }
+
+    div#reportContainer {
+        width: 100%;
+        margin-left: 10px;
+    }
+}

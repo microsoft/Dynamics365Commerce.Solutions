@@ -1,0 +1,64 @@
+{
+    "modules": {
+        "hello-world": {
+            "properties": {
+                "layout1": {
+                    "friendlyName": "Wide",
+                    "description": "Wide",
+                    "type": "layout",
+                    "properties": {
+                        "bgImage": {
+                            "friendlyName": "Background Image",
+                            "description": "Background Image",
+                            "type": "imageSizes",
+                            "properties": {
+                                "sm": {
+                                    "width": 767,
+                                    "height": 431
+                                },
+                                "lg": {
+                                    "width": 1259,
+                                    "height": 472
+                                }
+                            }
+                        },
+                        "headingImageSettings": {
+                            "friendlyName": "Heading images",
+                            "description": "Heading Image",
+                            "type": "imageSizes",
+                            "properties": {
+                                "xs": {
+                                    "width": 539,
+                                    "height": 303
+                                },
+                                "sm": {
+                                    "width": 767,
+                                    "height": 431
+                                },
+                                "md": {
+                                    "width": 1083,
+                                    "height": 609
+                                },
+                                "lg": {
+                                    "width": 1259,
+                                    "height": 472
+                                },
+                                "xl": {
+                                    "width": 1259,
+                                    "height": 472
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "gridSettings": {
+        "xs": 576,
+        "sm": 576,
+        "md": 768,
+        "lg": 992,
+        "xl": 1200
+    }
+}

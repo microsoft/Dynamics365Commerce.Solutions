@@ -1,0 +1,22 @@
+$icon-reviews-list-buttons-margin-left: 4px;
+$icon-reviews-list-dislike-padding-left: 16px;
+$icon-reviews-list-dislike-padding-right: 5px;
+
+[dir="rtl"] {
+    .ms-reviews {
+        &-list {
+            &__like::before,
+            &__dislike::before {
+                margin-left: $icon-reviews-list-buttons-margin-left;
+                margin-right: unset;
+            }
+
+            &__dislike {
+                padding-left: $icon-reviews-list-dislike-padding-left;
+                padding-right: $icon-reviews-list-dislike-padding-right;
+                border-left: 1px solid var(--msv-reviews-list-primary-btn-border);
+                border-right: unset;
+            }
+        }
+    }
+}

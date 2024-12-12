@@ -1,0 +1,22 @@
+{
+    "$type": "geoLookupConnector",
+    "name": "geoLocationTest",
+    "description": "Geo Location Test connector implementation",
+    "configSchema": {
+        "type": "object",
+        "properties": {
+            "apiKey": {
+                "type": "string",
+                "description": "Api key for using the geoLookup API"
+            }
+        },
+        "required": ["apiKey"]
+    },
+    "segmentations": [
+        {
+            "id": "country",
+            "name": "Country",
+            "type": "String"
+        }
+    ]
+}

@@ -1,0 +1,19 @@
+$rtl-product-collection-heading-padding-right: 0;
+$rtl-product-collection-item-padding: 5px 1px 24px 20px;
+
+[dir="rtl"] {
+    .ms-product-collection {
+        &__heading {
+            padding-right: $rtl-product-collection-heading-padding-right;
+        }
+
+        .msc-ss-carousel {
+            position: relative;
+        }
+
+        &__item {
+            text-align: right;
+            padding: $rtl-product-collection-item-padding;
+        }
+    }
+}

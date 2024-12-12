@@ -1,0 +1,136 @@
+$carousel-width: 100%;
+$carousel-strip-width: 100%;
+$flipper-color: var(--msv-font-primary-color);
+$flipper-top-position: -22px;
+$flipper-right-position: 56px;
+$flipper-next-right-position: 0.5px;
+$flipper-width: 48px;
+$flipper-disabled-opacity: 0.4;
+$flipper-outline-offset: 2px;
+$flipper-border-radius: 50%;
+$flipper-border-color: transparent;
+
+$vert-carousel-height: 100%;
+$vert-carousel-strip-width: 100%;
+$vert-flipper-height: 40px;
+$carousel-control-hover-opacity: 0.9;
+
+.msc-ss-carousel {
+    position: relative;
+    touch-action: pan-y pinch-zoom;
+    width: $carousel-width;
+    height: auto;
+
+    .msc-flipper {
+        position: absolute;
+
+        .msi-chevron-left {
+            @include add-icon($msv-ChevronLeft);
+        }
+
+        .msi-chevron-right {
+            @include add-icon($msv-ChevronRight);
+        }
+
+        &:not(.disabled) {
+            @include hover-focus {
+                color: $flipper-color;
+                outline: 1px dashed $msv-black;
+                opacity: $carousel-control-hover-opacity;
+                text-decoration: none;
+            }
+        }
+    }
+
+    &__flipper {
+        color: $flipper-color;
+        background: inherit;
+        border: $flipper-border-color;
+        border-radius: $flipper-border-radius;
+        left: auto;
+        outline-offset: $flipper-outline-offset;
+        right: $flipper-right-position;
+        transform: translate(0, -50%);
+        top: $flipper-top-position;
+        width: $flipper-width;
+        height: $flipper-width;
+        z-index: 1;
+    }
+
+    &__flipper:disabled {
+        opacity: $flipper-disabled-opacity;
+    }
+
+    &__flipper--next {
+        right: $flipper-next-right-position;
+    }
+
+    &-strip {
+        width: $carousel-strip-width;
+        height: auto;
+        overflow: hidden;
+    }
+
+    &-slide {
+        display: inline-block;
+        left: 0;
+        padding-inline-start: 0;
+        position: relative;
+        transition: left cubic-bezier(0.16, 1, 0.29, 0.99) 0.667s;
+        white-space: nowrap;
+    }
+}
+
+.msc-ss-carousel-vert {
+    position: relative;
+    width: auto;
+    height: $vert-carousel-height;
+    display: inline-block;
+    touch-action: pan-x pinch-zoom;
+
+    &-slide {
+        white-space: nowrap;
+        height: auto;
+        position: relative;
+    }
+
+    &-item {
+        display: block;
+        white-space: normal;
+    }
+
+    &-strip {
+        height: $vert-carousel-strip-width;
+        width: auto;
+        overflow: hidden;
+
+        img {
+            max-width: initial;
+        }
+    }
+
+    &__flipper {
+        color: $flipper-color;
+        background: inherit;
+        border: $flipper-border-color;
+        border-radius: $flipper-border-radius;
+        position: absolute;
+        z-index: 1;
+        left: 50%;
+        transform: translate(-50%, 0);
+        top: -($vert-flipper-height / 2);
+
+        @include add-icon($msv-ChevronUp);
+
+        &:disabled {
+            opacity: $flipper-disabled-opacity;
+        }
+    }
+
+    &__flipper--next {
+        top: auto;
+        bottom: -($vert-flipper-height / 2);
+
+        @include add-icon($msv-ChevronDown);
+    }
+}

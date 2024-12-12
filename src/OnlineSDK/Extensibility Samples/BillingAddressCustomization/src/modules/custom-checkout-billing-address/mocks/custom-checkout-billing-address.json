@@ -1,0 +1,8 @@
+{
+    "id": "checkout-billing-address_1",
+    "config": {
+        "heading": "Billing address",
+        "SameAsShippingAddressText": "Same as shipping address"
+    },
+    "typeName": "custom-checkout-billing-address"
+}

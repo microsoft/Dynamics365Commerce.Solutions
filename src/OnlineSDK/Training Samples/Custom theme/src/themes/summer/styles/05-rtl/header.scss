@@ -1,0 +1,107 @@
+$rtl-header-myaccount-margin-right: 8px;
+$rtl-cart-icon-spacing-right: 20px;
+$rtl-header-cart-icon-margin-right: 4px;
+$rtl-header-logo-margin: auto 12px auto auto;
+$rtl-header-icon-padding-left: 10px;
+$rtl-header-icon-padding-right: 10px;
+$rtl-header-logo-margin-left: 20px;
+
+[dir="rtl"] {
+    .ms-header {
+        &__account-info {
+            margin-left: unset;
+        }
+
+        &__container {
+            .ms-header__logo {
+                margin-right: unset;
+                margin-left: $rtl-header-logo-margin-left;
+            }
+        }
+
+        .msc-cart-icon {
+            &__count {
+                margin-left: unset;
+                margin-right: $rtl-header-cart-icon-margin-right;
+            }
+        }
+
+        @media (min-width: $msv-breakpoint-l) {
+            .ms-cart-icon {
+                padding-left: unset;
+                padding-right: $rtl-cart-icon-spacing-right;
+            }
+
+            &__profile-button {
+                &::after {
+                    margin-left: unset;
+                    margin-right: $rtl-header-myaccount-margin-right;
+                }
+            }
+        }
+
+        @media (max-width: $msv-breakpoint-l) {
+            &__container {
+                .ms-header__topbar {
+                    .ms-header__logo {
+                        margin: $rtl-header-logo-margin;
+                    }
+                }
+            }
+
+            &__account-info {
+                &.account-mobile {
+                    .drawer__button {
+                        &::before {
+                            padding-right: unset;
+                            padding-left: $rtl-header-icon-padding-left;
+                        }
+
+                        .drawer__glyph__end {
+                            right: unset;
+                            left: $rtl-header-icon-padding-left;
+                        }
+                        text-align: right;
+                    }
+
+                    .ms-header__signin-button {
+                        &::before {
+                            padding-right: unset;
+                            padding-left: $rtl-header-icon-padding-left;
+                        }
+                    }
+                }
+            }
+
+            &__collapsible-hamburger {
+                .ms-nav {
+                    .ms-nav__drawer {
+                        .drawer__button {
+                            .drawer__glyph__end {
+                                right: unset;
+                                left: $rtl-header-icon-padding-left;
+                            }
+                            text-align: right;
+                        }
+                    }
+                }
+
+                .ms-search {
+                    &__icon-text {
+                        padding-left: unset;
+                        padding-right: $rtl-header-icon-padding-right;
+                    }
+                }
+
+                .ms-header__wishlist-mobile {
+                    text-align: right;
+
+                    &::before {
+                        padding-left: $rtl-header-icon-padding-left;
+                        padding-right: unset;
+                    }
+                }
+            }
+        }
+    }
+}

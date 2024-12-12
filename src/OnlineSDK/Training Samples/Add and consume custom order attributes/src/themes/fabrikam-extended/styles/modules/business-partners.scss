@@ -1,0 +1,183 @@
+@import "../common/00-settings/colors.scss";
+@import "../common/00-settings/font.scss";
+@import "../common/00-settings/icons.scss";
+@import "../common/00-settings/responsive-breakpoints.scss";
+@import "../common/02-generic/button.scss";
+@import "../common/02-generic/image.scss";
+
+$msv-business-partners-padding: 28px;
+$msv-business-partners-heading-margin-bottom: 8px;
+$msv-business-partners-header-padding-bottom: 20px;
+$msv-business-partners-message-margin-top: 20px;
+$msv-business-partners-message-margin-bottom: 20px;
+$msv-business-partners-back-link-line-height: 12px;
+$msv-business-partners-header-row-height: 40px;
+$msv-business-partners-row-height: 80px;
+$msv-business-partners-select-button-width: 48px;
+$msv-business-partners-search-margin: 20px;
+$msv-business-partners-search-bar-height: 52px;
+$msv-business-partners-search-bar-padding: 16px 48px 16px 16px;
+$msv-business-partners-search-bar-margin-right: 8px;
+$msv-business-partners-searchButton-height: 52px;
+$msv-business-partners-searchButton-width: 52px;
+
+.ms-business-partners {
+    td,
+    th {
+        border-spacing: 0;
+        padding: 0;
+
+        &:not(:last-child) {
+            padding: 0 8px;
+        }
+    }
+
+    padding-top: $msv-business-partners-padding;
+    padding-bottom: $msv-business-partners-padding;
+
+    &__empty-message,
+    &__loading,
+    &__alert {
+        display: block;
+        margin-top: $msv-business-partners-message-margin-top;
+        margin-bottom: $msv-business-partners-message-margin-bottom;
+    }
+
+    &__heading {
+        @include font-heading-h3-l();
+        display: inline-block;
+        margin-bottom: $msv-business-partners-heading-margin-bottom;
+    }
+
+    &__header {
+        padding-bottom: $msv-business-partners-header-padding-bottom;
+        border-bottom: 1px solid $msv-secondary;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    &__back-link {
+        display: block;
+        cursor: pointer;
+        margin-bottom: $msv-business-partners-message-margin-bottom;
+
+        @include font-body-regular-s();
+        @include add-icon($msv-BackArrow, before);
+
+        &::before {
+            padding: 0 5px;
+            color: $msv-link-color;
+        }
+    }
+
+    &__table-list {
+        width: 100%;
+        border-collapse: collapse;
+
+        &__header {
+            text-align: left;
+            border-bottom: 1px solid $msv-secondary;
+
+            &__row {
+                @include font-body-bold-xs();
+                height: $msv-business-partners-header-row-height;
+            }
+        }
+
+        &__row {
+            @include font-body-regular-s();
+            height: $msv-business-partners-row-height;
+            border-bottom: 1px solid $msv-secondary;
+
+            &:hover {
+                background-color: $msv-secondary-hover;
+            }
+
+            &__column-select-button {
+                width: $msv-business-partners-select-button-width;
+            }
+
+            &__select-button {
+                @include secondary-button();
+                @include add-icon($msv-ChevronRight, before);
+                padding: 0;
+                border: none;
+                min-width: $msv-business-partners-select-button-width;
+                height: $msv-business-partners-row-height;
+                border-radius: 0;
+                cursor: pointer;
+
+                &::before {
+                    color: $msv-link-color;
+                    font-size: $msv-font-size-ml;
+                }
+            }
+
+            &:hover &__select-button {
+                background-color: $msv-blue-10;
+
+                &:hover {
+                    background-color: $msv-blue;
+
+                    &::before {
+                        color: $msv-white;
+                    }
+                }
+            }
+        }
+
+        &__search {
+            margin-bottom: $msv-business-partners-search-margin;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            order: 1;
+        }
+
+        &__searchBar {
+            width: 100%;
+            height: $msv-business-partners-search-bar-height;
+            padding: $msv-business-partners-search-bar-padding;
+            margin-right: $msv-business-partners-search-bar-margin-right;
+
+            @include font-body-regular-s();
+        }
+
+        &__searchButton {
+            @include primary-button-light();
+
+            border-radius: 3px;
+            height: $msv-business-partners-searchButton-height;
+            min-width: $msv-business-partners-searchButton-width;
+            width: $msv-business-partners-searchButton-width;
+            font-size: $msv-font-size-ml;
+            padding: 0;
+
+            @include add-icon($msv-Search, before);
+
+            &:focus {
+                @include add-icon($msv-Search, before);
+            }
+
+            &:hover {
+                cursor: pointer;
+            }
+
+            &:focus::before {
+                width: $msv-business-partners-searchButton-width;
+                text-align: center;
+                position: static;
+                border-radius: unset;
+                padding: 13px 0;
+                margin: 3px;
+            }
+        }
+
+        &__load-more {
+            @include font-body-regular-s();
+            cursor: pointer;
+            margin-top: $msv-business-partners-message-margin-top;
+            text-align: center;
+        }
+    }
+}

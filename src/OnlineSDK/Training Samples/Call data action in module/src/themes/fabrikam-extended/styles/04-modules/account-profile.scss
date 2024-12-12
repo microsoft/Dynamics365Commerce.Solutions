@@ -1,0 +1,271 @@
+$msv-account-profile-heading-margin-bottom: 32px;
+
+$msv-account-profile-section-margin-right: 100px;
+$msv-account-profile-section-margin-right-m: 0;
+$msv-account-profile-section-margin-bottom: 30px;
+$msv-account-profile-section-heading-margin-bottom: 4px;
+$msv-account-profile-section-description-margin-bottom: 6px;
+
+$msv-account-profile-preference-margin-top: 20px;
+$msv-account-profile-preference-heading-margin-bottom: 10px;
+$msv-account-profile-preference-description-margin-bottom: 0;
+
+$msv-account-profile-toggle-button-icon-size: 28px;
+$msv-account-profile-toggle-button-padding: 0 5px;
+
+$msv-account-profile-attributes-min-width: 260px;
+$msv-account-profile-attributes-section-margin-bottom: 12px;
+$msv-account-profile-attributes-tile-heading-margin-bottom: 10px;
+$msv-account-profile-attributes-tile-heading-icon-padding: 5px;
+$msv-account-profile-attributes-toggle-min-height: 50px;
+$msv-account-profile-attributes-toggle-button-height: 30px;
+$msv-account-profile-attributes-toggle-button-disable-opacity: 0.6;
+$msv-account-profile-attributes-button-right-margin: 10px;
+
+//style presets
+:root {
+    --msv-account-profile-font-size: var(--msv-body-font-size-m);
+    --msv-account-profile-font-color: var(--msv-font-primary-color);
+
+    // heading
+    --msv-account-profile-heading-font-color: var(--msv-font-primary-color);
+    --msv-account-profile-heading-font-size: var(--msv-body-font-size-l);
+
+    // title
+    --msv-account-profile-title-font-size: var(--msv-body-font-size-xl);
+
+    // button
+    --msv-account-profile-toggle-btn-font-color: var(--msv-accent-brand-color);
+    --msv-account-profile-toggle-btn-font-size: var(--msv-body-font-size-m);
+    --msv-account-profile-toggle-size: #{$msv-account-profile-toggle-button-icon-size};
+}
+
+.ms-account-profile {
+    @include font-content(var(--msv-font-weight-normal), var(--msv-account-profile-font-size), $msv-line-height-m);
+    color: var(--msv-account-profile-font-color);
+    align-items: flex-start;
+    display: inline-flex;
+    flex-direction: unset;
+    justify-content: center;
+
+    .ms-account-loyalty-tile__heading {
+        color: var(--msv-account-profile-heading-font-color);
+    }
+
+    &-wrapper {
+        margin-right: $msv-account-profile-section-margin-right;
+    }
+
+    &__heading {
+        @include font-content(var(--msv-font-weight-normal),
+        var(--msv-account-profile-title-font-size), $msv-line-height-xl);
+        margin-bottom: $msv-account-profile-heading-margin-bottom;
+    }
+
+    &__section {
+        margin-bottom: $msv-account-profile-section-margin-bottom;
+
+        &-heading {
+            @include font-content(var(--msv-font-weight-heavy),
+            var(--msv-account-profile-heading-font-size), $msv-line-height-l);
+            color: var(--msv-account-profile-heading-font-color);
+            margin-bottom: $msv-account-profile-section-heading-margin-bottom;
+        }
+
+        &-description {
+            margin-bottom: $msv-account-profile-section-description-margin-bottom;
+        }
+
+        &-links {
+            text-decoration: underline;
+        }
+
+        &-link {
+            @include vfi();
+            color: var(--msv-account-profile-font-color);
+        }
+    }
+
+    &__preference {
+        margin-top: $msv-account-profile-preference-margin-top;
+
+        &-heading {
+            @include font-content(var(--msv-font-weight-normal),
+            var(--msv-account-profile-font-size),$msv-line-height-m);
+            color: var(--msv-account-profile-font-color);
+            margin-bottom: $msv-account-profile-preference-heading-margin-bottom;
+        }
+
+        &-description {
+            margin-bottom: $msv-account-profile-preference-description-margin-bottom;
+        }
+    }
+
+    &__toggle-wrapper {
+        font-size: var(--msv-account-profile-toggle-btn-font-size);
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__toggle-button {
+        font-size: var(--msv-account-profile-toggle-size);
+        background-color: transparent;
+        padding: $msv-account-profile-toggle-button-padding;
+
+        &:focus {
+            @include basic-outline-offset();
+        }
+    }
+
+    &__toggle-enable {
+        .ms-account-profile__toggle-enable-text {
+            font-weight: var(--msv-font-weight-bold);
+        }
+    }
+
+    &__toggle-disable {
+        .ms-account-profile__toggle-disable-text {
+            font-weight: var(--msv-font-weight-bold);
+        }
+    }
+
+    &__toggle-enable-button {
+        @include add-icon($msv-ToggleRight);
+        color: var(--msv-account-profile-toggle-btn-font-color);
+    }
+
+    &__toggle-disable-button {
+        @include add-icon($msv-ToggleRight);
+
+        &::before {
+            transform: scale(-1, 1);
+        }
+    }
+
+    .ms-account-profile__attributes {
+        min-width: $msv-account-profile-attributes-min-width;
+
+        &-tile__heading {
+            @include add-icon($msv-ListAlt, before);
+            @include font-content(var(--msv-font-weight-bold),
+            var(--msv-account-landing-tile-heading-size), $msv-line-height-l);
+            color: var(--msv-account-profile-heading-font-color);
+            margin-bottom: $msv-account-profile-attributes-tile-heading-margin-bottom;
+
+            &::before {
+                padding-right: $msv-account-profile-attributes-tile-heading-icon-padding;
+            }
+        }
+
+        &__section {
+            margin-bottom: $msv-account-profile-attributes-section-margin-bottom;
+
+            &-heading {
+                font-size: var(--msv-account-profile-font-size);
+                font-weight: var(--msv-font-weight-normal);
+                color: var(--msv-account-profile-heading-font-color);
+                margin-bottom: $msv-account-profile-section-heading-margin-bottom;
+            }
+
+            &__toggle {
+                min-height: $msv-account-profile-attributes-toggle-min-height;
+            }
+
+            &__toggle-wrapper {
+                font-size: var(--msv-account-profile-toggle-btn-font-size);
+                display: inline-flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            &__toggle-button {
+                font-size: var(--msv-account-profile-toggle-size);
+                background-color: transparent;
+                padding: $msv-account-profile-toggle-button-padding;
+                height: $msv-account-profile-attributes-toggle-button-height;
+
+                &:focus {
+                    @include basic-outline-offset();
+                }
+            }
+
+            &__toggle-button.disabled {
+                opacity: $msv-account-profile-attributes-toggle-button-disable-opacity;
+            }
+
+            &__toggle-enable {
+                .ms-account-profile__attributes__section__toggle-enable-text {
+                    font-weight: var(--msv-font-weight-bold);
+                }
+            }
+
+            &__toggle-disable {
+                .ms-account-profile__attributes__section__toggle-disable-text {
+                    font-weight: var(--msv-font-weight-bold);
+                }
+            }
+
+            &__toggle-enable-button {
+                @include add-icon($msv-ToggleRight);
+                color: var(--msv-account-profile-toggle-btn-font-color);
+            }
+
+            &__toggle-disable-button {
+                @include add-icon($msv-ToggleRight);
+
+                &::before {
+                    transform: scale(-1, 1);
+                }
+            }
+        }
+
+        &-error-label {
+            color: var(--msv-error-color);
+        }
+
+        &_input,
+        &_select {
+            width: 100%;
+        }
+
+        &_input-edit-false,
+        &_select-edit-false {
+            border: none;
+            background: transparent;
+            opacity: 1;
+            color: var(--msv-account-profile-font-color);
+        }
+
+        &_select-edit-false {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            text-indent: 1px;
+            text-overflow: "";
+            opacity: 1;
+            color: var(--msv-account-profile-font-color);
+        }
+
+        &-edit-button,
+        &-save-button,
+        &-cancel-button {
+            @include vfi();
+            color: var(--msv-account-profile-font-color);
+            background-color: transparent;
+            font-size: var(--msv-body-font-size-m);
+            text-decoration: underline;
+            margin-right: $msv-account-profile-attributes-button-right-margin;
+            padding: 0;
+            height: auto;
+        }
+    }
+
+    @media screen and (max-width: $msv-breakpoint-m) {
+        display: flex;
+        flex-direction: column;
+
+        &-wrapper {
+            margin-right: $msv-account-profile-section-margin-right-m;
+        }
+    }
+}

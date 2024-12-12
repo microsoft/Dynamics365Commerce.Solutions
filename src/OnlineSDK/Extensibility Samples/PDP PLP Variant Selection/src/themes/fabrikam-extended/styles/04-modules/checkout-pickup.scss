@@ -1,0 +1,168 @@
+.ms-checkout-pickup {
+    &__group {
+        margin-bottom: 20px;
+
+        .msc-alert {
+            clear: both;
+        }
+
+        &-divider {
+            border: 1px dashed;
+            border-color: $msv-gray-300;
+            margin-bottom: 20px;
+        }
+
+        &-header {
+            float: left;
+            line-height: 29px;
+            margin-bottom: 12px;
+
+            &-main {
+                @include add-icon($msv-cube, before);
+
+                &::before {
+                    padding-right: 10px;
+                }
+                float: left;
+                font-size: 22px;
+                font-weight: bold;
+                margin-right: 10px;
+            }
+
+            &-item {
+                float: left;
+                font-size: 20px;
+                font-weight: normal;
+                margin-left: 5px;
+            }
+        }
+
+        &-lines {
+            clear: both;
+        }
+
+        &-line-image {
+            position: relative;
+            width: 108px;
+            height: 108px;
+        }
+
+        &-line-quantity {
+            border-radius: 50%;
+            border: 1px solid $msv-green;
+            background-color: $msv-white;
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            bottom: 0;
+            right: -15px;
+            font-size: 14px;
+            line-height: 30px;
+            text-align: center;
+            z-index: 1;
+        }
+
+        &-product-image {
+            float: left;
+            position: relative;
+            margin-top: 12px;
+            margin-right: 12px;
+            margin-bottom: 20px;
+        }
+
+        &-product-image.product-image-wide {
+            margin-right: 24px;
+        }
+
+        &-datetime {
+            clear: both;
+
+            &-dropdown {
+                display: inline-block;
+                padding-right: 20px;
+                width: 430px;
+
+                &-label {
+                    display: block;
+                    height: 24px;
+                    margin-bottom: 5px;
+                }
+
+                &-select {
+                    border-width: 0;
+                    display: flex;
+                    font-size: 18px;
+                    font-weight: normal;
+                    height: 50px;
+                    line-height: 30px;
+                    padding-left: 8px;
+                    width: 100%;
+                }
+            }
+        }
+
+        &-selected {
+            clear: both;
+            padding: 10px 0 10px 0;
+
+            &-title {
+                font-size: 15px;
+                font-weight: bold;
+                line-height: 20px;
+                padding-bottom: 8px;
+            }
+
+            &-content {
+                font-size: 16px;
+                font-weight: 400px;
+                line-height: 21px;
+            }
+        }
+
+        &-address {
+            clear: both;
+            display: block;
+            padding: 10px 0 10px 0;
+            flex: 1;
+
+            &-header {
+                font-size: 15px;
+                font-weight: bold;
+                line-height: 20px;
+                padding-bottom: 8px;
+            }
+
+            &-name {
+                display: block;
+                font-size: 16px;
+                font-weight: 400px;
+                line-height: 21px;
+            }
+
+            &-city, &-threeletterisoregionname {
+                &::before {
+                    content: "\A";
+                    white-space: pre;
+                }
+            }
+
+            &-street, &-city, &-state, &-county, &-zipcode, &-threeletterisoregionname {
+                font-size: 16px;
+                font-weight: 400px;
+                line-height: 21px;
+            }
+        }
+    }
+
+    @media screen and (max-width: $msv-breakpoint-m) {
+        &__group-datetime-dropdown {
+            clear: both;
+            padding-right: unset;
+            width: 100%;
+        }
+
+        &__group-datetime-dropdown:not(:first-child) {
+            margin-top: 20px;
+        }
+    }
+}

@@ -1,0 +1,55 @@
+$msv-layout-h-padding-s: 16px;
+$msv-layout-h-padding-m: 40px;
+$msv-layout-h-padding-l: 80px;
+$msv-layout-h-padding-xl: 120px;
+$msv-layout-v-padding-s: 16px;
+$msv-layout-v-padding-m: 40px;
+$msv-layout-v-padding-l: 64px;
+$msv-layout-v-padding-xl: 80px;
+$msv-layout-page-clamp-width: $msv-breakpoint-xl;
+$msv-layout-container-width: $msv-breakpoint-xl;
+
+// Limit the max width of an element with margin on either side of the element
+
+@mixin msv-layout-page-clamp {
+    max-width: $msv-layout-page-clamp-width;
+    margin: auto;
+}
+
+// Prevent content from touch the edge of the screen with padding on either side of the element
+
+@mixin msv-layout-page-side-padding {
+    padding-left: $msv-layout-h-padding-s;
+    padding-right: $msv-layout-h-padding-s;
+
+    @media screen and (min-width: $msv-breakpoint-m) {
+        padding-left: $msv-layout-h-padding-m;
+        padding-right: $msv-layout-h-padding-m;
+    }
+
+    @media screen and (min-width: $msv-breakpoint-l) {
+        padding-left: $msv-layout-h-padding-l;
+        padding-right: $msv-layout-h-padding-l;
+    }
+
+    @media screen and (min-width: $msv-breakpoint-xl) {
+        padding-left: $msv-layout-h-padding-xl;
+        padding-right: $msv-layout-h-padding-xl;
+    }
+}
+
+@mixin msv-layout-content-block-padding {
+    padding: $msv-layout-v-padding-s $msv-layout-h-padding-s;
+
+    @media screen and (min-width: $msv-breakpoint-m) {
+        padding: $msv-layout-v-padding-m $msv-layout-h-padding-m;
+    }
+
+    @media screen and (min-width: $msv-breakpoint-l) {
+        padding: $msv-layout-v-padding-l $msv-layout-h-padding-l;
+    }
+
+    @media screen and (min-width: $msv-breakpoint-xl) {
+        padding: $msv-layout-v-padding-xl $msv-layout-h-padding-xl;
+    }
+}

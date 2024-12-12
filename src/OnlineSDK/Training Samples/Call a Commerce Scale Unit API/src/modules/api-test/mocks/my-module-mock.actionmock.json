@@ -1,0 +1,15 @@
+{
+    "CacheObjectType": "Category",
+    "CacheKey": "*",
+    "Mock": [
+        {
+            "Name": "category 1"
+        },
+        {
+            "Name": "category 2"
+        },
+        {
+            "Name": "category 3"
+        }
+    ]
+}

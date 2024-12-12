@@ -1,0 +1,18 @@
+.ms-image-list {
+    &__title {
+        margin-bottom: 15px;
+        padding: 10px;
+    }
+
+    &__list {
+        &-item {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 10px;
+
+            > * {
+                padding: 10px;
+            }
+        }
+    }
+}

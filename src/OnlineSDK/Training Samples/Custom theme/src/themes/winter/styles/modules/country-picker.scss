@@ -1,0 +1,112 @@
+@import "../common/00-settings/colors.scss";
+@import "../common/00-settings/font.scss";
+@import "../common/01-tools/mixins.scss";
+$msv-country-picker-footer-link-color: $msv-blue-tint;
+$msv-country-picker-modal-header-padding-left: 10px;
+$msv-country-picker-title-padding-bottom: 12px;
+$msv-country-picker-subheading-padding-bottom: 20px;
+$msv-country-picker-modal-content-padding: 30px 25px;
+$msv-country-picker-modal-max-width: 480px;
+$msv-country-picker-modal-body-max-height: 230px;
+$msv-country-picker-modal-body-padding-left: 20px;
+$msv-country-picker-link-padding-top: 20px;
+$msv-country-picker-modal-body-display-padding-left: 30px;
+$msv-country-picker-displaystring-font-weight: 700;
+$msv-country-picker-displaysubstring-font-weight: 400;
+$msv-country-picker-current-site-button-width: 241px;
+$msv-country-picker-current-site-button-padding: 12px 48px;
+$msv-country-picker-current-site-button-border-radius: 100px;
+$msv-country-picker-current-site-button-border: 1px solid #{$msv-gray-30};
+
+//style presets
+:root {
+    --msv-country-picker-heading-font-color: var(--msv-font-primary-color);
+    --msv-country-picker-heading-font-size: var(--msv-body-font-size-m);
+    --msv-country-picker-link-font-size: var(--msv-body-font-size-m);
+    --msv-country-picker-button-font-size: var(--msv-body-font-size-s);
+    --msv-country-picker-link-font-color: #{$msv-gray-30};
+    --msv-country-picker-button-background: #{$msv-white};
+}
+
+.msc-modal__dialog {
+    &.ms-country-picker__dialog {
+        max-width: $msv-country-picker-modal-max-width;
+    }
+
+    .msc-modal__content {
+        padding: $msv-country-picker-modal-content-padding;
+    }
+
+    .ms-country-picker__modal-header {
+        border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+        padding-left: $msv-country-picker-modal-header-padding-left;
+
+        .msc-modal__title {
+            .ms-country-picker__heading {
+                @include font-content(var(--msv-font-weight-bold),
+                var(--msv-country-picker-heading-font-size), $msv-line-height-l);
+                color: var(--msv-country-picker-heading-font-color);
+                padding-bottom: $msv-country-picker-title-padding-bottom;
+            }
+
+            .ms-country-picker__subheading {
+                @include font-content(var(--msv-font-weight-normal),
+                var(--msv-country-picker-heading-font-size), $msv-line-height-l);
+                color: var(--msv-country-picker-heading-font-color);
+                padding-bottom: $msv-country-picker-subheading-padding-bottom;
+            }
+        }
+    }
+
+    .ms-counrtyPicker__modal-body {
+        padding-left: $msv-country-picker-modal-body-padding-left;
+        max-height: $msv-country-picker-modal-body-max-height;
+
+        .ms-country-picker__country__item__link {
+            color: var(--msv-country-picker-link-font-color);
+            display: flex;
+            padding-top: $msv-country-picker-link-padding-top;
+
+            .ms-country-picker__country__item__img {
+                padding-top: 5px;
+            }
+
+            .ms-country-picker__country__item__display {
+                padding-left: $msv-country-picker-modal-body-display-padding-left;
+
+                &String {
+                    @include font-content($msv-country-picker-displaystring-font-weight,
+                    var(--msv-country-picker-link-font-size), $msv-line-height-l);
+                    display: block;
+                }
+
+                &SubString {
+                    @include font-content($msv-country-picker-displaysubstring-font-weight,
+                    $msv-font-size-s, $msv-text-line-height);
+                }
+            }
+        }
+    }
+
+    .ms-countryPicker__modal-footer {
+        flex-direction: column;
+
+        .ms-countryPicker__link {
+            @include font-content(var(--msv-font-weight-400),
+            var(--msv-country-picker-link-font-size), $msv-line-height-l);
+            color: $msv-country-picker-footer-link-color;
+            padding-top: $msv-country-picker-link-padding-top;
+        }
+
+        .ms-country-picker__current-site {
+            @include font-content(var(--msv-font-weight-400),
+            var(--msv-country-picker-button-font-size), $msv-line-height-m);
+            background: var(--msv-country-picker-button-background);
+            border: $msv-country-picker-current-site-button-border;
+            border-radius: $msv-country-picker-current-site-button-border-radius;
+            color: var(--msv-country-picker-link-font-color);
+            max-width: $msv-country-picker-current-site-button-width;
+            padding: $msv-country-picker-current-site-button-padding;
+        }
+    }
+}

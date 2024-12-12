@@ -1,0 +1,98 @@
+$msv-order-summary-font: $msv-primary-font-family;
+$msv-order-summary-padding: 32px;
+$msv-order-summary-primary-bg-color: $msv-gray-20;
+$msv-order-summary-heading-font-size: 20px;
+$msv-order-summary-heading-font-weight: 600;
+$msv-order-summary-heading-line-height: 28px;
+$msv-order-summary-heading-padding-bottom: 7px;
+$msv-order-summary-label-font-size: 14px;
+$msv-order-summary-label-line-height: 20px;
+$msv-order-summary-line-padding: 5px 0;
+
+.msc-order-summary {
+    color: var(--msv-font-primary-color);
+
+    &-wrapper {
+        align-items: center;
+        background-color: $msv-order-summary-primary-bg-color;
+        display: flex;
+        flex: 0 0 368px;
+        flex-direction: column;
+        margin: 0 auto;
+        padding: $msv-order-summary-padding;
+        height: fit-content;
+    }
+
+    @media screen and (max-width: $msv-breakpoint-s) {
+        margin: unset;
+    }
+
+    &__heading {
+        font-size: $msv-order-summary-heading-font-size;
+        font-style: $msv-order-summary-font;
+        font-weight: $msv-order-summary-heading-font-weight;
+        line-height: $msv-order-summary-heading-line-height;
+        padding-bottom: $msv-order-summary-heading-padding-bottom;
+        width: 100%;
+    }
+
+    &__items {
+        border-radius: 2px;
+        font-size: $msv-order-summary-label-font-size;
+        line-height: $msv-order-summary-label-line-height;
+        width: 100%;
+
+        .msc-promo-code {
+            &-heading {
+                font-weight: $msv-order-summary-heading-font-weight;
+            }
+
+            &__group {
+                display: flex;
+                padding: 10px 0;
+            }
+
+            &__input-box {
+                flex: auto;
+                margin-right: 20px;
+                padding-left: 8px;
+            }
+        }
+    }
+
+    &__line {
+        &-net-price,
+        &-tax-amount,
+        &-shipping,
+        &-loyalty,
+        &-gift-card,
+        &-other-charges,
+        &-total-discounts {
+            padding: 10px 0 10px;
+        }
+
+        &-total-discounts {
+            display: none;
+        }
+
+        &-total {
+            padding: 10px 0 20px;
+            border-top: 1px solid $msv-black;
+            font-weight: $msv-order-summary-heading-font-weight;
+            text-transform: uppercase;
+            font-size: 18px;
+            line-height: 24px;
+        }
+    }
+
+    &__value {
+        float: right;
+        text-align: right;
+    }
+}
+
+@media screen and (min-width: $msv-breakpoint-l) {
+    .msc-order-summary-wrapper {
+        margin: 0;
+    }
+}

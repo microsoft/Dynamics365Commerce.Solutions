@@ -1,0 +1,231 @@
+$msv-modal-add-to-order-template-dialog-empty-dialog-content-padding-mobile: 100px 0;
+$msv-modal-add-to-order-template-dialog-empty-dialog-cancel-button-margin: 0 20px;
+$msv-modal-add-to-order-template-dialog-existing-max-width: 1160px;
+$msv-modal-add-to-order-template-dialog-existing-order-template-description-margin: 10px 0;
+$msv-modal-add-to-order-template-dialog-existing-order-template-line-header-padding: 12px;
+$msv-modal-add-to-order-template-dialog-no-order-template-padding: 28px;
+$msv-modal-add-to-order-template-dialog-container-margin-top: 20px;
+$msv-modal-add-to-order-template-dialog-line-container-margin: 0 10px 40px 10px;
+$msv-modal-add-to-order-template-dialog-line-container-border-radius: 3px;
+$msv-modal-add-to-order-template-dialog-line-container-width: 322px;
+$msv-modal-add-to-order-template-dialog-line-container-height: auto;
+$msv-modal-add-to-order-template-dialog-line-container-min-height: 436px;
+$msv-modal-add-to-order-template-dialog-line-container-min-width: 322px;
+$msv-modal-add-to-order-template-dialog-line-container-box-shadow: 0 0.3px 0.9px rgba(0, 0, 0, 0.108), 0 1.6px 3.6px rgba(0, 0, 0, 0.132);
+$msv-modal-add-to-order-template-dialog-order-template-line-action-button-margin: 12px;
+$msv-modal-add-to-order-template-dialog-order-template-line-new-line-button-margin: 60px;
+$msv-modal-add-to-order-template-dialog-order-template-line-new-line-image-margin-top: 150px;
+$msv-modal-add-to-order-template-dialog-order-template-line-new-line-image-margin-top-mobile: 40px;
+$msv-modal-add-to-order-template-dialog-order-template-line-new-line-height-mobile: 280px;
+$msv-modal-add-to-order-template-dialog-header-padding: 25px 36px 19px;
+$msv-modal-add-to-order-template-dialog-body-padding: 0 36px;
+$msc-add-to-order-template-dialog-existing-dialog-order-templates-line-products-image-props-margin: 1px;
+$msv-modal-add-to-order-template-dialog-body-max-height: 350px;
+$msv-modal-add-to-order-template-dialog-image-column-size: 138px;
+$msv-modal-add-to-order-template-dialog-existing-max-heigt: 100vh;
+
+.msc-modal {
+    .msc-add-to-order-template-dialog {
+        &__empty {
+            &__dialog {
+                &__content {
+                    display: flex;
+                    justify-content: center;
+                    flex-wrap: wrap;
+
+                    @media screen and (min-width: $msv-breakpoint-m) {
+                        padding: $msv-modal-add-to-order-template-dialog-empty-dialog-content-padding-mobile;
+                    }
+                }
+
+                &__create-order-template-image-container {
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
+                }
+
+                &__create-order-template-image {
+                    font-size: 100px;
+                    color: $msv-gray-75;
+                    pointer-events: none;
+                }
+
+                &__no-order-templates {
+                    @include font-heading-h4-l();
+                    padding: $msv-modal-add-to-order-template-dialog-no-order-template-padding;
+                    text-align: center;
+
+                    @media (min-width: $msv-breakpoint-m+1) and (max-width: $msv-breakpoint-l) {
+                        @include font-heading-h4-m();
+                    }
+
+                    @media (max-width: $msv-breakpoint-m) {
+                        @include font-heading-h4-s();
+                    }
+                }
+
+                &__no-order-templates-description {
+                    @include font-body-regular-s();
+                    text-align: center;
+                }
+
+                &__create-order-template-button {
+                    @include primary-button-light();
+                }
+
+                &__cancel-button {
+                    @include secondary-button-light();
+                    margin: $msv-modal-add-to-order-template-dialog-empty-dialog-cancel-button-margin;
+                }
+            }
+        }
+
+        &__existing {
+            max-width: $msv-modal-add-to-order-template-dialog-existing-max-width;
+            max-height: $msv-modal-add-to-order-template-dialog-existing-max-heigt;
+
+            .msc-modal__content {
+                padding: 0;
+            }
+
+            &__dialog {
+                &__header {
+                    padding: $msv-modal-add-to-order-template-dialog-header-padding;
+                    border-bottom: 0.5px solid $msv-gray-50;
+
+                    .msc-modal__title {
+                        @include font-heading-h3-l();
+
+                        @media (min-width: $msv-breakpoint-m+1) and (max-width: $msv-breakpoint-l) {
+                            @include font-heading-h3-m();
+                        }
+
+                        @media (max-width: $msv-breakpoint-m) {
+                            @include font-heading-h3-s();
+                        }
+                    }
+                }
+
+                &__body {
+                    padding: $msv-modal-add-to-order-template-dialog-body-padding;
+
+                    @media (max-width: $msv-breakpoint-m) {
+                        max-height: unset;
+                    }
+                }
+
+                &__order-templates-description {
+                    @include font-body-regular-m();
+                    margin: $msv-modal-add-to-order-template-dialog-existing-order-template-description-margin;
+                }
+
+                &__order-templates-container {
+                    display: flex;
+                    flex-wrap: wrap;
+                    margin-top: $msv-modal-add-to-order-template-dialog-container-margin-top;
+
+                    @media screen and (max-width: 793px) {
+                        justify-content: center;
+                    }
+                }
+
+                &__order-templates-line {
+                    &__item_header {
+                        padding: $msv-modal-add-to-order-template-dialog-existing-order-template-line-header-padding;
+                        border-bottom: 0.5px solid $msv-gray-50;
+                    }
+
+                    &__container {
+                        display: flex;
+                        flex-direction: column;
+                        position: relative;
+
+                        background: $msv-white;
+
+                        box-shadow: $msv-modal-add-to-order-template-dialog-line-container-box-shadow;
+                        border-radius: $msv-modal-add-to-order-template-dialog-line-container-border-radius;
+                        margin: $msv-modal-add-to-order-template-dialog-line-container-margin;
+
+                        @include font-body-regular-m();
+                        height: $msv-modal-add-to-order-template-dialog-line-container-height;
+                        min-height: $msv-modal-add-to-order-template-dialog-line-container-min-height;
+                        min-width: $msv-modal-add-to-order-template-dialog-line-container-min-width;
+                        width: $msv-modal-add-to-order-template-dialog-line-container-width;
+                        justify-content: space-between;
+
+                        &__create-new-line {
+                            background-color: $msv-white-20;
+
+                            @media screen and (max-width: $msv-breakpoint-m) {
+                                height: $msv-modal-add-to-order-template-dialog-order-template-line-new-line-height-mobile;
+                            }
+
+                            &__image {
+                                margin-top: $msv-modal-add-to-order-template-dialog-order-template-line-new-line-image-margin-top;
+                                display: block;
+                                margin-left: auto;
+                                margin-right: auto;
+
+                                @media screen and (max-width: $msv-breakpoint-m) {
+                                    margin-top: $msv-modal-add-to-order-template-dialog-order-template-line-new-line-image-margin-top-mobile;
+                                }
+                            }
+
+                            &__button {
+                                @include primary-button-light();
+                                text-align: center;
+                                margin: $msv-modal-add-to-order-template-dialog-order-template-line-new-line-button-margin;
+                            }
+                        }
+                    }
+
+                    &__title {
+                        @include font-heading-h6-l();
+
+                        @media (min-width: $msv-breakpoint-m+1) and (max-width: $msv-breakpoint-l) {
+                            @include font-heading-h6-m();
+                        }
+
+                        @media (max-width: $msv-breakpoint-m) {
+                            @include font-heading-h6-s();
+                        }
+                    }
+
+                    &__count {
+                        @include font-body-regular-s();
+                    }
+
+                    &__products {
+                        &__image-container {
+                            @include order-template-image-container();
+                            background: none;
+
+                            .msc-image-container {
+                                height: auto;
+                                width: auto;
+                                margin: 0;
+                            }
+
+                            .column {
+                                border: 0.5px solid $msv-gray-50;
+                                margin: 4px;
+                                height: $msv-modal-add-to-order-template-dialog-image-column-size;
+                                width: $msv-modal-add-to-order-template-dialog-image-column-size;
+                            }
+
+                            .msc_image {
+                                height: auto;
+                                width: auto;
+                            }
+                        }
+                    }
+
+                    &__action-button {
+                        @include secondary-button-light();
+                        margin: $msv-modal-add-to-order-template-dialog-order-template-line-action-button-margin;
+                    }
+                }
+            }
+        }
+    }
+}

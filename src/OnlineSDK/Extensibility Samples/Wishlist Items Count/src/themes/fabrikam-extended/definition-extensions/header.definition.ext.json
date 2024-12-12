@@ -1,0 +1,9 @@
+{
+    "$type": "definitionExtension",
+    "dataActions": {
+        "wishlists": {
+            "path": "@msdyn365-commerce-modules/retail-actions/dist/lib/get-wishlist-by-customer-id",
+            "runOn": "server"
+        }
+    }
+}

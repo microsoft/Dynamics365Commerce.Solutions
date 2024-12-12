@@ -1,0 +1,9 @@
+{
+  "typeName": "tile-navigation",
+  "id": "tile-navigation",
+  "friendlyName": "Tile Navigation menu",
+  "config": {
+      "categoryId": 68719478037
+  },
+  "data": {}
+}
