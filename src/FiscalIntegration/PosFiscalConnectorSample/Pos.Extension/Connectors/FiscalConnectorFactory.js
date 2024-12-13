@@ -26,4 +26,4 @@ System.register(["./Efr/EfrFiscalConnector"], function (exports_1, context_1) {
         }
     };
 });
-//# sourceMappingURL=D:/a/_work/r1/a/r/src/FiscalIntegration/PosFiscalConnectorSample/Pos.Extension/Connectors/FiscalConnectorFactory.js.map
+//# sourceMappingURL=C:/__w/1/s/r/src/FiscalIntegration/PosFiscalConnectorSample/Pos.Extension/Connectors/FiscalConnectorFactory.js.map
