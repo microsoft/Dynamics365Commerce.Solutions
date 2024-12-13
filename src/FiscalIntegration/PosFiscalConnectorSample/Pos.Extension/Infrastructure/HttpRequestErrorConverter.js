@@ -44,4 +44,4 @@ System.register(["PosApi/Entities", "PosApi/TypeExtensions", "./Http/HttpStatusC
         }
     };
 });
-//# sourceMappingURL=D:/a/_work/r1/a/r/src/FiscalIntegration/PosFiscalConnectorSample/Pos.Extension/Infrastructure/HttpRequestErrorConverter.js.map
+//# sourceMappingURL=C:/__w/1/s/r/src/FiscalIntegration/PosFiscalConnectorSample/Pos.Extension/Infrastructure/HttpRequestErrorConverter.js.map
