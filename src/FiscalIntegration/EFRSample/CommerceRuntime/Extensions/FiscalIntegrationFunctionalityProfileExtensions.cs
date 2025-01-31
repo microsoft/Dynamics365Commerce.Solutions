@@ -34,14 +34,13 @@ namespace Contoso
                     taxRatesMappings = new Dictionary<string, TaxRatesMapping>();
                 }
 
-                if (!taxRatesMappings.ContainsKey(functionalityProfile.ProfileId))
+                if (!taxRatesMappings.TryGetValue(functionalityProfile.ProfileId, out TaxRatesMapping storedValue))
                 {
-                    taxRatesMappings.Add(
-                        functionalityProfile.ProfileId,
-                        ConfigurationController.GetSupportedTaxRates(functionalityProfile));
+                    storedValue = ConfigurationController.GetSupportedTaxRates(functionalityProfile);
+                    taxRatesMappings.Add(functionalityProfile.ProfileId, storedValue);
                 }
 
-                return taxRatesMappings[functionalityProfile.ProfileId];
+                return storedValue;
             }
 
             /// <summary>

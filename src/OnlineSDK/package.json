@@ -1,6 +1,6 @@
 {
     "name": "Msdyn365-Commerce-Samples",
-    "version": "9.52",
+    "version": "9.53",
     "private": true,
     "workspaces": {
         "packages": [
@@ -63,11 +63,11 @@
         "@types/qrcode.react": "1.0.1"
     },
     "dependencies": {
-        "@msdyn365-commerce-modules/starter-pack": "9.52",
-        "@msdyn365-commerce-modules/fabrikam-design-kit": "9.52",
+        "@msdyn365-commerce-modules/starter-pack": "9.53.3-preview.0",
+        "@msdyn365-commerce-modules/fabrikam-design-kit": "9.53.3-preview.0",
         "@msdyn365-commerce/bootloader": "^1.0.0",
-        "@msdyn365-commerce/retail-proxy": "9.52.3-preview.0",
-        "@msdyn365-commerce-theme/adventureworks-theme-kit": "9.52",
+        "@msdyn365-commerce/retail-proxy": "9.53.5-preview.0",
+        "@msdyn365-commerce-theme/adventureworks-theme-kit": "9.53.3-preview.0",
         "@msdyn365-commerce-modules/msdyn365-exp-test-connector": "^1.0.0",
         "reactstrap": "^6.5.0",
         "stack-trace": "^0.0.10",
@@ -122,6 +122,9 @@
         "util": "0.12.3",
         "@types/lodash": "4.14.182",
         "**/loader-utils": "2.0.4",
-        "cheerio": "1.0.0-rc.12"
+        "cheerio": "1.0.0-rc.12",
+        "rollup": "2.79.2",
+        "path-to-regexp": "0.1.10",
+        "cookie": "^0.7.0"
     }
 }

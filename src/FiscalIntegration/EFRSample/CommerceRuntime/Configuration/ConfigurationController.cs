@@ -125,14 +125,14 @@ namespace Contoso
 
                 var tenderTypeMappings = new Dictionary<string, TenderTypeMapping>();
 
-                if (!tenderTypeMappings.ContainsKey(functionalityProfile.ProfileId))
+                if (!tenderTypeMappings.TryGetValue(functionalityProfile.ProfileId, out TenderTypeMapping storedValue))
                 {
-                    tenderTypeMappings.Add(
-                        functionalityProfile.ProfileId,
-                        ConfigurationController.GetSupportedTenderTypes(functionalityProfile));
+                    storedValue = ConfigurationController.GetSupportedTenderTypes(functionalityProfile);
+
+                    tenderTypeMappings.Add(functionalityProfile.ProfileId, storedValue);
                 }
 
-                return tenderTypeMappings[functionalityProfile.ProfileId];
+                return storedValue;
             }
 
             /// <summary>

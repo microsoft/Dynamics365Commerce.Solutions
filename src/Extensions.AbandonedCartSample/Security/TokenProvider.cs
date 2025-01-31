@@ -9,11 +9,12 @@
 
 namespace Contoso.RetailServer.Ecommerce.AbandonedCartSample.Security
 {
+    using System;
     using System.Threading.Tasks;
     using Contoso.RetailServer.Ecommerce.AbandonedCartSample.Common;
     using Contoso.RetailServer.Ecommerce.AbandonedCartSample.Options;
     using Microsoft.Extensions.Options;
-    using Microsoft.IdentityModel.Clients.ActiveDirectory;
+    using Microsoft.Identity.Client;
 
     public class TokenProvider : ITokenProvider
     {
@@ -33,11 +34,19 @@ namespace Contoso.RetailServer.Ecommerce.AbandonedCartSample.Security
 
         private async Task<string> GetToken(string clientId, string secret, string tenantId, string audience)
         {
-            var authority = $"{AuthorityBaseUrl}{tenantId}";
-            var authenticationContext = new AuthenticationContext(authority);
+            var authority = new Uri($"{AuthorityBaseUrl}{tenantId}");
 
-            var credential = new ClientCredential(clientId, secret);
-            var token = await authenticationContext.AcquireTokenAsync(audience, credential).ConfigureAwait(false);
+            var confidentialClientApplication = ConfidentialClientApplicationBuilder
+                .Create(clientId)
+                .WithClientSecret(secret)
+                .WithAuthority(authority)
+                .Build();
+
+            var token = await confidentialClientApplication
+                .AcquireTokenForClient(new[] { $"{audience}/.default" })
+                .ExecuteAsync()
+                .ConfigureAwait(false);
+
             return token?.AccessToken;
         }
 
