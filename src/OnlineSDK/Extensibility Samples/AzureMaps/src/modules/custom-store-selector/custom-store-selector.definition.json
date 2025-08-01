@@ -1,0 +1,350 @@
+{
+	"$type": "containerModule",
+	"friendlyName": "Store selector (COPY)",
+	"name": "custom-store-selector",
+	"description": "Store selector shows the nearby stores where an item is available for pickup",
+	"categories": [
+		"Product details",
+		"Buy box",
+		"Store locator",
+		"buybox_storeSelector",
+		"cart_storeSelector",
+		"header_storeSelector"
+	],
+	"dataActions": {
+		"storeSelectorStateManager": {
+			"path": "@msdyn365-commerce-modules/bopis-utilities/dist/lib/store-selector-state-manager/store-selector-state-manager-data-action",
+			"runOn": "client"
+		},
+		"availabilitiesWithHours": {
+			"path": "@msdyn365-commerce-modules/retail-actions/dist/lib/get-full-available-inventory-nearby",
+			"runOn": "client"
+		},
+		"storeLocations": {
+			"path": "@msdyn365-commerce-modules/retail-actions/dist/lib/get-store-location-information",
+			"runOn": "client"
+		}
+	},
+	"config": {
+		"heading": {
+			"friendlyName": "Heading",
+			"description": "Provide a heading",
+			"type": "string",
+			"default": ""
+		},
+		"termsOfServiceLink": {
+			"friendlyName": "Terms of service link",
+			"description": "Link to the terms of service",
+			"$ref": "@msdyn365-commerce-modules/definitions/dist/src/ActionLink.json#/definitions/actionLink"
+		},
+		"mode": {
+			"friendlyName": "Mode",
+			"description": "Define whether it's Find store mode or Pick up in store mode",
+			"type": "string",
+			"enum": {
+				"findStores": "Find stores",
+				"pickupInStore": "Pickup in store"
+			}
+		},
+		"searchRadiusUnit": {
+			"friendlyName": "Search radius unit",
+			"description": "Define to choose search radius unit in miles or kilometers when displaying distance for a store is from the current location",
+			"type": "string",
+			"enum": {
+				"miles": "miles",
+				"kilometers": "kilometers"
+			},
+			"default": "miles"
+		},
+		"lookupRadius": {
+			"friendlyName": "Search radius",
+			"description": "Radius, in miles or kilometers, to use when searching for nearby store locations",
+			"type": "number",
+			"default": 50,
+			"required": true,
+			"minimum": 0
+		},
+		"style": {
+			"friendlyName": "Style",
+			"description": "Define if module should be rendered inline or as a dialog",
+			"type": "string",
+			"enum": {
+				"inline": "Inline",
+				"dialog": "Dialog"
+			},
+			"default": "dialog"
+		},
+		"setAsPreferredStore": {
+			"friendlyName": "Set as preferred store",
+			"description": "Switch to turn set as preferred store on or off",
+			"type": "boolean",
+			"default": false
+		},
+		"enablePickupFilterToShowStore": {
+			"friendlyName": "Enable pickup filter to show store",
+			"description": "Switch to turn show pickup filter to filter store",
+			"type": "boolean",
+			"default": false
+		},
+		"showAllStores": {
+			"friendlyName": "Show all stores",
+			"description": "Switch to turn show all stores on or off",
+			"type": "boolean",
+			"default": false
+		},
+		"autoSuggestionEnabled": {
+			"friendlyName": "Enable auto suggestion",
+			"description": "Switch to enable auto suggestion",
+			"type": "boolean",
+			"default": false
+		},
+		"autoSuggestOptions": {
+			"friendlyName": "Auto suggest options",
+			"description": "Provide additional data to customized auto suggest",
+			"type": "object",
+			"properties": {
+				"maxResults": {
+					"friendlyName": "Max results",
+					"description": "Specifies maximum suggestions",
+					"type": "number",
+					"minimum": 0,
+					"default": 5
+				}
+			}
+		},
+		"className": {
+			"friendlyName": "Custom CSS class name",
+			"description": "Provide a custom css class name defined in the theme pack to target the CSS for this module",
+			"type": "string",
+			"default": ""
+		},
+		"clientRender": {
+			"friendlyName": "Render module client side",
+			"description": "Enabling this property will cause the module to load its Javascript chunk and render on the client based on the user view port. This property is recommended for modules which are generally hidden below the users view port (lower on the page) to increase page load performance.",
+			"type": "boolean",
+			"default": false
+		}
+	},
+	"slots": {
+		"maps": {
+			"friendlyName": "Map",
+			"description": "Map module to use with Find in Store component",
+			"max": 1,
+			"min": 0,
+			"allowedTypes": [
+				"map",
+				"azure-maps"
+			],
+			"allowedCategories": [
+				"buybox_map",
+				"azure-maps"
+			]
+		}
+	},
+	"resources": {
+		"searchPlaceholderText": {
+			"comment": "Placeholder Text for Search By Location",
+			"value": "Enter ZIP code or city, state"
+		},
+		"searchButtonAriaLabel": {
+			"comment": "Aria Label for the search button",
+			"value": "Search"
+		},
+		"searchInputAriaLabel": {
+			"comment": "Aria Label for the search input",
+			"value": "Enter ZIP code or city, state"
+		},
+		"outOfStockText": {
+			"comment": "Text for when item is out of stock",
+			"value": "Out of stock"
+		},
+		"inStockText": {
+			"comment": "Text for when item is in  stock",
+			"value": "In stock"
+		},
+		"selectedStoreLocationText": {
+			"comment": "Text to show in place of button if location is selected for the product",
+			"value": "Selected store location"
+		},
+		"emptyLocationsText": {
+			"comment": "Text for when there are no nearby locations",
+			"value": "No nearby locations found. Narrow your search criteria or search for a different location."
+		},
+		"selectStoreText": {
+			"comment": "Button text for selecting store for pickup",
+			"value": "Pick up here"
+		},
+		"selectStoreAriaFormatText": {
+			"comment": "Aria label text for selecting store for pickup. {StoreName} = name of store",
+			"value": "Pick up at {StoreName}"
+		},
+		"setAsPreferredStoreText": {
+			"comment": "Button text for set as preferred store",
+			"value": "Set as preferred store"
+		},
+		"setAsPreferredStoreTextAriaLabel": {
+			"comment": "Aria label for set as preferred store",
+			"value": "Set as preferred store"
+		},
+		"preferredStoreText": {
+			"comment": "Text for preferred store",
+			"value": "Preferred store"
+		},
+		"preferredStoreAriaLabel": {
+			"comment": "Text for preferred store",
+			"value": "Preferred store"
+		},
+		"timeText": {
+			"comment": "This field is used to specify the store hours text",
+			"value": "Store hours"
+		},
+		"captionText": {
+			"comment": "caption text",
+			"value": "We’re expanding our pick-up-in-store service to more locations every day."
+		},
+		"milesShortText": {
+			"comment": "Used when displaying distance a store is from the current location in miles",
+			"value": "mi"
+		},
+		"kilometersShortText": {
+			"comment": "Used when displaying distance a store is from the current location in kilometers",
+			"value": "km"
+		},
+		"contactText": {
+			"comment": "This field is to specify contact text",
+			"value": "Contact"
+		},
+		"availabilityText": {
+			"comment": "This field is to specify availability text",
+			"value": "Availability"
+		},
+		"productDimensionTypeColor": {
+			"comment": "String that corresponds to the Color Product Dimension Type (1)",
+			"value": "Color"
+		},
+		"productDimensionTypeConfiguration": {
+			"comment": "String that corresponds to the Configuration Product Dimension Type (2)",
+			"value": "Configuration"
+		},
+		"productDimensionTypeSize": {
+			"comment": "String that corresponds to the Size Product Dimension Type (3)",
+			"value": "Size"
+		},
+		"productDimensionTypeStyle": {
+			"comment": "String that corresponds to the Style Product Dimension Type (4)",
+			"value": "Style"
+		},
+		"storeHoursClosedText": {
+			"comment": "String to show on store hours for days where store is closed",
+			"value": "Closed"
+		},
+		"storeHoursMondayText": {
+			"comment": "String to show when refering to the day 'Monday'",
+			"value": "Mon"
+		},
+		"storeHoursTuesdayText": {
+			"comment": "String to show when refering to the day 'Tuesday'",
+			"value": "Tue"
+		},
+		"storeHoursWednesdayText": {
+			"comment": "String to show when refering to the day 'Wednesday'",
+			"value": "Wed"
+		},
+		"storeHoursThursdayText": {
+			"comment": "String to show when refering to the day 'Thursday'",
+			"value": "Thur"
+		},
+		"storeHoursFridayText": {
+			"comment": "String to show when refering to the day 'Friday'",
+			"value": "Fri"
+		},
+		"storeHoursSaturdayText": {
+			"comment": "String to show when refering to the day 'Saturday'",
+			"value": "Sat"
+		},
+		"storeHoursSundayText": {
+			"comment": "String to show when refering to the day 'Sunday'",
+			"value": "Sun"
+		},
+		"storeHoursMondayFullText": {
+			"comment": "String to show when referring to the day 'Monday'",
+			"value": "Monday"
+		},
+		"storeHoursTuesdayFullText": {
+			"comment": "String to show when referring to the day 'Tuesday'",
+			"value": "Tuesday"
+		},
+		"storeHoursWednesdayFullText": {
+			"comment": "String to show when referring to the day 'Wednesday'",
+			"value": "Wednesday"
+		},
+		"storeHoursThursdayFullText": {
+			"comment": "String to show when referring to the day 'Thursday'",
+			"value": "Thursday"
+		},
+		"storeHoursFridayFullText": {
+			"comment": "String to show when referring to the day 'Friday'",
+			"value": "Friday"
+		},
+		"storeHoursSaturdayFullText": {
+			"comment": "String to show when referring to the day 'Saturday'",
+			"value": "Saturday"
+		},
+		"storeHoursSundayFullText": {
+			"comment": "String to show when referring to the day 'Sunday'",
+			"value": "Sunday"
+		},
+		"storePhoneAriaLabel": {
+			"comment": "Aria label for store phone",
+			"value": "store phone"
+		},
+		"storeAddressAriaLabel": {
+			"comment": "Aria label for store address",
+			"value": "store address"
+		},
+		"storeCountMessage": {
+			"comment": "message to show in BPOIS modal count of stores",
+			"value": "We found {count} stores within {radius} miles of you."
+		},
+		"storeAllCountMessage": {
+			"comment": "message to show in BPOIS modal count of all stores",
+			"value": "We found {count} stores."
+		},
+		"storeCountMessageInKm": {
+			"comment": "message to show in BPOIS modal count of stores",
+			"value": "We found {count} stores within {radius} kilometers of you."
+		},
+		"storeSelectorHeaderText": {
+			"value": "Buy now, pick up in a store",
+			"comment": "Heading text for the find in store section"
+		},
+		"storeLocatorHeaderText": {
+			"value": "Store Locator",
+			"comment": "Header text for store locator section"
+		},
+		"seeAllStoresText": {
+			"value": "See all stores",
+			"comment": "Text for see all stores link"
+		},
+		"viewMapText": {
+			"value": "View Map",
+			"comment": "Text for view map button"
+		},
+		"viewListText": {
+			"value": "View List",
+			"comment": "Test for view list button"
+		},
+		"pickupFilterByHeading": {
+			"value": "Filter by:",
+			"comment": "Text for pickup dropdown at Store Selector Header Level Heading"
+		},
+		"pickupFilterMenuHeading": {
+			"value": "All pickup methods",
+			"comment": "Text for pickup dropdown at Store Selector Header "
+		},
+		"pickupDeliveryOptionErrorMessage": {
+			"value": "The selected store does not support this action. Please select a different store and try again.",
+			"comment": "Text for pickup delivery option error message. "
+		}
+	}
+}

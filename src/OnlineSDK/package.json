@@ -1,6 +1,6 @@
 {
     "name": "Msdyn365-Commerce-Samples",
-    "version": "9.53",
+    "version": "9.54",
     "private": true,
     "workspaces": {
         "packages": [
@@ -63,11 +63,11 @@
         "@types/qrcode.react": "1.0.1"
     },
     "dependencies": {
-        "@msdyn365-commerce-modules/starter-pack": "9.53.3-preview.0",
-        "@msdyn365-commerce-modules/fabrikam-design-kit": "9.53.3-preview.0",
+        "@msdyn365-commerce-modules/starter-pack": "9.54",
+        "@msdyn365-commerce-modules/fabrikam-design-kit": "9.54",
         "@msdyn365-commerce/bootloader": "^1.0.0",
-        "@msdyn365-commerce/retail-proxy": "9.53.6",
-        "@msdyn365-commerce-theme/adventureworks-theme-kit": "9.53.3-preview.0",
+        "@msdyn365-commerce/retail-proxy": "9.54.4-preview.0",
+        "@msdyn365-commerce-theme/adventureworks-theme-kit": "9.54",
         "@msdyn365-commerce-modules/msdyn365-exp-test-connector": "^1.0.0",
         "reactstrap": "^6.5.0",
         "stack-trace": "^0.0.10",
@@ -88,7 +88,9 @@
         "mini-css-extract-plugin": "^0.5.0",
         "css-minimizer-webpack-plugin": "3.1.3",
         "ignore-emit-webpack-plugin": "2.0.6",
-        "qrcode.react": "1.0.1"
+        "qrcode.react": "1.0.1",
+        "azure-maps-control": "^3.5.0",
+        "azure-maps-rest": "2.1.0"
     },
     "lint-staged": {
         "*.(j|t)s(x)?": [
@@ -125,6 +127,11 @@
         "cheerio": "1.0.0-rc.12",
         "rollup": "2.79.2",
         "path-to-regexp": "0.1.10",
-        "cookie": "^0.7.0"
+        "cookie": "^0.7.0",
+        "@azure/core-auth": "1.5.0",
+        "@azure/core-util": "1.5.0",
+        "testcafe": "3.7.1",
+        "testcafe-hammerhead": "24.7.2",
+        "testcafe-legacy-api": "5.1.4"
     }
 }
