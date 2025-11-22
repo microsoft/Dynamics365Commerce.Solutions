@@ -498,7 +498,7 @@ The openWeatherMaps API requeries and API access key, to access the weather info
 {
   "id": "current_conditions__0",
   "config": {
-    "apiKey": "20d86600c995ba23fad03e1a291fa9b9"
+    "apiKey": ""
   },
   "data": {
       "foo": "bar"
