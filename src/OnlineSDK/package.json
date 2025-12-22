@@ -117,7 +117,7 @@
         "terser-webpack-plugin": "5.1.1",
         "webpack-bundle-analyzer": "^3.3.2",
         "webpack-dev-server": "3.11.2",
-        "webpack": "^5.42.0",
+        "webpack": "5.42.0",
         "react-universal-component": "^4.0.0",
         "util": "0.12.3",
         "@types/lodash": "4.14.182",
