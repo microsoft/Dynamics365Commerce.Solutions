@@ -22,3 +22,10 @@ Check this doc for more detailed information on the [Dynamics 365 Commerce SDK](
 ### Ecommerce online SDK Samples
 
 This repo also contains samples for Ecommerce Online SDK. Check this link to view samples for Ecommerce Online SDK [Online SDK Samples](src/OnlineSDK/README.md).
+
+## Repository Structure
+
+> **Important:** The `main` branch does not contain project content.
+
+All functional files live in **release branches** (`release/<version>`).  
+Switch to the appropriate release branch to view the actual content.

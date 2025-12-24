@@ -1,7 +1,0 @@
-{
-	"$ref": "../spring/spring.definition.json",
-	"$type": "themeModule",
-	"friendlyName": "Summer",
-	"name": "summer",
-	"description": "This is the summer theme."
-}
