@@ -1,7 +1,0 @@
-{
-    "$type": "experimentationConnector",
-    "name": "exp-test-connector",
-    "description": "Experimentation Test connector implementation",
-    "connectorDomains": ["https://exp-test-connector.com"],
-    "configSchema": {}
-}

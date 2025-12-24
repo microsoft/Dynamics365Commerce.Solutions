@@ -1,7 +1,0 @@
-{
-    "$ref": "@msdyn365-commerce-theme/adventureworks-theme-kit/dist/lib/modules/adventureworks/adventureworks.definition.json",
-    "$type": "themeModule",
-    "description": "This is SDK template theme module",
-    "friendlyName": "adventureworks-extended",
-    "name": "adventureworks-extended"
-}
