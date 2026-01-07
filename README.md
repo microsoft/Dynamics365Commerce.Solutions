@@ -10,6 +10,16 @@ name: Extend Dynamics 365 Commerce
 description: This repo contains the sample solutions on how to extend the Dynamics 365 Commerce POS, e-Commerce, Hardware station, Retail Server and Commerce runtime.
 ---
 
+## ⚠️ Important: Repository Content Location
+
+The `main` branch does **not** contain functional project content.
+
+All SDK samples and tools live in **release branches**.
+View all available branches here:
+https://github.com/microsoft/Dynamics365Commerce.Solutions/branches
+
+Please switch to the appropriate `release/<version>` branch to view the actual content
+
 # Dynamics 365 Commerce SDK
 
 The Dynamics 365 Commerce SDK contains the reference package, samples, and tools to build extension for the Dynamics 365 Commerce components.
@@ -22,10 +32,3 @@ Check this doc for more detailed information on the [Dynamics 365 Commerce SDK](
 ### Ecommerce online SDK Samples
 
 This repo also contains samples for Ecommerce Online SDK. Check this link to view samples for Ecommerce Online SDK [Online SDK Samples](src/OnlineSDK/README.md).
-
-## Repository Structure
-
-> **Important:** The `main` branch does not contain project content.
-
-All functional files live in **release branches** (`release/<version>`).  
-Switch to the appropriate release branch to view the actual content.
