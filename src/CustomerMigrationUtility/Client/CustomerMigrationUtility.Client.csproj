@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="..\..\..\repo.props" />
+  <PropertyGroup>
+  <TargetFramework>net472</TargetFramework>
+    <AssemblyName>Microsoft.Dynamics.Commerce.CustomerMigrationUtility.Client</AssemblyName>
+    <RootNamespace>Microsoft.Dynamics.Commerce.CustomerMigrationUtility.Client</RootNamespace>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <OutputType>Exe</OutputType>
+    <ApplicationIcon>Double-J-Design-Ravenna-3d-Users.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Core\CustomerMigrationUtility.Core.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Configuration" />
+  </ItemGroup>
+</Project>

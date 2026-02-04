@@ -1,0 +1,74 @@
+$msv-dialog-width: 446px;
+$msv-dialog-modal-content-body-text-padding: 4px 0;
+$msv-dialog-modal-content-empty-image-padding-bottom: 10px;
+$msv-dialog-modal-content-button-margin: 6px 0;
+$msv-dialog-modal-content-products-margin: 35px;
+$msv-dialog-button-width: 100%;
+
+.msc-modal {
+    .msc-lines-added-to-cart-dialog {
+        max-width: $msv-dialog-width;
+
+        &__dialog {
+            &__header {
+                .msc-modal__title {
+                    @include font-content-l();
+                }
+            }
+
+            &__products {
+                margin-left: $msv-dialog-modal-content-products-margin;
+                margin-right: $msv-dialog-modal-content-products-margin;
+
+                &__image-container {
+                    @include order-template-image-container();
+                }
+            }
+
+            &__description {
+                text-align: center;
+                padding: 4px;
+            }
+
+            &__order-template-name {
+                font-size: 18px;
+                padding: 4px;
+            }
+
+            &__order-template-items {
+                font-weight: 300;
+                font-size: 16px;
+                padding: 4px;
+            }
+
+            &__view-cart-button {
+                @include primary-button();
+                margin: $msv-dialog-modal-content-button-margin;
+                width: $msv-dialog-button-width;
+            }
+
+            &__continue-shopping {
+                @include secondary-button($msv-white);
+                margin: $msv-dialog-modal-content-button-margin;
+                width: $msv-dialog-button-width;
+            }
+
+            &__footer {
+                flex-wrap: wrap;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: $msv-breakpoint-xl) {
+    .msc-modal .msc-modal__dialog.msc-lines-added-to-cart-dialog {
+        .msc-modal__body.msc-lines-added-to-cart-dialog__dialog__body {
+            max-height: 360px;
+        }
+
+        .msc-lines-added-to-cart-dialog__dialog__products {
+            margin-left: unset;
+            margin-right: unset;
+        }
+    }
+}

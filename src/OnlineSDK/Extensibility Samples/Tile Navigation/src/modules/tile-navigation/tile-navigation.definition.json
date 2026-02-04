@@ -1,0 +1,32 @@
+{
+    "$type": "contentModule",
+    "friendlyName": "tile-navigation",
+    "name": "tile-navigation",
+    "description": "Please add meaningful description for authoring",
+    "categories": ["tile-navigation"],
+    "tags": ["Additional tags go here"],
+    "dataActions": {
+        "categories": {
+            "path": "@msdyn365-commerce-modules/retail-actions/dist/lib/get-categories-hierarchy",
+            "runOn": "client"
+        }
+    },
+    "config": {
+        "categoryId":{
+            "friendlyName": "Category Id",
+            "description": "Category Id to display child items as tiles",
+            "type": "number"
+        },
+        "imageSettings": {
+            "friendlyName": "Image settings",
+            "description": "Image settings for product items",
+            "type": "imageSettings"
+        }
+    },
+    "resources": {
+        "noSubcategoryMsg": {
+            "comment": "No sub-catgeory found message",
+            "value": "No sub-catgeory found."
+        }
+    }
+}

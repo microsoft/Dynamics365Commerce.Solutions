@@ -1,0 +1,88 @@
+$msv-sign-up-width: 40%;
+$msv-sign-up-width-m: 80%;
+$msv-sign-up-input-margin-top: 4px;
+$msv-sign-up-account-item-margin-top: 20px;
+$msv-sign-up-message-margin-top: 20px;
+$msv-sign-up-message-padding: 20px;
+$msv-sign-up-success-border: 1px solid $msv-text-color;
+$msv-sign-up-success-bg-color: $msv-gray-60;
+$msv-sign-up-success-text-color: $msv-text-color;
+$msv-sign-up-error-border: 1px solid $msv-white;
+$msv-sign-up-error-bg-color: $msv-error-color;
+$msv-sign-up-email-verification-buttons-margin-top: 12px;
+$msv-sign-up-button-group-spacing: 32px;
+$msv-sign-up-button-margin-top: 20px;
+
+.ms-sign-up {
+    @include font-content-m();
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    &__container {
+        width: $msv-sign-up-width;
+    }
+
+    &__heading {
+        @include font-content-xl();
+    }
+
+    &__account-item {
+        margin-top: $msv-sign-up-account-item-margin-top;
+
+        &-input {
+            @include form-input-el();
+            margin-top: $msv-sign-up-input-margin-top;
+            width: 100%;
+        }
+    }
+
+    &__email-verification-buttons {
+        margin-top: $msv-sign-up-email-verification-buttons-margin-top;
+    }
+
+    /* Override inline style inject by AAD so we need important */
+    &__page-success[aria-hidden="false"],
+    &__page-error[aria-hidden="false"] {
+        /* stylelint-disable-next-line declaration-no-important -- Auto-suppressed. Please fix if possible. */
+        display: block !important;
+    }
+
+    &__page-success {
+        color: $msv-sign-up-success-text-color;
+        background-color: $msv-sign-up-success-bg-color;
+        border: $msv-sign-up-success-border;
+        display: none;
+        margin-top: $msv-sign-up-message-margin-top;
+        padding: $msv-sign-up-message-padding;
+    }
+
+    &__page-error {
+        color: var(--msv-font-secondary-color);
+        background-color: $msv-sign-up-error-bg-color;
+        border: $msv-sign-up-error-border;
+        display: none;
+        margin-top: $msv-sign-up-message-margin-top;
+        padding: $msv-sign-up-message-padding;
+    }
+
+    &__email-verification-button,
+    &__create-button {
+        @include primary-button();
+        margin-top: $msv-sign-up-button-margin-top;
+        width: 100%;
+    }
+
+    &__cancel-button {
+        @include secondary-button();
+        margin-top: $msv-sign-up-button-margin-top;
+        width: 100%;
+    }
+
+    @media screen and (max-width: $msv-breakpoint-m) {
+        &__container {
+            width: $msv-sign-up-width-m;
+        }
+    }
+}

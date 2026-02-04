@@ -1,0 +1,144 @@
+$msv-write-review-msc-btn-margin: 10px 0;
+
+//style presets
+:root {
+    --msv-write-review-font-size: var(--msv-body-font-size-s);
+    --msv-write-review-font-color: var(--msv-font-primary-color);
+
+    // heading
+    --msv-write-review-heading-font-size: var(--msv-body-font-size-xl);
+    --msv-write-review-heading-font-color: var(--msv-font-primary-color);
+    --msv-write-review-link-size: var(--msv-body-font-size-s);
+    --msv-write-review-link-color: var(--msv-font-primary-color);
+    --msv-write-review-star: var(--msv-font-primary-color);
+    --msv-write-review-star-size: var(--msv-body-font-size-m);
+
+    //form
+    --msv-write-review-form-input-bg: #{$msv-white};
+    --msv-write-review-form-input-font-color: var(--msv-font-primary-color);
+    --msv-write-review-form-input-border: var(--msv-btn-input-border-color);
+
+    // primary button
+    --msv-write-review-primary-btn-bg: var(--msv-accent-brand-color);
+    --msv-write-review-primary-btn-font-color: var(--msv-font-secondary-color);
+    --msv-write-review-primary-btn-border: var(--msv-accent-brand-color);
+
+    // secondary button
+    --msv-write-review-secondary-btn-bg: var(--msv-secondary-button-background-color);
+    --msv-write-review-secondary-btn-font-color: var(--msv-font-primary-color);
+    --msv-write-review-secondary-btn-border: var(--msv-accent-brand-color);
+}
+
+.ms-write-review {
+    &__sign-in-btn,
+    &__toggle {
+        @include primary-button(var(--msv-write-review-primary-btn-bg),
+        var(--msv-write-review-primary-btn-font-color), var(--msv-write-review-primary-btn-border));
+        margin: $msv-write-review-msc-btn-margin;
+
+        @media (max-width: $msv-breakpoint-m) {
+            width: 100%;
+        }
+    }
+}
+
+.ms-review-modal {
+    &-submit {
+        @include primary-button(var(--msv-write-review-primary-btn-bg),
+        var(--msv-write-review-primary-btn-font-color), var(--msv-write-review-primary-btn-border));
+        margin-right: 16px;
+
+        @media (max-width: $msv-breakpoint-m) {
+            width: 100%;
+            margin-left: 0;
+            margin-right: 0;
+            margin-bottom: 12px;
+        }
+    }
+
+    &-cancel {
+        @include secondary-button(var(--msv-write-review-secondary-btn-bg),
+        var(--msv-write-review-secondary-btn-font-color), var(--msv-write-review-secondary-btn-border));
+
+        @media (max-width: $msv-breakpoint-m) {
+            width: 100%;
+            margin-left: 0;
+            margin-right: 0;
+            margin-bottom: 12px;
+        }
+    }
+
+    &-header {
+        .msc-modal__title {
+            @include font-content(var(--msv-font-weight-normal),
+            var(--msv-write-review-heading-font-size), $msv-line-height-xl);
+            color: var(--msv-write-review-heading-font-color);
+        }
+    }
+
+    &-rating-label {
+        @include font-content(var(--msv-font-weight-light),
+        var(--msv-write-review-font-size), $msv-line-height-s);
+        color: var(--msv-write-review-font-color);
+    }
+
+    &-form {
+        input, textarea, select {
+            @include form-input-el();
+            @include vfi();
+            background-color: var(--msv-write-review-form-input-bg);
+            border: 1px solid  var(--msv-write-review-form-input-border);
+            color: var(--msv-write-review-form-input-font-color);
+            width: 100%;
+        }
+
+        textarea {
+            height: 162px;
+        }
+    }
+
+    &-text-label,
+    &-title-label {
+        @include font-content(var(--msv-font-weight-normal),
+        var(--msv-write-review-heading-font-size), $msv-line-height-xl);
+        color: var(--msv-write-review-heading-font-color);
+        display: block;
+        margin-bottom: 4px;
+    }
+
+    &-policy {
+        @include font-content(var(--msv-font-weight-normal), var(--msv-write-review-font-size), $msv-line-height-s);
+        color: var(--msv-write-review-font-color);
+
+        .msc-link {
+            @include font-content(var(--msv-font-weight-normal), var(--msv-write-review-link-size), $msv-line-height-s);
+            color: var(--msv-write-review-link-color);
+            text-decoration: underline;
+        }
+    }
+
+    &-row {
+        margin-bottom: 20px;
+
+        .msc-rating {
+            display: inline-block;
+            margin-right: 8px;
+
+            &__star {
+                color: var(--msv-write-review-star);
+                font-size: var(--msv-write-review-star-size);
+            }
+        }
+    }
+
+    &-error {
+        margin-top: 20px;
+        margin-bottom: 0;
+    }
+
+    .msc-link {
+        @include vfi();
+        color: var(--msv-write-review-font-color);
+        text-decoration: underline;
+    }
+}

@@ -1,0 +1,39 @@
+$rtl-msv-store-selector-location-line-shop-address-padding-left : 15px;
+
+[dir="rtl"] {
+    .ms-store-select {
+        &__location {
+            &-line-shop-address {
+                &-glyph-icon {
+                    padding-right: 0;
+                    padding-left: $rtl-msv-store-selector-location-line-shop-address-padding-left;
+                }
+            }
+
+            &-line-pickup-list-link {
+                text-align: right;
+            }
+
+            @media screen and (min-width: $msv-breakpoint-m) {
+                &-line-item-contact-info,
+                &-line-item-store-hours {
+                    width: 39%;
+                    margin-left: 1%;
+                    margin-right: 0;
+                }
+
+                &-line-item-store-availability {
+                    width: 22%;
+                }
+            }
+        }
+
+        &__search {
+            &-header {
+                &-heading {
+                    padding-top: 5px;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,124 @@
+{
+    "$type": "definitionExtension",
+    "dataActions": {
+        "productAttributes": {
+            "path": "../../../dataActions/get-product-attributes"
+        }
+    },
+    "config": {
+        "sizingChartImageSettings": {
+            "friendlyName": "Sizing chart image settings",
+            "description": "Image settings for sizing chart",
+            "type": "imageSettings"
+        },
+        "sizingChartFileTemplate": {
+            "friendlyName": "Sizing chart image filename",
+            "description": "Format of the file to use. Use '{value}' to replace by attribute value",
+            "type": "string"
+        },
+        "brandImageFileTemplate": {
+            "friendlyName": "Brand image filename",
+            "description": "Format of the file to use. Use '{value}' to replace by attribute value",
+            "type": "string"
+        },
+        "renderSwatches": {
+            "friendlyName": "Render swatches",
+            "description": "Flag for rendering swatches",
+            "type": "boolean"
+        },
+        "defaultColorHex": {
+            "friendlyName": "Default color Hex value",
+            "description": "Default color Hex value",
+            "type": "string"
+        },
+        "enableVariantsOOSInventoryCheck": {
+            "friendlyName": "Enable variants OOS inventory check",
+            "description": "Flag for enabling variants OOS inventory check",
+            "type": "boolean"
+        },
+        "renderColorSwatchImages": {
+            "friendlyName": "Render Color Swatch Images",
+            "description": "Flag for rendering swatch Image in media gallery",
+            "type": "boolean",
+            "default": false
+        },
+        "finalSaleRichText": {
+            "friendlyName": "Final sale rich text",
+            "description": "Final sale rich text content",
+            "type": "richText"
+        },
+        "selectColorDimensionOnloadFlag": {
+            "friendlyName": "Flag to select color dimension on load",
+            "description": "Flag to select color dimension on load based on query string parameter dimid",
+            "type": "boolean",
+            "default": false
+        }
+    },
+    "resources": {
+        "decrementButtonAriaLabel": {
+            "value": "Decrease the quantity by 1",
+            "comment": "Aria Label / tooltop for the quantity decrease button"
+        },
+        "incrementButtonAriaLabel": {
+            "value": "Increase quantity by 1",
+            "comment": "Aria Label / tooltop for the quantity increase button"
+        },
+        "productDetailsText": {
+            "value": "Product details",
+            "comment": "Label for product details"
+        },
+        "sizingChartText": {
+            "value": "Sizing chart",
+            "comment": "Label for sizing chart"
+        },
+        "sizingChartButtonText": {
+            "value": "Check size guide",
+            "comment": "Label for sizing chart button"
+        },
+        "styleNumberText": {
+            "value": "Reference number:",
+            "comment": "Label for style number"
+        },
+        "viewStoreAvailabilityText": {
+            "value": "View in store availability",
+            "comment": "Text for store availability"
+        },
+        "addedToCartMessageText": {
+            "value": "Item added to your cart",
+            "comment": "Text message when item is added to cart"
+        }
+    },
+    "slots": {
+        "additionalContent": {
+            "friendlyName": "Additional content",
+            "description": "Additional content for Product information section",
+            "max": 10,
+            "min": 0,
+            "allowedTypes": "*"
+        },
+        "freeReturnsContent": {
+            "friendlyName": "Free returns content",
+            "description": "Free Returns content slot at the bottom of Product information section",
+            "max": 1,
+            "min": 0,
+            "allowedTypes": ["footer-trust-icon"]
+        },
+        "StoreSelector": {
+            "friendlyName": "Store Selector",
+            "description": "Store Selector to use with the Find In Store component",
+            "max": 1,
+            "min": 0,
+            "allowedTypes": [
+              "store-selector",
+              "custom-store-selector"
+            ]
+        },
+         "MediaGallery": {
+            "friendlyName": "Custom Media Gallery",
+            "description": "This is the slot for the custom media gallery",
+            "max": 2,
+            "min": 0,
+            "allowedTypes": ["media-gallery", "custom-media-gallery"]
+        }
+    }
+}

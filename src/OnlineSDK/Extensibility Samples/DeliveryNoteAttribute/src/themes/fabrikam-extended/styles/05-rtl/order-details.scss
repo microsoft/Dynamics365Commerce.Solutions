@@ -1,0 +1,156 @@
+$msc-order-details-cartline-product-image-margin-left: 20px;
+$msc-order-details-sales-line-btn-buy-it-again-right: 100px;
+$msc-order-details-order-information-padding: 8px;
+$msc-details-sale-line-buy-again-btn-right: 167px;
+$msc-order-details-cart-line-product-price-width: 100%;
+$msv-details-sale-line-buy-again-btn-right-padding: 53px;
+
+[dir="rtl"] {
+    .ms-order-details {
+        &__sales-line-btn-buy-it-again {
+            left: unset;
+            right: $msc-details-sale-line-buy-again-btn-right;
+        }
+
+        &__sales-line-btn-buy-it-again-link {
+            left: unset;
+            right: $msc-details-sale-line-buy-again-btn-right;
+
+            &-padding {
+                padding-right: $msv-details-sale-line-buy-again-btn-right-padding;
+            }
+        }
+
+        &__order-information-sales-id {
+            border-right: unset;
+            padding-right: unset;
+            padding-left: $msc-order-details-order-information-padding;
+        }
+
+        &__order-information-receipt-id {
+            border-right: unset;
+            padding-right: unset;
+            padding-left: $msc-order-details-order-information-padding;
+        }
+
+        &__order-infomation-count {
+            border-left: 1px solid $msv-gray-900;
+        }
+
+        &__order-information-amount {
+            padding-left: unset;
+            padding-right: $msc-order-details-order-information-padding;
+            border-right: 1px solid $msv-gray-900;
+        }
+
+        &__group-delivery {
+            padding-right: unset;
+            padding-left: 20px;
+        }
+
+        .msc-cart-line {
+            width: 100%;
+
+            &__product-price {
+                left: 0;
+                text-align: left;
+                width: $msc-order-details-cart-line-product-price-width;
+            }
+
+            &__product-image {
+                margin-left: $msc-order-details-cartline-product-image-margin-left;
+                margin-right: 0;
+            }
+
+            @media screen and (max-width: $msv-breakpoint-m) {
+                &__product-price {
+                    margin-right: 0;
+                }
+            }
+        }
+
+        @media screen and (min-width: $msv-breakpoint-l) {
+            &__order-summary,
+            &__sales-lines {
+                padding-left: 25%;
+                padding-right: unset;
+            }
+        }
+
+        @media screen and (max-width: $msv-breakpoint-m) {
+            &__sales-line-btn-buy-it-again {
+                left: unset;
+                margin-left: unset;
+                right: 0;
+                margin-right: $msc-order-details-sales-line-btn-buy-it-again-right;
+            }
+
+            &__sales-line-btn-buy-it-again-link {
+                left: unset;
+                margin-left: unset;
+                right: 0;
+                margin-right: $msc-order-details-sales-line-btn-buy-it-again-right;
+            }
+
+            &__help {
+                padding-right: 20px;
+            }
+        }
+
+        &__sales-status {
+            float: left;
+        }
+
+        &__order-summary {
+            padding-right: 0;
+
+            &-price {
+                float: left;
+            }
+        }
+
+        &__ms-order-details-view-modes {
+            float: left;
+        }
+
+        &__table-view-actions {
+            @media screen and (max-width: $msv-breakpoint-m) {
+                float: unset;
+            }
+
+            &__disable-selection {
+                margin-left: unset;
+                margin-right: 8px;
+
+                @media screen and (max-width: $msv-breakpoint-m) {
+                    margin-right: unset;
+                }
+            }
+        }
+
+        &__table-list {
+            &__header {
+                text-align: right;
+
+                &__row__column-with-number {
+                    text-align: left;
+                }
+            }
+
+            &__row {
+                &__column-with-number {
+                    text-align: left;
+                }
+
+                &__extra-actions-cell__actions-container button {
+                    text-align: right;
+
+                    &::before {
+                        margin-right: unset;
+                        margin-left: 12px;
+                    }
+                }
+            }
+        }
+    }
+}

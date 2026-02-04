@@ -1,0 +1,97 @@
+.ms-store-select {
+    &__search {
+        &-form {
+            .MicrosoftMap {
+
+                .as_container_search {
+                    position: absolute;
+                    z-index: 2000;
+                    visibility: visible;
+                }
+
+                .as_container {
+                    .suggestLink {
+                        display: block;
+                        margin: 0;
+                        padding: 8px 12px 8px 12px;
+
+                        &:hover {
+                            background-color: #DCECF8;
+                        }
+
+                        &.selected {
+                            background-color: #DCECF8;
+                            outline: auto;
+                        }
+                    }
+
+                    .as_img {
+                        width: 30px;
+                        height: 30px;
+                        margin-right: 0;
+                        background-position: left center;
+                        display: inline-block;
+                        padding-right: 12px;
+                        background-repeat: no-repeat;
+                        flex: 1 1 auto;
+                        background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeBAMAAADJHrORAAAAMFBMVEVHcExtbnFtbnFtbnFtbnFtbnFtbnFtbnFtbnFtbnFtbnH////S0tO2t7ikpaaSkpU+nsJBAAAACnRSTlMA3BA4kMBlIICgSzf0sQAAAI1JREFUGJVjYKAJMOtIRuaqrFq1ygnBZZIC8hcWwPmsq9bf/bUqAM7PWnV6955Vy+B8r/W7d+/+tQTOj1oL5N9aCudLgfkLEfLrgPxXCHl087RWrTvzatUiOJ9zFQhMgPPZwXyE+xi6gNwVSP5RBPKFkPjMQL4Bsoe9Vi1B5jIwrhJA4bMjmw4Cxgy0AQDoZT5XEngrBgAAAABJRU5ErkJggg==");
+                    }
+
+                    .as_suggestion_root_inside {
+                        display: inline-flex;
+                        width: 100%;
+                    }
+
+                    .nearBySearchText {
+                        padding: 10px 0 0 12px;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                    }
+
+                    ul {
+                        list-style: none;
+                        padding: 8px 0;
+                        margin: 0;
+
+                        li {
+                            width: 100%;
+                            margin: 0;
+                            color: $msv-black;
+                            text-decoration: none;
+                            box-sizing: border-box;
+
+                            &:hover {
+                                cursor: pointer;
+                            }
+
+                            .line1 {
+                                font-size: $msv-font-size-s;
+                                font-weight: $msv-font-weight-500;
+                                white-space: normal;
+                                text-overflow: ellipsis;
+                                margin: 0;
+                                width: 100%;
+                                line-height: 1.2em;
+                            }
+
+                            .line2 {
+                                font-size: $msv-font-size-xs;
+                                white-space: normal;
+                                text-overflow: ellipsis;
+                                margin: 0;
+                                width: 100%;
+                            }
+                        }
+                    }
+
+                    .as_lines_root {
+                        display: inline-block;
+                        flex: 1 1 99%;
+                        vertical-align: middle;
+                    }
+                }
+            }
+        }
+    }
+}

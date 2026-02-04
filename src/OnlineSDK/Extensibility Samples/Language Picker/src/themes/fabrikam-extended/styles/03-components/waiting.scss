@@ -1,0 +1,133 @@
+$waiting-color-default-foreground: var(--msv-accent-brand-color);
+$waiting-background-opacity: 0.5;
+$waiting-color-background: $msv-gray-300;
+
+$waiting-circle-transition-time: 0.75s;
+$waiting-circle-stroke-width: 3px;
+$waiting-circle-sizes: (
+    "sm": 25px,
+    "md": 50px,
+    "lg": 75px
+);
+
+$waiting-linear-transition-time: 1.5s;
+$waiting-linear-sizes: (
+    "sm": 4px,
+    "md": 8px,
+    "lg": 12px
+);
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes track {
+    0% {
+        right: 100%;
+        left: 0%;
+    }
+
+    20% {
+        right: 80%;
+        left: 0%;
+    }
+
+    80% {
+        right: 0%;
+        left: 80%;
+    }
+
+    100% {
+        right: 0%;
+        left: 100%;
+    }
+}
+
+.msc-waiting {
+    &-circular {
+        width: map-get($waiting-circle-sizes, "md");
+        height: map-get($waiting-circle-sizes, "md");
+
+        display: inline-block;
+        position: relative;
+        z-index: 1;
+
+        border-radius: 50%;
+        border-color: rgba($waiting-color-background, $waiting-background-opacity);
+        border-style: solid;
+        border-width: $waiting-circle-stroke-width;
+        border-top-color: $waiting-color-default-foreground;
+
+        transform: translate3d(-50%, -50%, 0);
+        animation: spin $waiting-circle-transition-time ease-in-out infinite;
+    }
+
+    @each $color, $value in $theme-colors {
+        &-circular#{&}-#{$color} {
+            border-color: rgba(mix($value, $waiting-color-background, 25%), $waiting-background-opacity);
+            border-top-color: $value;
+        }
+    }
+
+    @each $key, $value in $waiting-circle-sizes {
+        &-circular#{&}-#{$key} {
+            width: $value;
+            height: $value;
+        }
+    }
+
+    &-linear {
+        width: 100%;
+        position: relative;
+        border-color: rgba($waiting-color-background, $waiting-background-opacity);
+        border-style: solid;
+        border-width: 0;
+        border-top-width: map-get($waiting-linear-sizes, "md") / 2;
+        border-bottom-width: map-get($waiting-linear-sizes, "md") / 2;
+
+        &::before {
+            position: absolute;
+            top: calc(-#{map-get($waiting-linear-sizes, "md")} / 2);
+
+            content: "";
+
+            border-color: theme-color("primary");
+            border-style: solid;
+            border-width: map-get($waiting-linear-sizes, "md");
+            border-top-width: map-get($waiting-linear-sizes, "md") / 2;
+            border-bottom-width: map-get($waiting-linear-sizes, "md") / 2;
+
+            animation: track $waiting-linear-transition-time linear infinite;
+        }
+    }
+
+    @each $color, $value in $theme-colors {
+        &-linear#{&}-#{$color} {
+            border-color: rgba(mix($value, $waiting-color-background, 25%), $waiting-background-opacity);
+
+            &::before {
+                border-color: $value;
+            }
+        }
+    }
+
+    @each $key, $value in $waiting-linear-sizes {
+        &-linear#{&}-#{$key} {
+            border-top-width: $value / 2;
+            border-bottom-width: $value / 2;
+
+            &::before {
+                top: -$value / 2;
+
+                border-top-width: $value / 2;
+                border-bottom-width: $value / 2;
+            }
+        }
+    }
+}

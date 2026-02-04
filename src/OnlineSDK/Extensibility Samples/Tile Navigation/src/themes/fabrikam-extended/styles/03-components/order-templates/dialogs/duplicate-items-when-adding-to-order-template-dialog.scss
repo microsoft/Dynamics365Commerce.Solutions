@@ -1,0 +1,40 @@
+.msc-modal {
+    .msc-duplicate-items-when-adding-to-order-template-dialog {
+        &__dialog {
+            &__content {
+                display: flex;
+                flex-wrap: wrap;
+            }
+
+            &__description {
+                font-weight: 300;
+                font-size: 16px;
+                line-height: 21px;
+            }
+
+            &__footer {
+                margin-top: 20px;
+            }
+
+            &__update-quantity-button {
+                @include primary-button();
+            }
+
+            &__cancel-button {
+                @include secondary-button($msv-white);
+                margin: 0 20px;
+            }
+
+            @media screen and (max-width: $msv-breakpoint-m) {
+                &__footer {
+                    button {
+                        width: 100%;
+                        margin-left: 0;
+                        margin-right: 0;
+                        margin-bottom: 12px;
+                    }
+                }
+            }
+        }
+    }
+}

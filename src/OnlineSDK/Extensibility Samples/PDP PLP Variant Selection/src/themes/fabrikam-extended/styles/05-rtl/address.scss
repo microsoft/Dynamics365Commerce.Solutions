@@ -1,0 +1,13 @@
+$msv-address-select-item-address-detail-padding-left: 0;
+$msv-address-select-item-address-detail-padding-right: 48px;
+
+[dir="rtl"] {
+    .msc-address-select {
+        &__item {
+            .msc-address-detail {
+                padding-left: $msv-address-select-item-address-detail-padding-left;
+                padding-right: $msv-address-select-item-address-detail-padding-right;
+            }
+        }
+    }
+}

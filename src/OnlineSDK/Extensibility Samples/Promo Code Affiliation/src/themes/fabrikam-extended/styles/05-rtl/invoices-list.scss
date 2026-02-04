@@ -1,0 +1,60 @@
+[dir="rtl"] {
+    .msc-invoices-list {
+        &__header-description {
+            &-title, &-amount, &-count {
+                text-align: left;
+            }
+        }
+
+        &__container {
+            &__content {
+                &__table {
+                    &__header {
+                        text-align: right;
+                    }
+
+                    &__row__extra-actions-cell__actions-container button {
+                        text-align: right;
+
+                        &::before {
+                            margin-right: unset;
+                            margin-left: 12px;
+                        }
+                    }
+                }
+            }
+        }
+
+        &__filter {
+            @media screen and (min-width: $msv-breakpoint-m) {
+                position: absolute;
+                right: unset;
+                left: 0;
+            }
+        }
+
+        &__load-more {
+            &.is-busy {
+                &::before {
+                    margin-right: unset;
+                    margin-left: 8px;
+                }
+            }
+        }
+    }
+
+    .msc-pay-invoice-error-dialog {
+        &__cancel-button {
+            margin-right: 9px;
+        }
+    }
+
+    @media screen and (max-width: $msv-breakpoint-m) {
+        .msc-pay-invoice-error-dialog {
+            &__cancel-button {
+                margin-right: 0;
+                width: 100%;
+            }
+        }
+    }
+}

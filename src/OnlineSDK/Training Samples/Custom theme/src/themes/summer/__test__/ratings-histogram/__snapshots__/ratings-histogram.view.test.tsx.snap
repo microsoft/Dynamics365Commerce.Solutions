@@ -1,0 +1,80 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Write Review unit tests - View renders correctly 1`] = `
+<div
+  class="className"
+  data-m-t="mock-type"
+  id=""
+>
+  &lt;h2&gt;heading&lt;/h2&gt;
+  <div
+    class="ms-ratings-histogram__histogram"
+  >
+    <div
+      class="foo"
+    >
+      <div>
+        5 stars
+      </div>
+      <div>
+        5 stars
+      </div>
+      <div>
+        5 stars
+      </div>
+    </div>
+    <div
+      class="foo"
+    >
+      <div>
+        4 stars
+      </div>
+      <div>
+        4 stars
+      </div>
+      <div>
+        4 stars
+      </div>
+    </div>
+    <div
+      class="foo"
+    >
+      <div>
+        3 stars
+      </div>
+      <div>
+        3 stars
+      </div>
+      <div>
+        3 stars
+      </div>
+    </div>
+    <div
+      class="foo"
+    >
+      <div>
+        2 stars
+      </div>
+      <div>
+        2 stars
+      </div>
+      <div>
+        2 stars
+      </div>
+    </div>
+    <div
+      class="foo"
+    >
+      <div>
+        1 stars
+      </div>
+      <div>
+        1 stars
+      </div>
+      <div>
+        1 stars
+      </div>
+    </div>
+  </div>
+</div>
+`;

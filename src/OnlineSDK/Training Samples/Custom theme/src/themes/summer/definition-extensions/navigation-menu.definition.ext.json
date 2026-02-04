@@ -1,0 +1,115 @@
+{
+    "$type": "definitionExtension",
+    "dependentSchemas": {
+        "displayCategoryImage":{
+            "oneOf":[
+                {
+                    "properties":{
+                        "displayCategoryImage":{
+                            "enum":{
+                                "true":true
+                            }
+                        },
+                        "categoryImageSettings": {
+                            "friendlyName": "category image quality",
+                            "description": "Image settings category",
+                            "override":true,
+                            "type": "imageSettings",
+                            "group": "Images"
+                        }
+                    }
+                }
+            ]
+        },
+        "enableMultilevelMenu":{
+            "oneOf":[
+                {
+                    "properties":{
+                        "enableMultilevelMenu":{
+                            "enum":{
+                                "true":true
+                            }
+                        },
+                        "menuLevelSupport": {
+                            "friendlyName": "Number of levels",
+                            "description": "Number of levels",
+                            "type": "number",
+                            "default":3,
+                            "override":true,
+                            "required": false,
+                            "group": "Menu display style"
+                        }
+                    }
+                }
+            ]
+        },
+        "enabletopMenu":{
+            "oneOf":[
+                {
+                    "properties":{
+                        "enabletopMenu":{
+                            "enum":{
+                                "true":true
+                            }
+                        },
+                        "rootMenuNavigation":{
+                            "friendlyName": "Root menu",
+                            "description": "Root menu",
+                            "type": "string",
+                            "override":true,
+                            "default": "",
+                            "group": "Menu display style"
+                        }
+                    }
+                }
+            ]
+        },
+        "navigationMenuSource":{
+            "oneOf":[
+                {
+                    "properties":{
+                        "navigationMenuSource":{
+                            "enum":{
+                                "cmsOnly":"cmsOnly",
+                                "all":"all"
+                            }
+                        },
+                        "cmsNavItems":{
+                            "type": "array",
+                            "friendlyName": "Static menu items",
+                            "description": "If source allows manual authoring, you can configure the menu items",
+                            "override":true,
+                            "items": {
+                                "$ref": "@msdyn365-commerce-modules/definitions/dist/src/MenuItem.json#/definitions/menuItem"
+                            },
+                            "group": "Data source"
+                        }
+                    }
+                }
+            ]
+        },
+        "displayPromotionalImage":{
+            "oneOf":[
+                {
+                    "properties":{
+                        "displayPromotionalImage":{
+                            "enum":{
+                                "true":true
+                            }
+                        },
+                        "categoryPromotionalContent":{
+                            "friendlyName": "Category Promotional Content",
+                            "description": "If source allows manual authoring, you can configure the Category Promotional Content",
+                            "type": "array",
+                            "override":true,
+                            "items": {
+                                "$ref": "@msdyn365-commerce-modules/definitions/dist/src/CategoryPromotionalContent.json#/definitions/categoryPromotionalContent"
+                            },
+                            "group": "Images"
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}

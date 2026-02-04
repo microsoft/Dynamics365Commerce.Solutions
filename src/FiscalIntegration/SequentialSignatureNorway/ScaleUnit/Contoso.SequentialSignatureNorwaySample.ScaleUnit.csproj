@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk" ToolsVersion="15.0">
+    <Import Project="..\CustomizationPackage.props" />
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+    </PropertyGroup>
+	
+    <ItemGroup>
+        <PackageReference Include="Microsoft.Dynamics.Commerce.Sdk.ScaleUnit" Version="$(CommerceSdkPackagesVersion)" />
+    </ItemGroup>
+	
+    <ItemGroup>
+      <ProjectReference Include="..\CommerceRuntime.Connector\Contoso.SequentialSignatureNorwaySample.CommerceRuntime.Connector.csproj" />
+      <ProjectReference Include="..\CommerceRuntime.DocumentProvider\Contoso.SequentialSignatureNorwaySample.CommerceRuntime.DocumentProvider.csproj" />
+    </ItemGroup>
+
+</Project>

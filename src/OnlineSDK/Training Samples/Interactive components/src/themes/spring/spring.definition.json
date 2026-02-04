@@ -1,0 +1,6 @@
+{
+    "$type": "themeModule",
+    "description": "This is SDK template theme module",
+    "friendlyName": "spring",
+    "name": "spring"
+}

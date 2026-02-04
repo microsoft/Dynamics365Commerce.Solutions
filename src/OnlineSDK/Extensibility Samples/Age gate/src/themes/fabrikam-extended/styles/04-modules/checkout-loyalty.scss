@@ -1,0 +1,237 @@
+$msv-checkout-loyalty-padding-bottom: 20px;
+$msv-checkout-loyalty-max-flex-basis: 100%;
+$msv-checkout-loyalty-drawer-margin-top: 20px;
+$msv-checkout-loyalty-drawer-margin-left: 0;
+$msv-checkout-loyalty-drawer-button-border: none;
+$msv-checkout-loyalty-drawer-button-padding: 0;
+$msv-checkout-loyalty-drawer-button-icon-margin-left: 8px;
+$msv-checkout-loyalty-details-p-margin-top: 8px;
+$msv-checkout-loyalty-details-icon-margin: 24px;
+$msv-checkout-loyalty-details-program-width: 320px;
+$msv-checkout-loyalty-amount-margin-top: 20px;
+$msv-checkout-loyalty-amount-label-margin-bottom: 4px;
+$msv-checkout-loyalty-amount-input-max-width: 610px;
+$msv-checkout-loyalty-amount-label-margin-bottom: 4px;
+$msv-checkout-loyalty-amount-input-max-width: 610px;
+$msv-checkout-loyalty-amount-max-flex-basis: 100%;
+$msv-checkout-loyalty-amount-button-margin: 20px;
+$msv-checkout-loyalty-border-bottom: 1px dashed $msv-divider-color;
+$msv-checkout-loyalty-heading-ready-margin-bottom: 8px;
+
+//style presets
+:root {
+    --msv-checkout-loyalty-font-size: var(--msv-body-font-size-m);
+    --msv-checkout-loyalty-font-color: var(--msv-font-primary-color);
+
+    // heading
+    --msv-checkout-loyalty-heading-font-size: var(--msv-body-font-size-l);
+    --msv-checkout-loyalty-heading-ready-font-size: var(--msv-body-font-size-s);
+    --msv-checkout-loyalty-heading-font-color: var(--msv-font-primary-color);
+
+    // title
+    --msv-checkout-loyalty-title-font-color: var(--msv-font-primary-color);
+    --msv-checkout-loyalty-title-font-size: var(--msv-body-font-size-l);
+
+    // form
+    --msv-checkout-loyalty-form-bg: #{$msv-white};
+    --msv-checkout-loyalty-form-font-color: var(--msv-font-primary-color);
+
+    // primary button
+    --msv-checkout-loyalty-btn-bg: var(--msv-accent-brand-color);
+    --msv-checkout-loyalty-btn-font-color: var(--msv-font-secondary-color);
+    --msv-checkout-loyalty-btn-border: var(--msv-accent-brand-color);
+
+    //link
+    --msv-checkout-loyalty-link-color: #{$msv-gray-900};
+    --msv-checkout-loyalty-link-font-size: var(--msv-body-font-size-m);
+}
+
+.ready .ms-checkout-loyalty__heading {
+    font-size: var(--msv-checkout-loyalty-heading-ready-font-size);
+    line-height: $msv-line-height-s;
+    margin-bottom: $msv-checkout-loyalty-heading-ready-margin-bottom;
+}
+
+.ms-checkout-loyalty {
+    border-bottom: $msv-checkout-loyalty-border-bottom;
+    display: flex;
+    flex-flow: row wrap;
+    padding-bottom: $msv-checkout-loyalty-padding-bottom;
+
+    /* stylelint-disable-next-line no-descending-specificity -- Auto-suppressed. Please fix if possible. */
+    &__heading {
+        @include font-content(var(--msv-font-weight-normal),
+        var(--msv-checkout-loyalty-heading-font-size), $msv-line-height-l);
+        color: var(--msv-checkout-loyalty-heading-font-color);
+        flex-basis: $msv-checkout-loyalty-max-flex-basis;
+    }
+
+    &__applied {
+        border-bottom: none;
+
+        .ms-checkout-loyalty__heading {
+            font-weight: var(--msv-font-weight-bold);
+        }
+
+        .ms-checkout-loyalty__text {
+            font-weight: var(--msv-font-weight-normal);
+            font-size: $msv-text-size;
+            line-height: $msv-line-height-m;
+        }
+
+        &-amount {
+            @include font-content(var(--msv-font-weight-normal),
+            var(--msv-checkout-loyalty-font-size), $msv-line-height-m);
+            width: 100%;
+        }
+
+        &-value {
+            @include font-content(var(--msv-font-weight-bold), $msv-text-size, $msv-line-height-m);
+            color: var(--msv-checkout-loyalty-title-font-color);
+            margin-left: $msv-checkout-loyalty-drawer-margin-left;
+        }
+    }
+
+    &__card-number {
+        @include font-content-xl();
+        display: block;
+        margin-top: 8px;
+    }
+
+    &__drawer {
+        margin-top: $msv-checkout-loyalty-drawer-margin-top;
+        flex-basis: $msv-checkout-loyalty-max-flex-basis;
+
+        .collapse {
+            display: none;
+        }
+
+        .collapse.show {
+            display: initial;
+        }
+    }
+
+    &-remove-btn {
+        @include button-link(var(--msv-checkout-loyalty-link-color));
+        @include font-content(var(--msv-font-weight-normal),
+        var(--msv-checkout-loyalty-link-font-size), $msv-line-height-m);
+        margin-left: $msv-checkout-loyalty-amount-button-margin;
+        text-decoration: underline;
+    }
+
+    .drawer__button {
+        background-color: transparent;
+        border: $msv-checkout-loyalty-drawer-button-border;
+        padding: $msv-checkout-loyalty-drawer-button-padding;
+        cursor: pointer;
+        color: var(--msv-checkout-loyalty-title-font-color);
+
+        &::after {
+            @include msv-icon();
+            content: $msv-ChevronDown;
+            margin-left: $msv-checkout-loyalty-drawer-button-icon-margin-left;
+        }
+    }
+
+    .drawer__button[aria-expanded="true"] {
+        &::after {
+            @include msv-icon();
+            content: $msv-ChevronUp;
+            margin-left: $msv-checkout-loyalty-drawer-button-icon-margin-left;
+        }
+    }
+
+    &__program {
+        color: var(--msv-checkout-loyalty-font-color);
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        width: $msv-checkout-loyalty-details-program-width;
+
+        span {
+            margin-top: $msv-checkout-loyalty-details-p-margin-top;
+        }
+
+        &-title {
+            @include font-content(var(--msv-font-weight-light),
+            var(--msv-checkout-loyalty-font-size), $msv-line-height-m);
+            @include add-icon($msv-file, before, $msv-outline-icon-weight);
+            margin-left: $msv-checkout-loyalty-details-icon-margin;
+            display: block;
+            position: relative;
+
+            &::before {
+                position: absolute;
+                left: -#{$msv-checkout-loyalty-details-icon-margin};
+                top: 50%;
+                transform: translateY(-50%);
+            }
+        }
+
+        &-available,
+        &-expiring {
+            @include font-content-s();
+            flex-basis: 51%;
+            flex-grow: 1;
+            display: inline-block;
+        }
+
+        &-points {
+            @include font-content-s(var(--msv-font-weight-bold));
+            display: inline-block;
+        }
+    }
+
+    &__covered-text {
+        @include font-content(var(--msv-font-weight-normal),
+        var(--msv-checkout-loyalty-title-font-size), $msv-line-height-l);
+        color: var(--msv-checkout-loyalty-title-font-color);
+        display: inline-block;
+        margin-right: 4px;
+    }
+
+    &__amount {
+        display: flex;
+        flex-wrap: wrap;
+        flex-basis: $msv-checkout-loyalty-amount-max-flex-basis;
+        margin-top: $msv-checkout-loyalty-amount-margin-top;
+
+        &-label {
+            @include font-content(var(--msv-font-weight-normal),
+            var(--msv-checkout-loyalty-title-font-size), $msv-line-height-l);
+            color: var(--msv-checkout-loyalty-title-font-color);
+            display: block;
+            width: 100%;
+            margin-bottom: $msv-checkout-loyalty-amount-label-margin-bottom;
+        }
+
+        &-input {
+            @include form-input-el(var(--msv-checkout-loyalty-form-bg),
+            var(--msv-checkout-loyalty-form-font-color));
+            width: 100%;
+        }
+
+        &-button {
+            @include primary-button(var(--msv-checkout-loyalty-btn-bg),
+            var(--msv-checkout-loyalty-btn-font-color),var(--msv-checkout-loyalty-btn-border));
+            width: 100%;
+            margin-top: $msv-checkout-loyalty-amount-button-margin;
+        }
+    }
+
+    @media screen and (min-width: $msv-breakpoint-l) {
+        &__amount {
+            &-input {
+                width: auto;
+                flex-grow: 1;
+                max-width: $msv-checkout-loyalty-amount-input-max-width;
+            }
+
+            &-button {
+                margin-left: $msv-checkout-loyalty-amount-button-margin;
+                margin-top: 0;
+                width: auto;
+            }
+        }
+    }
+}

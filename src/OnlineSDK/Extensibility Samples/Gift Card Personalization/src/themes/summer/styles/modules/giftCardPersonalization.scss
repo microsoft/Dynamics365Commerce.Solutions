@@ -1,0 +1,60 @@
+@import '../common/00-settings/colors.scss';
+@import '../common/00-settings/font.scss';
+@import '../common/00-settings/responsive-breakpoints.scss';
+@import '../common/01-tools/mixins.scss';
+@import '../common/01-tools/layout.scss';
+@import '../common/02-generic/image.scss';
+@import '../common/02-generic/button.scss';
+@import '../common/00-settings/icons.scss';
+@import '../common/02-generic/reset.scss';
+@import '../common/01-tools/bootstrap.scss';
+@import '../common/02-generic/form.scss';
+@import '../common/01-tools/visually-hidden';
+
+.ms-giftCardPersonalization {
+    flex-direction: column;
+
+    @include font-content-m();
+    &__email_wrapper {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 10px;
+    }
+    &__label {
+        @include form-input-label();
+    }
+
+    &__input-text {
+        padding: 6px 8px;
+        -moz-appearance: textfield;
+        background: #fff;
+        border: 0.5px solid #c4c4c4;
+        border-radius: 3px;
+        box-sizing: border-box;
+        display: block;
+        flex-grow: 1;
+        font-family: Rubik-Regular;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        height: 52px;
+        line-height: 20px;
+        max-width: 610px;
+        outline: none;
+        padding: 14px;
+        width: 100%;
+    }
+
+    .input-error {
+        display: flex;
+        align-items: flex-end;
+        width: 100%;
+        order: 3;
+
+        @include alert;
+    }
+
+    .hide-personalization {
+        display: none;
+    }
+}

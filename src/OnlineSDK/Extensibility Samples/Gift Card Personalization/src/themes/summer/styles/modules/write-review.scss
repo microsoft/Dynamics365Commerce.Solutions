@@ -1,0 +1,480 @@
+@import "../common/00-settings/colors.scss";
+@import "../common/00-settings/font.scss";
+@import "../common/00-settings/responsive-breakpoints.scss";
+@import "../common/01-tools/mixins.scss";
+@import "../common/00-settings/icons.scss";
+@import "../common/02-generic/button.scss";
+@import "../common/02-generic/form.scss";
+
+$msv-write-review-padding-desktop: 30px 0 0 100px;
+$msv-write-review-msc-btn-margin: 15px 0;
+$msv-write-review-msc-btn-margin-mobile: 19px 0;
+$msv-write-review-msc-btn-margin-toggle: 14px 0;
+$msv-write-review-msc-btn-margin-toggle-mobile: 19px 0;
+$msv-write-review-modal-text-area-height: 210px;
+$msv-write-review-modal-title-area-height: 52px;
+$msv-review-modal-header-padding: 29px 40px 28px 40px;
+$ms-review-product-border-radius: 3px;
+$msv-review-modal-form-margin: 32px 54px 0 40px;
+$msv-review-modal-product-margin: 32px 0 25px 0;
+$msv-review-modal-product-title-margin: 26px 0 6px 0;
+$msv-review-modal-rating-margin: 0 0 42px 0;
+$msv-review-product-overallProductRatingLabel-margin: 35px 0 10px 0;
+$msv-review-modal-footer-padding: 2% 4%;
+$msv-review-modal-footer-padding-mobile: 4% 4%;
+$msv-review-modal-footer-padding-tablet: 22px 38px;
+$msv-review-product-description-margin-right: 12px;
+$msv-review-product-details-margin-left-desktop: 21px;
+$msv-review-product-details-margin-right-desktop: 21px;
+$msv-review-product__title-margin-bottom: 25px;
+$msv-review-product__write-review-margin-bottom: 24px;
+$msv-modal-header-padding: 21px 16px;
+$msv-review-modal-body-padding: 0 16px;
+$msv-review-product-margin: 20px 0 24px 0;
+$msv-review-product-rating-margin-top: 20px;
+$msv-review-product-input-margin-top: 8px;
+$ms-review-product-overallProductRatingLabel-margin-top: 32px;
+$ms-review-product-overallProductRatingLabel-margin-bottom: 15px;
+$ms-review-modal-submit-margin-bottom: 20px;
+$msv-write-review-padding-tablet: 30px 0 0 33px;
+$msv-write-review-padding-left: 100px;
+$ms-review-container-heading-margin-bottom: 24px;
+$msv-write-review-text-height: 64px;
+$msv-write-review-text-width-tablet: 326px;
+$msv-write-review-text-width: 335px;
+$msv-rating-star-margin: 0 2.5px;
+$msv-review-product-details-margin-left-mobile: 28px;
+$msv-container-heading-margin-bottom-tablet: 35px;
+$msv-container-heading-margin-bottom-desktop: 48px;
+$msv-review-product-image-height: 130px;
+$msv-review-product-empty-image-width-desktop: 130px;
+$msv-review-product-image-height-mobile: 111px;
+$msv-review-product-empty-image-width-mobile: 111px;
+
+:root {
+    --msv-write-review-text-color: $msv-gray-20;
+    --msv-write-review-font-color: $msv-gray-20;
+}
+
+.ms-review-container {
+    .heading.container-heading {
+        width: $msv-width-full;
+        text-align: center;
+        align-items: center;
+        color: var(--ms-review-container-heading-color);
+        margin-bottom: $ms-review-container-heading-margin-bottom;
+
+        @include font-heading-h1-l();
+
+        @media (max-width: $msv-breakpoint-m) {
+            text-align: left;
+
+            @include font-heading-h1-s();
+        }
+
+        @media (min-width: $msv-breakpoint-m) {
+            text-align: center;
+            margin-bottom: $msv-container-heading-margin-bottom-tablet;
+        }
+
+        @media (min-width: $msv-breakpoint-l) {
+            margin-bottom: $msv-container-heading-margin-bottom-desktop;
+        }
+
+        @media (min-width: $msv-breakpoint-m) and (max-width: $msv-breakpoint-l) {
+            @include font-heading-h1-m();
+        }
+    }
+}
+
+.ms-write-review {
+    &__sign-in {
+        @include font-body-regular-s();
+    }
+
+    &__heading {
+        display: none;
+    }
+
+    &__text {
+        min-height: $msv-write-review-text-height;
+
+        @include font-body-regular-s();
+        color: var(--msv-write-review-text-color);
+
+        @media (max-width: $msv-breakpoint-m) {
+            width: $msv-width-full;
+        }
+
+        @media (min-width: $msv-breakpoint-m) {
+            width: $msv-write-review-text-width-tablet;
+        }
+
+        @media (min-width: $msv-breakpoint-l) {
+            width: $msv-write-review-text-width;
+        }
+    }
+
+    a.ms-write-review__sign-in-btn.msc-btn {
+        @include primary-button-light();
+        margin: $msv-write-review-msc-btn-margin;
+        text-transform: uppercase;
+        justify-content: center;
+
+        @media (max-width: $msv-breakpoint-m) {
+            margin: $msv-write-review-msc-btn-margin-mobile;
+            min-width: $msv-width-full;
+        }
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    &__toggle {
+        @include primary-button-light();
+        margin: $msv-write-review-msc-btn-margin-toggle;
+        text-transform: uppercase;
+        white-space: nowrap;
+        justify-content: center;
+        align-items: center;
+
+        &:hover,
+        &:focus {
+            background-color: $msv-gray-20;
+            color: $msv-white;
+            outline: none;
+        }
+    }
+
+    &.msc-modal__dialog {
+        padding: 0;
+        max-height: 100%;
+    }
+
+    .msc-modal__content {
+        border: none;
+        padding: 0;
+
+        .ms-review-modal-header {
+            padding: $msv-review-modal-header-padding;
+            margin-bottom: 0;
+            border-bottom: 0.5px solid $msv-gray-50;
+
+            .msc-modal__title {
+                @include font-heading-h3-l();
+                color: var(--msv-write-review-font-color);
+
+                @media (max-width: $msv-breakpoint-m) {
+                    @include font-heading-h3-s();
+                }
+
+                @media (min-width: $msv-breakpoint-m) and (max-width: $msv-breakpoint-l) {
+                    @include font-heading-h3-m();
+                }
+            }
+        }
+
+        .ms-review-modal-body {
+            margin-bottom: 0;
+            padding: 0;
+
+            @media (max-height: 750px) {
+                max-height: calc(100vh - 175px);
+            }
+
+            .ms-review-modal-form {
+                margin: $msv-review-modal-form-margin;
+
+                .ms-review-product {
+                    display: flex;
+                    flex-direction: row;
+                    margin: $msv-review-modal-product-margin;
+
+                    .ms-review-product-description {
+                        height: auto;
+                        border: 0.5px solid $msv-gray-50;
+                        border-radius: $ms-review-product-border-radius;
+                        display: flex;
+                        margin-right: $msv-review-product-description-margin-right;
+                        width: 49%;
+
+                        .ms-review-product-image {
+                            border-right: 0.5px solid $msv-gray-50;
+
+                            .msc-main_image {
+                                height: $msv-review-product-image-height;
+                            }
+
+                            .msc-empty_image {
+                                width: $msv-review-product-empty-image-width-desktop;
+
+                                @media (max-width: $msv-breakpoint-l) {
+                                    width: $msv-review-product-empty-image-width-mobile;
+                                }
+                            }
+                        }
+
+                        .ms-review-product-details {
+                            margin-left: $msv-review-product-details-margin-left-desktop;
+                            margin-right: $msv-review-product-details-margin-right-desktop;
+
+                            .ms-review-product-title {
+                                @include font-body-bold-s();
+                                color: var(--msv-write-review-font-color);
+                                margin: $msv-review-modal-product-title-margin;
+                            }
+
+                            .ms-review-product-brand-name {
+                                @include font-body-regular-s();
+                                color: var(--msv-write-review-font-color);
+                            }
+
+                            .ms-review-product-sku-id {
+                                @include font-body-regular-s();
+                                color: $msv-gray-40;
+                            }
+                        }
+                    }
+
+                    .ms-review-product__rating {
+                        height: auto;
+                        border: 0.5px solid $msv-gray-50;
+                        border-radius: $ms-review-product-border-radius;
+                        width: 49%;
+
+                        .ms-review-product__overallProductRatingLabel {
+                            @include font-body-bold-s();
+                            margin: $msv-review-product-overallProductRatingLabel-margin;
+                            text-align: center;
+                        }
+
+                        .msc-rating {
+                            margin: $msv-review-modal-rating-margin;
+                            text-align: center;
+
+                            &__range {
+                                &:focus {
+                                    + .msc-rating__group {
+                                        border: 1px dashed $msv-white;
+                                        outline: 1px dashed $msv-black;
+                                    }
+                                }
+                            }
+
+                            &__star {
+                                margin: $msv-rating-star-margin;
+                            }
+
+                            &__half-star {
+                                margin: $msv-rating-star-margin;
+                            }
+
+                            &__empty-star {
+                                margin: $msv-rating-star-margin;
+                            }
+                        }
+                    }
+                }
+
+                .ms-review-product__title {
+                    @include font-body-bold-s();
+                    margin-bottom: $msv-review-product__title-margin-bottom;
+
+                    .ms-review-modal-title {
+                        @include form-input-box();
+                        width: $msv-width-full;
+                        height: $msv-write-review-modal-title-area-height;
+                        border: 0.5px solid $msv-gray-50;
+                        border-radius: $ms-review-product-border-radius;
+                        margin-top: $msv-review-product-input-margin-top;
+
+                        &:focus {
+                            border: 0.5px solid $msv-gray-50;
+                        }
+                    }
+                }
+
+                .ms-review-product__write-review {
+                    @include font-body-bold-s();
+                    margin-bottom: $msv-review-product__write-review-margin-bottom;
+
+                    .ms-review-modal-text {
+                        @include form-input-box();
+                        color: var(--msv-write-review-font-color);
+                        border: 0.5px solid $msv-gray-50;
+                        border-radius: $ms-review-product-border-radius;
+                        width: $msv-width-full;
+                        height: $msv-write-review-modal-text-area-height;
+                        margin-top: $msv-review-product-input-margin-top;
+                    }
+                }
+
+                .ms-review-modal-policy {
+                    @include font-body-regular-s();
+
+                    .msc-link {
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
+
+        .ms-review-modal-footer {
+            padding: $msv-review-modal-footer-padding;
+
+            .ms-review-modal-submit {
+                @include primary-button-light();
+                text-transform: uppercase;
+                margin: 0 16px 0 0;
+
+                &:focus {
+                    outline: none;
+                }
+            }
+
+            .ms-review-modal-cancel {
+                @include secondary-button-light();
+                text-transform: uppercase;
+                margin: 0;
+            }
+        }
+    }
+}
+
+@media (max-width: $msv-breakpoint-m) {
+    .ms-review-container {
+        margin-bottom: 28px;
+
+        .row {
+            display: flex;
+            flex-direction: column-reverse;
+
+            h1 {
+                order: 1;
+            }
+        }
+    }
+
+    .ms-write-review {
+        padding: 0;
+
+        .ms-write-review__toggle {
+            width: $msv-width-full;
+            margin: $msv-write-review-msc-btn-margin-toggle-mobile;
+        }
+    }
+
+    .msc-modal__dialog.msc-modal-input-required.ms-write-review {
+        background: $msv-white;
+
+        .msc-modal__content {
+            width: auto;
+
+            .msc-modal__header {
+                padding: $msv-modal-header-padding;
+                height: auto;
+                border-bottom: 0.5px solid $msv-gray-50;
+
+                .msc-modal__title {
+                    text-align: left;
+                }
+            }
+
+            .ms-review-modal-body {
+                padding: $msv-review-modal-body-padding;
+
+                .ms-review-modal-form {
+                    margin: 0;
+
+                    .ms-review-product {
+                        display: block;
+                        margin: $msv-review-product-margin;
+
+                        .ms-review-product-description {
+                            width: $msv-width-full;
+                            border: none;
+
+                            .ms-review-product-image {
+                                border: 0.5px solid $msv-gray-50;
+
+                                .msc-main_image {
+                                    height: $msv-review-product-image-height-mobile;
+                                }
+                            }
+
+                            .ms-review-product-details {
+                                margin-left: $msv-review-product-details-margin-left-mobile;
+
+                                .ms-review-product-title {
+                                    margin-top: 0;
+                                }
+                            }
+                        }
+
+                        .ms-review-product__rating {
+                            margin-top: $msv-review-product-rating-margin-top;
+                            width: $msv-width-full;
+
+                            .ms-review-product__overallProductRatingLabel {
+                                margin-top: $ms-review-product-overallProductRatingLabel-margin-top;
+                                margin-bottom: $ms-review-product-overallProductRatingLabel-margin-bottom;
+                            }
+
+                            .msc-rating {
+                                margin-top: 0;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .ms-review-modal-footer {
+                border: none;
+                padding: $msv-review-modal-footer-padding-mobile;
+
+                .ms-review-modal-submit {
+                    margin-bottom: $ms-review-modal-submit-margin-bottom;
+                    margin-right: 0;
+                    max-width: $msv-width-full;
+                }
+
+                .ms-review-modal-cancel {
+                    max-width: $msv-width-full;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: $msv-breakpoint-m) {
+    .ms-review-container {
+        .row {
+            display: flex;
+            flex-direction: unset;
+
+            h1 {
+                order: unset;
+            }
+        }
+    }
+
+    .ms-write-review {
+        padding: $msv-write-review-padding-tablet;
+    }
+
+    .msc-modal__dialog.msc-modal-input-required.ms-write-review {
+        .msc-modal__content {
+            .ms-review-modal-footer {
+                border: none;
+                padding: $msv-review-modal-footer-padding-tablet;
+            }
+        }
+    }
+}
+
+@media (min-width: $msv-breakpoint-l) {
+    .ms-write-review {
+        padding: $msv-write-review-padding-desktop;
+    }
+}

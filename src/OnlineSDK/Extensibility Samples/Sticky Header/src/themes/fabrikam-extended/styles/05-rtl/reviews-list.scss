@@ -1,0 +1,16 @@
+[dir="rtl"] {
+    .ms-reviews-list {
+        &__card {
+            &-header {
+                margin-right: unset;
+                margin-left: 70px;
+            }
+
+            @media (min-width: $msv-breakpoint-m) {
+                &-controls {
+                    text-align: left;
+                }
+            }
+        }
+    }
+}

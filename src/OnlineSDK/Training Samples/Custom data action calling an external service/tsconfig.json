@@ -1,0 +1,53 @@
+/*
+* THIS FILE IS AUTO-GENERATED AT BUILD TIME - MANUAL MODIFICATIONS WILL BE LOST
+*/
+{
+    "compilerOptions": {
+      "allowJs": false,
+      "allowUnreachableCode": false,
+      "noFallthroughCasesInSwitch": true,
+      "allowSyntheticDefaultImports": true,
+      "downlevelIteration": true,      
+      "esModuleInterop": true,
+      "experimentalDecorators": true,
+      "forceConsistentCasingInFileNames": true,
+      "importHelpers": true,
+      "jsx": "react",
+      "lib": [
+        "es6",
+        "es2015",
+        "es2017",
+        "dom"
+      ],
+      "module": "esnext",
+      "moduleResolution": "node",
+      "noImplicitAny": true,
+      "noImplicitReturns": true,
+      "noImplicitThis": true,
+      "noUnusedLocals": true,
+      "resolveJsonModule": true,
+      "sourceMap": true,
+      "strict": true,
+      "strictNullChecks": true,
+      "pretty": true,
+      "outDir": "build",
+      "suppressImplicitAnyIndexErrors": true,
+      "target": "esnext",
+      "skipLibCheck": true
+    },
+    "exclude": [
+      "build",
+      "lib",
+      "scripts",
+      "acceptance-tests",
+      "webpack",
+      "jest"
+    ],
+    "include": [
+      "node_modules/@msdyn365-commerce/bootloader/placeholder-ts/placeholder.ts",
+      "src/**/*"
+    ],
+    "types": [
+      "node"
+    ]
+}

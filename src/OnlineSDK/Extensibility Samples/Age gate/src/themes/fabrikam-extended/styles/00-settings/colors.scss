@@ -1,0 +1,85 @@
+// bootstrap color variables
+$msv-white: #FFFFFF;
+$msv-black: #000000;
+$msv-blue:    #0062AF;
+$msv-green: #107C10;
+$msv-red: #A80000;
+$msv-pink: #FCDFDF;
+$msv-cyan: #0776D1;
+$msv-yellow:#FFFF00;
+$msv-grey: #323130;
+$msv-gray-20: #F3F2F1;
+
+$msv-gray-100: #F8F7F6;
+$msv-gray-200: #E8E8E8;
+$msv-gray-300: #D1D1D1;
+$msv-gray-400: #6B727A;
+$msv-gray-500: #616365;
+$msv-gray-800: #8F8F8F;
+$msv-gray-900: #1D1D1D;
+$msv-gray-1000: #2D2D2D;
+$msv-gray-tint: #495057;
+
+$msv-primary: #4C833A;
+$msv-primary-hover: #39632C;
+$msv-secondary: #6C757D;
+$msv-secondary-hover: #E1EFDC;
+$msv-gray-30: #2C262D;
+$msv-blue-tint: #0094FF;
+
+$msv-text-color: $msv-gray-900;
+$msv-link-color: $msv-gray-900;
+$msv-divider-color: $msv-gray-300;
+$msv-error-color: $msv-red;
+$msv-success-color: $msv-green;
+$modal-input-background: $msv-gray-100;
+$msv-modal-overlay: rgba(0, 0, 0, 0.7);
+$msv-box-shadow-color: rgba(0, 0, 0, 0.132);
+$msv-selected-user-background-color: rgba(0, 0, 0, 0.04);
+
+$msv-selected-button-background: rgba(0, 0, 0, 0.02);
+$msv-selected-hovered-button-background: rgba(0, 0, 0, 0.04);
+
+$msv-flyout-empty-img-border: #F3F2F1;
+
+// Social button color variables
+$facebook-bg-color: #3C3C41;
+$facebook-hover-color: #1D1D1D;
+$microsoft-bg-color: #3C3C41;
+$microsoft-hover-color: #1D1D1D;
+$social-bg-color: #3C3C41;
+$social-hover-color: #1D1D1D;
+
+$msv-unfilled-rating-color: $msv-gray-800;
+
+// Style presets
+:root {
+    // Background
+    --msv-bg-color: #{$msv-gray-100};
+
+    // Font
+    --msv-font-primary-color: #{$msv-black};
+    --msv-font-secondary-color: #{$msv-white};
+
+    // Borders
+    --msv-border-color: #{$msv-gray-100};
+    --msv-btn-input-border-color: #{$msv-gray-500};
+
+    // Brand accents
+    --msv-accent-brand-color: #{$msv-primary};
+    --msv-accent-brand-alt-color: #{$msv-primary-hover};
+    --msv-accent-secondary-btn: #{$msv-secondary-hover};
+
+    // Status
+    --msv-error-color: #{$msv-red};
+    --msv-success-color: #{$msv-green};
+
+    // Modal
+    --msv-modal-bg-color: #{$msv-white};
+    --msv-modal-font-color: var(--msv-font-primary-color);
+    --msv-flyout-bg-color: #{$msv-white};
+
+    // Buttons
+    --msv-selected-button-background: #{$msv-selected-button-background};
+    --msv-selected-hovered-button-background: #{$msv-selected-hovered-button-background};
+}

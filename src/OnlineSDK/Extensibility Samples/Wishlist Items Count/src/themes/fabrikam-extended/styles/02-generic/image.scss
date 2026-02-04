@@ -1,0 +1,112 @@
+$default-image-width: 150px;
+$default-empty-image-width: $default-image-width;
+$default-loading-image-width: $default-image-width;
+$default-image-height: 150px;
+$default-empty-image-height: $default-image-height;
+$default-loading-image-height: $default-image-height;
+
+@mixin image-empty-placeholder($width, $height: $width) {
+    background-image: str-replace(url("data:image/svg+xml,%3Csvg width='#{$width}' height='#{$height}' viewBox='0 0 150 150' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3C!-- background --%3E%3Cpath d='M150 0H0V150H150V0Z' fill='white'/%3E%3C!-- line --%3E%3Cpath d='M100 56.25V93.75H50V56.25H100ZM53.125 59.375V75.9033L64.0625 64.9902L79.6875 80.6152L85.9375 74.3652L96.875 85.2783V59.375H53.125ZM53.125 90.625H85.2783L64.0625 69.3848L53.125 80.3467V90.625ZM96.875 90.625V89.7217L85.9375 78.7598L81.8848 82.8125L89.7217 90.625H96.875ZM89.0625 68.75C88.6393 68.75 88.2731 68.5954 87.9639 68.2861C87.6546 67.9769 87.5 67.6107 87.5 67.1875C87.5 66.7643 87.6546 66.3981 87.9639 66.0889C88.2731 65.7796 88.6393 65.625 89.0625 65.625C89.4857 65.625 89.8519 65.7796 90.1611 66.0889C90.4704 66.3981 90.625 66.7643 90.625 67.1875C90.625 67.6107 90.4704 67.9769 90.1611 68.2861C89.8519 68.5954 89.4857 68.75 89.0625 68.75Z' fill='%23D1D1D1'/%3E%3C/svg%3E%0A"), "#", "%23");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+@mixin image-loading-placeholder($width, $height: $width) {
+    background-image: str-replace(url("data:image/svg+xml,%3Csvg width='#{$width}' height='#{$height}' viewBox='0 0 224 224' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='224' height='224' fill='%23F2F2F2'/%3E%3Cg filter='url(%23filter0_b)'%3E%3Cpath d='M78.129 122.166L62 138H162L126.516 96.833L91.0323 134.833L78.129 122.166Z' fill='url(%23paint0_linear)'/%3E%3C/g%3E%3Cg style='mix-blend-mode:hard-light' filter='url(%23filter1_i)'%3E%3Cpath d='M78.129 122.166L62 138H162L126.516 96.833L91.0323 134.833L78.129 122.166Z' fill='%23808080'/%3E%3C/g%3E%3Cg filter='url(%23filter2_b)'%3E%3Ccircle cx='91' cy='94' r='10' fill='url(%23paint1_linear)'/%3E%3C/g%3E%3Cg style='mix-blend-mode:hard-light' filter='url(%23filter3_i)'%3E%3Ccircle cx='91' cy='94' r='10' fill='%23808080'/%3E%3C/g%3E%3Cdefs%3E%3Cfilter id='filter0_b' x='60' y='94.833' width='104' height='45.1667' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'%3E%3CfeFlood flood-opacity='0' result='BackgroundImageFix'/%3E%3CfeGaussianBlur in='BackgroundImage' stdDeviation='1'/%3E%3CfeComposite in2='SourceAlpha' operator='in' result='effect1_backgroundBlur'/%3E%3CfeBlend mode='normal' in='SourceGraphic' in2='effect1_backgroundBlur' result='shape'/%3E%3C/filter%3E%3Cfilter id='filter1_i' x='62' y='96.833' width='100' height='42.1667' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'%3E%3CfeFlood flood-opacity='0' result='BackgroundImageFix'/%3E%3CfeBlend mode='normal' in='SourceGraphic' in2='BackgroundImageFix' result='shape'/%3E%3CfeColorMatrix in='SourceAlpha' type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0' result='hardAlpha'/%3E%3CfeOffset dy='1'/%3E%3CfeGaussianBlur stdDeviation='1.5'/%3E%3CfeComposite in2='hardAlpha' operator='arithmetic' k2='-1' k3='1'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.25098 0 0 0 0 0.25098 0 0 0 0 0.25098 0 0 0 0.5 0'/%3E%3CfeBlend mode='normal' in2='shape' result='effect1_innerShadow'/%3E%3C/filter%3E%3Cfilter id='filter2_b' x='79' y='82' width='24' height='24' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'%3E%3CfeFlood flood-opacity='0' result='BackgroundImageFix'/%3E%3CfeGaussianBlur in='BackgroundImage' stdDeviation='1'/%3E%3CfeComposite in2='SourceAlpha' operator='in' result='effect1_backgroundBlur'/%3E%3CfeBlend mode='normal' in='SourceGraphic' in2='effect1_backgroundBlur' result='shape'/%3E%3C/filter%3E%3Cfilter id='filter3_i' x='81' y='84' width='20' height='21' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'%3E%3CfeFlood flood-opacity='0' result='BackgroundImageFix'/%3E%3CfeBlend mode='normal' in='SourceGraphic' in2='BackgroundImageFix' result='shape'/%3E%3CfeColorMatrix in='SourceAlpha' type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0' result='hardAlpha'/%3E%3CfeOffset dy='1'/%3E%3CfeGaussianBlur stdDeviation='1.5'/%3E%3CfeComposite in2='hardAlpha' operator='arithmetic' k2='-1' k3='1'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.25098 0 0 0 0 0.25098 0 0 0 0 0.25098 0 0 0 0.5 0'/%3E%3CfeBlend mode='normal' in2='shape' result='effect1_innerShadow'/%3E%3C/filter%3E%3ClinearGradient id='paint0_linear' x1='112' y1='96.833' x2='112' y2='138' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%23BFBFBF' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%23BFBFBF' stop-opacity='0.3'/%3E%3C/linearGradient%3E%3ClinearGradient id='paint1_linear' x1='91' y1='84' x2='91' y2='104' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%23BFBFBF' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%23BFBFBF' stop-opacity='0.3'/%3E%3C/linearGradient%3E%3C/defs%3E%3C/svg%3E%0A"), "#", "%23");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.msc-loading_image {
+    @include image-loading-placeholder($default-loading-image-width, $default-loading-image-height);
+}
+
+.msc-empty_image {
+    @include image-empty-placeholder($default-empty-image-width, $default-loading-image-height);
+}
+
+.msc-thumbnail_image {
+    filter: blur(5px);
+    transition: visibility 0ms ease 400ms;
+}
+
+@mixin image($width, $height: $width) {
+    .msc-image-container {
+        width: $width;
+        height: $height;
+    }
+
+    .msc_image {
+        width: $width;
+        height: $height;
+    }
+
+    .msc-loading_image {
+        @include image-loading-placeholder($width, $height);
+    }
+
+    .msc-empty_image {
+        @include image-empty-placeholder($width, $height);
+    }
+
+    .msc-thumbnail_image {
+        filter: blur(min($width, $height) * 0.015);
+    }
+}
+
+.msc-image-container {
+    display: grid;
+    overflow: hidden;
+    position: relative;
+    z-index: 0;
+    margin: auto;
+
+    > * {
+        grid-area: 1 / 1;
+        grid-row: 1;
+    }
+
+    >:nth-child(1) {
+        z-index: 0;
+    }
+
+    >:nth-child(2) {
+        z-index: 1;
+    }
+
+    >:nth-child(3) {
+        z-index: 2;
+    }
+
+    .msc-loading_image {
+        &.hidden {
+            visibility: hidden;
+        }
+    }
+
+    .msc-thumbnail_image {
+        &.loading {
+            visibility: hidden;
+        }
+
+        &.hidden {
+            visibility: hidden;
+        }
+    }
+
+    .msc-main_image {
+        &.loading {
+            visibility: hidden;
+        }
+
+        &.hidden {
+            visibility: hidden;
+        }
+    }
+
+    .msc_image {
+        object-fit: contain;
+    }
+}

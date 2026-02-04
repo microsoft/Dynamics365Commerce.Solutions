@@ -1,0 +1,116 @@
+$msv-account-profile-edit-width: 40%;
+$msv-account-profile-edit-width-m: 80%;
+$msv-account-profile-edit-message-margin-top: 20px;
+$msv-account-profile-edit-message-padding: 20px;
+$msv-account-profile-edit-account-item-margin-top: 20px;
+$msv-account-profile-edit-input-margin-top: 4px;
+$msv-account-profile-edit-button-group-spacing: 32px;
+$msv-account-profile-edit-button-margin-top: 20px;
+
+//style presets
+:root {
+    --msv-account-profile-edit-font-size: var(--msv-body-font-size-m);
+
+    // heading
+    --msv-account-profile-edit-heading-font-size: var(--msv-body-font-size-xl);
+    --msv-account-profile-edit-heading-font-color: var(--msv-font-primary-color);
+
+    //error
+    --msv-account-profile-edit-error-font-color: #{$msv-red};
+    --msv-account-profile-edit-error-font-size: var(--msv-body-font-size-m);
+
+    // alert
+    --msv-account-profile-alert-bg: #{$msv-gray-300};
+    --msv-account-profile-alert-font-color: var(--msv-font-primary-color);
+    --msv-account-profile-alert-border: #{$msv-gray-900};
+
+    // primary button
+    --msv-account-profile-edit-primary-btn-bg: var(--msv-accent-brand-color);
+    --msv-account-profile-edit-primary-btn-font-color: var(--msv-font-secondary-color);
+    --msv-account-profile-edit-primary-btn-border: var(--msv-accent-brand-color);
+
+    // secondary button
+    --msv-account-profile-edit-secondary-btn-bg: var(--msv-secondary-button-background-color);
+    --msv-account-profile-edit-secondary-btn-font-color: var(--msv-font-primary-color);
+    --msv-account-profile-edit-secondary-btn-border: var(--msv-accent-brand-color);
+
+    //input color
+    --msv-account-profile-edit-input-bg: #{$msv-white};
+}
+
+.ms-account-profile-edit {
+    @include font-content(var(--msv-font-weight-normal), var(--msv-account-profile-edit-font-size), $msv-line-height-m);
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    &__container {
+        width: $msv-account-profile-edit-width;
+    }
+
+    &__heading {
+        @include font-content(var(--msv-font-weight-normal),
+        var(--msv-account-profile-edit-heading-font-size), $msv-line-height-xl);
+        color: var(--msv-account-profile-edit-heading-font-color);
+    }
+
+    &__account-item {
+        margin-top: $msv-account-profile-edit-account-item-margin-top;
+
+        &-input {
+            @include form-input-el(var(--msv-account-profile-edit-input-bg));
+            margin-top: $msv-account-profile-edit-input-margin-top;
+            width: 100%;
+        }
+    }
+
+    &__page-success {
+        @include validation-success(var(--msv-account-profile-alert-bg),
+        var(--msv-account-profile-alert-border), var(--msv-account-profile-alert-font-color));
+        display: none;
+        margin-top: $msv-account-profile-edit-message-margin-top;
+        padding: $msv-account-profile-edit-message-padding;
+    }
+
+    &__page-error {
+        @include validation-error(var(--msv-account-profile-alert-bg),
+        var(--msv-account-profile-alert-border), var(--msv-account-profile-alert-font-color));
+        display: none;
+        margin-top: $msv-account-profile-edit-message-margin-top;
+        padding: $msv-account-profile-edit-message-padding;
+    }
+
+    &__item-error {
+        @include font-content(var(--msv-font-weight-normal),
+        var(--msv-account-profile-edit-error-font-size), $msv-line-height-m);
+        color: var(--msv-account-profile-edit-error-font-color);
+    }
+
+    &__save-button {
+        @include primary-button($bg-color: var(--msv-account-profile-edit-primary-btn-bg),
+        $color: var(--msv-account-profile-edit-primary-btn-font-color),
+        $border-color: var(--msv-account-profile-edit-primary-btn-border));
+        margin-top: $msv-account-profile-edit-button-margin-top;
+        width: 100%;
+    }
+
+    &__cancel-button {
+        @include secondary-button($bg-color: var(--msv-account-profile-edit-secondary-btn-bg),
+        $color: var(--msv-account-profile-edit-secondary-btn-font-color),
+        $border-color: var(--msv-account-profile-edit-secondary-btn-border));
+        margin-top: $msv-account-profile-edit-button-margin-top;
+        width: 100%;
+    }
+
+    &__verifying-modal,
+    &__verifying-modal-message {
+        display: none;
+    }
+
+    @media screen and (max-width: $msv-breakpoint-m) {
+        &__container {
+            width: $msv-account-profile-edit-width-m;
+        }
+    }
+}

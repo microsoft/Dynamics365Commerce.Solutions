@@ -1,0 +1,106 @@
+@import "../common/00-settings/colors.scss";
+@import "../common/00-settings/font.scss";
+@import "../common/01-tools/mixins.scss";
+@import "../common/00-settings/responsive-breakpoints.scss";
+@import "../common/01-tools/layout.scss";
+@import "../common/02-generic/reset.scss";
+@import "../common/00-settings/icons.scss";
+
+// font
+$promo-banner-line-height: 20px;
+$promo-banner-line-height-mobile: 16px;
+$promo-banner-bottom-padding: 10px;
+$promo-banner-top-padding: 10px;
+$promo-banner-link-margin-left: 4px;
+$promo-banner-link-padding-top: 4px;
+$promo-banner-link-padding-bottom: 4px;
+$promo-banner-link-padding-top-mobile: 6px;
+$promo-banner-link-padding-bottom-mobile: 6px;
+
+//style presets
+:root {
+    --msv-promo-banner-bg: #{$msv-blue};
+    --msv-promo-banner-font-color: var(--msv-font-secondary-color);
+    --msv-promo-banner-font-size: var(--msv-body-font-size-s);
+    --msv-promo-banner-font-size-mobile: #{$msv-font-size-xs};
+}
+
+.ms-promo-banner {
+    background-color: var(--msv-promo-banner-bg);
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+
+    &.alignment__center {
+        text-align: center;
+    }
+
+    &.alignment__left {
+        text-align: left;
+    }
+
+    &.alignment__right {
+        text-align: right;
+    }
+
+    .msc-carousel__indicators {
+        display: none;
+    }
+
+    .ms-promo-banner__text,
+    .ms-promo-banner__link {
+        color: var(--msv-promo-banner-font-color);
+        font-size: var(--msv-promo-banner-font-size);
+        font-style: normal;
+        font-weight: $msv-font-weight-normal;
+        line-height: $promo-banner-line-height;
+        letter-spacing: 0.01em;
+        padding-top: $promo-banner-link-padding-top;
+        padding-bottom: $promo-banner-link-padding-bottom;
+    }
+
+    .ms-promo-banner__link {
+        border: 0;
+        margin-left: $promo-banner-link-margin-left;
+        text-decoration: underline;
+
+        @include vfi();
+    }
+
+    .ms-promo-banner__carousel {
+        width: 98%;
+    }
+
+    .msc-carousel__inner {
+        color: var(--msv-font-primary-color);
+    }
+
+    .ms-promo-banner__close-button {
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+
+        &::after {
+            @include msv-icon();
+            content: $msv-Cancel;
+        }
+
+        .ms-promo-banner__close-button__label {
+            display: none;
+        }
+    }
+}
+
+@media screen and (max-width: $msv-breakpoint-m) {
+    .ms-promo-banner .ms-promo-banner__carousel {
+        width: 95%;
+    }
+
+    .ms-promo-banner .ms-promo-banner__text,
+    .ms-promo-banner .ms-promo-banner__link {
+        font-size: var(--msv-promo-banner-font-size-mobile);
+        line-height: $promo-banner-line-height-mobile;
+        padding-top: $promo-banner-link-padding-top-mobile;
+        padding-bottom: $promo-banner-link-padding-bottom-mobile;
+    }
+}

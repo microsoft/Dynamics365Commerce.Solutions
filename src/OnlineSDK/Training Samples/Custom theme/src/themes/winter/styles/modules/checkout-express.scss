@@ -1,0 +1,244 @@
+@import "../common/00-settings/colors.scss";
+@import "../common/00-settings/font.scss";
+@import "../common/00-settings/icons.scss";
+@import "../common/00-settings/responsive-breakpoints.scss";
+
+$msv-checkout-express-min-height: 80px;
+$msv-checkout-express-loading-dimension: 100%;
+$msv-checkout-express-border: 0;
+$msv-checkout-payment-ready-margin-bottom: 20px;
+$msv-checkout-payment-ready-flex-basis: 100%;
+$msv-checkout-payment-ready-margin-left: 10px;
+$msv-checkout-payment-card-title-margin-bottom: 10px;
+$msv-checkout-express-mutation-observer-margin-top: 20px;
+$msv-checkout-express-heading-padding-bottom: 20px;
+$msv-checkout-express-paypal-max-width: 270px;
+$msv-checkout-express-googlepay-max-width: 300px;
+$msv-checkout-express-error-max-width: 512px;
+$msv-checkout-express-error-padding: 8px;
+$msv-checkout-express-error-title-margin-bottom: 10px;
+$msv-checkout-express-error-margin-top: 2px;
+$msv-checkout-icon-margin-right: 8px;
+$msv-checkout-express-message-margin-bottom: 0;
+$msv-checkout-express-padding-top: 28px;
+$msv-checkout-express-googlepay-padding-top: 26px;
+$msv-checkout-express-googlepay-margin-left: -15px;
+$msv-checkout-express-paypal-in-cart-page-margin-top: 8px;
+$msv-checkout-express-googlepay-in-cart-page-margin-top: 4px;
+$msv-checkout-express-container-padding-top: 28px;
+$msv-checkout-express-container-padding-left: 0;
+$msv-checkout-express-container-padding-right: 464px;
+$msv-checkout-express-container-in-cart-page-margin-bottom: -10px;
+$msv-checkout-express-googlepay-mobile-margin-left: -24px;
+$msv-checkout-express-googlepay-mobile-margin-top: -10px;
+$msv-checkout-express-container-paypal-margin-right: 10px;
+$msv-checkout-express-container-text-block-martin-bottom: 20px;
+$msv-checkout-express-container-googlepay-mobile-padding-top: 37px;
+
+//style presets
+:root {
+    --msv-checkout-express-bg: #{$msv-gray-100};
+    --msv-checkout-express-font-size: var(--msv-body-font-size-m);
+
+    // heading
+    --msv-checkout-express-heading-font-color: var(--msv-font-primary-color);
+    --msv-checkout-express-heading-font-size: var(--msv-body-font-size-xl);
+
+    // error
+    --msv-checkout-express-error-message-bg: var(--msv-error-color);
+    --msv-checkout-express-error-message-border: var(--msv-error-color);
+    --msv-checkout-express-error-message-color: var(--msv-font-secondary-color);
+}
+
+.checkout-express {
+    position: relative;
+    min-height: $msv-checkout-express-min-height;
+
+    &__loading-background {
+        display: flex;
+        height: $msv-checkout-express-loading-dimension;
+        position: absolute;
+        width: $msv-checkout-express-loading-dimension;
+        background-color: var(--msv-checkout-express-bg);
+
+        .waiting {
+            display: block;
+            margin: auto;
+        }
+    }
+
+    &__iframe {
+        border: $msv-checkout-express-border;
+        width: $msv-checkout-express-loading-dimension;
+    }
+
+    &__title {
+        color: var(--msv-checkout-express-heading-font-color);
+        font-style: normal;
+        font-weight: var(--msv-font-weight-normal);
+        font-size: var(--msv-checkout-express-heading-font-size);
+        line-height: $msv-line-height-xl;
+        align-items: center;
+        padding-bottom: $msv-checkout-express-heading-padding-bottom;
+    }
+}
+
+.ms-checkout-express {
+    &__overlay-modal {
+        display: none;
+    }
+
+    &__error {
+        background-color: var(--msv-checkout-express-error-message-bg);
+        border: 1px solid var(--msv-checkout-express-error-message-border);
+        color: var(--msv-checkout-express-error-message-color);
+        max-width: $msv-checkout-express-error-max-width;
+        padding: $msv-checkout-express-error-padding;
+
+        &-title {
+            margin-bottom: $msv-checkout-express-error-title-margin-bottom;
+            margin-top: $msv-checkout-express-error-margin-top;
+
+            &::before {
+                @include msv-icon();
+                content: $msv-IncidentTriangle;
+                margin-right: $msv-checkout-icon-margin-right;
+            }
+
+            display: block;
+        }
+
+        &-message {
+            display: block;
+            margin-bottom: $msv-checkout-express-message-margin-bottom;
+            color: var(--msv-font-secondary-color);
+        }
+    }
+}
+
+.ms-checkout-express-paypal {
+    padding-top: $msv-checkout-express-padding-top;
+    transform: scale(1.05);
+
+    &-in-cart-page {
+        margin-top: $msv-checkout-express-paypal-in-cart-page-margin-top;
+
+        @media screen and (max-width: $msv-breakpoint-m) {
+            transform: scale(1.06);
+        }
+
+        .ms-checkout-express__add {
+            transform: scale(0.91);
+        }
+
+        iframe {
+            background-color: #FFCC00;
+            // border: 1px solid var(--msv-primary-btn-light-border-color);
+            border-radius: 100px;
+            box-sizing: border-box;
+            height: 66px;
+            min-width: 165px;
+        }
+    }
+
+    .ms-checkout-express__add {
+        max-width: $msv-checkout-express-paypal-max-width;
+    }
+}
+
+.ms-checkout-express-googlepay {
+    padding-top: $msv-checkout-express-googlepay-padding-top;
+    transform: scale(0.92);
+    margin-left: $msv-checkout-express-googlepay-margin-left;
+
+    &-in-cart-page {
+        transform: scale(1.04);
+        margin-top: $msv-checkout-express-googlepay-in-cart-page-margin-top;
+
+        @media screen and (max-width: $msv-breakpoint-m) {
+            transform: scale(1.06);
+        }
+    }
+
+    .ms-checkout-express__add {
+        max-width: $msv-checkout-express-googlepay-max-width;
+    }
+
+    @media screen and (max-width: $msv-breakpoint-m) {
+        margin-left: $msv-checkout-express-googlepay-mobile-margin-left;
+        margin-right: 0;
+        margin-top: $msv-checkout-express-googlepay-mobile-margin-top;
+        padding-top: 0;
+    }
+}
+
+.container.msc-express-payment-container {
+    padding-left: $msv-checkout-express-container-padding-left;
+    padding-right: $msv-checkout-express-container-padding-right;
+
+    .container-heading {
+        @include font-heading-h3-l();
+        align-items: center;
+        width: 100%;
+        padding-top: $msv-checkout-express-container-padding-top;
+    }
+
+    @media screen and (min-width: $msv-breakpoint-m) {
+        .col-md-4,
+        .col-md-3 {
+            display: contents;
+        }
+    }
+
+    .col-md-has-textblock {
+        width: 100%;
+    }
+
+    @media screen and (max-width: $msv-breakpoint-m) {
+        padding-right: 0;
+    }
+}
+
+.msc-express-payment-container-in-cart-page {
+    width: 100%;
+}
+
+.ms-checkout-express-payment-container {
+    .notShowContainer {
+        display: none;
+    }
+
+    overflow: hidden;
+
+    .ms-checkout-express.ms-checkout-express-googlepay,
+    .ms-checkout-express.ms-checkout-express-paypal {
+        float: left;
+        margin-right: $msv-checkout-express-container-paypal-margin-right;
+    }
+
+    .ms-text-block {
+        float: left;
+        margin-top: 0;
+        margin-bottom: $msv-checkout-express-container-text-block-martin-bottom;
+    }
+
+    .ms-checkout-express-payment-container__title {
+        @include font-heading-h3-l();
+        align-items: center;
+        width: 100%;
+        padding-top: $msv-checkout-express-container-padding-top;
+    }
+
+    .ms-checkout-express-googlepay {
+        @media screen and (max-width: $msv-breakpoint-m) {
+            margin-left: $msv-checkout-express-googlepay-mobile-margin-left;
+            margin-right: 0;
+            margin-top: $msv-checkout-express-googlepay-mobile-margin-top;
+            padding-top: $msv-checkout-express-container-googlepay-mobile-padding-top;
+        }
+    }
+}
+
+.ms-checkout-express-payment-container.hide {
+    display: none;
+}

@@ -1,0 +1,106 @@
+// style-presets
+:root {
+    // primary button
+    --msc-pay-invoice-error-primary-btn-bg: var(--msv-accent-brand-color);
+    --msc-pay-invoice-error-primary-btn-font-color: var(--msv-font-secondary-color);
+    --msc-pay-invoice-error-primary-btn-border: var(--msv-accent-brand-color);
+
+    // secondary button
+    --msc-pay-invoice-error-secondary-btn-bg: var(--msv-secondary-button-background-color);
+    --msc-pay-invoice-error-secondary-btn-font-color: var(--msv-font-primary-color);
+    --msc-pay-invoice-error-secondary-btn-border: var(--msv-accent-brand-color);
+}
+
+.ms-account-b2b-requests {
+    @include font-content(var(--msv-font-weight-normal), var(--msv-body-font-size-m), $msv-line-height-m);
+    float: right;
+    margin-top: 50px;
+
+    &__header {
+        &__container {
+            display: inline;
+            font-size: var(--msv-body-font-size-xl);
+        }
+
+        &__heading {
+            font-weight: var(--msv-font-weight-bold);
+            color: var(--msv-font-primary-color);
+            height: 40px;
+            display: inline;
+            font-size: var(--msv-body-font-size-xl);
+            margin-right: 25px;
+        }
+    }
+
+    &__table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 50px;
+        margin-bottom: 50px;
+        table-layout: fixed;
+
+        &__header {
+            text-align: left;
+
+            @include divider(bottom);
+
+            &__row {
+                height: 50px;
+
+                th {
+                    font-style: normal;
+                    font-weight: normal;
+                    line-height: 21px;
+                }
+            }
+        }
+
+        .ms-table {
+            &__heading-row,
+            &__heading-row-data,
+            &__row,
+            &__row-data {
+                @include font-content-l();
+                border-bottom: 1px solid #D1D1D1;
+                height: 82px;
+                overflow: hidden;
+                text-align: left;
+                text-overflow: ellipsis;
+                font-weight: bold;
+            }
+
+            &__heading-row,
+            &__heading-row-data {
+                height: 82px;
+                font-weight: $msv-font-weight-heavy;
+            }
+
+            &__heading-sorting {
+                cursor: pointer;
+
+                &.asc {
+                    @include add-icon($msv-Arrow-Down, after);
+                }
+
+                &.dsc {
+                    @include add-icon($msv-Arrow-Up, after);
+                }
+
+                &::after {
+                    color: $msv-gray-500;
+                    padding-left: 8px;
+                }
+            }
+        }
+    }
+
+    &__load-more {
+        @include primary-button();
+
+        margin-top: 20px;
+
+        &.is-busy {
+            @include add-spinner(before);
+        }
+    }
+}

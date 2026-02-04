@@ -1,0 +1,52 @@
+$spacer-size-desktop: 80px;
+$spacer-size-mobile: 48px;
+
+.ms-spacer {
+    height: $spacer-size-mobile;
+
+    @media screen and (min-width: $msv-breakpoint-m) {
+        & {
+            height: $spacer-size-desktop;
+        }
+    }
+
+    &1x {
+        height: 12px;
+    }
+
+    &2x {
+        height: 24px;
+    }
+
+    &3x {
+        height: 36px;
+    }
+
+    &4x {
+        height: 48px;
+    }
+
+    &5x {
+        height: 60px;
+    }
+
+    &6x {
+        height: 72px;
+    }
+
+    &7x {
+        height: 84px;
+    }
+
+    &8x {
+        height: 96px;
+    }
+
+    &9x {
+        height: 108px;
+    }
+
+    &10x {
+        height: 120px;
+    }
+}
