@@ -32,4 +32,4 @@ System.register([], function (exports_1, context_1) {
         }
     };
 });
-//# sourceMappingURL=C:/__w/2/s/r/src/FiscalIntegration/PosFiscalConnectorSample/Pos.Extension/Infrastructure/Http/HttpRequestError.js.map
+//# sourceMappingURL=C:/__w/1/s/r/src/FiscalIntegration/PosFiscalConnectorSample/Pos.Extension/Infrastructure/Http/HttpRequestError.js.map

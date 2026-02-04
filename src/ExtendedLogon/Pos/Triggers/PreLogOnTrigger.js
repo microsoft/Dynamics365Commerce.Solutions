@@ -63,4 +63,4 @@ System.register(["PosApi/Extend/Triggers/ApplicationTriggers", "PosApi/Extend/Tr
         }
     };
 });
-//# sourceMappingURL=C:/__w/2/s/r/src/ExtendedLogon/Pos/Triggers/PreLogOnTrigger.js.map
+//# sourceMappingURL=C:/__w/1/s/r/src/ExtendedLogon/Pos/Triggers/PreLogOnTrigger.js.map
