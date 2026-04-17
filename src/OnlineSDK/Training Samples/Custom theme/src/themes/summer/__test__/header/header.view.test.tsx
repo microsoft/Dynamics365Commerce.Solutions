@@ -33,13 +33,16 @@ const resources = {
     headerAriaLabel: '',
     headerPreferredDistributorText: '',
     headerPreferredDistributorAriaLabel: '',
-    signInCustomerNotAuthorizedTitle: ''
+    signInCustomerNotAuthorizedTitle: '',
+    switchOrganizationLinkDefaultText: '',
+    switchOrganizationLinkAriaText: '',
+    emailNotRegisteredTitle: ''
 };
 describe('Header view tests', () => {
     it('render correctly no sign in info', () => {
         const moduleProps = buildMockModuleProps({}, {}, MockUtillities.mockHeaderConfig);
 
-        // @ts-expect-error
+        // @ts-expect-error partial mock
         const mockProps: IHeaderViewProps = {
             ...buildMockModuleProps(MockUtillities.mockResources, MockUtillities.mockAnonContext),
             ...moduleProps,

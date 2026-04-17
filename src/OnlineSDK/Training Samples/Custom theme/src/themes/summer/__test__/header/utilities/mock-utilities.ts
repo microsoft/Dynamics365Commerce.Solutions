@@ -100,5 +100,8 @@ export const mockResources = {
     headerAriaLabel: 'Header',
     headerPreferredDistributorText: 'Preferred distributor',
     headerPreferredDistributorAriaLabel: 'Preferred distributor',
-    signInCustomerNotAuthorizedTitle: 'Customer not authorized'
+    signInCustomerNotAuthorizedTitle: 'Customer not authorized',
+    switchOrganizationLinkDefaultText: 'Switch organization',
+    switchOrganizationLinkAriaText: 'Switch organization',
+    emailNotRegisteredTitle: 'Email not registered'
 };
