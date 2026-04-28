@@ -1,0 +1,63 @@
+.ms-tab {
+    &-header-section {
+        margin: 5px 5px 20px 5px;
+
+        &__heading {
+            @include font-content-xl();
+        }
+    }
+
+    @media (min-width: $msv-breakpoint-m) {
+        &-header-section {
+            display: flex;
+            margin: 5px 5px 20px 5px;
+        }
+    }
+
+    &-tabs-section {
+        display: flex;
+
+        &-li {
+            cursor: pointer;
+            padding: 10px;
+            margin-right: 10px;
+            position: relative;
+
+            :hover {
+                text-decoration: none;
+            }
+
+            &[aria-selected="true"] {
+                ::before {
+                    background-color: $msv-blue;
+                }
+            }
+
+            /* stylelint-disable-next-line no-descending-specificity -- Auto-suppressed. Please fix if possible. */
+            ::before {
+                background-color: transparent;
+                bottom: 0;
+                content: "";
+                height: 2px;
+                left: 8px;
+                position: absolute;
+                right: 8px;
+                transition: background-color 0.267s cubic-bezier(0.1, 0.25, 0.75, 0.9);
+            }
+        }
+
+        li:last-of-type {
+            margin-right: 0;
+        }
+    }
+
+    &-content-section {
+        margin-top: 20px;
+    }
+
+    &-item-content__content {
+        &[aria-hidden="true"] {
+            display: none;
+        }
+    }
+}

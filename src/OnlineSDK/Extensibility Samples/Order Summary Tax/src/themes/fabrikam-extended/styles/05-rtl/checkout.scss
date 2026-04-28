@@ -1,0 +1,59 @@
+$msv-checkout-line-margin-right:20px;
+$msv-checkout-rtl-edit-link-margin-right:15px;
+$msv-checkout-pick-up-at-store-margin-left:0;
+$msv-checkout-pick-up-at-store-margin-right:128px;
+$msv-checkout-line-item-pickup-heading-subheading-margin:0 50px 0 0;
+$msv-checkout-main-panel-padding: 0 0 0 40px;
+
+[dir="rtl"] {
+    .ms-checkout {
+        &__main {
+            padding: $msv-checkout-main-panel-padding;
+        }
+
+        &__line-items {
+            &-header {
+                .ms-checkout__line-items-heading {
+                    float: left;
+                }
+
+                .ms-checkout__line-items-edit-cart-link {
+                    float: none;
+                }
+            }
+
+            &-delivery-group {
+                .ms-checkout__line-items-group-title {
+                    text-align: left;
+
+                    &-multiple-pickup-heading,
+                    &-multiple-pickup-subheading {
+                        margin: $msv-checkout-line-item-pickup-heading-subheading-margin;
+                    }
+                }
+
+                .ms-checkout__pick-up-at-store {
+                    margin-left: $msv-checkout-pick-up-at-store-margin-left;
+                    margin-right: $msv-checkout-pick-up-at-store-margin-right;
+                }
+
+                .msc-cart-line {
+                    &__content {
+                        margin-right: $msv-checkout-line-margin-right;
+
+                        .msc-cart-line__product-price {
+                            text-align: right;
+                        }
+                    }
+                }
+            }
+        }
+
+        &__guided-card {
+            &-btn-edit {
+                display: flex;
+                margin-right: $msv-checkout-rtl-edit-link-margin-right;
+            }
+        }
+    }
+}

@@ -1,0 +1,233 @@
+@import "../common/00-settings/colors.scss";
+@import "../common/00-settings/font.scss";
+@import "../common/00-settings/responsive-breakpoints.scss";
+@import "../common/02-generic/image.scss";
+@import "../common/01-tools/layout.scss";
+@import "../common/01-tools/mixins.scss";
+@import "../common/02-generic/button.scss";
+@import "../common/00-settings/icons.scss";
+@import "../common/02-generic/reset.scss";
+
+$feature-heading-font-size: 32px;
+$feature-secondary-link-to-link-padding-top-bottom: 8px;
+$feature-secondary-link-to-link-padding-left-right: 16px;
+$feature-content-margin-left: 40px;
+$feature-content-margin-right: 20px;
+$feature-content-text-margin-top: 28px;
+$feature-content-button-margin-top: 28px;
+$feature-content-mobile-margin-left: 16px;
+$feature-content-mobile-margin-right: 16px;
+$feature-additional-cta-padding: 4px 0;
+
+:root {
+    // heading
+    --msv-content-block-heading-font-size: #{$feature-heading-font-size};
+    --msv-content-block-heading-font-color: var(--msv-font-primary-color);
+
+    // text
+    --msv-content-block-text-font-size: var(--msv-body-font-size-m);
+    --msv-content-block-textheme-dark: var(--msv-font-primary-color);
+
+    // primary button
+    --msv-content-block-primary-btn-bg: var(--msv-accent-brand-color);
+    --msv-content-block-primary-btn-font-color: var(--msv-font-secondary-color);
+    --msv-content-block-primary-btn-border: var(--msv-accent-brand-color);
+}
+
+.ms-content-block {
+    &[data-m-layout="left-right"] {
+        .ms-content-block__image {
+            width: 100%;
+        }
+
+        .ms-content-block__details {
+            &__additional-content {
+                display: flex;
+                font-style: normal;
+                font-weight: $msv-font-weight-normal;
+                flex-direction: column;
+
+                &__text {
+                    @include msv-beth-ellen(
+                        $font-weight: $msv-font-weight-normal,
+                        $font-style: $msv-font-style-normal,
+                        $font-size: $msv-font-size-m,
+                        $line-height: $msv-line-height-s
+                    );
+                }
+
+                &-cta {
+                    @include feature-link-m();
+                    padding: $feature-additional-cta-padding;
+                    width: max-content;
+
+                    &-links {
+                        &:nth-child(1) {
+                            text-decoration-line: none;
+                        }
+
+                        &:nth-child(2) {
+                            text-decoration-line: underline;
+                            border-left: 1px solid $msv-white;
+                        }
+                    }
+                }
+            }
+        }
+
+        .msc-cta__primary {
+            @include primary-button-light();
+            height: auto;
+            min-width: auto;
+            border: 0;
+
+            &:hover {
+                background-color: transparent;
+            }
+        }
+
+        .msc-cta__secondary {
+            padding: $feature-secondary-link-to-link-padding-top-bottom
+                $feature-secondary-link-to-link-padding-left-right;
+        }
+
+        .ms-content-block__title {
+            color: var(--msv-content-block-heading-font-color);
+
+            @include font-heading-h2-l();
+        }
+
+        .ms-content-block__text {
+            @include font-body-regular-m();
+        }
+
+        .ms-content-block__cta {
+            .msc-cta__primary {
+                @include primary-button-light();
+
+                @media (max-width: $msv-breakpoint-l) {
+                    width: 100%;
+                }
+
+                @media screen and (min-width: $msv-breakpoint-m) {
+                    width: auto;
+                }
+            }
+        }
+
+        &.textplacement__left {
+            .ms-content-block__details {
+                .card-cta {
+                    justify-content: flex-start;
+                }
+            }
+        }
+
+        &.textplacement__right {
+            .ms-content-block__details {
+                .card-cta {
+                    justify-content: flex-end;
+                }
+            }
+        }
+
+        &.textplacement__center {
+            .ms-content-block__details {
+                text-align: center;
+
+                .card-cta {
+                    justify-content: center;
+                }
+            }
+        }
+
+        .ms-content-block__image img {
+            width: 100%;
+        }
+
+        .ms-content-block__image svg {
+            width: 100%;
+        }
+
+        /* body should have top margin only when there's something above it */
+        * + .ms-content-block__text {
+            margin-top: $feature-content-text-margin-top;
+        }
+
+        /* links should have top margin only when there's something above it */
+        * + .ms-content-block__cta {
+            margin-top: $feature-content-button-margin-top;
+            width: 100%;
+        }
+
+        @media screen and (min-width: $msv-breakpoint-m) {
+            &.textplacement__left,
+            &.textplacement__right {
+                display: grid;
+                grid-template-columns: 4fr 3fr;
+                grid-template-rows: auto;
+
+                .ms-content-block__details {
+                    margin-left: $feature-content-margin-left;
+                    margin-right: $feature-content-margin-right;
+                }
+            }
+
+            &.textplacement__center {
+                .ms-content-block__details {
+                    align-items: center;
+                    text-align: center;
+                }
+
+                .ms-content-block__image img {
+                    width: 100%;
+                }
+
+                .ms-content-block__image svg {
+                    width: 100%;
+                }
+            }
+
+            &.textplacement__left {
+                display: grid;
+                grid-template-columns: 1fr 2fr;
+                grid-template-rows: auto;
+
+                .ms-content-block__image {
+                    grid-column: 2 / span 1;
+                    grid-row: 1 / span 1;
+                    margin-bottom: auto;
+                    margin-top: auto;
+                }
+
+                .ms-content-block__details {
+                    grid-column: 1 / span 1;
+                    grid-row: 1 / span 1;
+                }
+            }
+        }
+
+        @media screen and (max-width: $msv-breakpoint-m) {
+            .ms-content-block__image img {
+                width: 100%;
+            }
+
+            .ms-content-block__image svg {
+                width: 100%;
+            }
+
+            &.textplacement__left {
+                .ms-content-block__details {
+                    margin-left: $feature-content-mobile-margin-left;
+                    margin-right: $feature-content-mobile-margin-right;
+                }
+            }
+
+            &.textplacement__right {
+                .ms-content-block__details {
+                    margin-top: $feature-content-text-margin-top;
+                }
+            }
+        }
+    }
+}

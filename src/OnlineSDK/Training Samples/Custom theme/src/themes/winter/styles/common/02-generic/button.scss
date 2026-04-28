@@ -1,0 +1,784 @@
+@import "../00-settings/colors";
+@import "../00-settings/font";
+@import "../00-settings/responsive-breakpoints";
+
+$msv-btn-min-width: 165px;
+$msv-btn-height: 44px;
+$msv-btn-border-radius: 100px;
+$msv-btn-side-padding: 48px;
+$msv-btn-vertical-padding: 12px;
+$msv-toggle-button-font-size: 36px;
+$msv-toggle-button-padding: 0 5px;
+
+$msv-link-height-l: 44px;
+$msv-link-height-m: 24px;
+$msv-link-height-s: 20px;
+
+$msv-link-text-decoration-bottom-l: -20px;
+$msv-link-text-decoration-bottom-m: -8px;
+$msv-link-text-decoration-bottom-s: -8px;
+$msv-link-text-decoration-bottom-hover-l: -12px;
+$msv-link-text-decoration-bottom-hover-m: -4px;
+$msv-link-text-decoration-bottom-hover-s: -4px;
+$msv-link-text-decoration-height: 4px;
+
+$msv-card-button-height: 48px;
+$msv-card-button-width: 48px;
+
+:root {
+    // Background
+    --msv-secondary-button-background-color: #{$msv-white};
+
+    // Primary button --LIGHT THEME
+    --msv-primary-btn-light-font-color: #{$msv-white};
+    --msv-primary-btn-light-bg-color: #{$msv-gray-20};
+    --msv-primary-btn-light-border-color: #{$msv-white};
+    --msv-primary-btn-light-hover-bg-color: #{$msv-gray-70};
+    --msv-primary-btn-light-focus-bg-color: #{$msv-gray-70};
+    --msv-primary-btn-light-focus-border-color: #{$msv-blue-80};
+    --msv-primary-btn-light-pressed-bg-color: #{$msv-gray-60};
+    --msv-primary-btn-light-disabled-bg-color: #{$msv-gray-50};
+
+    // Secondary button --LIGHT THEME
+    --msv-secondary-btn-light-font-color: #{$msv-gray-20};
+    --msv-secondary-btn-light-bg-color: #{$msv-white};
+    --msv-secondary-btn-light-border-color: #{$msv-gray-20};
+    --msv-secondary-btn-light-hover-bg-color: #{$msv-white-20};
+    --msv-secondary-btn-light-focus-bg-color: #{$msv-white-20};
+    --msv-secondary-btn-light-focus-border-color: #{$msv-blue};
+    --msv-secondary-btn-light-pressed-bg-color: #{$msv-white-10};
+    --msv-secondary-btn-light-disabled-bg-color: #{$msv-gray-50};
+    --msv-secondary-btn-light-disabled-font-color: #{$msv-white};
+
+    // Primary button --DARK THEME
+    --msv-primary-btn-dark-font-color: #{$msv-gray-20};
+    --msv-primary-btn-dark-bg-color: #{$msv-white};
+    --msv-primary-btn-dark-border-color: #{$msv-gray-20};
+    --msv-primary-btn-dark-hover-bg-color: #{$msv-white-20};
+    --msv-primary-btn-dark-focus-bg-color: #{$msv-white-20};
+    --msv-primary-btn-dark-focus-border-color: #{$msv-blue-80};
+    --msv-primary-btn-dark-pressed-bg-color: #{$msv-white-10};
+    --msv-primary-btn-dark-disabled-bg-color: #{$msv-gray-50};
+    --msv-primary-btn-dark-disabled-font-color: #{$msv-gray-40};
+
+    // Secondary button --DARK THEME
+    --msv-secondary-btn-dark-font-color: #{$msv-white};
+    --msv-secondary-btn-dark-bg-color: #{$msv-gray-20};
+    --msv-secondary-btn-dark-border-color: #{$msv-white};
+    --msv-secondary-btn-dark-hover-bg-color: #{$msv-gray-70};
+    --msv-secondary-btn-dark-focus-bg-color: #{$msv-gray-70};
+    --msv-secondary-btn-dark-focus-border-color: #{$msv-blue-80};
+    --msv-secondary-btn-dark-pressed-bg-color: #{$msv-gray-60};
+    --msv-secondary-btn-dark-disabled-bg-color: #{$msv-gray-50};
+    --msv-secondary-btn-dark-disabled-font-color: #{$msv-gray-40};
+
+    // Feature Link light
+    --msv-feature-link-light-font-color: #{$msv-gray-20};
+    --msv-feature-link-light-disabled-font-color: #{$msv-gray-50};
+    --msv-feature-link-light-underline-bg-color: #{$msv-blue};
+    --msv-feature-link-light-border-color: #{$msv-blue};
+    --msv-feature-link-light-focus-underline-bg-color: #{$msv-blue-40};
+    --msv-feature-link-light-hover-underline-bg-color: #{$msv-blue-40};
+    --msv-feature-link-light-active-underline-bg-color: #{$msv-blue-30};
+    --msv-feature-link-light-disabled-underline-bg-color: #{$msv-gray-50};
+
+    // Feature Link dark
+    --msv-feature-link-dark-font-color: #{$msv-white};
+    --msv-feature-link-dark-disabled-font-color: #{$msv-gray-40};
+    --msv-feature-link-dark-underline-bg-color: #{$msv-blue-80};
+    --msv-feature-link-dark-border-color: #{$msv-blue};
+    --msv-feature-link-dark-focus-underline-bg-color: #{$msv-blue-90};
+    --msv-feature-link-dark-hover-underline-bg-color: #{$msv-blue-90};
+    --msv-feature-link-dark-active-underline-bg-color: #{$msv-blue-100};
+    --msv-feature-link-dark-disabled-underline-bg-color: #{$msv-gray-40};
+
+    // Links
+    --msv-link-font-color: #{$msv-gray-20};
+    --msv-link-font-size-m: #{$msv-font-size-m};
+    --msv-link-line-height-m: #{$msv-line-height-m};
+    --msv-link-font-size-s: #{$msv-font-size-s};
+    --msv-link-line-height-s: #{$msv-line-height-s};
+    --msv-link-font-size-xs: #{$msv-font-size-xs};
+    --msv-link-line-height-xs: #{$msv-line-height-xs};
+
+    // Card buttons
+    --msv-card-button-bg-color: #{$msv-black};
+    --msv-card-button-font-color: #{$msv-white};
+    --msv-card-button-disabled-font-color: #{$msv-gray-40};
+    --msv-card-button-focus-border-color: #{$msv-blue-80};
+
+    // Icon buttons
+    --msv-icon-button-light-font-color: #{$msv-gray-20};
+    --msv-icon-button-light-bg-color: #{$msv-transparent};
+    --msv-icon-button-dark-font-color: #{$msv-white};
+    --msv-icon-button-dark-bg-color: #{$msv-transparent};
+    --msv-icon-button-light-focus-border-color: #{$msv-blue};
+    --msv-icon-button-dark-focus-border-color: #{$msv-blue-80};
+
+    // Toggle buttons
+    --msv-toggle-button-color: #{$msv-blue};
+    --msv-toggle-button-disabled-color: #{$msv-gray-50};
+    --msv-toggle-button-focus-border-color: #{$msv-blue};
+}
+
+@mixin button-link($color: $msv-link-color) {
+    border-color: transparent;
+    background-color: transparent;
+    color: $color;
+
+    &:hover {
+        text-decoration: underline;
+        cursor: pointer;
+    }
+}
+
+@mixin primary-button($bg-color: var(--msv-button-primary-rest-color),
+$color: var(--msv-font-secondary-color), $border-color: var(--msv-button-primary-rest-color)) {
+    @include msv-rubik-regular(
+        $font-weight:$msv-font-weight-400,
+        $font-style: $msv-font-style-normal,
+        $font-size: $msv-font-size-s,
+        $line-height: $msv-line-height-s);
+
+    background-color: $bg-color;
+    border: 1px solid $border-color;
+    border-radius: $msv-btn-border-radius;
+    color: $color;
+    cursor: default;
+    height: $msv-btn-height;
+    letter-spacing: 0.1em;
+    padding: $msv-btn-vertical-padding $msv-btn-side-padding;
+    min-width: $msv-btn-min-width;
+    text-transform: uppercase;
+
+    &:hover,
+    &:focus {
+        background-color: var(--msv-button-primary-hover-color);
+        text-decoration: none;
+    }
+
+    &:active {
+        background-color: var(--msv-button-primary-pressed-color);
+    }
+
+    &:disabled,
+    &[disabled] {
+        border-color: var(--msv-button-primary-disabled-color);
+        background-color: var(--msv-button-primary-disabled-color);
+        color: var(--msv-font-secondary-color);
+    }
+}
+
+@mixin secondary-button($bg-color: var(--msv-button-secondary-rest-color),
+$color: var(--msv-font-primary-color), $border-color: $msv-gray-50) {
+    @include msv-rubik-regular(
+        $font-weight:$msv-font-weight-400,
+        $font-style: $msv-font-style-normal,
+        $font-size: $msv-font-size-s,
+        $line-height: $msv-line-height-s);
+
+    background-color: $bg-color;
+    border: 1px solid $border-color;
+    border-radius: $msv-btn-border-radius;
+    color: $color;
+    cursor: default;
+    height: $msv-btn-height;
+    letter-spacing: 0.1em;
+    padding: $msv-btn-vertical-padding $msv-btn-side-padding;
+    min-width: $msv-btn-min-width;
+    text-transform: uppercase;
+
+    &:hover,
+    &:focus {
+        background-color: var(--msv-button-secondary-hover-color);
+        border-color: $msv-gray-20;
+        text-decoration: none;
+    }
+
+    &:active {
+        background-color: var(--msv-button-secondary-pressed-color);
+        border-color: $msv-gray-20;
+    }
+
+    &:disabled,
+    &[disabled] {
+        border-color: $border-color;
+        background-color: var(--msv-button-secondary-disabled-color);
+        color: $msv-gray-50;
+    }
+}
+
+@mixin tertiary-button($color: var(--msv-font-primary-color)) {
+    color: $color;
+    min-width: $msv-btn-min-width;
+}
+
+@mixin button-default() {
+    @include vfi();
+    @include font-content-l();
+    cursor: pointer;
+    padding: 12px 20px;
+    height: 48px;
+    min-width: 160px;
+    text-align: center;
+}
+
+@mixin button-icon {
+    width: 48px;
+    height: 48px;
+}
+
+@mixin feature-link-light-l() {
+    @include feature-link-l();
+    @include feature-link-text-decoration-light();
+}
+
+@mixin feature-link-light-m() {
+    @include feature-link-m();
+    @include feature-link-text-decoration-light();
+}
+
+@mixin feature-link-light-s() {
+    @include feature-link-s();
+    @include feature-link-text-decoration-light();
+}
+
+@mixin feature-link-dark-l() {
+    @include feature-link-l();
+    @include feature-link-text-decoration-dark();
+}
+
+@mixin feature-link-dark-m() {
+    @include feature-link-m();
+    @include feature-link-text-decoration-dark();
+}
+
+@mixin feature-link-dark-s() {
+    @include feature-link-s();
+    @include feature-link-text-decoration-dark();
+}
+
+@mixin feature-link-l() {
+    @include msv-rubik-bold(
+        $font-weight:$msv-font-weight-700,
+        $font-style: $msv-font-style-normal,
+        $font-size: $msv-font-size-xl,
+        $line-height: $msv-line-height-xl);
+    @include feature-link-underline-decoration(
+        $bottom: $msv-link-text-decoration-bottom-l,
+        $bottomHover: $msv-link-text-decoration-bottom-hover-l);
+    min-height: $msv-link-height-l;
+}
+
+@mixin feature-link-m() {
+    @include msv-rubik-bold(
+        $font-weight:$msv-font-weight-700,
+        $font-style: $msv-font-style-normal,
+        $font-size: $msv-font-size-ml,
+        $line-height: $msv-line-height-m);
+    @include feature-link-underline-decoration(
+        $bottom: $msv-link-text-decoration-bottom-m,
+        $bottomHover: $msv-link-text-decoration-bottom-hover-m);
+    min-height: $msv-link-height-m;
+}
+
+@mixin feature-link-s() {
+    @include msv-rubik-bold(
+        $font-weight:$msv-font-weight-700,
+        $font-style: $msv-font-style-normal,
+        $font-size: $msv-font-size-s,
+        $line-height: $msv-line-height-s);
+    @include feature-link-underline-decoration(
+        $bottom: $msv-link-text-decoration-bottom-s,
+        $bottomHover: $msv-link-text-decoration-bottom-hover-s);
+    min-height: $msv-link-height-s;
+}
+
+@mixin feature-link-text-decoration-light() {
+    color: var(--msv-feature-link-light-font-color);
+
+    &:disabled,
+    &[disabled] {
+        color: var(--msv-feature-link-light-disabled-font-color);
+    }
+
+    &::before {
+        background-color: var(--msv-feature-link-light-underline-bg-color);
+    }
+
+    &:focus {
+        border: 1px solid var(--msv-feature-link-light-border-color);
+        box-sizing: border-box;
+        outline: none;
+
+        &::before {
+            background-color: var(--msv-feature-link-light-focus-underline-bg-color);
+        }
+    }
+
+    &:hover {
+        &::before {
+            background-color: var(--msv-feature-link-light-hover-underline-bg-color);
+        }
+    }
+
+    &:active::before {
+        background-color: var(--msv-feature-link-light-active-underline-bg-color);
+    }
+
+    &:disabled::before,
+    &[disabled]::before {
+        background-color: var(--msv-feature-link-light-disabled-underline-bg-color);
+    }
+}
+
+@mixin feature-link-text-decoration-dark() {
+    color: var(--msv-feature-link-dark-font-color);
+
+    &:disabled,
+    &[disabled] {
+        color: var(--msv-feature-link-dark-disabled-font-color);
+    }
+
+    &::before {
+        background-color: var(--msv-feature-link-dark-underline-bg-color);
+    }
+
+    &:focus {
+        border: 1px solid var(--msv-feature-link-dark-border-color);
+        box-sizing: border-box;
+        outline: none;
+
+        &::before {
+            background-color: var(--msv-feature-link-dark-focus-underline-bg-color);
+        }
+    }
+
+    &:hover {
+        &::before {
+            background-color: var(--msv-feature-link-dark-hover-underline-bg-color);
+        }
+    }
+
+    &:active::before {
+        background-color: var(--msv-feature-link-dark-active-underline-bg-color);
+    }
+
+    &:disabled::before,
+    &[disabled]::before {
+        background-color: var(--msv-feature-link-dark-disabled-underline-bg-color);
+    }
+}
+
+@mixin feature-link-underline-decoration($bottom: $msv-link-text-decoration-bottom-m,
+$bottomHover: $msv-link-text-decoration-bottom-hover-m,
+$height: $msv-link-text-decoration-height) {
+    background-color: transparent;
+    position: relative;
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+        text-decoration: none;
+    }
+
+    &:disabled,
+    &[disabled] {
+        cursor: default;
+    }
+
+    &::before {
+        bottom: $bottom;
+        content: "";
+        height: $height;
+        left: 0;
+        position: absolute;
+        transform: scaleX(1);
+        transition: all 0.2s ease-in-out;
+        visibility: visible;
+        width: 100%;
+    }
+
+    &:hover::before {
+        bottom: $bottomHover;
+        transform: scaleX(1);
+        visibility: visible;
+    }
+
+    &:active::before {
+        bottom: $bottomHover;
+    }
+
+    &:focus::before {
+        bottom: $bottomHover;
+    }
+}
+
+// Link REGULAR
+
+@mixin link-regular-decoration {
+    color: var(--msv-link-font-color);
+    text-decoration: underline;
+}
+
+// Link REGULAR medium, font-size = 16px & line-height = 24px
+
+@mixin link-regular-m() {
+    @include msv-rubik-regular(
+        $font-weight: $msv-font-weight-400,
+        $font-style: $msv-font-weight-normal,
+        $font-size: var(--msv-link-font-size-m),
+        $line-height: var(--msv-link-line-height-m));
+    @include link-regular-decoration();
+}
+
+// Link REGULAR small, font-size = 14px & line-height = 20px
+
+@mixin link-regular-s() {
+    @include msv-rubik-regular(
+        $font-weight: $msv-font-weight-400,
+        $font-style: $msv-font-weight-normal,
+        $font-size: var(--msv-link-font-size-s),
+        $line-height: var(--msv-link-line-height-s));
+    @include link-regular-decoration();
+}
+
+// Link REGULAR extra small, font-size = 12px & line-height = 16px
+
+@mixin link-regular-xs() {
+    @include msv-rubik-regular(
+        $font-weight: $msv-font-weight-400,
+        $font-style: $msv-font-weight-normal,
+        $font-size: var(--msv-link-font-size-xs),
+        $line-height: var(--msv-link-line-height-xs));
+    @include link-regular-decoration();
+}
+
+// Buttons used on product cards with icons only.
+
+@mixin card-button-with-icon-only() {
+    background-color: var(--msv-card-button-bg-color);
+    border: none;
+    border-radius: 4px;
+    color: var(--msv-card-button-font-color);
+    height: $msv-card-button-height;
+    font-size: 0;
+    opacity: 0.41;
+    outline: none;
+    width: $msv-card-button-width;
+
+    &:hover {
+        opacity: 0.8;
+    }
+
+    &:active {
+        opacity: 0.41;
+    }
+
+    &:focus {
+        border: 1px solid var(--msv-card-button-focus-border-color);
+        box-sizing: border-box;
+        opacity: 0.8;
+    }
+
+    &:disabled,
+    &[disabled] {
+        opacity: 0.1;
+    }
+
+    &::after,
+    &::before {
+        font-size: $msv-icon-size-m;
+        margin: auto;
+        vertical-align: middle;
+    }
+}
+
+@mixin button-common-decoration {
+    align-items: center;
+    border-radius: $msv-btn-border-radius;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: inline-flex;
+    flex-direction: row;
+    height: $msv-btn-height;
+    justify-content: center;
+    letter-spacing: 0.1em;
+    min-width: $msv-btn-min-width;
+    outline: none;
+    overflow: hidden;
+    padding: $msv-btn-vertical-padding $msv-btn-side-padding;
+    text-align: center;
+    text-transform: uppercase;
+
+    &:hover,
+    &:focus {
+        text-decoration: none;
+    }
+}
+
+// Button focus decoration
+
+@mixin button-focus-decoration {
+    content: " ";
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    right: 3px;
+    bottom: 3px;
+    border-radius: $msv-btn-border-radius;
+}
+
+// Primary button for light theme
+
+@mixin primary-button-light() {
+    @include msv-rubik-regular(
+        $font-weight:$msv-font-weight-400,
+        $font-style: $msv-font-style-normal,
+        $font-size: $msv-font-size-s,
+        $line-height: $msv-line-height-s);
+    @include button-common-decoration();
+
+    position: relative;
+    background: var(--msv-primary-btn-light-bg-color);
+    border: 1px solid var(--msv-primary-btn-light-border-color);
+    color: var(--msv-primary-btn-light-font-color);
+
+    &:hover {
+        background-color: var(--msv-primary-btn-light-hover-bg-color);
+        box-shadow: $msv-depth8;
+    }
+
+    &:focus {
+        outline: none;
+        background: var(--msv-primary-btn-light-focus-bg-color);
+
+        &::before {
+            @include button-focus-decoration();
+            border: 1px dashed var(--msv-primary-btn-light-border-color);
+        }
+    }
+
+    &:active {
+        background-color: var(--msv-primary-btn-light-pressed-bg-color);
+    }
+
+    &:disabled,
+    &[disabled] {
+        background-color: var(--msv-primary-btn-light-disabled-bg-color);
+        color: var(--msv-primary-btn-light-font-color);
+    }
+}
+
+// Secondary button for light theme
+
+@mixin secondary-button-light() {
+    @include msv-rubik-regular(
+        $font-weight:$msv-font-weight-400,
+        $font-style: $msv-font-style-normal,
+        $font-size: $msv-font-size-s,
+        $line-height: $msv-line-height-s);
+    @include button-common-decoration();
+
+    position: relative;
+    background: var(--msv-secondary-btn-light-bg-color);
+    border: 1px solid var(--msv-secondary-btn-light-border-color);
+    color: var(--msv-secondary-btn-light-font-color);
+
+    &:hover {
+        background-color: var(--msv-secondary-btn-light-hover-bg-color);
+        box-shadow: $msv-depth8;
+    }
+
+    &:focus {
+        outline: none;
+        background: var(--msv-secondary-btn-light-focus-bg-color);
+
+        &::before {
+            @include button-focus-decoration();
+            border: 1px dashed var(--msv-secondary-btn-light-border-color);
+        }
+    }
+
+    &:active {
+        background-color: var(--msv-secondary-btn-light-pressed-bg-color);
+    }
+
+    &:disabled,
+    &[disabled] {
+        background-color: var(--msv-secondary-btn-light-disabled-bg-color);
+        border: none;
+        color: var(--msv-secondary-btn-light-disabled-font-color);
+    }
+}
+
+// Primary button for dark theme
+
+@mixin primary-button-dark() {
+    @include msv-rubik-regular(
+        $font-weight:$msv-font-weight-400,
+        $font-style: $msv-font-style-normal,
+        $font-size: $msv-font-size-s,
+        $line-height: $msv-line-height-s);
+    @include button-common-decoration();
+
+    position: relative;
+    background: var(--msv-primary-btn-dark-bg-color);
+    border: 1px solid var(--msv-primary-btn-dark-border-color);
+    color: var(--msv-primary-btn-dark-font-color);
+
+    &:hover {
+        background-color: var(--msv-primary-btn-dark-hover-bg-color);
+        box-shadow: $msv-depth8;
+    }
+
+    &:focus {
+        outline: none;
+        background: var(--msv-primary-btn-dark-focus-bg-color);
+
+        &::before {
+            @include button-focus-decoration();
+            border: 1px dashed var(--msv-primary-btn-dark-border-color);
+        }
+    }
+
+    &:active {
+        background-color: var(--msv-primary-btn-dark-pressed-bg-color);
+    }
+
+    &:disabled,
+    &[disabled] {
+        background-color: var(--msv-primary-btn-dark-disabled-bg-color);
+        color: var(--msv-primary-btn-dark-disabled-font-color);
+    }
+}
+
+// Secondary button for dark theme
+
+@mixin secondary-button-dark() {
+    @include msv-rubik-regular(
+        $font-weight:$msv-font-weight-400,
+        $font-style: $msv-font-style-normal,
+        $font-size: $msv-font-size-s,
+        $line-height: $msv-line-height-s);
+    @include button-common-decoration();
+
+    position: relative;
+    background: var(--msv-secondary-btn-dark-bg-color);
+    border: 1px solid var(--msv-secondary-btn-dark-border-color);
+    color: var(--msv-secondary-btn-dark-font-color);
+
+    &:hover {
+        background-color: var(--msv-secondary-btn-dark-hover-bg-color);
+        box-shadow: $msv-depth8;
+    }
+
+    &:focus {
+        outline: none;
+        background: var(--msv-secondary-btn-dark-focus-bg-color);
+
+        &::before {
+            @include button-focus-decoration();
+            border: 1px dashed var(--msv-secondary-btn-dark-border-color);
+        }
+    }
+
+    &:active {
+        background-color: var(--msv-secondary-btn-dark-pressed-bg-color);
+    }
+
+    &:disabled,
+    &[disabled] {
+        background-color: var(--msv-secondary-btn-dark-disabled-bg-color);
+        color: var(--msv-secondary-btn-dark-disabled-font-color);
+    }
+}
+
+@mixin icon-button-decoration() {
+    @include msv-rubik-regular(
+        $font-weight:$msv-font-weight-400,
+        $font-style: $msv-font-style-normal,
+        $font-size: $msv-font-size-s,
+        $line-height: $msv-line-height-s);
+    align-items: center;
+    border: none;
+    border-radius: 4px;
+    display: flex;
+    height: $msv-btn-height;
+    justify-content: center;
+    letter-spacing: 0.1em;
+    min-width: $msv-btn-min-width;
+    overflow: hidden;
+    outline: none;
+    padding: $msv-btn-vertical-padding $msv-btn-side-padding;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+@mixin icon-button-light() {
+    @include icon-button-decoration();
+    color: var(--msv-icon-button-light-font-color);
+    background: var(--msv-icon-button-light-bg-color);
+
+    &:focus {
+        border: 1px solid var(--msv-icon-button-light-focus-border-color);
+        box-sizing: border-box;
+        outline: none;
+    }
+
+    &:disabled,
+    &[disabled] {
+        color: $msv-gray-50;
+    }
+}
+
+@mixin icon-button-dark() {
+    @include icon-button-decoration();
+    color: var(--msv-icon-button-dark-font-color);
+    background: var(--msv-icon-button-dark-bg-color);
+
+    &:focus {
+        border: 1px solid var(--msv-icon-button-dark-focus-border-color);
+        box-sizing: border-box;
+        outline: none;
+    }
+
+    &:disabled,
+    &[disabled] {
+        color: $msv-gray-40;
+    }
+}
+
+@mixin toggle-button-decoration() {
+    font-size: $msv-toggle-button-font-size;
+    background-color: transparent;
+    padding: $msv-toggle-button-padding;
+    border: none;
+    vertical-align: text-bottom;
+
+    &:focus {
+        outline: none;
+        border: 1px solid var(--msv-toggle-button-focus-border-color);
+        border-radius: 50px;
+    }
+
+    &:disabled,
+    &[disabled] {
+        color: var(--msv-toggle-button-disabled-color);
+    }
+}
+
+@mixin toggle-button-on() {
+    @include add-icon($msv-ToggleRight);
+    @include toggle-button-decoration();
+    color: var(--msv-toggle-button-color);
+}
+
+@mixin toggle-button-off() {
+    @include add-icon($msv-ToggleRight);
+    @include toggle-button-decoration();
+
+    &::before {
+        transform: scale(-1, 1);
+    }
+}

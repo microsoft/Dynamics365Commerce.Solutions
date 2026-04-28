@@ -1,0 +1,37 @@
+{
+    "experimentation": {
+        "name": "exp-test-connector",
+        "config": {
+            "sdkKey": "EXPERIMENTATION_PROVIDER_KEY",
+            "key2": "value2"
+        },
+        "cacheConfig": {
+            "ttlInSeconds": {
+                "experimentation": 1800,
+                "experimentationDataFile": 300
+            },
+            "ttrInSeconds": {
+                "experimentation": 10
+            }
+        }
+    },
+    "geoLookup": {
+        "name": "geoLocationTest",
+        "config": {
+            "apiKey": "GEOLOCATION_SERVICE_PROVIDER_API_KEY"
+        },
+        "cacheConfig": {
+            "ttlInSeconds": {
+                "geoLookup": 10
+            }
+        }
+    },
+    "segmentation": [
+        {
+            "id": "seg-connector-id-1",
+            "config": {
+                "apiKey": "SEGMENTATION_PROVIDER_API_KEY"
+            }
+        }       
+    ]
+}

@@ -1,0 +1,172 @@
+@import "../common/00-settings/colors.scss";
+@import "../common/00-settings/font.scss";
+@import "../common/00-settings/responsive-breakpoints.scss";
+@import "../common/02-generic/image.scss";
+@import "../common/01-tools/layout.scss";
+@import "../common/01-tools/mixins.scss";
+@import "../common/02-generic/button.scss";
+@import "../common/00-settings/icons.scss";
+@import "../common/02-generic/reset.scss";
+
+$tile-padding-bottom-mobile: 48px;
+$tile-first-margin-left: 0;
+$tile-last-margin-right: 0;
+$tile-last-padding-bottom-mobile: 0;
+$tile-link-margin-left-right: 24px;
+$tile-body-padding: 10px;
+$tile-link-padding-bottom: 8px;
+$tile-link-margin-top: 25px;
+$tile-link-border-radius: 10px;
+
+:root {
+    // link
+    --msv-content-block-link-color: var(--msv-font-primary-color);
+    --msv-content-block-link-font-size: var(--msv-body-font-size-m);
+}
+
+.ms-content-block {
+    &[data-m-layout="tile"] {
+        margin: auto;
+        width: fit-content;
+        padding: $tile-body-padding;
+
+        .msc-cta__primary {
+            @include feature-link-light-m();
+            padding: 0;
+            padding-bottom: $tile-link-padding-bottom;
+            width: fit-content;
+            min-width: auto;
+            letter-spacing: normal;
+
+            &::before {
+                border-radius: $tile-link-border-radius;
+            }
+        }
+
+        .ms-content-block__details {
+            text-align: left;
+
+            &__additional-content {
+                display: flex;
+                font-style: normal;
+                font-weight: $msv-font-weight-normal;
+                flex-direction: column;
+                position: absolute;
+
+                &__text {
+                    @include msv-beth-ellen(
+                        $font-weight: $msv-font-weight-normal,
+                        $font-style: $msv-font-style-normal,
+                        $font-size: $msv-font-size-m,
+                        $line-height: $msv-line-height-s
+                    );
+                }
+
+                &-cta {
+                    @include feature-link-m();
+
+                    &-links {
+                        &:nth-child(1) {
+                            text-decoration-line: none;
+                        }
+
+                        &:nth-child(2) {
+                            text-decoration-line: underline;
+                            border-left: 1px solid $msv-white;
+                        }
+                    }
+                }
+            }
+
+            .ms-content-block__cta {
+                margin-top: $tile-link-margin-top;
+
+                a[class^="msc-cta__"] {
+                    margin-left: $tile-link-margin-left-right;
+
+                    &:first-child {
+                        margin-left: $tile-first-margin-left;
+                    }
+                }
+            }
+        }
+
+        &.textplacement__left .ms-content-block__details {
+            text-align: left;
+
+            .ms-content-block__cta {
+                a[class^="msc-cta__"] {
+                    margin-left: $tile-link-margin-left-right;
+
+                    &:first-child {
+                        margin-left: $tile-first-margin-left;
+                    }
+                }
+            }
+        }
+
+        &.textplacement__right .ms-content-block__details {
+            text-align: right;
+
+            .ms-content-block__cta {
+                /* stylelint-disable-next-line no-descending-specificity -- Auto-suppressed. Please fix if possible. */
+                a[class^="msc-cta__"] {
+                    margin-right: $tile-link-margin-left-right;
+
+                    &:last-child {
+                        margin-right: $tile-last-margin-right;
+                    }
+                }
+            }
+        }
+
+        &.textplacement__center .ms-content-block__details {
+            text-align: center;
+
+            .ms-content-block__cta {
+                /* stylelint-disable-next-line no-descending-specificity -- Auto-suppressed. Please fix if possible. */
+                a[class^="msc-cta__"] {
+                    margin-left: $tile-link-margin-left-right / 2;
+                    margin-right: $tile-link-margin-left-right / 2;
+
+                    &:first-child {
+                        margin-left: $tile-first-margin-left;
+                    }
+
+                    &:last-child {
+                        margin-right: $tile-last-margin-right;
+                    }
+                }
+            }
+        }
+
+        @media (max-width: $msv-breakpoint-m) {
+            padding-bottom: $tile-padding-bottom-mobile;
+            width: 100%;
+
+            & .ms-content-block__image img {
+                width: 100%;
+            }
+
+            & .ms-content-block__image svg {
+                width: 100%;
+            }
+        }
+    }
+}
+
+.col-sm:first-child .ms-content-block[data-m-layout="tile"]:first-child,
+.col-md:first-child .ms-content-block[data-m-layout="tile"]:first-child {
+    margin-left: $tile-first-margin-left;
+}
+
+.col-sm:last-child .ms-content-block[data-m-layout="tile"]:last-child,
+.col-md:last-child .ms-content-block[data-m-layout="tile"]:last-child {
+    margin-right: $tile-last-margin-right;
+}
+
+@media (max-width: $msv-breakpoint-m) {
+    &.col-sm:last-child .ms-content-block[data-m-layout="tile"]:last-child {
+        padding-bottom: $tile-last-padding-bottom-mobile;
+    }
+}

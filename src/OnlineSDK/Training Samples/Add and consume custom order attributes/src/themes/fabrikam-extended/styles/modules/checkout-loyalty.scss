@@ -1,0 +1,234 @@
+@import "../common/00-settings/colors.scss";
+@import "../common/00-settings/font.scss";
+@import "../common/00-settings/icons.scss";
+@import "../common/02-generic/form.scss";
+@import "../common/02-generic/button.scss";
+@import "../common/00-settings/responsive-breakpoints.scss";
+
+$msv-checkout-loyalty-padding-bottom: 60px 0;
+$msv-checkout-loyalty-max-flex-basis: 100%;
+$msv-checkout-loyalty-drawer-margin-top: 33px;
+$msv-checkout-loyalty-drawer-margin-left: 0;
+$msv-checkout-loyalty-drawer-button-border: none;
+$msv-checkout-loyalty-drawer-button-padding: 0;
+$msv-checkout-loyalty-drawer-button-icon-margin-left: 12px;
+$msv-checkout-loyalty-drawer-button-icon-margin-top: 6px;
+$msv-checkout-loyalty-details-p-margin-top: 8px;
+$msv-checkout-loyalty-details-icon-margin: 24px;
+$msv-checkout-loyalty-details-program-width: 80%;
+$msv-checkout-loyalty-amount-margin-top: 40px;
+$msv-checkout-loyalty-amount-input-max-width: 610px;
+$msv-checkout-loyalty-amount-label-margin-bottom: 8px;
+$msv-checkout-loyalty-amount-input-max-width: 610px;
+$msv-checkout-loyalty-amount-max-flex-basis: 100%;
+$msv-checkout-loyalty-amount-button-margin: 20px;
+$msv-checkout-loyalty-border-bottom: 0.5px solid var(--msv-button-primary-disabled-color);
+$msv-checkout-loyalty-heading-ready-margin-bottom: 8px;
+
+//style presets
+:root {
+    --msv-checkout-loyalty-font-color: var(--msv-font-primary-color);
+
+    // heading
+    --msv-checkout-loyalty-heading-ready-font-size: var(--msv-body-font-size-s);
+    --msv-checkout-loyalty-heading-font-color: var(--msv-font-primary-color);
+
+    // title
+    --msv-checkout-loyalty-title-font-color: var(--msv-font-primary-color);
+
+    //link
+    --msv-checkout-loyalty-link-color: #{$msv-gray-300};
+}
+
+.ready .ms-checkout-loyalty__heading {
+    font-size: var(--msv-checkout-loyalty-heading-ready-font-size);
+    line-height: $msv-line-height-s;
+    margin-bottom: $msv-checkout-loyalty-heading-ready-margin-bottom;
+}
+
+.ms-checkout-loyalty {
+    border-bottom: $msv-checkout-loyalty-border-bottom;
+    display: flex;
+    flex-flow: row wrap;
+    padding: $msv-checkout-loyalty-padding-bottom;
+
+    /* stylelint-disable-next-line no-descending-specificity -- Auto-suppressed. Please fix if possible. */
+    &__heading {
+        @include font-heading-h5-l();
+        color: var(--msv-checkout-loyalty-heading-font-color);
+        flex-basis: $msv-checkout-loyalty-max-flex-basis;
+    }
+
+    &__applied {
+        border-bottom: none;
+
+        .ms-checkout-loyalty__heading {
+            font-weight: var(--msv-font-weight-bold);
+        }
+
+        .ms-checkout-loyalty__text {
+            font-weight: var(--msv-font-weight-normal);
+            font-size: $msv-text-size;
+            line-height: $msv-line-height-m;
+        }
+
+        &-amount {
+            @include font-body-regular-m();
+            width: 100%;
+            margin-top: 7px;
+        }
+
+        &-value {
+            margin-left: $msv-checkout-loyalty-drawer-margin-left;
+        }
+    }
+
+    &__card-number {
+        @include font-body-regular-m();
+        display: block;
+        margin-top: 12px;
+    }
+
+    &__drawer {
+        margin-top: $msv-checkout-loyalty-drawer-margin-top;
+        flex-basis: $msv-checkout-loyalty-max-flex-basis;
+
+        .collapse {
+            display: none;
+        }
+
+        .collapse.show {
+            display: initial;
+        }
+    }
+
+    &-remove-btn {
+        @include button-link(var(--msv-checkout-loyalty-link-color));
+        @include font-body-regular-m();
+        margin-left: $msv-checkout-loyalty-amount-button-margin;
+        text-decoration: underline;
+    }
+
+    .drawer__button {
+        background-color: transparent;
+        border: $msv-checkout-loyalty-drawer-button-border;
+        padding: $msv-checkout-loyalty-drawer-button-padding;
+        cursor: pointer;
+        color: var(--msv-checkout-loyalty-title-font-color);
+        padding-bottom: 30px;
+        display: flex;
+
+        &::after {
+            @include msv-icon();
+            content: $msv-ChevronDown;
+            margin-left: $msv-checkout-loyalty-drawer-button-icon-margin-left;
+            margin-top: $msv-checkout-loyalty-drawer-button-icon-margin-top;
+        }
+    }
+
+    .drawer__button[aria-expanded="true"] {
+        &::after {
+            @include msv-icon();
+            content: $msv-ChevronUp;
+            margin-left: $msv-checkout-loyalty-drawer-button-icon-margin-left;
+        }
+    }
+
+    &__program {
+        color: var(--msv-checkout-loyalty-font-color);
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        width: $msv-checkout-loyalty-details-program-width;
+        margin-bottom: 25px;
+
+        span {
+            margin-top: $msv-checkout-loyalty-details-p-margin-top;
+        }
+
+        &-title {
+            @include font-heading-h5-l();
+            display: block;
+            position: relative;
+            padding-bottom: 10px;
+            width: 100%;
+
+            &::before {
+                position: absolute;
+                left: -#{$msv-checkout-loyalty-details-icon-margin};
+                top: 50%;
+                transform: translateY(-50%);
+            }
+        }
+
+        &-available,
+        &-expiring {
+            @include font-body-regular-m();
+            flex-basis: 51%;
+            flex-grow: 1;
+            display: inline-block;
+        }
+
+        &-points {
+            @include font-body-regular-m();
+            display: inline-block;
+        }
+    }
+
+    &__covered-text, &__applied-value {
+        @include font-heading-h5-l();
+        color: var(--msv-checkout-loyalty-title-font-color);
+    }
+
+    &__covered-text {
+        display: inline-block;
+        margin-right: 4px;
+    }
+
+    &__amount {
+        display: flex;
+        flex-wrap: wrap;
+        flex-basis: $msv-checkout-loyalty-amount-max-flex-basis;
+        margin-top: $msv-checkout-loyalty-amount-margin-top;
+
+        &-label {
+            @include font-body-bold-s();
+            color: var(--msv-checkout-loyalty-title-font-color);
+            display: block;
+            width: 100%;
+            margin-bottom: $msv-checkout-loyalty-amount-label-margin-bottom;
+        }
+
+        &-button {
+            @include primary-button-light();
+            width: 100%;
+            margin-top: $msv-checkout-loyalty-amount-button-margin;
+        }
+    }
+
+    @media screen and (min-width: $msv-breakpoint-l) {
+        &__amount {
+            &-input {
+                @include form-input-box();
+                width: auto;
+                flex-grow: 1;
+                max-width: $msv-checkout-loyalty-amount-input-max-width;
+            }
+
+            &-button {
+                margin-left: $msv-checkout-loyalty-amount-button-margin;
+                margin-top: 0;
+                width: auto;
+            }
+        }
+    }
+
+    @media screen and (max-width: $msv-breakpoint-l) {
+        &__amount {
+            &-input {
+                @include form-input-box();
+                width: 100%;
+            }
+        }
+    }
+}

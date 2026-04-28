@@ -1,0 +1,81 @@
+$msv-dialog-width: 446px;
+$msv-dialog-modal-content-body-padding: 24px 36px;
+$msv-modal-lines-added-to-order-template-dialog-button-margin: 6px 0;
+$msv-modal-lines-added-to-order-template-dialog-button-width: 100%;
+$msv-modal-lines-added-to-order-template-dialog-body-margin-mobile: auto;
+$msv-modal-lines-added-to-order-template-dialog-order-template-items-padding: 4px;
+$msv-modal-lines-added-to-order-template-dialog-order-template-name-padding: 4px;
+$msv-dialog-modal-content-description-margin-top: 22px;
+
+.msc-modal {
+    .msc-lines-added-to-order-template-dialog {
+        max-width: $msv-dialog-width;
+
+        &__dialog {
+            &__header {
+                .msc-modal__title {
+                    @include font-body-regular-m();
+                }
+            }
+
+            .msc-modal__content {
+                padding: $msv-dialog-modal-content-body-padding;
+            }
+
+            &__products {
+                &__image-container {
+                    @include order-template-image-container();
+                }
+            }
+
+            &__description {
+                text-align: center;
+                margin-top: $msv-dialog-modal-content-description-margin-top;
+            }
+
+            &__order-template-name {
+                @include font-heading-h5-l();
+                padding: $msv-modal-lines-added-to-order-template-dialog-order-template-name-padding;
+
+                @media (max-width: $msv-breakpoint-m) {
+                    @include font-heading-h5-s();
+                }
+
+                @media (min-width: $msv-breakpoint-m) and (max-width: $msv-breakpoint-l) {
+                    @include font-heading-h5-m();
+                }
+            }
+
+            &__order-template-items {
+                @include font-body-regular-m();
+                padding: $msv-modal-lines-added-to-order-template-dialog-order-template-items-padding;
+            }
+
+            &__view-order-template-button {
+                @include primary-button-light();
+                margin: $msv-modal-lines-added-to-order-template-dialog-button-margin;
+                width: $msv-modal-lines-added-to-order-template-dialog-button-width;
+            }
+
+            &__continue-shopping {
+                @include secondary-button-light();
+                margin: $msv-modal-lines-added-to-order-template-dialog-button-margin;
+                width: $msv-modal-lines-added-to-order-template-dialog-button-width;
+            }
+
+            &__footer {
+                flex-wrap: wrap;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: $msv-breakpoint-m) {
+    .msc-modal .msc-modal__dialog.msc-lines-added-to-order-template-dialog {
+        margin: $msv-modal-lines-added-to-order-template-dialog-body-margin-mobile;
+
+        .msc-lines-added-to-order-template-dialog__dialog__products__image-container {
+            margin: auto;
+        }
+    }
+}

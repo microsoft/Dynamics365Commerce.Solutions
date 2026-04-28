@@ -1,0 +1,49 @@
+$msv-breadcrumb-padding-bottom: 20px;
+$msv-breadcrumb-padding-top: 20px;
+
+.ms-breadcrumb {
+    padding-top: $msv-breadcrumb-padding-top;
+    padding-bottom: $msv-breadcrumb-padding-bottom;
+
+    .ms-breadcrumb_list {
+        float: left;
+        list-style: none;
+        padding: 0;
+
+        .ms-breadcrumb-back-button {
+            text-decoration: underline;
+            cursor: pointer;
+            float: left;
+            margin-right: 10px;
+
+            @include add-icon($msv-ChevronLeft, before);
+
+            &::before {
+                padding-right: 5px;
+            }
+        }
+    }
+
+    .ms-breadcrumb_item {
+        float: left;
+        position: relative;
+        margin: 0;
+        padding-right: 5px;
+
+        @include font-content-t($font-weight: $msv-font-weight-light);
+
+        .ms-breadcrumb_link.ms-breadcrumb-no-link-text {
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        a[data-no-click="true"] {
+            cursor: default;
+            pointer-events: none;
+        }
+
+        &.breadcrumb_item-current {
+            @include font-content-t($font-weight: $msv-font-weight-heavy);
+        }
+    }
+}

@@ -1,0 +1,32 @@
+<Project>
+  <PropertyGroup>
+    <BuildNumber Condition="'$(BuildNumber)' == ''">0.0</BuildNumber>
+    <MajorVersion>9.58</MajorVersion>
+    <Version>$(MajorVersion).$(BuildNumber)</Version>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <!-- Workaround for breaking changes in PackageDefinitions metadata. https://github.com/dotnet/sdk/issues/30809 -->
+    <!-- TODO: avoid of the PackageDefinitions usage. -->
+    <EmitLegacyAssetsFileItems>true</EmitLegacyAssetsFileItems>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <Publisher Condition="'$(Publisher)' == ''">CN=Contoso Ltd.</Publisher>
+    <PublisherDisplayName Condition="'$(PublisherDisplayName)' == ''">Contoso Ltd.</PublisherDisplayName>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <CommerceSdkPackagesVersion>[9.58.*-*,9.59)</CommerceSdkPackagesVersion>
+    <CommercePosPackagesVersion>[9.58.*-*,9.59)</CommercePosPackagesVersion>
+    <CommerceChannelPackagesVersion>[9.58.*-*,9.59)</CommerceChannelPackagesVersion>
+    <CommerceHwsPackagesVersion>[9.58.*-*,9.59)</CommerceHwsPackagesVersion>
+    <CommerceToolsPackagesVersion>[10.38.*-*,10.39)</CommerceToolsPackagesVersion>
+    <CommercePaymentsPackagesVersion>[10.58.*-*,10.59)</CommercePaymentsPackagesVersion>
+    <!-- Newtonsoft.Json -->
+    <NewtonsoftJsonVersion>13.0.3</NewtonsoftJsonVersion>
+    <MSTestAdapterVersion>3.6.1</MSTestAdapterVersion>
+    <MSTestFrameworkVersion>3.6.1</MSTestFrameworkVersion>
+    <MicoroftNetTestSdkVersion>17.11.1</MicoroftNetTestSdkVersion>
+  </PropertyGroup>
+</Project>

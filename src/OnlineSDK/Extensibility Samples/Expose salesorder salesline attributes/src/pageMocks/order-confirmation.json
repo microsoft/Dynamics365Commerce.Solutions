@@ -1,0 +1,273 @@
+{
+    "exception": null,
+    "pageRoot": {
+        "typeName": "core-root",
+        "id": "core-root_qcgewk3",
+        "friendlyName": "Core root 1",
+        "config": {},
+        "modules": {
+            "body": [
+                {
+                    "typeName": "default-page",
+                    "id": "default-page",
+                    "friendlyName": "Default Page",
+                    "config": { "skipToMainText": "Skip to main content", "pageTheme": "summer" },
+                    "modules": {
+                        "primary": [
+                            {
+                                "typeName": "default-container",
+                                "id": "default-container",
+                                "friendlyName": "Container",
+                                "config": {
+                                    "heading": { "tag": "h2" },
+                                    "layout": "stacked",
+                                    "containerType": "container",
+                                    "childrenWidth": "four"
+                                },
+                                "modules": {
+                                    "content": [
+                                        {
+                                            "typeName": "order-confirmation",
+                                            "id": "order-confirmation",
+                                            "friendlyName": "Order confirmation",
+                                            "platform": { "layout": "mediumWidth" },
+                                            "config": {
+                                                "msdyn365__moduleLayout": "mediumWidth",
+                                                "heading": { "text": "Order Confirmation", "tag": "h1" },
+                                                "shouldShowQrCode": true,
+                                                "showTimeslot": true,
+                                                "imageSettings": {
+                                                    "quality": 80,
+                                                    "disableLazyLoad": false,
+                                                    "lazyload": true,
+                                                    "viewports": {
+                                                        "xs": { "w": 81, "h": 81, "q": "w=81&h=81&q=80&m=6&f=jpg", "qe": "t=w81h81qhigh" },
+                                                        "lg": { "w": 81, "h": 81, "q": "w=81&h=81&q=80&m=6&f=jpg", "qe": "t=w81h81qhigh" },
+                                                        "xl": { "w": 81, "h": 81, "q": "w=81&h=81&q=80&m=6&f=jpg", "qe": "t=w81h81qhigh" }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "renderingContext": {
+        "locale": "en-us",
+        "textDirection": "ltr",
+        "suggestedMarket": null,
+        "marketSettings": null,
+        "query": { "transactionId": "Vz7WIGpz~O-bcnpjiyV1PN6Lt4gJ3bFH" },
+        "urlTokens": {},
+        "apiSettings": {
+            "baseUrl": "https://scu7aoxn5it31752957-rs.su.retail.test.dynamics.com/",
+            "retailServerEndpointOverrideDomain": null,
+            "channelId": 68719478279,
+            "eCommerceChannelId": "rpbpwaytjjr",
+            "eCommerceCrossChannelId": null,
+            "catalogId": 0,
+            "oun": "128",
+            "baseImageUrl": "https://images-us-ppe.cms.dynamics365commerce.ms/cms/api/ksrwclmwmr/imageFileData/search?fileName=/",
+            "ratingsReviewsEndpoint": "https://7ac8a7f2-0905-4a20-8440-74b674a2cddc.rnr-ppe.ms",
+            "ratingsReviewsProxyEndpoint": "https://ring1tie.fabrikam.com/_msdyn365/rnr/",
+            "rnr": {
+                "id": "7ac8a7f2-0905-4a20-8440-74b674a2cddc",
+                "url": "https://7ac8a7f2-0905-4a20-8440-74b674a2cddc.rnr-ppe.ms",
+                "proxyUrl": "https://ring1tie.fabrikam.com/_msdyn365/rnr/"
+            },
+            "externalCmsBaseUrls": { "sitecore": "https://dynamics365-sandbox.stylelabs.io/api/public/content/ " }
+        },
+        "gridSettings": { "xs": { "w": 768 }, "sm": { "w": 991 }, "md": { "w": 1199 }, "lg": { "w": 1599 }, "xl": { "w": 1600 } },
+        "debugMode": 0,
+        "operationId": "72bbccbe33c22240a28c53e9f66a6896",
+        "siteTheme": "fabrikam",
+        "sameSiteRequired": true,
+        "features": {
+            "enable_performance_analysis": true,
+            "enable_react_statics_in_body": true,
+            "enableAuthoringRemoveAndAddModule": true,
+            "enable_react_statics_in_body123": true,
+            "scnr_blob": true,
+            "action_timeout": true,
+            "GeoCookieExpirationTimeOf7days": true,
+            "clientRender_modules": true,
+            "optimize_client_hydrate": true,
+            "enable_sdk_app_cache_compute": true,
+            "disable_new_geoLocation_cookie_contract": true,
+            "skip_external_link_catalogid": true,
+            "allow_react_statics_in_body": true,
+            "disable_cors": true,
+            "disable_server_cookie_encoding": true,
+            "enable_service_worker": true,
+            "enable_render_cache_all": true,
+            "disable_routeerrors_cache": true,
+            "disableRetailProxySW": true,
+            "disable_render_result_compression": true,
+            "async_chunks": true,
+            "defer_chunks": true,
+            "experimentation": true,
+            "enableExternalCms": true
+        },
+        "pageFragmentStylePresetList": [],
+        "telemetrySettings": {
+            "eventHubEndPoint": "",
+            "eventHubAuthToken": "",
+            "operationId": "72bbccbe33c22240a28c53e9f66a6896",
+            "url": "",
+            "clientAuth": "",
+            "environmentId": "",
+            "commerceCoreEnvId": "",
+            "operationalInsightsInstrumentationKey": ""
+        }
+    },
+    "statusCode": 200,
+    "redirectUrl": null,
+    "appContext": {
+        "config": {
+            "isBulkPurchaseEnabled": true,
+            "enableStockCheck": true,
+            "inventoryLevel": "physicalAvailable",
+            "inventoryRanges": "all",
+            "warehouseAggregation": "individual",
+            "outOfStockThreshold": 0.0,
+            "productListInventoryDisplay": "sortOOS",
+            "maxQuantityForCartLineItem": 6.0,
+            "hideRating": false,
+            "geolocationApiUrl": "https://dev.virtualearth.net/REST/v1/",
+            "reviewTextMaxLength": 498.0,
+            "reviewTitleMaxLength": 498.0,
+            "disableTooltip": false,
+            "searchQueryStringParameter": "q",
+            "searchInputMaxLength": 50.0,
+            "addToCartBehavior": "showNotification",
+            "giftCardSupported": "both",
+            "breadcrumbType": "categoryAndBack",
+            "shouldUseNewImageComponent": true,
+            "unitOfMeasureDisplayType": "buyboxAndBrowse",
+            "shouldEnableSinglePaymentAuthorizationCheckout": true,
+            "dimensionsAsSwatchType": ["color", "size"],
+            "dimensionsInProductCard": ["color", "size", "style"],
+            "dimensionToPreSelectInProductCard": "color",
+            "isEnableShowOrHideSalesTaxECommerceEnabled": true,
+            "canRenderAsyncCustomerDataAsUnmodifiable": true,
+            "productComparisonDesktopProductsLimit": 10.0,
+            "productComparisonMobileProductsLimit": 5.0,
+            "maxRecentlyViewedItemsCount": 10.0,
+            "displayGreyPlaceHolders": true,
+            "maxQuantityForProductListLineItem": 10.0,
+            "shouldEnableCheckoutErrorDisplayMessaging": true
+        },
+        "routes": {
+            "account": { "destinationUrl": "/myaccount", "type": "internalLink" },
+            "accountProfile": { "destinationUrl": "/profile-edit", "type": "internalLink" },
+            "backToShopping": { "destinationUrl": "/home", "type": "internalLink" },
+            "cart": { "destinationUrl": "/cart", "type": "internalLink" },
+            "checkout": { "destinationUrl": "/checkout", "type": "internalLink" },
+            "home": { "destinationUrl": "/", "type": "internalLink" },
+            "loyalty": { "destinationUrl": "/loyalty", "type": "internalLink" },
+            "loyaltyJoin": { "destinationUrl": "/loyalty-join", "type": "internalLink" },
+            "orderConfirmation": { "destinationUrl": "/orderconfirmation", "type": "internalLink" },
+            "orderDetails": { "destinationUrl": "/orderdetails", "type": "internalLink" },
+            "search": { "destinationUrl": "/search", "type": "internalLink" },
+            "wishlist": { "destinationUrl": "/wishlist", "type": "internalLink" },
+            "loyaltyTerms": { "destinationUrl": "/loyalty-terms", "type": "internalLink" }
+        },
+        "platform": {
+            "maintenanceMode": false,
+            "enableBingMapGeoLoation": true,
+            "disableServerSideErrorChecking": false,
+            "enableRenderCaching": false,
+            "disableCookieCompliance": false,
+            "cartSessionExpiration": 1.0,
+            "imageQuality": 80.0,
+            "maxDepth": 200.0,
+            "skipToMainText": "Skip to main content",
+            "enableCustomerAccountPayment": "all",
+            "enableDefaultOrderQuantityLimits": "all"
+        },
+        "contentSecurityPolicy": {
+            "disableContentSecurityPolicy": false,
+            "enableReportOnlyMode": true,
+            "enableNonce": false,
+            "child-src": ["https://checkoutshopper-test.adyen.com", "https://paymentacceptsample.cloud.dynamics.com", "'self'"],
+            "connect-src": [
+                "https://checkoutshopper-test.adyen.com",
+                "*.bing.com",
+                "https://powerva.microsoft.com/",
+                "https://directline.botframework.com/",
+                "'self'",
+                "https://login.microsoftonline.com",
+                "https://*.commerce.dynamics.com",
+                "https://*.dynamics365commerce.ms",
+                "https://dc.services.visualstudio.com",
+                "https://images-us-ppe.cms.dynamics365commerce.ms",
+                "https://images-us-ppe.cms.dynamics365commerce.ms",
+                "https://ring1tie.fabrikam.com",
+                "https://scu7aoxn5it31752957-rs.su.retail.test.dynamics.com/",
+                "https://7ac8a7f2-0905-4a20-8440-74b674a2cddc.rnr-ppe.ms"
+            ],
+            "font-src": [
+                "https://static2.sharepointonline.com/",
+                "'self'",
+                "https://*.commerce.dynamics.com",
+                "https://*.dynamics365commerce.ms",
+                "https://use.fontawesome.com",
+                "data:"
+            ],
+            "img-src": [
+                "https://checkoutshopper-test.adyen.com",
+                "*.virtualearth.net",
+                "*.bing.com",
+                "'self'",
+                "data:",
+                "https://*.commerce.dynamics.com",
+                "https://*.dynamics365commerce.ms",
+                "https://images-us-ppe.cms.dynamics365commerce.ms",
+                "https://images-us-ppe.cms.dynamics365commerce.ms",
+                "https://dynamics365-sandbox.stylelabs.io/api/public/content/ "
+            ],
+            "script-src": [
+                "https://checkoutshopper-test.adyen.com",
+                "*.bing.com",
+                "*.virtualearth.net",
+                "https://cdn.botframework.com/",
+                "'self'",
+                "'unsafe-inline'",
+                "'unsafe-eval'",
+                "https://*.commerce.dynamics.com",
+                "https://*.dynamics365commerce.ms",
+                "https://*.vo.msecnd.net",
+                "https://dc.services.visualstudio.com",
+                "https://dev.virtualearth.net",
+                "https://ring1tie.fabrikam.com"
+            ],
+            "style-src": [
+                "https://checkoutshopper-test.adyen.com",
+                "*.bing.com",
+                "'self'",
+                "'unsafe-inline'",
+                "https://*.commerce.dynamics.com",
+                "https://*.dynamics365commerce.ms",
+                "https://ring1tie.fabrikam.com",
+                ""
+            ],
+            "default-src": ["'self'", "https://*.commerce.dynamics.com", "https://*.dynamics365commerce.ms"],
+            "base-uri": ["'self'"],
+            "object-src": ["'self'"],
+            "media-src": [
+                "'self'",
+                "https://ppe-streaming-video-mr-microsoft-com.akamaized.net",
+                "https://*.streaming.media.azure.net",
+                "https://*.commerce.dynamics.com",
+                "https://*.dynamics365commerce.ms",
+                "https://images-us-ppe.cms.dynamics365commerce.ms",
+                "https://images-us-ppe.cms.dynamics365commerce.ms"
+            ]
+        }
+    }
+}

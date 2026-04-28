@@ -1,0 +1,26 @@
+[dir="rtl"] {
+    .msc-invoice-details {
+        &__header {
+            &__invoice-info-container {
+                &__order-info-container {
+                    &__order-info {
+                        &__details {
+                            &__order-date {
+                                padding-right: unset;
+                                border-right: unset;
+                                padding-left: 10px;
+                                border-left: solid 1px;
+                            }
+                        }
+                    }
+                }
+
+                &__amount-summary {
+                    @media only screen and (min-width: $msv-breakpoint-l) {
+                        text-align: left;
+                    }
+                }
+            }
+        }
+    }
+}

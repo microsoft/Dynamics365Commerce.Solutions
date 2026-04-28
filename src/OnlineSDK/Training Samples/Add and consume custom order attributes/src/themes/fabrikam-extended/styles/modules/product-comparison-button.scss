@@ -1,0 +1,77 @@
+@import "../common/00-settings/colors.scss";
+@import "../common/00-settings/icons.scss";
+@import "../common/00-settings/font.scss";
+@import "../common/02-generic/button.scss";
+@import "../common/00-settings/responsive-breakpoints.scss";
+@import "../common/01-tools/layout.scss";
+@import "../common/02-generic/image.scss";
+@import "../common/02-generic/reset.scss";
+@import "../common/01-tools/mixins.scss";
+@import "../common/01-tools/bootstrap.scss";
+
+//style presets
+:root {
+    --msv-product-comparison-button-btn-icon-color: #{$msv-blue};
+    --msv-product-comparison-button-btn-icon-font-size: #{$msv-icon-size-m};
+    --msv-product-comparison-button-btn-text-color: #{$msv-gray-20};
+}
+
+.ms-product-comparison-button {
+    &__icon {
+        @include add-icon($msv-swap-box-line, before);
+        color: $msv-white;
+
+        &__removing {
+            @include add-icon($msv-checkbox-circle, before);
+        }
+
+        &:not(:disabled) {
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+
+    &__button {
+        display: flex;
+
+        @include icon-button-light();
+
+        &__text {
+            color: var(--msv-product-comparison-button-btn-text-color);
+        }
+
+        &__icon {
+            @include add-icon($msv-swap-box-line, before);
+            color: var(--msv-product-comparison-button-btn-icon-color);
+            margin: 10px;
+            font-size: var(--msv-product-comparison-button-btn-icon-font-size);
+            width: 20px;
+            height: 20px;
+        }
+
+        &__removing {
+            cursor: pointer;
+
+            .ms-product-comparison-button__button__icon {
+                @include add-icon($msv-checkbox-circle, before);
+            }
+        }
+
+        &:disabled {
+            .ms-product-comparison-button__button__icon {
+                color: $msv-gray-50;
+            }
+        }
+
+        &:not(:disabled):not(.ms-product-comparison-button__button__removing):hover {
+            cursor: pointer;
+
+            .ms-product-comparison-button__button__icon {
+                @include add-icon($msv-swap-box-fill, before);
+            }
+        }
+
+        margin: 0 auto;
+    }
+}

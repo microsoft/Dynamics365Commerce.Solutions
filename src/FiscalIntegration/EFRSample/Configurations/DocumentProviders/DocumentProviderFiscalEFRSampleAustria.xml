@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ConfigurationProperties xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <ConfigurationProperty>
+        <Namespace>DocumentProviderGeneralInfo</Namespace>
+        <Name>Name</Name>
+        <ValueType>String</ValueType>
+        <StringValue>FiscalEFRSampleAUT</StringValue>
+        <DecimalValue>0</DecimalValue>
+        <BooleanValue>false</BooleanValue>
+        <DateValue>0001-01-01T00:00:00</DateValue>
+        <IntegerValue>0</IntegerValue>
+        <IsEncrypted>false</IsEncrypted>
+        <IsPassword>false</IsPassword>
+        <IsReadOnly>false</IsReadOnly>
+        <IsHidden>false</IsHidden>
+        <DisplayHeight>1</DisplayHeight>
+        <SequenceNumber>1</SequenceNumber>
+        <DisplayProperty>
+            <DisplayValue>
+                <LanguageId>EN-US</LanguageId>
+                <DisplayName>@RetailFiscalIntegration:Name</DisplayName>
+                <Description>@RetailFiscalIntegration:DocumentProviderNameDescription</Description>
+            </DisplayValue>
+        </DisplayProperty>
+    </ConfigurationProperty>
+    <ConfigurationProperty>
+        <Namespace>FiscalServiceDataMappingInfo</Namespace>
+        <Name>TaxRatesMapping</Name>
+        <ValueType>String</ValueType>
+        <StringValue>A: 20.00; B: 10.00; C: 13.00; D: 0.00; E: 19.00; F: 7.00</StringValue>
+        <DecimalValue>0</DecimalValue>
+        <BooleanValue>false</BooleanValue>
+        <DateValue>0001-01-01T00:00:00</DateValue>
+        <IntegerValue>0</IntegerValue>
+        <IsEncrypted>false</IsEncrypted>
+        <IsPassword>false</IsPassword>
+        <IsReadOnly>false</IsReadOnly>
+        <IsHidden>false</IsHidden>
+        <DisplayHeight>1</DisplayHeight>
+        <SequenceNumber>2</SequenceNumber>
+        <DisplayProperty>
+            <DisplayValue>
+                <LanguageId>EN-US</LanguageId>
+                <DisplayName>@RetailFiscalIntegration:VATRatesMapping</DisplayName>
+                <Description>@RetailFiscalIntegration:VATRatesMappingDescription</Description>
+            </DisplayValue>
+        </DisplayProperty>
+    </ConfigurationProperty>
+</ConfigurationProperties>

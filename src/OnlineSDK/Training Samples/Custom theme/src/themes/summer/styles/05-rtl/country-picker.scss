@@ -1,0 +1,25 @@
+$msv-country-picker-modal-header-padding-right: 10px;
+$msv-country-picker-modal-body-padding-right: 20px;
+$msv-country-picker-modal-body-display-padding-right: 30px;
+$msv-country-picker-modal-body-rtl-padding-left: 0;
+
+[dir="rtl"] {
+    .msc-modal__dialog {
+        .ms-country-picker__modal-header {
+            padding-left: $msv-country-picker-modal-body-rtl-padding-left;
+            padding-right: $msv-country-picker-modal-header-padding-right;
+        }
+
+        .ms-counrtyPicker__modal-body {
+            padding-left: $msv-country-picker-modal-body-rtl-padding-left;
+            padding-right: $msv-country-picker-modal-body-padding-right;
+
+            .ms-country-picker__country__item__link {
+                .ms-country-picker__country__item__display {
+                    padding-left: $msv-country-picker-modal-body-rtl-padding-left;
+                    padding-right: $msv-country-picker-modal-body-display-padding-right;
+                }
+            }
+        }
+    }
+}

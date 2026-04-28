@@ -1,0 +1,210 @@
+$msv-business-sign-up-width: 100%;
+$msv-business-sign-up-input-margin-top: 4px;
+$msv-business-sign-up-message-margin-top: 20px;
+$msv-business-sign-up-message-padding: 20px;
+$msv-business-sign-up-email-verification-buttons-margin-top: 12px;
+$msv-business-sign-up-button-group-spacing: 32px;
+$msv-business-sign-up-button-margin-top: 20px;
+$msv-business-sign-up-button-margin-spacing: 20px;
+$msv-business-sign-up-disclaimer-margin-top: 20px;
+
+$msv-business-sign-up-border-radius: 2px;
+$msv-business-sign-up-form-item-margin: 20px 0 0;
+$msv-business-sign-up-input-size: 48px;
+$msv-business-sign-up-input-spacing: 20px;
+$msv-business-sign-up-input-padding: 8px 8px;
+$msv-business-sign-up-label-margin: 0 0 5px 0;
+$msv-business-sign-up-text-area-size: 173px;
+
+//style presets
+:root {
+    --msv-business-sign-up-font-size: var(--msv-body-font-size-l);
+    --msv-business-sign-up-font-color: var(--msv-font-primary-color);
+    --msv-business-sign-up-border: #{$msv-gray-300};
+
+    // heading
+    --msv-business-sign-up-heading-font-size: var(--msv-body-font-size-xl);
+    --msv-business-sign-up-heading-font-color: var(--msv-font-primary-color);
+
+    // alert
+    --msv-business-sign-up-success-alert-bg: #{$msv-gray-300};
+    --msv-business-sign-up-success-alert-font-color: var(--msv-font-primary-color);
+    --msv-business-sign-up-success-alert-border: #{$msv-gray-900};
+    --msv-business-sign-up-error-alert-bg: var(--msv-error-color);
+    --msv-business-sign-up-error-alert-font-color: var(--msv-font-secondary-color);
+    --msv-business-sign-up-error-alert-border: var(--msv-error-color);
+    --msv-business-sign-up-error-color: var(--msv-error-color);
+
+    // primary button
+    --msv-business-sign-up-primary-btn-bg: var(--msv-accent-brand-color);
+    --msv-business-sign-up-primary-btn-font-color: var(--msv-font-secondary-color);
+    --msv-business-sign-up-primary-btn-border: var(--msv-accent-brand-color);
+
+    // secondary button
+    --msv-business-sign-up-secondary-btn-bg: var(--msv-secondary-button-background-color);
+    --msv-business-sign-up-secondary-btn-font-color: var(--msv-font-primary-color);
+    --msv-business-sign-up-secondary-btn-border: var(--msv-accent-brand-color);
+}
+
+.ms-business-sign-up {
+    @include font-content(var(--msv-font-weight-normal), var(--msv-business-sign-up-font-size), $msv-line-height-m);
+    color: var(--msv-business-sign-up-font-color);
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    &__container {
+        max-width: $msv-business-sign-up-width;
+    }
+
+    &__heading {
+        @include font-content(var(--msv-font-weight-normal),
+        var(--msv-business-sign-up-heading-font-size), $msv-line-height-xl);
+        color: var(--msv-business-sign-up-heading-font-color);
+    }
+
+    &__form {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    &__form-item {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        margin: $msv-business-sign-up-form-item-margin;
+        margin-right: $msv-business-sign-up-input-spacing;
+
+        &.width-25 {
+            flex-basis: calc(25% - #{$msv-business-sign-up-input-spacing});
+        }
+
+        &.width-50 {
+            flex-basis: calc(50% - #{$msv-business-sign-up-input-spacing});
+        }
+
+        &.width-100 {
+            flex-basis: 100%;
+            margin-left: 0;
+            margin-right: 0;
+        }
+
+        &-CompanyEmail, &-Department, &-CompanySize {
+            margin-right: 0;
+        }
+
+        &-label {
+            margin: $msv-business-sign-up-label-margin;
+        }
+
+        .msc-address-form__item {
+            margin-bottom: $msv-business-sign-up-input-spacing;
+        }
+
+        &-input, .msc-address-form__input, .msc-address-form__dropdown {
+            @include font-content-l();
+            @include vfi();
+            border: 1px solid $msv-gray-500;
+            border-radius: $msv-business-sign-up-border-radius;
+            box-sizing: border-box;
+            display: block;
+            height: $msv-business-sign-up-input-size;
+            padding: $msv-business-sign-up-input-padding;
+
+            &:focus {
+                border: 1px dashed $msv-gray-500;
+                outline: none;
+            }
+        }
+
+        // country and input fields from the address form need to 50% length according to the design doc
+        .msc-address-form__item-threeletterisoregionname, .msc-address-form__item-phone {
+            display: inline-block;
+            margin-bottom: 0;
+            width: 50%;
+        }
+
+        .msc-address-form__item-threeletterisoregionname {
+            margin-right: $msv-business-sign-up-input-spacing;
+            width: calc(50% - #{$msv-business-sign-up-input-spacing});
+        }
+
+        &-input-area {
+            @include font-content-l();
+            @include vfi();
+            border: 1px solid $msv-gray-500;
+            border-radius: $msv-business-sign-up-border-radius;
+            box-sizing: border-box;
+            display: block;
+            height: $msv-business-sign-up-text-area-size;
+            padding: $msv-business-sign-up-input-padding;
+            width: 100%;
+        }
+    }
+
+    &__page-error {
+        @include validation-error(var(--msv-business-sign-up-error-alert-bg),
+        var(--msv-business-sign-up-error-alert-border), var(--msv-business-sign-up-error-alert-font-color));
+        display: block;
+        margin-top: $msv-business-sign-up-message-margin-top;
+        padding: $msv-business-sign-up-message-padding;
+        width: 100%;
+    }
+
+    &__item-error {
+        color: var(--msv-business-sign-up-error-color);
+    }
+
+    &__create-button {
+        @include primary-button(var(--msv-business-sign-up-primary-btn-bg),
+        var(--msv-business-sign-up-primary-btn-font-color), var(--msv-business-sign-up-primary-btn-border));
+        margin-top: $msv-business-sign-up-button-margin-top;
+        margin-right: $msv-business-sign-up-button-margin-spacing;
+    }
+
+    &__cancel-button {
+        @include secondary-button(var(--msv-business-sign-up-secondary-btn-bg),
+        var(--msv-business-sign-up-secondary-btn-font-color), var(--msv-business-sign-up-secondary-btn-border));
+        margin-top: $msv-business-sign-up-button-margin-top;
+    }
+
+    &__disclaimer {
+        margin-top: $msv-business-sign-up-disclaimer-margin-top;
+        width: 100%;
+
+        a {
+            text-decoration: underline;
+        }
+    }
+
+    @media only screen and (max-width: $msv-breakpoint-l) {
+        &__container {
+            width: $msv-business-sign-up-width;
+        }
+
+        .msc-address-form__item-threeletterisoregionname {
+            display: block;
+            margin-bottom: 10px;
+            width: 100%;
+        }
+
+        .msc-address-form__item-phone {
+            display: block;
+            width: 100%;
+        }
+
+        &__form-item {
+            margin-right: 0;
+
+            &.width-25, &.width-50, &.width-100 {
+                flex-basis: 100%;
+            }
+        }
+
+        &__create-button, &__cancel-button {
+            margin-right: 0;
+            width: 100%;
+        }
+    }
+}

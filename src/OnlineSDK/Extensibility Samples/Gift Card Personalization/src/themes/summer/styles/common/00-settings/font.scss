@@ -1,0 +1,553 @@
+$msv-primary-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell,
+    "Open Sans", "Helvetica Neue", sans-serif;
+$msv-font-family-beth-ellen: BethEllen;
+$msv-font-family-nothing-you-can-do: NothingYouCouldDo;
+$msv-font-style-normal: normal;
+$msv-font-assistant: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+$msv-font-allerta: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+$msv-font-cinzel: Times, "Times New Roman", serif;
+$msv-font-segoe: "Segoe UI";
+
+$msv-font-weight-bold: bold;
+$msv-font-weight-normal: normal;
+$msv-font-weight-light: 300;
+$msv-font-weight-400: 400;
+$msv-font-weight-500: 500;
+$msv-font-weight-heavy: 600;
+$msv-font-weight-700: 700;
+$msv-text-size: 14px;
+
+$msv-heading-text-size: 20px;
+$msv-heading-line-height: 28px;
+
+// Generic font sizes for adventure works theme
+$msv-font-size-xs: 12px;
+$msv-font-size-s: 14px;
+$msv-font-size-m: 16px;
+$msv-font-size-ml: 20px;
+$msv-font-size-l: 24px;
+$msv-font-size-xl: 36px;
+$msv-font-size-xxl: 48px;
+
+// Generic line heights for adventure works theme
+$msv-line-height-xs: 16px;
+$msv-line-height-s: 20px;
+$msv-line-height-m: 24px;
+$msv-line-height-l: 28px;
+$msv-line-height-xl: 44px;
+$msv-line-height-xxl: 63px;
+$msv-line-height-xxxl: 80px;
+
+// Generic desktop title font sizes for adventure works theme
+$msv-title-font-size-xxs: 16px;
+$msv-title-font-size-xs: 20px;
+$msv-title-font-size-s: 24px;
+$msv-title-font-size-m: 36px;
+$msv-title-font-size-m-s: 32px;
+$msv-title-font-size-l: 48px;
+$msv-title-font-size-xl: 100px;
+$msv-title-font-size-xxl: 140px;
+
+// Generic desktop title line heights for adventure works theme
+$msv-title-line-height-xs: 24px;
+$msv-title-line-height-s: 28px;
+$msv-title-line-height-m-s: 40px;
+$msv-title-line-height-m: 44px;
+$msv-title-line-height-m-l: 48px;
+$msv-title-line-height-l: 56px;
+$msv-title-line-height-xl: 120px;
+$msv-title-line-height-xxl: 200px;
+
+// Generic tablet title font sizes for adventure works theme
+$msv-tablet-title-font-size-xs: 20px;
+$msv-tablet-title-font-size-s: 24px;
+$msv-tablet-title-font-size-m: 32px;
+$msv-tablet-title-font-size-l: 48px;
+$msv-tablet-title-font-size-xl: 60px;
+$msv-tablet-title-font-size-xxl: 80px;
+
+// Generic tablet title line heights for adventure works theme
+$msv-tablet-title-line-height-xs: 24px;
+$msv-tablet-title-line-height-s: 28px;
+$msv-tablet-title-line-height-m: 40px;
+$msv-tablet-title-line-height-l: 56px;
+$msv-tablet-title-line-height-xl: 72px;
+$msv-tablet-title-line-height-xxl: 100px;
+
+// Generic mobile title font size for adventure works theme
+$msv-mobile-title-font-size-xs: 20px;
+$msv-mobile-title-font-size-s: 24px;
+$msv-mobile-title-font-size-m: 32px;
+$msv-mobile-title-font-size-l: 36px;
+$msv-mobile-title-font-size-xl: 40px;
+$msv-mobile-title-font-size-xxl: 48px;
+
+// Generic mobile title line heights for adventure works theme
+$msv-mobile-title-line-height-xs: 24px;
+$msv-mobile-title-line-height-s: 28px;
+$msv-mobile-title-line-height-m: 40px;
+$msv-mobile-title-line-height-l: 48px;
+$msv-mobile-title-line-height-xl: 50px;
+$msv-mobile-title-line-height-xxl: 60px;
+
+$msv-text-size: $msv-font-size-m;
+$msv-text-line-height: 20px;
+
+// Generic box shadow depths for adventure works theme
+$msv-depth4: 0 0.3px 0.9px rgba(0, 0, 0, 0.1), 0 1.6px 3.6px rgba(0, 0, 0, 0.13);
+$msv-depth8: 0 0.6px 1.8px rgba(0, 0, 0, 0.1), 0 3.2px 7.2px rgba(0, 0, 0, 0.13);
+$msv-depth16: 0 1.2px 3.6px rgba(0, 0, 0, 0.1), 0 6.4px 14.4px rgba(0, 0, 0, 0.13);
+$msv-depth24: 0 4.8px 14.4px rgba(0, 0, 0, 0.18), 0 25.6px 57.6px rgba(0, 0, 0, 0.22);
+
+@mixin adventureworks-font(
+    $font-weight: $msv-font-weight-normal,
+    $font-size: $msv-font-size-s,
+    $line-height: $msv-line-height-s,
+    $text-transform: none,
+    $font-family: $msv-primary-font-family,
+    $color: $msv-font-primary-color,
+    $font-style: $msv-font-style-normal
+) {
+    font-weight: $font-weight;
+    font-size: $font-size;
+    line-height: $line-height;
+    text-transform: $text-transform;
+    font-family: $font-family;
+    color: $color;
+    font-style: $font-style;
+}
+
+@mixin font-content($font-weight: $msv-font-weight-normal,
+$font-size: $msv-font-size-s, $line-height: $msv-line-height-s, $text-transform: none) {
+    @include adventureworks-font($font-weight, $font-size, $line-height, $text-transform);
+}
+
+@mixin font-content-underline($font-weight: $msv-font-weight-normal,
+$font-size: $msv-font-size-s, $line-height: $msv-line-height-s) {
+    text-decoration-line: underline;
+
+    @include font-content($font-weight, $font-size, $msv-line-height-m);
+}
+
+@mixin font-content-s($font-weight: $msv-font-weight-normal) {
+    @include font-content($font-weight);
+}
+
+@mixin font-content-s-uppercase($font-weight: $msv-font-weight-normal) {
+    @include font-content($font-weight, $msv-font-size-s, $msv-line-height-s, uppercase);
+}
+
+@mixin font-content-s-height-l($font-weight: $msv-font-weight-normal) {
+    @include font-content($font-weight, $msv-font-size-s, $msv-line-height-l);
+}
+
+@mixin font-content-m($font-weight: $msv-font-weight-normal) {
+    @include font-content($font-weight, $msv-font-size-m, $msv-line-height-m);
+}
+
+@mixin font-content-m-underline($font-weight: $msv-font-weight-normal) {
+    text-decoration-line: underline;
+
+    @include font-content($font-weight, $msv-font-size-m, $msv-line-height-m);
+}
+
+@mixin font-content-m-strikethrough($font-weight: $msv-font-weight-normal) {
+    text-decoration-line: line-through;
+
+    @include font-content($font-weight, $msv-font-size-m, $msv-line-height-m);
+}
+
+@mixin font-content-l($font-weight: $msv-font-weight-normal) {
+    @include font-content($font-weight, $msv-font-size-l, $msv-line-height-l);
+}
+
+@mixin font-content-xl($font-weight: $msv-font-weight-normal) {
+    @include font-content($font-weight, $msv-font-size-xl, $msv-line-height-xl);
+}
+
+@mixin font-content-xxl($font-weight: $msv-font-weight-normal) {
+    @include font-content($font-weight, $msv-font-size-xxl, $msv-line-height-xxl);
+}
+
+@mixin font-glyph-standard() {
+    font-size: $msv-icon-size;
+}
+
+@mixin font-glyph-small() {
+    font-size: $msv-icon-size-small;
+}
+
+@mixin font-content-heading($font-weight: $msv-font-weight-heavy) {
+    @include font-content($font-weight, $msv-heading-text-size, $msv-heading-line-height);
+}
+
+@mixin lineHeightFromFontSize($font-size) {
+    @if $font-size == $msv-text-size {
+        line-height: $msv-text-line-height;
+    }
+}
+
+// H1 (desktop) BOLD, font-size = 48px & line-height = 56px
+
+@mixin font-heading-h1-l() {
+    @include msv-rubik-bold(
+        $font-weight: $msv-font-weight-700,
+        $font-style: $msv-font-weight-normal,
+        $font-size: var(--msv-h1-font-size-l),
+        $line-height: var(--msv-h1-line-height-l));
+}
+
+// H1 (tablet) BOLD, font-size = 48px & line-height = 56px
+
+@mixin font-heading-h1-m() {
+    @include msv-rubik-bold(
+        $font-weight: $msv-font-weight-700,
+        $font-style: $msv-font-weight-normal,
+        $font-size: var(--msv-h1-font-size-m),
+        $line-height: var(--msv-h1-line-height-m));
+}
+
+// H1 (small) BOLD, font-size = 36px & line-height = 48px
+
+@mixin font-heading-h1-s() {
+    @include msv-rubik-bold(
+        $font-weight: $msv-font-weight-700,
+        $font-style: $msv-font-weight-normal,
+        $font-size: var(--msv-h1-font-size-s),
+        $line-height: var(--msv-h1-line-height-s));
+}
+
+// H2 (desktop) BOLD, font-size = 36px & line-height = 44px
+
+@mixin font-heading-h2-l() {
+    @include msv-rubik-bold(
+        $font-weight: $msv-font-weight-700,
+        $font-style: $msv-font-weight-normal,
+        $font-size: var(--msv-h2-font-size-l),
+        $line-height: var(--msv-h2-line-height-l));
+}
+
+// H2 (tablet) BOLD, font-size = 32px & line-height = 40px
+
+@mixin font-heading-h2-m() {
+    @include msv-rubik-bold(
+        $font-weight: $msv-font-weight-700,
+        $font-style: $msv-font-weight-normal,
+        $font-size: var(--msv-h2-font-size-m),
+        $line-height: var(--msv-h2-line-height-m));
+}
+
+// H2 (mobile) BOLD, font-size = 32px & line-height = 40px
+
+@mixin font-heading-h2-s() {
+    @include msv-rubik-bold(
+        $font-weight: $msv-font-weight-700,
+        $font-style: $msv-font-weight-normal,
+        $font-size: var(--msv-h2-font-size-s),
+        $line-height: var(--msv-h2-line-height-s));
+}
+
+// H3 (desktop) BOLD, font-size = 24px & line-height = 28px
+
+@mixin font-heading-h3-l() {
+    @include msv-rubik-bold(
+        $font-weight: $msv-font-weight-700,
+        $font-style: $msv-font-weight-normal,
+        $font-size: var(--msv-h3-font-size-l),
+        $line-height: var(--msv-h3-line-height-l));
+}
+
+// H3 (tablet) BOLD, font-size = 24px & line-height = 28px
+
+@mixin font-heading-h3-m() {
+    @include msv-rubik-bold(
+        $font-weight: $msv-font-weight-700,
+        $font-style: $msv-font-weight-normal,
+        $font-size: var(--msv-h3-font-size-m),
+        $line-height: var(--msv-h3-line-height-m));
+}
+
+// H3 (mobile) BOLD, font-size = 24px & line-height = 28px
+
+@mixin font-heading-h3-s() {
+    @include msv-rubik-bold(
+        $font-weight: $msv-font-weight-700,
+        $font-style: $msv-font-weight-normal,
+        $font-size: var(--msv-h3-font-size-s),
+        $line-height: var(--msv-h3-line-height-s));
+}
+
+// H4 (desktop) MEDIUM, font-size = 24px & line-height = 28px
+
+@mixin font-heading-h4-l() {
+    @include msv-rubik-medium(
+        $font-weight: $msv-font-weight-500,
+        $font-style: $msv-font-weight-normal,
+        $font-size: var(--msv-h4-font-size-l),
+        $line-height: var(--msv-h4-line-height-l));
+}
+
+// H4 (tablet) MEDIUM, font-size = 24px & line-height = 28px
+
+@mixin font-heading-h4-m() {
+    @include msv-rubik-medium(
+        $font-weight: $msv-font-weight-500,
+        $font-style: $msv-font-weight-normal,
+        $font-size: var(--msv-h4-font-size-m),
+        $line-height: var(--msv-h4-line-height-m));
+}
+
+// H4 (mobile) MEDIUM, font-size = 24px & line-height = 28px
+
+@mixin font-heading-h4-s() {
+    @include msv-rubik-medium(
+        $font-weight: $msv-font-weight-500,
+        $font-style: $msv-font-weight-normal,
+        $font-size: var(--msv-h4-font-size-s),
+        $line-height: var(--msv-h4-line-height-s));
+}
+
+// H5 (desktop) MEDIUM, font-size = 20px & line-height = 24px
+
+@mixin font-heading-h5-l() {
+    @include msv-rubik-medium(
+        $font-weight: $msv-font-weight-500,
+        $font-style: $msv-font-weight-normal,
+        $font-size: var(--msv-h5-font-size-l),
+        $line-height: var(--msv-h5-line-height-l));
+}
+
+// H5 (tablet) MEDIUM, font-size = 20px & line-height = 24px
+
+@mixin font-heading-h5-m() {
+    @include msv-rubik-medium(
+        $font-weight: $msv-font-weight-500,
+        $font-style: $msv-font-weight-normal,
+        $font-size: var(--msv-h5-font-size-m),
+        $line-height: var(--msv-h5-line-height-m));
+}
+
+// H5 (mobile) MEDIUM, font-size = 20px & line-height = 24px
+
+@mixin font-heading-h5-s() {
+    @include msv-rubik-medium(
+        $font-weight: $msv-font-weight-500,
+        $font-style: $msv-font-weight-normal,
+        $font-size: var(--msv-h5-font-size-s),
+        $line-height: var(--msv-h5-line-height-s));
+}
+
+// H6 (desktop) BOLD, font-size = 16px & line-height = 24px
+
+@mixin font-heading-h6-l() {
+    @include msv-rubik-bold(
+        $font-weight: $msv-font-weight-700,
+        $font-style: $msv-font-weight-normal,
+        $font-size: var(--msv-h6-font-size-l),
+        $line-height: var(--msv-h6-line-height-l));
+}
+
+// H6 (tablet) BOLD, font-size = 16px & line-height = 24px
+
+@mixin font-heading-h6-m() {
+    @include msv-rubik-bold(
+        $font-weight: $msv-font-weight-700,
+        $font-style: $msv-font-weight-normal,
+        $font-size: var(--msv-h6-font-size-m),
+        $line-height: var(--msv-h6-line-height-m));
+}
+
+// H6 (mobile) BOLD, font-size = 16px & line-height = 24px
+
+@mixin font-heading-h6-s() {
+    @include msv-rubik-bold(
+        $font-weight: $msv-font-weight-700,
+        $font-style: $msv-font-weight-normal,
+        $font-size: var(--msv-h6-font-size-s),
+        $line-height: var(--msv-h6-line-height-s));
+}
+
+// Body BOLD medium, font-size = 16px & line-height = 24px
+
+@mixin font-body-bold-m() {
+    @include msv-rubik-bold(
+        $font-weight: $msv-font-weight-700,
+        $font-style: $msv-font-weight-normal,
+        $font-size: var(--msv-body-font-size-m),
+        $line-height: var(--msv-body-line-height-m));
+
+    color: var(--msv-body-font-color);
+}
+
+// Body BOLD small, font-size = 14px & line-height = 20px
+
+@mixin font-body-bold-s() {
+    @include msv-rubik-bold(
+        $font-weight: $msv-font-weight-500,
+        $font-style: $msv-font-weight-normal,
+        $font-size: var(--msv-body-font-size-s),
+        $line-height: var(--msv-body-line-height-s));
+
+    color: var(--msv-body-font-color);
+}
+
+// Body BOLD extra small, font-size = 12px & line-height = 16px
+
+@mixin font-body-bold-xs() {
+    @include msv-rubik-bold(
+        $font-weight: $msv-font-weight-700,
+        $font-style: $msv-font-weight-normal,
+        $font-size: var(--msv-body-font-size-xs),
+        $line-height: var(--msv-body-line-height-xs));
+
+    color: var(--msv-body-font-color);
+}
+
+// Body REGULAR medium, font-size = 16px & line-height = 24px
+
+@mixin font-body-regular-m() {
+    @include msv-rubik-regular(
+        $font-weight: $msv-font-weight-400,
+        $font-style: $msv-font-weight-normal,
+        $font-size: var(--msv-body-font-size-m),
+        $line-height: var(--msv-body-line-height-m));
+
+    color: var(--msv-body-font-color);
+}
+
+// Body REGULAR small, font-size = 14px & line-height = 20px
+
+@mixin font-body-regular-s() {
+    @include msv-rubik-regular(
+        $font-weight: $msv-font-weight-400,
+        $font-style: $msv-font-weight-normal,
+        $font-size: var(--msv-body-font-size-s),
+        $line-height: var(--msv-body-line-height-s));
+
+    color: var(--msv-body-font-color);
+}
+
+// Body REGULAR extra small, font-size = 12px & line-height = 16px
+
+@mixin font-body-regular-xs() {
+    @include msv-rubik-regular(
+        $font-weight: $msv-font-weight-400,
+        $font-style: $msv-font-weight-normal,
+        $font-size: var(--msv-body-font-size-xs),
+        $line-height: var(--msv-body-line-height-xs));
+
+    color: var(--msv-body-font-color);
+}
+
+// Special call-outs, font-size = 100px & line-height = 120px
+
+@mixin font-callout-bold-l() {
+    @include msv-rubik-bold(
+        $font-weight: $msv-font-weight-700,
+        $font-style: $msv-font-weight-normal,
+        $font-size: var(--msv-callout-font-size-l),
+        $line-height: var(--msv-callout-line-height-l));
+
+    color: var(--msv-body-font-color);
+}
+
+// Special call-outs, font-size = 60px & line-height = 72px
+
+@mixin font-callout-bold-m() {
+    @include msv-rubik-bold(
+        $font-weight: $msv-font-weight-700,
+        $font-style: $msv-font-weight-normal,
+        $font-size: var(--msv-callout-font-size-m),
+        $line-height: var(--msv-callout-line-height-m));
+
+    color: var(--msv-body-font-color);
+}
+
+// Special call-outs, font-size = 40px & line-height = 50px
+
+@mixin font-callout-bold-s() {
+    @include msv-rubik-bold(
+        $font-weight: $msv-font-weight-700,
+        $font-style: $msv-font-weight-normal,
+        $font-size: var(--msv-callout-font-size-s),
+        $line-height: var(--msv-callout-line-height-s));
+
+    color: var(--msv-body-font-color);
+}
+
+// Style presets
+:root {
+    // Headings H1
+    --msv-h1-font-size-l: #{$msv-title-font-size-l};
+    --msv-h1-font-size-m: #{$msv-title-font-size-l};
+    --msv-h1-font-size-s: #{$msv-title-font-size-m};
+    --msv-h1-line-height-l: #{$msv-title-line-height-l};
+    --msv-h1-line-height-m: #{$msv-title-line-height-l};
+    --msv-h1-line-height-s: #{$msv-title-line-height-m-l};
+
+    // Headings H2
+    --msv-h2-font-size-l: #{$msv-title-font-size-m};
+    --msv-h2-font-size-m: #{$msv-title-font-size-m-s};
+    --msv-h2-font-size-s: #{$msv-title-font-size-m-s};
+    --msv-h2-line-height-l: #{$msv-title-line-height-m};
+    --msv-h2-line-height-m: #{$msv-title-line-height-m-s};
+    --msv-h2-line-height-s: #{$msv-title-line-height-m-s};
+
+    // Headings H3
+    --msv-h3-font-size-l: #{$msv-title-font-size-s};
+    --msv-h3-font-size-m: #{$msv-title-font-size-s};
+    --msv-h3-font-size-s: #{$msv-title-font-size-s};
+    --msv-h3-line-height-l: #{$msv-title-line-height-s};
+    --msv-h3-line-height-m: #{$msv-title-line-height-s};
+    --msv-h3-line-height-s: #{$msv-title-line-height-s};
+
+    // Headings H4
+    --msv-h4-font-size-l: #{$msv-title-font-size-s};
+    --msv-h4-font-size-m: #{$msv-title-font-size-s};
+    --msv-h4-font-size-s: #{$msv-title-font-size-s};
+    --msv-h4-line-height-l: #{$msv-title-line-height-s};
+    --msv-h4-line-height-m: #{$msv-title-line-height-s};
+    --msv-h4-line-height-s: #{$msv-title-line-height-s};
+
+    // Headings H5
+    --msv-h5-font-size-l: #{$msv-title-font-size-xs};
+    --msv-h5-font-size-m: #{$msv-title-font-size-xs};
+    --msv-h5-font-size-s: #{$msv-title-font-size-xs};
+    --msv-h5-line-height-l: #{$msv-title-line-height-xs};
+    --msv-h5-line-height-m: #{$msv-title-line-height-xs};
+    --msv-h5-line-height-s: #{$msv-title-line-height-xs};
+
+    // Headings H6
+    --msv-h6-font-size-l: #{$msv-title-font-size-xxs};
+    --msv-h6-font-size-m: #{$msv-title-font-size-xxs};
+    --msv-h6-font-size-s: #{$msv-title-font-size-xxs};
+    --msv-h6-line-height-l: #{$msv-title-line-height-xs};
+    --msv-h6-line-height-m: #{$msv-title-line-height-xs};
+    --msv-h6-line-height-s: #{$msv-title-line-height-xs};
+
+    // Special Callouts
+    --msv-callout-font-size-l: #{$msv-title-font-size-xl};
+    --msv-callout-font-size-m: #{$msv-tablet-title-font-size-xl};
+    --msv-callout-font-size-s: #{$msv-mobile-title-font-size-xl};
+    --msv-callout-line-height-l: #{$msv-title-line-height-xl};
+    --msv-callout-line-height-m: #{$msv-tablet-title-line-height-xl};
+    --msv-callout-line-height-s: #{$msv-mobile-title-line-height-xl};
+
+    // Body
+    --msv-body-font-color: #{$msv-gray-20};
+    --msv-body-font-size-xs: #{$msv-font-size-xs};
+    --msv-body-font-size-s: #{$msv-font-size-s};
+    --msv-body-font-size-m: #{$msv-font-size-m};
+    --msv-body-font-size-l: #{$msv-font-size-l};
+    --msv-body-font-size-xl: #{$msv-font-size-xl};
+    --msv-body-font-size-xxl: #{$msv-font-size-xxl};
+    --msv-body-line-height-xs: #{$msv-line-height-xs};
+    --msv-body-line-height-s: #{$msv-line-height-s};
+    --msv-body-line-height-m: #{$msv-line-height-m};
+
+    // Weight
+    --msv-font-weight-bold: #{$msv-font-weight-bold};
+    --msv-font-weight-normal: #{$msv-font-weight-normal};
+    --msv-font-weight-light: #{$msv-font-weight-light};
+    --msv-font-weight-heavy: #{$msv-font-weight-heavy};
+}

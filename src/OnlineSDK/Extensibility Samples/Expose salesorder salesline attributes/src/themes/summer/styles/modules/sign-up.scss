@@ -1,0 +1,265 @@
+@import "../common/00-settings/colors.scss";
+@import "../common/00-settings/font.scss";
+@import "../common/00-settings/responsive-breakpoints.scss";
+@import "../common/02-generic/form.scss";
+@import "../common/00-settings/icons.scss";
+@import "../common/02-generic/button.scss";
+
+$msv-sign-up-message-width: 67%;
+$msv-sign-up-width: 50%;
+$msv-sign-up-message-width-t: 75%;
+$msv-sign-up-width-t: 67%;
+$msv-sign-up-message-width-m: 100%;
+$msv-sign-up-width-m: 100%;
+$msv-sign-up-input-margin-top: 8px;
+$msv-sign-up-account-item-margin-top: 20px;
+$msv-sign-up-message-margin-top: 20px;
+$msv-sign-up-message-padding: 22px;
+$msv-sign-up-success-bg-color: $msv-green-20;
+$msv-sign-up-success-text-color: $msv-green-10;
+$msv-sign-up-button-margin-top: 20px;
+$msv-sign-up-container-margin-m: 60px 20px;
+$msv-sign-up-error-icon-font-size: 20px;
+
+//style presets
+:root {
+    --msv-sign-up-font-color: var(--msv-font-primary-color);
+
+    // heading
+    --msv-sign-up-heading-font-color: #{$msv-black};
+}
+
+.ms-sign-up {
+    @include font-body-regular-s();
+    color: var(--msv-sign-up-font-color);
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    &__container {
+        width: $msv-sign-up-message-width;
+        margin: $msv-sign-up-container-margin-m;
+    }
+
+    &__heading {
+        width: $msv-sign-up-width;
+        margin: auto;
+
+        @include font-heading-h2-l();
+        color: var(--msv-sign-up-heading-font-color);
+
+        @media (min-width: $msv-breakpoint-m+1) and (max-width: $msv-breakpoint-l) {
+            @include font-heading-h2-m();
+        }
+
+        @media (max-width: $msv-breakpoint-m) {
+            @include font-heading-h2-s();
+        }
+    }
+
+    .ms-sign-up__account-items {
+        width: $msv-sign-up-width;
+        margin: auto;
+
+        .ms-sign-up__page-error {
+            display: none;
+
+            &[aria-hidden="false"] {
+                @include alert();
+                /* stylelint-disable-next-line declaration-no-important -- Override inline style inject by AAD so we need important. */
+                display: flex !important;
+                line-height: $msv-sign-up-error-icon-font-size;
+
+                &::before {
+                    margin-right: 10px;
+                    font-size: $msv-sign-up-error-icon-font-size;
+                }
+            }
+        }
+    }
+
+    &__account-item {
+        display: flex;
+        flex-direction: column;
+        margin-top: $msv-sign-up-account-item-margin-top;
+
+        &-label {
+            @include font-body-bold-s();
+            color: $msv-gray-20;
+            order: 1;
+        }
+
+        &-input {
+            @include font-body-regular-s();
+            padding: 16px 48px 16px 16px;
+            margin-top: $msv-sign-up-input-margin-top;
+            width: 100%;
+            background: $msv-white;
+            border: 0.5px solid $msv-gray-50;
+            box-sizing: border-box;
+            border-radius: 3px;
+            height: 52px;
+            order: 2;
+        }
+
+        &-givenName,
+        &-surname,
+        &-email,
+        &-emailVerificationCode {
+            color: $msv-gray-40;
+        }
+    }
+
+    /* Override inline style inject by AAD so we need important */
+    &__account-item-emailVerificationCode[aria-hidden="false"] {
+        /* stylelint-disable-next-line declaration-no-important -- Auto-suppressed. Please fix if possible. */
+        display: block !important;
+    }
+
+    &__page-success {
+        @include font-body-regular-m();
+        background-color: $msv-sign-up-success-bg-color;
+        color: $msv-sign-up-success-text-color;
+        display: none;
+        margin-top: $msv-sign-up-message-margin-top;
+        border-radius: 10px;
+        padding: $msv-sign-up-message-padding;
+
+        &[aria-hidden="false"] {
+            /* stylelint-disable-next-line declaration-no-important -- Override inline style inject by AAD so we need important. */
+            display: flex !important;
+            line-height: $msv-sign-up-error-icon-font-size;
+
+            @include add-icon($msv-Checkbox-Circle-Checked, $icon-weight: $msv-outline-icon-weight);
+
+            &::before {
+                color: $msv-sign-up-success-text-color;
+                margin-right: 10px;
+                font-size: $msv-sign-up-error-icon-font-size;
+            }
+        }
+    }
+
+    &__item-error {
+        order: 3;
+
+        &[aria-hidden="false"] {
+            @include alert();
+            margin-top: 13px;
+            line-height: $msv-sign-up-error-icon-font-size;
+            display: flex;
+
+            &:empty::before {
+                content: "";
+            }
+
+            &:not(:empty)::before {
+                margin-right: 10px;
+                font-size: $msv-sign-up-error-icon-font-size;
+            }
+        }
+    }
+
+    &__email-verification-button,
+    &__create-button {
+        @include primary-button-light();
+        margin-top: $msv-sign-up-button-margin-top;
+        width: 100%;
+        text-transform: uppercase;
+        cursor: pointer;
+        border: 1px solid;
+        height: auto;
+
+        .sendButton {
+            margin-top: 0;
+        }
+    }
+
+    &__email-verification-buttons {
+        margin-top: 20px;
+
+        button:first-child {
+            margin-top: 0;
+        }
+    }
+
+    &__cancel-button {
+        @include secondary-button-light();
+        margin-top: $msv-sign-up-button-margin-top;
+        width: 100%;
+        text-transform: uppercase;
+        display: none;
+    }
+
+    &__sign-up-disclaimer {
+        @include font-body-regular-xs();
+        margin-top: 12px;
+        color: $msv-gray-910;
+
+        a {
+            text-decoration: underline;
+        }
+    }
+
+    button[aria-disabled="true"] {
+        opacity: 0.3;
+
+        @media (forced-colors: active) and (prefers-color-scheme: light) {
+            &.ms-sign-up__create-button {
+                forced-color-adjust: none;
+                color: $msv-brown;
+                background: none;
+            }
+        }
+
+        @media (forced-colors: active) and (prefers-color-scheme: dark) {
+            &.ms-sign-up__create-button {
+                forced-color-adjust: none;
+                color: $msv-green-40;
+                background: none;
+            }
+        }
+    }
+
+    @media screen and (max-width: $msv-breakpoint-m - 1) {
+        &__container {
+            width: $msv-sign-up-message-width-m;
+            margin: 40px 20px 60px;
+        }
+
+        &__heading {
+            width: $msv-sign-up-width-m;
+        }
+
+        &__account-items {
+            width: $msv-sign-up-width-m;
+        }
+    }
+
+    @media (min-width: $msv-breakpoint-m) and (max-width: $msv-breakpoint-l) {
+        &__container {
+            display: block;
+            width: $msv-sign-up-message-width-t;
+            margin: $msv-sign-up-container-margin-m;
+        }
+
+        &__heading {
+            width: $msv-sign-up-width-t;
+        }
+
+        &__account-items {
+            width: $msv-sign-up-width-t;
+        }
+    }
+
+    @media (max-width: $msv-breakpoint-l) {
+        .ms-sign-up__account-items {
+            width: $msv-width-full;
+        }
+
+        .ms-sign-up__heading {
+            margin: 0;
+        }
+    }
+}

@@ -1,0 +1,48 @@
+$msv-check-in-for-pickup-section-margin: 50px 100px;
+$msv-check-in-for-pickup-section-margin-m: 20px;
+$msv-check-in-for-pickup-qr-code-margin-top: 20px;
+$msv-check-in-for-pickup-qr-code-margin-bottom: 20px;
+$msv-check-in-for-pickup-qr-code-block-width: 280px;
+$msv-check-in-for-pickup-qr-code-block-height: 120px;
+$msv-check-in-for-pickup-qr-code-block-bg-color: $msv-white;
+
+:root {
+    // heading
+    --msv-check-in-for-pickup-heading-font-size: var(--msv-body-font-size-xl);
+    --msv-check-in-for-pickup-heading-font-color: var(--msv-font-primary-color);
+}
+
+.msc-check-in-for-pickup {
+    @include font-content(var(--msv-font-weight-normal), var(--msv-body-font-size-l), $msv-line-height-l);
+
+    &__confirmation {
+        margin: $msv-check-in-for-pickup-section-margin;
+
+        &-heading {
+            @include font-content(var(--msv-font-weight-normal), var(--msv-check-in-for-pickup-heading-font-size), $msv-line-height-xl);
+            color: var(--msv-check-in-for-pickup-heading-font-color);
+            margin-bottom: 5px;
+        }
+
+        &-qr-code {
+            align-items: center;
+            background-color: $msv-check-in-for-pickup-qr-code-block-bg-color;
+            display: flex;
+            height: $msv-check-in-for-pickup-qr-code-block-height;
+            justify-content: center;
+            margin-top: $msv-check-in-for-pickup-qr-code-margin-top;
+            margin-bottom: $msv-check-in-for-pickup-qr-code-margin-bottom;
+            width: $msv-check-in-for-pickup-qr-code-block-width;
+
+            @media only screen and (max-width: $msv-breakpoint-m) {
+                width: 100%;
+            }
+        }
+    }
+
+    @media screen and (max-width: $msv-breakpoint-m) {
+        &__confirmation {
+            margin: $msv-check-in-for-pickup-section-margin;
+        }
+    }
+}

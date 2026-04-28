@@ -1,0 +1,263 @@
+{
+    "@msdyn365-commerce-theme.adventureworks.pickUpMethodLabel": {
+        "value": "Järeletulemise viis",
+        "_value.comment": "The label for pickup method dropdown"
+    },
+    "@msdyn365-commerce-theme.adventureworks.distanceString": {
+        "value": "({distance} {preferredDistanceUnit})",
+        "_value.comment": "The distance to the store from current location"
+    },
+    "@msdyn365-commerce-theme.adventureworks.closeDistanceString": {
+        "value": "(&lt;1 {preferredDistanceUnit})",
+        "_value.comment": "The distance to the store from current location"
+    },
+    "@msdyn365-commerce-theme.adventureworks.storeHoursDayPeriod": {
+        "value": "{startDay}-{endDay}",
+        "_value.comment": "To display the store hours day period"
+    },
+    "@msdyn365-commerce-theme.adventureworks.storeHoursDay": {
+        "value": "{startDay}",
+        "_value.comment": "To display the store hours day"
+    },
+    "@msdyn365-commerce-theme.adventureworks.headingForEmptyOrderTemplateList": {
+        "value": "Näib, et te pole tellimismalle loonud.",
+        "_value.comment": "To show the heading if order template is empty"
+    },
+    "@msdyn365-commerce-theme.adventureworks.textForEmptyOrderTemplateList": {
+        "value": "Tellimismallid salvestatakse teie kontole. Maksmise kiirendamiseks saate neid edaspidi uuesti kasutada.",
+        "_value.comment": "To show the text if order template is empty"
+    },
+    "@msdyn365-commerce-theme.adventureworks.headingForEmptyUserOrganizationList": {
+        "value": "Teil pole praegu ühtegi organisatsioonikasutajat.",
+        "_value.comment": "The heading to show if business organization list is empty"
+    },
+    "@msdyn365-commerce-theme.adventureworks.textForEmptyUserOrganizationList": {
+        "value": "Kui olete mõne organisatsioonikasutaja lisanud, kuvatakse nad teile teadmiseks siin.",
+        "_value.comment": "The text to show if business organization list is empty"
+    },
+    "@msdyn365-commerce-theme.adventureworks.filterText": {
+        "value": "Filter",
+        "_value.comment": "Text display as refiner title"
+    },
+    "@msdyn365-commerce-theme.adventureworks.modalTitle": {
+        "value": "Filtrimine ja sortimine",
+        "_value.comment": "Text display as modal title."
+    },
+    "@msdyn365-commerce-theme.adventureworks.categorySuggestionHeading": {
+        "value": "Kategooriad",
+        "_value.comment": "Category suggestion type search results list heading title"
+    },
+    "@msdyn365-commerce-theme.adventureworks.clearSearchButtonText": {
+        "value": "Tühjenda",
+        "_value.comment": "Clear Search string Button text"
+    },
+    "@msdyn365-commerce-theme.adventureworks.emptyMobileSearchText": {
+        "value": "Toote otsimiseks alustage tippimist.",
+        "_value.comment": "Empty text when in mboile view port"
+    },
+    "@msdyn365-commerce-theme.adventureworks.emptyMobileSearchTextHeading": {
+        "value": "Otsing",
+        "_value.comment": "Empty text when in mboile view port"
+    },
+    "@msdyn365-commerce-theme.adventureworks.keywordsHeading": {
+        "value": "Märksõnad",
+        "_value.comment": "Keyword suggestion type search results list heading title"
+    },
+    "@msdyn365-commerce-theme.adventureworks.noResultContentHeadingText": {
+        "value": "Proovige mõnda muud märksõna",
+        "_value.comment": "No Result Content Heading text"
+    },
+    "@msdyn365-commerce-theme.adventureworks.noResultContentParagraphText": {
+        "value": "Sisestatud märksõnale vastavaid tooteid ei leitud.",
+        "_value.comment": "No Result Content Paragraph text"
+    },
+    "@msdyn365-commerce-theme.adventureworks.noResultText": {
+        "value": "Tulemeid pole",
+        "_value.comment": "No Result text"
+    },
+    "@msdyn365-commerce-theme.adventureworks.productSuggestionHeading": {
+        "value": "Tooted",
+        "_value.comment": "Product suggestion type search results list heading title"
+    },
+    "@msdyn365-commerce-theme.adventureworks.searchSuggestionHeading": {
+        "value": "Otsing: {0}",
+        "_value.comment": "search suggestion in search results list heading title"
+    },
+    "@msdyn365-commerce-theme.adventureworks.totalPriceFormatString": {
+        "value": "Vahesumma: ",
+        "_value.comment": "String associated with total price to display. Price = formatted price"
+    },
+    "@msdyn365-commerce-theme.adventureworks.cartQtyLabel": {
+        "_value.comment": "string to be shown for cart item quantity",
+        "value": "{0}"
+    },
+    "@msdyn365-commerce-theme.adventureworks.emptyPrice": {
+        "_value.comment": "Empty cart price",
+        "value": "0.00"
+    },
+    "@msdyn365-commerce-theme.adventureworks.checkoutButtonTitle": {
+        "value": "Siirdu maksma",
+        "_value.comment": "Label for checkout button"
+    },
+    "@msdyn365-commerce-theme.adventureworks.yetToBeCalculatedText": {
+        "value": "Määramata",
+        "_value.comment": "String associated with to be calculated display text"
+    },
+    "@msdyn365-commerce-theme.adventureworks.estimatedShippingLabel": {
+        "value": "Saatmine",
+        "_value.comment": "Label of shipping"
+    },
+    "@msdyn365-commerce-theme.adventureworks.pickUpText": {
+        "value": "Järeletulemine",
+        "_value.comment": "Text for pick up group heading"
+    },
+    "@msdyn365-commerce-theme.adventureworks.promoCodeHeadingText": {
+        "value": "Maksmine",
+        "_value.comment": "Heading text for promo code"
+    },
+    "@msdyn365-commerce-theme.adventureworks.selectRatingLabel": {
+        "value": "Toote üldine hinnang",
+        "_value.comment": "Label for selecting the rating while writing a review"
+    },
+    "@msdyn365-commerce-theme.adventureworks.reviewTitleLabel": {
+        "value": "Arvustuse pealkiri",
+        "_value.comment": "Label for the title of the review"
+    },
+    "@msdyn365-commerce-theme.adventureworks.reviewTextLabel": {
+        "value": "Teie arvustus",
+        "_value.comment": "Label for the review text"
+    },
+    "@msdyn365-commerce-theme.adventureworks.wasReviewHelpfulText": {
+        "value": "Kas see arvustus oli abiks?",
+        "_value.comment": "The text for the question to ask user if the review was helpful."
+    },
+    "@msdyn365-commerce-theme.adventureworks.numberOfReviewsString": {
+        "value": "{0} arvustust",
+        "_value.comment": "Number of reviews string"
+    },
+    "@msdyn365-commerce-theme.adventureworks.goToCartButtonTitle": {
+        "value": "Kuva ostukorv",
+        "_value.comment": "Label for go to cart button"
+    },
+    "@msdyn365-commerce-theme.adventureworks.allCategoryMenuText": {
+        "value": "Kõik tooted",
+        "_value.comment": "Menu text for all categories"
+    },
+    "@msdyn365-commerce-theme.adventureworks.joinLoyaltyButtonText": {
+        "value": "Liitu AW preemiaprogrammiga",
+        "_value.comment": "Join loyalty program button text"
+    },
+    "@msdyn365-commerce-theme.adventureworks.numberOfProducts": {
+        "value": "({0})",
+        "_value.comment": "String to define the number of products returned found for a search term"
+    },
+    "@msdyn365-commerce-theme.adventureworks.oneProduct": {
+        "value": "(1)",
+        "_value.comment": "String to define the only one product being returned for search"
+    },
+    "@msdyn365-commerce-theme.adventureworks.seeMoreButtonText": {
+        "value": "KUVA ROHKEM",
+        "_value.comment": "See more button text"
+    },
+    "@msdyn365-commerce-theme.adventureworks.hamburgerAriaLabel": {
+        "value": "Kaupade loendi kuvamiseks laiendage navigeerimismenüü",
+        "_value.comment": "The aria label used for view hamburger"
+    },
+    "@msdyn365-commerce-theme.adventureworks.mobileHamburgerAriaLabel": {
+        "value": "Kaupade loendi kuvamiseks laiendage navigeerimismenüü",
+        "_value.comment": "The aria label used for mobile view hamburger"
+    },
+    "@msdyn365-commerce-theme.adventureworks.signUpButtonArialabel": {
+        "value": "Registreeru",
+        "_value.comment": "Sign-up button aria label"
+    },
+    "@msdyn365-commerce-theme.adventureworks.addressStreetLabel": {
+        "value": "Tänavanimi *",
+        "_value.comment": "Label for the Street field"
+    },
+    "@msdyn365-commerce-theme.adventureworks.addressStreetLabelOptional": {
+        "value": "Tänavanimi",
+        "_value.comment": "Label for the Street field"
+    },
+    "@msdyn365-commerce-theme.adventureworks.addressStreetRequiredErrorMessage": {
+        "value": "Tänavanimi on nõutav",
+        "_value.comment": "Error message to display when street is not provided"
+    },
+    "@msdyn365-commerce-theme.adventureworks.jobTitleLabel": {
+        "value": "Ametinimetus",
+        "_value.comment": "Text display as label for job title textbox."
+    },
+    "@msdyn365-commerce-theme.adventureworks.addToWishlistButtonText": {
+        "value": "Lisa soovinimekirja",
+        "_value.comment": "Label for add to wishlist button"
+    },
+    "@msdyn365-commerce-theme.adventureworks.invoicePaymentInvoiceTotal": {
+        "value": "Arve kogusumma",
+        "_value.comment": "Text for invoice total amount payment line"
+    },
+    "@msdyn365-commerce-theme.adventureworks.createOrderTemplateFromCartButton": {
+        "value": "Lisa kaubad tellimismallile",
+        "_value.comment": "Label for creating creating template from cart button"
+    },
+    "@msdyn365-commerce-theme.adventureworks.continueShoppingButtonTitle": {
+        "value": "Jätka ostude tegemist",
+        "_value.comment": "Back to shopping label on b2b requests page"
+    },
+    "@msdyn365-commerce-theme.adventureworks.headingForEmptyRequestStatus": {
+        "value": "Teil pole praegu ühtegi taotlust.",
+        "_value.comment": "The heading to show if b2b requests is empty"
+    },
+    "@msdyn365-commerce-theme.adventureworks.textForEmptyRequestStatus": {
+        "value": "Kui olete mõne taotluse esitanud, kuvatakse need teile teadmiseks siin.",
+        "_value.comment": "The text to show if b2b requests is empty"
+    },
+    "@msdyn365-commerce-theme.adventureworks.ariaLabelForSelectedSwatchValue": {
+        "value": "Valitud on {dimensionValue}",
+        "_value.comment": "Aria label for the selected value in dimension swatch"
+    },
+    "@msdyn365-commerce-theme.adventureworks.availabilityAtPreferredStoreText": {
+        "value": "Kättesaadavus kaupluses {0}:",
+        "_value.comment": "Availability at preferred store"
+    },
+    "@msdyn365-commerce-theme.adventureworks.inStockText": {
+        "value": "Laos",
+        "_value.comment": "Text for when item is in stock"
+    },
+    "@msdyn365-commerce-theme.adventureworks.shopSimilarLooksText": {
+        "value": "Sarnane pilt",
+        "_value.comment": "Text to show on Shop similar looks button"
+    },
+    "@msdyn365-commerce-theme.adventureworks.shopSimilarDescriptionText": {
+        "value": "Sarnane kirjeldus",
+        "_value.comment": "Text to show on Shop similar description button"
+    },
+    "@msdyn365-commerce-theme.adventureworks.salesLineQuantityText": {
+        "value": "Kogus",
+        "_value.comment": "Sales line quantity label"
+    },
+    "@msdyn365-commerce-theme.adventureworks.orderSummaryHeading": {
+        "value": "Tellimuse kogusumma",
+        "_value.comment": "Order summary heading"
+    },
+    "@msdyn365-commerce-theme.adventureworks.priceText": {
+        "value": "Hind",
+        "_value.comment": "Price text"
+    },
+    "@msdyn365-commerce-theme.adventureworks.shopText": {
+        "value": "Rohkem võimalusi ostlemiseks",
+        "_value.comment": "More ways to shop description text"
+    },
+    "@msdyn365-commerce-theme.adventureworks.descriptionText": {
+        "value": "Kirjeldus",
+        "_value.comment": "Description text"
+    },
+    "@msdyn365-commerce-theme.adventureworks.findText": {
+        "value": "Järeletulemise ja kohaletoimetamise viisid",
+        "_value.comment": "Pickup and Delivery Methods text"
+    },
+    "@msdyn365-commerce-theme.adventureworks.skuText": {
+        "value": "SKU:",
+        "_value.comment": "SKU text"
+    }
+
+}

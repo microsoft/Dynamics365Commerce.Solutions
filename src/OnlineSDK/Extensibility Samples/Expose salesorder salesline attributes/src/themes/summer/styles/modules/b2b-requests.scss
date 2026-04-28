@@ -1,0 +1,300 @@
+@import "../common/00-settings/colors.scss";
+@import "../common/00-settings/font.scss";
+@import "../common/00-settings/icons.scss";
+@import "../common/02-generic/button.scss";
+@import "../common/01-tools/mixins.scss";
+
+$msv-account-b2b-requests-empty-list-heading-max-width: 480px;
+$msv-account-b2b-requests-empty-list-text-max-width: 404px;
+$msv-account-b2b-requests-empty-list-heading-max-width-t: 348px;
+$msv-account-b2b-requests-empty-list-text-max-width-t: 450px;
+$msv-account-b2b-requests-empty-list-margin-top: 30px;
+$msv-account-b2b-requests-empty-list-margin-top-t: 19px;
+$msv-account-b2b-requests-empty-list-margin-top-m: 0;
+$msv-account-b2b-requests-empty-list-heading-margin-top: 80px;
+$msv-account-b2b-requests-empty-list-heading-margin-top-t: 67px;
+$msv-account-b2b-requests-empty-list-heading-margin-top-m: 48px;
+$msv-account-b2b-requests-empty-list-text-margin-top: 12px;
+$msv-account-b2b-requests-empty-list-text-margin-top-t: 32px;
+$msv-account-b2b-requests-empty-list-text-margin-top-m: 32px;
+$msv-account-b2b-requests-empty-list-btn-margin-top: 38px;
+$msv-account-b2b-requests-empty-list-btn-margin-bottom: 105px;
+$msv-account-b2b-requests-margin-top: 50px;
+$msv-account-b2b-requests-header-height: 40px;
+$msv-account-b2b-requests-header-margin-right: 25px;
+$msv-account-b2b-requests-header-span-margin-left: 14px;
+$msv-account-b2b-requests-header-span-margin-top: 5px;
+$msv-account-b2b-requests-table-margin-top: 50px;
+$msv-account-b2b-requests-table-header-row-height: 50px;
+$msv-account-b2b-requests-table-header-row-lineheight: 21px;
+$msv-account-b2b-requests-table-heading-row-height: 82px;
+$msv-account-b2b-requests-loadmore-margin-top: 20px;
+$msv-account-b2b-requests-table-heading-sorting-padding-left: 8px;
+$msv-b2b-requests-list-table-padding-top: 20px;
+$msv-b2b-requests-list-page-prev-next-padding: 0 4px;
+$msv-b2b-requests-icon-font-size: 20px;
+
+.ms-account-b2b-requests {
+    @include font-body-regular-m();
+    margin-top: $msv-account-b2b-requests-margin-top;
+
+    &__header {
+        &__container {
+            @include font-body-regular-s();
+            height: $msv-account-b2b-requests-header-height;
+            display: flex;
+            justify-content: flex-start;
+            margin-right: $msv-account-b2b-requests-header-margin-right;
+
+            span {
+                margin-left: $msv-account-b2b-requests-header-span-margin-left;
+                margin-top: $msv-account-b2b-requests-header-span-margin-top;
+            }
+        }
+
+        &__heading {
+            @include font-heading-h3-l();
+        }
+    }
+
+    &__table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: $msv-account-b2b-requests-table-margin-top;
+        table-layout: fixed;
+
+        &__header {
+            text-align: left;
+
+            @include divider(bottom);
+
+            &__row {
+                height: $msv-account-b2b-requests-table-header-row-height;
+
+                th {
+                    font-style: normal;
+                    font-weight: normal;
+                    line-height: $msv-account-b2b-requests-table-header-row-lineheight;
+                }
+            }
+        }
+
+        .ms-table {
+            border-collapse: collapse;
+
+            &__heading-row {
+                border-top: 0.5px solid $msv-divider-color;
+            }
+
+            &__heading-row-data,
+            &__row {
+                border-bottom: 0.5px solid $msv-divider-color;
+            }
+
+            &__row-data {
+                text-align: left;
+                height: 82px;
+
+                @include font-body-regular-s();
+            }
+
+            &__row .ms-table__row-data:nth-child(2) {
+                font-weight: bold;
+            }
+
+            &__heading-row,
+            &__heading-row-data {
+                text-align: left;
+                height: $msv-account-b2b-requests-table-heading-row-height;
+
+                @include font-body-bold-xs();
+            }
+
+            &__heading-sorting {
+                cursor: pointer;
+
+                &.asc {
+                    @include add-icon($msv-Arrow-Down, after);
+                }
+
+                &.dsc {
+                    @include add-icon($msv-Arrow-Up, after);
+                }
+
+                &::after {
+                    color: $msv-gray-500;
+                    padding-left: $msv-account-b2b-requests-table-heading-sorting-padding-left;
+                }
+            }
+        }
+    }
+
+    &__load-more {
+        @include primary-button-light();
+
+        margin-top: $msv-account-b2b-requests-loadmore-margin-top;
+
+        &.is-busy {
+            @include add-spinner(before);
+        }
+    }
+
+    &__empty-list {
+        margin-top: $msv-account-b2b-requests-empty-list-margin-top;
+        border: 0.5px solid $msv-gray-50;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        @media (min-width: $msv-breakpoint-m) and (max-width: $msv-breakpoint-l) {
+            margin-top: $msv-account-b2b-requests-empty-list-margin-top-t;
+        }
+
+        @media (max-width: $msv-breakpoint-m) {
+            margin-top: $msv-account-b2b-requests-empty-list-margin-top-m;
+        }
+
+        &-heading {
+            @include font-heading-h2-l();
+            margin-top: $msv-account-b2b-requests-empty-list-heading-margin-top;
+            max-width: $msv-account-b2b-requests-empty-list-heading-max-width;
+            text-align: center;
+        }
+
+        &-text {
+            @include font-body-regular-m();
+
+            margin: auto;
+            margin-top: $msv-account-b2b-requests-empty-list-text-margin-top;
+            max-width: $msv-account-b2b-requests-empty-list-text-max-width;
+            color: $msv-gray-40;
+            text-align: center;
+        }
+
+        &__btn-backtoshopping {
+            @include primary-button-light();
+            margin-bottom: $msv-account-b2b-requests-empty-list-btn-margin-bottom;
+            margin-top: $msv-account-b2b-requests-empty-list-btn-margin-top;
+        }
+
+        @media (min-width: $msv-breakpoint-m) and (max-width: $msv-breakpoint-l) {
+            &-heading {
+                @include font-heading-h2-m();
+                max-width: $msv-account-b2b-requests-empty-list-heading-max-width-t;
+                margin-top: $msv-account-b2b-requests-empty-list-heading-margin-top-t;
+            }
+
+            &-text {
+                max-width: $msv-account-b2b-requests-empty-list-text-max-width-t;
+                margin-top: $msv-account-b2b-requests-empty-list-text-margin-top-t;
+            }
+        }
+
+        @media (max-width: $msv-breakpoint-m) {
+            border: none;
+
+            &-heading {
+                max-width: unset;
+                margin-top: $msv-account-b2b-requests-empty-list-heading-margin-top-m;
+
+                @include font-heading-h2-s();
+            }
+
+            &-text {
+                max-width: unset;
+                margin-top: $msv-account-b2b-requests-empty-list-text-margin-top-m;
+            }
+        }
+    }
+
+    .ms-table-business-org__pagination {
+        padding-top: $msv-b2b-requests-list-table-padding-top;
+        width: 100%;
+
+        .msc-pagination {
+            @include font-body-regular-m();
+            display: flex;
+            list-style: none;
+            width: 100%;
+        }
+
+        ul.msc-pagination {
+            display: flex;
+            justify-content: center;
+
+            .previous.msc-page-item .msc-page-link .msc-pagination__prev {
+                display: inline-flex;
+
+                .prev-text {
+                    display: block;
+                    margin: $msv-b2b-requests-list-page-prev-next-padding;
+                }
+            }
+
+            .next.msc-page-item .msc-page-link .msc-pagination__next {
+                display: inline-flex;
+
+                .next-text {
+                    display: block;
+                    margin: $msv-b2b-requests-list-page-prev-next-padding;
+                }
+            }
+        }
+
+        &-left,
+        &-right {
+            display: flex;
+            align-items: center;
+            font-size: $msv-b2b-requests-icon-font-size;
+        }
+
+        .msc-page-link {
+            @include font-body-regular-m();
+            display: block;
+
+            @include vfi();
+        }
+
+        .previous {
+            margin-right: auto;
+            display: block;
+
+            .msc-page-link {
+                @include font-body-regular-m();
+                color: var(--msv-business-organization-list-text-font-color);
+                display: block;
+
+                .ms-table-business-org__pagination-left {
+                    @include add-icon($msv-ChevronLeft, before);
+                }
+            }
+        }
+
+        .next {
+            margin-left: auto;
+            display: block;
+
+            .msc-page-link {
+                @include font-body-regular-m();
+                color: var(--msv-business-organization-list-text-font-color);
+                display: block;
+
+                .ms-table-business-org__pagination-right {
+                    @include add-icon($msv-ChevronRight, after);
+                }
+            }
+        }
+
+        .msc-page-item.disabled {
+            .msc-page-link {
+                color: $msv-secondary;
+                pointer-events: none;
+                cursor: auto;
+            }
+        }
+
+        .active {
+            text-decoration: underline;
+        }
+    }
+}

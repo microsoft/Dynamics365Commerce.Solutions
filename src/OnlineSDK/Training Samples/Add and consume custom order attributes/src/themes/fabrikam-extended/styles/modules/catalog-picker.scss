@@ -1,0 +1,162 @@
+@import "../common/00-settings/colors.scss";
+@import "../common/00-settings/font.scss";
+@import "../common/00-settings/responsive-breakpoints.scss";
+@import "../common/00-settings/icons.scss";
+@import "../common/02-generic/button.scss";
+
+//Variables
+$catalog-picker-desktop-list-bg-color: $msv-white;
+$catalog-picker-button-border: 1px solid $msv-gray-30;
+$catalog-picker-heading-line-height: 56px;
+$catalog-picker-subheading-margin-top: 22px;
+$catalog-picker-list-margin-bottom: 12px;
+$catalog-picker-height: 48px;
+$catalog-picker-line-height: 48px;
+
+//style presets
+:root {
+    --ms-catalog-picker-font-size: var(--msv-body-font-size-m);
+    --ms-catalog-picker-color: var(--msv-font-primary-color);
+    --ms-catalog-picker-gray-500: #{$msv-gray-500};
+    --ms-catalog-picker-desktop-list-bg-color: #{$catalog-picker-desktop-list-bg-color};
+    --ms-catalog-picker-mobile-list-bg-color: #{$msv-white};
+    --ms-catalog-picker-font-color: #{$msv-black};
+    --ms-catalog-picker-link-font-color: #{$msv-white};
+    --ms-catalog-picker-current-catalog-color: #{$msv-blue};
+}
+
+.ms-catalog-picker {
+    z-index: 1015;
+    align-self: flex-start;
+    align-items: self-end;
+    font-size: var(--ms-catalog-picker-font-size);
+
+    &__list {
+        &__heading {
+            font-weight: bold;
+            font-size: 24px;
+            line-height: 28px;
+            border-bottom: 0.5px solid $msv-gray-50;
+            padding: 28px 0;
+        }
+
+        &__subheading {
+            font-size: 14px;
+            line-height: 20px;
+            margin-top: $catalog-picker-subheading-margin-top;
+        }
+
+        &__wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            padding-top: 40px;
+            max-width: 100%;
+        }
+
+        &__item {
+            margin-top: $catalog-picker-heading-line-height;
+            max-width: calc(50% - 7px);
+
+            &__wrapper {
+                padding-bottom: 40px;
+                max-width: 100%;
+            }
+
+            &__text {
+                font-size: 24px;
+                line-height: 28px;
+                font-weight: 500;
+                margin-bottom: $catalog-picker-list-margin-bottom;
+            }
+
+            &__section {
+                position: relative;
+                width: 651px;
+                height: 346px;
+                max-width: 100%;
+
+                .msc_image {
+                    width: 651px;
+                    height: 346px;
+                }
+            }
+        }
+    }
+
+    &__current-catalog {
+        background: var(--ms-catalog-picker-current-catalog-color);
+        box-shadow: 0 1.2px 3.6px rgba(0, 0, 0, 0.1), 0 6.4px 14.4px rgba(0, 0, 0, 0.13);
+        border-radius: 0 4px 4px 0;
+
+        color: $msv-white;
+        font-size: 16px;
+        line-height: 24px;
+
+        margin-top: 20px;
+        padding: 10px;
+        position: absolute;
+        left: 0;
+        top: 20px;
+
+        &::before {
+            @include msv-icon();
+            content: $msv-file;
+            margin-right: 10px;
+        }
+    }
+
+    &__button {
+        @include secondary-button();
+
+        cursor: pointer;
+        display: none;
+        font-size: 14px;
+        line-height: 20px;
+        padding: 12px 48px;
+
+        &__wrapper {
+            align-items: center;
+            bottom: 0;
+            display: flex;
+            height: 100%;
+            justify-content: center;
+            left: 0;
+            margin: auto;
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 100%;
+
+            background-color: rgba(0, 0, 0, 0.4);
+
+            .msc-btn {
+                display: block;
+            }
+        }
+    }
+}
+
+@media (max-width: $msv-breakpoint-l) {
+    .ms-catalog-picker {
+        margin-left: 0;
+        height: auto;
+
+        &__list {
+            &__heading {
+                font-size: $msv-font-size-xl;
+            }
+
+            &__subheading {
+                font-size: $msv-font-size-l;
+            }
+
+            &__item {
+                &__text {
+                    font-size: $msv-font-size-l;
+                    line-height: normal;
+                }
+            }
+        }
+    }
+}

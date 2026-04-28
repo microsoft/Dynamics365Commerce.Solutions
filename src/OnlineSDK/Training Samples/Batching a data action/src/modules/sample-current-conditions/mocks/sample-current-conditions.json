@@ -1,0 +1,10 @@
+{
+  "id": "current_conditions__0",
+  "config": {
+    "apiKey": ""
+  },
+  "data": {
+      "foo": "bar"
+  },
+  "typeName": "sample-current-conditions"
+}

@@ -1,0 +1,48 @@
+
+/*
+  Your use of the content in the files referenced here is subject
+  to the terms of the license at https://aka.ms/fabric-assets-license
+*/
+
+@mixin use-glyph($unicode) {
+    &::before {
+        content: $unicode;
+    }
+}
+
+.msc-icon {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    display: inline-block;
+    font-family: $msv-icon-font-family;
+    font-style: normal;
+    font-weight: normal;
+
+    .msc-icon__sr-label {
+        @include visually-hidden;
+    }
+
+    &.msc-icon-cart {
+        @include use-glyph($msv-shopping-bag);
+    }
+
+    &.msc-icon-wishlist {
+        @include use-glyph($msv-heart);
+    }
+
+    &.msc-icon-search {
+        @include use-glyph($msv-magnifying-glass);
+    }
+
+    &.msc-icon-go-shop {
+        @include use-glyph($msv-arrow-right);
+    }
+
+    &.msc-icon-close {
+        @include use-glyph($msv-x-shape);
+    }
+
+    &.msc-icon-shopping-cart {
+        @include use-glyph($msv-ShoppingCart);
+    }
+}

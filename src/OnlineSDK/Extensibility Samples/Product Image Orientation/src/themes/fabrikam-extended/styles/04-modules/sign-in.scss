@@ -1,0 +1,201 @@
+$msv-sign-in-social-accounts-border: 1px dashed $msv-gray-300;
+$msv-sign-up-border: 1px solid $msv-gray-300;
+$msv-sign-in-font-size: 14px;
+$msv-sign-in-line-height: 20px;
+$msv-sign-in-link-font-size: 12px;
+$msv-sign-in-link-line-height: 26px;
+$msv-sign-in-heading-font-size: 24px;
+$msv-sign-in-heading-font-weight: normal;
+$msv-sign-in-heading-line-height: 32px;
+$msv-sign-in-button-margin-bottom: 60px;
+$msv-sign-in-button-margin-top: 20px;
+$msv-sign-input-height: 32px;
+$msv-sign-in-account-item-margin-top: 20px;
+$msv-sign-in-input-margin-top: 4px;
+$msv-sign-in-input-padding: 8px;
+$msv-sign-in-section-spacing: 90px;
+$msv-sign-in-section-spacing-m: 40px;
+$msv-sign-in-social-accounts-padding: 40px 0;
+$msv-sign-in-social-button-padding: 8px 16px;
+$msv-sign-in-social-accounts-button-margin-bottom: 20px;
+$msv-sign-in-social-accounts-text-margin-left: 16px;
+$msv-sign-in-link-margin-top: 8px;
+$msv-sign-in-sign-up-description-margin-top: 20px;
+$msv-sign-in-sign-up-description-margin-bottom: 32px;
+$msv-sign-in-message-padding: 20px;
+$msv-sign-in-message-margin-top: 20px;
+$msv-sign-in-container-margin: 50px 100px;
+$msv-sign-in-container-margin-m: 20px;
+
+//style presets
+:root {
+    --msv-sign-in-font-size: var(--msv-body-font-size-m);
+    --msv-sign-in-font-color: var(--msv-font-primary-color);
+    --msv-sign-in-link-size: var(--msv-body-font-size-s);
+    --msv-sign-in-link-color: #{$msv-gray-500};
+
+    // heading
+    --msv-sign-in-heading-font-size: var(--msv-body-font-size-xl);
+    --msv-sign-in-heading-font-color: var(--msv-font-primary-color);
+
+    //error
+    --msv-sign-in-error-alert-bg: var(--msv-error-color);
+    --msv-sign-in-error-alert-font-color: var(--msv-font-secondary-color);
+    --msv-sign-in-error-alert-border: var(--msv-error-color);
+    --msv-sign-in-error-color: var(--msv-error-color);
+
+    // primary button
+    --msv-sign-in-primary-btn-bg: var(--msv-accent-brand-color);
+    --msv-sign-in-primary-btn-font-color: var(--msv-font-secondary-color);
+    --msv-sign-in-primary-btn-border: var(--msv-accent-brand-color);
+}
+
+.ms-sign-in {
+    @include font-content(var(--msv-font-weight-normal), var(--msv-sign-in-font-size), $msv-line-height-m);
+    color: var(--msv-sign-in-font-color);
+
+    &__container {
+        display: flex;
+        margin: $msv-sign-in-container-margin;
+    }
+
+    &__social-account-picture {
+        @include image(32px);
+
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    &__sign-in-heading, &__sign-up-heading {
+        @include font-content(var(--msv-font-weight-normal), var(--msv-sign-in-heading-font-size), $msv-line-height-xl);
+        color: var(--msv-sign-in-heading-font-color);
+    }
+
+    &__sign-in-section {
+        flex: 1;
+        margin-right: $msv-sign-in-section-spacing;
+    }
+
+    &__sign-up-section {
+        border-left: $msv-sign-up-border;
+        flex: 1;
+        padding-left: $msv-sign-in-section-spacing;
+    }
+
+    &__account-item {
+        margin-top: $msv-sign-in-account-item-margin-top;
+
+        &-input {
+            @include form-input-el();
+            margin-top: $msv-sign-in-input-margin-top;
+            width: 100%;
+            border: 1px solid $msv-gray-500;
+
+            &:focus {
+                border: 1px dashed $msv-gray-500;
+                outline: none;
+            }
+        }
+    }
+
+    &__forget-password {
+        display: inline-block;
+        color: var(--msv-sign-in-link-color);
+
+        @include font-content(var(--msv-font-weight-normal),
+        var(--msv-sign-in-link-size), $msv-line-height-s);
+        margin-top: $msv-sign-in-link-margin-top;
+        text-decoration: underline;
+    }
+
+    &__sign-in-button {
+        @include primary-button(var(--msv-sign-in-primary-btn-bg),
+        var(--msv-sign-in-primary-btn-font-color), var(--msv-sign-in-primary-btn-border));
+        margin-bottom: $msv-sign-in-button-margin-bottom;
+        margin-top: $msv-sign-in-button-margin-top;
+        width: 100%;
+    }
+
+    &__sign-up-link {
+        @include primary-button(var(--msv-sign-in-primary-btn-bg),
+        var(--msv-sign-in-primary-btn-font-color), var(--msv-sign-in-primary-btn-border));
+        width: 100%;
+    }
+
+    &__social-accounts {
+        border-top: $msv-sign-in-social-accounts-border;
+        padding: $msv-sign-in-social-accounts-padding;
+
+        button:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    &__social-account {
+        margin-bottom: $msv-sign-in-social-accounts-button-margin-bottom;
+        width: 100%;
+
+        &-FacebookExchange {
+            background-color: $facebook-bg-color;
+            color: var(--msv-font-secondary-color);
+            padding: $msv-sign-in-social-button-padding;
+
+            &:hover,
+            &:focus {
+                background-color: $facebook-hover-color;
+            }
+        }
+
+        &-MicrosoftAccountExchange {
+            background-color: $microsoft-bg-color;
+            border: 1px solid $microsoft-bg-color;
+            color: var(--msv-font-secondary-color);
+            padding: $msv-sign-in-social-button-padding;
+
+            &:hover,
+            &:focus {
+                background-color: $microsoft-hover-color;
+                border: 1px solid $microsoft-hover-color;
+            }
+        }
+
+        &-text {
+            margin-left: $msv-sign-in-social-accounts-text-margin-left;
+        }
+    }
+
+    &__sign-up-description {
+        margin-top: $msv-sign-in-sign-up-description-margin-top;
+        margin-bottom: $msv-sign-in-sign-up-description-margin-bottom;
+    }
+
+    &__page-error {
+        @include validation-error(var(--msv-sign-in-error-alert-bg),
+        var(--msv-sign-in-error-alert-border), var(--msv-sign-in-error-alert-font-color));
+        display: none;
+        margin-top: $msv-sign-in-message-margin-top;
+        padding: $msv-sign-in-message-padding;
+    }
+
+    &__item-error {
+        color: var(--msv-sign-in-error-color);
+    }
+
+    @media screen and (max-width: $msv-breakpoint-m) {
+        &__container {
+            display: block;
+            margin: $msv-sign-in-container-margin-m;
+        }
+
+        &__sign-in-section {
+            margin-right: 0;
+        }
+
+        &__sign-up-section {
+            border-left: none;
+            border-top: $msv-sign-up-border;
+            padding-left: 0;
+            padding-top: $msv-sign-in-section-spacing-m;
+        }
+    }
+}

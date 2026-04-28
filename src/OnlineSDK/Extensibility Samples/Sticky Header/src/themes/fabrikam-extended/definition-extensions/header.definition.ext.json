@@ -1,0 +1,12 @@
+{
+    "$type": "definitionExtension",
+    "config": {
+        "useStickyHeader":{
+            "friendlyName": "Sticky header",
+            "description": "Use sticky header",
+            "type": "boolean",
+            "required": true,
+            "default": false
+        }
+    }
+}

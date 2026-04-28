@@ -1,0 +1,93 @@
+$msc-notification-item-successfully-added-to-cart-empty-image-size: 120px;
+$msc-notification-items-added-to-cart-image-container-margin: 8px;
+$msc-notification-items-added-to-cart-image-container-background: #F9F9F9;
+$msc-notification-items-added-to-cart-image-container-padding: 2px;
+
+.msc-notification-item-successfully-added-to-cart {
+    .msc-notification-content {
+        display: flex;
+    }
+}
+
+.msc-notification-items-added-to-cart {
+    .msc-notification-content {
+        display: block;
+    }
+}
+
+.msc-notification-item-successfully-added-to-cart,
+.msc-notification-items-added-to-cart {
+    .msc-notification-title {
+        font-size: 16px;
+        padding-left: 10px;
+    }
+
+    .msc-notification-content {
+        &__image {
+            max-width: $msc-notification-item-successfully-added-to-cart-empty-image-size;
+            max-height: $msc-notification-item-successfully-added-to-cart-empty-image-size;
+        }
+
+        @include image($msc-notification-item-successfully-added-to-cart-empty-image-size);
+
+        &__preview__products {
+            display: block;
+
+            &__image-container {
+                @include order-template-image-container(
+                    $msc-notification-item-successfully-added-to-cart-empty-image-size,
+                    $msc-notification-items-added-to-cart-image-container-padding,
+                    $msc-notification-items-added-to-cart-image-container-margin);
+            }
+        }
+
+        .msc-notification-description {
+            padding: 4px;
+            text-align: center;
+        }
+
+        &__product-info {
+            padding-left: 10px;
+            max-width: 150px;
+        }
+
+        &__product-title {
+            font-size: 18px;
+            line-height: 24px;
+            padding: 2px;
+        }
+
+        &__product-price {
+            padding: 2px;
+            font-weight: bold;
+            font-size: 18px;
+            line-height: 24px;
+
+            .msc-price__strikethrough {
+                font-weight: normal;
+            }
+        }
+
+        &__product-variants {
+            padding: 2px;
+            font-size: 16px;
+            line-height: 21px;
+        }
+
+        &__product-quantity {
+            padding: 2px;
+            font-size: 16px;
+            line-height: 21px;
+        }
+    }
+
+    .msc-notification-footer {
+        &__go-to-cart {
+            @include primary-button();
+        }
+
+        &__back-to-shopping {
+            @include secondary-button();
+        }
+    }
+}

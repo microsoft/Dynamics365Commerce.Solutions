@@ -1,0 +1,74 @@
+{
+    "$type": "contentModule",
+    "friendlyName": "Azure Maps",
+    "name": "azure-maps",
+    "description": "AzureMap module displays a map and pinpoints locations that it subscribes to. This module is powered by Azure Maps, which has some geographical restrictions. Please refer to <a href='https://azure.microsoft.com/en-us/explore/global-infrastructure/products-by-region/table'>the documentation</a> for more details. Additionally, you may want to communicate these restrictions to your customers via adding an additional Text Box with the relevant links as applicable.",
+    "categories": ["azure-maps"],
+    "tags": [""],
+    "dataActions": {
+        "storeSelectorStateManager": {
+            "path": "@msdyn365-commerce-modules/bopis-utilities/dist/lib/store-selector-state-manager/store-selector-state-manager-data-action",
+            "runOn": "client"
+        },
+        "distributorSelectorStateManager": {
+            "path": "@msdyn365-commerce-modules/distributor-utilities/dist/lib/distributor-selector-state-manager/distributor-selector-state-manager-data-action",
+            "runOn": "client"
+        }
+    },
+    "config": {
+        "heading": {
+            "friendlyName": "Heading",
+            "description": "Module heading",
+            "$ref": "@msdyn365-commerce-modules/definitions/dist/src/Heading.json#/definitions/heading"
+        },
+        "pushpinOptions": {
+            "friendlyName": "Pushpin options",
+            "description": "Provide additional data to create customized pushpin",
+            "type": "object",
+            "properties": {
+                "size": {
+                    "friendlyName": "Size",
+                    "description": "Specifies the size of pushpin",
+                    "type": "number",
+                    "default": 1.5
+                },
+                "color": {
+                    "friendlyName": "Color",
+                    "description": "Specifies color of pushpin. Any color code including hex is supported",
+                    "type": "string",
+                    "default": "#616365"
+                },
+                "selectionColor": {
+                    "friendlyName": "Selection color",
+                    "description": "Specifies color of selected pushpin. Any color code including hex is supported",
+                    "type": "string",
+                    "default": "#4C833A"
+                },
+                "showIndex": {
+                    "type": "boolean",
+                    "friendlyName": "Show index",
+                    "description": "Specifies whether or not to show numbers on the pushpin",
+                    "default": true
+                }
+            }
+        },
+        "className": {
+            "friendlyName": "Custom CSS class name",
+            "description": "Provide a custom css class name defined in the theme pack to target the CSS for this module",
+            "type": "string",
+            "default": ""
+        },
+        "clientRender": {
+            "friendlyName": "Render module client side",
+            "description": "Enabling this property will cause the module to load its Javascript chunk and render on the client based on the user view port. This property is recommended for modules which are generally hidden below the users view port (lower on the page) to increase page load performance.",
+            "type": "boolean",
+            "default": false
+        }
+    },
+    "resources": {
+        "resourceKey": {
+            "comment": "resource description",
+            "value": "resource value"
+        }
+    }
+}

@@ -1,0 +1,387 @@
+@import "../common/00-settings/colors.scss";
+@import "../common/00-settings/font.scss";
+@import "../common/00-settings/responsive-breakpoints.scss";
+@import "../common/02-generic/controls.scss";
+@import "../common/00-settings/icons.scss";
+@import "../common/02-generic/image.scss";
+
+$ms-tile-list-full-width: 100%;
+$ms-tile-list-full-height: 100%;
+$ms-tile-list-carousel-margin-top: 15px;
+$ms-tile-list-box-shadow-color: rgba(0, 0, 0, 0.132);
+$ms-tile-list-heading-normal-color: rgba(0, 0, 0, 0.41);
+$ms-tile-list-heading-contrast-color: rgba(0, 0, 0, 0);
+$ms-tile-list-heading-shadow-color: rgba(0, 0, 0, 0.8);
+$ms-tile-list-thumbnail_image-width: 50px;
+
+$ms-tile-list-inline-height: 100%;
+$ms-tile-list-letter-spacing: 0.01em;
+
+// flipper
+$msv-tile-list-flipper-position-mobile: -15px;
+$msv-tile-list-flipper-position-tablet: -15px;
+$msv-tile-list-flipper-position-desktop: -30px;
+
+// links
+$msv-tile-list-links-effect-position-top: 90%;
+$msv-tile-list-links-effect-position-left: 10%;
+
+// text
+$msv-tile-list-text-effect-position-top: 87%;
+$msv-tile-list-text-effect-position-left: 10%;
+
+// title
+$msv-tile-list-title-initial-position-top: 86.5%;
+$msv-tile-list-title-initial-position-left: 30%;
+$msv-tile-list-title-effect-position-top: 75%;
+$msv-tile-list-title-effect-position-left: 10%;
+$msv-tile-list-title-underline-bottom: -20px;
+
+$msv-tile-list-thumbnail-image-initial-position-top: 82%;
+$msv-tile-list-thumbnail-image-initial-position-left: 10%;
+
+$msv-tile-list-transition-speed: 0.4s;
+$msv-tile-list-transition-speed-slow: 0.6s;
+$msv-tile-list-transition-speed-faster: 0.05s;
+
+// Single tile width for desktop (s), tablet (m) and mobile (l).
+$ms-tile-list__item-l: 328px;
+$ms-tile-list__item-m: 348px;
+$ms-tile-list__item-s: 315px;
+
+$ms-tile-list__item-margin-right-desktop:20px;
+$ms-tile-list__item-margin-right-ipad:24px;
+
+//style presets
+:root {
+    //Links
+    --msv-tile-list-link-font-color: #{$msv-white};
+    --msv-tile-list-link-font-focus-color: #{$msv-gray-160};
+    --msv-tile-list-link-font-size: var(--msv-body-font-size-s);
+
+    //Text
+    --msv-tile-list-text-font-color: var(--msv-font-secondary-color);
+    --msv-tile-list-text-font-size: var(--msv-body-font-size-s);
+
+    //Title
+    --msv-tile-list-heading-font-color: var(--msv-font-primary-color);
+    --msv-tile-list-title-font-color: var(--msv-font-secondary-color);
+    --msv-tile-list-title-underline-color: #{$msv-blue};
+}
+
+@mixin tile-list-effect {
+
+    transform: scale(1.025);
+    transition: transform $msv-tile-list-transition-speed;
+
+    .ms-tile-list__thumbnail_image {
+        top: calc(65% - 20px);
+        transform: translateZ(0);
+        -webkit-backface-visibility: hidden;
+        -ms-transform: translateZ(0);
+        -webkit-transform: translateZ(0);
+    }
+
+    .ms-tile-list__heading {
+        background-color: $ms-tile-list-heading-shadow-color;
+
+        .ms-tile-list__title {
+            @include font-heading-h2-l();
+            left: $msv-tile-list-title-effect-position-left;
+            top: $msv-tile-list-title-effect-position-top;
+            width: auto;
+            transition: all $msv-tile-list-transition-speed;
+            transition-delay: $msv-tile-list-transition-speed-faster;
+
+            &::after {
+                transform: scaleX(1);
+                transition: transform $msv-tile-list-transition-speed-slow;
+                transition-delay: $msv-tile-list-transition-speed-faster;
+            }
+        }
+
+        .ms-tile-list__text {
+            top: $msv-tile-list-text-effect-position-top;
+            left: $msv-tile-list-text-effect-position-left;
+            position: absolute;
+            display: inline;
+            opacity: 1;
+
+            p {
+                letter-spacing: $ms-tile-list-letter-spacing;
+                line-height: $ms-tile-list-inline-height;
+                color: var(--msv-tile-list-text-font-color);
+                font-size: var(--msv-tile-list-text-font-size);
+                visibility: visible;
+                opacity: 1;
+            }
+        }
+
+        .ms-tile-list__links {
+            top: $msv-tile-list-links-effect-position-top;
+            left: $msv-tile-list-links-effect-position-left;
+            position: absolute;
+            display: inline;
+            opacity: 1;
+
+            .ms-tile-list__link {
+                color: var(--msv-tile-list-link-font-color);
+                font-size: var(--msv-tile-list-link-font-size);
+                visibility: visible;
+                outline: none;
+                opacity: 1;
+            }
+        }
+    }
+}
+
+.ms-tile-list {
+    &__heading {
+        .ms-tile-list__title {
+            @include font-heading-h4-m();
+            text-transform: none;
+            color: var(--msv-tile-list-heading-font-color);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+    }
+
+    .msc-ss-carousel {
+        margin-top: $ms-tile-list-carousel-margin-top;
+
+        .msc-tooltip {
+            visibility: hidden;
+        }
+
+        .msc-flipper {
+            &.msc-ss-carousel__flipper {
+                top: 50%;
+                left: -10px;
+
+                &.disabled {
+                    visibility: hidden;
+                }
+
+                @media screen and (max-width: $msv-breakpoint-m) {
+                    left: $msv-tile-list-flipper-position-mobile;
+                }
+
+                @media (min-width: $msv-breakpoint-m) and (max-width: $msv-breakpoint-l) {
+                    left: $msv-tile-list-flipper-position-tablet;
+                }
+
+                @media screen and (min-width: $msv-breakpoint-l) {
+                    left: $msv-tile-list-flipper-position-desktop;
+                }
+            }
+
+            &.msc-ss-carousel__flipper--next {
+                right: -10px;
+                left: auto;
+
+                @media screen and (max-width: $msv-breakpoint-m) {
+                    right: $msv-tile-list-flipper-position-mobile;
+                }
+
+                @media (min-width: $msv-breakpoint-m) and (max-width: $msv-breakpoint-l) {
+                    right: $msv-tile-list-flipper-position-tablet;
+                }
+
+                @media screen and (min-width: $msv-breakpoint-l) {
+                    right: $msv-tile-list-flipper-position-desktop;
+                }
+            }
+        }
+
+        .ms-tile__item {
+            display: inline-block;
+            max-width: none;
+            overflow: hidden;
+            text-align: left;
+            vertical-align: top;
+            transition: transform $msv-tile-list-transition-speed;
+            position: relative;
+            margin-right: $ms-tile-list__item-margin-right-desktop;
+
+            @media screen and (max-width: $msv-breakpoint-m) {
+                width: $ms-tile-list__item-l;
+            }
+
+            @media (min-width: $msv-breakpoint-m) and (max-width: $msv-breakpoint-l) {
+                width: $ms-tile-list__item-m;
+                margin-right: $ms-tile-list__item-margin-right-ipad;
+            }
+
+            @media screen and (min-width: $msv-breakpoint-l) {
+                width: $ms-tile-list__item-s;
+            }
+
+            .ms-tile-list__heading {
+                width: $ms-tile-list-full-width;
+                height: $ms-tile-list-full-height;
+                text-align: center;
+                position: absolute;
+                cursor: pointer;
+                background-color: $ms-tile-list-heading-normal-color;
+                opacity: 1;
+                top: 0;
+                left: 0;
+                bottom: 0;
+
+                @media screen and (-ms-high-contrast: active) {
+                    background-color: $ms-tile-list-heading-contrast-color;
+                }
+
+                .ms-tile-list__title {
+                    @include font-heading-h4-m();
+                    text-shadow: 0 6.4px 14.4px $ms-tile-list-box-shadow-color;
+                    letter-spacing: $ms-tile-list-letter-spacing;
+                    color: var(--msv-tile-list-title-font-color);
+                    top: $msv-tile-list-title-initial-position-top;
+                    left: $msv-tile-list-title-initial-position-left;
+                    justify-content: left;
+                    flex-direction: row;
+                    position: absolute;
+                    display: flex;
+                    width: auto;
+
+                    &::after {
+                        border-bottom: 4px solid var(--msv-tile-list-title-underline-color);
+                        transition: all 0s ease-out 0s;
+                        width: $ms-tile-list-full-width;
+                        transform: scaleX(0);
+                        position: absolute;
+                        display: block;
+                        bottom: $msv-tile-list-title-underline-bottom;
+                        content: "";
+                    }
+                }
+            }
+
+            .ms-tile-list__thumbnail_image {
+                transition: $msv-tile-list-transition-speed;
+                top: $msv-tile-list-thumbnail-image-initial-position-top;
+                left: $msv-tile-list-thumbnail-image-initial-position-left;
+                position: absolute;
+                cursor: pointer;
+                width: $ms-tile-list-thumbnail_image-width;
+                display: block;
+                margin: 0 auto;
+
+                @include image($ms-tile-list-thumbnail_image-width);
+            }
+
+            .ms-tile-list__image {
+                width: $ms-tile-list-full-width;
+
+                @include image($ms-tile-list-full-width);
+
+                picture > img {
+                    border-radius: 2%;
+                    transition: transform $msv-tile-list-transition-speed;
+                }
+            }
+
+            .ms-tile-list__link {
+                width: $ms-tile-list-full-width;
+
+                &:focus, &:focus-within {
+                    outline: 1px solid var(--msv-tile-list-link-font-focus-color);
+                }
+            }
+
+            .ms-tile-list__text {
+                visibility: hidden;
+                opacity: 0;
+                transition: visibility 0s, opacity $msv-tile-list-transition-speed-faster linear;
+                transition-delay: $msv-tile-list-transition-speed-faster;
+            }
+
+            .ms-tile-list__links {
+                visibility: hidden;
+                opacity: 0;
+                transition: visibility 0s, opacity $msv-tile-list-transition-speed-faster linear;
+                transition-delay: $msv-tile-list-transition-speed-faster;
+            }
+
+            .ms-tile-list-container {
+                width: $ms-tile-list-full-width;
+                display: inline-block;
+                vertical-align: top;
+                position: relative;
+                border: none;
+                outline: none;
+                padding: inherit;
+                max-width: none;
+                overflow: hidden;
+                text-align: left;
+                border-radius: 3%;
+
+                @media screen and (max-width: $msv-breakpoint-m) {
+                    width: $ms-tile-list__item-l;
+                }
+
+                @media (min-width: $msv-breakpoint-m) and (max-width: $msv-breakpoint-l) {
+                    width: $ms-tile-list__item-m;
+                }
+
+                @media screen and (min-width: $msv-breakpoint-l) {
+                    width: $ms-tile-list__item-s;
+                }
+
+                &:hover {
+                    @include tile-list-effect;
+                }
+
+                &:focus-visible {
+                    @include tile-list-effect;
+                }
+
+                @media not all and (min-resolution: 0.001dpcm) {
+                    @supports (-webkit-appearance:none) {
+                        &:focus {
+                            @include tile-list-effect;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.ms-tile-list.b2b-tiles {
+    .msc-ss-carousel .ms-tile__item {
+        .ms-tile-list-container {
+            .ms-tile-list__heading .ms-tile-list__title {
+                position: relative;
+                justify-content: center;
+                left: auto;
+            }
+
+            &:hover {
+                .ms-tile-list__heading .ms-tile-list__title {
+                    position: absolute;
+                    left: 10%;
+                }
+            }
+
+            &:focus-visible {
+                .ms-tile-list__heading .ms-tile-list__title {
+                    position: absolute;
+                    left: 10%;
+                }
+            }
+
+            @media not all and (min-resolution: 0.001dpcm) {
+                @supports (-webkit-appearance:none) {
+                    &:focus {
+                        .ms-tile-list__heading .ms-tile-list__title {
+                            position: absolute;
+                            left: 10%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

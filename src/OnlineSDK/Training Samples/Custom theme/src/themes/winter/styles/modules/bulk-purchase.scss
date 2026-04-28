@@ -1,0 +1,82 @@
+@import "../common/00-settings/colors.scss";
+@import "../common/00-settings/responsive-breakpoints.scss";
+@import "../common/00-settings/font.scss";
+@import "../common/00-settings/icons.scss";
+
+$bulk-purchase-shadow: 0 0.3px 0.9px rgba(0, 0, 0, 0.1), 0 1.6px 3.6px rgba(0, 0, 0, 0.13);
+$bulk-purchase-background-color: $msv-white;
+$bulk-purchase-button-color: $msv-gray-20;
+
+.ms-bulk-purchase {
+    margin-top: 50px;
+    margin-bottom: 20px;
+
+    &__content {
+        background: $bulk-purchase-background-color;
+        box-shadow: $bulk-purchase-shadow;
+
+        @media (max-width: $msv-breakpoint-m) {
+            box-shadow: none;
+        }
+
+        &__collapse-button {
+            @include font-heading-h3-s();
+            width: 100%;
+            height: 85px;
+            text-align: unset;
+            background: $bulk-purchase-background-color;
+            border: none;
+            box-shadow: $bulk-purchase-shadow;
+            display: flex;
+            align-items: center;
+            padding: 0;
+
+            @include add-icon($msv-grid, before);
+
+            &::before {
+                margin: 0 11px 0 63px;
+
+                @media (max-width: $msv-breakpoint-l) {
+                    margin: 0 8px;
+                }
+            }
+
+            &::after {
+                margin: 0 8px;
+                float: right;
+                margin-left: auto;
+            }
+
+            &[aria-expanded="true"] {
+                @include add-icon($msv-ChevronUp, after);
+            }
+
+            &[aria-expanded="false"] {
+                @include add-icon($msv-ChevronDown, after);
+            }
+        }
+
+        &__collapse {
+            padding: 32px 60px 0 60px;
+
+            @media (min-width: $msv-breakpoint-m) and (max-width: $msv-breakpoint-l) {
+                padding: 32px 24px 0 24px;
+            }
+
+            @media (max-width: $msv-breakpoint-m - 1) {
+                padding: 0;
+            }
+
+            &__main-content {
+                &__description {
+                    @include font-body-regular-s();
+                    padding-bottom: 30px;
+
+                    @media (max-width: $msv-breakpoint-m - 1) {
+                        padding: 32px 16px 10px 16px;
+                    }
+                }
+            }
+        }
+    }
+}
