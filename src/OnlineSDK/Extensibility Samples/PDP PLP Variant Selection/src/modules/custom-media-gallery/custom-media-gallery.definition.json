@@ -1,0 +1,166 @@
+{
+	"$type": "contentModule",
+	"friendlyName": "Media gallery (COPY)",
+	"name": "custom-media-gallery",
+	"description": "Media gallery is used for showcasing images of a product in a product details page",
+	"categories": [
+		"media-gallery",
+		"buybox_mediaGallery"
+	],
+	"dataActions": {
+		"product": {
+			"path": "@msdyn365-commerce-modules/retail-actions/dist/lib/get-selected-variant",
+			"runOn": "server"
+		},
+		"mediaLocations": {
+			"path": "@msdyn365-commerce-modules/retail-actions/dist/lib/get-media-locations-by-id",
+			"runOn": "server"
+		},
+		"mediaLocationsForSelectedVariant": {
+			"path": "@msdyn365-commerce-modules/retail-actions/dist/lib/get-media-locations-for-selected-variant",
+			"runOn": "server"
+		}
+	},
+	"config": {
+		"imageSource": {
+			"friendlyName": "Image source",
+			"description": "Default will be Page context, it automatically picks images associated with a product on the buy box",
+			"type": "string",
+			"enum": {
+				"pageContext": "PageContext",
+				"productId": "ProductId"
+			},
+			"required": false,
+			"default": "pageContext",
+			"group": "Default"
+		},
+		"images": {
+			"friendlyName": "Images",
+			"description": "Allows images to be curated to the gallery from Media library",
+			"type": "array",
+			"items": {
+				"type": "image"
+			},
+			"group": "Default"
+		},
+		"productId": {
+			"type": "string",
+			"friendlyName": "Product id",
+			"description": "This field captures the product id for which you want to show images in a gallery. It should be used only when Image source is Product id",
+			"required": false,
+			"group": "Default"
+		},
+		"imageZoom": {
+			"friendlyName": "Image zoom",
+			"description": "Image zoom",
+			"type": "string",
+			"enum": {
+				"inline": "Inline",
+				"container": "Container"
+			},
+			"default": "",
+			"scope": "module",
+			"group": "Image zoom"
+		},
+		"allowFullScreen": {
+			"friendlyName": "Full screen",
+			"description": "Full screen",
+			"type": "boolean",
+			"default": false,
+			"required": false,
+			"group": "Image zoom"
+		},
+		"dataScale": {
+			"friendlyName": "Zoom factor",
+			"description": "X times",
+			"type": "string",
+			"default": "1.5",
+			"group": "Image zoom"
+		},
+		"zoomedImageSettings": {
+			"friendlyName": "Zoomed image quality",
+			"description": "Image settings for the zoomed image",
+			"type": "imageSettings",
+			"group": "Image zoom"
+		},
+		"thumbnailsOrientation": {
+			"friendlyName": "Thumbnails orientation",
+			"description": "Sets the desired orientation of the thumbnails strips",
+			"type": "string",
+			"enum": {
+				"vertical": "Vertical",
+				"horizontal": "Horizontal"
+			},
+			"default": "vertical",
+			"scope": "module",
+			"group": "Image settings"
+		},
+		"thumbnailImageSettings": {
+			"friendlyName": "Thumbnail image quality",
+			"description": "Image settings for the thumbnails",
+			"type": "imageSettings",
+			"group": "Image settings"
+		},
+		"galleryImageSettings": {
+			"friendlyName": "Gallery image quality",
+			"description": "Image settings for the main gallery",
+			"type": "imageSettings",
+			"group": "Image settings"
+		},
+		"shouldHideMasterProductImagesForVariant": {
+			"friendlyName": "Hide master product images for variant",
+			"description": "Hides master product images when variant is selected unless as a fallback when variant does not have images",
+			"type": "boolean",
+			"default": true,
+			"required": false,
+			"group": "Advanced"
+		},
+		"showPaginationTooltip": {
+			"friendlyName": "Show Media Gallery pagination tooltip",
+			"description": "Enable/Disable the tooltip of the Media Gallery pagination indicators",
+			"type": "boolean",
+			"default": false,
+			"required": false,
+			"group": "Advanced"
+		},
+		"shouldUpdateOnPartialDimensionSelection": {
+			"friendlyName": "Update media on dimension selection",
+			"description": "This property when enabled, will show the images for the selected dimension such as Color, even when all the other dimensions such as Style, Size are not selected yet.",
+			"type": "boolean",
+			"default": true,
+			"required": false,
+			"group": "Advanced"
+		},
+		"className": {
+			"friendlyName": "Custom CSS class name",
+			"description": "Provide a custom css class name defined in the theme pack to target the CSS for this module",
+			"type": "string",
+			"default": "",
+			"group": "Advanced"
+		},
+		"getMediaLocationsDisableFlag": {
+			"friendlyName": "Get Media Locations Disable Flag",
+			"description": "Enable/Disable the get media locations api call",
+			"type": "boolean",
+			"default": false
+		}
+	},
+	"resources": {
+		"nextScreenshotFlipperText": {
+			"comment": "The label for the 'next screenshot' flipper",
+			"value": "Next"
+		},
+		"previousScreenshotFlipperText": {
+			"comment": "The label which is shown on 'previous screenshot' flipper",
+			"value": "Previous"
+		},
+		"fullScreenTitleText": {
+			"comment": "To show the title on media gallery image fullscreen",
+			"value": "fullscreen"
+		},
+		"ariaLabelForSlide": {
+			"comment": "Aria label for the Carousel Indicators",
+			"value": "Slide {0}"
+		}
+	}
+}

@@ -1,0 +1,328 @@
+$msv-address-form-item-margin-bottom: 10px;
+$msv-address-detail-item-margin-right: 5px;
+$msv-address-select-item-margin-top: 10px;
+$msv-address-select-item-margin-bottom: 10px;
+$msv-alert-danger-background-color: $msv-error-color;
+$msv-alert-font-family: $msv-primary-font-family;
+$msv-alert-font-weight: $msv-font-weight-bold;
+$msv-alert-font-size: 16px;
+$msv-alert-line-height: 21px;
+$msv-alert-border-radius: 0;
+$msv-alert-padding: 0.75rem 1.25rem;
+$msv-alert-margin-bottom: 1rem;
+$msv-alert-border: 1px solid transparent;
+$msv-alert-icon: $msv-IncidentTriangle;
+$msv-alert-icon-margin: 8px;
+$msv-address-input-min-height: 32px;
+$msv-address-input-border-color: #605E5C;
+$msv-address-input-font-size: 14px;
+$msv-address-input-line-height: 19px;
+$msv-address-button-save-margin-right: 20px;
+$msv-account-management-address-margin-bottom: 20px;
+$msv-account-management-address-list-button-add-empty-margin-bottom: 16px;
+$msv-account-management-address-list-primary-border-color: $msv-gray-60;
+$msv-account-management-address-list-primary-margin-top: 20px;
+$msv-account-management-address-list-primary-heading-margin-bottom: 12px;
+$msv-account-management-address-list-primary-list-border-color: $msv-gray-60;
+$msv-account-management-address-list-primary-list-address-detail-item-margin-right: 5px;
+$msv-primary-list-address-detail-item-newline-margin-right:0;
+$msv-account-management-address-list-primary-list-button-edit-background-color: transparent;
+$msv-account-management-address-list-primary-list-button-edit-border-color: transparent;
+$msv-account-management-address-list-primary-list-phone-icon-margin-right: 5px;
+$msv-account-management-address-list-button-primary-margin-top: 15px;
+$msv-address-select-item-address-detail-padding-left: 48px;
+
+.msc-address-form {
+    &__label {
+        display: block;
+        font-size: $msv-address-input-font-size;
+        line-height: $msv-address-input-line-height;
+        font-weight: 600;
+        margin-bottom: 5px;
+    }
+
+    &__item {
+        margin-bottom: $msv-address-form-item-margin-bottom;
+    }
+
+    &__item-isprimary {
+        display: flex;
+
+        .msc-address-form__label {
+            margin-top: auto;
+            margin-bottom: auto;
+            margin-right: 10px;
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+
+        .msc-address-form__input-checkbox {
+            width: 20px;
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+
+    &__item-county {
+        display: none;
+    }
+
+    &__input-text {
+        padding: 6px 8px;
+    }
+
+    .MicrosoftMap {
+        position: relative;
+        width: 100%;
+
+        .as_container_search {
+            width: 100%;
+        }
+    }
+
+    &__input,
+    &__dropdown {
+        @include vfi();
+        display: block;
+        width: 100%;
+        min-height: $msv-address-input-min-height;
+        border: 1px solid $msv-address-input-border-color;
+        /* stylelint-disable-next-line declaration-no-important -- Auto-suppressed. Please fix if possible. */
+        box-sizing: border-box !important;
+        border-radius: 2px;
+        font-size: $msv-address-input-font-size;
+        line-height: $msv-address-input-line-height;
+        font-weight: normal;
+    }
+
+    &__alert {
+        display: block;
+    }
+
+    &__button-save {
+        @include primary-button();
+        margin-right: $msv-address-button-save-margin-right;
+    }
+
+    &__button-cancel {
+        @include secondary-button();
+    }
+
+    .address-form__item-invalid &__alert {
+        font-family: $msv-alert-font-family;
+        font-weight: $msv-font-weight-bold;
+        font-size: $msv-alert-font-size;
+        line-height: $msv-alert-line-height;
+        text-transform: none;
+        border-radius: $msv-alert-border-radius;
+        position: relative;
+        padding: $msv-alert-padding;
+        margin-bottom: $msv-alert-margin-bottom;
+        border: $msv-alert-border;
+        color: var(--msv-font-secondary-color);
+        background-color: $msv-alert-danger-background-color;
+        border-color: $msv-alert-danger-background-color;
+        margin-top: $msv-alert-line-margin-top;
+
+        &::before {
+            margin-right: $msv-alert-icon-margin;
+
+            @include msv-icon();
+            content: $msv-IncidentTriangle;
+        }
+    }
+}
+
+.msc-address-detail {
+    clear: both;
+
+    &__item {
+        margin-right: $msv-address-detail-item-margin-right;
+    }
+
+    &__item-newline {
+        margin-right: 0;
+
+        &::after {
+            content: "\A";
+            white-space: pre;
+        }
+    }
+
+    &__item-address-detail_Phone {
+        display: block;
+    }
+
+    &__main-item-empty {
+        display: none;
+    }
+
+    &__item-phone {
+        @include add-icon($msv-Phone);
+
+        &-label {
+            @include visually-hidden();
+        }
+
+        &::before {
+            margin-right: $msv-account-management-address-list-primary-list-phone-icon-margin-right;
+        }
+
+        &.msc-address-detail__item-empty {
+            display: none;
+        }
+    }
+}
+
+.msc-address-select {
+    clear: both;
+
+    &__item {
+        align-items: center;
+        display: flex;
+        margin-bottom: $msv-address-select-item-margin-bottom;
+        margin-top: $msv-address-select-item-margin-top;
+        position: relative;
+
+        .msc-address-detail {
+            padding-left: $msv-address-select-item-address-detail-padding-left;
+        }
+    }
+
+    &__input {
+        @include vfi();
+        @include form-input-checkbox();
+
+        &-radio {
+            position: absolute;
+            top: 0;
+        }
+    }
+
+    &__button-add {
+        @include vfi();
+        @include primary-button();
+    }
+}
+
+// mixin
+
+@mixin address-button {
+    cursor: pointer;
+}
+
+.ms-account-management-address {
+    margin-bottom: $msv-account-management-address-margin-bottom;
+
+    .ms-address-list {
+        margin-bottom: $msv-account-management-address-margin-bottom;
+    }
+
+    .msc-address-list__heading {
+        font-family: $msv-primary-font-family;
+        font-weight: $msv-font-weight-normal;
+
+        @include font-content-xl();
+        margin-bottom: 28px;
+    }
+
+    .msc-address-list__add-empty {
+        margin-bottom: $msv-account-management-address-list-button-add-empty-margin-bottom;
+    }
+
+    .msc-address-list__button-add {
+        @include primary-button();
+    }
+
+    .msc-address-list__primary {
+        border-top: 1px solid $msv-account-management-address-list-primary-border-color;
+        margin-top: $msv-account-management-address-list-primary-margin-top;
+        padding: 20px 0;
+
+        .msc-address-list__primary-heading {
+            font-family: $msv-primary-font-family;
+
+            @include font-content-m($msv-font-weight-bold);
+            margin-bottom: $msv-account-management-address-list-primary-heading-margin-bottom;
+        }
+
+        .msc-address-list__primary-list {
+            padding: 20px 0;
+            border-bottom: 1px dashed $msv-account-management-address-list-primary-list-border-color;
+
+            &::nth-child(2) {
+                padding-top: 0;
+            }
+
+            &::last-child {
+                border-bottom: none;
+                padding-bottom: 0;
+            }
+
+            .msc-address-detail {
+                .msc-address-detail__item {
+                    margin-right: $msv-account-management-address-list-primary-list-address-detail-item-margin-right;
+                }
+
+                .msc-address-detail__item-newline {
+                    margin-right: $msv-primary-list-address-detail-item-newline-margin-right;
+
+                    &::after {
+                        content: "\A";
+                        white-space: pre;
+                    }
+                }
+            }
+
+            .msc-address-list__button-primary {
+                @include secondary-button();
+                display: block;
+                margin-top: $msv-account-management-address-list-button-primary-margin-top;
+            }
+
+            .msc-address-list__button-edit {
+                font-family: $msv-primary-font-family;
+
+                @include font-content-m();
+                text-transform: none;
+                border-radius: 0;
+                text-decoration: underline;
+                background-color: $msv-account-management-address-list-primary-list-button-edit-background-color;
+                border: 1px $msv-account-management-address-list-primary-list-button-edit-border-color;
+                padding: 6px 12px 6px 0;
+            }
+
+            .msc-address-list__button-remove {
+                font-family: $msv-primary-font-family;
+
+                @include font-content-m();
+                text-transform: none;
+                border-radius: 0;
+                text-decoration: underline;
+                background-color: $msv-account-management-address-list-primary-list-button-edit-background-color;
+                border: 1px $msv-account-management-address-list-primary-list-button-edit-border-color;
+                padding: 6px 12px 6px 0;
+            }
+        }
+
+        .msc-address-list__primary-list:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+    }
+}
+
+.remove-address-screen-reader {
+    border: 0;
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}

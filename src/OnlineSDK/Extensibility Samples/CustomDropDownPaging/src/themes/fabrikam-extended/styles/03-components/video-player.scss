@@ -1,0 +1,623 @@
+@mixin msv-controlsIcon {
+    font-size: 1.2rem;
+    font-weight: bold;
+    position: relative;
+    top: 0;
+    left: -0.2rem;
+}
+
+$video-player-width: 100%;
+$video-player-bakgroundcolor: $msv-gray-900;
+$video-player-errormessage-color: var(--msv-font-secondary-color);
+$video-player-errormessage-icon-size: 3rem;
+$video-player-errormessage-padding: 3.5rem;
+$video-player-errormessage-heading-font-size: 1.25rem;
+$video-player-spinner-heigth: 3.125rem;
+$video-player-spinner-width: 3.125rem;
+$video-player-spinner-color: var(--msv-font-secondary-color);
+$video-player-spinner-border-color: var(--msv-border-color);
+$video-player-trigger-height: 3.125rem;
+$video-player-trigger-width: 3.125rem;
+$video-player-trigger-border-color: var(--msv-border-color);
+$video-player-trigger-border-width: 0.125rem;
+$video-player-trigger-border-radius: 50%;
+$video-player-trigger-color: var(--msv-font-secondary-color);
+$video-player-trigger-background-color: transparent;
+$video-player-trigger-focus-border-color: var(--msv-border-color);
+$video-player-trigger-focus-outline-color: $msv-black;
+$video-player-trigger-hover-color: $msv-white;
+$video-player-trigger-hover-border-color: $msv-primary-hover;
+$video-player-controls-color: $msv-white;
+$video-player-controls-background-color: $msv-secondary;
+$video-player-controls-button-height: 2.5rem;
+$video-player-controls-button-width: 2.5rem;
+$video-player-controls-button-border-color: var(--msv-accent-brand-color);
+$video-player-controls-button-focus-border-color: $msv-black;
+$video-player-controls-button-focus-outline-color: $msv-white;
+$video-player-controls-button-border-width: 0.125rem;
+$video-player-controls-button-color: $msv-gray-900;
+$video-player-controls-button-background-color : var(--msv-bg-color);
+$video-player-controls-time-text-color: $msv-white;
+$video-player-controls-time-text-font-size: 1rem;
+$video-player-controls-volume-container-color: $msv-gray-500;
+$video-player-controls-volume-slider-background-color: var(--msv-accent-brand-color);
+$video-player-controls-slider-horizontal-msc-progress-background-color: $msv-gray-300;
+$video-player-controls-slider-thumb-color: $msv-black;
+$video-player-controls-slider-thumb-border-color: $msv-black;
+$video-player-controls-slider-thumb-outline-color: $msv-white;
+$video-player-controls-menu-background-color: $msv-black;
+$video-player-controls-menu-border-color: var(--msv-border-color);
+$video-player-controls-menu-font-size: 0.9375rem;
+$video-player-controls-slider-track-background-color: var(--msv-accent-brand-color);
+$video-player-controls-slider-progress-bar-color: $msv-black;
+$video-player-controls-slider-progress-bar-background-color: var(--msv-accent-brand-color);
+$video-player-controls-menu-menuitem-color: $msv-white;
+$video-player-controls-menu-menuitem-focus-border-color: var(--msv-border-color);
+
+@mixin controlbar-buttons {
+    height: $video-player-controls-button-height;
+    width: $video-player-controls-button-width;
+    min-width: auto;
+    cursor: pointer;
+    background: $video-player-controls-button-background-color;
+    color: $video-player-controls-button-color;
+    outline-offset: 0.125rem;
+    position: relative;
+    border-width: 0.0625rem;
+    border-style: solid;
+    border-color: $video-player-controls-button-border-color;
+    padding: 0.375rem 0.75rem;
+    text-align: center;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.msc-videoplayer {
+    margin: 0;
+    direction: ltr;
+    box-sizing: border-box;
+    position: relative;
+    display: block;
+
+    .msc-videoplayer__wrapper {
+        width: 100%;
+        height: 100%;
+
+        video.msc-videoplayer__video {
+            width: 100%;
+            height: 100%;
+            display: block;
+            min-width: 100%;
+            max-height: 100%;
+            cursor: pointer;
+            background-color: $video-player-bakgroundcolor;
+        }
+
+        .msc-videoplayer__errormessage[aria-hidden="true"] {
+            display: none;
+        }
+
+        .msc-videoplayer__errormessage {
+            z-index: 1;
+            left: 0;
+            top: 0;
+            color: $video-player-errormessage-color;
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            vertical-align: middle;
+            background-color: $video-player-bakgroundcolor;
+
+            .msc-videoplayer__errormessage__wrapper {
+                top: 50%;
+                transform: translateY(-50%);
+                padding: $video-player-errormessage-padding;
+                text-align: center;
+                width: 100%;
+                position: absolute;
+
+                &::before {
+                    @include msv-icon();
+                    content: $msv-Error;
+                    font-size: $video-player-errormessage-icon-size;
+                }
+
+                .msc-videoplayer__errormessage__heading {
+                    font-size: $video-player-errormessage-heading-font-size;
+                }
+            }
+        }
+
+        .msc-videoplayer__screenreader,
+        .msc-videoplayer__controls__time__screenreader {
+            clip: rect(1px, 1px, 1px, 1px);
+            clip-path: inset(50%);
+            height: 1px;
+            width: 1px;
+            margin: -1px;
+            overflow: hidden;
+            padding: 0;
+            position: absolute;
+        }
+
+        .msc-videoplayer__spinner {
+            top: 50%;
+            left: 50%;
+            overflow: hidden;
+            transform: translate(-50%, -50%);
+            position: absolute;
+            vertical-align: middle;
+
+            .msc-videoplayer__waiting {
+                width: $video-player-spinner-width;
+                height: $video-player-spinner-heigth;
+                display: inline-block;
+                position: relative;
+                z-index: 1;
+                border-radius: 50%;
+                border-color: $video-player-spinner-border-color;
+                border-style: solid;
+                border-width: 0.1875rem;
+                border-top-color: $video-player-spinner-color;
+                transform: translate3d(-50%, -50%, 0);
+                animation: spin 0.75s ease-in-out infinite;
+            }
+        }
+
+        .msc-videoplayer__spinner[aria-hidden="true"] {
+            display: none;
+        }
+
+        .msc-videoplayer__ccoverlay {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 56;
+        }
+
+        .msc-videoplayer__playpausetrigger__container {
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            align-items: center;
+            justify-content: center;
+            display: flex;
+            cursor: pointer;
+
+            .msc-videoplayer__playpausetrigger {
+                display: inline-block;
+                flex-direction: column;
+            }
+
+            .msc-videoplayer__playpausetrigger[aria-hidden="true"] {
+                display: none;
+            }
+
+            .msc-videoplayer__playpausetrigger > button {
+                @include vfi();
+                height: $video-player-trigger-height;
+                width: $video-player-trigger-width;
+                border-color: $video-player-trigger-border-color;
+                border-radius: $video-player-trigger-border-radius;
+                border-width: $video-player-trigger-border-width;
+                box-shadow: none;
+                background-color: $video-player-trigger-background-color;
+                color: $video-player-trigger-color;
+                border-style: solid;
+
+                &:focus {
+                    border-style: solid;
+                    border-color: $video-player-trigger-focus-border-color;
+                    border-width: 2px;
+                    outline-style: dashed;
+                    outline-width: 1px;
+                    outline-color: $video-player-trigger-focus-outline-color;
+                    outline-offset: 2px;
+                }
+
+                &:hover {
+                    color: $video-player-trigger-hover-color;
+                    border-color: $video-player-trigger-hover-border-color;
+                }
+            }
+
+            .msc-videoplayer__playpausetrigger__playbtn[aria-hidden="true"],
+            .msc-videoplayer__playpausetrigger__pausebtn[aria-hidden="true"] {
+                display: none;
+            }
+
+            .msc-videoplayer__playpausetrigger__playbtn::before {
+                @include msv-icon();
+                position: relative;
+                top: 0.1rem;
+                font-size: 1.2rem;
+                font-weight: bold;
+                content: $msv-SolidPlay;
+            }
+
+            .msc-videoplayer__playpausetrigger__pausebtn::before {
+                @include msv-icon();
+                position: relative;
+                top: 0.1rem;
+                font-size: 1.2rem;
+                font-weight: bold;
+                content: $msv-Pause;
+            }
+        }
+
+        .msc-videoplayer__controls {
+            -webkit-transition: max-height 0.5s linear, opacity 0.2s linear 0.2s;
+            -moz-transition: max-height 0.5s linear, opacity 0.2s linear 0.2s;
+            -o-transition: max-height 0.5s linear, opacity 0.2s linear 0.2s;
+            transition: max-height 0.5s linear, opacity 0.2s linear 0.2s;
+
+            bottom: 0;
+            width: 100%;
+            z-index: 61;
+            left: 0;
+            padding-right: 0;
+            padding-left: 0;
+            color: $video-player-controls-color;
+            position: absolute;
+            display: inline-block;
+            background-color: $video-player-controls-background-color;
+
+            &.hide {
+                -webkit-transition: max-height 0.5s linear, opacity 0.2s linear;
+                -moz-transition: max-height 0.5s linear, opacity 0.2s linear;
+                -o-transition: max-height 0.5s linear, opacity 0.2s linear;
+                transition: max-height 0.5s linear, opacity 0.2s linear;
+
+                max-height: 0;
+                opacity: 0;
+            }
+
+            &.show {
+                max-height: $video-player-controls-button-height;
+                opacity: 1;
+            }
+
+            .msc-videoplayer__controls__wrapper {
+                margin-left: 0;
+                margin-right: 0;
+                align-items: center;
+                display: flex;
+                flex-wrap: wrap;
+
+                .msc-videoplayer__controls__playpausebtn__wrapper,
+                .msc-videoplayer__controls__muteunmutebtn__wrapper,
+                .msc-videoplayer__controls__fullscreenbtn__wrapper {
+                    display: inline-block;
+                }
+
+                .msc-videoplayer__controls__playbtn,
+                .msc-videoplayer__controls__pausebtn,
+                .msc-videoplayer__controls__mutebtn,
+                .msc-videoplayer__controls__unmutebtn,
+                .msc-videoplayer__controls__fullscreenbtn,
+                .msc-videoplayer__controls__exitfullscreenbtn,
+                .msc-videoplayer__controls__closedcaptionbtn,
+                .msc-videoplayer__controls__moreoptionsbtn {
+                    @include controlbar-buttons();
+
+                    &:focus {
+                        border: 1px dashed $video-player-controls-button-focus-border-color;
+                        outline: 1px dashed $video-player-controls-button-focus-outline-color;
+                        outline-offset: -4px;
+                        box-shadow: none;
+                    }
+                }
+
+                .msc-videoplayer__controls__playpausebtn__wrapper > button[aria-hidden="true"],
+                .msc-videoplayer__playpausetrigger > button[aria-hidden="true"],
+                .msc-videoplayer__controls__muteunmutebtn__wrapper > button[aria-hidden="true"],
+                .msc-videoplayer__controls__fullscreenbtn__wrapper > button[aria-hidden="true"] {
+                    display: none;
+                }
+
+                .msc-videoplayer__controls__playbtn::before {
+                    @include msv-icon();
+                    @include msv-controlsIcon();
+                    content: $msv-SolidPlay;
+                }
+
+                .msc-videoplayer__controls__pausebtn::before {
+                    @include msv-icon();
+                    @include msv-controlsIcon();
+                    content: $msv-Pause;
+                }
+
+                .msc-videoplayer__controls__mutebtn::before {
+                    @include msv-icon();
+                    @include msv-controlsIcon();
+                    content: $msv-UnMute;
+                }
+
+                .msc-videoplayer__controls__unmutebtn::before {
+                    @include msv-icon();
+                    @include msv-controlsIcon();
+                    content: $msv-Mute;
+                }
+
+                .msc-videoplayer__controls__fullscreenbtn::before {
+                    @include msv-icon();
+                    @include msv-controlsIcon();
+                    content: $msv-Fullscreen;
+                }
+
+                .msc-videoplayer__controls__exitfullscreenbtn::before {
+                    @include msv-icon();
+                    @include msv-controlsIcon();
+                    content: $msv-ExitFullscreen;
+                }
+
+                .msc-videoplayer__controls__closedcaptionbtn::before {
+                    @include msv-icon();
+                    @include msv-controlsIcon();
+                    content: $msv-ClosedCaptions;
+                }
+
+                .msc-videoplayer__controls__moreoptionsbtn::before {
+                    @include msv-icon();
+                    @include msv-controlsIcon();
+                    content: $msv-More;
+                }
+
+                .msc-videoplayer__controls__time {
+                    padding-left: 0.25rem;
+                    padding-right: 0.25rem;
+
+                    .msc-videoplayer__controls__time__text {
+                        color: $video-player-controls-time-text-color;
+                        font-size: $video-player-controls-time-text-font-size;
+                    }
+                }
+
+                .slider {
+                    position: relative;
+                    touch-action: none;
+                    display: block;
+                    box-shadow: inset 0 0 0.125rem;
+                    cursor: pointer;
+                    padding: 0;
+
+                    .slider__container {
+                        width: 100%;
+                        height: 100%;
+                    }
+
+                    &.slider-horizontal .slider__track {
+                        height: 100%;
+                        position: absolute;
+                        top: 0;
+                        background-color: $video-player-controls-slider-track-background-color;
+                    }
+
+                    &.slider-vertical .slider__track {
+                        width: 100%;
+                        position: absolute;
+                        bottom: 0;
+                        background-color: $video-player-controls-slider-track-background-color;
+                    }
+
+                    .slider__thumb__range:focus {
+                        + .slider__thumb {
+                            outline: 1px dashed $video-player-controls-slider-thumb-outline-color;
+                            border: 1px dashed $video-player-controls-slider-thumb-border-color;
+                            outline-offset: 2px;
+                            box-shadow: none;
+                        }
+                    }
+
+                    /* stylelint-disable-next-line no-descending-specificity -- Auto-suppressed. Please fix if possible. */
+                    .slider__thumb {
+                        display: inline-block;
+                        position: absolute;
+                        border-radius: 0.3125rem;
+                        background: $video-player-controls-slider-thumb-color;
+                        background-size: 0.75rem 0.75rem;
+                        width: 0.75rem;
+                        height: 0.75rem;
+                        outline-offset: 0.125rem;
+                    }
+
+                    .slider__thumb::before {
+                        display: block;
+                        position: absolute;
+                        top: 0;
+                        right: 0;
+                        bottom: 0;
+                        left: 0;
+                        content: "";
+                        outline-offset: calc(0px + 0.0625rem);
+                    }
+                }
+
+                @media only screen and (min-width: 200px) {
+                    .msc-videoplayer__controls__playpausebtn__tooltip {
+                        left: 2.5rem;
+
+                        span {
+                            left: 0.75rem;
+                        }
+                    }
+
+                    .msc-videoplayer__controls__fullscreenbtn__tooltip {
+                        left: -1.25rem;
+
+                        span {
+                            left: 3.25rem;
+                        }
+                    }
+                }
+
+                .msc-videoplayer__controls__slider__container {
+                    padding-left: 0.5rem;
+                    padding-right: 0.5rem;
+                    flex-basis: 0;
+                    flex-grow: 1;
+                    max-width: 100%;
+
+                    .slider-horizontal {
+                        height: 0.25rem;
+
+                        .msc-progress {
+                            height: 0.25rem;
+                            box-shadow: inherit;
+                            border-radius: inherit;
+                            background-color: $video-player-controls-slider-horizontal-msc-progress-background-color;
+                            position: absolute;
+                            top: 0;
+                            width: 100%;
+                            display: flex;
+                            overflow: hidden;
+                            font-size: 0.75rem;
+
+                            .msc-progress__bar {
+                                display: flex;
+                                flex-direction: column;
+                                justify-content: center;
+                                color: $video-player-controls-slider-progress-bar-color;
+                                text-align: center;
+                                white-space: nowrap;
+                                background-color: $video-player-controls-slider-progress-bar-background-color;
+                                transition: width 0.6s ease;
+                            }
+                        }
+
+                        /* stylelint-disable-next-line no-descending-specificity -- Auto-suppressed. Please fix if possible. */
+                        .slider__thumb {
+                            top: 50%;
+                            transform: translate3d(-50%, -50%, 0);
+                        }
+                    }
+                }
+
+                .msc-videoplayer__controls__volumeslider__container.hide {
+                    clip: rect(0.0625rem, 0.0625rem, 0.0625rem, 0.0625rem);
+                    width: 0.0625rem;
+                    height: 0.0625rem;
+                    border: 0;
+                    padding: 0;
+                    margin: 0;
+                    display: block;
+                }
+
+                .msc-videoplayer__controls__volumeslider__container {
+                    height: 10rem;
+                    min-width: 2.5rem;
+                    position: absolute;
+                    background-color: $video-player-controls-volume-container-color;
+
+                    .slider-vertical {
+                        margin: 1.25rem auto;
+                        height: 7.5rem;
+                        max-width: 0.625rem;
+                        background-color: transparent;
+                        width: 100%;
+                    }
+
+                    /* stylelint-disable-next-line no-descending-specificity -- Auto-suppressed. Please fix if possible. */
+                    .slider-vertical .slider__thumb {
+                        left: -0.625rem;
+                        width: 1.875rem;
+                        height: 0.625rem;
+                    }
+                }
+
+                .msc-videoplayer__controls__menu {
+                    position: absolute;
+                    bottom: 2.875rem;
+                    min-width: 10rem;
+                    background: $video-player-controls-menu-background-color;
+                    border: 0.0625rem solid $video-player-controls-menu-border-color;
+                    overflow-x: hidden;
+                    overflow-y: auto;
+                    direction: ltr;
+                    outline: 0 solid transparent;
+                    z-index: 66;
+
+                    .msc-videoplayer__controls__menu__list {
+                        margin: 0;
+                        min-width: 10rem;
+                        list-style: none;
+                        padding-left: 0;
+                        line-height: 1.25rem;
+                        font-size: $video-player-controls-menu-font-size;
+                        padding-right: 0;
+
+                        li:first-child {
+                            border-top: 0;
+                        }
+
+                        /* stylelint-disable-next-line no-descending-specificity -- Auto-suppressed. Please fix if possible. */
+                        li {
+                            height: 2.5rem;
+                            margin-top: 0;
+                            margin-left: 0;
+                            padding: 0;
+                            border-top: 0.125rem solid $video-player-controls-menu-border-color;
+
+                            .msc-videoplayer__controls__menu__menuitem {
+                                font-size: 0.8125rem;
+                                color: $video-player-controls-menu-menuitem-color;
+                                display: block;
+                                height: 100%;
+                                padding: 0.5rem 0.75rem;
+                                text-align: left;
+                                width: 100%;
+                                margin-top: 0;
+                                background: transparent;
+                                border: 0;
+
+                                &:focus {
+                                    border: 0.125rem dashed $video-player-controls-menu-menuitem-focus-border-color;
+                                }
+                            }
+
+                            .menu__parent::before,
+                            .menu__selected::before,
+                            .menu__back::before {
+                                width: 1rem;
+                                height: 1rem;
+                                margin-left: 0.625rem;
+                                margin-right: 0.625rem;
+                                vertical-align: middle;
+                                line-height: 0.9375rem;
+                            }
+
+                            .menu__position__right::before {
+                                float: right;
+                                margin-right: 0;
+                            }
+
+                            .menu__position__left::before {
+                                float: left;
+                                margin-left: 0;
+                            }
+
+                            .msc-videoplayer__controls__menu__menuitem.menu__parent::before {
+                                @include msv-icon();
+                                content: $msv-ChevronRight;
+                            }
+
+                            .msc-videoplayer__controls__menu__menuitem.menu__back::before {
+                                @include msv-icon();
+                                content: $msv-ChevronLeft;
+                            }
+
+                            .msc-videoplayer__controls__menu__menuitem.menu__selected::before {
+                                @include msv-icon();
+                                content: $msv-Selected;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

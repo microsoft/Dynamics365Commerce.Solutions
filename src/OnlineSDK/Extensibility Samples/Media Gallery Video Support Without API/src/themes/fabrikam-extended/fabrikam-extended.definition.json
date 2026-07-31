@@ -1,0 +1,7 @@
+{
+    "$ref": "@msdyn365-commerce-modules/fabrikam-design-kit/dist/lib/modules/fabrikam/fabrikam.definition.json",
+    "$type": "themeModule",
+    "description": "This is SDK template theme module",
+    "friendlyName": "fabrikam-extended",
+    "name": "fabrikam-extended"
+}

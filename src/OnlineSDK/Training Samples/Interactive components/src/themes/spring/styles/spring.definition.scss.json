@@ -1,0 +1,88 @@
+{
+    "$type": "styleDefinition",
+    "name": "spring",
+    "friendlyName": "spring",
+    "description": "This is a spring theme template style preset",
+    "global": {
+        "brandPrimaryColor": {
+            "friendlyName": "Brand primary",
+            "description": "Brand primary color",
+            "type": "string",
+            "format": "color",
+            "default": "#FFFFFF",
+            "group": "Colors"
+        },
+        "brandSecondaryColor": {
+            "friendlyName": "Brand secondary",
+            "description": "Brand secondary color",
+            "type": "string",
+            "format": "color",
+            "default": "#CCCCCC",
+            "group": "Colors"
+        },
+        "textDefaultColor": {
+            "friendlyName": "Text default",
+            "description" : "Text default color",
+            "type": "string",
+            "format": "color", 
+            "default": "#333333",
+            "group": "Colors" 
+        },
+        "backgrounDefaultColor": {
+            "friendlyName": "Background default",
+            "description" : "Background default color",
+            "type": "string",
+            "format": "color",
+            "default": "#FFFFFF",
+            "group": "Colors"         
+        },
+        "bodyFont": {
+            "friendlyName": "Body font",
+            "description" : "Body font type",
+            "type": "string",
+            "default": "Arial",
+            "group": "Typography"     
+        },
+        "displayFont": {
+            "friendlyName": "Display font",
+            "description" : "Display font type",
+            "type": "string",
+            "default": "Impact",
+            "group": "Typography"    
+        },
+        "borderRadius": {
+            "friendlyName": "Border radius",
+            "description" : "Border Radius size",
+            "type": "string",
+            "default": "4",
+            "group": "Shape"   
+        },
+        "iconStyle":{
+            "friendlyName": "Style",
+            "description" : "Icon style type",
+            "type": "string",
+            "default": "Line",
+            "group": "Icons" 
+        }
+    },
+    "modules": {
+        "header": {
+            "categoryColor": {
+                "friendlyName": "Category color",
+                "description": "Category color",
+                "type": "string",
+                "format": "color",
+                "default": "#000",
+                "group": "Category Navigation"
+            },
+            "expandedCategoryColor": {
+                "friendlyName": "Expanded category color",
+                "description": "Expanded category color",
+                "type": "string",
+                "format": "color",
+                "default": "#000",
+                "group": "Category Navigation"
+            }
+        }
+    }
+}

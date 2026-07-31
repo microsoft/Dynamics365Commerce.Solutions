@@ -1,0 +1,95 @@
+$msv-business-organization-list-action-links-padding: 0 40px 0 0;
+$msv-business-organization-list-email-column-padding: 0;
+$msv-business-organization-list-action-links-margin-l: 0 0 0 12px;
+
+[dir="rtl"] {
+    .ms-business-organization-list {
+        &__table {
+            .ms-table {
+                &__heading-row,
+                &__heading-row-data,
+                &__row,
+                &__row-data,
+                &__row-links {
+                    text-align: right;
+
+                    &.num-type {
+                        text-align: left;
+                    }
+
+                    &.action-links {
+                        padding: $msv-business-organization-list-action-links-padding;
+                    }
+                }
+
+                &__heading-sorting {
+                    &::after {
+                        padding: 0 8px 0 0;
+                    }
+                }
+
+                &__row-links {
+                    padding: $msv-business-organization-list-action-links-padding;
+                }
+            }
+        }
+
+        .ms-table-business-org__pagination {
+            .previous {
+                margin-left: auto;
+                margin-right: unset;
+
+                .msc-page-link {
+                    display: inline-block;
+                    text-align: right;
+
+                    &::before {
+                        @include msv-icon();
+                        content: "";
+                    }
+
+                    .ms-table-business-org__pagination-left {
+                        @include add-icon($msv-ChevronRight, before);
+                    }
+                }
+            }
+
+            .next {
+                margin-left: unset;
+                margin-right: auto;
+
+                .msc-page-link {
+                    display: inline-block;
+                    text-align: left;
+
+                    &::after {
+                        @include msv-icon();
+                        content: "";
+                    }
+
+                    .ms-table-business-org__pagination-right {
+                        @include add-icon($msv-ChevronLeft, after);
+                    }
+                }
+            }
+        }
+
+        @media only screen and (max-width: $msv-breakpoint-l) {
+            .ms-table {
+                &__row-links {
+                    &-edit,
+                    &-delete,
+                    &-view {
+                        &::before {
+                            margin: $msv-business-organization-list-action-links-margin-l;
+                        }
+                    }
+                }
+            }
+        }
+
+        &__padRight {
+            padding: $msv-business-organization-list-email-column-padding;
+        }
+    }
+}

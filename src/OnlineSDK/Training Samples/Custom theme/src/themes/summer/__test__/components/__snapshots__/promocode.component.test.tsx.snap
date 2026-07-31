@@ -1,0 +1,920 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Cartline renders correctly with change event 1`] = `
+<PromoCode
+  appliedPromoCodeHeadingText=""
+  cart={
+    Object {
+      "addPromoCode": [MockFunction] {
+        "calls": Array [
+          Array [
+            Object {
+              "promoCode": 1234,
+            },
+          ],
+        ],
+        "results": Array [
+          Object {
+            "type": "return",
+            "value": Promise {},
+          },
+        ],
+      },
+      "cart": Object {
+        "Coupons": Array [
+          "a",
+          "b",
+        ],
+        "Id": "gB8DCi6AK3mzMavh08C4P18wFDbEEyto",
+        "Version": 123,
+        "cart": Object {
+          "CartLines": Array [
+            Object {
+              "DiscountLines": Array [
+                Object {
+                  "DiscountCode": "CodeXyz",
+                  "DiscountCost": 10,
+                  "OfferId": 123,
+                },
+              ],
+              "LineId": 123,
+            },
+          ],
+        },
+      },
+      "isEmpty": false,
+      "totalItemsInCart": 3,
+    }
+  }
+  collapseTimeOut={1}
+  context={
+    Object {
+      "actionContext": Object {
+        "requestContext": Object {
+          "apiSettings": Object {
+            "baseImageUrl": "https://cms-ppe-imageresizer-mr.trafficmanager.net/cms/api/fabrikamsb/imageFileData/search?fileName=/",
+          },
+        },
+      },
+      "app": Object {
+        "config": Object {
+          "unitOfMeasureDisplayType": "none",
+        },
+      },
+      "cultureFormatter": Object {
+        "formatCurrency": [MockFunction] {
+          "calls": Array [
+            Array [
+              0,
+            ],
+            Array [
+              0,
+            ],
+            Array [
+              0,
+            ],
+            Array [
+              0,
+            ],
+            Array [
+              0,
+            ],
+            Array [
+              0,
+            ],
+          ],
+          "results": Array [
+            Object {
+              "type": "return",
+              "value": undefined,
+            },
+            Object {
+              "type": "return",
+              "value": undefined,
+            },
+            Object {
+              "type": "return",
+              "value": undefined,
+            },
+            Object {
+              "type": "return",
+              "value": undefined,
+            },
+            Object {
+              "type": "return",
+              "value": undefined,
+            },
+            Object {
+              "type": "return",
+              "value": undefined,
+            },
+          ],
+        },
+      },
+      "request": Object {
+        "apiSettings": Object {
+          "channelId": 5637145359,
+        },
+        "channel": Object {
+          "PickupDeliveryModeCode": "70",
+          "channelDeliveryOptionConfig": "channelDeliveryOptionConfig",
+        },
+        "gridSettings": Object {
+          "lg": Object {
+            "h": 0,
+            "w": 1599,
+          },
+          "md": Object {
+            "h": 0,
+            "w": 1199,
+          },
+          "sm": Object {
+            "h": 0,
+            "w": 991,
+          },
+          "xl": Object {
+            "h": 0,
+            "w": 1600,
+          },
+          "xs": Object {
+            "h": 0,
+            "w": 767,
+          },
+        },
+      },
+    }
+  }
+  duplicatePromoCodeErrorText="duplicatePromoCodeErrorText "
+  failedToAddPromoCodeErrorText="failedToAddPromoCodeErrorText"
+  failedToRemovePromoCodeErrorText="failedToRemovePromoCodeErrorText"
+  invalidPromoCodeErrorText="invalidPromoCodeErrorText"
+  promoCodeApplyButtonText="promoCodeApplyButtonText"
+  promoCodeApplyCallback={[MockFunction]}
+  promoCodeHeadingText=""
+  promoPlaceholderText="promoPlaceholderText"
+  removePromoAriaLabelFormat={false}
+  removePromoText="removePromoText"
+>
+  <div>
+    <div
+      className="msc-promo-code-heading"
+    />
+    <form
+      className="msc-promo-code__form-container"
+      onSubmit={[Function]}
+    >
+      <div
+        className="msc-promo-code__group"
+      >
+        <input
+          className="msc-promo-code__input-box"
+          onChange={[Function]}
+          placeholder="promoPlaceholderText"
+          value={1234}
+        />
+        <Button
+          className="msc-promo-code__apply-btn btn"
+          disabled={false}
+          onClick={[Function]}
+          outline={false}
+          tag="button"
+          title="promoCodeApplyButtonText"
+        >
+          <button
+            className="msc-promo-code__apply-btn btn msc-btn"
+            disabled={false}
+            onClick={[Function]}
+            title="promoCodeApplyButtonText"
+            type="button"
+          >
+            promoCodeApplyButtonText
+          </button>
+        </Button>
+      </div>
+    </form>
+    <p
+      aria-live="assertive"
+      className=""
+    />
+    <div
+      className="msc-promo-code__discount"
+    >
+      <div
+        className="msc-promo-code__discount-heading"
+      />
+      <Component
+        className="msc-promo-code__discount-value"
+        context={
+          Object {
+            "actionContext": Object {
+              "requestContext": Object {
+                "apiSettings": Object {
+                  "baseImageUrl": "https://cms-ppe-imageresizer-mr.trafficmanager.net/cms/api/fabrikamsb/imageFileData/search?fileName=/",
+                },
+              },
+            },
+            "app": Object {
+              "config": Object {
+                "unitOfMeasureDisplayType": "none",
+              },
+            },
+            "cultureFormatter": Object {
+              "formatCurrency": [MockFunction] {
+                "calls": Array [
+                  Array [
+                    0,
+                  ],
+                  Array [
+                    0,
+                  ],
+                  Array [
+                    0,
+                  ],
+                  Array [
+                    0,
+                  ],
+                  Array [
+                    0,
+                  ],
+                  Array [
+                    0,
+                  ],
+                ],
+                "results": Array [
+                  Object {
+                    "type": "return",
+                    "value": undefined,
+                  },
+                  Object {
+                    "type": "return",
+                    "value": undefined,
+                  },
+                  Object {
+                    "type": "return",
+                    "value": undefined,
+                  },
+                  Object {
+                    "type": "return",
+                    "value": undefined,
+                  },
+                  Object {
+                    "type": "return",
+                    "value": undefined,
+                  },
+                  Object {
+                    "type": "return",
+                    "value": undefined,
+                  },
+                ],
+              },
+            },
+            "request": Object {
+              "apiSettings": Object {
+                "channelId": 5637145359,
+              },
+              "channel": Object {
+                "PickupDeliveryModeCode": "70",
+                "channelDeliveryOptionConfig": "channelDeliveryOptionConfig",
+              },
+              "gridSettings": Object {
+                "lg": Object {
+                  "h": 0,
+                  "w": 1599,
+                },
+                "md": Object {
+                  "h": 0,
+                  "w": 1199,
+                },
+                "sm": Object {
+                  "h": 0,
+                  "w": 991,
+                },
+                "xl": Object {
+                  "h": 0,
+                  "w": 1600,
+                },
+                "xs": Object {
+                  "h": 0,
+                  "w": 767,
+                },
+              },
+            },
+          }
+        }
+        data={
+          Object {
+            "price": Object {
+              "CustomerContextualPrice": 0,
+            },
+          }
+        }
+      >
+        <Price
+          className="msc-promo-code__discount-value"
+          context={
+            Object {
+              "actionContext": Object {
+                "requestContext": Object {
+                  "apiSettings": Object {
+                    "baseImageUrl": "https://cms-ppe-imageresizer-mr.trafficmanager.net/cms/api/fabrikamsb/imageFileData/search?fileName=/",
+                  },
+                },
+              },
+              "app": Object {
+                "config": Object {
+                  "unitOfMeasureDisplayType": "none",
+                },
+              },
+              "cultureFormatter": Object {
+                "formatCurrency": [MockFunction] {
+                  "calls": Array [
+                    Array [
+                      0,
+                    ],
+                    Array [
+                      0,
+                    ],
+                    Array [
+                      0,
+                    ],
+                    Array [
+                      0,
+                    ],
+                    Array [
+                      0,
+                    ],
+                    Array [
+                      0,
+                    ],
+                  ],
+                  "results": Array [
+                    Object {
+                      "type": "return",
+                      "value": undefined,
+                    },
+                    Object {
+                      "type": "return",
+                      "value": undefined,
+                    },
+                    Object {
+                      "type": "return",
+                      "value": undefined,
+                    },
+                    Object {
+                      "type": "return",
+                      "value": undefined,
+                    },
+                    Object {
+                      "type": "return",
+                      "value": undefined,
+                    },
+                    Object {
+                      "type": "return",
+                      "value": undefined,
+                    },
+                  ],
+                },
+              },
+              "request": Object {
+                "apiSettings": Object {
+                  "channelId": 5637145359,
+                },
+                "channel": Object {
+                  "PickupDeliveryModeCode": "70",
+                  "channelDeliveryOptionConfig": "channelDeliveryOptionConfig",
+                },
+                "gridSettings": Object {
+                  "lg": Object {
+                    "h": 0,
+                    "w": 1599,
+                  },
+                  "md": Object {
+                    "h": 0,
+                    "w": 1199,
+                  },
+                  "sm": Object {
+                    "h": 0,
+                    "w": 991,
+                  },
+                  "xl": Object {
+                    "h": 0,
+                    "w": 1600,
+                  },
+                  "xs": Object {
+                    "h": 0,
+                    "w": 767,
+                  },
+                },
+              },
+            }
+          }
+          data={
+            Object {
+              "price": Object {
+                "CustomerContextualPrice": 0,
+              },
+            }
+          }
+        >
+          <span
+            className="msc-price msc-promo-code__discount-value"
+          >
+            <span
+              className="msc-price__actual"
+              itemProp="price"
+            />
+          </span>
+        </Price>
+      </Component>
+    </div>
+    <div
+      className="msc-promo-code__line-container"
+    >
+      <div
+        className="msc-promo-code__line-value"
+      >
+         
+        (
+        <Component
+          className="msc-promo-code__line-discount-value"
+          context={
+            Object {
+              "actionContext": Object {
+                "requestContext": Object {
+                  "apiSettings": Object {
+                    "baseImageUrl": "https://cms-ppe-imageresizer-mr.trafficmanager.net/cms/api/fabrikamsb/imageFileData/search?fileName=/",
+                  },
+                },
+              },
+              "app": Object {
+                "config": Object {
+                  "unitOfMeasureDisplayType": "none",
+                },
+              },
+              "cultureFormatter": Object {
+                "formatCurrency": [MockFunction] {
+                  "calls": Array [
+                    Array [
+                      0,
+                    ],
+                    Array [
+                      0,
+                    ],
+                    Array [
+                      0,
+                    ],
+                    Array [
+                      0,
+                    ],
+                    Array [
+                      0,
+                    ],
+                    Array [
+                      0,
+                    ],
+                  ],
+                  "results": Array [
+                    Object {
+                      "type": "return",
+                      "value": undefined,
+                    },
+                    Object {
+                      "type": "return",
+                      "value": undefined,
+                    },
+                    Object {
+                      "type": "return",
+                      "value": undefined,
+                    },
+                    Object {
+                      "type": "return",
+                      "value": undefined,
+                    },
+                    Object {
+                      "type": "return",
+                      "value": undefined,
+                    },
+                    Object {
+                      "type": "return",
+                      "value": undefined,
+                    },
+                  ],
+                },
+              },
+              "request": Object {
+                "apiSettings": Object {
+                  "channelId": 5637145359,
+                },
+                "channel": Object {
+                  "PickupDeliveryModeCode": "70",
+                  "channelDeliveryOptionConfig": "channelDeliveryOptionConfig",
+                },
+                "gridSettings": Object {
+                  "lg": Object {
+                    "h": 0,
+                    "w": 1599,
+                  },
+                  "md": Object {
+                    "h": 0,
+                    "w": 1199,
+                  },
+                  "sm": Object {
+                    "h": 0,
+                    "w": 991,
+                  },
+                  "xl": Object {
+                    "h": 0,
+                    "w": 1600,
+                  },
+                  "xs": Object {
+                    "h": 0,
+                    "w": 767,
+                  },
+                },
+              },
+            }
+          }
+          data={
+            Object {
+              "price": Object {
+                "CustomerContextualPrice": undefined,
+              },
+            }
+          }
+        >
+          <Price
+            className="msc-promo-code__line-discount-value"
+            context={
+              Object {
+                "actionContext": Object {
+                  "requestContext": Object {
+                    "apiSettings": Object {
+                      "baseImageUrl": "https://cms-ppe-imageresizer-mr.trafficmanager.net/cms/api/fabrikamsb/imageFileData/search?fileName=/",
+                    },
+                  },
+                },
+                "app": Object {
+                  "config": Object {
+                    "unitOfMeasureDisplayType": "none",
+                  },
+                },
+                "cultureFormatter": Object {
+                  "formatCurrency": [MockFunction] {
+                    "calls": Array [
+                      Array [
+                        0,
+                      ],
+                      Array [
+                        0,
+                      ],
+                      Array [
+                        0,
+                      ],
+                      Array [
+                        0,
+                      ],
+                      Array [
+                        0,
+                      ],
+                      Array [
+                        0,
+                      ],
+                    ],
+                    "results": Array [
+                      Object {
+                        "type": "return",
+                        "value": undefined,
+                      },
+                      Object {
+                        "type": "return",
+                        "value": undefined,
+                      },
+                      Object {
+                        "type": "return",
+                        "value": undefined,
+                      },
+                      Object {
+                        "type": "return",
+                        "value": undefined,
+                      },
+                      Object {
+                        "type": "return",
+                        "value": undefined,
+                      },
+                      Object {
+                        "type": "return",
+                        "value": undefined,
+                      },
+                    ],
+                  },
+                },
+                "request": Object {
+                  "apiSettings": Object {
+                    "channelId": 5637145359,
+                  },
+                  "channel": Object {
+                    "PickupDeliveryModeCode": "70",
+                    "channelDeliveryOptionConfig": "channelDeliveryOptionConfig",
+                  },
+                  "gridSettings": Object {
+                    "lg": Object {
+                      "h": 0,
+                      "w": 1599,
+                    },
+                    "md": Object {
+                      "h": 0,
+                      "w": 1199,
+                    },
+                    "sm": Object {
+                      "h": 0,
+                      "w": 991,
+                    },
+                    "xl": Object {
+                      "h": 0,
+                      "w": 1600,
+                    },
+                    "xs": Object {
+                      "h": 0,
+                      "w": 767,
+                    },
+                  },
+                },
+              }
+            }
+            data={
+              Object {
+                "price": Object {
+                  "CustomerContextualPrice": undefined,
+                },
+              }
+            }
+          />
+        </Component>
+        )
+      </div>
+      <Button
+        aria-label=""
+        className="msc-promo-code__line__btn-remove"
+        onClick={[Function]}
+        outline={false}
+        tag="button"
+        title="removePromoText"
+      >
+        <button
+          aria-label=""
+          className="msc-promo-code__line__btn-remove msc-btn"
+          onClick={[Function]}
+          title="removePromoText"
+          type="button"
+        >
+          removePromoText
+        </button>
+      </Button>
+    </div>
+    <div
+      className="msc-promo-code__line-container"
+    >
+      <div
+        className="msc-promo-code__line-value"
+      >
+         
+        (
+        <Component
+          className="msc-promo-code__line-discount-value"
+          context={
+            Object {
+              "actionContext": Object {
+                "requestContext": Object {
+                  "apiSettings": Object {
+                    "baseImageUrl": "https://cms-ppe-imageresizer-mr.trafficmanager.net/cms/api/fabrikamsb/imageFileData/search?fileName=/",
+                  },
+                },
+              },
+              "app": Object {
+                "config": Object {
+                  "unitOfMeasureDisplayType": "none",
+                },
+              },
+              "cultureFormatter": Object {
+                "formatCurrency": [MockFunction] {
+                  "calls": Array [
+                    Array [
+                      0,
+                    ],
+                    Array [
+                      0,
+                    ],
+                    Array [
+                      0,
+                    ],
+                    Array [
+                      0,
+                    ],
+                    Array [
+                      0,
+                    ],
+                    Array [
+                      0,
+                    ],
+                  ],
+                  "results": Array [
+                    Object {
+                      "type": "return",
+                      "value": undefined,
+                    },
+                    Object {
+                      "type": "return",
+                      "value": undefined,
+                    },
+                    Object {
+                      "type": "return",
+                      "value": undefined,
+                    },
+                    Object {
+                      "type": "return",
+                      "value": undefined,
+                    },
+                    Object {
+                      "type": "return",
+                      "value": undefined,
+                    },
+                    Object {
+                      "type": "return",
+                      "value": undefined,
+                    },
+                  ],
+                },
+              },
+              "request": Object {
+                "apiSettings": Object {
+                  "channelId": 5637145359,
+                },
+                "channel": Object {
+                  "PickupDeliveryModeCode": "70",
+                  "channelDeliveryOptionConfig": "channelDeliveryOptionConfig",
+                },
+                "gridSettings": Object {
+                  "lg": Object {
+                    "h": 0,
+                    "w": 1599,
+                  },
+                  "md": Object {
+                    "h": 0,
+                    "w": 1199,
+                  },
+                  "sm": Object {
+                    "h": 0,
+                    "w": 991,
+                  },
+                  "xl": Object {
+                    "h": 0,
+                    "w": 1600,
+                  },
+                  "xs": Object {
+                    "h": 0,
+                    "w": 767,
+                  },
+                },
+              },
+            }
+          }
+          data={
+            Object {
+              "price": Object {
+                "CustomerContextualPrice": undefined,
+              },
+            }
+          }
+        >
+          <Price
+            className="msc-promo-code__line-discount-value"
+            context={
+              Object {
+                "actionContext": Object {
+                  "requestContext": Object {
+                    "apiSettings": Object {
+                      "baseImageUrl": "https://cms-ppe-imageresizer-mr.trafficmanager.net/cms/api/fabrikamsb/imageFileData/search?fileName=/",
+                    },
+                  },
+                },
+                "app": Object {
+                  "config": Object {
+                    "unitOfMeasureDisplayType": "none",
+                  },
+                },
+                "cultureFormatter": Object {
+                  "formatCurrency": [MockFunction] {
+                    "calls": Array [
+                      Array [
+                        0,
+                      ],
+                      Array [
+                        0,
+                      ],
+                      Array [
+                        0,
+                      ],
+                      Array [
+                        0,
+                      ],
+                      Array [
+                        0,
+                      ],
+                      Array [
+                        0,
+                      ],
+                    ],
+                    "results": Array [
+                      Object {
+                        "type": "return",
+                        "value": undefined,
+                      },
+                      Object {
+                        "type": "return",
+                        "value": undefined,
+                      },
+                      Object {
+                        "type": "return",
+                        "value": undefined,
+                      },
+                      Object {
+                        "type": "return",
+                        "value": undefined,
+                      },
+                      Object {
+                        "type": "return",
+                        "value": undefined,
+                      },
+                      Object {
+                        "type": "return",
+                        "value": undefined,
+                      },
+                    ],
+                  },
+                },
+                "request": Object {
+                  "apiSettings": Object {
+                    "channelId": 5637145359,
+                  },
+                  "channel": Object {
+                    "PickupDeliveryModeCode": "70",
+                    "channelDeliveryOptionConfig": "channelDeliveryOptionConfig",
+                  },
+                  "gridSettings": Object {
+                    "lg": Object {
+                      "h": 0,
+                      "w": 1599,
+                    },
+                    "md": Object {
+                      "h": 0,
+                      "w": 1199,
+                    },
+                    "sm": Object {
+                      "h": 0,
+                      "w": 991,
+                    },
+                    "xl": Object {
+                      "h": 0,
+                      "w": 1600,
+                    },
+                    "xs": Object {
+                      "h": 0,
+                      "w": 767,
+                    },
+                  },
+                },
+              }
+            }
+            data={
+              Object {
+                "price": Object {
+                  "CustomerContextualPrice": undefined,
+                },
+              }
+            }
+          />
+        </Component>
+        )
+      </div>
+      <Button
+        aria-label=""
+        className="msc-promo-code__line__btn-remove"
+        onClick={[Function]}
+        outline={false}
+        tag="button"
+        title="removePromoText"
+      >
+        <button
+          aria-label=""
+          className="msc-promo-code__line__btn-remove msc-btn"
+          onClick={[Function]}
+          title="removePromoText"
+          type="button"
+        >
+          removePromoText
+        </button>
+      </Button>
+    </div>
+  </div>
+</PromoCode>
+`;

@@ -1,0 +1,59 @@
+// Style preset
+:root {
+    // rows
+    --msv-product-specification-row-odd-color: #{$msv-gray-100};
+    --msv-product-specification-row-even-color: #{$msv-white};
+    --msv-product-specification-border: #{$msv-gray-300};
+
+    // heading
+    --msv-product-specification-heading-font-color: var(--msv-font-primary-color);
+    --msv-product-specification-heading-font-size: var(--msv-body-font-size-xl);
+
+    // body
+    --msv-product-specification-title-font-color: var(--msv-font-primary-color);
+    --msv-product-specification-text-font-color: var(--msv-font-primary-color);
+    --msv-product-specification-body-font-size: var(--msv-body-font-size-m);
+}
+
+.ms-product-specification {
+    &__heading {
+        @include font-content(var(--msv-font-weight-normal),
+        var(--msv-product-specification-heading-font-size), $msv-line-height-xl);
+        color: var(--msv-product-specification-heading-font-color);
+        margin-top: 40px;
+        margin-bottom: 20px;
+    }
+
+    &__table {
+        width: 100%;
+        border-spacing: 0;
+        border-collapse: collapse;
+    }
+
+    &__table-row {
+        &:nth-of-type(odd) {
+            background-color: var(--msv-product-specification-row-odd-color);
+        }
+
+        &:nth-of-type(even) {
+            background-color: var(--msv-product-specification-row-even-color);
+        }
+
+        th {
+            @include font-content(var(--msv-font-weight-bold),
+            var(--msv-product-specification-body-font-size), $msv-line-height-m);
+            color: var(--msv-product-specification-title-font-color);
+            border: 1px solid var(--msv-product-specification-border);
+            padding: 0.75rem;
+            text-align: left;
+        }
+
+        td {
+            @include font-content(var(--msv-font-weight-normal),
+            var(--msv-product-specification-body-font-size), $msv-line-height-m);
+            color: var(--msv-product-specification-text-font-color);
+            border: 1px solid var(--msv-product-specification-border);
+            padding: 0.75rem;
+        }
+    }
+}

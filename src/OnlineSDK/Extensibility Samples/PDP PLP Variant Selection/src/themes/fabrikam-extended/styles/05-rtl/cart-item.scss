@@ -1,0 +1,100 @@
+$cart-cartline-product-image-margin-left: 20px;
+$cart-cartline-product-image-margin-right-zero: 0;
+$cart-cartline-product-savings-margin-right: 20px;
+$cart-cartline-wrapper-margin-left: 40px;
+$rtl-cart-cartline-button-margin: 20px;
+$cart-cartline-bopis-container-margin-right: 200px;
+$cart-lines-group-heading-margin-right: 76px;
+$cart-lines-group-heading-margin-right-ct: 5px;
+$cart-lines-group-heading-margin-top: 10px;
+$cart-lines-group-pickup-margin-right: 35px;
+$cart-cartline-remove-button-margin: 20px;
+
+[dir="rtl"] {
+    .msc-cart {
+        &-line {
+            &__product {
+                &-image {
+                    margin-left: $cart-cartline-product-image-margin-left;
+                    margin-right: $cart-cartline-product-image-margin-right-zero;
+                }
+
+                &-savings {
+                    margin-right: 20px;
+                    margin-left: 0;
+                    text-align: left;
+                }
+            }
+
+            &__bopis-container,
+            &__extra-actions {
+                margin-right: $cart-cartline-bopis-container-margin-right;
+                margin-left: 0;
+            }
+
+            &-lines-group {
+                &-wraper {
+                    &__bopis {
+                        &-heading {
+                            &-title {
+                                margin-right: $cart-lines-group-heading-margin-right;
+                                margin-top: $cart-lines-group-heading-margin-top;
+
+                                &-ct {
+                                    margin-right: $cart-lines-group-heading-margin-right-ct;
+                                }
+                            }
+
+                            &-pickup {
+                                margin-right: $cart-lines-group-pickup-margin-right;
+                            }
+
+                            &-ship {
+                                margin-right: $cart-lines-group-heading-margin-right;
+                            }
+                        }
+                    }
+                }
+            }
+
+            &__remove-item,
+            &__add-to-order-template,
+            &__add-to-wishlist {
+                margin-left: $cart-cartline-remove-button-margin;
+                margin-right: 0;
+            }
+        }
+
+        &-lines-group {
+            &-wraper {
+                &__bopis {
+                    &-heading {
+                        &-title {
+                            margin-right: $cart-lines-group-heading-margin-right;
+                        }
+
+                        &-pickup,
+                        &-shipping,
+                        &-email,
+                        &-ship {
+                            margin-right: $cart-lines-group-heading-margin-right;
+                        }
+
+                        &-shipping-icon,
+                        &-email-icon,
+                        &-ship-icon,
+                        &-pickup-icon {
+                            padding-right: $cart-cartline-remove-button-margin;
+                        }
+                    }
+                }
+            }
+        }
+
+        .msc-cart-lines-item > .msc-cart-line__add-to-wishlist,
+        .msc-cart-lines-item > .msc-cart-line__remove-item {
+            margin-right: unset;
+            margin-left: $rtl-cart-cartline-button-margin;
+        }
+    }
+}

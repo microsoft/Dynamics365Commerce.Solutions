@@ -1,0 +1,10 @@
+.msc-create-order-template-icon {
+    @include add-icon($msv-PlusSquare, after);
+    @include vfi();
+
+    &:not(:disabled) {
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}

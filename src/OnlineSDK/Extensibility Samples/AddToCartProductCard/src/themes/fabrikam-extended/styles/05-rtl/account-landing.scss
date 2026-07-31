@@ -1,0 +1,31 @@
+$msc-account-tile-icon-padding: 5px;
+$msc-link-padding-left: 12px;
+
+[dir="rtl"] {
+    .ms-account {
+        &-generic-tile,
+        &-wishlist-tile,
+        &-address-tile,
+        &-organization-users-tile,
+        &-customer-balance-tile,
+        &-loyalty-tile {
+            &__heading {
+                &::before {
+                    padding-left: $msc-account-tile-icon-padding;
+                    padding-right: 0;
+                }
+            }
+
+            &__link {
+                padding-right: 0;
+                padding-left: $msc-link-padding-left;
+            }
+        }
+
+        &-loyalty {
+            &__points-modal-total, &__points-modal-points {
+                direction: ltr;
+            }
+        }
+    }
+}

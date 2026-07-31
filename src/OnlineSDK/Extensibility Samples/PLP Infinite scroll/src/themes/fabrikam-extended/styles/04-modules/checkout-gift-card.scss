@@ -1,0 +1,161 @@
+$msv-checkout-gift-card-max-flex-basis: 100%;
+$msv-checkout-gift-card-margin-bottom: 20px;
+
+$msv-checkout-gift-card-input-label-margin-bottom: 4px;
+
+$msv-checkout-gift-card-button-height: 32px;
+$msv-checkout-gift-card-button-border-radius: 2px;
+
+$msv-checkout-gift-card-input-height: 32px;
+$msv-checkout-gift-card-input-border-radius: 2px;
+$msv-checkout-gift-card-input-padding: 6px 8px;
+$msv-checkout-gift-card-input-width: 100%;
+
+$msv-checkout-gift-card-input-pin-exp-label-margin-bottom: 4px;
+$msv-checkout-gift-card-input-pin-exp-fields-margin-top: 20px;
+$msv-checkout-gift-card-input-alert-label-padding-top: 10px;
+$msv-checkout-gift-card-input-btn-apply-margin-top: 10px;
+
+$msv-checkout-gift-card-input-fields-width: 50%;
+$msv-checkout-gift-card-input-exp-fields-padding-left: 10px;
+$msv-checkout-gift-card-input-pin-fields-padding-right: 10px;
+
+$msv-checkout-gift-card-error-max-width: 512px;
+$msv-checkout-gift-card-error-padding: 5px;
+$msv-checkout-gift-card-error-margin-right: 12px;
+$msv-checkout-gift-card-error-margin-bottom: 10px;
+$msv-checkout-gift-card-error-icon-margin-right: 8px;
+
+$msv-checkout-gift-card-item-text-width: 60%;
+$msv-checkout-gift-card-width-flex:50%;
+$msv-checkout-gift-card-btn-remove-border: none;
+$msv-checkout-gift-card-btn-remove-padding: 0;
+
+$msv-checkout-gift-card-remove-button-margin-left: 10px;
+
+.ms-checkout {
+    &-gift-card__form {
+        display: block;
+        flex-flow: row wrap;
+    }
+
+    &-gift-card {
+        margin-bottom: $msv-checkout-gift-card-margin-bottom;
+
+        &__title {
+            font-weight: $msv-font-weight-600;
+        }
+
+        &__input-label {
+            display: block;
+            font-weight: $msv-font-weight-600;
+            font-size: $msv-text-size;
+            line-height: $msv-text-line-height;
+            margin-bottom: $msv-checkout-gift-card-input-label-margin-bottom;
+            flex-basis: $msv-checkout-gift-card-max-flex-basis;
+        }
+
+        &__input-text {
+            border: 1px solid $msv-gray-120;
+            box-sizing: border-box;
+            border-radius: $msv-checkout-gift-card-input-border-radius;
+            height: $msv-checkout-gift-card-input-height;
+            padding: $msv-checkout-gift-card-input-padding;
+            width: $msv-checkout-gift-card-input-width;
+        }
+
+        &__input-fields {
+            display: inline-block;
+            width: $msv-checkout-gift-card-input-fields-width;
+        }
+
+        &__input-pin-fields, &__input-exp-fields {
+            display: inline-block;
+            margin-top: $msv-checkout-gift-card-input-pin-exp-fields-margin-top;
+            width: $msv-checkout-gift-card-input-fields-width;
+        }
+
+        &__input-pin-fields {
+            padding-right: $msv-checkout-gift-card-input-pin-fields-padding-right;
+        }
+
+        &__input-exp-fields {
+            padding-left: $msv-checkout-gift-card-input-exp-fields-padding-left;
+        }
+
+        &__input-pin-label, &__input-exp-label {
+            display: block;
+            margin-bottom: $msv-checkout-gift-card-input-pin-exp-label-margin-bottom;
+        }
+
+        &__input-pin-text, &__input-exp-text {
+            border: 1px solid $msv-gray-120;
+            box-sizing: border-box;
+            border-radius: $msv-checkout-gift-card-input-border-radius;
+            height: $msv-checkout-gift-card-input-height;
+            padding: $msv-checkout-gift-card-input-padding;
+            width: 100%;
+
+            &::placeholder {
+                color: $msv-gray-90;
+            }
+        }
+
+        &__input-alert-label {
+            color: $msv-gray-90;
+            display: block;
+            padding-top: $msv-checkout-gift-card-input-alert-label-padding-top;
+        }
+
+        &__btn-apply {
+            @include secondary-button();
+            display: block;
+            min-height: $msv-checkout-gift-card-button-height;
+            margin-top: $msv-checkout-gift-card-input-btn-apply-margin-top;
+        }
+
+        &__input-error {
+            background-color: $msv-error-color;
+            border: 1px solid $msv-error-color;
+            flex-basis: $msv-checkout-gift-card-width-flex;
+            max-width: $msv-checkout-gift-card-error-max-width;
+            padding: $msv-checkout-gift-card-error-padding;
+            margin-right: $msv-checkout-gift-card-error-margin-right;
+            margin-bottom: $msv-checkout-gift-card-error-margin-bottom;
+
+            &::before {
+                @include msv-icon();
+                content: $msv-IncidentTriangle;
+                margin-right: $msv-checkout-gift-card-error-icon-margin-right;
+            }
+            display: block;
+            color: var(--msv-font-secondary-color);
+        }
+
+        &__item-text {
+            font-weight: $msv-font-weight-normal;
+            font-size: $msv-text-size;
+            line-height: $msv-text-line-height;
+            width: $msv-checkout-gift-card-item-text-width;
+        }
+
+        &__btn-remove {
+            @include button-link();
+            padding: $msv-checkout-gift-card-btn-remove-padding;
+            display: flex;
+            align-self: flex-end;
+            margin-left: auto;
+
+            &.msc-btn {
+                display: inline-block;
+                margin-left: $msv-checkout-gift-card-remove-button-margin-left;
+            }
+
+            @media screen and (max-width: $msv-breakpoint-m) {
+                &.msc-btn {
+                    margin-left: 0;
+                }
+            }
+        }
+    }
+}

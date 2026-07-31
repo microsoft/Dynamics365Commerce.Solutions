@@ -1,0 +1,94 @@
+// desktop
+$cookie-compliance_container-padding-l: 60px;
+$cookie-compliance_container-padding-m: 20px;
+$cookie-compliance_container-padding-s: 16px;
+$cookie-compliance_container-max-width: $msv-breakpoint-xl;
+$cookie-compliance_content-width:100%;
+$cookie-compliance_accept-btn-margin-left: 48px;
+$cookie-compliance_accept-btn-width: 160px;
+
+// mobile
+$cookie-compliance_accept-btn-width-mobile: 243px;
+$cookie-compliance_accept-content-margin-bottom-mobile:24px;
+
+// style preset
+:root {
+    // background
+    --msv-cookie-compliance-bg-color: var(--msv-bg-color);
+
+    // font
+    --msv-cookie-compliance-font-color: var(--msv-font-primary-color);
+    --msv-cookie-compliance-font-size: var(--msv-body-font-size-m);
+
+    // link
+    --msv-cookie-compliance-link-color: var(--msv-font-primary-color);
+
+    // primary button
+    --msv-cookie-compliance-primary-btn-bg: var(--msv-accent-brand-color);
+    --msv-cookie-compliance-primary-btn-font-color: var(--msv-font-secondary-color);
+    --msv-cookie-compliance-primary-btn-border: var(--msv-accent-brand-color);
+}
+
+.ms-cookie-compliance {
+    background-color: var(--msv-cookie-compliance-bg-color);
+    color: var(--msv-cookie-compliance-font-color);
+    font-size: var(--msv-cookie-compliance-font-size);
+
+    &__container {
+        display: flex;
+        font-weight: normal;
+        max-width: $cookie-compliance_container-max-width;
+        margin: 0 auto;
+
+        @media screen and (min-width: $msv-breakpoint-s) {
+            padding-left: $cookie-compliance_container-padding-s;
+            padding-right: $cookie-compliance_container-padding-s;
+        }
+
+        @media (min-width: $msv-breakpoint-m) {
+            padding-left: $cookie-compliance_container-padding-m;
+            padding-right: $cookie-compliance_container-padding-m;
+        }
+    }
+
+    &__content {
+        width: $cookie-compliance_content-width;
+    }
+
+    &__accept-button {
+        float: right;
+        margin-left: $cookie-compliance_accept-btn-margin-left;
+        width: $cookie-compliance_accept-btn-width;
+
+        @include primary-button(var(--msv-cookie-compliance-primary-btn-bg),
+        var(--msv-cookie-compliance-primary-btn-font-color), var(--msv-cookie-compliance-primary-btn-border));
+    }
+
+    &__cta-layer .link {
+        color: var(--msv-cookie-compliance-link-color);
+        text-decoration: underline;
+    }
+
+    &__text {
+        font-size: var(--msv-cookie-compliance-font-size);
+    }
+}
+
+@media (max-width: $msv-breakpoint-m) {
+    .ms-cookie-compliance {
+        &__content {
+            margin-bottom: $cookie-compliance_accept-content-margin-bottom-mobile;
+        }
+
+        &__accept-button {
+            float: none;
+            margin: 0;
+            width: $cookie-compliance_accept-btn-width-mobile;
+        }
+
+        &__container {
+            align-items: center;
+            flex-direction: column;
+        }
+    }
+}

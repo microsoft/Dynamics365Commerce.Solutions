@@ -1,0 +1,17 @@
+$msv-btn-icon-to-text-gap: 4px;
+$msv-btn-border-radius: 2px;
+
+.msc-btn {
+    @include button-default();
+    display: inline-block;
+    border: 1px solid transparent;
+    border-radius: $msv-btn-border-radius;
+    font-family: $msv-primary-font-family;
+    text-decoration: none;
+    text-align: center;
+    min-width: auto;
+
+    &:not(:disabled) {
+        cursor: pointer;
+    }
+}

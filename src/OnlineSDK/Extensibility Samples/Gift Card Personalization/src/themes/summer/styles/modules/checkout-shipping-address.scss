@@ -1,0 +1,108 @@
+@import "../common/00-settings/colors.scss";
+@import "../common/00-settings/font.scss";
+@import "../common/00-settings/icons.scss";
+@import "../common/02-generic/image.scss";
+
+$checkout-shipping-address-form-font-size-l: 22px;
+$checkout-shipping-address-form-header-line-height: 29px;
+$ms-checkout-shipping-address-image-size: 108px;
+$ms-chcekout-shipping-address-quantity-width: 20px;
+$ms-chcekout-shipping-address-quantity-height: 20px;
+$ms-chcekout-shipping-address-quantity-line-height: 20px;
+$ms-checkout-shipping-address-quantity-line-margin: 3px 0;
+
+.ms-checkout-shipping-address {
+    display: flex;
+    flex-direction: column;
+
+    &__group-images {
+        margin-bottom: 20px;
+        min-height: 165px;
+
+        &-header {
+            float: left;
+            line-height: $checkout-shipping-address-form-header-line-height;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: flex-end;
+
+            &-main {
+                @include add-icon($msv-DeliveryTruck, before);
+
+                &::before {
+                    padding-right: 10px;
+                }
+                float: left;
+
+                @include font-heading-h5-l();
+                margin-right: 10px;
+            }
+
+            &-item {
+                float: left;
+
+                @include font-body-regular-s();
+                color: $msv-gray-40;
+            }
+        }
+
+        &-lines {
+            clear: both;
+            display: flex;
+            flex-wrap: wrap;
+
+            &-product {
+                float: left;
+                position: relative;
+                margin-top: 12px;
+                margin-right: 8px;
+                margin-bottom: 20px;
+
+                @include image($ms-checkout-shipping-address-image-size);
+
+                .msc_image {
+                    margin: auto;
+                    border: 0.5px solid $msv-gray-50;
+                }
+            }
+
+            &-product.product-image-wide {
+                margin-right: 8px;
+            }
+
+            &-line-image {
+                position: relative;
+            }
+
+            &-line-quantity {
+                border-radius: 50%;
+                width: $ms-chcekout-shipping-address-quantity-width;
+                height: $ms-chcekout-shipping-address-quantity-height;
+                position: absolute;
+                bottom: 0;
+                right: 3px;
+                font-size: $msv-font-size-xs;
+                line-height: $ms-chcekout-shipping-address-quantity-line-height;
+                text-align: center;
+                z-index: 1;
+                background-color: $msv-blue-50;
+                color: var(--msv-font-secondary-color);
+                margin: $ms-checkout-shipping-address-quantity-line-margin;
+            }
+        }
+    }
+
+    .msc-address-detail {
+        .msc-address-detail__item-address-detail_Phone {
+            margin-top: 28px;
+        }
+    }
+
+    .msc-address-form__item-street {
+        padding-right: 12px;
+
+        .msc-address-form__input-text {
+            padding: 0 0 0 12px;
+        }
+    }
+}

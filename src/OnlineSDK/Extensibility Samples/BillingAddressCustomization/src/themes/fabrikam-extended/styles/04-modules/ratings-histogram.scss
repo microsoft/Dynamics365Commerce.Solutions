@@ -1,0 +1,90 @@
+$msv-histogram-bar-height: 8px;
+$msv-histogram-bar-width: 200px;
+$msv-histogram-heading-margin-bottom: 24px;
+
+//style presets
+:root {
+    // heading
+    --msv-ratings-histogram-heading-font-size: var(--msv-body-font-size-xl);
+    --msv-ratings-histogram-heading-font-color: var(--msv-font-primary-color);
+    --msv-ratings-histogram-text-color: var(--msv-font-primary-color);
+
+    // rating star
+    --msv-ratings-histogram-star: var(--msv-font-primary-color);
+
+    //progress bar
+    --msv-ratings-histogram-progress-bg: #{$msv-gray-200};
+    --msv-ratings-histogram-progress-bar-bg: #{$msv-gray-900};
+}
+
+.ms-ratings-histogram {
+    &__heading {
+        @include font-content(var(--msv-font-weight-normal),
+        var(--msv-ratings-histogram-heading-font-size), $msv-line-height-xl);
+        color: var(--msv-ratings-histogram-heading-font-color);
+        display: block;
+        margin-bottom: $msv-histogram-heading-margin-bottom;
+    }
+
+    margin-bottom: 20px;
+
+    .msc-progress {
+        position: relative;
+        background-color: var(--msv-ratings-histogram-progress-bg);
+        height: $msv-histogram-bar-height;
+        width: $msv-histogram-bar-width;
+        margin: 0 12px;
+
+        &__bar {
+            background-color: var(--msv-ratings-histogram-progress-bar-bg);
+            height: $msv-histogram-bar-height;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    }
+
+    .msc-rating {
+        display: inline-block;
+    }
+
+    &__histogram {
+        margin-right: 20px;
+    }
+
+    &__average {
+        display: inline-block;
+    }
+
+    &__total {
+        margin-top: 12px;
+    }
+
+    &__item {
+        background-color: transparent;
+        border-color: transparent;
+        display: flex;
+        align-items: center;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    &__star {
+        @include add-icon($msv-FavoriteStarFill, after);
+        color: var(--msv-ratings-histogram-star);
+        display: flex;
+        line-height: 1;
+
+        &::after {
+            margin: 0 4px;
+        }
+    }
+
+    &__percentage {
+        color: var(--msv-ratings-histogram-text-color);
+        width: 32px;
+        text-align: right;
+    }
+}

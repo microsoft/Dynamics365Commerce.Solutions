@@ -1,0 +1,1106 @@
+@import "../common/00-settings/colors.scss";
+@import "../common/00-settings/font.scss";
+@import "../common/00-settings/responsive-breakpoints.scss";
+@import "../common/01-tools/mixins.scss";
+@import "../common/01-tools/layout.scss";
+@import "../common/02-generic/image.scss";
+@import "../common/02-generic/button.scss";
+@import "../common/00-settings/icons.scss";
+@import "../common/02-generic/reset.scss";
+@import "../common/01-tools/bootstrap.scss";
+@import "../common/03-components/order-templates/mixins.scss";
+@import "../common/02-generic/controls.scss";
+@import "../common/02-generic/form.scss";
+
+$popover-menu-item-height: 48px;
+$msv-invoice-list-description-margin: 20px 0;
+$msv-invoice-list-filter-margin: 20px;
+$msv-invoice-list-expand-filter-button-margin-left: 9px;
+$msv-invoice-list-popover-anchor-padding: 0 20px;
+$msv-invoice-list-popover-anchor-height: 48px;
+$msv-invoice-list-empty-lines-container-padding: 80px 0 105px 0;
+$msv-invoice-list-empty-lines-container-border-radius: 10px;
+$msv-invoice-list-empty-lines-container-margin-top: 75px;
+$msv-invoice-list-empty-lines-container-margin-top-tablet: 32px;
+$msv-invoice-list-continue-shopping-margin-top: 38px;
+$msv-invoice-list-continue-shopping-margin-top-mobile: 58px;
+$msv-invoice-list-continue-shopping-margin-top-tablet: 55px;
+$msv-invoice-list-checkbox-container-margin-left: 18px;
+$msv-invoice-list-checkbox-container-padding-left: 35px;
+$msv-invoice-list-actions-container-button-padding: 0 8px;
+$msv-invoice-list-actions-container-button-height: 52px;
+$msv-invoice-list-actions-container-button-margin-right: 12px;
+$msv-invoice-list-requestInvoiceButton-margin: 20px;
+$msv-invoice-list-requestInvoice-padding: 10px;
+$msv-invoice-list-selectedInvoiceButton-padding: 5px;
+$msv-invoice-list-searchButton-padding: 10px 10px;
+$msv-invoice-list-searchResultDisplay-margin-top: 30px;
+$msv-invoice-list-error-dialog-margin-bottom: 20px;
+$msv-invoice-list-error-title: 20px;
+$msv-invoice-list-cancel-button-margin-left: 12px;
+$msv-invoice-list-searchButton-height: 52px;
+$msv-invoice-list-searchButton-width: 52px;
+$msv-invoice-list-header-description-title-margin-bottom: 8px;
+$msv-invoice-list-header-description-amount: 6px;
+$msv-invoice-list-expand-filter-button-width: 134px;
+$msv-invoice-list-expand-filter-button-padding: 0;
+$msv-invoice-list-expand-filter-button-box-shadow: 0 0.3px 0.9px rgba(0, 0, 0, 0.1), 0 1.6px 3.6px rgba(0, 0, 0, 0.13);
+$msv-invoice-list-expand-filter-dropdown-border-radius: 10px;
+$msc-invoices-list-container-content-margin-top: 20px;
+$msc-invoices-list-container-content-table-margin-top: 45px;
+$msc-invoices-list-checkbox-container-height: 19px;
+$msc-invoices-list-checkbox-input-left: 6px;
+$msc-invoices-list-checkmark-height: 19px;
+$msc-invoices-list-checkmark-width: 19px;
+$msc-invoices-list-checkmark-after-left: 5px;
+$msc-invoices-list-checkmark-after-top: 1.25px;
+$msc-invoices-list-checkmark-after-width: 5px;
+$msc-invoices-list-checkmark-after-height: 10px;
+$msc-invoices-list-table-header-padding-right: 20px;
+$msc-invoices-list-table-header-last-child-padding-right: 0;
+$msc-invoices-list-table-row-padding-right: 20px;
+$msc-invoices-list-table-row-nth-child-margin-right: 10px;
+$msc-invoices-list-table-row-nth-child-width-mobile: 140px;
+$msc-invoices-list-table-row-nth-child-user-width: 86px;
+$msc-invoices-list-table-row-last-child-width-mobile: 48px;
+$msc-invoices-list-table-row-first-child-width-mobile: 70px;
+$msc-invoices-list-extra-actions-cell-height: 82px;
+$msc-invoices-list-extra-actions-cell-width: 48px;
+$msv-invoice-list-expand-filter-button-font-size: 22px;
+$msv-invoice-list-popover-width: 140px;
+$msc-invoices-list-table-header-row-height: 43px;
+$msc-invoices-list-table-body-row-height: 82px;
+$msc-invoices-list-table-row-nth-child-font-size: 20px;
+$msv-invoice-list-actions-container-border-radius: 4px;
+$msv-invoice-list-requestInvoice-width: 150px;
+$msv-invoice-list-send-to-mail-padding-top: 20px;
+$msv-invoice-list-send-to-mail-padding-bottom: 36px;
+$msv-invoice-list-search-bar-height: 52px;
+$msv-invoice-list-search-bar-padding: 16px 48px 16px 16px;
+$msv-invoice-list-search-bar-margin-right: 8px;
+$msv-invoice-list-modal-input-required-padding: 25px 0 0;
+$msv-invoice-list-modal-input-required-padding-mobile: 17px 0 0;
+$msv-invoice-list-modal-input-required-header-padding: 0 36px;
+$msv-invoice-list-modal-input-required-header-padding-mobile: 0 16px;
+$msv-invoice-list-modal-input-required-header-margin-bottom: 35px;
+$msv-invoice-list-modal-input-required-header-title-padding-bottom: 22px;
+$msv-invoice-list-modal-input-required-header-title-padding-bottom-mobile: 19px;
+$msv-invoice-list-modal-input-required-body-padding: 0 36px 0 48px;
+$msv-invoice-list-modal-input-required-body-padding-mobile: 43px 16px 0 16px;
+$msv-invoice-list-modal-search-result-display-padding-bottom: 37px;
+$msv-invoice-list-modal-search-result-display-padding-bottom-mobile: 25px;
+$msv-invoice-list-modal-search-result-number-padding: 0 5px;
+$msv-invoice-list-modal-request-invoice-search-bar-margin-right: 8px;
+$msv-invoice-list-input-required-modal-footer-padding: 22px 36px;
+$msv-invoice-list-input-required-modal-footer-padding-mobile: 18px 16px;
+$msv-invoice-list-pay-invoice-modal-content-padding: 25px 0 0;
+$msv-invoice-list-pay-invoice-modal-content-padding-mobile: 16px 0 0;
+$msv-invoice-list-pay-invoice-modal-header-padding: 0 36px 0 28px;
+$msv-invoice-list-pay-invoice-modal-header-padding-bottom: 22px;
+$msv-invoice-list-pay-invoice-modal-header-padding-mobile: 0 16px;
+$msv-invoice-list-pay-invoice-modal-header-padding-bottom-mobile: 19px;
+$msv-invoice-list-pay-invoice-modal-body-margin-bottom: 35px;
+$msv-invoice-list-pay-invoice-modal-body-padding: 0 36px 0 28px;
+$msv-invoice-list-pay-invoice-modal-body-padding-top: 35px;
+$msv-invoice-list-pay-invoice-modal-body-padding-mobile: 0 16px;
+$msv-invoice-list-pay-invoice-modal-body-padding-top-mobile: 43px;
+$msv-invoice-list-pay-invoice-modal-footer-padding: 22px 36px 22px 28px;
+$msv-invoice-list-pay-invoice-modal-footer-padding-mobile: 18px 16px;
+$msv-invoice-list-pay-invoice-modal-error-title-margin-right: 10px;
+$msc-invoice-list-arrow-after-top: 1px;
+$msv-invoice-list-empty-lines-container-title-width: 480px;
+$msv-invoice-list-empty-lines-container-title-width-tablet: 350px;
+$msv-invoice-list-empty-lines-container-description-margin: 12px auto 0;
+$msv-invoice-list-empty-lines-container-description-width: 400px;
+$msv-invoice-list-empty-lines-container-description-margin-top-mobile: 32px;
+$msv-invoice-list-empty-lines-container-description-margin-top-tablet: 24px;
+$msv-invoice-list-empty-lines-container-description-width-tablet: 450px;
+$msv-invoice-list-header-requestInvoiceButton-margin-left: 16px;
+$msv-invoices-list-filter-dropdown-item-padding: 10px 21px 10px 24px;
+$msv-invoice-list-empty-lines-container-button-width: 261px;
+$msv-invoice-list-header-description-margin-top: 37px;
+$msv-invoice-list-modal-body-label-margin-right: 10px;
+$msv-invoice-list-modal-body-margin-bottom: 55px;
+$msv-invoice-list-filter-button-margin-top: 44px;
+$msv-invoice-list-alert-error-color: $msv-red;
+$ms-invoice-list-msc-alert-border-radius: 10px;
+$msv-alert-icon-margin-right: 16px;
+$ms-invoice-list-exclamation-triangle-padding-left: 2px;
+$ms-invoice-list-msc-alert-margin-top: 28px;
+$ms-invoice-list-msc-alert-padding: 22px;
+$ms-invoice-list-msc-alert-line-padding-left: 42px;
+$msv-msc-invoices-list__table__row__open-invoice-b-padding-left: 16px;
+$msv-msc-invoices-list-container-header-margin-left: 10px;
+$msv-msc-invoices-list-container-header-margin-top: 0;
+$msv-invoice-list-request-invoice-modal-body-label-icon-padding-top: 1px;
+$msv-pay-invoice-button-min-width: 185px;
+$msv-manage-invoice-button-min-width: 185px;
+$msv-manage-invoice-button-padding: 12px 20px;
+$msv-manage-invoice-button-margin: 10px;
+
+// style-presets
+:root {
+    // primary button
+    --msc-pay-invoice-error-primary-btn-bg: var(--msv-accent-brand-color);
+    --msc-pay-invoice-error-primary-btn-font-color: var(--msv-font-secondary-color);
+    --msc-pay-invoice-error-primary-btn-border: var(--msv-accent-brand-color);
+
+    // secondary button
+    --msc-pay-invoice-error-secondary-btn-bg: var(--msv-secondary-button-background-color);
+    --msc-pay-invoice-error-secondary-btn-font-color: var(--msv-font-primary-color);
+    --msc-pay-invoice-error-secondary-btn-border: var(--msv-accent-brand-color);
+}
+
+.msc-invoices-list {
+    @include font-content(var(--msv-font-weight-normal), var(--msv-body-font-size-m), $msv-line-height-m);
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+
+        @media screen and (max-width: $msv-breakpoint-m - 1) {
+            flex-direction: column;
+        }
+
+        &-heading {
+            @include font-heading-h3-l();
+            color: var(--msv-font-primary-color);
+        }
+
+        &-description {
+            &-title {
+                @include font-heading-h5-l();
+                text-align: right;
+                margin-bottom: $msv-invoice-list-header-description-title-margin-bottom;
+            }
+
+            &-amount {
+                @include font-heading-h3-l();
+                text-align: right;
+                margin-bottom: $msv-invoice-list-header-description-amount;
+            }
+
+            &-count {
+                @include font-body-regular-s();
+                color: $msv-gray-40;
+                text-align: right;
+            }
+
+            @media screen and (max-width: $msv-breakpoint-m - 1) {
+                margin-top: $msv-invoice-list-header-description-margin-top;
+            }
+        }
+    }
+
+    &__filter {
+        padding-bottom: $msv-invoice-list-filter-margin;
+        display: flex;
+        justify-content: flex-end;
+        margin-top: $msv-invoice-list-filter-button-margin-top;
+
+        @media screen and (min-width: $msv-breakpoint-l) {
+            position: absolute;
+            right: 0;
+        }
+
+        &__expand-filter-button {
+            background-color: transparent;
+            border: none;
+            width: $msv-invoice-list-expand-filter-button-width;
+            text-align: right;
+            padding: $msv-invoice-list-expand-filter-button-padding;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+
+            @include font-body-bold-s();
+
+            &:focus {
+                border: none;
+                outline: none;
+            }
+
+            @include add-icon($msv-ChevronDown, after);
+
+            &::after {
+                font-size: $msv-invoice-list-expand-filter-button-font-size;
+                text-align: center;
+                vertical-align: text-bottom;
+                margin: $msv-invoice-list-expand-filter-button-margin-left;
+                color: $msv-gray-20;
+            }
+
+            &:disabled {
+                color: $msv-gray-50;
+            }
+        }
+
+        &__expand-filter-button[aria-expanded="true"] {
+            @include add-icon($msv-ChevronUp, after);
+        }
+
+        .msc-popover {
+            background-color: $msv-white;
+            background-clip: padding-box;
+            display: block;
+            left: 0;
+            width: $msv-invoice-list-popover-width;
+            position: absolute;
+            top: 0;
+            word-wrap: break-word;
+            z-index: 1060;
+            box-shadow: $msv-invoice-list-expand-filter-button-box-shadow;
+            border-radius: $msv-invoice-list-expand-filter-dropdown-border-radius;
+
+            .msc-popover-inner {
+                .msc-invoices-list__filter__item__ShowAll,
+                .msc-invoices-list__filter__item__Paid,
+                .msc-invoices-list__filter__item__PartiallyPaid,
+                .msc-invoices-list__filter__item__Unpaid {
+                    padding: $msv-invoices-list-filter-dropdown-item-padding;
+                    border: none;
+                    background: transparent;
+                    width: $msv-width-full;
+                    text-align: right;
+
+                    @include font-body-regular-s();
+
+                    &:hover {
+                        background: $msv-white-20;
+                    }
+                }
+            }
+
+            a {
+                align-items: center;
+                display: flex;
+                padding: $msv-invoice-list-popover-anchor-padding;
+                height: $msv-invoice-list-popover-anchor-height;
+                cursor: pointer;
+                flex-direction: row;
+                justify-content: flex-end;
+
+                @include font-body-regular-s();
+
+                &:hover {
+                    text-decoration: none;
+                    background-color: $msv-white-20;
+                }
+            }
+
+            .msc-btn {
+                color: var(--msv-header-font-color);
+                font-weight: var(--msv-font-weight-normal);
+                height: $popover-menu-item-height;
+            }
+
+            .msc-arrow {
+                display: none;
+                height: 0.5rem;
+                margin: 0 0.3rem;
+                position: absolute;
+                top: calc((0.5rem + 1px) * -1);
+                width: 1rem;
+
+                &::before,
+                &::after {
+                    border-color: transparent;
+                    border-style: solid;
+                    border-width: 0 0.5rem 0.5rem 0.5rem;
+                    content: "";
+                    display: block;
+                    position: absolute;
+                }
+
+                &::before {
+                    border-bottom-color: $msv-gray-500;
+                    top: 0;
+                }
+
+                &::after {
+                    border-bottom-color: var(--msv-border-color);
+                    top: $msc-invoice-list-arrow-after-top;
+                }
+            }
+        }
+    }
+
+    &__empty-lines__container {
+        text-align: center;
+        padding: $msv-invoice-list-empty-lines-container-padding;
+        border-radius: $msv-invoice-list-empty-lines-container-border-radius;
+        border: 0.5px solid $msv-gray-50;
+        margin-top: $msv-invoice-list-empty-lines-container-margin-top;
+
+        @media screen and (max-width: $msv-breakpoint-m - 1) {
+            border-radius: none;
+            border: none;
+            margin-top: 0;
+        }
+
+        @media screen and (min-width: $msv-breakpoint-m) and (max-width: $msv-breakpoint-l) {
+            margin-top: $msv-invoice-list-empty-lines-container-margin-top-tablet;
+        }
+
+        &__title {
+            @include font-heading-h2-l();
+            width: $msv-invoice-list-empty-lines-container-title-width;
+            margin: 0 auto;
+
+            @media screen and (max-width: $msv-breakpoint-m - 1) {
+                width: 100%;
+
+                @include font-heading-h2-m();
+            }
+
+            @media screen and (min-width: $msv-breakpoint-m) and (max-width: $msv-breakpoint-l) {
+                width: $msv-invoice-list-empty-lines-container-title-width-tablet;
+
+                @include font-heading-h2-m();
+            }
+        }
+
+        &__description {
+            @include font-body-regular-m();
+            margin: $msv-invoice-list-empty-lines-container-description-margin;
+            width: $msv-invoice-list-empty-lines-container-description-width;
+
+            @media screen and (max-width: $msv-breakpoint-m - 1) {
+                margin-top: $msv-invoice-list-empty-lines-container-description-margin-top-mobile;
+                width: 100%;
+            }
+
+            @media screen and (min-width: $msv-breakpoint-m) and (max-width: $msv-breakpoint-l) {
+                margin-top: $msv-invoice-list-empty-lines-container-description-margin-top-tablet;
+                width: $msv-invoice-list-empty-lines-container-description-width-tablet;
+            }
+        }
+
+        &__actions__continue-shopping {
+            @include primary-button-light();
+            margin: auto;
+            margin-top: $msv-invoice-list-continue-shopping-margin-top;
+            width: $msv-invoice-list-empty-lines-container-button-width;
+
+            &:hover {
+                text-decoration: none;
+            }
+
+            @media only screen and (max-width: $msv-breakpoint-m - 1) {
+                width: 100%;
+                margin-top: $msv-invoice-list-continue-shopping-margin-top-mobile;
+            }
+
+            @media screen and (min-width: $msv-breakpoint-m) and (max-width: $msv-breakpoint-l) {
+                margin-top: $msv-invoice-list-continue-shopping-margin-top-tablet;
+                width: $msv-invoice-list-empty-lines-container-button-width;
+            }
+        }
+    }
+
+    &__container {
+        &__header {
+            @media (min-width: $msv-breakpoint-m) and (max-width: $msv-breakpoint-l) {
+                display: flex;
+
+                .msc-invoices-list__requestInvoiceButton {
+                    margin-top: $msv-msc-invoices-list-container-header-margin-top;
+                    margin-left: $msv-msc-invoices-list-container-header-margin-left;
+                }
+            }
+
+            &__make-payment {
+                @include primary-button-light();
+                display: inline-block;
+                cursor: pointer;
+
+                @media only screen and (max-width: $msv-breakpoint-l) {
+                    width: 100%;
+                }
+            }
+        }
+
+        &__content {
+            margin-top: $msc-invoices-list-container-content-margin-top;
+
+            @media screen and (max-width: $msv-breakpoint-m) {
+                .msc-alert {
+                    @include font-body-regular-xs();
+                }
+            }
+
+            .msc-alert {
+                color: $msv-invoice-list-alert-error-color;
+                background-color: $msv-pink;
+                border-radius: $ms-invoice-list-msc-alert-border-radius;
+                display: flex;
+                align-items: center;
+                margin-top: $ms-invoice-list-msc-alert-margin-top;
+                padding: $ms-invoice-list-msc-alert-padding;
+
+                .msc-alert__header {
+                    .msi-exclamation-triangle {
+                        margin-right: $msv-alert-icon-margin-right;
+                        padding-left: $ms-invoice-list-exclamation-triangle-padding-left;
+                        vertical-align: middle;
+
+                        @include add-icon($msv-times-circle);
+
+                        &::before {
+                            font-size: $msv-font-size-l;
+                        }
+                    }
+                }
+
+                .msc-alert__line {
+                    padding-left: $ms-invoice-list-msc-alert-line-padding-left;
+                }
+            }
+
+            &__table {
+                width: 100%;
+                border-collapse: collapse;
+                border-top: 0.5px solid $msv-gray-50;
+                margin-top: $msc-invoices-list-container-content-table-margin-top;
+
+                .checkbox-container {
+                    align-items: center;
+                    display: flex;
+                    position: relative;
+                    margin-left: $msv-invoice-list-checkbox-container-margin-left;
+                    padding-left: $msv-invoice-list-checkbox-container-padding-left;
+                    cursor: pointer;
+                    font-size: $msv-font-size-l;
+                    -webkit-user-select: none;
+                    -moz-user-select: none;
+                    -ms-user-select: none;
+                    user-select: none;
+                    height: $msc-invoices-list-checkbox-container-height;
+
+                    .checkbox-input {
+                        position: absolute;
+                        opacity: 0;
+                        cursor: pointer;
+                        height: 0;
+                        left: $msc-invoices-list-checkbox-input-left;
+                        width: 0;
+                    }
+
+                    .checkmark {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        height: $msc-invoices-list-checkmark-height;
+                        width: $msc-invoices-list-checkmark-width;
+                        background-color: transparent;
+                        border: 2px solid var(--msv-accent-brand-color);
+                        border-radius: 1rem;
+                    }
+
+                    .checkmark::after {
+                        content: "";
+                        position: absolute;
+                        display: none;
+                        left: $msc-invoices-list-checkmark-after-left;
+                        top: $msc-invoices-list-checkmark-after-top;
+                        width: $msc-invoices-list-checkmark-after-width;
+                        height: $msc-invoices-list-checkmark-after-height;
+                        border: solid $msv-white;
+                        border-width: 0 1.75px 1.75px 0;
+                        -webkit-transform: rotate(45deg);
+                        -ms-transform: rotate(45deg);
+                        transform: rotate(45deg);
+                    }
+
+                    input:checked ~ .checkmark {
+                        background-color: $msv-blue;
+                        border-color: $msv-blue;
+                    }
+
+                    input:checked ~ .checkmark::after {
+                        display: block;
+                    }
+                }
+
+                &__header {
+                    text-align: left;
+
+                    &__row {
+                        height: $msc-invoices-list-table-header-row-height;
+                        border-bottom: 0.5px solid $msv-gray-50;
+
+                        th {
+                            padding-right: $msc-invoices-list-table-header-padding-right;
+
+                            @include font-body-bold-xs();
+
+                            &:last-child {
+                                padding-right: $msc-invoices-list-table-header-last-child-padding-right;
+                            }
+                        }
+                    }
+                }
+
+                &__row {
+                    height: $msc-invoices-list-table-body-row-height;
+                    border-bottom: 0.5px solid $msv-gray-50;
+
+                    td {
+                        padding-right: $msc-invoices-list-table-row-padding-right;
+
+                        @include font-body-regular-s();
+
+                        &:nth-child(2) {
+                            @media screen and (max-width: $msv-breakpoint-m) {
+                                width: $msc-invoices-list-table-row-nth-child-width-mobile;
+                            }
+                        }
+
+                        &:nth-child(3),
+                        &:nth-child(6) {
+                            @include font-body-bold-s();
+                        }
+
+                        &:nth-child(4) {
+                            text-overflow: ellipsis;
+                            overflow: hidden;
+                            white-space: nowrap;
+                            width: $msc-invoices-list-table-row-nth-child-user-width;
+                            max-width: $msc-invoices-list-table-row-nth-child-user-width;
+
+                            @media screen and (max-width: $msv-breakpoint-m) {
+                                text-overflow: unset;
+                                overflow: unset;
+                                white-space: unset;
+                                width: auto;
+                                max-width: initial;
+                            }
+                        }
+
+                        &:last-child {
+                            padding-right: 0;
+
+                            @media screen and (max-width: $msv-breakpoint-m) {
+                                width: $msc-invoices-list-table-row-last-child-width-mobile;
+                            }
+                        }
+
+                        &:first-child {
+                            @media screen and (max-width: $msv-breakpoint-m) {
+                                width: $msc-invoices-list-table-row-first-child-width-mobile;
+                            }
+                        }
+                    }
+
+                    &__open-invoice {
+                        text-decoration: underline;
+                        cursor: pointer;
+
+                        & ~ b {
+                            @media screen and (max-width: $msv-breakpoint-m) {
+                                @include font-body-regular-s();
+                                padding-left: $msv-msc-invoices-list__table__row__open-invoice-b-padding-left;
+                            }
+                        }
+                    }
+
+                    &__pay-invoice {
+                        @include secondary-button-light();
+                        display: inline-block;
+                        margin-right: 12px;
+                        margin-top: $msv-manage-invoice-button-margin;
+                        padding: $msv-manage-invoice-button-padding;
+                        min-width: $msv-manage-invoice-button-min-width;
+                    }
+
+                    &__extra-actions-cell {
+                        &__toggle {
+                            @include add-icon($msv-Ellipses-V);
+                            background: none;
+                            height: $msc-invoices-list-extra-actions-cell-height;
+                            width: $msc-invoices-list-extra-actions-cell-width;
+                            border: none;
+
+                            &:active {
+                                background-color: $msv-blue;
+
+                                &::before {
+                                    color: $msv-white;
+                                }
+                            }
+
+                            &:hover {
+                                background-color: $msv-blue-10;
+
+                                &:active {
+                                    background-color: $msv-blue;
+
+                                    &::before {
+                                        color: $msv-white;
+                                    }
+                                }
+                            }
+
+                            @media screen and (max-width: $msv-breakpoint-l - 1) {
+                                outline: none;
+                            }
+                        }
+
+                        &__actions-container {
+                            align-items: flex-start;
+                            background: $msv-white;
+                            border-radius: $msv-invoice-list-actions-container-border-radius;
+                            box-shadow: 0 3.2px 7.2px rgba(0, 0, 0, 0.132), 0 0.6px 1.8px rgba(0, 0, 0, 0.108);
+                            flex-direction: column;
+                            height: auto;
+                            padding-left: 0;
+                            position: absolute;
+                            right: 0;
+                            z-index: 10;
+
+                            @media screen and (max-width: $msv-breakpoint-l - 1) {
+                                left: 0;
+                                width: 100%;
+                            }
+
+                            &__view-details {
+                                @include add-icon($msv-Invoice);
+                            }
+
+                            &__pay-invoice {
+                                @include add-icon($msv-money-dollar-circle-line);
+                            }
+
+                            &__requestInvoiceButton {
+                                @include add-icon($msv-send-plane-line);
+                                margin-left: 0;
+                                margin-right: 0;
+                            }
+
+                            button {
+                                background: none;
+                                border: none;
+                                height: $msv-invoice-list-actions-container-button-height;
+                                padding: $msv-invoice-list-actions-container-button-padding;
+                                text-align: left;
+                                width: 100%;
+                                display: flex;
+                                align-items: center;
+
+                                @include font-body-regular-s();
+
+                                &::before {
+                                    margin-right: $msv-invoice-list-actions-container-button-margin-right;
+                                    font-size: $msv-font-size-ml;
+                                    color: $msv-blue;
+                                }
+
+                                &:hover {
+                                    background-color: $msv-white-20;
+                                }
+
+                                &:disabled, &[disabled] {
+                                    @media only screen and (max-width: $msv-breakpoint-l) {
+                                        color: $msv-gray-50;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    &__requestInvoiceButton {
+                        @include secondary-button-light();
+                        display: inline-block;
+                        margin-top: $msv-manage-invoice-button-margin;
+                        margin-bottom: $msv-manage-invoice-button-margin;
+                        padding: $msv-manage-invoice-button-padding;
+                        min-width: $msv-manage-invoice-button-min-width;
+                    }
+                }
+            }
+        }
+    }
+
+    &__load-more {
+        @include primary-button-light();
+
+        margin-top: $msv-invoice-list-requestInvoiceButton-margin;
+
+        &.is-busy {
+            @include add-spinner(before);
+        }
+    }
+
+    &__requestInvoice {
+        &__submitRequest {
+            @include primary-button-light();
+            padding: $msv-invoice-list-requestInvoice-padding;
+            width: $msv-invoice-list-requestInvoice-width;
+            font-size: $msv-font-size-l;
+            line-height: $msv-line-height-l;
+        }
+
+        &__cancelRequest {
+            @include secondary-button-light();
+            padding: $msv-invoice-list-requestInvoice-padding;
+            width: $msv-invoice-list-requestInvoice-width;
+            margin-left: $msv-invoice-list-requestInvoiceButton-margin;
+            margin-right: $msv-invoice-list-requestInvoiceButton-margin;
+            font-size: $msv-font-size-l;
+            line-height: $msv-line-height-l;
+        }
+
+        &__sendToEmail {
+            padding-top: $msv-invoice-list-send-to-mail-padding-top;
+            padding-bottom: $msv-invoice-list-send-to-mail-padding-bottom;
+
+            @include font-body-regular-m();
+        }
+
+        &__selectedInvoiceButton {
+            margin-left: $msv-invoice-list-requestInvoice-padding;
+            margin-right: $msv-invoice-list-requestInvoice-padding;
+            padding-bottom: $msv-invoice-list-selectedInvoiceButton-padding;
+        }
+
+        &__search {
+            margin-bottom: $msv-invoice-list-requestInvoiceButton-margin;
+            width: 100%;
+            display: flex;
+            /* stylelint-disable-next-line declaration-no-important -- Auto-suppressed. Please fix if possible. */
+            flex-direction: row !important;
+            justify-content: space-between;
+            order: 1;
+        }
+
+        &__searchBar {
+            width: 100%;
+            height: $msv-invoice-list-search-bar-height;
+            padding: $msv-invoice-list-search-bar-padding;
+            margin-right: $msv-invoice-list-search-bar-margin-right;
+
+            @include font-body-regular-s();
+        }
+
+        &__searchButton {
+            @include primary-button-light();
+
+            border-radius: 3px;
+            height: $msv-invoice-list-searchButton-height;
+            min-width: $msv-invoice-list-searchButton-width;
+            width: $msv-invoice-list-searchButton-width;
+            font-size: $msv-font-size-ml;
+            padding: 0;
+
+            @include add-icon($msv-Search, before);
+
+            &:focus {
+                @include add-icon($msv-Search, before);
+            }
+
+            &:hover {
+                cursor: pointer;
+            }
+
+            &:focus::before {
+                width: $msv-invoice-list-searchButton-width;
+                text-align: center;
+                position: static;
+                border-radius: unset;
+                padding: 13px 0;
+                margin: 3px;
+            }
+        }
+
+        &__searchResultNumber {
+            font-weight: var(--msv-font-weight-bold);
+        }
+    }
+
+    &__requestInvoiceButton {
+        @include secondary-button-light();
+        margin-left: $msv-invoice-list-header-requestInvoiceButton-margin-left;
+        display: inline-block;
+
+        @media only screen and (max-width: $msv-breakpoint-l) {
+            display: block;
+            margin-top: $msv-invoice-list-requestInvoiceButton-margin;
+            margin-left: 0;
+            margin-right: 0;
+            width: 100%;
+        }
+    }
+}
+
+.msc-pay-invoice-error-dialog {
+    @media screen and (max-width: $msv-breakpoint-m) {
+        height: 100%;
+    }
+
+    .msc-modal__content {
+        padding: $msv-invoice-list-pay-invoice-modal-content-padding;
+
+        @media screen and (max-width: $msv-breakpoint-m) {
+            height: 100%;
+        }
+
+        @media screen and (max-width: $msv-breakpoint-m) {
+            /* stylelint-disable-next-line declaration-no-important -- Auto-suppressed. Please fix if possible. */
+            padding: $msv-invoice-list-pay-invoice-modal-content-padding-mobile !important;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+    }
+
+    &__header.msc-modal__header {
+        margin-bottom: 0;
+        padding: $msv-invoice-list-pay-invoice-modal-header-padding;
+        padding-bottom: $msv-invoice-list-pay-invoice-modal-header-padding-bottom;
+        border-bottom: 0.5px solid $msv-gray-50;
+
+        @media screen and (max-width: $msv-breakpoint-m) {
+            /* stylelint-disable-next-line declaration-no-important -- Auto-suppressed. Please fix if possible. */
+            padding: $msv-invoice-list-pay-invoice-modal-header-padding-mobile !important;
+            /* stylelint-disable-next-line declaration-no-important -- Auto-suppressed. Please fix if possible. */
+            padding-bottom: $msv-invoice-list-pay-invoice-modal-header-padding-bottom-mobile !important;
+        }
+
+        .msc-modal__title {
+            @include font-heading-h3-l();
+        }
+    }
+
+    &__body.msc-modal__body {
+        margin-bottom: $msv-invoice-list-pay-invoice-modal-body-margin-bottom;
+        padding: $msv-invoice-list-pay-invoice-modal-body-padding;
+        padding-top: $msv-invoice-list-pay-invoice-modal-body-padding-top;
+
+        @media screen and (max-width: $msv-breakpoint-m) {
+            /* stylelint-disable-next-line declaration-no-important -- Auto-suppressed. Please fix if possible. */
+            padding: $msv-invoice-list-pay-invoice-modal-body-padding-mobile !important;
+            /* stylelint-disable-next-line declaration-no-important -- Auto-suppressed. Please fix if possible. */
+            padding-top: $msv-invoice-list-pay-invoice-modal-body-padding-top-mobile !important;
+            margin-bottom: 0;
+        }
+    }
+
+    &__footer.msc-modal__footer {
+        padding: $msv-invoice-list-pay-invoice-modal-footer-padding;
+        box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.04);
+
+        @media screen and (max-width: $msv-breakpoint-m) {
+            /* stylelint-disable-next-line declaration-no-important -- Auto-suppressed. Please fix if possible. */
+            padding: $msv-invoice-list-pay-invoice-modal-footer-padding-mobile !important;
+            margin-top: auto;
+        }
+    }
+
+    &__error {
+        &-title {
+            @include font-heading-h5-l();
+            margin-bottom: $msv-invoice-list-error-title;
+            display: flex;
+
+            @include add-icon($msv-information, before);
+
+            &::before {
+                align-self: center;
+                margin-right: $msv-invoice-list-pay-invoice-modal-error-title-margin-right;
+            }
+        }
+
+        &-description {
+            @include font-body-regular-m();
+        }
+    }
+
+    &__dialog__footer {
+        margin-top: $msv-invoice-list-requestInvoice-padding;
+    }
+
+    &__review-shopping-bag-button {
+        @include primary-button-light();
+
+        @media screen and (max-width: $msv-breakpoint-m) {
+            margin-bottom: $msv-invoice-list-actions-container-button-margin-right;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+    }
+
+    &__cancel-button {
+        @include secondary-button-light();
+        margin-left: $msv-invoice-list-cancel-button-margin-left;
+
+        @media screen and (max-width: $msv-breakpoint-m) {
+            margin-left: 0;
+            width: 100%;
+        }
+    }
+}
+
+.msc-invoices-list_requestInvoice__modal {
+    .msc-modal__content {
+        padding: $msv-invoice-list-modal-input-required-padding;
+
+        @media screen and (max-width: $msv-breakpoint-m) {
+            /* stylelint-disable-next-line declaration-no-important -- Auto-suppressed. Please fix if possible. */
+            padding: $msv-invoice-list-modal-input-required-padding-mobile !important;
+        }
+
+        .msc-modal__header {
+            padding: $msv-invoice-list-modal-input-required-header-padding;
+            margin-bottom: $msv-invoice-list-modal-input-required-header-margin-bottom;
+            border-bottom: 0.5px solid $msv-gray-50;
+
+            @media screen and (max-width: $msv-breakpoint-m) {
+                /* stylelint-disable-next-line declaration-no-important -- Auto-suppressed. Please fix if possible. */
+                padding: $msv-invoice-list-modal-input-required-header-padding-mobile !important;
+            }
+
+            .msc-modal__title {
+                margin-bottom: 0;
+                padding-bottom: $msv-invoice-list-modal-input-required-header-title-padding-bottom;
+
+                @include font-heading-h3-l();
+
+                @media screen and (max-width: $msv-breakpoint-m) {
+                    /* stylelint-disable-next-line declaration-no-important -- Auto-suppressed. Please fix if possible. */
+                    text-align: left !important;
+
+                    padding-bottom: $msv-invoice-list-modal-input-required-header-title-padding-bottom-mobile;
+                }
+            }
+        }
+    }
+
+    .msc-modal__body {
+        padding: $msv-invoice-list-modal-input-required-body-padding;
+        margin-bottom: $msv-invoice-list-modal-body-margin-bottom;
+
+        @media screen and (max-width: $msv-breakpoint-m) {
+            /* stylelint-disable-next-line declaration-no-important -- Auto-suppressed. Please fix if possible. */
+            padding: $msv-invoice-list-modal-input-required-body-padding-mobile !important;
+        }
+
+        label {
+            @include font-heading-h5-l();
+            @include add-icon($msv-send-plane-line);
+
+            &::before {
+                margin-right: $msv-invoice-list-modal-body-label-margin-right;
+                font-size: $msv-font-size-ml;
+                display: inline;
+                vertical-align: middle;
+                padding-top: $msv-invoice-list-request-invoice-modal-body-label-icon-padding-top;
+            }
+        }
+
+        div {
+            display: flex;
+            flex-direction: column;
+
+            & .msc-invoices-list__requestInvoice__searchResultDisplay {
+                order: 2;
+                flex-direction: row;
+                padding-bottom: $msv-invoice-list-modal-search-result-display-padding-bottom;
+
+                @media screen and (max-width: $msv-breakpoint-m) {
+                    display: block;
+                    padding-bottom: $msv-invoice-list-modal-search-result-display-padding-bottom-mobile;
+                }
+
+                @include font-body-regular-m();
+
+                .msc-invoices-list__requestInvoice__searchResultNumber {
+                    @include font-body-bold-m();
+                    padding: $msv-invoice-list-modal-search-result-number-padding;
+                }
+            }
+
+            & .msc-invoices-list__requestInvoice__search ~ div {
+                order: 3;
+            }
+        }
+
+        .msc-invoices-list__requestInvoice__search {
+            .msc-invoices-list__requestInvoice__searchBar {
+                @include form-input-box();
+                /* stylelint-disable-next-line declaration-no-important -- Auto-suppressed. Please fix if possible. */
+                border-color: $msv-gray-140 !important;
+                margin-right: $msv-invoice-list-modal-request-invoice-search-bar-margin-right;
+            }
+        }
+
+        .msc-invoices-list__requestInvoice__filteredInvoiceResult {
+            margin-bottom: $msv-invoice-list-requestInvoice-padding;
+            /* stylelint-disable-next-line declaration-no-important -- Auto-suppressed. Please fix if possible. */
+            flex-direction: row !important;
+
+            input {
+                @include form-input-radio();
+
+                &:focus {
+                    /* stylelint-disable-next-line declaration-no-important -- Auto-suppressed. Please fix if possible. */
+                    border: 1px dashed $msv-white !important;
+                    /* stylelint-disable-next-line declaration-no-important -- Auto-suppressed. Please fix if possible. */
+                    outline: 1px dashed $msv-gray-20 !important;
+                }
+            }
+
+            label.msc-invoices-list__requestInvoice__selectedInvoiceButton {
+                padding: 0;
+                align-self: center;
+
+                @include font-body-regular-s();
+
+                &::before {
+                    display: none;
+                }
+            }
+
+            &_roundedCheckbox {
+                border-radius: 50%;
+                -webkit-appearance: none;
+                outline: none;
+                cursor: pointer;
+
+                &:checked {
+                    appearance: auto;
+                    clip-path: circle(50% at 50% 50%);
+                }
+            }
+        }
+    }
+
+    .msc-modal__footer {
+        padding: $msv-invoice-list-input-required-modal-footer-padding;
+        box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.04);
+
+        @media screen and (max-width: $msv-breakpoint-m) {
+            /* stylelint-disable-next-line declaration-no-important -- Auto-suppressed. Please fix if possible. */
+            padding: $msv-invoice-list-input-required-modal-footer-padding-mobile !important;
+            /* stylelint-disable-next-line declaration-no-important -- Auto-suppressed. Please fix if possible. */
+            margin-top: auto !important;
+            /* stylelint-disable-next-line declaration-no-important -- Auto-suppressed. Please fix if possible. */
+            border-top: none !important;
+        }
+
+        .msc-invoices-list__requestInvoice__submitRequest {
+            @include primary-button-light();
+            width: auto;
+        }
+
+        .msc-invoices-list__requestInvoice__cancelRequest {
+            @include secondary-button-light();
+            width: auto;
+
+            @media screen and (max-width: $msv-breakpoint-m) {
+                /* stylelint-disable-next-line declaration-no-important -- Auto-suppressed. Please fix if possible. */
+                margin-bottom: 0 !important;
+            }
+        }
+    }
+}

@@ -1,0 +1,80 @@
+{
+	"$type": "contentModule",
+	"friendlyName": "Custom recently viewed products",
+	"name": "custom-recently-viewed-products",
+	"description": "Product collection shows a list of products based on recently viewed products.",
+	"categories": [
+		"Products",
+		"Recommendations"
+	],
+	"tags": [
+		"Additional tags go here"
+	],
+	"dataActions": {
+        "fullProductsSearchResultsWithCount": {
+            "path": "./actions/get-full-products-by-ids",
+            "runOn": "client"
+        }
+    },
+	"config": {
+		"productCollection": {
+			"friendlyName": "Products",
+			"description": "Configure settings to choose appropriate data source & inputs for product collection",
+			"type": "productList",
+			"required": true
+		},
+		"heading": {
+			"friendlyName": "Heading",
+			"description": "Module heading",
+			"$ref": "@msdyn365-commerce-modules/definitions/dist/src/Heading.json#/definitions/heading"
+		},
+		"layout": {
+			"friendlyName": "Display style",
+			"description": "Flag to show all products in a grid layout instead of carousel",
+			"type": "string",
+			"enum": {
+				"carousel": "carousel",
+				"grid": "grid"
+			},
+			"default": "carousel",
+			"scope": "module"
+		},
+		"imageSettings": {
+			"friendlyName": "Image settings",
+			"description": "Image settings for product items",
+			"type": "imageSettings"
+		},
+		"className": {
+			"friendlyName": "Custom CSS class name",
+			"description": "Provide a custom css class name defined in the theme pack to target the CSS for this module",
+			"type": "string",
+			"default": ""
+		}
+	},
+	"resources": {
+		"priceFree": {
+			"value": "Free",
+			"comment": "Text to show when product is free"
+		},
+		"ratingAriaLabel": {
+			"value": "Average {0} of {1} stars",
+			"comment": "Text to show for rating aria label"
+		},
+		"flipperNext": {
+			"value": "Next",
+			"comment": "value for next flipper control"
+		},
+		"flipperPrevious": {
+			"value": "Previous",
+			"comment": "Value for previous flipper control"
+		},
+		"originalPriceText": {
+			"comment": "String that corresponds to the original price screen reader text",
+			"value": "Original price"
+		},
+		"currentPriceText": {
+			"comment": "String that corresponds to the current price screen reader text",
+			"value": "Current price"
+		}
+	}
+}

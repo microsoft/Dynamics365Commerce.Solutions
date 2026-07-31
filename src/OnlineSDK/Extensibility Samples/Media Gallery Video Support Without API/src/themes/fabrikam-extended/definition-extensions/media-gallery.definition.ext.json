@@ -1,0 +1,11 @@
+{
+    "$type": "definitionExtension",
+    "config": {
+        "video": {
+            "friendlyName": "Video",
+            "description": "video data",
+            "type": "video",
+            "required": false
+        }
+    }
+}

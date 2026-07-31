@@ -1,0 +1,157 @@
+.msc-invoice-details {
+    margin-top: 40px;
+
+    &__header {
+        padding-bottom: 40px;
+        border-bottom: 1px solid $msv-divider-color;
+
+        &__invoice-id {
+            font-size: 24px;
+            line-height: 31px;
+            min-height: 32px;
+        }
+
+        &__invoice-info-container {
+            @media only screen and (min-width: $msv-breakpoint-l) {
+                display: flex;
+                justify-content: space-between;
+            }
+
+            &__order-info-container {
+                &__order-info {
+                    margin-top: 22px;
+
+                    &__main-info {
+                        font-size: 18px;
+                        line-height: 24px;
+                        min-height: 32px;
+                    }
+
+                    &__details {
+                        font-size: 16px;
+                        line-height: 21px;
+                        display: flex;
+
+                        &__order-date {
+                            padding-right: 10px;
+                            border-right: solid 1px;
+                        }
+
+                        &__order-items-count {
+                            padding: 0 10px;
+                        }
+                    }
+                }
+            }
+
+            &__amount-summary {
+                @media only screen and (min-width: $msv-breakpoint-l) {
+                    text-align: right;
+                }
+
+                @media only screen and (max-width: $msv-breakpoint-l) {
+                    margin-top: 30px;
+                }
+
+                &__amount-due-text {
+                    font-size: 18px;
+                    line-height: 24px;
+                    min-height: 32px;
+                }
+
+                &__amount-due-amount {
+                    font-size: 36px;
+                    line-height: 47px;
+                    min-height: 60px;
+                }
+
+                &__amount-due-date {
+                    min-height: 32px;
+                    font-size: 16px;
+                    line-height: 21px;
+                    font-weight: $msv-font-weight-light;
+                }
+            }
+        }
+
+        &__actions {
+            &__pay-invoice {
+                @include primary-button();
+
+                @media only screen and (max-width: $msv-breakpoint-l) {
+                    width: 100%;
+                    margin-top: 30px;
+                }
+            }
+        }
+    }
+
+    &__products {
+        padding-top: 40px;
+        border-bottom: 1px solid $msv-divider-color;
+
+        &__product-line {
+            display: flex;
+            justify-content: space-between;
+            padding-bottom: 40px;
+
+            &__product-info-container {
+                display: flex;
+
+                &__product-details {
+                    padding: 0 20px;
+
+                    &__name {
+                        font-weight: $msv-font-weight-bold;
+                        font-size: $msv-font-size-l;
+                        line-height: $msv-line-height-l;
+                    }
+
+                    &__small-details {
+                        font-size: $msv-font-size-m;
+                        line-height: $msv-line-height-m;
+                    }
+                }
+
+                &__name {
+                    font-weight: $msv-font-weight-bold;
+                    font-size: $msv-font-size-l;
+                    line-height: $msv-line-height-l;
+                }
+            }
+
+            &__total-price {
+                font-weight: $msv-font-weight-bold;
+                font-size: $msv-font-size-l;
+                line-height: $msv-line-height-l;
+            }
+        }
+    }
+
+    &__payment-details {
+        padding-top: 20px;
+        border-bottom: 1px solid $msv-divider-color;
+
+        &__line {
+            display: flex;
+            justify-content: space-between;
+            padding-bottom: 20px;
+
+            &__label {
+                font-size: $msv-font-size-l;
+                line-height: $msv-line-height-l;
+            }
+
+            &__value {
+                font-size: $msv-font-size-l;
+                line-height: $msv-line-height-l;
+                font-weight: $msv-font-weight-bold;
+            }
+
+            &-total-amount &__value {
+                font-size: $msv-font-size-xl;
+                line-height: $msv-line-height-xl;
+            }
+        }
+    }
+}

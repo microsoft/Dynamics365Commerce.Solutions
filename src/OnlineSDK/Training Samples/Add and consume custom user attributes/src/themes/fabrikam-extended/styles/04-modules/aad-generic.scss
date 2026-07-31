@@ -1,0 +1,219 @@
+$msv-aad-generic-input-margin-top: 4px;
+$msv-aad-generic-link-margin-top: 8px;
+$msv-aad-generic-message-padding: 20px;
+$msv-aad-generic-message-margin-top: 20px;
+$msv-aad-generic-container-width: 40%;
+$msv-aad-generic-standard-button-width: 100%;
+$msv-aad-generic-standard-input-width: 100%;
+$msv-aad-generic-error-page-marging-bottom: 10px;
+$msv-aad-generic-standard-marging-top: 20px;
+$msv-aad-generic-standard-marging-bottom: 20px;
+$msv-aad-generic-social-button-marging-bottom: 10px;
+$msv-aad-generic-create-account-marging-left: 5px;
+$msv-aad-generic-success-message-padding: 20px;
+$msv-aad-generic-error-message-padding: 20px;
+
+//style presets
+:root {
+    --msv-aad-generic-font-size: var(--msv-body-font-size-m);
+    --msv-aad-generic-font-color: var(--msv-font-primary-color);
+    --msv-aad-generic-link-size: var(--msv-body-font-size-s);
+    --msv-aad-generic-link-color: #{$msv-gray-500};
+
+    // heading
+    --msv-aad-generic-heading-font-size: var(--msv-body-font-size-xl);
+    --msv-aad-generic-heading-font-color: var(--msv-font-primary-color);
+
+    //error
+    --msv-aad-generic-error-alert-bg: var(--msv-error-color);
+    --msv-aad-generic-error-alert-font-color: var(--msv-font-secondary-color);
+    --msv-aad-generic-error-alert-border: var(--msv-error-color);
+    --msv-aad-generic-error-color: var(--msv-error-color);
+
+    // primary button
+    --msv-aad-generic-primary-btn-bg: var(--msv-accent-brand-color);
+    --msv-aad-generic-primary-btn-font-color: var(--msv-font-secondary-color);
+    --msv-aad-generic-primary-btn-border: var(--msv-accent-brand-color);
+
+    // alert
+    --msv-aad-generic-success-alert-bg: #{$msv-gray-300};
+    --msv-aad-generic-success-alert-font-color: var(--msv-font-primary-color);
+    --msv-aad-generic-success-alert-border: #{$msv-gray-900};
+}
+
+.ms-aad-generic {
+    @include font-content(var(--msv-font-weight-normal), var(--msv-aad-generic-font-size), $msv-line-height-m);
+    color: var(--msv-aad-generic-font-color);
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    &__container {
+        width: $msv-aad-generic-container-width;
+    }
+
+    ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .verify,
+    .divider {
+        margin-top: $msv-aad-generic-standard-marging-top;
+    }
+
+    .intro h2,
+    .divider h2,
+    &__heading {
+        @include font-content(var(--msv-font-weight-normal),
+        var(--msv-aad-generic-heading-font-size), $msv-line-height-xl);
+        color: var(--msv-aad-generic-heading-font-color);
+        margin-bottom: $msv-aad-generic-standard-marging-bottom;
+    }
+
+    .attrEntry,
+    .entry-item {
+        margin-bottom: $msv-aad-generic-standard-marging-bottom;
+
+        input {
+            @include form-input-el();
+            margin-top: $msv-aad-generic-input-margin-top;
+            width: $msv-aad-generic-standard-input-width;
+            border: 1px solid $msv-gray-500;
+
+            &:focus {
+                border: 1px dashed $msv-gray-500;
+                outline: none;
+            }
+        }
+    }
+
+    .password-label label {
+        &::after {
+            content: "\A";
+            white-space: pre;
+        }
+    }
+
+    #forgotPassword {
+        display: inline-block;
+        color: var(--msv-aad-generic-link-color);
+
+        @include font-content(var(--msv-font-weight-normal), var(--msv-aad-generic-link-size), $msv-line-height-s);
+        margin-top: $msv-aad-generic-link-margin-top;
+        text-decoration: underline;
+    }
+
+    #createAccount {
+        display: inline-block;
+        color: var(--msv-aad-generic-link-color);
+
+        @include font-content(var(--msv-font-weight-normal), var($msv-font-size-m), $msv-line-height-m);
+        margin-top: $msv-aad-generic-link-margin-top;
+        text-decoration: underline;
+        margin-left: $msv-aad-generic-create-account-marging-left;
+    }
+
+    .accountButton {
+        @include primary-button($social-bg-color, $msv-white, $social-hover-color);
+        @include vfi();
+        width: $msv-aad-generic-standard-button-width;
+        margin-bottom: $msv-aad-generic-social-button-marging-bottom;
+
+        &:not(:disabled) {
+            cursor: pointer;
+        }
+
+        &:hover,
+        &:focus {
+            background-color: $social-hover-color;
+            border-color: $social-hover-color;
+        }
+    }
+
+    .sendButton,
+    .verifyButton,
+    .editButton,
+    .defaultButton,
+    .sendCode,
+    .verifyCode,
+    .sendNewCode,
+    .changeClaims,
+    #continue,
+    #next {
+        @include primary-button(
+            var(--msv-aad-generic-primary-btn-bg),
+            var(--msv-aad-generic-primary-btn-font-color),
+            var(--msv-aad-generic-primary-btn-border)
+        );
+        @include vfi();
+        margin-bottom: $msv-aad-generic-standard-marging-bottom;
+        width: $msv-aad-generic-standard-button-width;
+
+        &:not(:disabled) {
+            cursor: pointer;
+        }
+    }
+
+    #cancel {
+        @include secondary-button();
+        @include vfi();
+        margin-bottom: $msv-aad-generic-standard-marging-bottom;
+        width: $msv-aad-generic-standard-button-width;
+
+        &:not(:disabled) {
+            cursor: pointer;
+        }
+    }
+
+    .error {
+        &.itemLevel {
+            color: var(--msv-aad-generic-error-color);
+        }
+
+        &.pageLevel {
+            @include validation-error(
+                var(--msv-aad-generic-error-alert-bg),
+                var(--msv-aad-generic-error-alert-border),
+                var(--msv-aad-generic-error-alert-font-color)
+            );
+            display: none;
+            margin-top: $msv-aad-generic-message-margin-top;
+            margin-bottom: $msv-aad-generic-error-page-marging-bottom;
+            padding: $msv-aad-generic-message-padding;
+        }
+    }
+
+    .intro p,
+    .helpLink {
+        display: none;
+    }
+
+    /* Override inline style inject by AAD so we need important */
+    #emailVerificationControl_success_message[aria-hidden="false"],
+    #emailVerificationControl_error_message[aria-hidden="false"] {
+        /* stylelint-disable-next-line declaration-no-important -- Auto-suppressed. Please fix if possible. */
+        display: block !important;
+    }
+
+    #emailVerificationControl_success_message {
+        @include validation-success(
+            var(--msv-aad-generic-success-alert-bg),
+            var(--msv-aad-generic-success-alert-border),
+            var(--msv-aad-generic-success-alert-font-color)
+        );
+        margin-bottom: $msv-aad-generic-standard-marging-bottom;
+        padding: $msv-aad-generic-success-message-padding;
+    }
+
+    #emailVerificationControl_error_message {
+        @include validation-error(
+            var(--msv-aad-generic-error-alert-bg),
+            var(--msv-aad-generic-error-alert-border),
+            var(--msv-aad-generic-error-alert-font-color)
+        );
+        margin-bottom: $msv-aad-generic-standard-marging-bottom;
+        padding: $msv-aad-generic-error-message-padding;
+    }
+}

@@ -1,0 +1,456 @@
+@import "../common/00-settings/colors.scss";
+@import "../common/00-settings/font.scss";
+@import "../common/00-settings/icons.scss";
+@import "../common/00-settings/responsive-breakpoints.scss";
+@import "../common/02-generic/button.scss";
+@import "../common/01-tools/mixins.scss";
+@import "../common/02-generic/form.scss";
+@import "../common/02-generic/image.scss";
+@import "../common/02-generic/controls.scss";
+
+$quickOrder-margin-top: 100px;
+$quickOrder-padding-top: 20px;
+$quickOrder-padding-bottom: 20px;
+$quickOrder-margin-bottom: 20px;
+$quickOrder-margin-left: 20px;
+$quickOrder-user-msg-padding: 20px;
+$quickOrder-desc-margin-top: 12px;
+$quickOrder-margin-left: 20px;
+$quickOrder-drawer-button-padding-left: 0;
+$quickOrder-drawer-button-padding-right: 0;
+$quickOrder-drawer-expand-padding-right: 20px;
+$quickOrder-addtocart-button-margin-top: 24px;
+$quickOrder-addtocart-quickadd-button-margin-top: 31px;
+$quickOrder-main-height: 48px;
+$msv-quickOrder-border: 1px solid $msv-gray-300;
+$msv-quickOrder-border-textbox: 0.5px solid $msv-gray-300;
+$msv-quickOrder-alert-icon-margin: 8px;
+$msv-quickOrder-alert-success-text-color: $msv-green-10;
+$msv-quickOrder-alert-success-background-color: $msv-green-20;
+$msv-quickOrder-mobile-title-font-weight: 700;
+$msv-alert-line-margin-top: 2px;
+$ms-quick-order-drawer-margin-top: 10px;
+$ms-quick-order-drawer-margin-left: 6px;
+$ms-quick-order-drawer-padding: 10px;
+$ms-quick-order-content-form-main-addtocart-dektop-margin-left: 12px;
+$ms-quick-order-content-form-main-addtocart-tab-margin-left: 5px;
+$ms-quick-order-content-form-main-addtocart-dektop-input-width: 376px;
+$ms-quick-order-content-form-main-addtocart-tab-input-width: 100%;
+$ms-quick-order-content-form-main-product-margin-right: 11px;
+$msv-quickOrder-maxwidth-textbox: 164px;
+$msv-quickOrder-borderradius-textbox: 3px;
+$ms-quick-order-content-form-main-button-padding: 12px 8px;
+$msv-quickOrder-msc-dropdown-select-maxwidth: 164px;
+$msv-quickOrder-quantity-maxwidth: 164px;
+$ms-quick-order-msc-alert-padding: 22px;
+$ms-quick-order-msc-alert-margin-bottom: 23px;
+$ms-quick-order-msc-alert-border-radius: 10px;
+$ms-quick-order-addtocart-button-border-radius: 25px;
+$msv-quickOrder-borderradius-dropdown-select: 3px;
+$msv-quick-order-alert-danger-margin-bottom: 8px;
+$ms-quick-order-exclamation-triangle-padding-left: 2px;
+$ms-quick-order-form-main__configure-margin-right: 8px;
+$ms-quick-order-form-main__dropdown-margin-right: 11px;
+$msv-quick-order-margin-bottom: 17px;
+$ms-quick-order-heading-margin-right: 30px;
+$msv-quickOrder-alert-error-color: $msv-red;
+$msv-quickOrder-alert-icon-margin-right: 10px;
+$msv-quickOrder-alert-margin-top: 12px;
+$ms-quick-order-form-content-padding-top: 24px;
+$msv-alert-icon-margin-right: 22px;
+
+//style presets
+:root {
+    --msv-quickOrder-btn-bg: #{$msv-white};
+    --msv-cart-line-group-border-color: #{$msv-gray-50};
+}
+
+.ms-quick-order {
+    margin-top: $quickOrder-margin-top;
+    background-color: var(--msv-quickOrder-btn-bg);
+    border: 0.5px solid var(--msv-cart-line-group-border-color);
+    border-radius: 10px;
+
+    &__heading {
+        @include font-heading-h5-l();
+        margin-bottom: $msv-quick-order-margin-bottom;
+        display: flex;
+        justify-content: space-between;
+
+        @media (min-width: $msv-breakpoint-m+1) and (max-width: $msv-breakpoint-l) {
+            @include font-heading-h5-m();
+        }
+
+        @media (max-width: $msv-breakpoint-m) {
+            @include font-heading-h5-s();
+        }
+    }
+
+    &__description {
+        @include font-body-regular-m();
+        margin-top: $quickOrder-desc-margin-top;
+    }
+
+    &__drawer {
+        margin-top: $ms-quick-order-drawer-margin-top;
+        margin-left: $ms-quick-order-drawer-margin-left;
+        padding: $ms-quick-order-drawer-padding;
+
+        .drawer__button {
+            background: var(--msv-quickOrder-btn-bg);
+            height: auto;
+            padding-left: $quickOrder-drawer-button-padding-left;
+            padding-right: $quickOrder-drawer-button-padding-right;
+            padding-bottom: $quickOrder-padding-bottom;
+            width: 100%;
+            text-align: left;
+            border: none;
+            cursor: pointer;
+
+            &[aria-expanded="true"] {
+                .ms-quick-order__heading {
+                    @include add-icon($msv-ChevronUp, after);
+
+                    &::after {
+                        line-height: 24px;
+                        text-align: right;
+                        font-weight: bold;
+                        margin-right: $ms-quick-order-heading-margin-right;
+                    }
+                }
+            }
+
+            &[aria-expanded="false"] {
+                .ms-quick-order__heading {
+                    @include add-icon($msv-ChevronDown, after);
+
+                    &::after {
+                        line-height: 24px;
+                        text-align: right;
+                        font-weight: bold;
+                        margin-right: $ms-quick-order-heading-margin-right;
+                    }
+                }
+            }
+
+            .drawer__glyph {
+                text-align: center;
+            }
+
+            &:focus {
+                border: none;
+                outline: none;
+            }
+        }
+    }
+
+    &__content {
+        border-top: $msv-quickOrder-border;
+        padding-top: $ms-quick-order-form-content-padding-top;
+
+        &-form-main {
+            display: flex;
+            padding-bottom: $quickOrder-drawer-expand-padding-right;
+
+            &-product {
+                width: 400px;
+
+                @media (min-width: $msv-breakpoint-m + 1) {
+                    margin-right: $ms-quick-order-content-form-main-product-margin-right;
+                }
+
+                @media (max-width: $msv-breakpoint-m) {
+                    margin-right: auto;
+                }
+                height: $quickOrder-main-height;
+
+                &-lable {
+                    @include form-input-label();
+                }
+
+                &-input {
+                    @include form-input-box();
+                }
+            }
+
+            &-quantity {
+                margin-left: auto;
+
+                @include font-body-regular-s();
+
+                &-lable {
+                    @include form-input-label();
+                }
+
+                @media (min-width: $msv-breakpoint-l) {
+                    max-width: $msv-quickOrder-quantity-maxwidth;
+                }
+            }
+
+            &-addtocart {
+                @media (min-width: $msv-breakpoint-l + 1) {
+                    margin-left: $ms-quick-order-content-form-main-addtocart-dektop-margin-left;
+                }
+
+                @media (min-width: $msv-breakpoint-m) and (max-width: $msv-breakpoint-l) {
+                    margin-left: $ms-quick-order-content-form-main-addtocart-tab-margin-left;
+                }
+
+                flex: 0 0 12%;
+
+                @include font-body-regular-s();
+
+                &-button {
+                    @include primary-button-light();
+                    padding: $ms-quick-order-content-form-main-button-padding;
+                    margin-top: $quickOrder-addtocart-quickadd-button-margin-top;
+                }
+            }
+
+            input[type="text"] {
+                @media (min-width: $msv-breakpoint-l + 1) {
+                    width: $ms-quick-order-content-form-main-addtocart-dektop-input-width;
+                }
+
+                @media (min-width: $msv-breakpoint-m) and (max-width: $msv-breakpoint-l) {
+                    width: $ms-quick-order-content-form-main-addtocart-tab-input-width;
+                }
+            }
+
+            input[type="number"] {
+                width: 100%;
+            }
+
+            input[type="text"],
+            input[type="number"] {
+                @include font-body-regular-s();
+                height: 52px;
+                background: linear-gradient(0deg, $msv-white, $msv-white), $msv-gray-100;
+                border: $msv-quickOrder-border-textbox;
+                border-radius: $msv-quickOrder-borderradius-textbox;
+                box-sizing: border-box;
+                padding: 16px 12px;
+
+                &:focus {
+                    border: $msv-quickOrder-border;
+                    outline: none;
+                }
+            }
+
+            &__configure {
+                display: flex;
+
+                @media (min-width: $msv-breakpoint-l + 1) {
+                    width: 100%;
+                }
+
+                @media (min-width: $msv-breakpoint-m + 1) and (max-width: $msv-breakpoint-l) {
+                    width: 70%;
+                }
+
+                @media (max-width: $msv-breakpoint-m) {
+                    width: 100%;
+                }
+            }
+
+            &__dropdown {
+                margin-right: $ms-quick-order-form-main__dropdown-margin-right;
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+
+                &-quantity-label {
+                    @include form-input-label();
+
+                    order: 0;
+                }
+
+                @media (min-width: $msv-breakpoint-l) {
+                    max-width: $msv-quickOrder-msc-dropdown-select-maxwidth;
+                }
+            }
+
+            .msc-dropdown__select {
+                @include font-body-regular-s();
+                height: 52px;
+                background: linear-gradient(0deg, $msv-white, $msv-white), $msv-gray-100;
+                width: 100%;
+                border: $msv-quickOrder-border-textbox;
+                border-radius: $msv-quickOrder-borderradius-dropdown-select;
+                outline: none;
+                padding: 16px 12px;
+                order: 1;
+
+                &:focus {
+                    border: $msv-quickOrder-border;
+                    outline: none;
+                }
+
+                @media (min-width: $msv-breakpoint-l) {
+                    max-width: $msv-quickOrder-msc-dropdown-select-maxwidth;
+                }
+            }
+
+            .msc-alert-danger {
+                @include font-body-regular-xs();
+                color: $msv-quickOrder-alert-error-color;
+                order: 2;
+                margin-top: $msv-quickOrder-alert-margin-top;
+                display: flex;
+
+                .msi-exclamation-triangle {
+                    margin-right: $msv-quickOrder-alert-icon-margin-right;
+                    vertical-align: text-top;
+
+                    @include add-icon($msv-times-circle);
+
+                    &::before {
+                        font-size: $msv-font-size-l;
+                    }
+                }
+
+                + select {
+                    border-color: $msv-quickOrder-alert-error-color;
+                }
+            }
+        }
+
+        &-form-msg {
+            @include font-body-regular-m();
+
+            .msc-alert-success {
+                color: $msv-quickOrder-alert-success-text-color;
+                background-color: $msv-quickOrder-alert-success-background-color;
+                margin-bottom: $ms-quick-order-msc-alert-margin-bottom;
+                padding: $ms-quick-order-msc-alert-padding;
+                border-radius: $ms-quick-order-msc-alert-border-radius;
+                display: flex;
+                align-items: center;
+
+                .fa-check {
+                    margin-right: $msv-alert-icon-margin-right;
+                    padding-left: $ms-quick-order-exclamation-triangle-padding-left;
+                    display: flex;
+
+                    @include add-icon($msv-Checkbox-Circle-Checked);
+
+                    &::before {
+                        font-size: $msv-font-size-l;
+                    }
+                }
+            }
+
+            .msc-alert-danger {
+                color: $msv-quickOrder-alert-error-color;
+                padding: $ms-quick-order-msc-alert-padding;
+                margin-bottom: $ms-quick-order-msc-alert-margin-bottom;
+                background-color: $msv-pink;
+                border-radius: $ms-quick-order-msc-alert-border-radius;
+                display: flex;
+                align-items: center;
+
+                .fa-exclamation-triangle {
+                    margin-right: $msv-alert-icon-margin-right;
+                    padding-left: $ms-quick-order-exclamation-triangle-padding-left;
+                    display: flex;
+
+                    @include add-icon($msv-times-circle);
+
+                    &::before {
+                        font-size: $msv-font-size-l;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: $msv-breakpoint-m) {
+    .ms-quick-order {
+        &__heading {
+            margin-left: 0;
+            padding-bottom: 10px;
+        }
+
+        &__description {
+            padding-right: 0;
+            margin-left: 0;
+        }
+
+        &__drawer {
+            margin-top: 5px;
+            padding: 10px;
+
+            .collapse {
+                padding-bottom: 1px;
+            }
+        }
+
+        &__content {
+            &-form-main {
+                display: block;
+                padding-bottom: 0;
+                padding-top: $quickOrder-padding-top;
+
+                &-product {
+                    width: auto;
+                    height: auto;
+                    margin-bottom: $quickOrder-margin-bottom;
+                }
+
+                input[type="number"] {
+                    width: 100%;
+                }
+
+                input[type="text"] {
+                    width: 100%;
+                }
+
+                &__configure {
+                    display: block;
+                }
+
+                &-addtocart {
+                    margin-left: 0;
+                    margin-top: 0;
+                    margin-bottom: 20px;
+
+                    &-button {
+                        margin-top: 0;
+                        height: auto;
+                        width: 100%;
+                        margin-bottom: $quickOrder-margin-bottom;
+                    }
+                }
+
+                &-quantity {
+                    margin-left: 0;
+                    width: auto;
+                    height: auto;
+                    margin-bottom: $quickOrder-margin-bottom;
+                }
+
+                &__dropdown {
+                    margin-left: 0;
+                    margin-bottom: $quickOrder-margin-bottom;
+                    width: 100%;
+                }
+
+                .msc-dropdown__select {
+                    width: 100%;
+                    max-width: inherit;
+                }
+            }
+
+            &-form-msg {
+                padding-bottom: 0;
+                padding-top: 8px;
+
+                .msc-alert-success,
+                .msc-alert-danger {
+                    margin-bottom: $msv-quick-order-alert-danger-margin-bottom;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,17 @@
+$carousel-padding-left: 0;
+$carousel-padding-right: 20px;
+
+[dir="rtl"] {
+    .msc-modal .msc-fullview-modal-body .msc-carousel__item .ms-media-gallery__item.msc-mobile-zoomed-in {
+        transform-origin: top right;
+    }
+
+    @media (min-width: $msv-breakpoint-l) {
+        .ms-media-gallery {
+            .ms-media-gallery__carousel {
+                margin-left: $carousel-padding-left;
+                margin-right: $carousel-padding-right;
+            }
+        }
+    }
+}

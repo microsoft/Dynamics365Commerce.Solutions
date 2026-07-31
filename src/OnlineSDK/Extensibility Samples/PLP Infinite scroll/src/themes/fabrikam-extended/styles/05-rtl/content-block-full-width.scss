@@ -1,0 +1,33 @@
+[dir="rtl"] {
+    .ms-content-block {
+        .ms-content-block__details__additional-content {
+            margin-right: 0;
+
+            &__container {
+                .ms-content-block__details__additional-content__paragraph {
+                    padding-left: 20px;
+                    padding-right: 0;
+                }
+
+                .ms-content-block__details__additional-content-cta {
+                    border-right: 1px solid $msv-white;
+                    border-left: none;
+                    padding-right: 20px;
+                    padding-left: 0;
+                }
+            }
+
+            @media screen and (max-width: $msv-breakpoint-m) {
+                margin-left: 16px;
+                left: 0;
+                right: auto;
+            }
+
+            @media screen and (min-width: $msv-breakpoint-m) and (max-width: $msv-breakpoint-l) {
+                margin-left: 40px;
+                left: 0;
+                right: auto;
+            }
+        }
+    }
+}

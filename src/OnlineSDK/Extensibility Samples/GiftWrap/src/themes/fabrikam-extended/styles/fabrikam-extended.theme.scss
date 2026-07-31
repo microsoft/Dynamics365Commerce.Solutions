@@ -1,0 +1,12 @@
+@import 'bootstrap/scss/bootstrap';
+@import 'bootstrap/scss/bootstrap';
+@import "00-settings/index";
+@import "01-tools/index";
+@import "02-generic/index";
+@import "03-components/index";
+@import "04-modules/index";
+@import "05-rtl/index";
+
+body {
+    background-color: var(--backgroundDefaultColor);
+}

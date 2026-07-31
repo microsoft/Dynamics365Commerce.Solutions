@@ -1,0 +1,265 @@
+@import "../common/00-settings/colors.scss";
+@import "../common/00-settings/font.scss";
+@import "../common/00-settings/icons.scss";
+@import "../common/02-generic/form.scss";
+@import "../common/02-generic/button.scss";
+@import "../common/00-settings/responsive-breakpoints.scss";
+
+$msv-checkout-customer-account-max-flex-basis: 100%;
+$msv-checkout-customer-account-padding-top: 32px;
+$msv-checkout-customer-account-button-margin-left: 12px;
+$msv-checkout-customer-account-button-margin-top: 20px;
+$msv-checkout-customer-account-input-max-width: 610px;
+$msv-checkout-customer-account-title-margin-bottom: 8px;
+$msv-checkout-customer-account-account-name-margin-bottom: 12px;
+$msv-checkout-customer-account-account-number-margin-bottom: 15px;
+$msv-checkout-customer-account-customer-since-margin-bottom: 33px;
+$msv-checkout-customer-account-account-credit-current-order-preview-margin-top: 35px;
+$msv-checkout-customer-account-account-credit-current-order-preview-margin-bottom: 14px;
+$msv-checkout-customer-account-input-error-margin-bottom: 12px;
+
+//style presets
+:root {
+    --msv-checkout-customer-account-font-color: var(--msv-font-primary-color);
+
+    // title
+    --msv-checkout-customer-account__customer-since-color: #{$msv-gray-40};
+}
+
+.ms-checkout-customer-account {
+    padding-top: $msv-checkout-customer-account-padding-top;
+
+    &__form {
+        flex-flow: row wrap;
+    }
+
+    &__title {
+        display: block;
+
+        @include font-body-bold-s();
+        margin-bottom: $msv-checkout-customer-account-title-margin-bottom;
+    }
+
+    &__input-label {
+        @include form-input-label();
+        color: var(--msv-checkout-customer-account-font-color);
+        flex-basis: $msv-checkout-customer-account-max-flex-basis;
+        margin-top: 32px;
+        text-transform: capitalize;
+    }
+
+    &__input-amount {
+        @include form-input-box();
+        width: 44%;
+        display: inline-block;
+    }
+
+    &__input-alert-label {
+        @include form-input-alert-message();
+        display: block;
+    }
+
+    &__btn-pay {
+        @include primary-button-light();
+        margin-left: $msv-checkout-customer-account-button-margin-left;
+        display: inline;
+    }
+
+    &__input-error {
+        @include font-body-regular-xs();
+        @include add-icon($msv-times-circle);
+        color: $msv-red;
+        display: flex;
+        width: 100%;
+        align-items: center;
+        margin-bottom: $msv-checkout-customer-account-input-error-margin-bottom;
+
+        &::before {
+            font-size: $msv-font-size-l;
+            margin-right: 10px;
+        }
+    }
+
+    &__account-name {
+        margin-bottom: $msv-checkout-customer-account-account-name-margin-bottom;
+
+        @include font-heading-h5-l();
+    }
+
+    &__account-number {
+        @include font-heading-h3-l();
+        margin-bottom: $msv-checkout-customer-account-account-number-margin-bottom;
+    }
+
+    &__customer-since {
+        margin-bottom: $msv-checkout-customer-account-customer-since-margin-bottom;
+
+        @include font-body-regular-m();
+        color: var(--msv-checkout-customer-account__customer-since-color);
+    }
+
+    &__account-credit {
+        @include font-heading-h5-l();
+        margin-top: 18px;
+        margin-bottom: 15px;
+    }
+
+    &__account-credit-label {
+        @include font-heading-h5-l();
+        text-transform: capitalize;
+    }
+
+    &__bottom-border {
+        padding-top: $msv-checkout-customer-account-padding-top;
+        width: 100%;
+        border-bottom: 0.5px solid var(--msv-button-primary-disabled-color);
+    }
+
+    &__input-fields {
+        display: inline-block;
+        flex-grow: 1;
+        width: 100%;
+    }
+
+    &__btn-apply {
+        margin-left: $msv-checkout-customer-account-button-margin-left;
+        margin-top: $msv-checkout-customer-account-button-margin-top;
+        width: auto;
+    }
+
+    &__account-credit-toggle-down {
+        @include add-icon($msv-ChevronDown, after);
+        vertical-align: middle;
+        margin-left: 10.58px;
+        display: inline-flex;
+    }
+
+    &__account-credit-toggle-up {
+        @include add-icon($msv-ChevronUp, after);
+        vertical-align: middle;
+        margin-left: 10.58px;
+        display: inline-flex;
+    }
+
+    &__credit-details-section {
+        width: 60%;
+
+        .ms-checkout-customer-account__available-credit-section,
+        .ms-checkout-customer-account__order-total-section,
+        .ms-checkout-customer-account__excess-credit-section {
+            @include font-body-regular-m();
+        }
+
+        .ms-checkout-customer-account__order-total-section {
+            margin: 12px auto;
+        }
+    }
+
+    &__account-credit-current-order-preview {
+        margin-top: $msv-checkout-customer-account-account-credit-current-order-preview-margin-top;
+        margin-bottom: $msv-checkout-customer-account-account-credit-current-order-preview-margin-bottom;
+
+        &-label {
+            @include font-heading-h5-m();
+        }
+    }
+
+    &__account-credit-current-order-icon {
+        @include add-icon($msv-money-dollar-circle-line, after);
+        margin-right: 6px;
+
+        &::after {
+            font-size: $msv-font-size-l;
+            vertical-align: middle;
+        }
+    }
+
+    &__available-credit {
+        float: right;
+    }
+
+    &__excess-credit {
+        float: right;
+    }
+
+    &__order-total {
+        float: right;
+    }
+
+    &__applied-line {
+        margin-top: 15px;
+        display: flex;
+        align-items: center;
+    }
+
+    &__applied-amount {
+        @include font-body-regular-s();
+        margin-left: 5px;
+    }
+
+    &__applied-label {
+        @include font-body-bold-s();
+        @include add-icon($msv-check-circle-fill, before);
+        display: flex;
+        align-items: center;
+
+        &::before {
+            margin-right: 6px;
+            font-size: $msv-font-size-l;
+            color: $msv-blue;
+        }
+    }
+
+    &__remove {
+        margin-left: 13px;
+        width: 30px;
+        overflow: hidden;
+        color: $msv-transparent;
+
+        @include add-icon($msv-Cancel, before);
+
+        &::before {
+            color: $msv-gray-20;
+            font-size: $msv-font-size-l;
+            line-height: unset;
+        }
+    }
+
+    @media screen and (max-width: $msv-breakpoint-m - 1) {
+        &.msc-btn {
+            margin-left: 0;
+        }
+
+        &__account-name,
+        &__account-credit,
+        &__account-credit-label,
+        &__account-credit-current-order-preview-label {
+            @include font-heading-h5-s();
+        }
+
+        &__account-number {
+            @include font-heading-h3-s();
+        }
+    }
+
+    @media screen and (min-width: $msv-breakpoint-m) and (max-width: $msv-breakpoint-l - 1) {
+        &__account-name,
+        &__account-credit,
+        &__account-credit-label,
+        &__account-credit-current-order-preview-label {
+            @include font-heading-h5-m();
+        }
+
+        &__account-number {
+            @include font-heading-h3-m();
+        }
+    }
+
+    @media screen and (min-width: $msv-breakpoint-l) {
+        &__input-text {
+            width: auto;
+            flex-grow: 1;
+            max-width: $msv-checkout-customer-account-input-max-width;
+        }
+    }
+}

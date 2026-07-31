@@ -1,0 +1,55 @@
+$msv-checkout-guest-profile-input-margin-top: 4px;
+$msv-checkout-guest-profile-input-height: 32px;
+$msv-checkout-guest-profile-input-padding-left: 8px;
+
+$msv-checkout-guest-profile-input-label-width: 50%;
+
+$msv-checkout-guest-profile-input-text-width: 100%;
+
+$msv-checkout-guest-profile-error-max-width: 512px;
+$msv-checkout-guest-profile-error-padding: 8px;
+$msv-checkout-guest-profile-error-margin-bottom: 10px;
+$msv-checkout-guest-profile-error-margin-top: 2px;
+$msv-checkout-guest-profile-error-icon-margin-right: 8px;
+
+.ms-checkout-guest-profile {
+    display: flex;
+
+    &__add-contact-info {
+        width: 100%;
+    }
+
+    &__input-text {
+        @include vfi();
+        margin-top: $msv-checkout-guest-profile-input-margin-top;
+        display: block;
+        height: $msv-checkout-guest-profile-input-height;
+        padding-left: $msv-checkout-guest-profile-input-padding-left;
+        width: $msv-checkout-guest-profile-input-text-width;
+    }
+
+    &__input-label {
+        font-weight: $msv-font-weight-600;
+        font-size: $msv-text-size;
+        line-height: $msv-text-line-height;
+        width: $msv-checkout-guest-profile-input-label-width;
+    }
+
+    &__input-error {
+        background-color: $msv-error-color;
+        border: 1px solid $msv-error-color;
+        max-width: $msv-checkout-guest-profile-error-max-width;
+        padding: $msv-checkout-guest-profile-error-padding;
+
+        margin-bottom: $msv-checkout-guest-profile-error-margin-bottom;
+        margin-top: $msv-checkout-guest-profile-error-margin-top;
+
+        &::before {
+            @include msv-icon();
+            content: $msv-IncidentTriangle;
+            margin-right: $msv-checkout-guest-profile-error-icon-margin-right;
+        }
+        display: block;
+        color: var(--msv-font-secondary-color);
+    }
+}
