@@ -63,11 +63,11 @@
         "@types/qrcode.react": "1.0.1"
     },
     "dependencies": {
-        "@msdyn365-commerce-modules/starter-pack": "9.58.3-preview.0",
-        "@msdyn365-commerce-modules/fabrikam-design-kit": "9.58.3-preview.0",
-        "@msdyn365-commerce/bootloader": "^1.0.0",
+        "@msdyn365-commerce-modules/starter-pack": "9.58",
+        "@msdyn365-commerce-modules/fabrikam-design-kit": "9.58",
+        "@msdyn365-commerce/bootloader": "~1.58.0",
         "@msdyn365-commerce/retail-proxy": "9.58.3-staging.0",
-        "@msdyn365-commerce-theme/adventureworks-theme-kit": "9.58.3-preview.0",
+        "@msdyn365-commerce-theme/adventureworks-theme-kit": "9.58",
         "@msdyn365-commerce-modules/msdyn365-exp-test-connector": "^1.0.0",
         "reactstrap": "^6.5.0",
         "stack-trace": "^0.0.10",
@@ -103,9 +103,10 @@
         "preset": "@msdyn365-commerce/cli-internal"
     },
     "resolutions": {
-        "@msdyn365-commerce/bootloader": "^1.0.0",
-        "@msdyn365-commerce/core": "^1.0.0",
-        "@msdyn365-commerce-modules/core-components": "^1.0.0",
+        "@msdyn365-commerce/bootloader": "~1.58.0",
+        "@msdyn365-commerce/core": "~1.58.0",
+        "@msdyn365-commerce/core-internal": "~1.58.0",
+        "@msdyn365-commerce-modules/core-components": "~1.58.0",
         "axios": "^0.28.0",
         "es5-ext": "0.10.63",
         "@types/react": "16.9.0",
