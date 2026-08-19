@@ -67,6 +67,7 @@ namespace Contoso
                 (int)FiscalIntegrationEventType.ExpenseAccounts,
                 (int)FiscalIntegrationEventType.CloseShift,
                 (int)FiscalIntegrationEventType.RecallTransaction,
+                (int)FiscalIntegrationEventType.TenderDifference,
             };
 
             /// <summary>
@@ -205,6 +206,10 @@ namespace Contoso
 
                     case FiscalIntegrationEventType.CloseShift:
                         builder = new ZReportBuilder(documentBuilderData);
+                        break;
+
+                    case FiscalIntegrationEventType.TenderDifference:
+                        builder = await ShiftDifferenceBuilder.Create(documentBuilderData).ConfigureAwait(false);
                         break;
 
                     case FiscalIntegrationEventType.FloatEntry:
