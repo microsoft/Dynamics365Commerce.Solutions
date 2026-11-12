@@ -1,0 +1,187 @@
+$msv-checkout-customer-account-max-flex-basis: 100%;
+$msv-checkout-customer-account-padding-bottom: 20px;
+$msv-checkout-customer-account-input-label-margin-bottom: 10px;
+$msv-checkout-customer-account-button-border-radius: 2px;
+$msv-checkout-customer-account-button-margin-left: 5px;
+$msv-checkout-customer-account-button-margin-top: 20px;
+$msv-checkout-customer-account-input-height: 32px;
+$msv-checkout-customer-account-input-border-radius: 2px;
+$msv-checkout-customer-account-input-padding: 6px 8px;
+$msv-checkout-customer-account-input-width: 40%;
+$msv-checkout-customer-account-error-icon-margin-right: 8px;
+$msv-checkout-customer-account-input-max-width: 610px;
+$msv-checkout-customer-account-input-fields-padding-right: 20px;
+$msv-checkout-customer-account-input-fields-min-width: 130px;
+$msv-checkout-customer-account-input-fields-width: 25%;
+$msv-checkout-customer-account-input-num-fields-width: 50%;
+$msv-checkout-customer-account-border-bottom: 1px dashed $msv-divider-color;
+$msv-checkout-customer-account-title-margin-bottom: 8px;
+
+//style presets
+:root {
+    --msv-checkout-customer-account-font-size: var(--msv-body-font-size-l);
+    --msv-checkout-customer-account-font-color: var(--msv-font-primary-color);
+
+    // title
+    --msv-checkout-customer-account-title-font-size: var(--msv-body-font-size-s);
+
+    // form
+    --msv-checkout-customer-account-form-bg: #{$msv-white};
+    --msv-checkout-customer-account-form-font-color: var(--msv-font-primary-color);
+
+    // primary button
+    --msv-checkout-customer-account-btn-bg: var(--msv-accent-brand-color);
+    --msv-checkout-customer-account-btn-font-color: var(--msv-font-secondary-color);
+    --msv-checkout-customer-account-btn-border: var(--msv-accent-brand-color);
+    --msv-checkout-customer-account-btn-font-size: var(--msv-body-font-size-m);
+}
+
+.ms-checkout-customer-account {
+    padding-bottom: $msv-checkout-customer-account-padding-bottom;
+
+    &__form {
+        flex-flow: row wrap;
+    }
+
+    &__title {
+        display: block;
+        font-size: var(--msv-checkout-customer-account-title-font-size);
+        font-weight: var(--msv-font-weight-bold);
+        line-height: $msv-line-height-s;
+        margin-bottom: $msv-checkout-customer-account-title-margin-bottom;
+    }
+
+    &__input-label {
+        @include font-content(var(--msv-font-weight-normal),
+        var(--msv-checkout-customer-account-font-size), $msv-line-height-l);
+        color: var(--msv-checkout-customer-account-font-color);
+        display: block;
+        margin-bottom: $msv-checkout-customer-account-input-label-margin-bottom;
+        flex-basis: $msv-checkout-customer-account-max-flex-basis;
+        margin-top: 15px;
+        width: 75%;
+    }
+
+    &__input-amount {
+        @include form-input-el(var(--msv-checkout-customer-account-form-bg),
+        var(--msv-checkout-customer-account-form-font-color));
+        font-size: var(--msv-checkout-customer-account-font-size);
+        width: 60%;
+    }
+
+    &__input-alert-label {
+        @include form-input-alert-message();
+        display: block;
+    }
+
+    &__btn-pay {
+        @include primary-button(var(--msv-checkout-customer-account-btn-bg),
+        var(--msv-checkout-customer-account-btn-font-color), var(--msv-checkout-customer-account-btn-border));
+        font-size: var(--msv-checkout-customer-account-btn-font-size);
+        margin-left: $msv-checkout-customer-account-button-margin-left;
+        display: inline;
+    }
+
+    &__input-error {
+        @include form-input-error-message();
+        width: 100%;
+        display: block;
+    }
+
+    &__account-name {
+        padding-top: 20px;
+        font-size: var(--msv-body-font-size-xl);
+    }
+
+    &__customer-since {
+        padding-top: 15px;
+        padding-bottom: 15px;
+        font-size: var(--msv-body-font-size-m);
+    }
+
+    &__account-credit {
+        font-weight: bold;
+        padding-bottom: 15px;
+    }
+
+    &__bottom-border {
+        padding-top: 20px;
+        width: 100%;
+        border-bottom: 1px dashed rgb(209, 209, 209);
+    }
+
+    &__input-fields {
+        display: inline-block;
+        flex-grow: 1;
+        width: 100%;
+    }
+
+    &__btn-apply {
+        margin-left: $msv-checkout-customer-account-button-margin-left;
+        margin-top: $msv-checkout-customer-account-button-margin-top;
+        width: auto;
+    }
+
+    &__account-credit-toggle-down {
+        @include add-icon($msv-ChevronDown, after);
+    }
+
+    &__account-credit-toggle-up {
+        @include add-icon($msv-ChevronUp, after);
+    }
+
+    &__credit-details-section {
+        width: 50%;
+    }
+
+    &__account-credit-current-order-preview {
+        margin-top: 25px;
+        margin-bottom: 20px;
+    }
+
+    &__account-credit-current-order-icon {
+        @include add-icon($msv-ListAlt, after);
+    }
+
+    &__available-credit {
+        float: right;
+        font-weight: bold;
+    }
+
+    &__excess-credit {
+        float: right;
+        font-weight: bold;
+    }
+
+    &__order-total {
+        float: right;
+        font-weight: bold;
+    }
+
+    &__applied-line {
+        margin-top: 15px;
+        width: 75%;
+    }
+
+    &__applied-amount {
+        margin-left: 50px;
+    }
+
+    &__remove {
+        float: right;
+    }
+
+    @media screen and (max-width: $msv-breakpoint-m) {
+        &.msc-btn {
+            margin-left: 0;
+        }
+    }
+
+    @media screen and (min-width: $msv-breakpoint-l) {
+        &__input-text {
+            width: auto;
+            flex-grow: 1;
+            max-width: $msv-checkout-customer-account-input-max-width;
+        }
+    }
+}

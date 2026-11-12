@@ -1,0 +1,263 @@
+{
+    "@msdyn365-commerce-theme.adventureworks.pickUpMethodLabel": {
+        "value": "Átvételi mód",
+        "_value.comment": "The label for pickup method dropdown"
+    },
+    "@msdyn365-commerce-theme.adventureworks.distanceString": {
+        "value": "({distance} {preferredDistanceUnit})",
+        "_value.comment": "The distance to the store from current location"
+    },
+    "@msdyn365-commerce-theme.adventureworks.closeDistanceString": {
+        "value": "(&lt;1 {preferredDistanceUnit})",
+        "_value.comment": "The distance to the store from current location"
+    },
+    "@msdyn365-commerce-theme.adventureworks.storeHoursDayPeriod": {
+        "value": "{startDay}-{endDay}",
+        "_value.comment": "To display the store hours day period"
+    },
+    "@msdyn365-commerce-theme.adventureworks.storeHoursDay": {
+        "value": "{startDay}",
+        "_value.comment": "To display the store hours day"
+    },
+    "@msdyn365-commerce-theme.adventureworks.headingForEmptyOrderTemplateList": {
+        "value": "Úgy látszik, hogy még nem hozott létre rendeléssablonokat.",
+        "_value.comment": "To show the heading if order template is empty"
+    },
+    "@msdyn365-commerce-theme.adventureworks.textForEmptyOrderTemplateList": {
+        "value": "A rendeléssablonokat a rendszer a fiókjába menti. Ezeket újból felhasználja a jövőben a fizetési folyamat felgyorsítása érdekében.",
+        "_value.comment": "To show the text if order template is empty"
+    },
+    "@msdyn365-commerce-theme.adventureworks.headingForEmptyUserOrganizationList": {
+        "value": "Jelenleg nincsenek szervezeti felhasználói.",
+        "_value.comment": "The heading to show if business organization list is empty"
+    },
+    "@msdyn365-commerce-theme.adventureworks.textForEmptyUserOrganizationList": {
+        "value": "Amint hozzáadott szervezeti felhasználókat, későbbi referenciaként itt fognak megjelenni.",
+        "_value.comment": "The text to show if business organization list is empty"
+    },
+    "@msdyn365-commerce-theme.adventureworks.filterText": {
+        "value": "Szűrő",
+        "_value.comment": "Text display as refiner title"
+    },
+    "@msdyn365-commerce-theme.adventureworks.modalTitle": {
+        "value": "Szűrés és rendezés",
+        "_value.comment": "Text display as modal title."
+    },
+    "@msdyn365-commerce-theme.adventureworks.categorySuggestionHeading": {
+        "value": "Kategóriákban",
+        "_value.comment": "Category suggestion type search results list heading title"
+    },
+    "@msdyn365-commerce-theme.adventureworks.clearSearchButtonText": {
+        "value": "Törlés",
+        "_value.comment": "Clear Search string Button text"
+    },
+    "@msdyn365-commerce-theme.adventureworks.emptyMobileSearchText": {
+        "value": "Kezdjen el gépelni a termék kereséséhez.",
+        "_value.comment": "Empty text when in mboile view port"
+    },
+    "@msdyn365-commerce-theme.adventureworks.emptyMobileSearchTextHeading": {
+        "value": "Keresés",
+        "_value.comment": "Empty text when in mboile view port"
+    },
+    "@msdyn365-commerce-theme.adventureworks.keywordsHeading": {
+        "value": "Kulcsszavak",
+        "_value.comment": "Keyword suggestion type search results list heading title"
+    },
+    "@msdyn365-commerce-theme.adventureworks.noResultContentHeadingText": {
+        "value": "Próbáljon meg egy másik kulcsszót",
+        "_value.comment": "No Result Content Heading text"
+    },
+    "@msdyn365-commerce-theme.adventureworks.noResultContentParagraphText": {
+        "value": "Nem találhatók a megadott kulcsszóhoz kapcsolódó termékek.",
+        "_value.comment": "No Result Content Paragraph text"
+    },
+    "@msdyn365-commerce-theme.adventureworks.noResultText": {
+        "value": "Nincs találat",
+        "_value.comment": "No Result text"
+    },
+    "@msdyn365-commerce-theme.adventureworks.productSuggestionHeading": {
+        "value": "Termékek",
+        "_value.comment": "Product suggestion type search results list heading title"
+    },
+    "@msdyn365-commerce-theme.adventureworks.searchSuggestionHeading": {
+        "value": "Keresés a következőre: {0}",
+        "_value.comment": "search suggestion in search results list heading title"
+    },
+    "@msdyn365-commerce-theme.adventureworks.totalPriceFormatString": {
+        "value": "Részösszeg: ",
+        "_value.comment": "String associated with total price to display. Price = formatted price"
+    },
+    "@msdyn365-commerce-theme.adventureworks.cartQtyLabel": {
+        "_value.comment": "string to be shown for cart item quantity",
+        "value": "{0}"
+    },
+    "@msdyn365-commerce-theme.adventureworks.emptyPrice": {
+        "_value.comment": "Empty cart price",
+        "value": "0.00"
+    },
+    "@msdyn365-commerce-theme.adventureworks.checkoutButtonTitle": {
+        "value": "Azonnali fizetés",
+        "_value.comment": "Label for checkout button"
+    },
+    "@msdyn365-commerce-theme.adventureworks.yetToBeCalculatedText": {
+        "value": "Később eldöntendő",
+        "_value.comment": "String associated with to be calculated display text"
+    },
+    "@msdyn365-commerce-theme.adventureworks.estimatedShippingLabel": {
+        "value": "Szállítás",
+        "_value.comment": "Label of shipping"
+    },
+    "@msdyn365-commerce-theme.adventureworks.pickUpText": {
+        "value": "Átvétel",
+        "_value.comment": "Text for pick up group heading"
+    },
+    "@msdyn365-commerce-theme.adventureworks.promoCodeHeadingText": {
+        "value": "Fizetés",
+        "_value.comment": "Heading text for promo code"
+    },
+    "@msdyn365-commerce-theme.adventureworks.selectRatingLabel": {
+        "value": "Általános termékminősítés",
+        "_value.comment": "Label for selecting the rating while writing a review"
+    },
+    "@msdyn365-commerce-theme.adventureworks.reviewTitleLabel": {
+        "value": "Értékelés címe",
+        "_value.comment": "Label for the title of the review"
+    },
+    "@msdyn365-commerce-theme.adventureworks.reviewTextLabel": {
+        "value": "Az Ön értékelése",
+        "_value.comment": "Label for the review text"
+    },
+    "@msdyn365-commerce-theme.adventureworks.wasReviewHelpfulText": {
+        "value": "Hasznos volt ez az értékelés?",
+        "_value.comment": "The text for the question to ask user if the review was helpful."
+    },
+    "@msdyn365-commerce-theme.adventureworks.numberOfReviewsString": {
+        "value": "{0} értékelés",
+        "_value.comment": "Number of reviews string"
+    },
+    "@msdyn365-commerce-theme.adventureworks.goToCartButtonTitle": {
+        "value": "Bevásárlótáska megtekintése",
+        "_value.comment": "Label for go to cart button"
+    },
+    "@msdyn365-commerce-theme.adventureworks.allCategoryMenuText": {
+        "value": "Összes megtekintése",
+        "_value.comment": "Menu text for all categories"
+    },
+    "@msdyn365-commerce-theme.adventureworks.joinLoyaltyButtonText": {
+        "value": "Regisztráció az AW Rewards programra",
+        "_value.comment": "Join loyalty program button text"
+    },
+    "@msdyn365-commerce-theme.adventureworks.numberOfProducts": {
+        "value": "({0})",
+        "_value.comment": "String to define the number of products returned found for a search term"
+    },
+    "@msdyn365-commerce-theme.adventureworks.oneProduct": {
+        "value": "(1)",
+        "_value.comment": "String to define the only one product being returned for search"
+    },
+    "@msdyn365-commerce-theme.adventureworks.seeMoreButtonText": {
+        "value": "TOVÁBBI RÉSZLETEK",
+        "_value.comment": "See more button text"
+    },
+    "@msdyn365-commerce-theme.adventureworks.hamburgerAriaLabel": {
+        "value": "Navigációs menü kibontása az elemek listájának megjelenítéséhez",
+        "_value.comment": "The aria label used for view hamburger"
+    },
+    "@msdyn365-commerce-theme.adventureworks.mobileHamburgerAriaLabel": {
+        "value": "Navigációs menü kibontása az elemek listájának megjelenítéséhez",
+        "_value.comment": "The aria label used for mobile view hamburger"
+    },
+    "@msdyn365-commerce-theme.adventureworks.signUpButtonArialabel": {
+        "value": "Regisztrálás",
+        "_value.comment": "Sign-up button aria label"
+    },
+    "@msdyn365-commerce-theme.adventureworks.addressStreetLabel": {
+        "value": "Utca és házszám *",
+        "_value.comment": "Label for the Street field"
+    },
+    "@msdyn365-commerce-theme.adventureworks.addressStreetLabelOptional": {
+        "value": "Utca és házszám",
+        "_value.comment": "Label for the Street field"
+    },
+    "@msdyn365-commerce-theme.adventureworks.addressStreetRequiredErrorMessage": {
+        "value": "Az utca és házszámot kötelező megadnia",
+        "_value.comment": "Error message to display when street is not provided"
+    },
+    "@msdyn365-commerce-theme.adventureworks.jobTitleLabel": {
+        "value": "Beosztás",
+        "_value.comment": "Text display as label for job title textbox."
+    },
+    "@msdyn365-commerce-theme.adventureworks.addToWishlistButtonText": {
+        "value": "Felvétel a kívánságlistára",
+        "_value.comment": "Label for add to wishlist button"
+    },
+    "@msdyn365-commerce-theme.adventureworks.invoicePaymentInvoiceTotal": {
+        "value": "Számla teljes összege",
+        "_value.comment": "Text for invoice total amount payment line"
+    },
+    "@msdyn365-commerce-theme.adventureworks.createOrderTemplateFromCartButton": {
+        "value": "Tételek hozzáadása a rendeléssablonhoz",
+        "_value.comment": "Label for creating creating template from cart button"
+    },
+    "@msdyn365-commerce-theme.adventureworks.continueShoppingButtonTitle": {
+        "value": "Vásárlás folytatása",
+        "_value.comment": "Back to shopping label on b2b requests page"
+    },
+    "@msdyn365-commerce-theme.adventureworks.headingForEmptyRequestStatus": {
+        "value": "Jelenleg nincsenek kérelmei.",
+        "_value.comment": "The heading to show if b2b requests is empty"
+    },
+    "@msdyn365-commerce-theme.adventureworks.textForEmptyRequestStatus": {
+        "value": "Amint beküldött kérelmet, későbbi referenciaként itt fognak megjelenni a kérelmei.",
+        "_value.comment": "The text to show if b2b requests is empty"
+    },
+    "@msdyn365-commerce-theme.adventureworks.ariaLabelForSelectedSwatchValue": {
+        "value": "{dimensionValue} kijelölve",
+        "_value.comment": "Aria label for the selected value in dimension swatch"
+    },
+    "@msdyn365-commerce-theme.adventureworks.availabilityAtPreferredStoreText": {
+        "value": "{0} készleten:",
+        "_value.comment": "Availability at preferred store"
+    },
+    "@msdyn365-commerce-theme.adventureworks.inStockText": {
+        "value": "Készleten",
+        "_value.comment": "Text for when item is in stock"
+    },
+    "@msdyn365-commerce-theme.adventureworks.shopSimilarLooksText": {
+        "value": "Hasonló kép",
+        "_value.comment": "Text to show on Shop similar looks button"
+    },
+    "@msdyn365-commerce-theme.adventureworks.shopSimilarDescriptionText": {
+        "value": "Hasonló leírás",
+        "_value.comment": "Text to show on Shop similar description button"
+    },
+    "@msdyn365-commerce-theme.adventureworks.salesLineQuantityText": {
+        "value": "Mennyiség",
+        "_value.comment": "Sales line quantity label"
+    },
+    "@msdyn365-commerce-theme.adventureworks.orderSummaryHeading": {
+        "value": "Rendelés összesen",
+        "_value.comment": "Order summary heading"
+    },
+    "@msdyn365-commerce-theme.adventureworks.priceText": {
+        "value": "Ár",
+        "_value.comment": "Price text"
+    },
+    "@msdyn365-commerce-theme.adventureworks.shopText": {
+        "value": "További vásárlási módok",
+        "_value.comment": "More ways to shop description text"
+    },
+    "@msdyn365-commerce-theme.adventureworks.descriptionText": {
+        "value": "Leírás",
+        "_value.comment": "Description text"
+    },
+    "@msdyn365-commerce-theme.adventureworks.findText": {
+        "value": "Átvételi és kézbesítési módok",
+        "_value.comment": "Pickup and Delivery Methods text"
+    },
+    "@msdyn365-commerce-theme.adventureworks.skuText": {
+        "value": "SKU:",
+        "_value.comment": "SKU text"
+    }
+
+}

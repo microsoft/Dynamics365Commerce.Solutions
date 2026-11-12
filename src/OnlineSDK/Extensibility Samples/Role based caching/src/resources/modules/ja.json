@@ -1,0 +1,263 @@
+{
+    "@msdyn365-commerce-theme.adventureworks.pickUpMethodLabel": {
+        "value": "集荷方法",
+        "_value.comment": "The label for pickup method dropdown"
+    },
+    "@msdyn365-commerce-theme.adventureworks.distanceString": {
+        "value": "({distance} {preferredDistanceUnit})",
+        "_value.comment": "The distance to the store from current location"
+    },
+    "@msdyn365-commerce-theme.adventureworks.closeDistanceString": {
+        "value": "(&lt;1 {preferredDistanceUnit})",
+        "_value.comment": "The distance to the store from current location"
+    },
+    "@msdyn365-commerce-theme.adventureworks.storeHoursDayPeriod": {
+        "value": "{startDay}-{endDay}",
+        "_value.comment": "To display the store hours day period"
+    },
+    "@msdyn365-commerce-theme.adventureworks.storeHoursDay": {
+        "value": "{startDay}",
+        "_value.comment": "To display the store hours day"
+    },
+    "@msdyn365-commerce-theme.adventureworks.headingForEmptyOrderTemplateList": {
+        "value": "注文テンプレートが作成されていません。",
+        "_value.comment": "To show the heading if order template is empty"
+    },
+    "@msdyn365-commerce-theme.adventureworks.textForEmptyOrderTemplateList": {
+        "value": "注文テンプレートは、ユーザーのアカウントに保存されます。今後の注文の際にこのテンプレートを使用すると、チェックアウトのプロセスが速くなります。",
+        "_value.comment": "To show the text if order template is empty"
+    },
+    "@msdyn365-commerce-theme.adventureworks.headingForEmptyUserOrganizationList": {
+        "value": "この時点では組織ユーザーがいません。",
+        "_value.comment": "The heading to show if business organization list is empty"
+    },
+    "@msdyn365-commerce-theme.adventureworks.textForEmptyUserOrganizationList": {
+        "value": "組織ユーザーを追加すると、参照用にここに組織ユーザーが表示されます。",
+        "_value.comment": "The text to show if business organization list is empty"
+    },
+    "@msdyn365-commerce-theme.adventureworks.filterText": {
+        "value": "フィルター",
+        "_value.comment": "Text display as refiner title"
+    },
+    "@msdyn365-commerce-theme.adventureworks.modalTitle": {
+        "value": "フィルターと並べ替え",
+        "_value.comment": "Text display as modal title."
+    },
+    "@msdyn365-commerce-theme.adventureworks.categorySuggestionHeading": {
+        "value": "カテゴリ",
+        "_value.comment": "Category suggestion type search results list heading title"
+    },
+    "@msdyn365-commerce-theme.adventureworks.clearSearchButtonText": {
+        "value": "クリア",
+        "_value.comment": "Clear Search string Button text"
+    },
+    "@msdyn365-commerce-theme.adventureworks.emptyMobileSearchText": {
+        "value": "製品を検索するために入力を開始します。",
+        "_value.comment": "Empty text when in mboile view port"
+    },
+    "@msdyn365-commerce-theme.adventureworks.emptyMobileSearchTextHeading": {
+        "value": "検索",
+        "_value.comment": "Empty text when in mboile view port"
+    },
+    "@msdyn365-commerce-theme.adventureworks.keywordsHeading": {
+        "value": "キーワード",
+        "_value.comment": "Keyword suggestion type search results list heading title"
+    },
+    "@msdyn365-commerce-theme.adventureworks.noResultContentHeadingText": {
+        "value": "別のキーワードをお試しください",
+        "_value.comment": "No Result Content Heading text"
+    },
+    "@msdyn365-commerce-theme.adventureworks.noResultContentParagraphText": {
+        "value": "入力したキーワードの製品が見つかりませんでした。",
+        "_value.comment": "No Result Content Paragraph text"
+    },
+    "@msdyn365-commerce-theme.adventureworks.noResultText": {
+        "value": "結果なし",
+        "_value.comment": "No Result text"
+    },
+    "@msdyn365-commerce-theme.adventureworks.productSuggestionHeading": {
+        "value": "製品",
+        "_value.comment": "Product suggestion type search results list heading title"
+    },
+    "@msdyn365-commerce-theme.adventureworks.searchSuggestionHeading": {
+        "value": "{0} の検索",
+        "_value.comment": "search suggestion in search results list heading title"
+    },
+    "@msdyn365-commerce-theme.adventureworks.totalPriceFormatString": {
+        "value": "小計: ",
+        "_value.comment": "String associated with total price to display. Price = formatted price"
+    },
+    "@msdyn365-commerce-theme.adventureworks.cartQtyLabel": {
+        "_value.comment": "string to be shown for cart item quantity",
+        "value": "{0}"
+    },
+    "@msdyn365-commerce-theme.adventureworks.emptyPrice": {
+        "_value.comment": "Empty cart price",
+        "value": "0.00"
+    },
+    "@msdyn365-commerce-theme.adventureworks.checkoutButtonTitle": {
+        "value": "今すぐチェックアウト",
+        "_value.comment": "Label for checkout button"
+    },
+    "@msdyn365-commerce-theme.adventureworks.yetToBeCalculatedText": {
+        "value": "計算実行",
+        "_value.comment": "String associated with to be calculated display text"
+    },
+    "@msdyn365-commerce-theme.adventureworks.estimatedShippingLabel": {
+        "value": "配送",
+        "_value.comment": "Label of shipping"
+    },
+    "@msdyn365-commerce-theme.adventureworks.pickUpText": {
+        "value": "集荷",
+        "_value.comment": "Text for pick up group heading"
+    },
+    "@msdyn365-commerce-theme.adventureworks.promoCodeHeadingText": {
+        "value": "チェックアウト",
+        "_value.comment": "Heading text for promo code"
+    },
+    "@msdyn365-commerce-theme.adventureworks.selectRatingLabel": {
+        "value": "全体的な製品評価",
+        "_value.comment": "Label for selecting the rating while writing a review"
+    },
+    "@msdyn365-commerce-theme.adventureworks.reviewTitleLabel": {
+        "value": "肩書の確認",
+        "_value.comment": "Label for the title of the review"
+    },
+    "@msdyn365-commerce-theme.adventureworks.reviewTextLabel": {
+        "value": "確認",
+        "_value.comment": "Label for the review text"
+    },
+    "@msdyn365-commerce-theme.adventureworks.wasReviewHelpfulText": {
+        "value": "この確認は役に立ちましたか?",
+        "_value.comment": "The text for the question to ask user if the review was helpful."
+    },
+    "@msdyn365-commerce-theme.adventureworks.numberOfReviewsString": {
+        "value": "{0} レビュー",
+        "_value.comment": "Number of reviews string"
+    },
+    "@msdyn365-commerce-theme.adventureworks.goToCartButtonTitle": {
+        "value": "ショッピング バッグの表示",
+        "_value.comment": "Label for go to cart button"
+    },
+    "@msdyn365-commerce-theme.adventureworks.allCategoryMenuText": {
+        "value": "すべて購入",
+        "_value.comment": "Menu text for all categories"
+    },
+    "@msdyn365-commerce-theme.adventureworks.joinLoyaltyButtonText": {
+        "value": "AW Rewards に登録する",
+        "_value.comment": "Join loyalty program button text"
+    },
+    "@msdyn365-commerce-theme.adventureworks.numberOfProducts": {
+        "value": "({0})",
+        "_value.comment": "String to define the number of products returned found for a search term"
+    },
+    "@msdyn365-commerce-theme.adventureworks.oneProduct": {
+        "value": "(1)",
+        "_value.comment": "String to define the only one product being returned for search"
+    },
+    "@msdyn365-commerce-theme.adventureworks.seeMoreButtonText": {
+        "value": "詳細情報",
+        "_value.comment": "See more button text"
+    },
+    "@msdyn365-commerce-theme.adventureworks.hamburgerAriaLabel": {
+        "value": "ナビゲーション メニューを展開して品目の一覧を表示します",
+        "_value.comment": "The aria label used for view hamburger"
+    },
+    "@msdyn365-commerce-theme.adventureworks.mobileHamburgerAriaLabel": {
+        "value": "ナビゲーション メニューを展開して品目の一覧を表示します",
+        "_value.comment": "The aria label used for mobile view hamburger"
+    },
+    "@msdyn365-commerce-theme.adventureworks.signUpButtonArialabel": {
+        "value": "サインアップ",
+        "_value.comment": "Sign-up button aria label"
+    },
+    "@msdyn365-commerce-theme.adventureworks.addressStreetLabel": {
+        "value": "番地 *",
+        "_value.comment": "Label for the Street field"
+    },
+    "@msdyn365-commerce-theme.adventureworks.addressStreetLabelOptional": {
+        "value": "番地",
+        "_value.comment": "Label for the Street field"
+    },
+    "@msdyn365-commerce-theme.adventureworks.addressStreetRequiredErrorMessage": {
+        "value": "番地が必要です",
+        "_value.comment": "Error message to display when street is not provided"
+    },
+    "@msdyn365-commerce-theme.adventureworks.jobTitleLabel": {
+        "value": "職位",
+        "_value.comment": "Text display as label for job title textbox."
+    },
+    "@msdyn365-commerce-theme.adventureworks.addToWishlistButtonText": {
+        "value": "ウィッシュリストに追加",
+        "_value.comment": "Label for add to wishlist button"
+    },
+    "@msdyn365-commerce-theme.adventureworks.invoicePaymentInvoiceTotal": {
+        "value": "合計請求",
+        "_value.comment": "Text for invoice total amount payment line"
+    },
+    "@msdyn365-commerce-theme.adventureworks.createOrderTemplateFromCartButton": {
+        "value": "品目を注文テンプレートに追加する",
+        "_value.comment": "Label for creating creating template from cart button"
+    },
+    "@msdyn365-commerce-theme.adventureworks.continueShoppingButtonTitle": {
+        "value": "ショッピングを続ける",
+        "_value.comment": "Back to shopping label on b2b requests page"
+    },
+    "@msdyn365-commerce-theme.adventureworks.headingForEmptyRequestStatus": {
+        "value": "この時点では要求がありません。",
+        "_value.comment": "The heading to show if b2b requests is empty"
+    },
+    "@msdyn365-commerce-theme.adventureworks.textForEmptyRequestStatus": {
+        "value": "要求を送信すると、参照用にここに要求が表示されます。",
+        "_value.comment": "The text to show if b2b requests is empty"
+    },
+    "@msdyn365-commerce-theme.adventureworks.ariaLabelForSelectedSwatchValue": {
+        "value": "{dimensionValue} を選択済み",
+        "_value.comment": "Aria label for the selected value in dimension swatch"
+    },
+    "@msdyn365-commerce-theme.adventureworks.availabilityAtPreferredStoreText": {
+        "value": "{0} で使用可能:",
+        "_value.comment": "Availability at preferred store"
+    },
+    "@msdyn365-commerce-theme.adventureworks.inStockText": {
+        "value": "在庫あり",
+        "_value.comment": "Text for when item is in stock"
+    },
+    "@msdyn365-commerce-theme.adventureworks.shopSimilarLooksText": {
+        "value": "類似する画像",
+        "_value.comment": "Text to show on Shop similar looks button"
+    },
+    "@msdyn365-commerce-theme.adventureworks.shopSimilarDescriptionText": {
+        "value": "類似する説明",
+        "_value.comment": "Text to show on Shop similar description button"
+    },
+    "@msdyn365-commerce-theme.adventureworks.salesLineQuantityText": {
+        "value": "数量",
+        "_value.comment": "Sales line quantity label"
+    },
+    "@msdyn365-commerce-theme.adventureworks.orderSummaryHeading": {
+        "value": "注文合計",
+        "_value.comment": "Order summary heading"
+    },
+    "@msdyn365-commerce-theme.adventureworks.priceText": {
+        "value": "価格",
+        "_value.comment": "Price text"
+    },
+    "@msdyn365-commerce-theme.adventureworks.shopText": {
+        "value": "その他の購入方法",
+        "_value.comment": "More ways to shop description text"
+    },
+    "@msdyn365-commerce-theme.adventureworks.descriptionText": {
+        "value": "説明",
+        "_value.comment": "Description text"
+    },
+    "@msdyn365-commerce-theme.adventureworks.findText": {
+        "value": "集荷および配送方法",
+        "_value.comment": "Pickup and Delivery Methods text"
+    },
+    "@msdyn365-commerce-theme.adventureworks.skuText": {
+        "value": "SKU:",
+        "_value.comment": "SKU text"
+    }
+
+}
