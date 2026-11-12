@@ -1,0 +1,80 @@
+$msv-rating-count-border: 1px solid $msv-black;
+$msv-rating-margin-right: 4px;
+$msv-rating-range-star-font-size:  var(--msv-body-font-size-m);
+$msv-rating-color-transparent: transparent;
+
+.msc-rating {
+    position: relative;
+
+    &__count {
+        display: inline;
+        font-size: var(--msv-body-font-size-m);
+
+        &:focus {
+            outline: 0;
+        }
+    }
+
+    &__group {
+        display: inline-block;
+    }
+
+    &__range {
+        left: 0;
+        top: 0;
+        position: absolute;
+        width: 100%;
+        overflow: visible;
+        color: $msv-rating-color-transparent;
+        background: $msv-rating-color-transparent;
+        border: 0 none;
+        opacity: 0;
+        z-index: -1;
+
+        &.sr-only {
+            min-width: 100%;
+            min-height: 18px;
+        }
+
+        &:focus {
+            + .msc-rating__group {
+                border: 1px dashed $white;
+                outline: 1px dashed $black;
+            }
+        }
+    }
+
+    &__star {
+        @include add-icon($msv-FavoriteStarFill);
+        color: var(--msv-font-primary-color);
+        font-size: $msv-rating-range-star-font-size;
+    }
+
+    &__half-star {
+        @include add-icon($msv-FavoriteStarFill);
+        @include add-icon($msv-half-star, after);
+        color: $msv-gray-300;
+        position: relative;
+        font-size: $msv-rating-range-star-font-size;
+
+        &::after {
+            color: var(--msv-font-primary-color);
+            position: absolute;
+            transform: translate(-50%, -50%);
+            left: 50%;
+            top: 50%;
+        }
+    }
+
+    &__empty-star {
+        @include add-icon($msv-FavoriteStarFill);
+        color: $msv-gray-300;
+        font-size: $msv-rating-range-star-font-size;
+    }
+
+    &__star,
+    &__half-star,
+    &__empty-star {
+        margin-right: $msv-rating-margin-right;
+    }
+}

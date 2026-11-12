@@ -1,0 +1,97 @@
+$age-gate-title-font-size: 64px;
+$age-gate-title-line-height: 1.2;
+:root {
+    //Text theme
+    --msv-age-gate-textheme-dark: var(--msv-font-primary-color);
+    --msv-age-gate-textheme-light: var(--msv-font-secondary-color);
+
+    // Heading
+    --msv-age-gate-heading-size: #{$age-gate-title-font-size};
+
+    //Body
+    --msv-age-gate-body-size: #{$msv-font-size-m};
+
+    //Cta
+    --msv-age-gate-cta-color: var(--msv-accent-brand-color);
+}
+
+.msc-modal__dialog.ms-age-gate.fabrikam-pop-up {
+    background: $msv-white;
+    padding: 60px 60px 35px;
+    text-align: center;
+    width: 95%;
+    max-width: 1280px;
+    margin: auto;
+    position: relative;
+    border-radius: 4px;
+    .msc-modal__content {
+        padding: 0;
+        position: static;
+
+        .ms-age-gate__modal-header.msc-modal__header {
+            margin-bottom: 0;
+
+            .msc-modal__close-button {
+                top: 10px;
+                right: 20px;
+                padding: 10px;
+                &::before {
+                    content: "";
+                    background: url(https://files-us-prod.cms.commerce.dynamics.com/cms/api/qdhmsxlvbl/binary/MA2QTV);
+                    height: 20px;
+                    width: 20px;
+                }
+            }
+        }
+        .ms-age-gate__modal-body.msc-modal__body {
+            margin-bottom: 0;
+
+            .age-gate.ms-content-block {
+                .ms-content-block__details {
+                    align-items: flex-start;
+                    bottom: 0;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: flex-start;
+                    left: 0;
+                    padding: 48px 60px 60px 60px;
+                    right: 0;
+                    top: 0;
+                    align-items: center !important;
+            
+                    .ms-content-block__title {
+                        @include fabrikam-font(var(--msv-font-weight-normal),
+                        var(--msv-age-gate-heading-size) ,$age-gate-title-line-height, none, $msv-font-cinzel);
+                        color: var(--msv-age-gate-textheme-dark);
+                    }
+            
+                    .ms-content-block__text {
+                        color: var(--msv-age-gate-textheme-dark);
+                        font-size: var(--msv-age-gate-body-size);
+                    }
+            
+                    .msc-cta__primary {
+                        font-size: var(--msv-body-font-size-l);
+                        line-height: var(--msv-body-line-height-l);
+                        text-decoration: underline;
+                        color: $msv-blue;
+                    }
+                }
+            
+                &.texttheme__light .ms-content-block__title, &.texttheme__light .ms-content-block__text {
+                    text-shadow: $hero-content-shadow;
+                }
+            
+                &.texttheme__dark .ms-content-block__title, &.texttheme__dark .ms-content-block__text {
+                    color: var(--msv-age-gate-textheme-dark);
+                }
+            }
+            
+
+            .ms-age-gate__accept-button.msc-btn {
+                display: none;
+            }
+        }
+    }
+}
+
