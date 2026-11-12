@@ -1,0 +1,12 @@
+<Project>
+  <Import Project="..\..\..\repo.props" />
+
+  <PropertyGroup>
+    <PackagePublisher Condition="'$(PackagePublisher)' == ''">$(Publisher)</PackagePublisher>
+    <PackagePublisherDisplayName Condition="'$(PackagePublisherDisplayName)' == ''">$(PublisherDisplayName)</PackagePublisherDisplayName>
+    <PackageVersion Condition="'$(PackageVersion)' == ''">$(Version)</PackageVersion>
+    <PackageName Condition="'$(PackageName)' == ''">Contoso.CleanCash</PackageName>
+    <PackageDisplayName Condition="'$(PackageDisplayName)' == ''">Contoso CleanCash Sample</PackageDisplayName>
+    <PackageDescription Condition="'$(PackageDescription)' == ''">Contoso CleanCash Sample</PackageDescription>
+  </PropertyGroup>
+</Project>

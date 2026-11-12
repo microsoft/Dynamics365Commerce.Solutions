@@ -1,0 +1,29 @@
+pr: none
+trigger: none
+
+pool:
+  vmImage: 'windows-latest'
+
+steps:
+  - task: PowerShell@2
+    displayName: 'Pre-Build steps'
+    inputs:
+      targetType: filePath
+      filePath: ./Pipeline/PowershellScripts/Pre-Build.ps1
+      failOnStderr: true
+
+  - task: NuGetToolInstaller@1
+    displayName: 'Use NuGet 5.4.0'
+    inputs:
+      versionSpec: '5.4.0'
+
+  - task: NuGetCommand@2
+    displayName: 'NuGet restore'
+    inputs:
+      feedsToUse: config
+      nugetConfigPath: nuget.config
+
+  - task: VSBuild@1
+    displayName: 'Build solution **\*.sln'
+    inputs:
+      solution: '**\*.sln'
