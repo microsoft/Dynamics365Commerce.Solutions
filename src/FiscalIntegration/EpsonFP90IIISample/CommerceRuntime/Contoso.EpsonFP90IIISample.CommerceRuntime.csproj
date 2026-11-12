@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="..\CustomizationPackage.props" />
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>Contoso.EpsonFP90IIISample.CommerceRuntime</AssemblyName>
+    <RootNamespace>Contoso.EpsonFP90IIISample.CommerceRuntime</RootNamespace>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Dynamics.Commerce.Sdk.Runtime" Version="$(CommerceSdkPackagesVersion)" />
+    <PackageReference Include="Microsoft.Dynamics.Commerce.Runtime.DataModel.Italy" Version="$(CommerceChannelPackagesVersion)" />
+    <PackageReference Include="Microsoft.Dynamics.Commerce.Runtime.Localization.Data.Services.Messages" Version="$(CommerceChannelPackagesVersion)" />
+    <PackageReference Include="Microsoft.Dynamics.Commerce.Runtime.FIF.DocumentProvider.Messages" Version="$(CommerceChannelPackagesVersion)" />
+  </ItemGroup>
+</Project>

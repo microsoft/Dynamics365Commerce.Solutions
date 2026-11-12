@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Contoso.EFRSample.StoreCommerce.Installer": {
+      "commandName": "Project",
+      "commandLineArgs": "install"
+    }
+  }
+}
