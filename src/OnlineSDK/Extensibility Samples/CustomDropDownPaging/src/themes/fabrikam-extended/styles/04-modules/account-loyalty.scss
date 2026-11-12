@@ -1,0 +1,196 @@
+$msv-account-loyalty-points-modal-padding: 20px 20px;
+$msv-account-loyalty-points-trigger-padding: 2px 20px;
+$msv-account-loyalty-points-trigger-height: 25px;
+$msv-modal-breakpoint-m: 450px;
+
+:root {
+
+    // heading
+    --msv-account-loyalty-heading-font-color: var(--msv-font-primary-color);
+    --msv-account-loyalty-heading-font-size: var(--msv-body-font-size-xl);
+
+    // text
+    --msv-account-loyalty-text-size: var(--msv-body-font-size-m);
+    --msv-account-loyalty-text-color: var(--msv-font-primary-color);
+    --msv-account-loyalty-border: #{msv-black};
+
+    // link
+    --msv-account-loyalty-link-color: var(--msv-font-primary-color);
+
+    // primary button
+    --msv-account-loyalty-primary-btn-bg: var(--msv-accent-brand-color);
+    --msv-account-loyalty-primary-btn-font-color: var(--msv-font-secondary-color);
+    --msv-account-loyalty-primary-btn-border: var(--msv-accent-brand-color);
+}
+
+.ms-account-loyalty {
+    max-width: 640px;
+    margin-bottom: 40px;
+
+    .back-to-shopping {
+        width: auto;
+    }
+
+    &__home-link {
+        @include primary-button(var(--msv-account-loyalty-primary-btn-bg),
+        var(--msv-account-loyalty-primary-btn-font-color),
+        var(--msv-account-loyalty-primary-btn-border));
+    }
+
+    &__reward-points {
+        @include font-content(var(--msv-font-weight-normal),var(--msv-account-loyalty-text-size),
+        $msv-line-height-m);
+        color: var(--msv-account-loyalty-text-color);
+    }
+
+    &__heading {
+        @include font-content(var(--msv-font-weight-normal),var(--msv-account-loyalty-heading-font-size),
+        $msv-line-height-xl);
+        color: var(--msv-account-loyalty-heading-font-color);
+        margin-bottom: 28px;
+    }
+
+    &__info-label {
+        @include font-content(var(--msv-font-weight-bold),var(--msv-account-loyalty-text-size), $msv-line-height-m);
+        color: var(--msv-account-loyalty-text-color);
+        margin-bottom: 12px;
+    }
+
+    &__card-number {
+        @include font-content(var(--msv-font-weight-normal),var(--msv-account-loyalty-heading-font-size),
+        $msv-line-height-xl);
+        color: var(--msv-account-loyalty-text-color);
+        margin-bottom: 8px;
+    }
+
+    &__join-date {
+        @include font-content(var(--msv-font-weight-light),var(--msv-account-loyalty-text-size), $msv-line-height-m);
+        color: var(--msv-account-loyalty-text-color);
+        margin-bottom: 40px;
+    }
+
+    &__points {
+        margin-bottom: 40px;
+    }
+
+    &__total-points-label {
+        @include font-content-l();
+        color: var(--msv-account-loyalty-text-color);
+        margin-bottom: 12px;
+    }
+
+    &__total-points {
+        @include font-content-xxl();
+        margin-bottom: 25px;
+        border-bottom: 1px dashed var(--msv-account-loyalty-border);
+    }
+
+    &__point-breakdown {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 10px;
+    }
+
+    &__points-title {
+        font-weight: var(--msv-font-weight-bold);
+    }
+
+    &__available-points-label,
+    &__expiring-points-label {
+        font-weight: var(--msv-font-weight-light);
+        margin-bottom: 0;
+    }
+
+    &__points-trigger {
+        @include button-link(var(--msv-account-loyalty-link-color));
+        @include font-content(var(--msv-font-weight-bold),var(--msv-account-loyalty-text-size), $msv-line-height-m);
+        @include vfi();
+        text-decoration: underline;
+        padding: $msv-account-loyalty-points-trigger-padding;
+        height: $msv-account-loyalty-points-trigger-height;
+    }
+
+    &__points-modal-body {
+        padding: 2px 10px;
+    }
+
+    &__points-modal-body-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 12px;
+        margin-bottom: 12px;
+        border-bottom: 1px dashed var(--msv-account-loyalty-border);
+    }
+
+    &__points-modal-body-header {
+        display: flex;
+        justify-content: space-between;
+        padding: 0 8px;
+        margin-bottom: 4px;
+    }
+
+    &__points-modal-date {
+        color: var(--msv-account-loyalty-text-color);
+        font-size: var(--msv-account-loyalty-text-size);
+    }
+
+    &__points-modal-balance {
+        color: var(--msv-account-loyalty-text-color);
+        font-size: var(--msv-account-loyalty-text-size);
+    }
+
+    &__points-modal-activity {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-content: space-between;
+        padding: 8px;
+        height: 65px;
+
+        &:nth-child(odd) {
+            background: var(--msv-bg-color);
+        }
+    }
+
+    &__points-modal-type {
+        margin-bottom: 4px;
+        color: var(--msv-account-loyalty-text-color);
+        font-size: var(--msv-account-loyalty-text-size);
+    }
+
+    &__points-modal-name {
+        @include font-content-l();
+        color: var(--msv-account-loyalty-text-color);
+        font-size: var(--msv-account-loyalty-text-size);
+    }
+
+    &__points-modal-total {
+        @include font-content-xl(var(--msv-font-weight-bold));
+        color: var(--msv-account-loyalty-text-color);
+        font-size: var(--msv-account-loyalty-text-size);
+    }
+
+    &__points-modal-points {
+        @include font-content-l(var(--msv-font-weight-bold));
+        color: var(--msv-account-loyalty-text-color);
+        font-size: var(--msv-account-loyalty-text-size);
+    }
+
+    &__points-modal {
+        @media screen and (max-width: $msv-modal-breakpoint-m) {
+            .msc-modal__content {
+                padding: $msv-account-loyalty-points-modal-padding;
+            }
+        }
+
+        .msc-modal__content {
+            .msc-modal__header .msc-modal__title {
+                color: var(--msv-account-loyalty-heading-font-color);
+                font-size: var(--msv-account-loyalty-heading-font-size);
+                padding-right: 25px;
+            }
+        }
+    }
+}

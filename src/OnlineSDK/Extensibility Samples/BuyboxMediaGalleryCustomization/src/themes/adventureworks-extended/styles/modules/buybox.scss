@@ -1,0 +1,53 @@
+.ms-buybox {
+    &__media-gallery {
+        .ms-media-gallery__carousel {
+            display: flex;
+            width: 100%;
+
+            .msc-carousel__control__prev, .msc-carousel__control__next {
+                display: none;
+            }
+        }
+
+        .ms-media-gallery__thumbnail-item {
+            .ms-fullscreen-section {
+                .ms-fullscreen-section__overlay {
+                    display: none;
+                }
+            }
+        }
+
+        .msc-ss-carousel-vert {
+            .msc-ss-carousel-vert-strip {
+                .msc-ss-carousel-vert-slide {
+                    flex-direction: column;
+                }
+            }
+        }
+    }
+    @media (min-width: ($msv-breakpoint-l) + 1) {
+        &__media-gallery {
+            .ms-media-gallery {
+                &.vertical {
+                    .msc-ss-carousel-vert-slide {
+                        .ms-media-gallery__thumbnail-item {
+                            &:nth-of-type(2n) {
+                                margin-left: 0;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.ms-media-gallery {
+    .ms-media-gallery__thumbnails-container {
+        width: auto;
+    }
+}
+
+.msc-modal .msc-fullview-modal.ms-media-gallery__modal {
+    margin: 0;
+}
