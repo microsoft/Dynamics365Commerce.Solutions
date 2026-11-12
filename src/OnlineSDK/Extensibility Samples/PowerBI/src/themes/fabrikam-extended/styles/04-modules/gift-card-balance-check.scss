@@ -1,0 +1,173 @@
+$msv-gift-card-balance-check-max-flex-basis: 100%;
+$msv-gift-card-balance-check-padding-bottom: 20px;
+$msv-gift-card-balance-check-input-label-margin-bottom: 4px;
+$msv-gift-card-balance-check-button-border-radius: 2px;
+$msv-gift-card-balance-check-button-margin-left: 0;
+$msv-gift-card-balance-check-button-margin-top: 20px;
+$msv-gift-card-balance-check-input-height: 32px;
+$msv-gift-card-balance-check-input-border-radius: 2px;
+$msv-gift-card-balance-check-input-padding: 6px 8px;
+$msv-gift-card-balance-check-input-width: 40%;
+$msv-gift-card-balance-check-input-pin-exp-text-margin-top: 4px;
+$msv-gift-card-balance-check-input-pin-exp-text-min-width: 120px;
+$msv-gift-card-balance-check-input-pin-exp-text-width: 100%;
+$msv-gift-card-balance-check-error-icon-margin-right: 8px;
+$msv-gift-card-balance-check-item-margin-top: 20px;
+$msv-gift-card-balance-check-item-text-width: 60%;
+$msv-gift-card-balance-check-input-fields-padding-right: 20px;
+$msv-gift-card-balance-check-input-fields-min-width: 130px;
+$msv-gift-card-balance-check-input-fields-width: 25%;
+$msv-gift-card-balance-check-input-num-fields-width: 50%;
+$msv-gift-card-balance-check-border-bottom: 1px dashed $msv-divider-color;
+
+//style presets
+:root {
+    --msv-gift-card-balance-check-font-size: var(--msv-body-font-size-l);
+    --msv-gift-card-balance-check-font-color: var(--msv-font-primary-color);
+
+    // form
+    --msv-gift-card-balance-check-form-bg: #{$msv-white};
+    --msv-gift-card-balance-check-form-font-color: var(--msv-font-primary-color);
+
+    // primary button
+    --msv-gift-card-balance-check-btn-bg: var(--msv-accent-brand-color);
+    --msv-gift-card-balance-check-btn-font-color: var(--msv-font-secondary-color);
+    --msv-gift-card-balance-check-btn-border: var(--msv-accent-brand-color);
+    --msv-gift-card-balance-check-btn-font-size: var(--msv-body-font-size-m);
+}
+
+.ms-gift-card-balance-check {
+    padding-bottom: $msv-gift-card-balance-check-padding-bottom;
+
+    &__form {
+        flex-flow: row wrap;
+    }
+
+    &__input-label {
+        @include font-content(var(--msv-font-weight-normal),
+        var(--msv-gift-card-balance-check-font-size), $msv-line-height-l);
+        color: var(--msv-gift-card-balance-check-font-color);
+        display: block;
+        margin-bottom: $msv-gift-card-balance-check-input-label-margin-bottom;
+        flex-basis: $msv-gift-card-balance-check-max-flex-basis;
+    }
+
+    &__input-text {
+        @include form-input-el(var(--msv-gift-card-balance-check-form-bg),
+        var(--msv-gift-card-balance-check-form-font-color));
+        font-size: var(--msv-gift-card-balance-check-font-size);
+        width: 100%;
+    }
+
+    &__input-fields {
+        width: 100%;
+    }
+
+    &__input-pin-label,
+    &__input-exp-label {
+        @include font-content(var(--msv-font-weight-normal),
+        var(--msv-gift-card-balance-check-font-size), $msv-line-height-l);
+        color: var(--msv-gift-card-balance-check-font-color);
+        flex-basis: $msv-gift-card-balance-check-max-flex-basis;
+    }
+
+    &__input-pin-num-text {
+        @include form-input-el(var(--msv-gift-card-balance-check-form-bg),
+        var(--msv-gift-card-balance-check-form-font-color));
+        width: 100%;
+    }
+
+    &__input-pin-text,
+    &__input-exp-text {
+        @include form-input-el(var(--msv-gift-card-balance-check-form-bg),
+        var(--msv-gift-card-balance-check-form-font-color));
+        font-size: var(--msv-gift-card-balance-check-font-size);
+        display: block;
+        margin-top: $msv-gift-card-balance-check-input-pin-exp-text-margin-top;
+        min-width: $msv-gift-card-balance-check-input-pin-exp-text-min-width;
+        width: $msv-gift-card-balance-check-input-pin-exp-text-width;
+
+        &::placeholder {
+            color: $msv-gray-300;
+        }
+    }
+
+    &__input-alert-label {
+        @include form-input-alert-message();
+        display: block;
+    }
+
+    &__input-pin-fields, &__input-exp-fields {
+        display: inline-block;
+        min-width: $msv-gift-card-balance-check-input-fields-min-width;
+        width: $msv-gift-card-balance-check-input-fields-width;
+    }
+
+    &__input-pin-fields {
+        padding-right: $msv-gift-card-balance-check-input-fields-padding-right;
+    }
+
+    &__btn-apply {
+        @include primary-button(var(--msv-gift-card-balance-check-btn-bg),
+        var(--msv-gift-card-balance-check-btn-font-color), var(--msv-gift-card-balance-check-btn-border));
+        font-size: var(--msv-gift-card-balance-check-btn-font-size);
+        display: block;
+        margin-top: $msv-gift-card-balance-check-button-margin-top;
+        width: 100%;
+    }
+
+    &__input-error {
+        @include form-input-error-message();
+        width: 100%;
+        display: block;
+    }
+
+    &__item {
+        margin-top: $msv-gift-card-balance-check-item-margin-top;
+    }
+
+    &__item-text {
+        font-weight: var(--msv-font-weight-normal);
+        font-size: $msv-text-size;
+        line-height: $msv-line-height-m;
+        width: $msv-gift-card-balance-check-item-text-width;
+    }
+
+    @media screen and (min-width: $msv-breakpoint-l) {
+        &__input-text {
+            flex-grow: 1;
+        }
+
+        &__input-fields {
+            display: inline-block;
+            flex-grow: 1;
+            width: 100%;
+
+            .ms-checkout-gift-card {
+                &__input-num-label {
+                    display: flex;
+                }
+
+                &__input-text {
+                    width: 100%;
+                }
+            }
+        }
+
+        &__input-num-fields {
+            display: inline-block;
+            padding-right: $msv-gift-card-balance-check-input-fields-padding-right;
+            width: $msv-gift-card-balance-check-input-num-fields-width;
+
+            .ms-checkout-gift-card__input-label {
+                display: block;
+            }
+        }
+
+        &__btn-apply {
+            margin-left: $msv-gift-card-balance-check-button-margin-left;
+            margin-top: $msv-gift-card-balance-check-button-margin-top;
+            width: auto;
+        }
+    }
+}
