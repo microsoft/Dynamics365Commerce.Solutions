@@ -1,0 +1,36 @@
+$msv-hero-content-block-details-padding-m: 60px;
+
+.hero {
+    &.ms-content-block {
+        &[data-m-layout="full-width"] {
+            .ms-content-block__cta {
+                padding: 0;
+            }
+        }
+    }
+
+    /* stylelint-disable-next-line no-descending-specificity -- Auto-suppressed. Please fix if possible. */
+    .ms-content-block__cta {
+        .msc-cta__primary {
+            text-align: center;
+            padding: 8px 24px;
+        }
+
+        .msc-cta__secondary {
+            text-decoration: underline;
+        }
+    }
+}
+
+@media screen and (max-width: $msv-breakpoint-l) {
+    .hero {
+        .ms-content-block {
+            &__details {
+                background-color: $msv-black;
+                padding: $msv-hero-content-block-details-padding-m;
+                position: static;
+                text-decoration: none;
+            }
+        }
+    }
+}

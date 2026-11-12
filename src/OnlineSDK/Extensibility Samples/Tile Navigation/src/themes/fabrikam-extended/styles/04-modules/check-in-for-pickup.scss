@@ -1,0 +1,27 @@
+$msv-check-in-for-pickup-section-margin: 50px 100px;
+$msv-check-in-for-pickup-section-margin-m: 20px;
+
+:root {
+    // heading
+    --msv-check-in-for-pickup-heading-font-size: var(--msv-body-font-size-xl);
+    --msv-check-in-for-pickup-heading-font-color: var(--msv-font-primary-color);
+}
+
+.msc-check-in-for-pickup {
+    @include font-content(var(--msv-font-weight-normal), var(--msv-body-font-size-l), $msv-line-height-l);
+
+    &__confirmation {
+        margin: $msv-check-in-for-pickup-section-margin;
+
+        &__heading {
+            @include font-content(var(--msv-font-weight-normal), var(--msv-check-in-for-pickup-heading-font-size), $msv-line-height-xl);
+            color: var(--msv-check-in-for-pickup-heading-font-color);
+        }
+    }
+
+    @media screen and (max-width: $msv-breakpoint-m) {
+        &__confirmation {
+            margin: $msv-check-in-for-pickup-section-margin;
+        }
+    }
+}

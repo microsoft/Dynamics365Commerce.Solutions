@@ -1,0 +1,72 @@
+// Alert
+$msv-checkout-terms-and-condition-error-message-padding: 18px;
+$msv-checkout-terms-and-condition-error-message-margin-bottom: 20px;
+$msv-checkout-terms-and-condition-error-message-width: 100%;
+$msv-checkout-terms-and-condition-icon-margin-right: 8px;
+$msv-checkout-terms-and-conditions-checkbox-height-width: 16px;
+$msv-checkout-terms-and-conditions-checkbox-margin-right: 10px;
+$msv-checkout-terms-and-condition-error-margin-bottom: 10px;
+
+$msv-checkout-terms-and-conditions-button-save-margin-right: 20px;
+$msv-checkout-terms-and-conditions-button-margin-top: 12px;
+
+.ms-checkout-terms-and-conditions {
+    &__container {
+        display: flex;
+        align-items: center;
+
+        a {
+            text-decoration: underline;
+        }
+    }
+
+    &__input-checkbox {
+        margin-right: $msv-checkout-terms-and-conditions-checkbox-margin-right;
+        min-height: $msv-checkout-terms-and-conditions-checkbox-height-width;
+        min-width: $msv-checkout-terms-and-conditions-checkbox-height-width;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    &__error {
+        background-color: $msv-error-color;
+        border: $msv-error-color;
+        color: var(--msv-font-secondary-color);
+        margin-bottom: $msv-checkout-terms-and-condition-error-margin-bottom;
+        max-width: 512px;
+        padding: 8px;
+
+        &-message {
+            width: $msv-checkout-terms-and-condition-error-message-width;
+
+            background-color: $msv-error-color;
+            border: 1px solid $msv-error-color;
+            color: var(--msv-font-secondary-color);
+        }
+
+        &-title {
+            display: block;
+            margin-top: 2px;
+
+            &::before {
+                @include msv-icon();
+                content: $msv-IncidentTriangle;
+                margin-right: $msv-checkout-terms-and-condition-icon-margin-right;
+            }
+        }
+    }
+
+    &__button-edit,
+    &__button-save {
+        @include secondary-button();
+        margin-top: $msv-checkout-terms-and-conditions-button-margin-top;
+        margin-right: $msv-checkout-terms-and-conditions-button-save-margin-right;
+    }
+
+    &__button-cancel {
+        @include secondary-button();
+        margin-top: $msv-checkout-terms-and-conditions-button-margin-top;
+    }
+}
