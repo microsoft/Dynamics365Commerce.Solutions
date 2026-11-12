@@ -1,0 +1,171 @@
+$cart-cartline-item-padding-bottom: 20px;
+$cart-cartline-product-title-font-size: 18px;
+$cart-cartline-product-title-line-height: 21px;
+$cart-cartline-product-title-font-weight: bold;
+
+$cart-cartline-remove-button-margin: 20px;
+$cart-cartline-product-variants-line-height: 20px;
+$cart-cart-line-bopis-container-line-height: 20px;
+
+$cart-compact-image-size: 120px;
+$cart-compact-left-margin: 128px;
+
+$cart-cartline-bopis-label-width: 148px;
+
+.msc-cart {
+    color: var(--msv-font-primary-color);
+
+    &-lines-item {
+        border-bottom: 1px solid $msv-gray-120;
+        margin: 20px 0;
+        padding-bottom: $cart-cartline-item-padding-bottom;
+    }
+
+    &-line {
+        display: flex;
+
+        &__content {
+            display: flex;
+            width: 100%;
+        }
+
+        &__product {
+            flex: 1 1 10px;
+
+            &-image {
+                margin-right: 20px;
+            }
+
+            &-variant {
+                &-size,
+                &-color,
+                &-style,
+                &-config {
+                    .name {
+                        padding-left: 5px;
+                        color: $msv-gray-120;
+                    }
+                }
+            }
+        }
+
+        &__promo-codes {
+            display: inline-block;
+        }
+
+        &__quantity {
+            &__select-menu {
+                @include vfi();
+                width: 64px;
+                height: 32px;
+            }
+
+            .quantity-label {
+                font-size: 18px;
+                line-height: 24px;
+            }
+
+            .quantity-value {
+                display: block;
+                text-align: center;
+            }
+        }
+
+        &__product-price {
+            text-align: right;
+            margin-left: 15px;
+            width: 30%;
+
+            .msc-price {
+                &__actual {
+                    @include font-content-l();
+                    font-weight: 600;
+                }
+
+                &__strikethrough {
+                    @include font-content-l-strikethrough();
+                }
+            }
+        }
+
+        &__sales-agreement-prompt {
+            color: var(--msv-accent-brand-color);
+        }
+
+        &__product-title {
+            @include font-content-l();
+            @include vfi();
+        }
+
+        &__product-variants,
+        &__other-charges-label,
+        &__freight-label,
+        .shipping-value,
+        .other-charge-value {
+            @include font-content-s();
+            line-height: $cart-cartline-product-variants-line-height;
+        }
+
+        &__other-charges-label,
+        &__freight-label {
+            margin-right: 5px;
+        }
+
+        &__remove-item,
+        &__add-to-wishlist {
+            @include font-content-s();
+            @include button-link();
+            @include vfi();
+            margin-right: $cart-cartline-remove-button-margin;
+            text-decoration: none;
+            padding: 0;
+
+            &:hover {
+                text-decoration: underline;
+            }
+
+            &::after {
+                content: "";
+            }
+        }
+
+        &__bopis-container {
+            @include font-content-s();
+            display: flex;
+            flex-direction: column;
+            margin: 12px 0;
+            line-height: $cart-cart-line-bopis-container-line-height;
+        }
+
+        &__bopis-shipping {
+            margin-bottom: 10px;
+            width: $cart-cartline-bopis-label-width;
+
+            input {
+                @include vfi();
+            }
+        }
+
+        &__bopis-store-pickup {
+            width: $cart-cartline-bopis-label-width;
+        }
+
+        &__bopis-changestore {
+            @include button-link();
+            display: block;
+            padding: 5px 0;
+            font-size: 12px;
+            line-height: 16px;
+        }
+
+        &__bopis__fullfilment {
+            &-store {
+                margin-left: 20px;
+                margin-top: 3px;
+                font-size: 12px;
+                line-height: 16px;
+                color: $msv-gray-120;
+            }
+        }
+    }
+}

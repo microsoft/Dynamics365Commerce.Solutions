@@ -1,0 +1,68 @@
+.ms-product-specification {
+    color: var(--msv-font-primary-color);
+
+    div > div {
+        border-collapse: separate;
+        border-spacing: 0 10px;
+    }
+
+    &__heading {
+        margin-top: 40px;
+        margin-bottom: 20px;
+    }
+
+    &__table-row {
+        th {
+            display: block;
+            text-align: left;
+
+            @include font-content(600, 20px, 28px, none);
+        }
+
+        td {
+            display: block;
+
+            @include font-content-s-height-l();
+        }
+    }
+
+    &__accordion {
+        .ms-product-specification-title {
+            margin-top: 5px;
+
+            .drawer {
+                border-top: 1px solid $msv-gray-120;
+
+                .drawer__button {
+                    background: transparent;
+                    display: flex;
+                    height: 64px;
+                    justify-content: space-between;
+                    padding-left: 0;
+                    padding-right: 0;
+                    width: 100%;
+                    margin-top: 5px;
+                    cursor: pointer;
+
+                    &[aria-expanded="true"] {
+                        @include add-icon($msv-ChevronUp, after);
+                        padding-right: 20px;
+
+                        &::after {
+                            color: $msv-gray-120;
+                        }
+                    }
+
+                    &[aria-expanded="false"] {
+                        @include add-icon($msv-ChevronDown, after);
+                        padding-right: 20px;
+
+                        &::after {
+                            color: $msv-gray-120;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,44 @@
+// Confirmed colors
+$msv-black: #000000;
+$msv-gray-900: #1D1D1D;
+$msv-gray-300: #D1D1D1;
+$msv-gray-600: #C4C4C4;
+$msv-gray-160: #323130;
+$msv-gray-120: #6E726E;
+$msv-gray-90: #A19F9D;
+$msv-gray-60: #C8C6C4;
+$msv-gray-20: #F3F2F1;
+$msv-gray-30: #2C262D;
+$msv-white: #FFFFFF;
+$msv-blue: #2266E3;
+$msv-red: #A80000;
+$msv-pink: #FCDFDF;
+$msv-gray-500: #616365;
+$msv-gray-tint: #495057;
+$msv-yellow:#FFFF00;
+$msv-gray-400: #6B727A;
+$msv-gray-100: #F8F7F6;
+$msv-selected-user-background-color: rgba(0, 0, 0, 0.04);
+$msv-blue-tint: #0094FF;
+
+// Semantic colors
+$msv-text-color: $msv-gray-160;
+$msv-primary: $msv-blue;
+$msv-link-color: $msv-blue;
+$msv-error-color: $msv-red;
+$msv-modal-overlay: rgba(0, 0, 0, 0.7);
+$msv-box-shadow-color: rgba(0, 0, 0, 0.132);
+$msv-divider-color: #C4C4C4;
+
+// Style presets
+:root {
+    // Brand accents
+    --msv-accent-brand-color: #{$msv-primary};
+
+    // Background
+    --msv-bg-color: #{$msv-white};
+
+    // Font
+    --msv-font-primary-color: #{$msv-black};
+    --msv-font-secondary-color: #{$msv-white};
+}

@@ -1,0 +1,153 @@
+$footer-ms-footer-padding-xl: 40px 0;
+$footer-ms-footer-margin-left-mobile: 0;
+$footer-category-max-width: 200px;
+$footer-category-padding-bottom-desktop: 40px;
+$footer-category-padding-bottom-mobile: 20px;
+$footer-heading-title-font-size: 18px;
+$footer-heading-title-line-height: 40px;
+$footer-list-item-icon-left: 10px;
+$footer-list-item-icon-number: 3;
+$footer-list-item-icon-top: 40px;
+$footer-link-text-font-size: 16px;
+$footer-link-text-line-height: 30px;
+$footer-row-padding-top-mobile: 32px;
+$footer-back-to-top-icon-font-size: 24px;
+$footer-back-to-top-line-height: 24px;
+$footer-back-to-top-height: 48px;
+$footer-back-to-top-width: 48px;
+$footer-back-to-top-right: 24px;
+$footer-back-to-top-bottom: 24px;
+$footer-categoty-back-to-top-max-width: 0;
+
+footer {
+    background-color: var(--msv-bg-color);
+    color: var(--msv-font-primary-color);
+
+    .ms-footer {
+        &__list {
+            flex: initial;
+            width: auto;
+        }
+
+        .ms-back-to-top {
+            @include vfi();
+            border: 1px solid $msv-gray-60;
+            bottom: $footer-back-to-top-bottom;
+            cursor: pointer;
+            display: none;
+            height: $footer-back-to-top-height;
+            min-width: auto;
+            opacity: 0;
+            padding: 0;
+            position: fixed;
+            right: $footer-back-to-top-right;
+            text-align: center;
+            vertical-align: middle;
+            width: $footer-back-to-top-width;
+
+            .fa-arrow-up {
+                color: $msv-gray-60;
+                font-size: $footer-back-to-top-icon-font-size;
+                left: 50%;
+                line-height: $footer-back-to-top-line-height;
+                position: absolute;
+                top: 50%;
+                transform: translate(-50%, -50%);
+
+                &::before {
+                    @include msv-icon();
+                    content: $msv-ChevronUp;
+                }
+            }
+        }
+
+        .ms-back-to-top[aria-hidden="false"] {
+            display: block;
+            opacity: 1;
+            transform: translateX(0%);
+        }
+
+        &__heading__title {
+            font-size: $footer-heading-title-font-size;
+            font-weight: bold;
+            line-height: $footer-heading-title-line-height;
+        }
+
+        &__link {
+            @include vfi();
+            display: inline-flex;
+
+            img {
+                @include vfi();
+            }
+
+            div, &__text {
+                font-size: $footer-link-text-font-size;
+                font-weight: normal;
+                line-height: $footer-link-text-line-height;
+            }
+        }
+
+        & > * {
+            justify-content: space-between;
+            margin-left: auto;
+            margin-right: auto;
+            padding: $footer-ms-footer-padding-xl;
+
+            > * {
+                max-width: $footer-category-max-width;
+                padding-bottom: $footer-category-padding-bottom-desktop;
+
+                &:nth-child(4) {
+                    .ms-footer__list {
+                        display: flex;
+                        width: auto;
+                    }
+
+                    .ms-footer__list-item:first-child {
+                        position: absolute;
+                        width: 100%;
+                    }
+
+                    .ms-footer__list-item:nth-child(1) {
+                        position: absolute;
+                        width: 100%;
+                    }
+
+                    .ms-footer__list-item:nth-child(2) {
+                        position: relative;
+                        top: $footer-list-item-icon-top;
+                        width: 100%;
+                    }
+
+                    @for $i from 3 to ($footer-list-item-icon-number + 2) {
+                        .ms-footer__list-item:nth-child(#{$i}) {
+                            left: $footer-list-item-icon-left * ($i - 2);
+                            position: relative;
+                            top: $footer-list-item-icon-top;
+                            width: 100%;
+                        }
+                    }
+                }
+
+                &:last-child {
+                    max-width: $footer-categoty-back-to-top-max-width;
+                }
+            }
+        }
+    }
+
+    @media (max-width: $msv-breakpoint-m) {
+        .ms-footer {
+            margin-left: $footer-ms-footer-margin-left-mobile;
+
+            > * {
+                padding-top: $footer-row-padding-top-mobile;
+
+                > * {
+                    padding-bottom: $footer-category-padding-bottom-mobile;
+                }
+            }
+        }
+    }
+}

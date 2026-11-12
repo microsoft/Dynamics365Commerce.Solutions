@@ -1,0 +1,42 @@
+$msv-checkbox-size: 14px;
+
+.ms-loyalty-terms {
+    &__checkbox {
+        @include add-icon($msv-Checkbox);
+        -webkit-appearance: none;
+        position: relative;
+        height: $msv-checkbox-size;
+        width: $msv-checkbox-size;
+        margin-right: 8px;
+        vertical-align: middle;
+
+        &::before {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        &:checked {
+            @include add-icon($msv-Checkbox-Checked);
+        }
+    }
+
+    &__agree {
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    &__toggle {
+        @include primary-button();
+    }
+
+    &__submit {
+        @include primary-button();
+        margin-right: 8px;
+    }
+
+    &__cancel {
+        @include secondary-button();
+    }
+}

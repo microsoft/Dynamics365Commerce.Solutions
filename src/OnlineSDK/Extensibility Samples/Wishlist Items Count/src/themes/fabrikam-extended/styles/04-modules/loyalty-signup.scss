@@ -1,0 +1,30 @@
+.ms-loyalty-signup {
+    text-align: center;
+
+    &__heading {
+        margin-bottom: 10px;
+    }
+
+    &__text {
+        margin-bottom: 10px;
+    }
+
+    &__terms {
+        @include button-link();
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    &__btn {
+        @include primary-button();
+        margin-bottom: 10px;
+    }
+
+    &__signin {
+        @include primary-button();
+    }
+
+    &__details {
+        @include primary-button();
+    }
+}
