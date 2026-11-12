@@ -1,0 +1,314 @@
+// Variables
+$carousel-control-width:  48px;
+$carousel-control-opacity: 1;
+$carousel-control-hover-opacity: 0.9;
+$carousel-control-transition: opacity 0.15s ease;
+$carousel-indicator-width:  16px;
+$carousel-indicator-height: 16px;
+$carousel-indicator-hit-area-height: 10px;
+$carousel-indicator-spacer: 6px;
+$carousel-indicator-transition: opacity 0.6s ease;
+$carousel-indicator-margin-left-right: 6px;
+$carousel-caption-width:  70%;
+$carousel-control-icon-width: 20px;
+$carousel-control-icon-size: 21px;
+$carousel-transition-duration:  0.6s;
+// Define transform transition first if using multiple transitions (e.g., `transform 2s ease, opacity .5s ease-out`)
+$carousel-transition: transform $carousel-transition-duration ease-in-out;
+$carousel-transition-base: all 0.2s ease-in-out;
+$carousel-transition-fade: opacity 0.15s linear;
+$carousel-transition-collapse: height 0.35s ease;
+$carousel-enable-transitions:  true;
+$carousel-enable-prefers-reduced-motion-media-query: true;
+$carousel-indicators-max-width-m: 450px;
+$carousel-carousel__indicators-bottom-m: 16px;
+$carousel-carousel__indicators-left: 0;
+$carousel-carousel__indicators-right: 0;
+$carousel-carousel__indicators-bottom: 48px;
+
+// Style presets
+:root {
+    // Indicators
+    --msv-carousel-indicator-border-color: var(--msv-font-secondary-color);
+    --msv-carousel-indicator-fill-color: var(--msv-font-secondary-color);
+
+    // Flippers
+    --msv-carousel-flipper-bg: #{$msv-gray-100};
+    --msv-carousel-flipper-border: #{$msv-gray-100};
+    --msv-carousel-flipper-color: #{$msv-gray-500};
+    --msv-carousel-flipper-hover-bg: #{$msv-gray-500};
+    --msv-carousel-flipper-hover-color: var(--msv-font-secondary-color);
+}
+
+@mixin carousel-transition($transition...) {
+    @if $carousel-enable-transitions {
+        @if length($transition) == 0 {
+            transition: $carousel-transition-base;
+        } @else {
+            transition: $transition;
+        }
+    }
+
+    @if $carousel-enable-prefers-reduced-motion-media-query {
+        @media (prefers-reduced-motion: reduce) {
+            transition: none;
+        }
+    }
+}
+
+.screen-reader-only {
+    border: 0;
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    padding: 0;
+    position: absolute;
+    overflow: hidden;
+    width: 1px;
+    white-space: nowrap;
+}
+
+.msc-carousel {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    position: relative;
+
+    .pointer-event {
+        touch-action: pan-y;
+    }
+
+    &__dismiss {
+        background: $msv-black;
+        border-color: $msv-black;
+        color: var(--msv-font-secondary-color);
+        position: absolute;
+        right: 0;
+        top: 0;
+
+        &::before {
+            @include msv-icon();
+            content: $msv-Cancel;
+            font-size: $msv-heading-text-size;
+            position: unset;
+            text-align: center;
+            vertical-align: text-bottom;
+            visibility: visible;
+        }
+    }
+
+    &__inner {
+        overflow: hidden;
+        position: relative;
+        width: 100%;
+
+        @include clearfix();
+    }
+
+    &__item {
+        backface-visibility: hidden;
+        display: none;
+        float: left;
+        height: 100%;
+        margin-right: -100%;
+        position: relative;
+        text-decoration: none;
+        width: 100%;
+
+        @include carousel-transition($carousel-transition);
+
+        &.active {
+            text-decoration: none;
+        }
+
+        &.active,
+        &__next,
+        &__prev {
+            display: block;
+        }
+    }
+
+    &.carousel-fade {
+        &__item {
+            opacity: 0;
+            transition-property: opacity;
+            transform: none;
+        }
+
+        .msc-carousel__item.active,
+        .msc-carousel__item__next.msc-carousel__item__left,
+        .msc-carousel__item__prev.msc-carousel__item__right {
+            z-index: 1;
+            opacity: 1;
+        }
+
+        .active.msc-carousel__item__left,
+        .active.msc-carousel__item__right {
+            z-index: 0;
+            opacity: 0;
+
+            @include carousel-transition(0s $carousel-transition-duration opacity);
+        }
+    }
+
+    &__control__prev,
+    &__control__next {
+        align-items: center;
+        bottom: 0;
+        color: var(--msv-carousel-flipper-color);
+        background-color: var(--msv-carousel-flipper-bg);
+        border: 1px solid var(--msv-carousel-flipper-border);
+        display: flex;
+        height: $carousel-control-width;
+        justify-content: center;
+        position: absolute;
+        opacity: $carousel-control-opacity;
+        text-align: center;
+        top: calc(50% - 24px);
+        transition: none;
+        width: $carousel-control-width;
+        z-index: 16;
+
+        @include carousel-transition($carousel-control-transition);
+
+        // Hover/focus state
+
+        @include hover-focus {
+            outline: none;
+            opacity: $carousel-control-hover-opacity;
+            text-decoration: none;
+            background-color: var(--msv-carousel-flipper-hover-bg);
+            border: 1px solid var(---msv-carousel-flipper-hover-bg);
+
+            &__icon {
+                outline: 0;
+
+                &::before {
+                    outline: 0;
+                }
+            }
+
+            .msc-carousel__control__prev__icon,
+            .msc-carousel__control__next__icon {
+                color: var(--msv-carousel-flipper-hover-color);
+            }
+        }
+
+        &::before {
+            bottom: 0;
+            content: "";
+            display: block;
+            left: 0;
+            outline-offset: 1px;
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+    }
+
+    &__control__prev {
+        border-radius: 50%;
+        justify-content: flex-start;
+        left: 0;
+        margin-left: 2px;
+
+        &__icon {
+            @include add-icon($msv-ChevronLeft);
+            margin-left: 11px;
+        }
+    }
+
+    &__control__next {
+        border-radius: 50%;
+        justify-content: flex-end;
+        margin-right: 2px;
+        right: 0;
+
+        &__icon {
+            @include add-icon($msv-ChevronRight);
+            margin-right: 11px;
+        }
+    }
+
+    &__caption {
+        bottom: 20px;
+        color: var(--msv-carousel-indicator-border-color);
+        left: (100% - $carousel-caption-width) / 2;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        position: absolute;
+        right: (100% - $carousel-caption-width) / 2;
+        text-align: center;
+        z-index: 10;
+    }
+
+    &__indicators {
+        bottom: $carousel-carousel__indicators-bottom-m;
+        display: flex;
+        justify-content: center;
+        left: $carousel-carousel__indicators-left;
+        list-style: none;
+        // Use the .carousel-control's width as margin so we don't overlay those
+        margin-right: $carousel-indicator-margin-left-right;
+        margin-left: $carousel-indicator-margin-left-right;
+        padding-left: 0; // override <ol> default
+        position: absolute;
+        right: $carousel-carousel__indicators-right;
+        z-index: 15;
+
+        li {
+            @include carousel-transition($carousel-indicator-transition);
+            @include vfi-psuedo(after, 3px);
+            border-radius: 50%;
+            border: 1px solid var(--msv-carousel-indicator-border-color);
+            background: transparent;
+            background-clip: padding-box;
+            box-sizing: content-box;
+            cursor: pointer;
+            flex: 0 1 auto;
+            height: $carousel-indicator-height;
+            margin-right: $carousel-indicator-spacer;
+            margin-left: $carousel-indicator-spacer;
+            opacity: 1;
+            text-indent: -999px;
+            width: $carousel-indicator-width;
+        }
+
+        .active {
+            background: var(--msv-carousel-indicator-fill-color);
+            opacity: 1;
+        }
+
+        @media (min-width: $msv-breakpoint-m) {
+            left: $carousel-carousel__indicators-left;
+            bottom: $carousel-carousel__indicators-bottom;
+        }
+    }
+
+    &__control__prev__icon,
+    &__control__next__icon {
+        background: no-repeat 50% / 100% 100%;
+        display: inline-block;
+        font-size: $carousel-control-icon-size;
+        width: $carousel-control-icon-width;
+    }
+}
+
+/* stylelint-disable no-descending-specificity -- Auto-suppressed. Please fix if possible. */
+.msc-carousel__item__next:not(.msc-carousel__item__left),
+.active.msc-carousel__item__right {
+    transform: translateX(100%);
+}
+
+.msc-carousel__item__prev:not(.msc-carousel__item__right),
+.active.msc-carousel__item__left {
+    transform: translateX(-100%);
+}
+/* stylelint-enable no-descending-specificity -- Auto-suppressed. Please fix if possible. */
+
+@media screen and (max-width: $msv-breakpoint-m) {
+    .msc-carousel {
+        &__inner {
+            color: var(--msv-font-secondary-color);
+        }
+    }
+}
