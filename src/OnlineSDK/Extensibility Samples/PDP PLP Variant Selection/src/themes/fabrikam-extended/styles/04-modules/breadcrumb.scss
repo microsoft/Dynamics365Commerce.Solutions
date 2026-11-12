@@ -1,0 +1,62 @@
+//style presets
+:root {
+    --msv-breadcrumb-item-font-color: var(--msv-font-primary-color);
+    --msv-breadcrumb-item-font-size: var(--msv-body-font-size-s);
+}
+
+.ms-breadcrumb {
+    padding-bottom: 36px;
+
+    .ms-breadcrumb_list {
+        color: var(--msv-breadcrumb-item-font-color);
+        float: left;
+        list-style: none;
+        padding: 0;
+
+        .ms-breadcrumb-back-button {
+            text-decoration: underline;
+            cursor: pointer;
+            float: left;
+            margin-right: 10px;
+
+            @include add-icon($msv-ChevronLeft, before);
+
+            &::before {
+                padding-right: 5px;
+            }
+        }
+    }
+
+    .ms-breadcrumb_item {
+        color: var(--msv-breadcrumb-item-font-color);
+        float: left;
+        font-size: var(--msv-breadcrumb-item-font-size);
+        position: relative;
+        margin: 0;
+        padding-right: 5px;
+
+        @include font-content-s();
+
+        a[data-no-click="true"] {
+            cursor: default;
+            pointer-events: none;
+        }
+
+        .ms-breadcrumb_link.ms-breadcrumb-no-link-text {
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .ms-breadcrumb_link {
+            color: var(--msv-breadcrumb-item-font-color);
+            font-size: var(--msv-breadcrumb-item-font-size);
+            text-decoration: underline;
+        }
+
+        &.breadcrumb_item-current {
+            .ms-breadcrumb_link {
+                text-decoration: none;
+            }
+        }
+    }
+}

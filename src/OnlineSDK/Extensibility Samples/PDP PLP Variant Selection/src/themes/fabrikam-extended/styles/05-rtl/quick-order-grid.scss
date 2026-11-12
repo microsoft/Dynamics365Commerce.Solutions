@@ -1,0 +1,57 @@
+[dir="rtl"] {
+    .ms-quick-order-grid {
+        &__content {
+            &-form-main {
+                &-quantity {
+                    margin-right: auto;
+                }
+
+                &-add-to-product-list {
+                    margin-right: 8px;
+                }
+
+                &__configure {
+                    margin-right: 0;
+                }
+            }
+        }
+
+        &__table-list {
+            &__header {
+                text-align: right;
+
+                &__column-with-number {
+                    text-align: left;
+                }
+            }
+
+            &__row {
+                &__column-with-number {
+                    text-align: left;
+                }
+
+                &__extra-actions-cell {
+                    &__actions-container {
+                        button {
+                            text-align: right;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @media screen and (max-width: $msv-breakpoint-m) {
+        .ms-quick-order-grid {
+            &-action-bar {
+                &__delete-list-button {
+                    margin-right: 0;
+                }
+
+                &__buy-selected {
+                    margin-right: 0;
+                }
+            }
+        }
+    }
+}
