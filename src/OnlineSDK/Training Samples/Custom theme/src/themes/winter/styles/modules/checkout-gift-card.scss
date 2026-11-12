@@ -1,0 +1,221 @@
+@import "../common/00-settings/colors.scss";
+@import "../common/00-settings/font.scss";
+@import "../common/00-settings/icons.scss";
+@import "../common/00-settings/responsive-breakpoints.scss";
+@import "../common/02-generic/form.scss";
+@import "../common/02-generic/button.scss";
+
+$msv-checkout-gift-card-max-flex-basis: 100%;
+$msv-checkout-gift-card-padding: 32px;
+$msv-checkout-gift-card-input-label-margin-bottom: 8px;
+$msv-checkout-gift-card-button-margin-left: 0;
+$msv-checkout-gift-card-button-margin-top: 5px;
+$msv-checkout-gift-card-input-pin-exp-text-margin-top: 4px;
+$msv-checkout-gift-card-input-pin-exp-text-min-width: 120px;
+$msv-checkout-gift-card-input-pin-exp-text-width: 100%;
+$msv-checkout-gift-card-input-pin-exp-fields-margin-top: 20px;
+$msv-checkout-gift-card-item-text-width: 60%;
+$msv-checkout-gift-card-remove-button-margin-left: 10px;
+$msv-checkout-gift-card-input-max-width: 381px;
+$msv-checkout-gift-card-input-pin-fields-padding: 20px;
+$msv-checkout-gift-card-input-fields-min-width: 130px;
+$msv-checkout-gift-card-input-fields-width: 25%;
+$msv-checkout-gift-card-input-num-fields-width: 50%;
+$msv-checkout-gift-card-border-bottom: 0.5px solid var(--msv-button-primary-disabled-color);
+$msv-checkout-gift-card-title-margin-bottom: 8px;
+$msv-checkout-gift-card-input-text-margin-bottom: 20px;
+
+//style presets
+:root {
+    --msv-checkout-gift-card-font-size: #{$msv-font-size-s};
+    --msv-checkout-gift-card-font-color: var(--msv-font-primary-color);
+
+    // error color
+    --msv-checkout-gift-card-error-color: #{$msv-red};
+    --msv-checkout-gift-card-error-bg: transparent;
+    --msv-checkout-gift-card-error-border: transparent;
+}
+
+.ms-checkout-gift-card.add {
+    border-bottom: $msv-checkout-gift-card-border-bottom;
+}
+
+.ms-checkout-gift-card {
+    padding-bottom: $msv-checkout-gift-card-padding;
+    padding-top: $msv-checkout-gift-card-padding;
+
+    &__form {
+        flex-flow: row wrap;
+        display: flex;
+    }
+
+    &__item {
+        padding-top: 25px;
+    }
+
+    &__title {
+        display: block;
+
+        @include font-body-bold-s();
+        margin-bottom: $msv-checkout-gift-card-title-margin-bottom;
+    }
+
+    &__input-label, &__input-pin-label, &__input-exp-label {
+        @include form-input-label();
+        color: var(--msv-checkout-gift-card-font-color);
+        display: block;
+        margin-bottom: $msv-checkout-gift-card-input-label-margin-bottom;
+        flex-basis: $msv-checkout-gift-card-max-flex-basis;
+    }
+
+    &__input-text {
+        font-size: var(--msv-checkout-gift-card-font-size);
+        width: 100%;
+        margin-right: $msv-checkout-gift-card-input-text-margin-bottom;
+
+        @include form-input-box();
+        padding: 6px 8px;
+    }
+
+    @media screen and (max-width: $msv-breakpoint-m) {
+        &__input-text {
+            margin-right: 0;
+        }
+    }
+
+    &__input-fields {
+        width: 100%;
+        display: inline-block;
+        flex-grow: 1;
+    }
+
+    &__input-pin-num-text {
+        width: 100%;
+    }
+
+    &__input-pin-text,
+    &__input-exp-text {
+        font-size: var(--msv-checkout-gift-card-font-size);
+        display: block;
+        margin-top: $msv-checkout-gift-card-input-pin-exp-text-margin-top;
+        min-width: $msv-checkout-gift-card-input-pin-exp-text-min-width;
+        width: $msv-checkout-gift-card-input-pin-exp-text-width;
+
+        @include form-input-box();
+
+        &::placeholder {
+            color: $msv-gray-300;
+        }
+    }
+
+    &__input-alert-label {
+        @include form-input-alert-message();
+        display: block;
+    }
+
+    &__input-pin-fields, &__input-exp-fields {
+        display: inline-block;
+        margin-top: $msv-checkout-gift-card-input-pin-exp-fields-margin-top;
+        min-width: $msv-checkout-gift-card-input-fields-min-width;
+        width: $msv-checkout-gift-card-input-fields-width;
+    }
+
+    &__input-pin-fields {
+        padding-right: $msv-checkout-gift-card-input-pin-fields-padding;
+    }
+
+    &__btn-apply {
+        @include primary-button-light();
+        margin-top: $msv-checkout-gift-card-button-margin-top;
+        width: 100%;
+        order: 3;
+    }
+
+    &__input-error {
+        width: 100%;
+        display: flex;
+        order: 2;
+
+        @include font-body-regular-s();
+
+        color: var(--msv-checkout-gift-card-error-color);
+        border: 1px solid var(--msv-checkout-gift-card-error-border);
+        background-color: var(--msv-checkout-gift-card-error-bg);
+
+        @include add-icon($msv-times-circle, $icon-weight: $msv-outline-icon-weight);
+        margin-top: 13px;
+
+        &::before {
+            margin-right: 10px;
+            font-size: $msv-font-size-ml;
+        }
+    }
+
+    &__form.is-invalid input {
+        border-left: 4px solid var(--msv-checkout-gift-card-error-color);
+    }
+
+    &__item-text {
+        font-weight: var(--msv-font-weight-normal);
+        font-size: $msv-text-size;
+        line-height: $msv-line-height-m;
+        width: $msv-checkout-gift-card-item-text-width;
+    }
+
+    &__btn-remove {
+        @include link-regular-m();
+        display: flex;
+        align-self: flex-end;
+        margin-left: 20px;
+        color: var(--msv-checkout-gift-card-font-color);
+
+        &.msc-btn {
+            display: inline-block;
+            margin-left: $msv-checkout-gift-card-remove-button-margin-left;
+        }
+
+        @media screen and (max-width: $msv-breakpoint-m) {
+            &.msc-btn {
+                margin-left: 0;
+            }
+        }
+    }
+
+    @media screen and (min-width: $msv-breakpoint-l) {
+        &__input-text {
+            width: auto;
+            flex-grow: 1;
+            max-width: $msv-checkout-gift-card-input-max-width;
+        }
+
+        &__input-fields {
+            width: 100%;
+
+            .ms-checkout-gift-card {
+                &__input-num-label {
+                    display: flex;
+                }
+
+                &__input-text {
+                    width: 100%;
+                }
+            }
+        }
+
+        &__input-num-fields {
+            display: inline-block;
+            width: $msv-checkout-gift-card-input-num-fields-width;
+            padding-right: 20px;
+
+            .ms-checkout-gift-card__input-label {
+                display: block;
+            }
+        }
+
+        &__btn-apply {
+            margin-left: $msv-checkout-gift-card-button-margin-left;
+            margin-top: $msv-checkout-gift-card-button-margin-top;
+            width: auto;
+        }
+    }
+}

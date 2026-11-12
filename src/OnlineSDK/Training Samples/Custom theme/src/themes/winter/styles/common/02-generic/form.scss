@@ -1,0 +1,227 @@
+// Form elements
+$msv-gray-tint: #495057;
+$msv-form-input-textbox-height: 52px;
+$msv-form-input-textbox-padding: 14px;
+$msv-alert-border-radius: 0;
+$msv-alert-icon-margin: 8px;
+
+//style presets
+:root {
+    --msv-form-control-box-color: #{$msv-blue};
+    --msv-form-error-font-color: #{$msv-red};
+    --msv-form-dropdown-border-color: #{$msv-gray-50};
+    --msv-form-dropdown-focus-border-color: #{$msv-blue-50};
+    --msv-form-dropdown-font-color: var(--msv-font-primary-color);
+    --msv-form-dropdown-bg-color: var(--msv-bg-color);
+}
+
+@mixin error-message() {
+    @include font-content-m($font-weight-bold);
+    display: block;
+    color: var(--msv-error-color);
+}
+
+@mixin form-control() {
+    display: block;
+    width: 100%;
+    color: $msv-gray-tint;
+    background-color: #FFFFFF;
+    border: 1px solid #6B727A;
+    border-radius: 0;
+
+    @include msv-rubik-regular(
+        $font-weight: $msv-font-weight-normal,
+        $font-style: $msv-font-style-normal,
+        $font-size: $msv-font-size-s,
+        $line-height: $msv-line-height-s
+    );
+    text-transform: none;
+    height: 48px;
+    padding: 4px 8px;
+    background-clip: border-box;
+    border-color: transparent;
+    position: relative;
+    outline-offset: 1px;
+    -moz-appearance: textfield;
+
+    &:focus {
+        border: 0.5px solid $msv-blue;
+        outline: none;
+    }
+}
+
+@mixin form-input-label() {
+    @include msv-rubik-bold(
+        $font-weight: $msv-font-weight-500,
+        $font-style: $msv-font-style-normal,
+        $font-size: $msv-font-size-s,
+        $line-height: $msv-line-height-s
+    );
+    display: block;
+    margin-bottom: 8px;
+}
+
+@mixin form-input-box() {
+    @include msv-rubik-regular(
+        $font-weight: $msv-font-weight-400,
+        $font-style: $msv-font-style-normal,
+        $font-size: $msv-font-size-s,
+        $line-height: $msv-line-height-s
+    );
+    background: $msv-white;
+    border: 0.5px solid $msv-gray-50;
+    border-radius: 3px;
+    box-sizing: border-box;
+    display: block;
+    height: $msv-form-input-textbox-height;
+    outline: none;
+    padding: $msv-form-input-textbox-padding;
+    width: $msv-width-full;
+    -moz-appearance: textfield;
+
+    &::placeholder {
+        color: $msv-gray-40;
+    }
+
+    &:focus {
+        filter: drop-shadow(0 0 4px var(--msv-form-control-box-color));
+        border: 0.5px solid $msv-blue;
+        outline: none;
+    }
+
+    &:active {
+        border: 0.5px solid $msv-blue-50;
+        box-shadow: 4px 4px 10px var(--msv-form-control-box-color);
+    }
+}
+
+@mixin form-input-checkbox() {
+    height: 18px;
+    width: 18px;
+}
+
+@mixin form-input-radio {
+    @include vfi();
+    vertical-align: middle;
+    height: 24px;
+    width: 24px;
+    padding: 0;
+    margin: 0;
+}
+
+@mixin form-input-radio-label {
+    @include font-content-m(var(--msv-font-weight-light));
+    vertical-align: middle;
+    margin-left: 20px;
+}
+
+@mixin form-input-el($bg-color: var(--msv-bg-color), $color: var(--msv-font-primary-color), $border: transparent) {
+    @include vfi();
+    @include font-content-l();
+    height: 48px;
+    padding: 4px 8px;
+    background-color: $bg-color;
+    color: $color;
+    border-color: $border;
+}
+
+@mixin form-input-el-error() {
+    border: 1px dashed var(--msv-error-color);
+    border-left: 3px solid var(--msv-error-color);
+}
+
+@mixin form-input-error-message() {
+    @include error-message();
+    @include add-icon($msv-IncidentTriangle);
+    margin-bottom: 4px;
+
+    &::before {
+        margin-right: 8px;
+    }
+}
+
+@mixin form-input-alert-message() {
+    @include font-content-s-height-l();
+    color: $msv-text-color;
+    margin-bottom: 4px;
+}
+
+@mixin form-dropdown-decoration {
+    color: var(--msv-form-dropdown-font-color);
+    display: block;
+    width: 100%;
+    border: 0.5px solid var(--msv-form-dropdown-border-color);
+    border-radius: 3px;
+    font-size: $msv-font-size-m;
+    line-height: $msv-line-height-l;
+    font-weight: var(--msv-font-weight-normal);
+    height: $msv-form-input-textbox-height;
+    background-color: var(--msv-form-dropdown-bg-color);
+    padding: $msv-form-input-textbox-padding;
+    box-sizing: border-box;
+
+    &:focus {
+        filter: drop-shadow(0 0 4px var(--msv-form-control-box-color));
+        border: 0.5px solid var(--msv-form-dropdown-focus-border-color);
+        outline: none;
+    }
+
+    &:active {
+        border: 0.5px solid var(--msv-form-dropdown-focus-border-color);
+        box-shadow: 4px 4px 10px var(--msv-form-control-box-color);
+    }
+}
+
+@mixin alert {
+    @include msv-rubik-regular($font-size: $msv-font-size-xs, $line-height: $msv-line-height-xs);
+    text-transform: none;
+    border-radius: $msv-alert-border-radius;
+    position: relative;
+    margin-top: 15px;
+
+    @include add-icon($msv-times-circle, $icon-weight: $msv-outline-icon-weight);
+    color: var(--msv-form-error-font-color);
+
+    &::before {
+        font-size: $msv-font-size-ml;
+    }
+
+    [dir="ltr"] & {
+        + input {
+            border-left: 4px solid var(--msv-form-error-font-color);
+        }
+
+        + select {
+            border-left: 4px solid var(--msv-form-error-font-color);
+        }
+
+        &::before {
+            margin-right: $msv-alert-icon-margin;
+        }
+    }
+
+    [dir="rtl"] & {
+        + input {
+            border-right: 4px solid var(--msv-form-error-font-color);
+        }
+
+        + select {
+            border-right: 4px solid var(--msv-form-error-font-color);
+        }
+
+        &::before {
+            margin-left: $msv-alert-icon-margin;
+        }
+    }
+}
+
+@mixin alert-title {
+    @include error-message();
+    margin-bottom: 10px;
+    margin-top: 2px;
+
+    &::before {
+        @include font-awesome-icon($alert-icon);
+        margin-right: 8px;
+    }
+}

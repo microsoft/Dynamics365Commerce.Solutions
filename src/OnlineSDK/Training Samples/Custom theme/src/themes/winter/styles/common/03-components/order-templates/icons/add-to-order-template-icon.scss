@@ -1,0 +1,14 @@
+.msc-add-to-order-template-icon {
+    @include add-icon($msv-order-template-add, before, $msv-outline-icon-weight);
+    @include vfi();
+
+    &__added {
+        @include add-icon($msv-order-template-add, before);
+    }
+
+    &:not(:disabled) {
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}

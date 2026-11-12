@@ -1,0 +1,16 @@
+{
+	"$type": "styleDefinition",
+	"name": "default.summer",
+	"friendlyName": "summer theme - default style preset",
+	"description": "This is a summer default theme style preset",
+	"global": {},
+	"modules": {
+		"header": {
+			"msv-header-bg": "#fff"
+		},
+		"navigation-menu": {
+			"msv-nav-bg": "#fff",
+			"msv-nav-font-color": "#2d2d2d"
+		}
+	}
+}

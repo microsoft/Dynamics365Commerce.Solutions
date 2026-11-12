@@ -1,0 +1,37 @@
+$msv-checkout-shipping-address-images-margin-left: 24px;
+$msv-checkout-shipping-address-images-line-quantity-left: -15px;
+
+[dir="rtl"] {
+    .ms-checkout-shipping-address {
+        &__group-images {
+            &-header {
+                float: right;
+
+                &-main {
+                    &::before {
+                        padding-left: 10px;
+                    }
+                    float: left;
+                }
+
+                &-item {
+                    float: left;
+                    margin-right: 5px;
+                }
+            }
+
+            &-lines {
+                &-line-quantity {
+                    left: $msv-checkout-shipping-address-images-line-quantity-left;
+                    right: unset;
+                }
+
+                &-product {
+                    float: right;
+                    margin-right: 0;
+                    margin-left: $msv-checkout-shipping-address-images-margin-left;
+                }
+            }
+        }
+    }
+}

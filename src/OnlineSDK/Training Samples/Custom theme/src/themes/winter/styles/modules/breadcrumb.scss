@@ -1,0 +1,65 @@
+@import "../common/00-settings/colors.scss";
+@import "../common/00-settings/font.scss";
+@import "../common/00-settings/icons.scss";
+
+$msv-breadcrumb-padding-top: 29px;
+$msv-breadcrumb-padding-bottom: 44px;
+
+//style presets
+:root {
+    --msv-breadcrumb-item-font-color: var(--msv-font-primary-color);
+}
+
+.ms-breadcrumb {
+    padding-top: $msv-breadcrumb-padding-top;
+    padding-bottom: $msv-breadcrumb-padding-bottom;
+
+    .ms-breadcrumb_list {
+        color: var(--msv-breadcrumb-item-font-color);
+        float: left;
+        list-style: none;
+        padding: 0;
+
+        .ms-breadcrumb-back-button {
+            text-decoration: underline;
+            cursor: pointer;
+            float: left;
+            margin-right: 10px;
+
+            @include add-icon($msv-ChevronLeft, before);
+
+            &::before {
+                padding-right: 5px;
+            }
+        }
+    }
+
+    .ms-breadcrumb_item {
+        @include font-body-regular-m();
+        color: var(--msv-breadcrumb-item-font-color);
+        float: left;
+        position: relative;
+        margin: 0;
+        padding-right: 5px;
+
+        a[data-no-click="true"] {
+            cursor: default;
+            pointer-events: none;
+        }
+
+        .ms-breadcrumb_link {
+            color: var(--msv-breadcrumb-item-font-color);
+            text-decoration: underline;
+            text-transform: capitalize;
+        }
+
+        &.breadcrumb_item-current {
+            .ms-breadcrumb_link {
+                text-decoration: none;
+                margin-top: 2px;
+
+                @include font-body-bold-m();
+            }
+        }
+    }
+}

@@ -1,0 +1,103 @@
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: $msv-primary-font-family;
+    background: var(--msv-body-bg-color);
+    color: $msv-text-color;
+    font-size: $msv-text-size;
+
+    @include lineHeightFromFontSize($msv-text-size);
+    min-height: 100vh;
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+    margin: 0;
+}
+
+header {
+    background: var(--msv-bg-color);
+}
+
+/* Remove list styles on ul, ol elements with a class attribute */
+
+/* Remove default padding */
+ol[class],
+ul[class] {
+    padding: 0;
+    list-style: none;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+    text-decoration-skip-ink: auto;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* stylelint-disable-next-line no-descending-specificity -- Auto-suppressed. Please fix if possible. */
+a {
+    background-color: transparent;
+    border: 1px solid transparent;
+    color: var(--msv-font-primary-color);
+    display: inline-flex;
+    text-decoration: none;
+}
+
+/* Make images easier to work with */
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* Natural flow and rhythm in articles by default */
+article > * + * {
+    margin-top: 1em;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+/* Remove all animations and transitions for people that prefer not to see them */
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        /* stylelint-disable-next-line declaration-no-important -- Auto-suppressed. Please fix if possible. */
+        animation-duration: 0.01ms !important;
+        /* stylelint-disable-next-line declaration-no-important -- Auto-suppressed. Please fix if possible. */
+        animation-iteration-count: 1 !important;
+        /* stylelint-disable-next-line declaration-no-important -- Auto-suppressed. Please fix if possible. */
+        transition-duration: 0.01ms !important;
+        /* stylelint-disable-next-line declaration-no-important -- Auto-suppressed. Please fix if possible. */
+        scroll-behavior: auto !important;
+    }
+}

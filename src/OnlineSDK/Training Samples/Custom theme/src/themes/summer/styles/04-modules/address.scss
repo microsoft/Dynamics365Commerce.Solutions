@@ -1,0 +1,358 @@
+$msv-address-form-item-margin-bottom: 10px;
+$msv-address-detail-item-margin-right: 5px;
+$msv-address-select-item-margin-top: 10px;
+$msv-address-select-item-margin-bottom: 10px;
+$msv-alert-border-radius: 0;
+$msv-alert-padding: 0.75rem 1.25rem;
+$msv-alert-margin-bottom: 1rem;
+$msv-alert-icon-margin: 8px;
+$msv-address-input-min-height: 32px;
+$msv-address-select-item-radio-height: 24px;
+$msv-address-select-item-radio-width: 24px;
+$msv-address-select-item-address-detail-padding-left: 48px;
+$msv-address-button-save-margin-right: 20px;
+$msv-account-management-address-margin-bottom: 20px;
+$msv-account-management-address-list-button-add-empty-margin-bottom: 16px;
+$msv-account-management-address-list-primary-margin-top: 20px;
+$msv-account-management-address-list-primary-heading-margin-bottom: 12px;
+$msv-account-management-address-list-primary-list-border-color: $msv-gray-300;
+$msv-account-management-address-list-primary-list-address-detail-item-margin-right: 5px;
+$msv-primary-list-address-detail-item-newline-margin-right: 0;
+$msv-account-management-address-list-primary-list-phone-icon-margin-right: 5px;
+$msv-account-management-address-list-button-primary-margin-top: 15px;
+$msv-account-management-address-textbox-height: 48px;
+
+//style presets
+:root {
+    --msv-address-font-size: var(--msv-body-font-size-l);
+    --msv-address-font-color: var(--msv-font-primary-color);
+    --msv-address-border: #{$msv-gray-300};
+    --msv-address-font-family: #{$msv-primary-font-family};
+    --msv-checkout-shipping-address-font-color: var(--msv-font-primary-color);
+
+    //heading
+    --msv-address-heading-font-size: var(--msv-body-font-size-xl);
+    --msv-address-heading-font-color: var(--msv-font-primary-color);
+    --msv-address-primary-heading-font-size: var(--msv-body-font-size-m);
+    --msv-address-primary-heading-font-color: var(--msv-font-primary-color);
+    --msv-address-primary-text-font-size: var(--msv-body-font-size-s);
+    --msv-address-primary-text-font-color: var(--msv-font-primary-color);
+
+    // error
+    --msv-address-error-bg: var(--msv-error-color);
+    --msv-address-error-border: var(--msv-error-color);
+    --msv-address-error-font-color: var(--msv-font-secondary-color);
+    --msv-address-error-font-size: var(--msv-body-font-size-m);
+
+    // link
+    --msv-address-link: var(--msv-font-primary-color);
+    --msv-address-link-size: var(--msv-body-font-size-m);
+
+    // primary button
+    --msv-address-primary-btn-bg: var(--msv-accent-brand-color);
+    --msv-address-primary-btn-font-color: var(--msv-font-secondary-color);
+    --msv-address-primary-btn-border: var(--msv-accent-brand-color);
+
+    // secondary button
+    --msv-address-secondary-btn-bg: var(--msv-secondary-button-background-color);
+    --msv-address-secondary-btn-font-color: var(--msv-font-primary-color);
+    --msv-address-secondary-btn-border: var(--msv-accent-brand-color);
+}
+
+.msc-address-form {
+    clear: both;
+
+    &__label {
+        color: var(--msv-checkout-shipping-address-font-color);
+        display: block;
+        font-size: var(--msv-address-font-size);
+        line-height: $msv-line-height-l;
+        margin-bottom: 5px;
+    }
+
+    &__item {
+        margin-bottom: $msv-address-form-item-margin-bottom;
+    }
+
+    &__item-isprimary {
+        display: flex;
+
+        .msc-address-form__label {
+            margin-top: auto;
+            margin-bottom: auto;
+            margin-right: 10px;
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+
+        .msc-address-form__input-checkbox {
+            width: 20px;
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+
+    &__item-county {
+        display: none;
+    }
+
+    &__input-text {
+        padding: 6px 8px;
+    }
+
+    .MicrosoftMap {
+        position: relative;
+        width: 100%;
+
+        .as_container_search {
+            width: 100%;
+        }
+    }
+
+    &__input,
+    &__dropdown {
+        @include vfi();
+        color: var(--msv-checkout-shipping-address-font-color);
+        display: block;
+        width: 100%;
+        border: none;
+        /* stylelint-disable-next-line declaration-no-important -- Auto-suppressed. Please fix if possible. */
+        box-sizing: border-box !important;
+        border-radius: 2px;
+        font-size: var(--msv-address-font-size);
+        line-height: $msv-line-height-l;
+        font-weight: var(--msv-font-weight-normal);
+        height: $msv-account-management-address-textbox-height;
+    }
+
+    &__alert {
+        display: block;
+    }
+
+    &__button-save {
+        @include primary-button(var(--msv-address-primary-btn-bg),
+        var(--msv-address-primary-btn-font-color), var(--msv-address-primary-btn-border));
+        margin-right: $msv-address-button-save-margin-right;
+    }
+
+    &__button-cancel {
+        @include secondary-button(var(--msv-address-secondary-btn-bg),
+        var(--msv-address-secondary-btn-font-color), var(--msv-address-secondary-btn-border));
+    }
+
+    .address-form__item-invalid &__alert {
+        @include font-content(var(--msv-font-weight-bold),var(--msv-address-error-font-size), $msv-line-height-m);
+        font-family: var(--msv-address-font-family);
+        text-transform: none;
+        border-radius: $msv-alert-border-radius;
+        position: relative;
+        padding: $msv-alert-padding;
+        margin-bottom: $msv-alert-margin-bottom;
+        border: 1px solid var(--msv-address-error-border);
+        color: var(--msv-address-error-font-color);
+        background-color: var(--msv-address-error-bg);
+        margin-top: $msv-alert-line-margin-top;
+
+        &::before {
+            margin-right: $msv-alert-icon-margin;
+
+            @include msv-icon();
+            content: $msv-IncidentTriangle;
+        }
+    }
+}
+
+.msc-address-detail {
+    &__item {
+        margin-right: $msv-address-detail-item-margin-right;
+    }
+
+    &__item-newline {
+        margin-right: 0;
+
+        &::after {
+            content: "\A";
+            white-space: pre;
+        }
+    }
+
+    &__item-address-detail_Phone {
+        display: block;
+    }
+
+    &__main-item-empty {
+        display: none;
+    }
+
+    &__item-phone {
+        @include add-icon($msv-Phone);
+
+        &-label {
+            @include visually-hidden();
+        }
+
+        &::before {
+            margin-right: $msv-account-management-address-list-primary-list-phone-icon-margin-right;
+        }
+
+        &.msc-address-detail__item-empty {
+            display: none;
+        }
+    }
+}
+
+.msc-address-select {
+    clear: both;
+
+    &__input-radio {
+        height: $msv-address-select-item-radio-height;
+        width: $msv-address-select-item-radio-width;
+        position: absolute;
+        top: 0;
+    }
+
+    &__item {
+        display: flex;
+        align-items: center;
+        margin-top: $msv-address-select-item-margin-top;
+        margin-bottom: $msv-address-select-item-margin-bottom;
+        position: relative;
+
+        .msc-address-detail {
+            padding-left: $msv-address-select-item-address-detail-padding-left;
+        }
+    }
+
+    &__input {
+        @include vfi();
+        @include form-input-checkbox();
+    }
+
+    &__button-add {
+        @include vfi();
+        @include primary-button(var(--msv-address-primary-btn-bg),
+        var(--msv-address-primary-btn-font-color), var(--msv-address-primary-btn-border));
+    }
+}
+
+// mixin
+
+@mixin address-button {
+    cursor: pointer;
+}
+
+.ms-account-management-address {
+    margin-bottom: $msv-account-management-address-margin-bottom;
+
+    .ms-address-list {
+        margin-bottom: $msv-account-management-address-margin-bottom;
+    }
+
+    .msc-address-list__heading {
+        @include font-content(var(--msv-font-weight-normal), var(--msv-address-heading-font-size), $msv-line-height-xl);
+        color: var(--msv-address-heading-font-color);
+        margin-bottom: 28px;
+    }
+
+    .msc-address-list__add-empty {
+        margin-bottom: $msv-account-management-address-list-button-add-empty-margin-bottom;
+    }
+
+    .msc-address-list__button-add {
+        @include primary-button(var(--msv-address-primary-btn-bg),
+        var(--msv-address-primary-btn-font-color), var(--msv-address-primary-btn-border));
+    }
+
+    .msc-address-list__primary {
+        border-top: 1px solid var(--msv-address-border);
+        margin-top: $msv-account-management-address-list-primary-margin-top;
+        padding: 20px 0;
+
+        .msc-address-list__primary-heading {
+            @include font-content(var(--msv-font-weight-bold),
+            var(--msv-address-primary-heading-font-size), $msv-line-height-m);
+            color: var(--msv-address-primary-heading-font-color);
+            margin-bottom: $msv-account-management-address-list-primary-heading-margin-bottom;
+        }
+
+        .msc-address-list__primary-list {
+            padding: 20px 0;
+            border-bottom: 1px dashed var(--msv-address-border);
+
+            &::nth-child(2) {
+                padding-top: 0;
+            }
+
+            &::last-child {
+                border-bottom: none;
+                padding-bottom: 0;
+            }
+
+            .msc-address-detail {
+                clear: both;
+
+                @include font-content(var(--msv-font-weight-normal),
+                var(--msv-address-primary-text-font-size), $msv-line-height-s);
+                color: var(--msv-address-primary-text-font-color);
+
+                .msc-address-detail__item {
+                    margin-right: $msv-account-management-address-list-primary-list-address-detail-item-margin-right;
+                }
+
+                .msc-address-detail__item-newline {
+                    margin-right: $msv-primary-list-address-detail-item-newline-margin-right;
+
+                    &::after {
+                        content: "\A";
+                        white-space: pre;
+                    }
+                }
+            }
+
+            .msc-address-list__button-primary {
+                @include secondary-button(var(--msv-address-secondary-btn-bg),
+                var(--msv-address-secondary-btn-font-color), var(--msv-address-secondary-btn-border));
+                display: block;
+                margin-top: $msv-account-management-address-list-button-primary-margin-top;
+            }
+
+            .msc-address-list__button-edit {
+                @include button-link(var(--msv-address-link));
+                @include font-content(var(--msv-font-weight-normal), var(--msv-address-link-size), $msv-line-height-m);
+                text-transform: none;
+                border-radius: 0;
+                padding: 6px 12px 6px 0;
+                text-decoration: underline;
+            }
+
+            .msc-address-list__button-remove {
+                @include button-link(var(--msv-address-link));
+                @include font-content(var(--msv-font-weight-normal), var(--msv-address-link-size), $msv-line-height-m);
+                text-transform: none;
+                border-radius: 0;
+                padding: 6px 12px 6px 0;
+                text-decoration: underline;
+            }
+        }
+
+        .msc-address-list__primary-list:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+    }
+}
+
+.remove-address-screen-reader {
+    border: 0;
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}

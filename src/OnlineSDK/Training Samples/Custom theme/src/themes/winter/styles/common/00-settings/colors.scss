@@ -1,0 +1,131 @@
+// Confirmed colors
+$msv-black: #000000;
+$msv-blue: #2266E3;
+$msv-white: #FFFFFF;
+$msv-red-10: #9A212A;
+$msv-yellow: #FFFF00;
+
+$msv-gray-10: #100E11;
+$msv-gray-20: #2C262D;
+$msv-gray-30: #463D48;
+$msv-gray-40: #595959;
+$msv-gray-50: #C4C4C4;
+$msv-gray-60: #161316;
+$msv-gray-70: #201C21;
+$msv-gray-75: #BFBFBF;
+$msv-gray-80: #362F37;
+$msv-gray-100: #F8F7F6;
+$msv-gray-120: #6E726E;
+$msv-gray-130: #817979;
+$msv-gray-140: #949494;
+$msv-gray-160: #323130;
+$msv-gray-200: #868686;
+$msv-gray-210: #E8E8E8;
+$msv-gray-300: #D1D1D1;
+$msv-gray-400: #6B727A;
+$msv-gray-500: #616365;
+$msv-gray-800: #8F8F8F;
+$msv-gray-900: #323130;
+$msv-gray-910: #2D2D2D;
+$msv-gray-920: #1D1D1D;
+$msv-gray-930: #EDEDED;
+$msv-gray-940: #B6BCC1;
+$msv-white-10: #EBEBEB;
+$msv-white-20: #F5F5F5;
+
+$msv-blue-10: #CCDEFF;
+$msv-blue-20: #E7EFFF;
+$msv-blue-30: #0742AB;
+$msv-blue-40: #0B53CE;
+$msv-blue-50: #1F6CF9;
+$msv-blue-60: #9CBEFF;
+$msv-blue-70: #1264A0;
+$msv-blue-80: #4083FF;
+$msv-blue-90: #538FFF;
+$msv-blue-100: #6EA1FF;
+$msv-blue-light: #E7EFFF;
+
+$msv-red: #A80000;
+$msv-pink: #FFE7E7;
+$msv-green-10: #107C10;
+$msv-green-20: #DFF6DD;
+$msv-green-30: #C8F1D4;
+$msv-green-40: #3FF23F;
+$msv-black-10: #333333;
+$msv-brown: #600000;
+$msv-blue-tint: #0094FF;
+
+$msv-transparent: transparent;
+
+// Semantic colors
+$msv-primary: $msv-gray-20;
+$msv-primary-hover: $msv-gray-70;
+$msv-primary-pressed: $msv-gray-60;
+$msv-secondary: $msv-gray-50;
+$msv-secondary-hover: $msv-white-20;
+$msv-text-color: $msv-gray-20;
+$msv-error-color: $msv-red-10;
+
+$msv-link-color: $msv-blue;
+$msv-divider-color: $msv-gray-40;
+
+// Text color
+$msv-font-primary-color: $msv-gray-20;
+$msv-font-secondary-color: $msv-white;
+
+// Accent colors
+$msv-accent-brand-color: $msv-gray-20;
+$msv-accent-brand-alt-color: $msv-white;
+
+// Stroke colors
+$msv-stroke-line: $msv-gray-50;
+
+// Events
+$msv-button-primary-rest-color: $msv-primary;
+$msv-button-primary-hover-color: $msv-primary-hover;
+$msv-button-primary-pressed-color: $msv-gray-60;
+$msv-button-primary-disabled-color: $msv-gray-50;
+
+$msv-button-secondary-rest-color: $msv-white;
+$msv-button-secondary-hover-color: $msv-white-20;
+$msv-button-secondary-pressed-color: $msv-gray-10;
+$msv-button-secondary-disabled-color: $msv-white;
+
+// Social button color variables
+$facebook-bg-color: #3C3C41;
+$facebook-hover-color: #1D1D1D;
+$microsoft-bg-color: #3C3C41;
+$microsoft-hover-color: #1D1D1D;
+$social-bg-color: #3C3C41;
+$social-hover-color: #1D1D1D;
+
+// Style presets
+:root {
+    // Background
+    --msv-bg-color: #{$msv-white};
+    --msv-body-bg-color: #{$msv-white};
+
+    // Brand accents
+    --msv-accent-brand-color: #{$msv-primary};
+    --msv-accent-brand-alt-color: #{$msv-primary-hover};
+    --msv-accent-secondary-btn: #{$msv-secondary-hover};
+
+    // Font
+    --msv-font-primary-color: #{$msv-gray-20};
+    --msv-font-secondary-color: #{$msv-white};
+    --msv-font-disabled-color: #{$msv-gray-50};
+
+    // Events
+    --msv-button-primary-rest-color: #{$msv-primary};
+    --msv-button-primary-hover-color: #{$msv-primary-hover};
+    --msv-button-primary-pressed-color: #{$msv-gray-60};
+    --msv-button-primary-disabled-color: #{$msv-gray-50};
+    --msv-button-secondary-rest-color: #{$msv-white};
+    --msv-button-secondary-hover-color: #{$msv-white-20};
+    --msv-button-secondary-pressed-color: #{$msv-white-10};
+    --msv-button-secondary-disabled-color: #{$msv-white};
+
+    // Modal
+    --msv-modal-bg-color: #{$msv-white};
+    --msv-modal-font-color: var(--msv-font-primary-color);
+}

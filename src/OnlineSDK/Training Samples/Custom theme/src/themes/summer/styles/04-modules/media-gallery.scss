@@ -1,0 +1,441 @@
+$max-height-m: 732px;
+$max-height-l: 852px;
+$carousel-padding-left: 20px;
+$thumbnail-height: 100px;
+$thumbnail-flipper-height: 30px;
+$carousel-tooltip-padding:4px;
+$carousel-indicators-border: 1px;
+$carousel-thumb-image-margin: 5px;
+$msc-carousel-min-height: 600px;
+$msc-carousel-empty-image-size: 600px;
+$msc-carousel-empty-image-size-mobile: 325px;
+$msv-breakpoint-zoom-container: 1200px;
+$ms-media-gallery-thumbnail-item-padding: 0 1px 1px 1px;
+//style presets
+:root {
+    --msv-media-gallery-bg: #{$msv-black};
+
+    // Flipper
+    --msv-media-gallery-thumbnail-flipper-bg: var(--msv-bg-color);
+    --msv-media-gallery-thumbnail-flipper-border: var(--msv-border-color);
+    --msv-media-gallery-thumbnail-flipper-font-color: #{$msv-gray-500};
+}
+
+.ms-media-gallery {
+    display: block;
+
+    &.vertical {
+        display: inline-flex;
+
+        .msc-ss-carousel-slide {
+            display: block;
+        }
+
+        .ms-media-gallery__thumbnail-item {
+            @include image($thumbnail-height);
+        }
+
+        .ms-media-gallery__thumbnail-item:not(:last-child) {
+            margin-bottom: $carousel-thumb-image-margin;
+            margin-right: 0;
+        }
+
+        .ms-media-gallery__carousel {
+            margin-bottom: 0;
+        }
+    }
+
+    .ms-media-gallery__item {
+        @media (max-width: $msv-breakpoint-m) {
+            cursor: context-menu;
+        }
+
+        @include image($msc-carousel-empty-image-size);
+    }
+
+    .ms-media-gallery__thumbnails-container {
+        display: none;
+        order: 0;
+        flex-grow: 0;
+    }
+
+    /* stylelint-disable-next-line no-descending-specificity -- Auto-suppressed. Please fix if possible. */
+    .ms-media-gallery__thumbnail-item:not(:last-child) {
+        margin-right: $carousel-thumb-image-margin;
+    }
+
+    /* stylelint-disable-next-line no-descending-specificity -- Auto-suppressed. Please fix if possible. */
+    .ms-media-gallery__carousel {
+        margin-bottom: $carousel-padding-left;
+        align-items: start;
+
+        order: 1;
+        flex-grow: 1;
+    }
+
+    /* stylelint-disable-next-line no-descending-specificity -- Auto-suppressed. Please fix if possible. */
+    .msc-ss-carousel-slide {
+        display: flex;
+    }
+
+    .msc-flipper {
+        background: var(--msv-media-gallery-thumbnail-flipper-bg);
+        border: 1px solid var(--msv-media-gallery-thumbnail-flipper-border);
+        border-radius: 0;
+        color: var(--msv-media-gallery-thumbnail-flipper-font-color);
+        flex: 0 1 $thumbnail-flipper-height;
+        height: $thumbnail-flipper-height;
+        left: auto;
+        position: absolute;
+        top: auto;
+        transform: none;
+        width: 100%;
+    }
+
+    .msc-ss-carousel__flipper {
+        &.disabled {
+            display: none;
+        }
+    }
+
+    .msc-ss-carousel-vert__flipper {
+        &.disabled {
+            display: none;
+        }
+    }
+
+    .msc-carousel__control__prev,
+    .msc-carousel__control__next {
+        background: var(--msv-media-gallery-thumbnail-flipper-bg);
+        border: 1px solid var(--msv-media-gallery-thumbnail-flipper-border);
+        color: var(--msv-media-gallery-thumbnail-flipper-font-color);
+    }
+
+    .msc-ss-carousel-vert__flipper--next {
+        bottom: 0;
+    }
+
+    .msc-tooltip-inner {
+        background-color: var(--msv-media-gallery-bg);
+        color: var(--msv-font-secondary-color);
+        padding: $carousel-tooltip-padding $carousel-tooltip-padding;
+    }
+
+    .msc-carousel__indicators li {
+        &.active {
+            background-color: var(--msv-media-gallery-bg);
+        }
+        border: $carousel-indicators-border solid $msv-black;
+        background-color: var(--msv-bg-color);
+    }
+}
+
+@media (min-width: $msv-breakpoint-m) {
+    .ms-media-gallery {
+        .msc-carousel__item {
+            max-height: $max-height-m;
+        }
+    }
+}
+
+@media (min-width: $msv-breakpoint-l) {
+    .ms-media-gallery {
+        &.vertical {
+            padding-left: 0;
+
+            .ms-media-gallery__carousel {
+                margin-left: $carousel-padding-left;
+            }
+        }
+
+        .msc-image-container img:focus {
+            outline: none;
+        }
+
+        .msc-carousel__indicators {
+            display: none;
+        }
+
+        .msc-carousel__control__prev {
+            display: none;
+        }
+
+        .msc-carousel__control__next {
+            display: none;
+        }
+
+        .ms-media-gallery__thumbnails-container {
+            display: flex;
+        }
+
+        .ms-media-gallery__thumbnail-item {
+            height: $thumbnail-height;
+            padding: $ms-media-gallery-thumbnail-item-padding;
+        }
+
+        .ms-media-gallery__thumbnail-item:first-child {
+            padding-top: 1px;
+        }
+    }
+}
+
+//mobile vp
+
+@media (max-width: $msv-breakpoint-m) {
+    .ms-media-gallery {
+        width: 100%;
+        height: auto;
+        display: inline-flex;
+        flex-wrap: nowrap;
+        padding-top: 100%;
+        max-height: 542px;
+
+        .ms-media-gallery__item {
+            @include image($msc-carousel-empty-image-size-mobile);
+        }
+
+        .ms-media-gallery__carousel {
+            width: 100%;
+            object-position: top;
+            object-fit: contain;
+            position: absolute;
+            top: 0;
+            left: 0;
+            align-items: center;
+
+            .msc-carousel__inner {
+                overflow: unset;
+
+                .msc-carousel__item {
+                    max-height: 542px;
+
+                    .ms-inline-zoom {
+                        float: none;
+
+                        img {
+                            height: 100%;
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.ms-containerZoom {
+    &__container {
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+
+        img {
+            cursor: zoom-in;
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    &__result {
+        overflow: hidden;
+        position: fixed;
+        background-color: #FFFFFF;
+        background-repeat: no-repeat;
+        z-index: 1140;
+        box-shadow: rgba(0, 0, 0, 0.25) 0 6px 8px 2px;
+        border: 1px solid rgb(148, 148, 148);
+        right: 10px;
+
+        @media (max-width: $msv-breakpoint-m) {
+            display: none;
+        }
+    }
+
+    &__image {
+        border: none;
+        left: 0;
+        max-width: none;
+        max-height: none;
+        position: absolute;
+        top: 0;
+    }
+
+    &__zoom-lens {
+        position: absolute;
+        cursor: zoom-out;
+        width: 200px;
+        height: 180px;
+        background-position: 0 0;
+        top: -200px;
+        left: -200px;
+        overflow: hidden;
+        zoom: 1;
+        background-color: $msv-white;
+        border: 1px solid #000000;
+        opacity: 0;
+
+        &__opacity {
+            opacity: 0.4;
+        }
+
+        @media (max-width: $msv-breakpoint-m) {
+            display: none;
+        }
+    }
+}
+
+.ms-inline-zoom {
+    overflow: hidden;
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    img {
+        cursor: zoom-in;
+        width: 100%;
+        height: 100%;
+
+        &.zoomed {
+            cursor: zoom-out;
+        }
+    }
+
+    &__zoomedImg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        border: none;
+        max-width: none;
+        max-height: none;
+        width: 0;
+        height: 0;
+
+        @media (max-width: $msv-breakpoint-m) {
+            display: none;
+            opacity: 0;
+        }
+    }
+}
+
+.ms-fullscreen-section {
+    position: relative;
+    display: inline-block;
+
+    img {
+        vertical-align: top;
+    }
+
+    &__overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+
+        /* for dark overlay on top of the image */
+        background: transparent;
+        opacity: 0;
+        transition: opacity 0.35s, transform 0.35s;
+
+        &:hover,
+        &:focus-within {
+            opacity: 0.9;
+        }
+    }
+
+    &:hover {
+        opacity: 0.8;
+    }
+
+    &__magnifying-glass-icon {
+        color: $msv-white;
+        text-align: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        -moz-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        -o-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        border-radius: 50%;
+        padding: 20px;
+        border: 1px solid #FFFFFF;
+        line-height: 1;
+
+        @include add-icon($msv-Add, after);
+
+        &:hover {
+            background: rgba(0, 0, 0, 0.8);
+            color: $msv-white;
+        }
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .ms-fullscreen-section {
+        display: block;
+    }
+}
+
+.msc-modal {
+    .msc-fullview-modal-body {
+        display: flex;
+        justify-content: center;
+
+        .msc-carousel {
+            align-items: unset;
+            position: unset;
+            width: 100%;
+
+            &__inner {
+                display: flex;
+                justify-content: space-around;
+            }
+
+            &__item {
+                display: flex;
+                justify-content: center;
+                float: unset;
+                margin-right: unset;
+
+                .ms-media-gallery__item.msc-mobile-zoomed-in {
+                    transform-origin: top left;
+                }
+
+                &:not(.active) {
+                    display: none;
+                }
+
+                img {
+                    display: inline;
+                    object-fit: contain;
+                    height: 100%;
+                    width: 100%;
+                }
+
+                .ms-inline-zoom {
+                    float: unset;
+                    position: unset;
+
+                    .ms-inline-zoom__zoomedImg {
+                        max-height: unset;
+                    }
+
+                    &.zoomed img {
+                        &:not(.ms-inline-zoom__zoomedImg) {
+                            visibility: hidden;
+                        }
+                    }
+                }
+            }
+        }
+
+        .msc-carousel__indicators {
+            display: none;
+        }
+    }
+}

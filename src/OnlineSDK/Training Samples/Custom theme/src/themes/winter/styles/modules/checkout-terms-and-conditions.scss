@@ -1,0 +1,103 @@
+@import "../common/00-settings/colors.scss";
+@import "../common/00-settings/font.scss";
+@import "../common/00-settings/icons.scss";
+@import "../common/02-generic/button.scss";
+
+$msv-checkout-terms-and-conditions-error-padding: 20px;
+$msv-checkout-terms-and-conditions-icon-margin-right: 22px;
+$msv-checkout-terms-and-conditions-margin-left-right: auto;
+$msv-checkout-terms-and-conditions-error-message-margin-left: 42px;
+$msv-checkout-terms-and-conditions-checkbox-height-width: 16px;
+$msv-checkout-terms-and-conditions-checkbox-margin-right: 10px;
+$msv-checkout-terms-and-condition-error-margin-bottom: 10px;
+
+$msv-checkout-terms-and-conditions-button-save-margin-right: 20px;
+$msv-checkout-terms-and-conditions-button-margin-top: 12px;
+
+:root {
+    // text
+    --msv-checkout-terms-and-conditions-font-color: var(--msv-font-primary-color);
+    --msv-checkout-terms-and-conditions-font-size: var(--msv-body-font-size-m);
+
+    // error
+    --msv-checkout-terms-and-conditions-error-message-bg: #{$msv-pink};
+    --msv-checkout-terms-and-conditions-error-message-border: transparent;
+    --msv-checkout-terms-and-conditions-error-message-color: #{$msv-red};
+
+    // primary button
+    --msv-checkout-terms-and-conditions-primary-btn-bg: var(--msv-accent-brand-color);
+    --msv-checkout-terms-and-conditions-primary-btn-font-color: var(--msv-font-secondary-color);
+    --msv-checkout-terms-and-conditions-primary-btn-border: var(--msv-accent-brand-color);
+
+    // secondary button
+    --msv-checkout-terms-and-conditions-secondary-btn-bg: var(--msv-secondary-button-background-color);
+    --msv-checkout-terms-and-conditions-secondary-btn-font-color: var(--msv-font-primary-color);
+    --msv-checkout-terms-and-conditions-secondary-btn-border: var(--msv-accent-brand-color);
+}
+
+.ms-checkout-terms-and-conditions {
+    &__container {
+        align-items: center;
+        color: var(--msv-checkout-terms-and-conditions-font-color);
+        display: flex;
+        font-size: var(--msv-checkout-terms-and-conditions-font-size);
+
+        a {
+            color: var(--msv-checkout-terms-and-conditions-font-color);
+            font-size: var(--msv-checkout-terms-and-conditions-font-size);
+            text-decoration: underline;
+        }
+    }
+
+    &__input-checkbox {
+        margin-right: $msv-checkout-terms-and-conditions-checkbox-margin-right;
+        min-height: $msv-checkout-terms-and-conditions-checkbox-height-width;
+        min-width: $msv-checkout-terms-and-conditions-checkbox-height-width;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    &__error {
+        background-color: var(--msv-checkout-terms-and-conditions-error-message-bg);
+        border: 1px solid var(--msv-checkout-terms-and-conditions-error-message-border);
+        border-radius: 3px;
+        padding: $msv-checkout-terms-and-conditions-error-padding;
+        margin-bottom: $msv-checkout-terms-and-condition-error-margin-bottom;
+
+        &-title {
+            @include font-body-bold-m();
+            color: var(--msv-checkout-terms-and-conditions-error-message-color);
+
+            @include add-icon($msv-times-circle, before);
+
+            &::before {
+                margin-right: $msv-checkout-terms-and-conditions-icon-margin-right;
+                font-size: $msv-font-size-ml;
+            }
+            display: flex;
+            align-items: center;
+        }
+
+        &-message {
+            display: block;
+
+            @include font-body-regular-m();
+            margin-left: $msv-checkout-terms-and-conditions-error-message-margin-left;
+            color: var(--msv-checkout-terms-and-conditions-error-message-color);
+        }
+    }
+
+    &__button-save {
+        @include primary-button-light();
+        margin-top: $msv-checkout-terms-and-conditions-button-margin-top;
+        margin-right: $msv-checkout-terms-and-conditions-button-save-margin-right;
+    }
+
+    &__button-edit,
+    &__button-cancel {
+        @include secondary-button-light();
+        margin-top: $msv-checkout-terms-and-conditions-button-margin-top;
+    }
+}
