@@ -1,0 +1,8 @@
+[dir="rtl"] {
+    .msc-global-notifications-list-container {
+        @media (min-width: $msv-breakpoint-m) {
+            right: unset;
+            left: 30px;
+        }
+    }
+}

@@ -1,0 +1,12 @@
+$video-player-width: 100%;
+
+// Style presets
+:root {
+    --msv-video-player-width: #{$video-player-width};
+}
+
+.ms-video-player {
+    .msc-videoplayer {
+        width: var(--msv-video-player-width);
+    }
+}
