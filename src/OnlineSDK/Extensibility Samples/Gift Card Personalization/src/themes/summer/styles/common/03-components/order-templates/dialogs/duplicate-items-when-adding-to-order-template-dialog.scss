@@ -1,0 +1,61 @@
+$msv-duplicate-items-when-adding-to-order-template-dialog-cancel-button-margin: 0 20px;
+$msv-duplicate-items-when-adding-to-order-template-dialog-footer-margin-top: 20px;
+$msv-duplicate-items-when-adding-to-order-template-dialog-footer-margin-m: 20px 0 12px;
+
+.msc-modal {
+    .msc-duplicate-items-when-adding-to-order-template-dialog {
+        &__dialog {
+            &__content {
+                display: flex;
+                flex-wrap: wrap;
+            }
+
+            &__description {
+                @include font-body-regular-m();
+            }
+
+            &__header {
+                .msc-modal__title {
+                    @include font-heading-h5-l();
+                    @include add-icon($msv-information);
+                    display: flex;
+                    align-items: center;
+
+                    &::before {
+                        margin-right: 10px;
+                    }
+
+                    @media (max-width: $msv-breakpoint-m) {
+                        @include font-heading-h5-s();
+                    }
+
+                    @media (min-width: $msv-breakpoint-m) and (max-width: $msv-breakpoint-l) {
+                        @include font-heading-h5-m();
+                    }
+                }
+            }
+
+            &__footer {
+                margin-top: $msv-duplicate-items-when-adding-to-order-template-dialog-footer-margin-top;
+            }
+
+            &__update-quantity-button {
+                @include primary-button-light();
+            }
+
+            &__cancel-button {
+                @include secondary-button-light();
+                margin: $msv-duplicate-items-when-adding-to-order-template-dialog-cancel-button-margin;
+            }
+
+            @media screen and (max-width: $msv-breakpoint-m) {
+                &__footer {
+                    button {
+                        width: 100%;
+                        margin: $msv-duplicate-items-when-adding-to-order-template-dialog-footer-margin-m;
+                    }
+                }
+            }
+        }
+    }
+}

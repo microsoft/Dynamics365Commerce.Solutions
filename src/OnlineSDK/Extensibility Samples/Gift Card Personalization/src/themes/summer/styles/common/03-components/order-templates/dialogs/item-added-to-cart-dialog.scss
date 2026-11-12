@@ -1,0 +1,135 @@
+$msv-dialog-width: 400px;
+$msv-dialog-modal-content-body-text-padding: 4px 0;
+$msv-dialog-modal-content-empty-image-padding-bottom: 10px;
+$msv-dialog-modal-content-button-margin: 6px 0;
+$msv-dialog-button-width: 100%;
+$msv-dialog-msc-empty_image-size: 116px;
+$msc-item-added-to-cart-dialog-img-margin: 28px auto;
+$msv-modal-item-added-to-cart-dialog-header-padding: 25px 36px 19px;
+$msv-modal-item-added-to-cart-dialog-body-padding: 0 36px;
+$msv-modal-item-added-to-cart-dialog-footer-padding: 22px 36px;
+
+.msc-modal {
+    .msc-item-added-to-cart-dialog {
+        max-width: $msv-dialog-width;
+
+        .msc-modal__content {
+            padding: 0;
+        }
+
+        &__dialog {
+            &__header {
+                border-bottom: 0.5px solid $msv-gray-50;
+                padding: $msv-modal-item-added-to-cart-dialog-header-padding;
+
+                .msc-modal__title {
+                    @include font-heading-h3-l();
+
+                    @media (min-width: $msv-breakpoint-m+1) and (max-width: $msv-breakpoint-l) {
+                        @include font-heading-h3-m();
+                    }
+
+                    @media (max-width: $msv-breakpoint-m) {
+                        @include font-heading-h3-s();
+                    }
+                }
+            }
+
+            &__body {
+                @include font-body-regular-m();
+                text-align: center;
+                padding: $msv-modal-item-added-to-cart-dialog-body-padding;
+
+                @include image($msv-dialog-msc-empty_image-size);
+
+                .msc-image-container {
+                    margin-right: auto;
+                    margin-left: auto;
+
+                    .msc-empty_image {
+                        padding-bottom: $msv-dialog-modal-content-empty-image-padding-bottom;
+                    }
+                }
+            }
+
+            &__content {
+                img {
+                    margin: $msc-item-added-to-cart-dialog-img-margin;
+                }
+            }
+
+            &__product-name {
+                @include font-heading-h5-l();
+
+                padding: $msv-dialog-modal-content-body-text-padding;
+            }
+
+            &__product-dimensions {
+                @include font-body-regular-m();
+                padding: $msv-dialog-modal-content-body-text-padding;
+            }
+
+            &__product-price {
+                @include font-heading-h6-l();
+                padding: $msv-dialog-modal-content-body-text-padding;
+
+                .msc-price__strikethrough {
+                    text-decoration: line-through;
+                    color: $msv-gray-40;
+                    margin-right: 5px;
+                }
+            }
+
+            &__view-cart-button {
+                @include primary-button-light();
+                margin: $msv-dialog-modal-content-button-margin;
+                width: $msv-dialog-button-width;
+                height: auto;
+                text-align: center;
+                justify-content: center;
+            }
+
+            &__continue-shopping {
+                @include secondary-button-light();
+                margin: $msv-dialog-modal-content-button-margin;
+                width: $msv-dialog-button-width;
+                height: auto;
+                text-align: center;
+            }
+
+            &__footer {
+                flex-wrap: wrap;
+                box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.04);
+                padding: $msv-modal-item-added-to-cart-dialog-footer-padding;
+            }
+
+            @media (min-width: $msv-breakpoint-m+1) and (max-width: $msv-breakpoint-l) {
+                &__product-name {
+                    @include font-heading-h5-m();
+                }
+
+                &__product-price {
+                    @include font-heading-h6-m();
+                }
+            }
+
+            @media (max-width: $msv-breakpoint-m) {
+                &__product-name {
+                    @include font-heading-h5-s();
+                }
+
+                &__product-price {
+                    @include font-heading-h6-s();
+                }
+            }
+        }
+    }
+
+    .msc-modal__dialog:not(.msc-modal-input-required).msc-item-added-to-cart-dialog {
+        @media (max-width: $msv-breakpoint-l) {
+            margin: auto;
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+}

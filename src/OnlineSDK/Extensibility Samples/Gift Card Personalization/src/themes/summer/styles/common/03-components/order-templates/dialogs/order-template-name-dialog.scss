@@ -1,0 +1,149 @@
+$msv-modal-order-template-name-dialog-order-template-name-margin-top: 8px;
+$msv-modal-order-template-name-dialog-order-template-name-font-size: 18px;
+$msv-modal-order-template-name-dialog-order-template-description-margin-top: 28px;
+$msv-modal-order-template-name-dialog-cancel-button-margin: 0 12px;
+$msv-modal-order-template-name-dialog-footer-padding: 22px 36px;
+$msv-modal-order-template-name-dialog-footer-padding-mobile: 18px 16px;
+$msv-modal-order-template-name-dialog-header-padding: 25px 0 19px 36px;
+$msv-modal-order-template-name-dialog-header-padding-tablet: 21px 0 23px 36px;
+$msv-modal-order-template-name-dialog-header-padding-mobile: 17px 0 21px 16px;
+$msv-modal-order-template-name-dialog-header-margin-bottom: 35px;
+$msv-modal-order-template-name-dialog-header-margin-bottom-mobile: 32px;
+$msv-modal-order-template-name-dialog-body-padding: 0 50px 0 36px;
+$msv-modal-order-template-name-dialog-body-padding-tablet: 0 54px 0 36px;
+$msv-modal-order-template-name-dialog-body-padding-mobile: 0 16px;
+$msv-modal-order-template-name-dialog-body-margin-bottom: 82px;
+$msv-modal-order-template-name-dialog-body-margin-bottom-tablet: 96px;
+$msv-modal-order-template-name-dialog-body-margin-bottom-mobile: 404px;
+
+.msc-modal {
+    .msc-order-template-name-dialog {
+        box-shadow: $msv-depth24;
+
+        .msc-modal__content {
+            padding: 0;
+            display: block;
+        }
+
+        &__dialog {
+            &__content {
+                display: flex;
+                flex-wrap: wrap;
+            }
+
+            &__header.msc-modal__header {
+                padding: $msv-modal-order-template-name-dialog-header-padding;
+                margin-bottom: $msv-modal-order-template-name-dialog-header-margin-bottom;
+                border-bottom: 0.5px solid $msv-gray-50;
+
+                .msc-modal__title {
+                    @include font-heading-h3-l();
+
+                    padding-right: 50px;
+                }
+
+                .msc-modal__close-button {
+                    top: unset;
+                }
+            }
+
+            &__body.msc-modal__body {
+                padding: $msv-modal-order-template-name-dialog-body-padding;
+                margin-bottom: $msv-modal-order-template-name-dialog-body-margin-bottom;
+
+                @media screen and (max-width: $msv-breakpoint-m) {
+                    margin-bottom: 0;
+                }
+            }
+
+            &__order-template-name-label {
+                @include font-body-bold-s();
+            }
+
+            &__order-template-name {
+                @include form-input-box();
+                @include vfi();
+                margin-top: $msv-modal-order-template-name-dialog-order-template-name-margin-top;
+                width: $msv-width-full;
+            }
+
+            &__description {
+                width: $msv-width-full;
+
+                @include font-body-regular-s();
+                margin-top: $msv-modal-order-template-name-dialog-order-template-description-margin-top;
+            }
+
+            &__footer.msc-modal__footer {
+                padding: $msv-modal-order-template-name-dialog-footer-padding;
+                box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.04);
+            }
+
+            &__create-order-template-button {
+                @include primary-button-light();
+            }
+
+            &__cancel-button {
+                @include secondary-button-light();
+                margin: $msv-modal-order-template-name-dialog-cancel-button-margin;
+            }
+        }
+    }
+}
+
+@media (max-width: $msv-breakpoint-m) {
+    .msc-modal {
+        .msc-modal__content {
+            .msc-order-template-name-dialog {
+                &__dialog {
+                    &__header.msc-modal__header {
+                        padding: $msv-modal-order-template-name-dialog-header-padding-mobile;
+                        margin-bottom: $msv-modal-order-template-name-dialog-header-margin-bottom-mobile;
+                        border-bottom: 0.5px solid $msv-gray-50;
+                        height: auto;
+
+                        .msc-modal__title {
+                            @include font-heading-h3-l();
+
+                            text-align: left;
+
+                            .msc-modal__close-button {
+                                top: unset;
+                            }
+                        }
+                    }
+
+                    &__body.msc-modal__body {
+                        padding: $msv-modal-order-template-name-dialog-body-padding-mobile;
+                    }
+
+                    &__footer.msc-modal__footer {
+                        padding: $msv-modal-order-template-name-dialog-footer-padding-mobile;
+                        border-top: none;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: $msv-breakpoint-m) and (max-width: $msv-breakpoint-l) {
+    .msc-modal {
+        .msc-order-template-name-dialog {
+            &__dialog {
+                &__header.msc-modal__header {
+                    padding: $msv-modal-order-template-name-dialog-header-padding-tablet;
+                }
+
+                &__body.msc-modal__body {
+                    padding: $msv-modal-order-template-name-dialog-body-padding-tablet;
+                    margin-bottom: $msv-modal-order-template-name-dialog-body-margin-bottom-tablet;
+                }
+
+                .msc-modal__close-button {
+                    top: unset;
+                }
+            }
+        }
+    }
+}

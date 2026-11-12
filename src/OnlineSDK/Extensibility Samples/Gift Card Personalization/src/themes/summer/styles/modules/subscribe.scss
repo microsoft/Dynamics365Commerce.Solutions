@@ -1,0 +1,146 @@
+@import "../common/00-settings/colors.scss";
+@import "../common/00-settings/font.scss";
+@import "../common/00-settings/responsive-breakpoints.scss";
+@import "../common/01-tools/mixins.scss";
+@import "../common/01-tools/layout.scss";
+@import "../common/00-settings/icons.scss";
+@import "../common/02-generic/button.scss";
+
+$msv-subscribe-background-color: $msv-gray-20;
+$msv-subscribe-container-padding: 60px 16px 60px 16px;
+$msv-subscribe-container-heading-margin: 28px 0;
+$msv-subscribe-container-heading-margin-mobile: 20px 0 36px 0;
+$msv-subscribe-subscribe-button-margin: 0 0 0 20px;
+$msv-subscribe-email-placeholder-color: $msv-gray-50;
+$msv-subscribe-subscribe-button-mobile-margin: 20px 0;
+$msv-subscribe-details-form-submit-min-width-desktop: 190px;
+$msv-subscribe-details-form-email-padding: 16px 0 8px 0;
+$msv-footer-subscribe-details-form-email-padding: 8px 2px;
+
+:root {
+    //Background
+    --msv-subscribe-background-color: #{$msv-subscribe-background-color};
+
+    //Body
+    --msv-subscribe-text-color: var(--msv-font-secondary-color);
+    --msv-subscribe-placeholder-color: #{$msv-subscribe-email-placeholder-color};
+
+    // Border
+    --msv-subscribe-input-border-color: var(--msv-font-secondary-color);
+}
+
+.ms-subscribe {
+    background: var(--msv-subscribe-background-color);
+
+    .ms-subscribe__details {
+        align-items: center;
+        padding: $msv-subscribe-container-padding;
+        width: calc(6 * #{$msv-column-width-s});
+        margin: 0 auto;
+        color: var(--msv-subscribe-text-color);
+
+        @media screen and (max-width: $msv-breakpoint-m) {
+            width: calc(4 * #{$msv-column-width-l});
+        }
+
+        @media screen and (max-width: $msv-breakpoint-l) and (min-width: $msv-breakpoint-m) {
+            width: calc(6 * #{$msv-column-width-m});
+        }
+
+        &__heading {
+            @include font-heading-h5-l();
+
+            @media screen and (max-width: $msv-breakpoint-m) {
+                @include font-heading-h5-s();
+            }
+
+            @media screen and (max-width: $msv-breakpoint-l) and (min-width: $msv-breakpoint-m) {
+                @include font-heading-h5-m();
+            }
+        }
+
+        &__text {
+            @include font-body-regular-s();
+            color: $msv-white;
+
+            @media screen and (max-width: $msv-breakpoint-m) {
+                margin: $msv-subscribe-container-heading-margin-mobile;
+            }
+
+            @media screen and (min-width: $msv-breakpoint-m) {
+                margin: $msv-subscribe-container-heading-margin;
+            }
+        }
+
+        .ms-subscribe__details__form {
+            flex-direction: row;
+            align-items: baseline;
+
+            &__email {
+                @include font-body-regular-s();
+                border: 0;
+                border-bottom: 1px solid var(--msv-subscribe-input-border-color);
+                background: transparent;
+                color: var(--msv-subscribe-text-color);
+                padding: $msv-subscribe-details-form-email-padding;
+            }
+
+            &__email::placeholder {
+                color: var(--msv-subscribe-placeholder-color);
+            }
+
+            &__email:focus {
+                outline: none;
+            }
+
+            &__submit {
+                @include secondary-button-dark();
+            }
+
+            @media screen and (max-width: $msv-breakpoint-m) {
+                display: block;
+
+                &__email {
+                    width: $msv-width-full;
+                }
+
+                &__submit {
+                    margin: $msv-subscribe-subscribe-button-mobile-margin;
+                }
+            }
+
+            @media screen and (min-width: $msv-breakpoint-m) {
+                display: flex;
+
+                &__email {
+                    flex-grow: 1;
+                }
+
+                &__submit {
+                    margin: $msv-subscribe-subscribe-button-margin;
+                    float: right;
+                    min-width: $msv-subscribe-details-form-submit-min-width-desktop;
+                }
+            }
+        }
+    }
+}
+
+.ms-footer {
+    .ms-subscribe {
+        .ms-subscribe__details {
+            .ms-subscribe__details__form {
+                display: block;
+
+                &__email {
+                    width: $msv-width-full;
+                    padding: $msv-footer-subscribe-details-form-email-padding;
+                }
+
+                &__submit {
+                    float: left;
+                }
+            }
+        }
+    }
+}

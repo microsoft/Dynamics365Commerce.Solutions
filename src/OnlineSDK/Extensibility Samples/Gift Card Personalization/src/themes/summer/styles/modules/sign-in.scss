@@ -1,0 +1,432 @@
+@import "../common/00-settings/colors.scss";
+@import "../common/00-settings/font.scss";
+@import "../common/00-settings/responsive-breakpoints.scss";
+@import "../common/02-generic/form.scss";
+@import "../common/00-settings/icons.scss";
+@import "../common/02-generic/button.scss";
+
+$msv-sign-in-social-accounts-border: 0.5px solid $msv-gray-50;
+$msv-sign-input-height: 52px;
+$msv-sign-in-account-item-margin-top: 20px;
+$msv-sign-in-input-margin-top: 8px;
+$msv-sign-in-section-spacing: 122px;
+$msv-sign-in-section-spacing-m: 40px;
+$msv-sign-in-social-accounts-padding: 40px 0;
+$msv-sign-in-social-accounts-button-margin-bottom: 20px;
+$msv-sign-in-link-margin-top: 12px;
+$msv-sign-in-sign-up-description-margin-top: 28px;
+$msv-sign-in-sign-up-description-margin-bottom: 20px;
+$msv-sign-in-container-margin: 60px 100px;
+$msv-sign-in-container-margin-m: 60px;
+$msv-sign-button-width: 426px;
+$msv-sign-button-width-mobile: 348px;
+$msv-sign-in-error-icon-font-size: 20px;
+
+//style presets
+:root {
+    --msv-sign-in-font-color: var(--msv-font-primary-color);
+
+    // heading
+    --msv-sign-in-heading-font-color: #{$msv-black};
+}
+
+.ms-sign-in {
+    @include font-body-regular-s();
+    color: var(--msv-sign-up-font-color);
+
+    &__container {
+        display: flex;
+        margin: $msv-sign-in-container-margin;
+        flex-wrap: wrap;
+    }
+
+    &__sign-in-heading, &__sign-up-heading {
+        @include font-heading-h2-l();
+        color: var(--msv-sign-in-heading-font-color);
+
+        @media (min-width: $msv-breakpoint-m+1) and (max-width: $msv-breakpoint-l) {
+            @include font-heading-h2-m();
+        }
+
+        @media (max-width: $msv-breakpoint-m) {
+            @include font-heading-h2-s();
+        }
+    }
+
+    &__page-error {
+        display: none;
+        order: 2;
+
+        &[aria-hidden="false"] {
+            .ms-sign-in__page-error-text {
+                @include alert();
+                display: flex;
+                line-height: $msv-sign-in-error-icon-font-size;
+
+                &::before {
+                    margin-right: 10px;
+                    font-size: $msv-sign-in-error-icon-font-size;
+                }
+            }
+        }
+    }
+
+    &__sign-in-section {
+        flex: 1;
+        margin-right: $msv-sign-in-section-spacing;
+    }
+
+    &__sign-up-section {
+        border-left: 0.5px solid $msv-gray-50;
+        flex: 1;
+        padding-left: 121px;
+    }
+
+    &__account-items.localAccount {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__account-item {
+        margin-top: $msv-sign-in-account-item-margin-top;
+        display: flex;
+        flex-direction: column;
+        order: 1;
+
+        &-input {
+            @include font-body-regular-m();
+            padding: 16px 48px 16px 16px;
+            margin-top: $msv-sign-in-input-margin-top;
+            width: 100%;
+            height: $msv-sign-input-height;
+            border: 0.5px solid $msv-gray-50;
+            background-color: $msv-white;
+            border-radius: 3px;
+
+            &:focus {
+                border: 1px solid $msv-gray-50;
+                outline: none;
+            }
+        }
+
+        &-logonIdentifier > .ms-sign-in__account-item-logonIdentifier {
+            color: $msv-gray-40;
+        }
+
+        &-label {
+            @include font-body-bold-s();
+        }
+    }
+
+    &__forget-password {
+        display: inline-block;
+
+        @include font-body-regular-xs();
+        color: $msv-black;
+        margin-top: $msv-sign-in-link-margin-top;
+        text-decoration: underline;
+        order: 3;
+        width: fit-content;
+    }
+
+    &__sign-in-button,
+    &__sign-up-link {
+        @include primary-button-light();
+        width: 100%;
+    }
+
+    &__sign-in-button {
+        margin-bottom: 40px;
+        margin-top: 20px;
+        order: 4;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    &__sign-up-link {
+        margin-bottom: 15px;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    &__social-accounts {
+        border-top: $msv-sign-in-social-accounts-border;
+        padding: $msv-sign-in-social-accounts-padding;
+        max-width: $msv-sign-button-width;
+        width: 100%;
+
+        button:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    &__b2b-social-accounts {
+        border-top: $msv-sign-in-social-accounts-border;
+        padding: $msv-sign-in-social-accounts-padding;
+        max-width: $msv-sign-button-width;
+        width: 100%;
+
+        button:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    &__social-account {
+        margin-bottom: $msv-sign-in-social-accounts-button-margin-bottom;
+        width: 100%;
+
+        &-FacebookExchange,
+        &-StoreManagerB2BSignin,
+        &-MicrosoftAccountExchange {
+            @include secondary-button-light();
+
+            @media (min-width: $msv-breakpoint-l) {
+                height: unset;
+                min-height: 44px;
+            }
+
+            @media (max-width: $msv-breakpoint-m) {
+                padding-left: 0;
+                padding-right: 0;
+            }
+        }
+
+        &-picture {
+            display: none;
+        }
+
+        &-text {
+            display: flex;
+            align-items: center;
+        }
+
+        &-FacebookExchange .ms-sign-in__social-account-text {
+            @include add-icon($msv-facebook-circle);
+
+            &::before {
+                margin-right: 12px;
+                font-size: $msv-icon-size-m;
+            }
+        }
+
+        &-StoreManagerB2BSignin .ms-sign-in__social-account-text {
+            &::before {
+                margin-right: 12px;
+                font-size: $msv-icon-size-m;
+            }
+        }
+
+        &-MicrosoftAccountExchange .ms-sign-in__social-account-text {
+            @include add-icon($msv-microsoft);
+
+            &::before {
+                margin-right: 12px;
+                font-size: $msv-icon-size-m;
+                font-weight: normal;
+            }
+        }
+    }
+
+    &__sign-up-description {
+        @include font-body-regular-m();
+        margin-top: $msv-sign-in-sign-up-description-margin-top;
+        margin-bottom: $msv-sign-in-sign-up-description-margin-bottom;
+        color: $msv-black;
+    }
+
+    &__item-error {
+        order: 2;
+
+        &[aria-hidden="false"] {
+            @include alert();
+            margin-top: 13px;
+            /* stylelint-disable-next-line declaration-no-important -- Override inline style inject by AAD so we need important. */
+            display: flex !important;
+            line-height: $msv-line-height-s;
+
+            .ms-sign-in__item-error-text {
+                display: flex;
+            }
+        }
+    }
+
+    @media (min-width: $msv-breakpoint-m) and (max-width: $msv-breakpoint-l) {
+        &__container {
+            display: block;
+            margin: $msv-sign-in-container-margin-m;
+        }
+
+        &__sign-in-heading {
+            text-align: left;
+            width: $msv-sign-button-width-mobile;
+        }
+
+        &__sign-up-heading {
+            width: 374px;
+            align-self: flex-start;
+            text-align: left;
+        }
+
+        &__sign-in-section {
+            margin-right: 0;
+            display: flex;
+            text-align: left;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        &__sign-in-button,
+        &__account-items {
+            max-width: $msv-sign-button-width-mobile;
+            width: 100%;
+        }
+
+        &__account-item {
+            &-input {
+                max-width: $msv-sign-button-width-mobile;
+            }
+        }
+
+        &__sign-up-link {
+            max-width: $msv-sign-button-width-mobile;
+        }
+
+        &__sign-up-section {
+            border-left: none;
+            border-top: none;
+            padding-left: 0;
+            padding-top: 20px;
+            display: flex;
+            text-align: left;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            max-width: 351px;
+            margin: 0 auto 62px;
+        }
+
+        &__social-accounts {
+            max-width: $msv-sign-button-width-mobile;
+
+            button:last-child {
+                margin-bottom: 0;
+            }
+        }
+
+        &__b2b-social-accounts {
+            max-width: $msv-sign-button-width-mobile;
+
+            button:last-child {
+                margin-bottom: 0;
+            }
+        }
+
+        &__social-account {
+            &-FacebookExchange,
+            &-StoreManagerB2BSignin,
+            &-MicrosoftAccountExchange {
+                max-width: $msv-sign-button-width-mobile;
+            }
+        }
+
+        &__page-error-top {
+            width: 75%;
+            margin: 0 auto 40px;
+        }
+    }
+
+    @media (max-width: $msv-breakpoint-m - 1) {
+        &__container {
+            display: block;
+            margin: 60px 0;
+        }
+
+        &__sign-in-heading {
+            text-align: left;
+            width: 100%;
+        }
+
+        &__account-items {
+            width: 100%;
+        }
+
+        &__account-item-input,
+        &__sign-in-button,
+        &__sign-up-link,
+        &__social-accounts,
+        &__b2b-social-accounts,
+        &__social-account-FacebookExchange,
+        &__social-account-StoreManagerB2BSignin,
+        &__social-account-MicrosoftAccountExchange {
+            max-width: unset;
+        }
+
+        &__sign-up-heading {
+            text-align: left;
+        }
+
+        &__sign-in-section {
+            margin-right: 0;
+            display: flex;
+            text-align: left;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+        }
+
+        &__social-accounts {
+            border-top: $msv-sign-in-social-accounts-border;
+            padding: $msv-sign-in-social-accounts-padding;
+
+            button:last-child {
+                margin-bottom: 0;
+            }
+        }
+
+        &__b2b-social-accounts {
+            border-top: $msv-sign-in-social-accounts-border;
+            padding: $msv-sign-in-social-accounts-padding;
+
+            button:last-child {
+                margin-bottom: 0;
+            }
+        }
+
+        &__sign-up-section {
+            border-left: none;
+            border-top: none;
+            padding-left: 0;
+            padding-top: 20px;
+            display: flex;
+            text-align: left;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            margin: 0 auto;
+        }
+
+        &__page-error {
+            width: 100%;
+            max-width: unset;
+        }
+    }
+}
+
+.ms-sign-in.hide-social-accounts {
+    .ms-sign-in__container {
+        .ms-sign-in__sign-in-section {
+            .ms-sign-in__social-accounts {
+                display: none;
+            }
+        }
+    }
+}
+
+.ms-sign-in__item-error[aria-hidden="false"] + input {
+    border-left: 4px solid var(--msv-form-error-font-color);
+}

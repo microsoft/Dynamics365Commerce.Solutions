@@ -1,0 +1,245 @@
+@import "../common/00-settings/colors.scss";
+@import "../common/00-settings/font.scss";
+@import "../common/02-generic/button.scss";
+@import "../common/01-tools/mixins.scss";
+@import "../common/01-tools/layout.scss";
+@import "../common/02-generic/image.scss";
+@import "../common/00-settings/icons.scss";
+
+$video-player-content-margin-top-l: 48px;
+$video-player-content-margin-top-m: 40px;
+$video-player-content-margin-top-s: 28px;
+$video-player-content-margin-right-m: 30px;
+$video-player-content-margin-right-l: 52px;
+$video-player-width: 100%;
+$video-player-details-margin-desktop: 7% 60px 60px 60px;
+$video-player-details-padding-mobile: 28px 16px;
+$video-player-details-padding-tablet: 40px 24px;
+$video-player-details-additional-content-margin-top-tablet: -150px;
+$video-player-details-additional-content-margin-top-mobile: -120px;
+
+// Style presets
+:root {
+    --msv-video-player-width: #{$video-player-width};
+    --msv-video-player-details-color: #{$msv-white};
+    --msv-video-player-background-color: #{$msv-gray-20};
+}
+
+.ms-video-player {
+    overflow: hidden;
+    position: relative;
+
+    .msc-videoplayer {
+        width: var(--msv-video-player-width);
+    }
+
+    &__details {
+        align-items: flex-start;
+        color: var(--msv-video-player-details-color);
+        display: flex;
+        height: 0;
+        position: absolute;
+        flex-direction: column;
+        top: 0;
+
+        @media (max-width: $msv-breakpoint-m) {
+            padding: $video-player-details-padding-mobile;
+            position: static;
+            height: 100%;
+            background: var(--msv-video-player-background-color);
+        }
+
+        @media (min-width: $msv-breakpoint-m) and (max-width: $msv-breakpoint-l) {
+            padding: $video-player-details-padding-tablet;
+            position: static;
+            height: 100%;
+            background: var(--msv-video-player-background-color);
+        }
+
+        @media (min-width: $msv-breakpoint-l + 1) {
+            margin: $video-player-details-margin-desktop;
+        }
+
+        &__title {
+            @include font-callout-bold-l();
+            color: var(--msv-video-player-details-color);
+            margin-bottom: 0;
+
+            @media (max-width: $msv-breakpoint-m) {
+                @include font-callout-bold-s();
+                color: var(--msv-video-player-details-color);
+                width: calc(4 * #{$msv-column-width-l});
+            }
+
+            @media (min-width: $msv-breakpoint-m) and (max-width: $msv-breakpoint-l) {
+                @include font-callout-bold-m();
+                color: var(--msv-video-player-details-color);
+                width: calc(8 * #{$msv-column-width-m});
+            }
+        }
+
+        &__text {
+            @include font-body-regular-m();
+            margin-top: $video-player-content-margin-top-l;
+            width: calc(6 * #{$msv-column-width-s});
+
+            @media (max-width: $msv-breakpoint-m) {
+                margin-top: $video-player-content-margin-top-s;
+                width: calc(4 * #{$msv-column-width-l});
+            }
+
+            @media (min-width: $msv-breakpoint-m) and (max-width: $msv-breakpoint-l) {
+                margin-top: $video-player-content-margin-top-m;
+                width: calc(8 * #{$msv-column-width-m});
+            }
+        }
+
+        &__cta {
+            max-width: fit-content;
+            width: calc(6 * #{$msv-column-width-s});
+            z-index: 56;
+
+            &__link {
+                @include secondary-button-light();
+                margin-top: $video-player-content-margin-top-l;
+                cursor: pointer;
+
+                @media (max-width: $msv-breakpoint-m) {
+                    margin-top: $video-player-content-margin-top-s;
+                }
+
+                @media (min-width: $msv-breakpoint-m) and (max-width: $msv-breakpoint-l) {
+                    margin-top: $video-player-content-margin-top-m;
+                }
+            }
+        }
+
+        &__additional-content {
+            font-style: $msv-font-style-normal;
+            font-weight: $msv-font-weight-normal;
+            margin-top: $video-player-content-margin-top-l;
+
+            &__container {
+                display: flex;
+                flex-direction: row;
+                margin-top: 8px;
+
+                @media (min-width: $msv-breakpoint-m) and (max-width: $msv-breakpoint-l) {
+                    margin-right: 20px;
+                }
+            }
+
+            &__paragraph {
+                @include font-body-regular-m();
+                padding-right: 20px;
+                margin-top: auto;
+                margin-bottom: auto;
+                color: $msv-white;
+            }
+
+            &__text {
+                @include msv-beth-ellen(
+                    $font-weight:$msv-font-weight-400,
+                    $font-style: $msv-font-style-normal,
+                    $font-size: $msv-font-size-xl,
+                    $line-height: $msv-line-height-xxxl);
+                color: $msv-white;
+            }
+
+            &__cta {
+                @include font-body-regular-m();
+
+                &__links {
+                    padding-left: 20px;
+                    padding-right: 20px;
+
+                    &:nth-child(1) {
+                        text-decoration-line: underline;
+                        border-left: 1px solid $msv-white;
+                        color: $msv-white;
+                    }
+
+                    @media (max-width: $msv-breakpoint-m) {
+                        padding-right: 16px;
+                    }
+                }
+            }
+
+            @media (max-width: $msv-breakpoint-m) {
+                padding: 0;
+                position: absolute;
+                width: calc(4 * #{$msv-column-width-l});
+                margin: 0 auto;
+                left: 0;
+                right: 0;
+                display: inline-flex;
+                flex-direction: column;
+                align-items: flex-end;
+                margin-top: $video-player-details-additional-content-margin-top-mobile;
+
+                &__text {
+                    @include msv-beth-ellen(
+                        $font-weight:$msv-font-weight-400,
+                        $font-style: $msv-font-style-normal,
+                        $font-size: $msv-font-size-l,
+                        $line-height: $msv-line-height-xl);
+                    margin-right: $video-player-content-margin-right-m;
+                }
+
+                &-cta {
+                    text-align: left;
+
+                    &-links {
+                        &:nth-child(1) {
+                            padding-left: 4px;
+                            padding-right: 4px;
+                        }
+
+                        &:nth-child(2) {
+                            padding-left: 4px;
+                            padding-right: 4px;
+                        }
+                    }
+                }
+            }
+
+            @media (min-width: $msv-breakpoint-m) and (max-width: $msv-breakpoint-l) {
+                padding: 0;
+                position: absolute;
+                width: calc(4 * #{$msv-column-width-m});
+                margin: 0 auto;
+                right: 0;
+                display: inline-flex;
+                flex-direction: column;
+                align-items: flex-end;
+                margin-top: $video-player-details-additional-content-margin-top-tablet;
+                left: auto;
+
+                &__text {
+                    @include msv-beth-ellen(
+                        $font-weight:$msv-font-weight-400,
+                        $font-style: $msv-font-style-normal,
+                        $font-size: $msv-font-size-l,
+                        $line-height: $msv-line-height-xl);
+                    margin-right: $video-player-content-margin-right-l;
+                }
+
+                &-cta {
+                    text-align: left;
+
+                    &-links {
+                        &:nth-child(1) {
+                            padding-left: 4px;
+                            padding-right: 4px;
+                        }
+
+                        &:nth-child(2) {
+                            padding-left: 4px;
+                            padding-right: 4px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
