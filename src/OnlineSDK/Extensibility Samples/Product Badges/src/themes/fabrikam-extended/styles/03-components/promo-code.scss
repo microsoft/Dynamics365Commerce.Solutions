@@ -1,0 +1,84 @@
+$msc-promo-code-discount-heading-margin-top: 20px;
+$msc-promo-code-discount-line-container-margin-top: 4px;
+$msc-promo-code-discount-line-container-padding-bottom: 10px;
+$msc-promo-code-discount-line-remove-btn-padding: 0 12px;
+$msc-promo-code-alert-padding: 8px;
+
+:root {
+    --msv-promo-code-heading-color: var(--msv-font-primary-color);
+    --msv-promo-code-heading-size: var(--msv-body-font-size-l);
+    --msv-promo-code-link-color: var(--msv-font-primary-color);
+    --msv-promo-code-link-size: var(--msv-body-font-size-m);
+    --msv-promo-code-applied-discount-color: var(--msv-font-primary-color);
+    --msv-promo-code-applied-discount-size: var(--msv-body-font-size-m);
+    --msv-promo-code-border: var(--msv-font-primary-color);
+    --msv-promo-code-form-input-bg: #{$msv-white};
+    --msv-promo-code-form-input-font-color: var(--msv-font-primary-color);
+    --msv-promo-code-form-input-border: var(--msv-btn-input-border-color);
+    --msv-promo-code-form-input-size: var(--msv-body-font-size-l);
+    --msv-promo-code-alert-bg: #{$msv-pink};
+    --msv-promo-code-alert-color: var(--msv-error-color);
+    --msv-promo-code-alert-border: var(--msv-error-color);
+    --msv-promo-code-alert-size: var(--msv-body-font-size-m);
+}
+
+.msc-promo-code {
+    &-heading {
+        font-size: var(--msv-promo-code-heading-size);
+        color: var(--msv-promo-code-heading-color);
+    }
+
+    &__discount {
+        display: flex;
+        justify-content: space-between;
+        margin-top: $msc-promo-code-discount-heading-margin-top;
+
+        &-heading {
+            @include font-content(var(--msv-font-weight-normal),
+            var(--msv-promo-code-applied-discount-size), $msv-line-height-m);
+            color: var(--msv-promo-code-applied-discount-color);
+        }
+
+        &-value {
+            font-weight: var(--msv-font-weight-bold);
+        }
+    }
+
+    &__line {
+        &-container {
+            @include font-content(var(--msv-font-weight-normal),
+            var(--msv-promo-code-applied-discount-size), $msv-line-height-m);
+            color: var(--msv-promo-code-applied-discount-color);
+            border-bottom: 1px solid var(--msv-promo-code-border);
+            margin-top: $msc-promo-code-discount-line-container-margin-top;
+            padding-bottom: $msc-promo-code-discount-line-container-padding-bottom;
+        }
+
+        &-value {
+            display: inline-block;
+        }
+
+        &__btn-remove {
+            @include button-link(var(--msv-promo-code-link-color));
+            @include font-content(var(--msv-font-weight-normal), var(--msv-promo-code-link-size), $msv-line-height-m);
+            height: auto;
+            padding: $msc-promo-code-discount-line-remove-btn-padding;
+        }
+    }
+
+    &__input-box {
+        @include form-input-el(var(--msv-promo-code-form-input-bg),
+        var(--msv-promo-code-form-input-font-color), var(--msv-promo-code-form-input-border));
+        @include vfi();
+        border: 1px solid var(--msv-promo-code-form-input-border);
+        font-size: var(--msv-promo-code-form-input-size);
+    }
+}
+
+.msc-alert-danger {
+    background-color: var(--msv-promo-code-alert-bg);
+    border: 1px solid var(--msv-promo-code-alert-border);
+    color: var(--msv-promo-code-alert-color);
+    font-size: var(--msv-promo-code-alert-size);
+    padding: $msc-promo-code-alert-padding;
+}
