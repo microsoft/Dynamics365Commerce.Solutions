@@ -1,0 +1,154 @@
+@import "../common/00-settings/colors.scss";
+@import "../common/00-settings/responsive-breakpoints.scss";
+
+$storytelling-spotlight-image-list-title-padding: 120px 120px 15px;
+$storytelling-spotlight-image-list-list-item-padding: 0 115px 20px;
+$storytelling-spotlight-image-list-text-padding-top: 15px;
+$storytelling-spotlight-image-list-link-margin-right: 17px;
+$storytelling-spotlight-breakpoint-xxl: 1600px;
+$storytelling-spotlight-image-list-title-padding-xxl: 60px 60px 15px;
+$storytelling-spotlight-image-list-list-item-padding-xxl: 0 55px 5px;
+$storytelling-spotlight-image-list-title-padding-xl: 10px 50px 0;
+$storytelling-spotlight-image-list-list-item-padding-xl: 10px;
+$storytelling-spotlight-image-list-content-block-image-max-height-l: 50vh;
+$storytelling-spotlight-image-list-padding-l: 50px;
+$storytelling-spotlight-image-list-list-item-padding-top-l: 10px;
+$storytelling-spotlight-image-list-list-item-padding-bottom-l: 40px;
+$storytelling-spotlight-image-list-list-item-max-width-l: 320px;
+$storytelling-spotlight-image-list-list-item-max-width-l: 320px;
+$storytelling-spotlight-image-list-list-item-padding-bottom-m: 32px;
+$storytelling-spotlight-image-list-list-item-image-minimum-width: 65px;
+$storytelling-spotlight-font-color: #{$msv-white};
+
+.storytelling-spotlight {
+    background-color: $msv-gray-20;
+
+    .ms-content-block {
+        &__image {
+            .msc_image {
+                width: 100%;
+            }
+        }
+    }
+
+    .ms-image-list {
+        color: $storytelling-spotlight-font-color;
+        width: 100%;
+
+        &__list {
+            flex-direction: column;
+        }
+
+        &__title {
+            padding: $storytelling-spotlight-image-list-title-padding;
+        }
+
+        &__list-item {
+            flex-wrap: nowrap;
+            padding: $storytelling-spotlight-image-list-list-item-padding;
+        }
+
+        &__link {
+            margin-right: $storytelling-spotlight-image-list-link-margin-right;
+
+            picture {
+                img {
+                    min-width: $storytelling-spotlight-image-list-list-item-image-minimum-width;
+                }
+            }
+        }
+
+        &__text {
+            padding-top: $storytelling-spotlight-image-list-text-padding-top;
+            color: $storytelling-spotlight-font-color;
+        }
+    }
+
+    @media (max-width: $storytelling-spotlight-breakpoint-xxl) {
+        .ms-image-list {
+            &__title {
+                padding: $storytelling-spotlight-image-list-title-padding-xxl;
+            }
+
+            &__list-item {
+                padding: $storytelling-spotlight-image-list-list-item-padding-xxl;
+            }
+        }
+    }
+
+    @media (max-width: $msv-breakpoint-xl) {
+        .ms-image-list {
+            &__title {
+                padding: $storytelling-spotlight-image-list-title-padding-xl;
+            }
+
+            &__list-item {
+                padding: $storytelling-spotlight-image-list-list-item-padding-xl;
+            }
+        }
+    }
+
+    @media (max-width: $msv-breakpoint-l - 1) {
+        overflow: hidden;
+
+        .ms-content-block {
+            &__image {
+                max-height: $storytelling-spotlight-image-list-content-block-image-max-height-l;
+                overflow: hidden;
+
+                img {
+                    object-fit: cover;
+                }
+            }
+        }
+
+        .ms-image-list {
+            color: $storytelling-spotlight-font-color;
+
+            display: inline-block;
+            padding: $storytelling-spotlight-image-list-padding-l;
+
+            &__title {
+                padding: 0;
+                text-align: center;
+            }
+
+            &__link {
+                margin: 0 auto;
+            }
+
+            &__list {
+                text-align: center;
+                width: 100%;
+            }
+
+            &__list-item {
+                margin: 0 auto;
+                padding-top: $storytelling-spotlight-image-list-list-item-padding-top-l;
+                padding-bottom: $storytelling-spotlight-image-list-list-item-padding-bottom-l;
+                max-width: $storytelling-spotlight-image-list-list-item-max-width-l;
+                flex-direction: column;
+            }
+        }
+
+        .storytelling-spotlight-container {
+            div:first-child {
+                flex-direction: column;
+            }
+        }
+
+        .storytelling-spotlight-container-reversed {
+            div:first-child {
+                flex-direction: column-reverse;
+            }
+        }
+    }
+
+    @media (max-width: $msv-breakpoint-m - 1) {
+        .ms-image-list {
+            &__list-item {
+                padding-bottom: $storytelling-spotlight-image-list-list-item-padding-bottom-m;
+            }
+        }
+    }
+}

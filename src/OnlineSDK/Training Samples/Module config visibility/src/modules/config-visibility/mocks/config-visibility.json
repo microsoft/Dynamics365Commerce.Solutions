@@ -1,0 +1,13 @@
+{
+  "id": "R1Module1",
+  "config": {
+    "productTitle": "My product title",
+    "subTitle": "My sub product title"
+  },
+  "data": {
+    "actionResponse": {
+      "text": "Sample Action Response"
+    }
+  },
+  "typeName": "config-visibility"
+}

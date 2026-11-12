@@ -1,0 +1,141 @@
+@import "../common/00-settings/colors.scss";
+@import "../common/00-settings/font.scss";
+@import "../common/00-settings/responsive-breakpoints.scss";
+@import "../common/02-generic/form.scss";
+@import "../common/02-generic/button.scss";
+@import "../common/00-settings/icons.scss";
+
+$account-profile-width: 33%;
+$msv-profile-edit-input-margin-top: 4px;
+$msv-profile-edit-button-margin-top: 20px;
+$msv-profile-edit-account-item-margin-top: 20px;
+
+$msv-profile-edit-message-width-t: 50%;
+$msv-profile-edit-message-width-m: 100%;
+$msv-profile-edit-width-m: 90%;
+$msv-profile-edit-error-icon-font-size: 20px;
+
+//style presets
+:root {
+    // heading
+    --msv-profile-edit-heading-font-color: var(--msv-font-primary-color);
+}
+
+.ms-account-profile-edit {
+    @include font-body-regular-m();
+
+    &__container {
+        padding-top: 24px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: $account-profile-width;
+        margin: 60px auto;
+    }
+
+    &__heading {
+        @include font-heading-h2-l();
+        color: var(--msv-profile-edit-heading-font-color);
+        margin-bottom: 28px;
+        width: 100%;
+
+        @media (min-width: $msv-breakpoint-m+1) and (max-width: $msv-breakpoint-l) {
+            @include font-heading-h2-m();
+        }
+
+        @media (max-width: $msv-breakpoint-m) {
+            @include font-heading-h2-s();
+        }
+    }
+
+    &__account-item {
+        margin-top: $msv-profile-edit-account-item-margin-top;
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__account-items {
+        width: 100%;
+
+        .ms-account-profile-edit__account-item {
+            &-label {
+                @include font-body-bold-s();
+                order: 1;
+            }
+
+            &-input {
+                @include form-input-box();
+                padding: 4px 8px;
+                margin-top: $msv-profile-edit-input-margin-top;
+                order: 2;
+            }
+        }
+    }
+
+    &__page-error {
+        display: none;
+
+        &[aria-hidden="false"] {
+            display: block;
+
+            .ms-account-profile-edit__page-error-text {
+                @include alert();
+                display: flex;
+                line-height: $msv-profile-edit-error-icon-font-size;
+
+                &::before {
+                    margin-right: 10px;
+                    font-size: $msv-profile-edit-error-icon-font-size;
+                }
+            }
+        }
+    }
+
+    &__save-button {
+        @include primary-button-light();
+        margin-top: $msv-profile-edit-button-margin-top;
+        width: 100%;
+        text-transform: uppercase;
+        height: auto;
+    }
+
+    &__cancel-button {
+        @include secondary-button-light();
+        margin-top: $msv-profile-edit-button-margin-top;
+        width: 100%;
+        text-transform: uppercase;
+        height: auto;
+    }
+
+    &__item-error {
+        order: 3;
+        display: flex;
+        align-items: flex-end;
+
+        &[aria-hidden="false"] {
+            @include alert();
+        }
+
+        &::before {
+            margin-right: 10px;
+        }
+    }
+
+    @media screen and (max-width: $msv-breakpoint-m) {
+        &__container {
+            width: $msv-profile-edit-message-width-m;
+        }
+
+        &__heading,
+        &__account-items {
+            width: $msv-profile-edit-width-m;
+        }
+    }
+
+    @media (min-width: $msv-breakpoint-m) and (max-width: $msv-breakpoint-l) {
+        &__container {
+            display: block;
+            width: $msv-profile-edit-message-width-t;
+        }
+    }
+}

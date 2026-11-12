@@ -1,0 +1,160 @@
+@import "../common/00-settings/colors.scss";
+@import "../common/00-settings/font.scss";
+
+$msv-order-lookup-details-margin-top: 20px;
+$msv-order-lookup-details-form-control-margin-top: 20px;
+$msv-order-lookup-details-margin-bottom: 27px;
+$msv-order-lookup-details-max-width: 480px;
+$msv-order-lookup-details-padding: 20px;
+$msv-order-lookup-details-heading-margin-top: 25px;
+$msv-order-lookup-details-margin-bottom: 20px;
+$msv-order-lookup-email-input-detail-margin-top: 4px;
+$msv-order-lookup-email-input-padding: 4px 8px;
+$msv-order-lookup-label-additional-field-margin-top: 20px;
+$msv-order-lookup-details-form-submit-margin-top: 25px;
+$msv-order-lookup-details-form-submit-margin-bottom: 10px;
+$msv-order-lookup-background-color: $msv-white;
+
+:root {
+    //Background
+    --msv-order-lookup-background-color: #{$msv-order-lookup-background-color};
+    --msv-order-lookup-details-heading-color: #{$msv-black};
+    --msv-order-lookup-details-text-color: #{$msv-black};
+    --msv-order-lookup-input-error-color: #{$msv-red};
+    --msv-order-lookup-input-border-color: #{$msv-red};
+    --msv-order-lookup-details-form-submit-background-color: var(--msv-accent-brand-color);
+    --msv-order-lookup-details-form-submit-text-color: #{$msv-white};
+    // font size
+    --msv-order-lookup-details-heading-font-size: #{$msv-font-size-xl};
+    --msv-order-lookup-details-text-font-size: #{$msv-font-size-m};
+    --msv-order-lookup-label-font-size: #{$msv-font-size-m};
+    --msv-order-lookup-input-font-size: #{$msv-font-size-m};
+}
+
+.ms-order-lookup {
+    width: 100%;
+    background-color: var(--msv-order-background-color);
+
+    &__details {
+        margin: auto;
+        margin-top: $msv-order-lookup-details-margin-top;
+        margin-bottom: $msv-order-lookup-details-margin-bottom;
+        padding: $msv-order-lookup-details-padding;
+        max-width: $msv-order-lookup-details-max-width;
+
+        &__heading {
+            margin-top: $msv-order-lookup-details-heading-margin-top;
+            margin-bottom: $msv-order-lookup-details-margin-bottom;
+            font-size: var(--msv-order-lookup-details-heading-font-size);
+        }
+
+        &__text {
+            color: $msv-gray-500;
+            margin-top: $msv-order-lookup-details-form-control-margin-top;
+            font-size: 16px;
+        }
+
+        &__form {
+            max-width: 450px;
+
+            .ms-order-lookup__field-value__error-message {
+                color: var(--msv-order-lookup-input-error-color);
+            }
+
+            .ms-order-lookup__error-message {
+                font-size: var(--msv-order-lookup-label-font-size);
+                color: var(--msv-order-lookup-input-error-color);
+            }
+
+            &__fields {
+                margin-top: $msv-order-lookup-details-form-control-margin-top;
+
+                &__order-number-label {
+                    font-size: var(--msv-order-lookup-label-font-size);
+                }
+
+                &__order-number-input-error {
+                    color: var(--msv-order-lookup-input-error-color);
+                    font-size: $msv-font-size-m;
+                }
+
+                &__email-label {
+                    font-size: var(--msv-order-lookup-label-font-size);
+                }
+
+                &__email-input-error {
+                    .email__alert {
+                        color: var(--msv-order-lookup-input-error-color);
+                        font-size: $msv-font-size-m;
+                    }
+                }
+
+                &__input-detail {
+                    width: 100%;
+                    margin-top: $msv-order-lookup-email-input-detail-margin-top;
+
+                    input {
+                        width: 100%;
+                        height: 48px;
+                        font-size: var(--msv-order-lookup-input-font-size);
+                        padding: $msv-order-lookup-email-input-padding;
+                    }
+                }
+            }
+
+            &__additional-fields {
+                margin-top: $msv-order-lookup-label-additional-field-margin-top;
+
+                &__label {
+                    font-size: var(--msv-order-lookup-label-font-size);
+                }
+
+                &__input-error {
+                    color: var(--msv-order-lookup-input-error-color);
+                    font-size: $msv-font-size-m;
+                }
+
+                &__input-detail {
+                    margin-top: $msv-order-lookup-email-input-detail-margin-top;
+
+                    input {
+                        width: 100%;
+                        height: 48px;
+                        font-size: var(--msv-order-lookup-input-font-size);
+                        padding: $msv-order-lookup-email-input-padding;
+                    }
+                }
+            }
+
+            &__submit {
+                background-color: var(--msv-order-lookup-details-form-submit-background-color);
+                border: 1px solid var(--msv-order-lookup-details-form-submit-background-color);
+                color: var(--msv-order-lookup-details-form-submit-text-color);
+                padding: 12px 20px;
+                min-width: 160px;
+                margin-top: $msv-order-lookup-details-form-control-margin-top;
+                margin-bottom: $msv-order-lookup-details-form-submit-margin-bottom;
+                width: 100%;
+                height: 48px;
+
+                &.disabled {
+                    background-color: $msv-gray-300;
+                    border-color: $msv-gray-300;
+                    pointer-events: none;
+                    cursor: auto;
+                }
+            }
+        }
+    }
+
+    &__registered-user {
+        &__sign-in-link {
+            padding: 3px;
+            font-size: $msv-font-size-s;
+            line-height: 18px;
+            text-decoration: underline;
+            font-weight: normal;
+            height: 25px;
+        }
+    }
+}
