@@ -1,0 +1,109 @@
+
+:root {
+    --msv-accordion-item-drawer-color: $msv-gray-800;
+    --msv-accordion-expandcollapse-button-background: transparent;
+    --msv-accordion-drawer-button-background: transparent;
+    --msv-accordion-header-heading-font-size: 24px;
+    --msv-accordion-header-heading-font-color: #{$msv-black};
+    --msv-accordion-item-content-block-color: #{$msv-black};
+    --msv-accordion-item-content-block-font-size: 16px;
+}
+
+.ms-accordion {
+    &-header-section {
+        margin: 5px 5px 20px 5px;
+
+        &__heading {
+            @include font-content-xl();
+            font-size: var(--msv-accordion-header-heading-font-size);
+            color: var(--msv-accordion-header-heading-font-color);
+        }
+
+        &-toggle-button-container {
+            margin-right: 10px;
+            display: flex;
+            align-items: center;
+            margin-top: 15px;
+
+            .ms-accordion_ExpandAll,
+            .ms-accordion_CollapseAll {
+                background: var(--msv-accordion-expandcollapse-button-background);
+                border: none;
+                text-decoration-line: underline;
+
+                &:hover {
+                    border: 1px dashed;
+                }
+
+                @include vfi();
+                cursor: pointer;
+            }
+        }
+    }
+
+    @media (min-width: $msv-breakpoint-m) {
+        &-header-section {
+            display: flex;
+            margin: 5px 5px 20px 5px;
+
+            &-container {
+                flex-grow: 4;
+            }
+
+            &-toggle-button-container {
+                margin-top: 0;
+            }
+        }
+    }
+
+    &-item {
+        &__drawer {
+            margin-top: 5px;
+            border-top: 1px solid $msv-gray-500;
+
+            .drawer__button {
+                background: var(--msv-accordion-drawer-button-background);
+                display: flex;
+                height: 64px;
+                justify-content: space-between;
+                padding-left: 0;
+                padding-right: 0;
+                width: 100%;
+                margin-top: 5px;
+                cursor: pointer;
+
+                &[aria-expanded="true"] {
+                    @include add-icon($msv-ChevronUp, after);
+                    padding-right: 20px;
+
+                    &::after {
+                        color: var(--msv-accordion-item-drawer-color);
+                        line-height: 24px;
+                    }
+                }
+
+                &[aria-expanded="false"] {
+                    @include add-icon($msv-ChevronDown, after);
+                    padding-right: 20px;
+
+                    &::after {
+                        color: var(--msv-accordion-item-drawer-color);
+                        line-height: 24px;
+                    }
+                }
+            }
+        }
+
+        &-content {
+            padding: 10px 0;
+
+            .ms-text-block {
+                margin-top: 12px;
+                /* stylelint-disable-next-line declaration-no-important -- Auto-suppressed. Please fix if possible. */
+                font-size: var(--msv-accordion-item-content-block-font-size) !important;
+                color: var(--msv-accordion-item-content-block-color);
+                background: var(--msv-accordion-item-content-block-background);
+            }
+        }
+    }
+}

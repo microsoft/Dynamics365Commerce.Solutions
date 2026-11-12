@@ -1,0 +1,43 @@
+@mixin order-template-image-container(
+    $msv-order-template-image-size: 140px,
+    $msv-order-template-image-margin: 3px,
+    $msv-order-template-image-container-margin: 12px,
+) {
+    $msv-order-template-image-container-size: $msv-order-template-image-size * 2 + $msv-order-template-image-margin * 6;
+    width: $msv-order-template-image-container-size;
+    height: $msv-order-template-image-container-size;
+    padding: $msv-order-template-image-margin;
+    margin-left: $msv-order-template-image-container-margin;
+    margin-right: $msv-order-template-image-container-margin;
+    background: #F9F9F9;
+    display: flex;
+    flex-wrap: wrap;
+
+    @include image($msv-order-template-image-size);
+
+    .msc-image-container {
+        margin: $msv-order-template-image-margin;
+    }
+}
+
+@mixin order-template-image-container-mobile(
+    $msv-order-template-image-size: 80px,
+    $msv-order-template-image-margin: 3px,
+    $msv-order-template-image-container-margin: 12px,
+) {
+    $msv-order-template-image-container-size: $msv-order-template-image-size * 2 + $msv-order-template-image-margin * 6;
+    width: $msv-order-template-image-container-size;
+    height: $msv-order-template-image-container-size;
+    padding: $msv-order-template-image-margin;
+    margin-left: $msv-order-template-image-container-margin;
+    margin-right: $msv-order-template-image-container-margin;
+    background: #F9F9F9;
+    display: flex;
+    flex-wrap: wrap;
+
+    @include image($msv-order-template-image-size);
+
+    .msc-image-container {
+        margin: $msv-order-template-image-margin;
+    }
+}

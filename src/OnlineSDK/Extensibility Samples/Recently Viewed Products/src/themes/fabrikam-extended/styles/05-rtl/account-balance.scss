@@ -1,0 +1,57 @@
+$msv-business-organization-list-requestStatement-button-margin: 0 0 0 20px;
+
+[dir="rtl"] {
+    .ms-business-organization-list {
+        &__action__requestStatement__buttonLabel {
+            margin: $msv-business-organization-list-requestStatement-button-margin;
+        }
+
+        &__action__requestStatement__toggleDown {
+            margin-right: 20px;
+        }
+
+        &__action__requestStatement__toggleUp {
+            margin-right: 20px;
+        }
+
+        &__action__cancelRequest {
+            margin-right: 20px;
+        }
+
+        &__requestStatement__fromDate {
+            float: right;
+        }
+
+        &__requestStatement__toDate {
+            float: left;
+        }
+    }
+
+    .ms-account-customer-balance {
+        &__action__requestStatement__toggleDown {
+            margin-right: 20px;
+        }
+
+        &__action__requestStatement__toggleUp {
+            margin-right: 20px;
+        }
+
+        &__action__cancelRequest {
+            margin-right: 20px;
+        }
+
+        &__requestStatement__fromDate {
+            float: right;
+        }
+
+        &__requestStatement__toDate {
+            float: left;
+        }
+
+        &__credit-summary-heading {
+            &::before {
+                padding-left: 5px;
+            }
+        }
+    }
+}

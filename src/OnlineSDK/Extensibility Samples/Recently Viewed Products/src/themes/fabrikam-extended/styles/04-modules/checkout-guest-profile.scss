@@ -1,0 +1,40 @@
+$msv-checkout-guest-profile-input-margin-top: 4px;
+$msv-checkout-guest-profile-input-height: 32px;
+$msv-checkout-guest-profile-input-label-width: 100%;
+$msv-checkout-guest-profile-input-text-max-width: 610px;
+$msv-checkout-guest-profile-error-icon-margin-right: 8px;
+
+.ms-checkout-guest-profile {
+    &__add-contact-info {
+        width: 100%;
+    }
+
+    &__input {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    &__selected-email {
+        @include font-content-m(var(--msv-font-weight-normal));
+    }
+
+    &__input-text {
+        @include vfi();
+        @include form-input-el($msv-white);
+        display: block;
+        flex-grow: 1;
+        max-width: $msv-checkout-guest-profile-input-text-max-width;
+    }
+
+    &__input-label {
+        @include font-content-l();
+        width: $msv-checkout-guest-profile-input-label-width;
+        margin-bottom: $msv-checkout-guest-profile-input-margin-top;
+    }
+
+    &__input-error {
+        @include form-input-error-message();
+        display: block;
+        width: 100%;
+    }
+}
