@@ -1,0 +1,15 @@
+$transition-collapse: min-height 0.35s ease;
+
+.collapse {
+    &:not(.show) {
+        display: none;
+    }
+}
+
+.collapsing {
+    @include transition($transition-collapse);
+    height: 0;
+    min-height: 0;
+    overflow: hidden;
+    position: relative;
+}

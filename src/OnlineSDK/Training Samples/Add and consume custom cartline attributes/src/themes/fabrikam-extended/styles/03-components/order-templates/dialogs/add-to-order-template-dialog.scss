@@ -1,0 +1,146 @@
+$msv-create-order-template-image-color: #BFBFBF;
+
+.msc-modal {
+    .msc-add-to-order-template-dialog {
+        &__empty {
+            &__dialog {
+                &__content {
+                    display: flex;
+                    justify-content: center;
+                    flex-wrap: wrap;
+
+                    @media screen and (min-width: $msv-breakpoint-m) {
+                        padding: 100px 0;
+                    }
+                }
+
+                &__create-order-template-image-container {
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
+                }
+
+                &__create-order-template-image {
+                    font-size: 100px;
+                    color: $msv-create-order-template-image-color;
+                    pointer-events: none;
+                }
+
+                &__no-order-templates {
+                    font-size: 24px;
+                    line-height: 31px;
+                    padding: 28px;
+                    text-align: center;
+                }
+
+                &__no-order-templates-description {
+                    font-weight: 300;
+                    font-size: 16px;
+                    line-height: 21px;
+                    text-align: center;
+                }
+
+                &__create-order-template-button {
+                    @include primary-button();
+                }
+
+                &__cancel-button {
+                    @include secondary-button($msv-white);
+                    margin: 0 20px;
+                }
+            }
+        }
+
+        &__existing {
+            max-width: 1160px;
+
+            &__dialog {
+                &__order-templates-description {
+                    font-size: 16px;
+                    line-height: 18px;
+                    margin: 10px 0;
+                }
+
+                &__order-templates-container {
+                    display: flex;
+                    flex-wrap: wrap;
+                    margin-top: 20px;
+
+                    @media screen and (max-width: 793px) {
+                        justify-content: center;
+                    }
+                }
+
+                &__order-templates-line {
+                    &__item_header {
+                        padding: 8px 0;
+                    }
+
+                    &__container {
+                        display: flex;
+                        flex-direction: column;
+                        position: relative;
+
+                        background: #FFFFFF;
+
+                        box-shadow: 0 0.3px 0.9px rgba(0, 0, 0, 0.108), 0 1.6px 3.6px rgba(0, 0, 0, 0.132);
+                        border-radius: 3px;
+                        margin: 0 10px 40px 10px;
+
+                        font-size: 16px;
+                        line-height: 21px;
+                        height: 432px;
+                        min-width: 322px;
+                        width: 322px;
+
+                        &__create-new-line {
+                            @media screen and (max-width: $msv-breakpoint-m) {
+                                height: 280px;
+                            }
+
+                            &__image {
+                                margin-top: 150px;
+                                display: block;
+                                margin-left: auto;
+                                margin-right: auto;
+
+                                @media screen and (max-width: $msv-breakpoint-m) {
+                                    margin-top: 40px;
+                                }
+                            }
+
+                            &__button {
+                                @include primary-button();
+                                text-align: center;
+                                margin: 60px;
+                            }
+                        }
+                    }
+
+                    &__title {
+                        font-weight: var(--msv-font-weight-bold);
+                        padding-left: 12px;
+                        padding-right: 12px;
+                    }
+
+                    &__count {
+                        padding-left: 12px;
+                        padding-right: 12px;
+                        padding-top: 4px;
+                    }
+
+                    &__products {
+                        &__image-container {
+                            @include order-template-image-container();
+                        }
+                    }
+
+                    &__action-button {
+                        @include secondary-button($msv-white);
+                        margin: 12px;
+                    }
+                }
+            }
+        }
+    }
+}

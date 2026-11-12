@@ -1,0 +1,14 @@
+$rtl-search-form-icon-margin-left: 10px;
+
+[dir="rtl"] {
+    .ms-search {
+        @media (min-width: $msv-breakpoint-m) {
+            &__icon {
+                &::before {
+                    margin-left: $rtl-search-form-icon-margin-left;
+                    margin-right: unset;
+                }
+            }
+        }
+    }
+}
