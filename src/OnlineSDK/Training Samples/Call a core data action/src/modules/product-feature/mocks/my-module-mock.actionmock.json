@@ -1,0 +1,24 @@
+[
+    {
+        "CacheObjectType": "SimpleProduct",
+        "CacheKey": "*",
+        "Mock": {
+            "RecordId": 22565423455,
+            "ItemId": "2101",
+            "Name": "Retro Horn-Rimmed Keyhole Sunglasses",
+            "Description": "High-quality with the perfect blend of timeless classic and modern technology with hint of old school glamor.",
+            "ProductTypeValue": 3,
+            "DefaultUnitOfMeasure": "Ea",
+            "BasePrice": 15,
+            "Price": 15,
+            "AdjustedPrice": 14,
+            "MasterProductId": null,
+            "Components": null,
+            "Dimensions": null,
+            "Behavior": null,
+            "LinkedProducts": null,            
+            "PrimaryImageUrl": "https://bit.ly/33cMGxr",
+            "ExtensionProperties": null
+        }
+    }
+]

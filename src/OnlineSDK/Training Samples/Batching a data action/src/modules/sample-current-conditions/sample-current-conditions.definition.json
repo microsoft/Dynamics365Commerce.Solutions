@@ -1,0 +1,31 @@
+{
+    "$type": "contentModule",
+    "friendlyName": "Current Conditions",
+    "name": "sample-current-conditions",
+    "description": "Module that demonstrates a batch action",
+    "categories": ["samples"],
+    "dataActions": {
+        "favorite_locations":{
+            "path": "../../actions/get-locations.action",
+            "runOn": "client"
+        },
+        "forecast":{
+            "path": "../../actions/get-favorite-location-weather.action",
+            "runOn": "client"
+        }
+    },
+    "resources": {
+        "cardHeader": {
+            "value": "Current conditions at your favorite locations"
+        }
+    },
+    "config": {
+        "apiKey": {
+            "friendlyName": "Weather API Key",
+            "description": "API Key for weather",
+            "type": "string",
+            "scope": "siteOnly",
+            "group": "Weather module Properties"
+        }
+    }
+}

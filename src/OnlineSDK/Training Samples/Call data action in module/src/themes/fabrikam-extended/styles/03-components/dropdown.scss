@@ -1,0 +1,7 @@
+.msc-l-dropdown {
+    @include vfi();
+}
+
+.msc-dropdown__select__disabled {
+    opacity: 0.5;
+}
