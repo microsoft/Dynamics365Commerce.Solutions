@@ -1,0 +1,880 @@
+{
+    "modules": {
+        "media-gallery": {
+            "properties": {
+                "vertical": {
+                    "friendlyName": "Vertical",
+                    "description": "Vertical",
+                    "type": "layout",
+                    "properties": {
+                        "thumbnailImageSettings": {
+                            "friendlyName": "Thumbnail Image Settings",
+                            "description": "Image settings for the thumbnails",
+                            "type": "imageSizes",
+                            "properties": {
+                                "sm": {
+                                    "width": 100,
+                                    "height": 0
+                                },
+                                "lg": {
+                                    "width": 100,
+                                    "height": 0
+                                },
+                                "xl": {
+                                    "width": 100,
+                                    "height": 0
+                                }
+                            }
+                        },
+                        "galleryImageSettings": {
+                            "friendlyName": "Gallery Image Settings",
+                            "description": "Image settings for the main gallery",
+                            "type": "imageSizes",
+                            "properties": {
+                                "xs": {
+                                    "width": 767,
+                                    "height": 767
+                                },
+                                "sm": {
+                                    "width": 600,
+                                    "height": 600
+                                },
+                                "md": {
+                                    "width": 600,
+                                    "height": 772
+                                },
+                                "lg": {
+                                    "width": 0,
+                                    "height": 772
+                                },
+                                "xl": {
+                                    "width": 0,
+                                    "height": 772
+                                }
+                            }
+                        },
+                        "zoomedImageSettings": {
+                            "friendlyName": "Zoomed image qualitys",
+                            "description": "Image settings for the zoomed image",
+                            "type": "imageSizes",
+                            "properties": {
+                                "xs": {
+                                    "width": 767,
+                                    "height": 767
+                                },
+                                "sm": {
+                                    "width": 600,
+                                    "height": 600
+                                },
+                                "md": {
+                                    "width": 600,
+                                    "height": 772
+                                },
+                                "lg": {
+                                    "width": 0,
+                                    "height": 772
+                                },
+                                "xl": {
+                                    "width": 0,
+                                    "height": 772
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "content-block": {
+            "properties": {
+                "full-width": {
+                    "friendlyName": "Hero",
+                    "description": "Image on background with text overlay",
+                    "type": "layout",
+                    "properties": {
+                        "image": {
+                            "friendlyName": "Hero Image Settings",
+                            "description": "Image settings for the hero",
+                            "type": "imageSizes",
+                            "properties": {
+                                "xs": {
+                                    "width": 800,
+                                    "height": 600
+                                },
+                                "sm": {
+                                    "width": 1200,
+                                    "height": 900
+                                },
+                                "md": {
+                                    "width": 1600,
+                                    "height": 900
+                                },
+                                "lg": {
+                                    "width": 1600,
+                                    "height": 700
+                                },
+                                "xl": {
+                                    "width": 1600,
+                                    "height": 700
+                                }
+                            }
+                        }
+                    }
+                },
+                "left-right": {
+                    "friendlyName": "Feature",
+                    "description": "Image with text side by side",
+                    "type": "layout",
+                    "properties": {
+                        "image": {
+                            "friendlyName": "Feature Image Settings",
+                            "description": "Feature Image Settings",
+                            "type": "imageSizes",
+                            "properties": {
+                                "xs": {
+                                    "width": 509,
+                                    "height": 303
+                                },
+                                "sm": {
+                                    "width": 762,
+                                    "height": 471
+                                },
+                                "md": {
+                                    "width": 1110,
+                                    "height": 557
+                                },
+                                "lg": {
+                                    "width": 935,
+                                    "height": 471
+                                },
+                                "xl": {
+                                    "width": 935,
+                                    "height": 471
+                                }
+                            }
+                        }
+                    }
+                },
+                "tile": {
+                    "friendlyName": "Tile",
+                    "description": "Image with text as tiles",
+                    "type": "layout",
+                    "properties": {
+                        "image": {
+                            "friendlyName": "Tile Image Settings",
+                            "description": "Tile Image Settings",
+                            "type": "imageSizes",
+                            "properties": {
+                                "xs": {
+                                    "width": 343,
+                                    "height": 457
+                                },
+                                "md": {
+                                    "width": 427,
+                                    "height": 569
+                                },
+                                "xl": {
+                                    "width": 427,
+                                    "height": 569
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "product-collection": {
+            "properties": {
+                "mediumWidth": {
+                    "friendlyName": "Medium card image",
+                    "description": "Medium width product tile",
+                    "type": "layout",
+                    "properties": {
+                        "imageSettings": {
+                            "friendlyName": "Product card image settings",
+                            "description": "Image settings for product card",
+                            "type": "imageSizes",
+                            "properties": {
+                                "xs": {
+                                    "width": 315,
+                                    "height": 315
+                                },
+                                "lg": {
+                                    "width": 315,
+                                    "height": 315
+                                },
+                                "xl": {
+                                    "width": 315,
+                                    "height": 315
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "search-result-container": {
+            "properties": {
+                "mediumWidth": {
+                    "friendlyName": "Medium card images",
+                    "description": "Medium size product images",
+                    "type": "layout",
+                    "properties": {
+                        "imageSettings": {
+                            "friendlyName": "Product card image settings",
+                            "description": "Image settings for product card",
+                            "type": "imageSizes",
+                            "properties": {
+                                "xs": {
+                                    "width": 315,
+                                    "height": 315
+                                },
+                                "lg": {
+                                    "width": 315,
+                                    "height": 315
+                                },
+                                "xl": {
+                                    "width": 315,
+                                    "height": 315
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "promo-banner": {
+            "properties": {
+                "mediumWidth": {
+                    "friendlyName": "Medium width",
+                    "description": "Medium width promo-banner",
+                    "type": "layout",
+                    "properties": {
+                        "imageSettings": {
+                            "friendlyName": "Promo-banner image settings",
+                            "description": "Image settings for promo-banner",
+                            "type": "imageSizes",
+                            "properties": {
+                                "xs": {
+                                    "width": 40,
+                                    "height": 40
+                                },
+                                "lg": {
+                                    "width": 40,
+                                    "height": 40
+                                },
+                                "xl": {
+                                    "width": 40,
+                                    "height": 40
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "wishlist-items": {
+            "properties": {
+                "mediumWidth": {
+                    "friendlyName": "Medium",
+                    "description": "Medium",
+                    "type": "layout",
+                    "properties": {
+                        "imageSettings": {
+                            "friendlyName": "Wishlist items image settings",
+                            "description": "Image settings for wishlist items",
+                            "type": "imageSizes",
+                            "properties": {
+                                "xs": {
+                                    "width": 335,
+                                    "height": 335
+                                },
+                                "lg": {
+                                    "width": 315,
+                                    "height": 315
+                                },
+                                "xl": {
+                                    "width": 315,
+                                    "height": 315
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "order-details": {
+            "properties": {
+                "mediumWidth": {
+                    "friendlyName": "Medium",
+                    "description": "Medium",
+                    "type": "layout",
+                    "properties": {
+                        "imageSettings": {
+                            "friendlyName": "Order details items image settings",
+                            "description": "Image settings for order details items",
+                            "type": "imageSizes",
+                            "properties": {
+                                "xs": {
+                                    "width": 147,
+                                    "height": 147
+                                },
+                                "lg": {
+                                    "width": 147,
+                                    "height": 147
+                                },
+                                "xl": {
+                                    "width": 147,
+                                    "height": 147
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "order-confirmation": {
+            "properties": {
+                "mediumWidth": {
+                    "friendlyName": "Medium",
+                    "description": "Medium",
+                    "type": "layout",
+                    "properties": {
+                        "imageSettings": {
+                            "friendlyName": "Order confirmation items image settings",
+                            "description": "Image settings for order confirmation items",
+                            "type": "imageSizes",
+                            "properties": {
+                                "xs": {
+                                    "width": 81,
+                                    "height": 81
+                                },
+                                "lg": {
+                                    "width": 81,
+                                    "height": 81
+                                },
+                                "xl": {
+                                    "width": 81,
+                                    "height": 81
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "order-history": {
+            "properties": {
+                "mediumWidth": {
+                    "friendlyName": "Medium",
+                    "description": "Medium",
+                    "type": "layout",
+                    "properties": {
+                        "imageSettings": {
+                            "friendlyName": "Order history items image settings",
+                            "description": "Image settings for order history items",
+                            "type": "imageSizes",
+                            "properties": {
+                                "xs": {
+                                    "width": 147,
+                                    "height": 147
+                                },
+                                "lg": {
+                                    "width": 147,
+                                    "height": 147
+                                },
+                                "xl": {
+                                    "width": 147,
+                                    "height": 147
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "sign-in": {
+            "properties": {
+                "Small": {
+                    "friendlyName": "Small",
+                    "description": "Small",
+                    "type": "layout",
+                    "properties": {
+                        "facebookIcon": {
+                            "friendlyName": "Facebook icon image settings",
+                            "description": "Facebook icon image settings",
+                            "type": "imageSizes",
+                            "properties": {
+                                "xs": {
+                                    "width": 32,
+                                    "height": 32
+                                },
+                                "lg": {
+                                    "width": 32,
+                                    "height": 32
+                                },
+                                "xl": {
+                                    "width": 32,
+                                    "height": 32
+                                }
+                            }
+                        },
+                        "microsoftIcon": {
+                            "friendlyName": "Microsoft icon image settings",
+                            "description": "Microsoft icon image settings",
+                            "type": "imageSizes",
+                            "properties": {
+                                "xs": {
+                                    "width": 32,
+                                    "height": 32
+                                },
+                                "lg": {
+                                    "width": 32,
+                                    "height": 32
+                                },
+                                "xl": {
+                                    "width": 32,
+                                    "height": 32
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "checkout": {
+            "properties": {
+                "mediumWidth": {
+                    "friendlyName": "Medium",
+                    "description": "Medium",
+                    "type": "layout",
+                    "properties": {
+                        "imageSettings": {
+                            "friendlyName": "checkout items image settings",
+                            "description": "Image settings for checkout items",
+                            "type": "imageSizes",
+                            "properties": {
+                                "xs": {
+                                    "width": 108,
+                                    "height": 108
+                                },
+                                "lg": {
+                                    "width": 108,
+                                    "height": 108
+                                },
+                                "xl": {
+                                    "width": 108,
+                                    "height": 108
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "checkout-pickup": {
+            "properties": {
+                "mediumWidth": {
+                    "friendlyName": "Medium",
+                    "description": "Medium",
+                    "type": "layout",
+                    "properties": {
+                        "imageSettings": {
+                            "friendlyName": "checkout pickup image settings",
+                            "description": "Image settings for checkout pickup",
+                            "type": "imageSizes",
+                            "properties": {
+                                "xs": {
+                                    "width": 108,
+                                    "height": 108
+                                },
+                                "lg": {
+                                    "width": 108,
+                                    "height": 108
+                                },
+                                "xl": {
+                                    "width": 108,
+                                    "height": 108
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "cart": {
+            "properties": {
+                "mediumWidth": {
+                    "friendlyName": "Medium",
+                    "description": "Medium",
+                    "type": "layout",
+                    "properties": {
+                        "imageSettings": {
+                            "friendlyName": "cart items image settings",
+                            "description": "Image settings for cart items",
+                            "type": "imageSizes",
+                            "properties": {
+                                "xs": {
+                                    "width": 80,
+                                    "height": 94
+                                },
+                                "m": {
+                                    "width": 80,
+                                    "height": 94
+                                },
+                                "lg": {
+                                    "width": 183,
+                                    "height": 183
+                                },
+                                "xl": {
+                                    "width": 183,
+                                    "height": 183
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "navigation-menu": {
+            "properties": {
+                "mediumWidth": {
+                    "friendlyName": "Medium",
+                    "description": "Medium image settings",
+                    "type": "layout",
+                     "properties": {
+						"categoryImageSettings": {
+							"friendlyName": "Category image settings",
+							"description": "Category image settings",
+							"type": "imageSizes",
+							"properties": {
+								"xs": {
+									"width": 300,
+									"height": 350
+								},
+								"lg": {
+									"width": 300,
+									"height": 350
+								},
+								"xl": {
+									"width": 300,
+									"height": 350
+								}
+							}
+						},
+                        "image": {
+                            "friendlyName": "Category Image Settings",
+                            "description": "Category Image Settings",
+                            "type": "imageSizes",
+                            "properties": {
+								"xs": {
+									"width": 300,
+									"height": 350
+								},
+								"lg": {
+									"width": 300,
+									"height": 350
+								},
+								"xl": {
+									"width": 300,
+									"height": 350
+								}
+							}
+                        }
+					}
+                }
+            }
+        },
+        "quickview": {
+            "properties": {
+                "vertical": {
+                    "friendlyName": "Vertical",
+                    "description": "Vertical",
+                    "type": "layout",
+                    "properties": {
+                        "thumbnailImageSettings": {
+                            "friendlyName": "Thumbnail Image Settings",
+                            "description": "Image settings for the thumbnails",
+                            "type": "imageSizes",
+                            "properties": {
+                                "sm": {
+                                    "width": 40,
+                                    "height": 48
+                                },
+                                "lg": {
+                                    "width": 40,
+                                    "height": 48
+                                },
+                                "xl": {
+                                    "width": 40,
+                                    "height": 48
+                                }
+                            }
+                        },
+                        "galleryImageSettings": {
+                            "friendlyName": "Gallery Image Settings",
+                            "description": "Image settings for the main gallery",
+                            "type": "imageSizes",
+                            "properties": {
+                                "xs": {
+                                    "width": 256,
+                                    "height": 256
+                                },
+                                "sm": {
+                                    "width": 256,
+                                    "height": 256
+                                },
+                                "md": {
+                                    "width": 310,
+                                    "height": 310
+                                },
+                                "lg": {
+                                    "width": 310,
+                                    "height": 310
+                                },
+                                "xl": {
+                                    "width": 310,
+                                    "height": 310
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "header": {
+            "properties": {
+                "mediumWidth": {
+                    "friendlyName": "Medium",
+                    "description": "Medium",
+                    "type": "layout",
+                    "properties": {
+                        "logoImage": {
+                            "friendlyName": "Logo image settings",
+                            "description": "Logo icon image settings",
+                            "type": "imageSizes",
+                            "properties": {
+                                "xs": {
+                                    "width": 132,
+                                    "height": 28
+                                },
+                                "lg": {
+                                    "width": 160,
+                                    "height": 48
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "footer-item": {
+            "properties": {
+                "mediumWidth": {
+                    "friendlyName": "Medium",
+                    "description": "Medium",
+                    "type": "layout",
+                    "properties": {
+                        "image": {
+                            "friendlyName": "Footer item image settings",
+                            "description": "Footer item image settings",
+                            "type": "imageSizes",
+                            "properties": {
+                                "xs": {
+                                    "width": 24,
+                                    "height": 24
+                                },
+                                "lg": {
+                                    "width": 24,
+                                    "height": 24
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "order-template": {
+            "properties": {
+                "mediumWidth": {
+                    "friendlyName": "Medium",
+                    "description": "Medium",
+                    "type": "layout",
+                    "properties": {
+                        "imageSettings": {
+                            "friendlyName": "Order template items image settings",
+                            "description": "Image settings for order template items",
+                            "type": "imageSizes",
+                            "properties": {
+                                "xs": {
+                                    "width": 64,
+                                    "height": 64
+                                },
+                                "lg": {
+                                    "width": 64,
+                                    "height": 64
+                                },
+                                "xl": {
+                                    "width": 64,
+                                    "height": 64
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "order-template-list": {
+            "properties": {
+                "mediumWidth": {
+                    "friendlyName": "Medium",
+                    "description": "Medium",
+                    "type": "layout",
+                    "properties": {
+                        "imageSettings": {
+                            "friendlyName": "Order template list image settings",
+                            "description": "Image settings for order template list",
+                            "type": "imageSizes",
+                            "properties": {
+                                "xs": {
+                                    "width": 140,
+                                    "height": 140
+                                },
+                                "lg": {
+                                    "width": 140,
+                                    "height": 140
+                                },
+                                "xl": {
+                                    "width": 140,
+                                    "height": 140
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "cart-icon": {
+            "properties": {
+                "mediumWidth": {
+                    "friendlyName": "Medium",
+                    "description": "Medium",
+                    "type": "layout",
+                    "properties": {
+                        "imageSettings": {
+                            "friendlyName": "Cart icon image settings",
+                            "description": "Image settings for cart icon",
+                            "type": "imageSizes",
+                            "properties": {
+                                "xs": {
+                                    "width": 80,
+                                    "height": 94
+                                },
+                                "sm": {
+                                    "width": 148,
+                                    "height": 174
+                                },
+                                "lg": {
+                                    "width": 148,
+                                    "height": 174
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "search": {
+            "properties": {
+                "mediumWidth": {
+                    "friendlyName": "Medium",
+                    "description": "Medium",
+                    "type": "layout",
+                    "properties": {
+                        "imageSettings": {
+                            "friendlyName": "Search image settings",
+                            "description": "Image settings for search",
+                            "type": "imageSizes",
+                            "properties": {
+                                "xs": {
+                                    "width": 80,
+                                    "height": 94
+                                },
+                                "sm": {
+                                    "width": 148,
+                                    "height": 174
+                                },
+                                "lg": {
+                                    "width": 148,
+                                    "height": 174
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "checkout-shipping-address": {
+            "properties": {
+                "mediumWidth": {
+                    "friendlyName": "Medium",
+                    "description": "Medium",
+                    "type": "layout",
+                    "properties": {
+                        "imageSettings": {
+                            "friendlyName": "Checkout shipping address image settings",
+                            "description": "Image settings for checkout shipping address",
+                            "type": "imageSizes",
+                            "properties": {
+                                "xs": {
+                                    "width": 108,
+                                    "height": 108
+                                },
+                                "lg": {
+                                    "width": 108,
+                                    "height": 108
+                                },
+                                "xl": {
+                                    "width": 108,
+                                    "height": 108
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "checkout-order-confirmation": {
+            "properties": {
+                "mediumWidth": {
+                    "friendlyName": "Medium",
+                    "description": "Medium",
+                    "type": "layout",
+                    "properties": {
+                        "imageSettings": {
+                            "friendlyName": "Checkout shipping address image settings",
+                            "description": "Image settings for checkout shipping address",
+                            "type": "imageSizes",
+                            "properties": {
+                                "xs": {
+                                    "width": 80,
+                                    "height": 80
+                                },
+                                "lg": {
+                                    "width": 147,
+                                    "height": 147
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "gridSettings": {
+        "xs": 768,
+        "sm": 991,
+        "md": 1199,
+        "lg": 1599,
+        "xl": 1600
+    }
+}

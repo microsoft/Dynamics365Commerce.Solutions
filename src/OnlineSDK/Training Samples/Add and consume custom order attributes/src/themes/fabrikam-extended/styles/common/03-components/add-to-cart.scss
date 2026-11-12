@@ -1,0 +1,7 @@
+$msv-dialog-width: 400px;
+
+.msc-modal {
+    .msc-modal__dialog.msc-add-to-cart__dialog {
+        max-width: $msv-dialog-width;
+    }
+}

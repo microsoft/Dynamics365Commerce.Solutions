@@ -1,0 +1,951 @@
+@import "../common/00-settings/colors.scss";
+@import "../common/00-settings/font.scss";
+@import "../common/00-settings/responsive-breakpoints.scss";
+@import "../common/01-tools/mixins.scss";
+@import "../common/00-settings/icons.scss";
+@import "../common/02-generic/image.scss";
+@import "../common/02-generic/button.scss";
+@import "../common/02-generic/form.scss";
+@import "../common/02-generic/controls.scss";
+@import "../common/01-tools/visually-hidden.scss";
+
+$buybox-content-items-padding-top: 40px;
+$buybox-button-height: 32px;
+$buybox-margin-top: 36px;
+$buybox-label-margin-bottom: 5px;
+$gutter-width: 40px;
+$media-gallery-width: 60%;
+$msv-dialog-width: 400px;
+$msv-dialog-button-margin: 15px auto;
+$msv-dialog-button-padding: 6px 16px 7px;
+$msv-dialog-button-width: 100%;
+$buybox-quantity-input: 5px;
+$buybox-incr-decr: 5px;
+$msv-quantity-input-margin: 8px;
+$msv-buybox-quality-controls-dimension: 52px;
+$msv-buybox-inventory-margin-top: 20px;
+$msv-buybox-depth: 0 1.6px 3.6px rgba(0, 0, 0, 0.132), 0 0.3px 0.9px rgba(0, 0, 0, 0.108);
+$msv-buybox-ratings-section-padding-bottom: 25px;
+$msv-buybox-ratings-section-sku-text-padding-top: 5px;
+$msv-buybox-find-section-padding-top: 45px;
+$msv-buybox-find-section-padding-bottom: 25px;
+$msv-buybox-find-in-store-pickup-option-padding-bottom: 20px;
+$msv-buybox-find-section-li-margin-right: 10px;
+$msv-buybox-pickup-options-padding-top: 45px;
+$msv-buybox-pickup-options-padding-bottom: 25px;
+$msv-buybox-find-in-store-description-padding-bottom: 25px;
+$msv-buybox-pickup-option-padding-bottom: 25px;
+$msv-buybox-pickup-option-before-padding-right: 5px;
+$msv-buybox-product-title-padding-bottom: 28px;
+$msv-buybox-description-section-padding: 40px 0 15px 0;
+$msv-buybox-description-section-text-padding-bottom: 22px;
+$msv-buybox-quantity-padding: 40px 56px 21px 56px;
+$msv-buybox-quantity-text-message-padding-top: 5px;
+$msv-buybox-minmax-label-text-before-padding-right: 5px;
+$msv-buybox-price-section-padding-top: 26px;
+$msv-buybox-price-section-text-padding-bottom: 5px;
+$msv-buybox-price-actual-padding-bottom: 35px;
+$msv-buybox-msc-alert-padding-bottom: 10px;
+$msv-buybox-msi-exclamation-triangle-before-padding-right: 5px;
+$msv-buybox-add-to-wishlist-container-padding-top: 15px;
+$msv-buybox-add-to-wishlist-container-padding-bottom: 0;
+$msv-buybox-ms-wishlist-items-product-status-padding-top: 10px;
+$msv-buybox-find-in-store-padding-top: 15px;
+$msv-buybox-description-text-padding-top: 40px;
+$msv-buybox-description-text-padding-bottom: 20px;
+$msv-buybox-shopsimilarlooks-padding-right: 24px;
+$msv-buybox-shopsimilardescriptions-padding-left: 24px;
+$msv-buybox-shop-similar-looks-button-padding-top: 25px;
+$msv-buybox-shop-similar-looks-button-padding-bottom: 25px;
+
+$msv-buybox-media-gallery-mobile-padding-right: 0;
+$msv-buybox-product-title-mobile-padding-bottom: 10px;
+$msv-buybox-ratings-section-sku-text-mobile-padding-top: 0;
+$msv-buybox-ratings-section-rating-mobile-padding-top: 10px;
+$msv-buybox-price-section-mobile-padding-top: 30px;
+$msv-buybox-price-actual-mobile-padding-bottom: 40px;
+$msv-buybox-quantity-mobile-padding-top: 40px;
+$msv-buybox-quantity-mobile-padding-bottom: 35px;
+$msv-buybox-add-to-cart-container-mobile-padding-top: 45px;
+$msv-buybox-add-to-wishlist-container-mobile-padding-bottom: 0;
+$msv-buybox-description-text-mobile-padding-top: 36px;
+$msv-buybox-shopsimilarlooks-mobile-padding-right: 8px;
+$msv-buybox-shopsimilardescriptions-mobile-padding-left: 9px;
+$msv-buybox-media-gallery-tablet-padding-right: 0;
+$msv-buybox-product-title-tablet-padding-bottom: 20px;
+$msv-buybox-ratings-section-tablet-padding-bottom: 20px;
+$msv-buybox-price-section-tablet-padding-top: 30px;
+$msv-buybox-price-actual-tablet-padding-bottom: 40px;
+$msv-buybox-strikethrough-price-font-size: 20px;
+$msv-buybox-add-to-wishlist-icon-margin-right: 10px;
+$msv-buybox-add-to-wishlist-icon-padding-top: 13.5px;
+$msv-buybox-add-to-wishlist-icon-padding-bottom: 13.5px;
+$msv-buybox-add-to-order-template-container-padding-bottom: 15px;
+$msv-buybox-dropdown-margin-bottom: 25px;
+$msv-buybox-dropdown-select-border-textbox: 0.5px solid $msv-gray-50;
+$msv-buybox-dropdown-select-border-radius: 3px;
+$msv-buybox-dropdown-select-focus-border: 1px solid $msv-blue;
+$msv-buybox-dropdown-select-height: 52px;
+$msv-buybox-media-gallery-padding-right:33px;
+$msv-buybox-media-gallery-thumbnail-item-margin-bottom: 20px;
+$msv-buybox-media-gallery-thumbnail-item-margin-left: 20px;
+$msv-buybox-media-gallery-thumbnail-item-width: 100%;
+$msv-buybox-media-gallery-thumbnail-item-height: 100%;
+$msv-buybox-media-gallery-vertical-item-width: 48%;
+$msv-buybox-content-width: 25%;
+$msv-buybox-content-ratings-section-padding-bottom: 27px;
+$msv-buybox-content-description-section-padding-top: 47px;
+$msv-buybox-content-quantity-padding-top: 38px;
+$msv-buybox-content-quantity-padding-bottom: 28px;
+$msv-buybox-content-add-to-cart-container-padding-top: 49px;
+$msv-buybox-content-find-in-store-padding-top: 12px;
+$msv-buybox-media-gallery-vertical-item-width-tablet: 47%;
+$msv-buybox-media-gallery-vertical-item-width-large: 48%;
+$msv-buybox-content-width-large: 17%;
+$msv-preferred-store-availability-margin-top: 20px;
+$buybox-custom-amount-input-padding:5px;
+$buybox-bulk-purchase-link-color: $msv-blue;
+
+//style presets
+:root {
+    //Background
+    --msv-buybox-content-bg-color: #{$msv-white};
+    //title
+    --msv-buybox-title-font-size: var(--msv-body-font-size-xl);
+    --msv-buybox-title-font-color: var(--msv-font-primary-color);
+    //text
+    --msv-buybox-text-font-size-title: var(--msv-body-font-size-l);
+    --msv-buybox-text-font-size: var(--msv-body-font-size-s);
+    --msv-buybox-text-font-size-description: var(--msv-body-font-size-m);
+    --msv-buybox-text-font-color: var(--msv-font-primary-color);
+    // primary button
+    --msv-buybox-primary-btn-bg: var(--msv-accent-brand-color);
+    --msv-buybox-primary-btn-font-color: var(--msv-font-secondary-color);
+    --msv-buybox-primary-btn-border: var(--msv-accent-brand-color);
+    // secondary button
+    --msv-buybox-secondary-btn-bg: var(--msv-bg-color);
+    --msv-buybox-secondary-btn-font-color: var(--msv-font-primary-color);
+    --msv-buybox-secondary-btn-border: var(--msv-accent-brand-color);
+    //Body
+    --msv-buybox-quantity-text-color: #{$msv-gray-40};
+    --msv-buybox-selected-button-color: #{$msv-gray-20};
+    --msv-buybox-border-color: #{$msv-gray-50};
+    --msv-buybox-depth-color: #{$msv-black};
+    --msv-buybox-msc-alert-color: #{$msv-red};
+    --msv-buybox-msc-inventory-available-text-color: #{$msv-blue};
+    --msv-buybox-msc-add-wishlist-icon: #{$msv-blue};
+}
+// mixin
+
+@mixin buybox-button {
+    height: $buybox-button-height;
+    width: 100%;
+}
+
+.ms-buybox {
+    margin-top: $buybox-margin-top;
+
+    .msc-buybox__bulk-purchase-section {
+        border: 0.5px solid var(--msv-buybox-border-color);
+        border-radius: 3px;
+
+        @media (min-width: $msv-breakpoint-m) and (max-width: $msv-breakpoint-l) {
+            width: 50%;
+        }
+
+        .msc-buybox__bulk-purchase-button-text {
+            display: flex;
+            flex-direction: column;
+
+            .ms-buybox__bulk-purchase-anchor {
+                @include font-body-regular-s();
+                @include add-icon($msv-grid, before);
+                border: none;
+                background: unset;
+                padding-bottom: 31px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                &::before {
+                    margin-right: 11px;
+                    color: $buybox-bulk-purchase-link-color;
+                }
+            }
+        }
+    }
+
+    @media (min-width: $msv-breakpoint-s) {
+        display: flex;
+        flex-flow: row;
+
+        &__content {
+            @include font-body-regular-s();
+            flex-grow: 2;
+            background: var(--msv-buybox-content-bg-color);
+
+            .msc-buybox__ratings-section {
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                border-bottom: 0.5px solid $msv-gray-50;
+                font-weight: normal;
+                font-size: 14px;
+                line-height: 20px;
+                padding-bottom: $msv-buybox-ratings-section-padding-bottom;
+
+                .msc-rating.msc-no-ratings {
+                    margin-top: 0;
+
+                    .msc-rating__group {
+                        .msc-rating__star::before,
+                        .msc-rating__empty-star::before,
+                        .msc-rating__half-star::before {
+                            font-size: 20px;
+                        }
+
+                        .msc-rating__half-star::after {
+                            font-size: 20px;
+                        }
+                    }
+
+                    .msc-rating__count {
+                        font-size: 14px;
+                        vertical-align: top;
+                        color: var(--msv-buybox-quantity-text-color);
+                        position: relative;
+                        top: 2px;
+                    }
+                }
+            }
+
+            .msc-buybox__price-section {
+                border-bottom: 0.5px solid $msv-gray-50;
+            }
+
+            .msc-buybox__ratings-section-sku-text,
+            .msc-buybox__description-text,
+            .msc-buybox__description-section-text,
+            .msc-buybox__price-section-text {
+                @include font-body-regular-s();
+                color: var(--msv-buybox-quantity-text-color);
+            }
+
+            .msc-buybox__ratings-section-sku-text {
+                padding-top: $msv-buybox-ratings-section-sku-text-padding-top;
+            }
+
+            .msc-buybox__find-section {
+                padding-top: $msv-buybox-find-section-padding-top;
+                padding-bottom: $msv-buybox-find-section-padding-bottom;
+                border-bottom: 0.5px solid var(--msv-buybox-border-color);
+
+                .ms-buybox__find-in-store-pickup-option {
+                    @include font-body-regular-s();
+                    display: flex;
+                    align-items: center;
+                    padding-bottom: $msv-buybox-find-in-store-pickup-option-padding-bottom;
+                }
+
+                ul {
+                    li:nth-child(3),
+                    li:nth-child(4) {
+                        display: none;
+                    }
+
+                    li:nth-child(1) {
+                        &::before {
+                            margin-right: $msv-buybox-find-section-li-margin-right;
+                        }
+
+                        @include add-icon($msv-store, before);
+                    }
+
+                    li:nth-child(2) {
+                        &::before {
+                            margin-right: $msv-buybox-find-section-li-margin-right;
+                        }
+
+                        @include add-icon($msv-DeliveryTruck, before);
+                    }
+                }
+            }
+
+            .ms-buybox__preferred-store-availability {
+                margin-top: $msv-preferred-store-availability-margin-top;
+                display: block;
+            }
+
+            .msc-buybox__pickup-options {
+                padding-top: $msv-buybox-pickup-options-padding-top;
+                padding-bottom: $msv-buybox-pickup-options-padding-bottom;
+                border-top: 0.5px solid var(--msv-buybox-border-color);
+                border-bottom: 0.5px solid var(--msv-buybox-border-color);
+                font-size: 14px;
+
+                .ms-buybox__find-in-store-description {
+                    padding-bottom: $msv-buybox-find-in-store-description-padding-bottom;
+                    color: var(--msv-buybox-quantity-text-color);
+                }
+
+                .ms-buybox__find-in-store-pickup {
+                    .ms-buybox__find-in-store-pickup-option {
+                        padding-bottom: $msv-buybox-pickup-option-padding-bottom;
+
+                        @include add-icon($msv-InStore-Pickup);
+                    }
+
+                    .ms-buybox__find-in-store-pickup-option::before {
+                        font-size: 20px;
+                        padding-right: $msv-buybox-pickup-option-before-padding-right;
+                        top: 2px;
+                        position: relative;
+                    }
+                }
+            }
+        }
+
+        .ms-buybox__add-to-order-template-container {
+            text-align: center;
+            padding-bottom: $msv-buybox-add-to-order-template-container-padding-bottom;
+        }
+
+        .msc-add-to-order-template-icon {
+            @include icon-button-light();
+            margin: 0 auto;
+
+            &::before {
+                font-size: $msv-icon-size-m;
+                margin: 0 $msv-buybox-add-to-wishlist-icon-margin-right;
+            }
+        }
+
+        &__product-title {
+            @include font-heading-h2-l();
+            color: var(--msv-buybox-title-font-color);
+            padding-bottom: $msv-buybox-product-title-padding-bottom;
+        }
+
+        &__product-description {
+            @include font-body-regular-m();
+            display: inline;
+        }
+
+        .msc-buybox__description-section {
+            padding: $msv-buybox-description-section-padding;
+
+            &-text {
+                padding-bottom: $msv-buybox-description-section-text-padding-bottom;
+            }
+        }
+
+        &__quantity {
+            padding: $msv-buybox-quantity-padding;
+            display: flex;
+            flex-direction: column;
+
+            .quantity {
+                order: 1;
+            }
+
+            .ms-buybox__product-quantity-label {
+                order: 3;
+
+                &-heading {
+                    display: none;
+                }
+
+                .msc-alert-danger {
+                    color: $msv-red;
+
+                    .msi-exclamation-triangle {
+                        @include font-body-regular-s();
+                        color: var(--msv-buybox-msc-alert-color);
+
+                        @include add-icon($msv-information);
+                    }
+
+                    .msi-exclamation-triangle::before {
+                        font-size: 20px;
+                        padding-right: $msv-buybox-msi-exclamation-triangle-before-padding-right;
+                        top: 2px;
+                        position: relative;
+                        vertical-align: sub;
+                    }
+                }
+            }
+
+            .quantity_text_message {
+                padding-top: $msv-buybox-quantity-text-message-padding-top;
+
+                .ms-buybox__minmax_label_text {
+                    @include font-body-regular-s();
+
+                    .msi-InfoCircle {
+                        @include add-icon($msv-information);
+
+                        &::before {
+                            font-size: 20px;
+                            padding-right: $msv-buybox-minmax-label-text-before-padding-right;
+                            top: 2px;
+                            position: relative;
+                            vertical-align: text-bottom;
+                        }
+                    }
+                }
+            }
+        }
+
+        &__key_in_price {
+            margin-top: 20px;
+
+            &-label {
+                display: block;
+                margin-bottom: $buybox-label-margin-bottom;
+            }
+
+            &_custom-amount__input {
+                @include form-input-box();
+                -moz-appearance: textfield;
+                padding: $buybox-custom-amount-input-padding;
+                text-align: left;
+
+                &::-webkit-inner-spin-button,
+                &::-webkit-outer-spin-button {
+                    -webkit-appearance: none;
+                }
+            }
+        }
+
+        .msc-buybox__price-section {
+            padding-top: $msv-buybox-price-section-padding-top;
+            padding-bottom: $msv-buybox-price-actual-padding-bottom;
+
+            &-text {
+                padding-bottom: $msv-buybox-price-section-text-padding-bottom;
+            }
+        }
+
+        .msc-price {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .msc-price__actual {
+            @include font-heading-h3-s();
+            display: block;
+            color: var(--msv-buybox-text-font-color);
+        }
+
+        .msc-price__strikethrough {
+            @include font-heading-h5-l();
+            color: $msv-gray-50;
+            text-decoration-line: line-through;
+        }
+
+        .ms-buybox__product-quantity-label-heading {
+            @include font-body-regular-s();
+            color: var(--msv-buybox-quantity-text-color);
+        }
+
+        &__media-gallery {
+            display: block;
+            flex-basis: $media-gallery-width;
+            min-width: $media-gallery-width;
+            flex-grow: 1;
+            flex-wrap: nowrap;
+            padding-right: $gutter-width;
+        }
+
+        &__add-to-cart-container {
+            padding-top: $buybox-content-items-padding-top;
+
+            .msc-add-to-cart {
+                @include buybox-button();
+                @include primary-button-light();
+                text-transform: uppercase;
+                height: 100%;
+            }
+        }
+
+        .msc-alert {
+            padding-bottom: $msv-buybox-msc-alert-padding-bottom;
+
+            .msc-alert__header {
+                color: var(--msv-buybox-msc-alert-color);
+
+                .msi-exclamation-triangle {
+                    @include font-body-regular-s();
+                    color: var(--msv-buybox-msc-alert-color);
+
+                    @include add-icon($msv-information);
+                }
+
+                .msi-exclamation-triangle::before {
+                    font-size: 20px;
+                    padding-right: $msv-buybox-msi-exclamation-triangle-before-padding-right;
+                    top: 2px;
+                    position: relative;
+                    vertical-align: sub;
+                }
+            }
+
+            .msc-alert__line {
+                color: var(--msv-buybox-msc-alert-color);
+                margin: 10px 0;
+            }
+        }
+
+        .ms-product-comparison-button {
+            padding-top: $msv-buybox-add-to-wishlist-container-padding-top;
+            padding-bottom: $msv-buybox-add-to-wishlist-container-padding-bottom;
+            display: flex;
+
+            @media screen and (min-width: $msv-breakpoint-m) and (max-width: $msv-breakpoint-l - 1) {
+                width: 50%;
+            }
+        }
+
+        &__add-to-wishlist-container {
+            padding-top: $msv-buybox-add-to-wishlist-container-padding-top;
+            padding-bottom: $msv-buybox-add-to-wishlist-container-padding-bottom;
+
+            .msc-add-to-wishlist {
+                @include add-icon($msv-Heart, before);
+                @include icon-button-light();
+                margin: 0 auto;
+
+                &::before {
+                    margin-right: $msv-buybox-add-to-wishlist-icon-margin-right;
+                    font-size: $msv-icon-size-m;
+                    color: var(--msv-buybox-msc-add-wishlist-icon);
+                }
+
+                &__removing {
+                    @include add-icon($msv-Heart-Fill, before);
+                }
+
+                &:hover {
+                    @include add-icon($msv-Heart-Fill, before);
+                }
+            }
+        }
+
+        .ms-wishlist-items__product-status {
+            @include visually-hidden();
+        }
+
+        &__product-unit-of-measure {
+            @include font-body-regular-s();
+            color: $msv-gray-40;
+            margin-top: 8px;
+            margin-bottom: 8px;
+            order: 2;
+        }
+
+        /* stylelint-disable no-descending-specificity -- Suppressed. */
+        &__find-in-store {
+            padding-top: $msv-buybox-find-in-store-padding-top;
+
+            .ms-buybox__find-in-store-heading,
+            .ms-buybox__find-in-store-description,
+            .ms-buybox__find-in-store-pickup {
+                display: none;
+            }
+
+            .ms-buybox__find-in-store-button {
+                @include buybox-button();
+                @include secondary-button-light();
+                text-transform: uppercase;
+                height: 100%;
+
+                &:not(:disabled) {
+                    &:hover {
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+    }
+
+    @media (min-width: $msv-breakpoint-l) {
+        &__media-gallery {
+            .ms-media-gallery__carousel {
+                display: none;
+            }
+        }
+    }
+    //mobile vp
+
+    @media (max-width: ($msv-breakpoint-m)-1) {
+        flex-flow: column;
+
+        &__media-gallery {
+            padding-right: $msv-buybox-media-gallery-mobile-padding-right;
+        }
+
+        &__content {
+            width: 100%;
+
+            .ms-buybox__product-title {
+                @include font-heading-h2-s();
+                padding-bottom: $msv-buybox-product-title-mobile-padding-bottom;
+            }
+
+            .msc-buybox__ratings-section {
+                display: block;
+
+                .msc-buybox__ratings-section-sku-text {
+                    padding-top: $msv-buybox-ratings-section-sku-text-mobile-padding-top;
+                }
+
+                .msc-rating {
+                    padding-top: $msv-buybox-ratings-section-rating-mobile-padding-top;
+                }
+            }
+
+            .msc-buybox__price-section {
+                padding-top: $msv-buybox-price-section-mobile-padding-top;
+                padding-bottom: $msv-buybox-price-actual-mobile-padding-bottom;
+            }
+
+            .ms-buybox__quantity {
+                padding-top: $msv-buybox-quantity-mobile-padding-top;
+                padding-bottom: $msv-buybox-quantity-mobile-padding-bottom;
+            }
+
+            .ms-buybox__add-to-cart-container {
+                padding-top: $msv-buybox-add-to-cart-container-mobile-padding-top;
+            }
+
+            .ms-buybox__add-to-wishlist-container {
+                padding-bottom: $msv-buybox-add-to-wishlist-container-mobile-padding-bottom;
+            }
+
+            .msc-add-to-order-template-icon,
+            .msc-add-to-wishlist {
+                padding-left: 0;
+                padding-right: 0;
+            }
+
+            .msc-buybox__description-text {
+                padding-top: $msv-buybox-description-text-mobile-padding-top;
+            }
+
+            .msc-buybox__shop-description {
+                .ms-buybox__shopsimilarlooks {
+                    padding-right: $msv-buybox-shopsimilarlooks-mobile-padding-right;
+                }
+
+                .ms-buybox__shopsimilardescriptions {
+                    padding-left: $msv-buybox-shopsimilardescriptions-mobile-padding-left;
+                }
+            }
+        }
+
+        .msc-price__actual {
+            @include font-heading-h4-s();
+        }
+    }
+
+    //tablet vp
+
+    @media (min-width: $msv-breakpoint-m) and (max-width: ($msv-breakpoint-l)-1) {
+        flex-flow: column;
+
+        &__media-gallery {
+            padding-right: 0;
+        }
+
+        &__content {
+            width: 100%;
+
+            .ms-buybox__product-title {
+                @include font-heading-h2-m();
+                padding-bottom: $msv-buybox-product-title-tablet-padding-bottom;
+            }
+
+            .msc-buybox__ratings-section {
+                padding-bottom: $msv-buybox-ratings-section-tablet-padding-bottom;
+            }
+
+            .msc-buybox__price-section {
+                padding-top: $msv-buybox-price-section-tablet-padding-top;
+                padding-bottom: $msv-buybox-price-actual-tablet-padding-bottom;
+            }
+        }
+
+        .quantity,
+        .ms-buybox__add-to-cart-container,
+        .ms-buybox__find-in-store,
+        .ms-buybox__add-to-wishlist-container,
+        .msc-buybox__shop-description,
+        .msc-buybox__description-section,
+        .ms-buybox__add-to-order-template-container {
+            width: 50%;
+        }
+
+        .quantity {
+            @media (min-width: $msv-breakpoint-m) and (max-width: $msv-breakpoint-l) {
+                width: 100%;
+            }
+        }
+
+        .msc-price__actual {
+            @include font-heading-h4-m();
+        }
+    }
+
+    @media (min-width: ($msv-breakpoint-l)+1) {
+        &__media-gallery {
+            padding-right: $msv-buybox-media-gallery-padding-right;
+
+            .ms-media-gallery {
+                &.vertical {
+                    .msc-ss-carousel-vert-slide {
+                        .ms-media-gallery__thumbnail-item {
+                            margin-right: 0;
+                            margin-bottom: $msv-buybox-media-gallery-thumbnail-item-margin-bottom;
+                            height: 100%;
+
+                            &:nth-of-type(2n) {
+                                margin-left: $msv-buybox-media-gallery-thumbnail-item-margin-left;
+                            }
+
+                            button.msc-ss-carousel-vert-button-wrapper {
+                                width: $msv-buybox-media-gallery-thumbnail-item-width;
+                                height: $msv-buybox-media-gallery-thumbnail-item-height;
+                            }
+                        }
+                    }
+                }
+
+                .msc-ss-carousel-vert-item {
+                    width: $msv-buybox-media-gallery-vertical-item-width;
+                }
+            }
+        }
+
+        &__content {
+            width: $msv-buybox-content-width;
+
+            .msc-buybox__ratings-section {
+                padding-bottom: $msv-buybox-content-ratings-section-padding-bottom;
+            }
+
+            .msc-buybox__description-section {
+                padding-top: $msv-buybox-content-description-section-padding-top;
+            }
+
+            .ms-buybox {
+                &__quantity {
+                    padding-top: $msv-buybox-content-quantity-padding-top;
+                    padding-bottom: $msv-buybox-content-quantity-padding-bottom;
+                }
+
+                &__add-to-cart-container {
+                    padding-top: $msv-buybox-content-add-to-cart-container-padding-top;
+                }
+
+                &__find-in-store {
+                    padding-top: $msv-buybox-content-find-in-store-padding-top;
+                }
+            }
+        }
+    }
+
+    @media (min-width: ($msv-breakpoint-l)+1) and (max-width: ($msv-breakpoint-lg)-1) {
+        .ms-media-gallery .msc-ss-carousel-vert-item {
+            width: $msv-buybox-media-gallery-vertical-item-width-tablet;
+        }
+    }
+
+    @media (min-width: $msv-breakpoint-xl) {
+        &__media-gallery {
+            .ms-media-gallery {
+                .msc-ss-carousel-vert-item {
+                    width: $msv-buybox-media-gallery-vertical-item-width-large;
+                }
+            }
+        }
+
+        &__content {
+            width: $msv-buybox-content-width-large;
+        }
+    }
+
+    label {
+        display: block;
+        margin-bottom: $buybox-label-margin-bottom;
+    }
+
+    .msc-buybox__description-text {
+        padding-top: $msv-buybox-description-text-padding-top;
+        padding-bottom: $msv-buybox-description-text-padding-bottom;
+    }
+
+    .msc-buybox__shop-description {
+        display: inline-flex;
+    }
+
+    .ms-buybox__shopsimilarlooks {
+        padding-right: $msv-buybox-shopsimilarlooks-padding-right;
+    }
+
+    .ms-buybox__shopsimilardescriptions {
+        padding-left: $msv-buybox-shopsimilardescriptions-padding-left;
+        border-left: 0.5px solid $msv-gray-50;
+    }
+
+    .ms-buybox__dropdown {
+        margin-bottom: $msv-buybox-dropdown-margin-bottom;
+
+        .msc-dropdown__select {
+            @include font-body-regular-s();
+            height: $msv-buybox-dropdown-select-height;
+            background: linear-gradient(0deg, $msv-white, $msv-white), $msv-gray-100;
+            width: 100%;
+            border: $msv-buybox-dropdown-select-border-textbox;
+            border-radius: $msv-buybox-dropdown-select-border-radius;
+            outline: none;
+            padding: 16px 12px;
+            order: 1;
+
+            option {
+                @include font-body-regular-m();
+            }
+
+            &:focus {
+                border: $msv-buybox-dropdown-select-focus-border;
+                outline: none;
+            }
+        }
+    }
+
+    &__inventory-info {
+        margin-top: $msv-buybox-inventory-margin-top;
+    }
+
+    &__shop-similar-looks-button,
+    &__shop-similar-descriptions-button {
+        border: none;
+        background: var(--msv-buybox-content-bg-color);
+        box-shadow: $msv-buybox-depth;
+        border-radius: 10px;
+        padding-top: $msv-buybox-shop-similar-looks-button-padding-top;
+        padding-bottom: $msv-buybox-shop-similar-looks-button-padding-bottom;
+
+        @include font-body-regular-m();
+        @include vfi();
+    }
+
+    &__shop-similar-looks-button {
+        @include add-icon($msv-eye, before);
+
+        &::before {
+            font-size: $msv-icon-size-m;
+            width: 100%;
+        }
+    }
+
+    &__shop-similar-descriptions-button {
+        @include add-icon($msv-file, before);
+
+        &::before {
+            font-size: $msv-icon-size-m;
+            width: 100%;
+        }
+    }
+
+    @include quantity-controls-decoration();
+
+    .quantity {
+        .quantity-input {
+            margin-left: $msv-quantity-input-margin;
+            margin-right: $msv-quantity-input-margin;
+            padding: $buybox-quantity-input;
+        }
+
+        .quantity__controls {
+            padding: $buybox-incr-decr;
+            padding-left: 0;
+            padding-right: 0;
+            max-width: $msv-buybox-quality-controls-dimension;
+
+            width: 100%;
+        }
+    }
+
+    &__content {
+        .ms-buybox__configure {
+            .ms-buybox__dropdown {
+                .msc-alert {
+                    @include alert();
+                    @include add-icon($msv-information);
+                    align-items: center;
+                    display: flex;
+                    align-content: baseline;
+                    margin-top: 12px;
+                }
+            }
+        }
+    }
+}
+
+.msc-modal {
+    .msc-modal__dialog.ms-buybox__dialog {
+        max-width: $msv-dialog-width;
+
+        .msc-modal__content {
+            max-width: $msv-dialog-width;
+        }
+
+        .ms-buybox__dialog__body {
+            text-align: center;
+        }
+
+        .ms-buybox__dialog__image {
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+        .ms-buybox__dialog__go-to-cart.msc-btn {
+            @include primary-button-light();
+            display: block;
+            margin: $msv-dialog-button-margin;
+            padding: $msv-dialog-button-padding;
+            width: $msv-dialog-button-width;
+        }
+
+        .ms-buybox__dialog__back-to-shopping.msc-btn {
+            @include secondary-button-light();
+            display: block;
+            margin: $msv-dialog-button-margin;
+            padding: $msv-dialog-button-padding;
+            width: $msv-dialog-button-width;
+        }
+    }
+
+    .msc-modal__dialog.msc-add-to-cart__dialog {
+        .msc-modal__content {
+            max-width: $msv-dialog-width;
+        }
+
+        .msc-add-to-cart__dialog__body {
+            text-align: center;
+        }
+
+        .msc-add-to-cart__dialog__image {
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+        .msc-add-to-cart__dialog__back-to-shopping.msc-btn {
+            @include secondary-button-light();
+            display: block;
+            margin: $msv-dialog-button-margin;
+            padding: $msv-dialog-button-padding;
+            width: $msv-dialog-button-width;
+        }
+    }
+}

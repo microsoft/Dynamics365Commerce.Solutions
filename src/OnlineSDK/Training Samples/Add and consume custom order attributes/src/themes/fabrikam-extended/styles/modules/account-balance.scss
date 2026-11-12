@@ -1,0 +1,379 @@
+@import "../common/00-settings/colors.scss";
+@import "../common/00-settings/font.scss";
+@import "../common/00-settings/responsive-breakpoints.scss";
+@import "../common/01-tools/mixins.scss";
+@import "../common/00-settings/icons.scss";
+@import "../common/02-generic/button.scss";
+
+$popover-menu-item-height: 48px;
+$msv-account-balance-heading2-padding: 25px 0;
+$msv-account-balance-heading3-padding-top: 30px;
+$msv-account-balance-heading-padding-bottom: 28px;
+$msv-account-balance-credit-summary-heading-padding-top: 52px;
+$msv-account-balance-credit-summary-heading-padding-bottom: 21px;
+$msv-account-balance-credit-summary-heading-padding-right: 5px;
+$msv-account-balance-credit-summary-dollar-icon-margin-top: 2px;
+$msv-account-balance-credit-summary-heading-width: 538px;
+$msv-account-balance-credit-label-padding-bottom: 12px;
+$msv-account-balance-account-padding-top: 44px;
+$msv-account-balance-account-padding-bottom: 46px;
+$msv-account-balance-account-number-padding-top: 12px;
+$msv-account-balance-account-number-padding-bottom: 15px;
+$msv-account-balance-credit-padding-bottom: 12px;
+$msv-account-balance-action-margin-top: 10px;
+$msv-account-balance-requestStatement-padding: 10px;
+$msv-account-balance-toggleDown-margin-top: 48px;
+$msv-account-balance-arrow-margin: 0 0.3rem;
+$msv-account-balance-buttonLabel-padding: 20px;
+$msv-account-balance-buttonLabel-padding-right: 10px;
+$msv-account-balance-dateSelector-margin-top: 5px;
+$msv-account-balance-sendToEmail-padding-top: 20px;
+$msv-account-balance-toggle-height: 40px;
+$msv-account-balance-toggle-width: 160px;
+$msv-account-balance-requestStatement-width: 300px;
+$msv-account-balance-toggle-border-radius: 100px;
+$msv-account-balance-toggle-padding-left: 40px;
+$msv-account-balance-toggle-padding-right: 40px;
+$msv-account-balance-dropdown-border-radius: 10px;
+$msv-account-balance-modal-body-label-margin-right: 10px;
+$msv-account-balance-todate-input-padding-left: 10px;
+$msv-account-balance-todate-input-padding-right: 10px;
+$msv-account-balance-fromdate-input-padding-left: 10px;
+$msv-account-balance-fromdate-input-padding-right: 10px;
+$msv-account-balance-fromdate-todate-input-border-radius: 3px;
+$msv-account-balance-toggle-margin-top: 41px;
+$msv-account-balance-toggleUp-height: 44px;
+$msv-account-balance-buttonLabel-margin-left: 20px;
+$msv-account-balance-date-height: 52px;
+$msv-account-balance-button-margin: 48px 0;
+
+.ms-account {
+    &-customer-balance {
+        h2 {
+            padding: $msv-account-balance-heading2-padding;
+        }
+
+        h3 {
+            padding-top: $msv-account-balance-heading3-padding-top;
+        }
+
+        &__account-heading {
+            @include font-heading-h3-s();
+            padding-bottom: $msv-account-balance-heading-padding-bottom;
+            border-bottom: 0.5px solid $msv-gray-50;
+        }
+
+        .ms-account-customer-balance__credit-summary-heading {
+            @include add-icon($msv-money-dollar-circle-line, before);
+            @include font-heading-h5-s();
+            padding-top: $msv-account-balance-credit-summary-heading-padding-top;
+            padding-bottom: $msv-account-balance-credit-summary-heading-padding-bottom;
+            border-top: 0.5px solid $msv-gray-50;
+            max-width: $msv-account-balance-credit-summary-heading-width;
+
+            &::before {
+                padding-right: $msv-account-balance-credit-summary-heading-padding-right;
+                margin-top: $msv-account-balance-credit-summary-dollar-icon-margin-top;
+                float: left;
+            }
+        }
+
+        &__credit-summary {
+            display: flex;
+            justify-content: space-between;
+            max-width: $msv-account-balance-credit-summary-heading-width;
+
+            &__wrapper {
+                display: grid;
+                font-family: $msv-font-family-rubik-regular;
+            }
+        }
+
+        &__available-credit-label,
+        &__balance-owed-label {
+            @include font-body-regular-m();
+            padding-bottom: $msv-account-balance-credit-label-padding-bottom;
+        }
+
+        &__account {
+            padding-top: $msv-account-balance-account-padding-top;
+            padding-bottom: $msv-account-balance-account-padding-bottom;
+
+            &__details {
+                h4 {
+                    @include font-heading-h5-l();
+                }
+
+                .ms-account-customer-balance__account-number {
+                    @include font-heading-h3-s();
+                    padding-top: $msv-account-balance-account-number-padding-top;
+                    padding-bottom: $msv-account-balance-account-number-padding-bottom;
+                }
+            }
+        }
+
+        &__created-on {
+            @include font-body-regular-m();
+        }
+
+        &__account__credit {
+            padding-top: $msv-account-balance-credit-summary-heading-padding-top;
+
+            .ms-account-customer-balance__available-credit-label {
+                @include font-heading-h5-l();
+                padding-bottom: $msv-account-balance-credit-padding-bottom;
+            }
+
+            .ms-account-customer-balance__available-credit-amount {
+                @include font-heading-h3-s();
+            }
+        }
+
+        .ms-account-loyalty__home-link {
+            display: none;
+            padding-top: $msv-account-balance-account-number-padding-top;
+            margin: $msv-account-balance-button-margin;
+
+            @include secondary-button-dark();
+
+            &:hover {
+                background-color: $msv-gray-20;
+            }
+        }
+
+        &__action {
+            &__bar {
+                margin-top: $msv-account-balance-action-margin-top;
+            }
+
+            &__requestStatement {
+                border: 1px solid var(--msv-accent-brand-color);
+                background-color: var(--msv-bg-color);
+                padding: $msv-account-balance-requestStatement-padding;
+                width: 100%;
+                text-align: center;
+
+                &.msc-btn {
+                    display: inline;
+                    min-width: $msv-account-balance-toggle-width;
+                    margin-top: $msv-account-balance-toggleDown-margin-top;
+                    height: fit-content;
+                    min-height: $msv-account-balance-toggle-height;
+                    border-radius: $msv-account-balance-toggle-border-radius;
+                    padding-left: $msv-account-balance-toggle-padding-left;
+                    padding-right: $msv-account-balance-toggle-padding-right;
+                    font-size: $msv-font-size-s;
+                    text-transform: uppercase;
+                    width: fit-content;
+                }
+
+                &__toggleDown {
+                    @include add-icon($msv-ChevronDown, after);
+                    border: 1px solid var(--msv-accent-brand-color);
+                    background-color: var(--msv-bg-color);
+                    text-align: center;
+                    display: inline;
+                    min-width: $msv-account-balance-toggle-width;
+                    margin-top: $msv-account-balance-toggleDown-margin-top;
+                    height: fit-content;
+                    min-height: $msv-account-balance-toggle-height;
+                    border-radius: $msv-account-balance-toggle-border-radius;
+                    padding-left: $msv-account-balance-toggle-padding-left;
+                    padding-right: $msv-account-balance-toggle-padding-right;
+                    font-size: $msv-font-size-s;
+
+                    &::after {
+                        vertical-align: middle;
+                        font-size: $msv-font-size-l;
+                    }
+                }
+
+                &__toggleUp {
+                    @include add-icon($msv-ChevronUp, after);
+                    border: 1px solid var(--msv-accent-brand-color);
+                    background-color: var(--msv-bg-color);
+                    text-align: center;
+                    display: inline;
+                    min-width: $msv-account-balance-toggle-width;
+                    margin-top: $msv-account-balance-toggle-margin-top;
+                    height: $msv-account-balance-toggleUp-height;
+                    min-height: $msv-account-balance-toggle-height;
+                    border-radius: $msv-account-balance-toggle-border-radius;
+                    padding-left: $msv-account-balance-toggle-padding-left;
+                    padding-right: $msv-account-balance-toggle-padding-right;
+                    font-size: $msv-font-size-s;
+
+                    &::after {
+                        vertical-align: middle;
+                        font-size: $msv-font-size-l;
+                    }
+                }
+
+                &__dropdownHidden {
+                    visibility: hidden;
+                    height: 0;
+                    display: none;
+                }
+
+                &__dropdownVisible {
+                    background-color: var(--msv-header-bg);
+                    background-clip: padding-box;
+                    display: block;
+                    left: 0;
+                    position: absolute;
+                    top: 0;
+                    word-wrap: break-word;
+                    z-index: 1060;
+                    border-radius: 10px;
+                    margin-top: 8px;
+                    box-shadow: $msv-depth4;
+
+                    .msc-popover-inner {
+                        background-color: $msv-white;
+                        background-clip: padding-box;
+                        display: block;
+                        left: 0;
+                        top: 0;
+                        word-wrap: break-word;
+                        z-index: 1060;
+                        box-shadow: $msv-depth4;
+                        border-radius: $msv-account-balance-dropdown-border-radius;
+                    }
+
+                    .msc-btn {
+                        border: none;
+                        height: $popover-menu-item-height;
+                    }
+
+                    .msc-arrow {
+                        display: none;
+                        height: 0.5rem;
+                        margin: $msv-account-balance-arrow-margin;
+                        position: absolute;
+                        top: calc((0.5rem + 1px) * -1);
+                        width: 1rem;
+
+                        &::before,
+                        &::after {
+                            border-color: transparent;
+                            border-style: solid;
+                            border-width: 0 0.5rem 0.5rem 0.5rem;
+                            content: "";
+                            display: block;
+                            position: absolute;
+                        }
+
+                        &::before {
+                            border-bottom-color: $msv-gray-500;
+                            top: 0;
+                        }
+
+                        &::after {
+                            border-bottom-color: var(--msv-border-color);
+                            top: 1px;
+                        }
+                    }
+                }
+
+                &__dropdownOption {
+                    display: block;
+                    width: 100%;
+                    background: transparent;
+
+                    &:hover {
+                        background: $msv-white-20;
+                    }
+                }
+
+                &__buttonLabel {
+                    padding-right: $msv-account-balance-buttonLabel-padding-right;
+                    text-transform: uppercase;
+                }
+            }
+
+            &__submitRequest {
+                @include primary-button-light();
+            }
+
+            &__cancelRequest {
+                @include secondary-button-light();
+                margin-left: $msv-account-balance-buttonLabel-margin-left;
+            }
+        }
+
+        &__requestStatement__modal {
+            position: absolute;
+        }
+
+        &__requestStatement__fromDate {
+            padding-top: $msv-account-balance-buttonLabel-padding;
+            width: $msv-account-balance-requestStatement-width;
+            float: left;
+            background-clip: padding-box;
+
+            @include font-body-bold-s();
+
+            input {
+                padding-left: $msv-account-balance-fromdate-input-padding-left;
+                padding-right: $msv-account-balance-fromdate-input-padding-right;
+                height: $msv-account-balance-date-height;
+                border-radius: $msv-account-balance-fromdate-todate-input-border-radius;
+            }
+        }
+
+        &__requestStatement__toDate {
+            padding-top: $msv-account-balance-buttonLabel-padding;
+            width: $msv-account-balance-requestStatement-width;
+            background-clip: padding-box;
+            float: right;
+            border-radius: 3px;
+
+            @media screen and (max-width: $msv-breakpoint-m) {
+                float: left;
+            }
+
+            @include font-body-bold-s();
+
+            input {
+                padding-left: $msv-account-balance-todate-input-padding-left;
+                padding-right: $msv-account-balance-todate-input-padding-right;
+                height: $msv-account-balance-date-height;
+                border-radius: $msv-account-balance-fromdate-todate-input-border-radius;
+            }
+        }
+
+        @media screen and (max-width: $msv-breakpoint-m) {
+            &__requestStatement__toDate,&__requestStatement__fromDate {
+                width: 100%;
+            }
+        }
+
+        @media screen and (min-width: $msv-breakpoint-m) {
+            &__requestStatement__toDate,&__requestStatement__fromDate {
+                width: 50%;
+            }
+        }
+
+        &__dateSelector {
+            @include font-body-regular-s();
+            margin-top: $msv-account-balance-dateSelector-margin-top;
+            display: block;
+            width: 95%;
+        }
+
+        &__sendToEmail {
+            padding-top: $msv-account-balance-sendToEmail-padding-top;
+            padding-bottom: $msv-account-balance-buttonLabel-padding;
+
+            @include font-body-regular-m();
+        }
+
+        &__dropdown {
+            width: fit-content;
+        }
+
+        &__buttonBar {
+            display: flex;
+        }
+    }
+}
