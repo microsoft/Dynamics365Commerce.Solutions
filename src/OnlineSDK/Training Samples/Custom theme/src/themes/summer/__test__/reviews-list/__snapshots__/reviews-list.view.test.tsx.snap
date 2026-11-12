@@ -1,0 +1,173 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Reviews list Render correctly with cards 1`] = `
+<div
+  class=""
+  id=""
+/>
+`;
+
+exports[`Reviews list Render correctly with userReview and zero card 1`] = `
+<div
+  class=""
+  id=""
+>
+  <div
+    class=""
+  />
+  <div
+    class=""
+  >
+    <div
+      class=""
+    >
+      <div
+        class=""
+      />
+      <div
+        class=""
+      >
+        <div
+          class=""
+        />
+        <div
+          class=""
+        />
+        <div
+          class=""
+        />
+      </div>
+    </div>
+  </div>
+  <div />
+  <div
+    _store="[object Object]"
+    class=""
+    id=""
+    props="[object Object]"
+    type="div"
+  >
+    <div />
+    <div
+      _store="[object Object]"
+      class=""
+      props="[object Object]"
+      type="div"
+    >
+      <div
+        class=""
+      >
+        <div
+          class=""
+        />
+        <div
+          class=""
+        />
+        <div
+          class=""
+        />
+        <div />
+      </div>
+    </div>
+    <div
+      _store="[object Object]"
+      class=""
+      props="[object Object]"
+      type="div"
+    >
+      <div />
+      <div />
+    </div>
+  </div>
+  <div
+    _store="[object Object]"
+    class=""
+    props="[object Object]"
+    type="div"
+  >
+    <div
+      _store="[object Object]"
+      class=""
+      props="[object Object]"
+      type="div"
+    >
+      <div />
+    </div>
+    <div
+      _store="[object Object]"
+      class=""
+      props="[object Object]"
+      type="div"
+    >
+      <div />
+    </div>
+    <div
+      _store="[object Object]"
+      class=""
+      props="[object Object]"
+      type="div"
+    >
+      <div />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Reviews list Render correctly. 1`] = `
+<div
+  class=""
+  id=""
+>
+  <div
+    class=""
+  />
+  <div
+    class=""
+  >
+    <div
+      class=""
+    >
+      <div
+        class=""
+      />
+      <div
+        class=""
+      >
+        <div
+          class=""
+        />
+        <div
+          class=""
+        />
+        <div
+          class=""
+        />
+      </div>
+    </div>
+    <div
+      class=""
+    >
+      <div
+        class=""
+      >
+        4
+      </div>
+      <div
+        class=""
+      >
+        <div
+          class=""
+        >
+          my text
+        </div>
+        <div
+          class=""
+        />
+        <div
+          class=""
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;

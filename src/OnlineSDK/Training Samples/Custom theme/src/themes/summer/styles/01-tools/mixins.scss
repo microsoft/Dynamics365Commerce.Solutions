@@ -1,0 +1,77 @@
+@mixin make-container-padding($paddings: $grid-gutter-widths, $breakpoints: $grid-breakpoints) {
+    @each $breakpoint, $padding in $paddings {
+        @include media-breakpoint-up($breakpoint, $breakpoints) {
+            padding-left: $padding;
+            padding-right: $padding;
+        }
+    }
+}
+
+@mixin basicTruncation {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+@mixin basic-outline-offset(
+    $outline-width: 1px,
+    $outline-style: dashed,
+    $outline-color: $black,
+    $outline-offset: -1px
+) {
+    outline: $outline-width $outline-style $outline-color;
+    outline-offset: $outline-offset;
+}
+
+@mixin vfi {
+    &:focus {
+        border: 1px dashed $white;
+        outline: 1px dashed $black;
+    }
+
+    @supports (-webkit-touch-callout: none) {
+        &:focus {
+            border: none;
+            outline: 0;
+        }
+    }
+}
+
+@mixin vfi-psuedo($selector: after, $offset: -2px, $position: relative) {
+    position: $position;
+
+    &:focus {
+        outline: 1px dashed $white;
+
+        &:#{$selector} {
+            position: absolute;
+            content: "";
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: transparent;
+            outline: 1px dashed $black;
+            outline-offset: $offset;
+        }
+    }
+}
+
+@mixin validation($bg-color, $border, $color) {
+    background-color: $bg-color;
+    border: 1px solid $border;
+    color: $color;
+}
+
+@mixin validation-success($bg-color: $msv-gray-300, $border: $msv-gray-900, $color: $msv-gray-900) {
+    @include validation($bg-color, $border, $color);
+}
+
+@mixin validation-error($bg-color: var(--msv-error-color),
+$border:  var(--msv-error-color), $color: var(--msv-font-secondary-color)) {
+    @include validation($bg-color, $border, $color);
+}
+
+@mixin divider($direction) {
+    border-#{$direction}: 1.5px solid #{$msv-divider-color};
+}

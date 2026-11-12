@@ -1,0 +1,83 @@
+{
+    "$type": "definitionExtension",
+    "dependentSchemas": {
+        "moduleLayout":{
+            "oneOf":[
+                {
+                    "properties":{
+                        "moduleLayout":{
+                            "enum":{
+                                "left-right": "left-right"
+                            }
+                        },
+                        "textplacement":{
+                            "friendlyName": "Text placement",
+                            "description": "Placement of the text",
+                            "type": "css",
+                            "enum":{
+                                "left": "Left",
+                                "right": "Right",
+                                "center": "Center"
+                            },
+                            "default": "left"
+                        }
+                    }
+                },
+                {
+                    "properties":{
+                        "moduleLayout":{
+                            "enum":{
+                                "full-width": "full-width"
+                            }
+                        },
+                        "textplacement":{
+                            "friendlyName": "Text placement",
+                            "description": "Placement of the text",
+                            "type": "css",
+                            "enum":{
+                                "left": "Left",
+                                "right": "Right",
+                                "center": "Center"
+                            },
+                            "default": "left"
+                        },
+                        "texttheme": {
+                            "friendlyName": "Text theme",
+                            "description": "Sets font theme- light or dark",
+                            "type": "css",
+                            "enum": {
+                                "dark": "Dark",
+                                "light": "Light"
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "actionableRegion":{
+            "oneOf":[
+                {
+                    "properties":{
+                        "actionableRegion":{
+                            "enum":{
+                                "imageAndLinks": "imageAndLinks"
+                            }
+                        },
+                        "imageLink": {    
+                            "friendlyName": "Link for image",
+                            "description": "Optional link for image if image is actionable",
+                            "type": "link",
+                            "override": true
+                          },
+                          "imageAriaLabel":{
+                            "friendlyName": "Aria label for image link",
+                            "description": "Aria label if image link is provided",
+                            "type": "string",
+                            "override": true
+                          }
+                    }
+                }
+            ]
+        }
+    }
+}

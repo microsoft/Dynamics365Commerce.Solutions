@@ -1,0 +1,26 @@
+{
+    "$type": "definitionExtension",
+    "config": {
+        "alignment":{
+            "friendlyName": "Alignment",
+            "description": "Alignment for the text block",
+            "type": "css",
+            "enum":{
+                "left": "Left",
+                "right": "Right",
+                "center": "Center"
+            }
+        },
+        "fontsize":{
+            "friendlyName": "Font size",
+            "description": "Font size for the text",
+            "type": "css",
+            "enum":{
+                "small": "Small",
+                "medium": "Medium",
+                "large": "Large",
+                "extralarge": "X-Large"
+            }
+        }
+    }
+}

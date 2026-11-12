@@ -1,0 +1,310 @@
+$msv-modal-width: 500px;
+$msv-modal-padding: 40px 60px;
+$msv-modal-margin: 20px;
+$msv-modal-button-padding: 5px;
+$msv-modal-vertical-alignment-top: flex-start;
+$msv-modal-vertical-alignment-center: center;
+$msv-modal-vertical-alignment-bottom: flex-end;
+$msv-modal-z-index: 1050;
+$msv-modal-backdrop-opacity: 0.4;
+$msv-modal-animation-duration: 0.2s;
+
+$msv-size-m: 360px;
+
+@keyframes modal-appear {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes modal-disappear {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+@keyframes modal-backdrop-appear {
+    0% { opacity: 0; }
+    100% { opacity: $msv-modal-backdrop-opacity; }
+}
+
+@keyframes modal-backdrop-disappear {
+    0% { opacity: $msv-modal-backdrop-opacity; }
+    100% { opacity: 0; }
+}
+
+.modal-open .msc-modal {
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+/* stylelint-disable-next-line no-descending-specificity -- Auto-suppressed. Please fix if possible. */
+.msc-modal {
+    ::-webkit-scrollbar {
+        background: none;
+        width: 8px;
+        height: 8px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: #D5D5D5;
+        width: 8px;
+        height: 8px;
+        border-radius: 8px;
+    }
+
+    display: none;
+    height: 100%;
+    left: 0;
+    overflow: hidden;
+    outline: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: $msv-modal-z-index;
+
+    &.show {
+        animation: modal-appear $msv-modal-animation-duration;
+    }
+
+    &.fade:not(.show) {
+        animation: modal-disappear $msv-modal-animation-duration;
+        opacity: 0;
+    }
+
+    &__dialog {
+        align-items: $msv-modal-vertical-alignment-top;
+        max-width: $msv-modal-width;
+        margin: auto;
+        pointer-events: none;
+        position: relative;
+        width: auto;
+        top: 50%;
+        transform: translateY(-50%);
+
+        &:focus {
+            outline: 0;
+        }
+
+        input, textarea {
+            color: $msv-text-color;
+
+            &::placeholder {
+                color: $msv-gray-500;
+            }
+        }
+
+        input, textarea, select {
+            margin-right: 1px;
+            background-color: var(--msv-modal-bg-color);
+            border: 1px solid $msv-gray-500;
+        }
+
+        input:disabled, textarea:disabled, select:disabled {
+            background-color: $msv-gray-100;
+            border: none;
+        }
+
+        @media (min-width: map-get($grid-breakpoints, "md")) {
+            max-width: 866px;
+        }
+    }
+
+    &__content {
+        background-clip: padding-box;
+        background-color: var(--msv-modal-bg-color);
+        color: var(--msv-modal-font-color);
+        display: flex;
+        flex-direction: column;
+        outline: 0;
+        pointer-events: auto;
+        position: relative;
+        width: 100%;
+        padding: $msv-modal-padding;
+    }
+
+    &__header {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        margin-bottom: $msv-modal-margin;
+
+        .msc-modal__title {
+            @include font-content-xl();
+            margin: 0;
+            text-transform: none;
+        }
+
+        .msc-modal__close-button {
+            @include add-icon($msv-x-shape);
+            @include vfi();
+            background-color: transparent;
+            border: 0;
+            color: var(--msv-font-primary-color);
+            font-size: 20px;
+            position: absolute;
+            right: 20px;
+            cursor: pointer;
+        }
+    }
+
+    .msc-fullview-modal {
+        transform: none;
+        top: 0;
+        max-height: none;
+        height: 100%;
+        margin: 0;
+
+        @media (min-width: map-get($grid-breakpoints, "md")) {
+            max-width: 100%;
+            padding: 40px;
+        }
+
+        .msc-modal {
+            &__content {
+                padding: 0;
+                background-color: $msv-white;
+                background-clip: border-box;
+                height: 100%;
+            }
+
+            &__close-button {
+                right: 10px;
+                top: 15px;
+            }
+        }
+
+        .msc-fullview-modal-body.msc-modal__body {
+            max-height: none;
+            margin-top: 20px;
+            padding: 0;
+            height: 100%;
+        }
+
+        .msc-carousel__item {
+            img {
+                display: block;
+                max-height: 100%;
+
+                @media (max-width: $msv-breakpoint-m) {
+                    min-height: 0;
+                }
+            }
+        }
+    }
+
+    &__body {
+        margin-bottom: $msv-modal-margin;
+        overflow: auto;
+        max-height: 600px;
+        padding: 2px;
+    }
+
+    &__footer {
+        display: flex;
+        justify-content: flex-start;
+
+        @media (max-width: map-get($grid-breakpoints, "md")) {
+            flex-wrap: wrap;
+
+            .btn-primary {
+                margin-bottom: 12px;
+            }
+
+            .btn-primary,
+            .btn-secondary {
+                width: 100%;
+                margin-left: 0;
+                margin-right: 0;
+            }
+        }
+    }
+
+    &__backdrop {
+        background-color: $msv-black;
+        height: 100vh;
+        left: 0;
+        position: fixed;
+        top: 0;
+        width: 100vw;
+        z-index: $msv-modal-z-index - 10;
+
+        &.show {
+            animation: modal-backdrop-appear $msv-modal-animation-duration;
+            opacity: $msv-modal-backdrop-opacity;
+        }
+
+        &.fade:not(.show) {
+            animation: modal-backdrop-appear $msv-modal-animation-duration;
+            opacity: 0;
+        }
+    }
+}
+
+@media screen and (max-width: $msv-breakpoint-xl) {
+    .msc-modal {
+        &__body {
+            max-height: 335px;
+        }
+    }
+}
+
+@media screen and (max-width: $msv-breakpoint-m) {
+    .msc-modal__dialog:not(.msc-modal-input-required) {
+        margin: 0 20px;
+
+        .msc-modal__content {
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+    }
+
+    .msc-modal__dialog.msc-modal-input-required {
+        height: 100%;
+        max-width: none;
+
+        .msc-modal__content {
+            height: 100%;
+            padding: 0;
+
+            .msc-modal__header {
+                height: 48px;
+                border-bottom: 1px solid $msv-gray-300;
+                padding: 9px 20px;
+                margin-bottom: 0;
+                flex: 0 0 auto;
+
+                .msc-modal__title {
+                    font-size: 18px;
+                    line-height: 24px;
+                    font-weight: bold;
+                    width: 100%;
+                    text-align: center;
+                }
+
+                .msc-modal__close-button {
+                    top: 12px;
+                }
+            }
+        }
+
+        .msc-modal__body {
+            padding: 20px 20px;
+            flex: 1 1 auto;
+            margin-bottom: 0;
+        }
+
+        .msc-modal__footer {
+            border-top: 1px solid $msv-gray-300;
+            padding: 9px 20px;
+            width: 100%;
+            flex: 0 0 auto;
+            margin-top: 0;
+
+            button {
+                width: 100%;
+                margin-left: 0;
+                margin-right: 0;
+                margin-bottom: 12px;
+            }
+        }
+    }
+}

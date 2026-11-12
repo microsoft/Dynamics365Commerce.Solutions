@@ -1,0 +1,1783 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Buybox unit tests - View renders correctly 1`] = `
+<BuyboxView
+  MediaGalleryContainerProps={
+    Object {
+      "className": "ms-buybox__media-gallery",
+    }
+  }
+  ModuleProps={
+    Object {
+      "className": "ms-buybox",
+      "moduleProps": Object {
+        "app": Object {
+          "config": Object {},
+        },
+        "config": Object {},
+        "context": Object {
+          "actionContext": Object {
+            "chainAction": [Function],
+            "get": [Function],
+            "getAll": [Function],
+            "requestContext": Object {
+              "apiSettings": Object {
+                "baseImageUrl": "https://cms-ppe-imageresizer-mr.trafficmanager.net/cms/api/fabrikamsb/imageFileData/search?fileName=/",
+                "baseUrl": "mockBaseUrl",
+                "catalogId": 2,
+                "channelId": 1,
+                "eCommerceChannelId": "",
+                "oun": "mockOUN",
+                "ratingsReviewsEndpoint": "",
+                "retailServerProxyVersion": "9.0.0",
+                "rnr": Object {
+                  "id": "",
+                  "proxyUrl": "",
+                  "url": "",
+                },
+              },
+              "app": Object {},
+              "canonicalDomain": "contoso.com",
+              "canonicalUrl": "https://contoso.com",
+              "cookies": Object {
+                "deleteConsentCookie": [Function],
+                "get": [Function],
+                "getAccountSelectionCookie": [Function],
+                "getCartCookie": [Function],
+                "getCheckoutCartCookie": [Function],
+                "getTargetIdCookie": [Function],
+                "isConsentGiven": [Function],
+                "remove": [Function],
+                "removeAccountSelectionCookie": [Function],
+                "removeCheckoutCartCookie": [Function],
+                "set": [Function],
+                "setAccountSelectionCookie": [Function],
+                "setCartCookie": [Function],
+                "setCheckoutCartCookie": [Function],
+                "setConsentCookie": [Function],
+              },
+              "device": Object {
+                "Type": "pc",
+              },
+              "features": Object {},
+              "gridSettings": Object {
+                "lg": Object {
+                  "w": 1600,
+                },
+                "md": Object {
+                  "w": 1200,
+                },
+                "sm": Object {
+                  "w": 992,
+                },
+                "xl": Object {
+                  "w": 1800,
+                },
+                "xs": Object {
+                  "w": 768,
+                },
+              },
+              "headers": Object {},
+              "locale": "en-us",
+              "operationId": "mockOperationId",
+              "pageData": Object {},
+              "params": Object {
+                "concatJs": Object {
+                  "hasValue": false,
+                  "isTruthy": false,
+                  "value": undefined,
+                },
+                "isDebug": false,
+                "isEditor": false,
+                "isPerfAnalysis": false,
+                "isPreview": false,
+                "theme": "",
+              },
+              "sessionStorage": Object {
+                "getCheckoutCartData": [Function],
+                "getDataFromStorage": [Function],
+                "removeCheckoutCartData": [Function],
+                "removeDataFromStorage": [Function],
+                "setCheckoutCartData": [Function],
+                "setDataInStorage": [Function],
+              },
+              "siteStylePreset": "",
+              "siteTheme": "default",
+              "telemetryData": Object {
+                "Checkout": Array [
+                  Object {
+                    "Products": Array [
+                      Object {
+                        "productCategoryId": "9754",
+                        "productCategoryName": "Sunglasses",
+                        "productChannelId": 18629762,
+                        "productChannelName": "store",
+                        "productCurrency": "USD",
+                        "productId": "970374",
+                        "productName": "Aviator",
+                        "productPrice": 120,
+                        "productQuantity": 1,
+                        "productSku": "special",
+                      },
+                    ],
+                    "cartId": "097504969642348742",
+                    "cartVersion": "12432",
+                    "orderId": "",
+                  },
+                ],
+                "ProductPageView": Object {
+                  "productCategoryId": "",
+                  "productCategoryName": "",
+                  "productChannelId": 18629762,
+                  "productChannelName": "",
+                  "productCurrency": "",
+                  "productId": "08439484",
+                  "productName": "Awesome Tie",
+                  "productPrice": 98,
+                  "productQuantity": "",
+                  "productSku": "",
+                },
+              },
+              "telemetrySettings": Object {
+                "environmentId": "Development",
+                "eventHubAuthToken": "",
+                "eventHubEndPoint": "",
+                "instrumentationKey": "",
+                "operationId": "mockOperationId",
+                "operationalInsightsInstrumentationKey": "",
+                "optOutWebActivityTracking": false,
+              },
+              "textDirection": "ltr",
+              "themeOverride": Object {
+                "disableDefault": false,
+                "url": "",
+              },
+              "url": Object {
+                "requestUrl": "https://contoso.com/",
+                "staticCdnUrl": "string",
+              },
+              "urlTokens": Object {},
+              "user": Object {
+                "isAuthenticated": false,
+                "isB2b": true,
+                "optOutWebActivityTracking": false,
+                "token": "mockToken",
+              },
+            },
+            "runAllActionsInQueue": [Function],
+            "telemetry": Object {
+              "critical": [Function],
+              "debug": [Function],
+              "error": [Function],
+              "exception": [Function],
+              "information": [Function],
+              "log": [Function],
+              "logEvent": [Function],
+              "setTelemetryAttribute": [Function],
+              "setTelemetryModuleContext": [Function],
+              "setTelemetryRequestContext": [Function],
+              "trace": [Function],
+              "trackDependency": [Function],
+              "trackEvent": [Function],
+              "trackMetric": [Function],
+              "warning": [Function],
+            },
+            "trace": [Function],
+            "update": [Function],
+          },
+          "app": Object {},
+          "cultureFormatter": CultureInfoFormatter {
+            "currencyCode": "USD",
+            "dateFormatterConstructor": [Function],
+            "formatCurrency": [Function],
+            "formatDate": [Function],
+            "formatNumber": [Function],
+            "formatTime": [Function],
+            "locale": "en-us",
+            "numFormatterConstructor": [Function],
+            "queryString": undefined,
+          },
+          "request": Object {
+            "apiSettings": Object {
+              "baseImageUrl": "https://cms-ppe-imageresizer-mr.trafficmanager.net/cms/api/fabrikamsb/imageFileData/search?fileName=/",
+              "baseUrl": "mockBaseUrl",
+              "catalogId": 2,
+              "channelId": 1,
+              "eCommerceChannelId": "",
+              "oun": "mockOUN",
+              "ratingsReviewsEndpoint": "",
+              "retailServerProxyVersion": "9.0.0",
+              "rnr": Object {
+                "id": "",
+                "proxyUrl": "",
+                "url": "",
+              },
+            },
+            "app": Object {},
+            "canonicalDomain": "contoso.com",
+            "canonicalUrl": "https://contoso.com",
+            "cookies": Object {
+              "deleteConsentCookie": [Function],
+              "get": [Function],
+              "getAccountSelectionCookie": [Function],
+              "getCartCookie": [Function],
+              "getCheckoutCartCookie": [Function],
+              "getTargetIdCookie": [Function],
+              "isConsentGiven": [Function],
+              "remove": [Function],
+              "removeAccountSelectionCookie": [Function],
+              "removeCheckoutCartCookie": [Function],
+              "set": [Function],
+              "setAccountSelectionCookie": [Function],
+              "setCartCookie": [Function],
+              "setCheckoutCartCookie": [Function],
+              "setConsentCookie": [Function],
+            },
+            "device": Object {
+              "Type": "pc",
+            },
+            "features": Object {},
+            "gridSettings": Object {
+              "lg": Object {
+                "w": 1600,
+              },
+              "md": Object {
+                "w": 1200,
+              },
+              "sm": Object {
+                "w": 992,
+              },
+              "xl": Object {
+                "w": 1800,
+              },
+              "xs": Object {
+                "w": 768,
+              },
+            },
+            "headers": Object {},
+            "locale": "en-us",
+            "operationId": "mockOperationId",
+            "pageData": Object {},
+            "params": Object {
+              "concatJs": Object {
+                "hasValue": false,
+                "isTruthy": false,
+                "value": undefined,
+              },
+              "isDebug": false,
+              "isEditor": false,
+              "isPerfAnalysis": false,
+              "isPreview": false,
+              "theme": "",
+            },
+            "sessionStorage": Object {
+              "getCheckoutCartData": [Function],
+              "getDataFromStorage": [Function],
+              "removeCheckoutCartData": [Function],
+              "removeDataFromStorage": [Function],
+              "setCheckoutCartData": [Function],
+              "setDataInStorage": [Function],
+            },
+            "siteStylePreset": "",
+            "siteTheme": "default",
+            "telemetryData": Object {
+              "Checkout": Array [
+                Object {
+                  "Products": Array [
+                    Object {
+                      "productCategoryId": "9754",
+                      "productCategoryName": "Sunglasses",
+                      "productChannelId": 18629762,
+                      "productChannelName": "store",
+                      "productCurrency": "USD",
+                      "productId": "970374",
+                      "productName": "Aviator",
+                      "productPrice": 120,
+                      "productQuantity": 1,
+                      "productSku": "special",
+                    },
+                  ],
+                  "cartId": "097504969642348742",
+                  "cartVersion": "12432",
+                  "orderId": "",
+                },
+              ],
+              "ProductPageView": Object {
+                "productCategoryId": "",
+                "productCategoryName": "",
+                "productChannelId": 18629762,
+                "productChannelName": "",
+                "productCurrency": "",
+                "productId": "08439484",
+                "productName": "Awesome Tie",
+                "productPrice": 98,
+                "productQuantity": "",
+                "productSku": "",
+              },
+            },
+            "telemetrySettings": Object {
+              "environmentId": "Development",
+              "eventHubAuthToken": "",
+              "eventHubEndPoint": "",
+              "instrumentationKey": "",
+              "operationId": "mockOperationId",
+              "operationalInsightsInstrumentationKey": "",
+              "optOutWebActivityTracking": false,
+            },
+            "textDirection": "ltr",
+            "themeOverride": Object {
+              "disableDefault": false,
+              "url": "",
+            },
+            "url": Object {
+              "requestUrl": "https://contoso.com/",
+              "staticCdnUrl": "string",
+            },
+            "urlTokens": Object {},
+            "user": Object {
+              "isAuthenticated": false,
+              "isB2b": true,
+              "optOutWebActivityTracking": false,
+              "token": "mockToken",
+            },
+          },
+          "telemetry": Object {
+            "critical": [Function],
+            "debug": [Function],
+            "error": [Function],
+            "exception": [Function],
+            "information": [Function],
+            "log": [Function],
+            "logEvent": [Function],
+            "setTelemetryAttribute": [Function],
+            "setTelemetryModuleContext": [Function],
+            "setTelemetryRequestContext": [Function],
+            "trace": [Function],
+            "trackDependency": [Function],
+            "trackEvent": [Function],
+            "trackMetric": [Function],
+            "warning": [Function],
+          },
+        },
+        "data": Object {},
+        "dataActions": Object {},
+        "friendlyName": "Mock Id",
+        "id": "mock-id",
+        "renderModuleAttributes": [Function],
+        "renderView": [Function],
+        "telemetry": Object {
+          "critical": [Function],
+          "debug": [Function],
+          "error": [Function],
+          "exception": [Function],
+          "information": [Function],
+          "log": [Function],
+          "logEvent": [Function],
+          "setTelemetryAttribute": [Function],
+          "setTelemetryModuleContext": [Function],
+          "setTelemetryRequestContext": [Function],
+          "trace": [Function],
+          "trackDependency": [Function],
+          "trackEvent": [Function],
+          "trackMetric": [Function],
+          "warning": [Function],
+        },
+        "typeName": "mock-type",
+      },
+    }
+  }
+  ProductInfoContainerProps={
+    Object {
+      "className": "ms-buybox__content",
+    }
+  }
+  addToCart={
+    Object {
+      "ContainerProps": Object {
+        "className": "ms-buybox__add-to-cart-container",
+      },
+      "button": "<div>button</div>",
+      "errorBlock": "<div>errorBlock</div>",
+    }
+  }
+  addToOrderTemplate={
+    Object {
+      "ContainerProps": Object {
+        "className": "ms-buybox__add-to-order-template",
+      },
+      "button": "<div>button</div>",
+      "errorBlock": "<div>errorBlock</div>",
+    }
+  }
+  addToWishlist={
+    Object {
+      "ContainerProps": Object {
+        "className": "ms-buybox__add-to-wishlist-container",
+      },
+      "button": "<div>button</div>",
+      "errorBlock": "<div>errorBlock</div>",
+    }
+  }
+  app={
+    Object {
+      "config": Object {},
+    }
+  }
+  callbacks={
+    Object {
+      "changeModalOpen": [MockFunction],
+      "changeUpdatingDimension": [MockFunction],
+      "dimensionSelectedAsync": [MockFunction],
+      "getDropdownName": [MockFunction],
+      "updateErrorState": [MockFunction],
+      "updateKeyInPrice": [MockFunction],
+      "updateQuantity": undefined,
+      "updateSelectedProduct": [MockFunction],
+    }
+  }
+  config={Object {}}
+  configure={
+    Object {
+      "ContainerProps": Object {
+        "className": "ms-buybux__configure",
+      },
+      "dropdowns": Array [
+        Object {
+          "ContainerProps": Object {
+            "className": "ms-buybox__configure-dropdown",
+          },
+          "LabelContainerProps": Object {
+            "className": "ms-buybox__configure-dropdown-label",
+          },
+          "errors": "<div>errors 1</div>",
+          "heading": "<div>Heading 1</div>",
+          "select": "<div>select 1</div>",
+        },
+        Object {
+          "ContainerProps": Object {
+            "className": "ms-buybox__configure-dropdown",
+          },
+          "LabelContainerProps": Object {
+            "className": "ms-buybox__configure-dropdown-label",
+          },
+          "errors": "<div>errors</div>",
+          "heading": "<div>heading</div>",
+          "select": "<div>select 2</div>",
+        },
+      ],
+    }
+  }
+  context={
+    Object {
+      "actionContext": Object {
+        "chainAction": [Function],
+        "get": [Function],
+        "getAll": [Function],
+        "requestContext": Object {
+          "apiSettings": Object {
+            "baseImageUrl": "https://cms-ppe-imageresizer-mr.trafficmanager.net/cms/api/fabrikamsb/imageFileData/search?fileName=/",
+            "baseUrl": "mockBaseUrl",
+            "catalogId": 2,
+            "channelId": 1,
+            "eCommerceChannelId": "",
+            "oun": "mockOUN",
+            "ratingsReviewsEndpoint": "",
+            "retailServerProxyVersion": "9.0.0",
+            "rnr": Object {
+              "id": "",
+              "proxyUrl": "",
+              "url": "",
+            },
+          },
+          "app": Object {},
+          "canonicalDomain": "contoso.com",
+          "canonicalUrl": "https://contoso.com",
+          "cookies": Object {
+            "deleteConsentCookie": [Function],
+            "get": [Function],
+            "getAccountSelectionCookie": [Function],
+            "getCartCookie": [Function],
+            "getCheckoutCartCookie": [Function],
+            "getTargetIdCookie": [Function],
+            "isConsentGiven": [Function],
+            "remove": [Function],
+            "removeAccountSelectionCookie": [Function],
+            "removeCheckoutCartCookie": [Function],
+            "set": [Function],
+            "setAccountSelectionCookie": [Function],
+            "setCartCookie": [Function],
+            "setCheckoutCartCookie": [Function],
+            "setConsentCookie": [Function],
+          },
+          "device": Object {
+            "Type": "pc",
+          },
+          "features": Object {},
+          "gridSettings": Object {
+            "lg": Object {
+              "w": 1600,
+            },
+            "md": Object {
+              "w": 1200,
+            },
+            "sm": Object {
+              "w": 992,
+            },
+            "xl": Object {
+              "w": 1800,
+            },
+            "xs": Object {
+              "w": 768,
+            },
+          },
+          "headers": Object {},
+          "locale": "en-us",
+          "operationId": "mockOperationId",
+          "pageData": Object {},
+          "params": Object {
+            "concatJs": Object {
+              "hasValue": false,
+              "isTruthy": false,
+              "value": undefined,
+            },
+            "isDebug": false,
+            "isEditor": false,
+            "isPerfAnalysis": false,
+            "isPreview": false,
+            "theme": "",
+          },
+          "sessionStorage": Object {
+            "getCheckoutCartData": [Function],
+            "getDataFromStorage": [Function],
+            "removeCheckoutCartData": [Function],
+            "removeDataFromStorage": [Function],
+            "setCheckoutCartData": [Function],
+            "setDataInStorage": [Function],
+          },
+          "siteStylePreset": "",
+          "siteTheme": "default",
+          "telemetryData": Object {
+            "Checkout": Array [
+              Object {
+                "Products": Array [
+                  Object {
+                    "productCategoryId": "9754",
+                    "productCategoryName": "Sunglasses",
+                    "productChannelId": 18629762,
+                    "productChannelName": "store",
+                    "productCurrency": "USD",
+                    "productId": "970374",
+                    "productName": "Aviator",
+                    "productPrice": 120,
+                    "productQuantity": 1,
+                    "productSku": "special",
+                  },
+                ],
+                "cartId": "097504969642348742",
+                "cartVersion": "12432",
+                "orderId": "",
+              },
+            ],
+            "ProductPageView": Object {
+              "productCategoryId": "",
+              "productCategoryName": "",
+              "productChannelId": 18629762,
+              "productChannelName": "",
+              "productCurrency": "",
+              "productId": "08439484",
+              "productName": "Awesome Tie",
+              "productPrice": 98,
+              "productQuantity": "",
+              "productSku": "",
+            },
+          },
+          "telemetrySettings": Object {
+            "environmentId": "Development",
+            "eventHubAuthToken": "",
+            "eventHubEndPoint": "",
+            "instrumentationKey": "",
+            "operationId": "mockOperationId",
+            "operationalInsightsInstrumentationKey": "",
+            "optOutWebActivityTracking": false,
+          },
+          "textDirection": "ltr",
+          "themeOverride": Object {
+            "disableDefault": false,
+            "url": "",
+          },
+          "url": Object {
+            "requestUrl": "https://contoso.com/",
+            "staticCdnUrl": "string",
+          },
+          "urlTokens": Object {},
+          "user": Object {
+            "isAuthenticated": false,
+            "isB2b": true,
+            "optOutWebActivityTracking": false,
+            "token": "mockToken",
+          },
+        },
+        "runAllActionsInQueue": [Function],
+        "telemetry": Object {
+          "critical": [Function],
+          "debug": [Function],
+          "error": [Function],
+          "exception": [Function],
+          "information": [Function],
+          "log": [Function],
+          "logEvent": [Function],
+          "setTelemetryAttribute": [Function],
+          "setTelemetryModuleContext": [Function],
+          "setTelemetryRequestContext": [Function],
+          "trace": [Function],
+          "trackDependency": [Function],
+          "trackEvent": [Function],
+          "trackMetric": [Function],
+          "warning": [Function],
+        },
+        "trace": [Function],
+        "update": [Function],
+      },
+      "app": Object {},
+      "cultureFormatter": CultureInfoFormatter {
+        "currencyCode": "USD",
+        "dateFormatterConstructor": [Function],
+        "formatCurrency": [Function],
+        "formatDate": [Function],
+        "formatNumber": [Function],
+        "formatTime": [Function],
+        "locale": "en-us",
+        "numFormatterConstructor": [Function],
+        "queryString": undefined,
+      },
+      "request": Object {
+        "apiSettings": Object {
+          "baseImageUrl": "https://cms-ppe-imageresizer-mr.trafficmanager.net/cms/api/fabrikamsb/imageFileData/search?fileName=/",
+          "baseUrl": "mockBaseUrl",
+          "catalogId": 2,
+          "channelId": 1,
+          "eCommerceChannelId": "",
+          "oun": "mockOUN",
+          "ratingsReviewsEndpoint": "",
+          "retailServerProxyVersion": "9.0.0",
+          "rnr": Object {
+            "id": "",
+            "proxyUrl": "",
+            "url": "",
+          },
+        },
+        "app": Object {},
+        "canonicalDomain": "contoso.com",
+        "canonicalUrl": "https://contoso.com",
+        "cookies": Object {
+          "deleteConsentCookie": [Function],
+          "get": [Function],
+          "getAccountSelectionCookie": [Function],
+          "getCartCookie": [Function],
+          "getCheckoutCartCookie": [Function],
+          "getTargetIdCookie": [Function],
+          "isConsentGiven": [Function],
+          "remove": [Function],
+          "removeAccountSelectionCookie": [Function],
+          "removeCheckoutCartCookie": [Function],
+          "set": [Function],
+          "setAccountSelectionCookie": [Function],
+          "setCartCookie": [Function],
+          "setCheckoutCartCookie": [Function],
+          "setConsentCookie": [Function],
+        },
+        "device": Object {
+          "Type": "pc",
+        },
+        "features": Object {},
+        "gridSettings": Object {
+          "lg": Object {
+            "w": 1600,
+          },
+          "md": Object {
+            "w": 1200,
+          },
+          "sm": Object {
+            "w": 992,
+          },
+          "xl": Object {
+            "w": 1800,
+          },
+          "xs": Object {
+            "w": 768,
+          },
+        },
+        "headers": Object {},
+        "locale": "en-us",
+        "operationId": "mockOperationId",
+        "pageData": Object {},
+        "params": Object {
+          "concatJs": Object {
+            "hasValue": false,
+            "isTruthy": false,
+            "value": undefined,
+          },
+          "isDebug": false,
+          "isEditor": false,
+          "isPerfAnalysis": false,
+          "isPreview": false,
+          "theme": "",
+        },
+        "sessionStorage": Object {
+          "getCheckoutCartData": [Function],
+          "getDataFromStorage": [Function],
+          "removeCheckoutCartData": [Function],
+          "removeDataFromStorage": [Function],
+          "setCheckoutCartData": [Function],
+          "setDataInStorage": [Function],
+        },
+        "siteStylePreset": "",
+        "siteTheme": "default",
+        "telemetryData": Object {
+          "Checkout": Array [
+            Object {
+              "Products": Array [
+                Object {
+                  "productCategoryId": "9754",
+                  "productCategoryName": "Sunglasses",
+                  "productChannelId": 18629762,
+                  "productChannelName": "store",
+                  "productCurrency": "USD",
+                  "productId": "970374",
+                  "productName": "Aviator",
+                  "productPrice": 120,
+                  "productQuantity": 1,
+                  "productSku": "special",
+                },
+              ],
+              "cartId": "097504969642348742",
+              "cartVersion": "12432",
+              "orderId": "",
+            },
+          ],
+          "ProductPageView": Object {
+            "productCategoryId": "",
+            "productCategoryName": "",
+            "productChannelId": 18629762,
+            "productChannelName": "",
+            "productCurrency": "",
+            "productId": "08439484",
+            "productName": "Awesome Tie",
+            "productPrice": 98,
+            "productQuantity": "",
+            "productSku": "",
+          },
+        },
+        "telemetrySettings": Object {
+          "environmentId": "Development",
+          "eventHubAuthToken": "",
+          "eventHubEndPoint": "",
+          "instrumentationKey": "",
+          "operationId": "mockOperationId",
+          "operationalInsightsInstrumentationKey": "",
+          "optOutWebActivityTracking": false,
+        },
+        "textDirection": "ltr",
+        "themeOverride": Object {
+          "disableDefault": false,
+          "url": "",
+        },
+        "url": Object {
+          "requestUrl": "https://contoso.com/",
+          "staticCdnUrl": "string",
+        },
+        "urlTokens": Object {},
+        "user": Object {
+          "isAuthenticated": false,
+          "isB2b": true,
+          "optOutWebActivityTracking": false,
+          "token": "mockToken",
+        },
+      },
+      "telemetry": Object {
+        "critical": [Function],
+        "debug": [Function],
+        "error": [Function],
+        "exception": [Function],
+        "information": [Function],
+        "log": [Function],
+        "logEvent": [Function],
+        "setTelemetryAttribute": [Function],
+        "setTelemetryModuleContext": [Function],
+        "setTelemetryRequestContext": [Function],
+        "trace": [Function],
+        "trackDependency": [Function],
+        "trackEvent": [Function],
+        "trackMetric": [Function],
+        "warning": [Function],
+      },
+    }
+  }
+  data={Object {}}
+  dataActions={Object {}}
+  description="<div>description</div>"
+  findInStore={
+    Object {
+      "ContainerProps": Object {
+        "className": "ms-buybux__find-in-store",
+      },
+      "button": "<div>button</div>",
+      "description": "<div>description</div>",
+      "errors": "<div>errors</div>",
+      "heading": "<div>heading</div>",
+      "modal": "<div>modal</div>",
+      "openFindInStoreDialog": [MockFunction],
+      "storeSelector": "<div>storeSelector</div>",
+    }
+  }
+  friendlyName="Mock Id"
+  id="mock-id"
+  inventoryLevelLabel="<div>inventoryLevelLabel</div>"
+  keyInPrice={
+    Object {
+      "ContainerProps": Object {
+        "className": "",
+      },
+      "LabelContainerProps": Object {
+        "className": "",
+      },
+      "heading": "<h1>d</h1>",
+      "input": <input />,
+    }
+  }
+  mediaGallery="<div>mediaGallery</div>"
+  price="<div>price</div>"
+  quantity={
+    Object {
+      "ContainerProps": Object {
+        "className": "ms-buybux__quantity",
+      },
+      "LabelContainerProps": Object {
+        "className": "ms-buybux__quantity-label",
+      },
+      "errors": "<div>errors</div>",
+      "heading": "<div>heading</div>",
+      "input": "<div>input</div>",
+    }
+  }
+  rating="<div>rating</div>"
+  renderModuleAttributes={[Function]}
+  renderView={[Function]}
+  resources={
+    Object {
+      "addItemToOrderTemplateError": "Unable to add item to order template",
+      "addItemToWishlistError": "Unable to add item to wishlist",
+      "addToCartText": "Add to cart",
+      "addToOrderTemplateButtonText": "Add to order template",
+      "addToOrderTemplateButtonTooltip": "This product cannot be added to order template due to custom pricing",
+      "addToOrderTemplateHeader": "addToOrderTemplateHeader",
+      "addToOrderTemplateMessage": "Added to your order template",
+      "addToTemplateButtonText": "Add to template",
+      "addToWishlistButtonText": "Add to Wishlist",
+      "addToWishlistMessage": "Added to your wishlist",
+      "addedQuantityText": "addedQuantityText",
+      "addedToCartFailureMessage": "Add to cart failed. Please refresh and retry",
+      "averageRatingAriaLabel": "Average {0} of {1} stars",
+      "buyBoxContinueShoppingText": "Continue shopping",
+      "buyBoxGoToCartText": "View bag and checkout",
+      "buyBoxHeaderMessageText": " added to bag",
+      "buyBoxMultiLineItemFormatText": "{0} items",
+      "buyBoxSingleItemText": "1 item",
+      "buyboxErrorMessageHeader": "There are some issues",
+      "buyboxKeyInPriceLabelHeading": "Custom amount",
+      "cancelDuplicateItemsButtonText": "cancelDuplicateItemsButtonText",
+      "cancelNewOrderTemplateCreationButtonText": "cancelNewOrderTemplateCreationButtonText",
+      "cancelOrderTemplateCreationButtonText": "cancelOrderTemplateCreationButtonText",
+      "closeNotificationLabel": "Close",
+      "continueShoppingButtonText": "continueShoppingButtonText",
+      "createAnOrderTemplateButtonText": "createAnOrderTemplateButtonText",
+      "createNewOrderTemplateButtonText": "createNewOrderTemplateButtonText",
+      "createOrderTemplateButtonText": "createOrderTemplateButtonText",
+      "createOrderTemplateDescription": "createOrderTemplateDescription",
+      "createOrderTemplateHeader": "createOrderTemplateHeader",
+      "currentPriceText": "Now:",
+      "decrementButtonAriaLabel": "Decrease the quantity by 1",
+      "defaultOrderTemplateName": "defaultOrderTemplateName",
+      "descriptionTextToShowAllPickupOptions": "This product is availble for the following pick up methods",
+      "duplicatedProductsDescription": "duplicatedProductsDescription",
+      "duplicatedProductsHeader": "duplicatedProductsHeader",
+      "errorMessageOutOfRangeFormat": "There are only {numLeft} products left. Please choose quantity within the available range",
+      "errorMessageOutOfRangeOneLeft": "There is only one product left. Please choose quantity within the available range",
+      "errorMessageOutOfStock": "This product is out of stock",
+      "findInStoreDescriptionText": "Search for product availability at stores within {radius} miles of you.",
+      "findInStoreHeaderText": "Buy now, pick up in a store",
+      "findInStoreLinkText": "Find in store",
+      "findInStoreNotAvailableDescription": "This product is currently unavailable for pick up.",
+      "findInStoreNotAvailableTextButton": "This item is out of stock",
+      "incrementButtonAriaLabel": "Increase quantity by 1",
+      "informationIconText": "Information",
+      "inputQuantityAriaLabel": "Quantity To Purchase",
+      "invalidLargeCustomAmountText": "The maximum amount is {maxAmount}",
+      "invalidSmallCustomAmountText": "The minimum amount is {minAmount}",
+      "itemAddedToOrderTemplateHeaderItemFormatText": "itemAddedToOrderTemplateHeaderItemFormatText",
+      "itemAddedToOrderTemplateHeaderItemOneText": "itemAddedToOrderTemplateHeaderItemOneText",
+      "itemAddedToOrderTemplateHeaderMessageText": "itemAddedToOrderTemplateHeaderMessageText",
+      "lineItemsText": "{0} line item(s)",
+      "loadingText": "Loading...",
+      "maxQuantityLimitText": "You already have {curQuantity} of this item in your shopping bag. You can only add {maxQuantity} of this item to your shopping bag",
+      "maxQuantityText": "The maximum quantity to purchase for this product is {max}.",
+      "minQuantityText": "The minimum quantity to purchase for this product is {min}.",
+      "nameOfWishlist": "My Wishlist",
+      "nextScreenshotFlipperText": "nextScreenshotFlipperText",
+      "noOrderTemplatesDescription": "noOrderTemplatesDescription",
+      "noOrderTemplatesMessage": "noOrderTemplatesMessage",
+      "orderTemplateNameAriaLabel": "orderTemplateNameAriaLabel",
+      "orderTemplateTitle": "orderTemplateTitle",
+      "originalPriceText": "Was:",
+      "outOfStockText": "Out of Stock",
+      "previousScreenshotFlipperText": "previousScreenshotFlipperText",
+      "priceFree": "Free",
+      "productDimensionTypeAmount": "Amount",
+      "productDimensionTypeAmountErrorMessage": "Amount is required. Please choose an amount",
+      "productDimensionTypeColor": "Color",
+      "productDimensionTypeColorErrorMessage": "Color is required. Please choose a color",
+      "productDimensionTypeConfiguration": "Configuration",
+      "productDimensionTypeConfigurationErrorMessage": "Configuration is required. Please choose a configuration",
+      "productDimensionTypeSize": "Size",
+      "productDimensionTypeSizeErrorMessage": "Size is required. Please choose a size",
+      "productDimensionTypeStyle": "Style",
+      "productDimensionTypeStyleErrorMessage": "Style is required. Please choose a style",
+      "productQuantityHeading": "Quantity",
+      "quickViewbuttonText": "Quick View",
+      "removeFromWishlistButtonText": "Remove from Wishlist",
+      "removeItemFromWishlistError": "Unable to remove item from wishlist",
+      "removedFromWishlistMessage": "Removed from your wishlist",
+      "seeDetailsbuttontext": "See Details",
+      "selectDimensionFormatString": "Choose a {0}",
+      "selectTemplatesText": "Select a template or create a new one. You have {0} template(s).",
+      "shopSimilarDescriptionText": "Shop Similar Description",
+      "shopSimilarLooksText": "Shop Similar Looks",
+      "updateQuantityButtonText": "updateQuantityButtonText",
+      "viewOrderTemplateButtonText": "viewOrderTemplateButtonText",
+    }
+  }
+  shopSimilarDescription={
+    Object {
+      "ContainerProps": Object {
+        "className": "ms-buybox__shopsimilardescription",
+      },
+      "input": <Button
+        aria-label="Shop Similar description"
+        className="ms-buybox__shop-similar-looks-description"
+        outline={false}
+        tag="button"
+        title="Shop Similar description"
+      />,
+    }
+  }
+  shopSimilarLook={
+    Object {
+      "ContainerProps": Object {
+        "className": "ms-buybox__shopsimilarlooks",
+      },
+      "input": <Button
+        aria-label="Shop Similar looks"
+        className="ms-buybox__shop-similar-looks-button"
+        outline={false}
+        tag="button"
+        title="Shop Similar looks"
+      />,
+    }
+  }
+  slots={
+    Object {
+      "mediaGallery": Array [],
+      "socialShare": <div />,
+      "storeSelector": Array [],
+      "textBlocks": Array [
+        "x",
+        "y",
+      ],
+    }
+  }
+  state={
+    Object {
+      "max": 1,
+      "min": 1,
+      "quantity": 1,
+    }
+  }
+  telemetry={
+    Object {
+      "critical": [Function],
+      "debug": [Function],
+      "error": [Function],
+      "exception": [Function],
+      "information": [Function],
+      "log": [Function],
+      "logEvent": [Function],
+      "setTelemetryAttribute": [Function],
+      "setTelemetryModuleContext": [Function],
+      "setTelemetryRequestContext": [Function],
+      "trace": [Function],
+      "trackDependency": [Function],
+      "trackEvent": [Function],
+      "trackMetric": [Function],
+      "warning": [Function],
+    }
+  }
+  title="<div>Title</div>"
+  typeName="mock-type"
+>
+  <Component
+    className="ms-buybox"
+    moduleProps={
+      Object {
+        "app": Object {
+          "config": Object {},
+        },
+        "config": Object {},
+        "context": Object {
+          "actionContext": Object {
+            "chainAction": [Function],
+            "get": [Function],
+            "getAll": [Function],
+            "requestContext": Object {
+              "apiSettings": Object {
+                "baseImageUrl": "https://cms-ppe-imageresizer-mr.trafficmanager.net/cms/api/fabrikamsb/imageFileData/search?fileName=/",
+                "baseUrl": "mockBaseUrl",
+                "catalogId": 2,
+                "channelId": 1,
+                "eCommerceChannelId": "",
+                "oun": "mockOUN",
+                "ratingsReviewsEndpoint": "",
+                "retailServerProxyVersion": "9.0.0",
+                "rnr": Object {
+                  "id": "",
+                  "proxyUrl": "",
+                  "url": "",
+                },
+              },
+              "app": Object {},
+              "canonicalDomain": "contoso.com",
+              "canonicalUrl": "https://contoso.com",
+              "cookies": Object {
+                "deleteConsentCookie": [Function],
+                "get": [Function],
+                "getAccountSelectionCookie": [Function],
+                "getCartCookie": [Function],
+                "getCheckoutCartCookie": [Function],
+                "getTargetIdCookie": [Function],
+                "isConsentGiven": [Function],
+                "remove": [Function],
+                "removeAccountSelectionCookie": [Function],
+                "removeCheckoutCartCookie": [Function],
+                "set": [Function],
+                "setAccountSelectionCookie": [Function],
+                "setCartCookie": [Function],
+                "setCheckoutCartCookie": [Function],
+                "setConsentCookie": [Function],
+              },
+              "device": Object {
+                "Type": "pc",
+              },
+              "features": Object {},
+              "gridSettings": Object {
+                "lg": Object {
+                  "w": 1600,
+                },
+                "md": Object {
+                  "w": 1200,
+                },
+                "sm": Object {
+                  "w": 992,
+                },
+                "xl": Object {
+                  "w": 1800,
+                },
+                "xs": Object {
+                  "w": 768,
+                },
+              },
+              "headers": Object {},
+              "locale": "en-us",
+              "operationId": "mockOperationId",
+              "pageData": Object {},
+              "params": Object {
+                "concatJs": Object {
+                  "hasValue": false,
+                  "isTruthy": false,
+                  "value": undefined,
+                },
+                "isDebug": false,
+                "isEditor": false,
+                "isPerfAnalysis": false,
+                "isPreview": false,
+                "theme": "",
+              },
+              "sessionStorage": Object {
+                "getCheckoutCartData": [Function],
+                "getDataFromStorage": [Function],
+                "removeCheckoutCartData": [Function],
+                "removeDataFromStorage": [Function],
+                "setCheckoutCartData": [Function],
+                "setDataInStorage": [Function],
+              },
+              "siteStylePreset": "",
+              "siteTheme": "default",
+              "telemetryData": Object {
+                "Checkout": Array [
+                  Object {
+                    "Products": Array [
+                      Object {
+                        "productCategoryId": "9754",
+                        "productCategoryName": "Sunglasses",
+                        "productChannelId": 18629762,
+                        "productChannelName": "store",
+                        "productCurrency": "USD",
+                        "productId": "970374",
+                        "productName": "Aviator",
+                        "productPrice": 120,
+                        "productQuantity": 1,
+                        "productSku": "special",
+                      },
+                    ],
+                    "cartId": "097504969642348742",
+                    "cartVersion": "12432",
+                    "orderId": "",
+                  },
+                ],
+                "ProductPageView": Object {
+                  "productCategoryId": "",
+                  "productCategoryName": "",
+                  "productChannelId": 18629762,
+                  "productChannelName": "",
+                  "productCurrency": "",
+                  "productId": "08439484",
+                  "productName": "Awesome Tie",
+                  "productPrice": 98,
+                  "productQuantity": "",
+                  "productSku": "",
+                },
+              },
+              "telemetrySettings": Object {
+                "environmentId": "Development",
+                "eventHubAuthToken": "",
+                "eventHubEndPoint": "",
+                "instrumentationKey": "",
+                "operationId": "mockOperationId",
+                "operationalInsightsInstrumentationKey": "",
+                "optOutWebActivityTracking": false,
+              },
+              "textDirection": "ltr",
+              "themeOverride": Object {
+                "disableDefault": false,
+                "url": "",
+              },
+              "url": Object {
+                "requestUrl": "https://contoso.com/",
+                "staticCdnUrl": "string",
+              },
+              "urlTokens": Object {},
+              "user": Object {
+                "isAuthenticated": false,
+                "isB2b": true,
+                "optOutWebActivityTracking": false,
+                "token": "mockToken",
+              },
+            },
+            "runAllActionsInQueue": [Function],
+            "telemetry": Object {
+              "critical": [Function],
+              "debug": [Function],
+              "error": [Function],
+              "exception": [Function],
+              "information": [Function],
+              "log": [Function],
+              "logEvent": [Function],
+              "setTelemetryAttribute": [Function],
+              "setTelemetryModuleContext": [Function],
+              "setTelemetryRequestContext": [Function],
+              "trace": [Function],
+              "trackDependency": [Function],
+              "trackEvent": [Function],
+              "trackMetric": [Function],
+              "warning": [Function],
+            },
+            "trace": [Function],
+            "update": [Function],
+          },
+          "app": Object {},
+          "cultureFormatter": CultureInfoFormatter {
+            "currencyCode": "USD",
+            "dateFormatterConstructor": [Function],
+            "formatCurrency": [Function],
+            "formatDate": [Function],
+            "formatNumber": [Function],
+            "formatTime": [Function],
+            "locale": "en-us",
+            "numFormatterConstructor": [Function],
+            "queryString": undefined,
+          },
+          "request": Object {
+            "apiSettings": Object {
+              "baseImageUrl": "https://cms-ppe-imageresizer-mr.trafficmanager.net/cms/api/fabrikamsb/imageFileData/search?fileName=/",
+              "baseUrl": "mockBaseUrl",
+              "catalogId": 2,
+              "channelId": 1,
+              "eCommerceChannelId": "",
+              "oun": "mockOUN",
+              "ratingsReviewsEndpoint": "",
+              "retailServerProxyVersion": "9.0.0",
+              "rnr": Object {
+                "id": "",
+                "proxyUrl": "",
+                "url": "",
+              },
+            },
+            "app": Object {},
+            "canonicalDomain": "contoso.com",
+            "canonicalUrl": "https://contoso.com",
+            "cookies": Object {
+              "deleteConsentCookie": [Function],
+              "get": [Function],
+              "getAccountSelectionCookie": [Function],
+              "getCartCookie": [Function],
+              "getCheckoutCartCookie": [Function],
+              "getTargetIdCookie": [Function],
+              "isConsentGiven": [Function],
+              "remove": [Function],
+              "removeAccountSelectionCookie": [Function],
+              "removeCheckoutCartCookie": [Function],
+              "set": [Function],
+              "setAccountSelectionCookie": [Function],
+              "setCartCookie": [Function],
+              "setCheckoutCartCookie": [Function],
+              "setConsentCookie": [Function],
+            },
+            "device": Object {
+              "Type": "pc",
+            },
+            "features": Object {},
+            "gridSettings": Object {
+              "lg": Object {
+                "w": 1600,
+              },
+              "md": Object {
+                "w": 1200,
+              },
+              "sm": Object {
+                "w": 992,
+              },
+              "xl": Object {
+                "w": 1800,
+              },
+              "xs": Object {
+                "w": 768,
+              },
+            },
+            "headers": Object {},
+            "locale": "en-us",
+            "operationId": "mockOperationId",
+            "pageData": Object {},
+            "params": Object {
+              "concatJs": Object {
+                "hasValue": false,
+                "isTruthy": false,
+                "value": undefined,
+              },
+              "isDebug": false,
+              "isEditor": false,
+              "isPerfAnalysis": false,
+              "isPreview": false,
+              "theme": "",
+            },
+            "sessionStorage": Object {
+              "getCheckoutCartData": [Function],
+              "getDataFromStorage": [Function],
+              "removeCheckoutCartData": [Function],
+              "removeDataFromStorage": [Function],
+              "setCheckoutCartData": [Function],
+              "setDataInStorage": [Function],
+            },
+            "siteStylePreset": "",
+            "siteTheme": "default",
+            "telemetryData": Object {
+              "Checkout": Array [
+                Object {
+                  "Products": Array [
+                    Object {
+                      "productCategoryId": "9754",
+                      "productCategoryName": "Sunglasses",
+                      "productChannelId": 18629762,
+                      "productChannelName": "store",
+                      "productCurrency": "USD",
+                      "productId": "970374",
+                      "productName": "Aviator",
+                      "productPrice": 120,
+                      "productQuantity": 1,
+                      "productSku": "special",
+                    },
+                  ],
+                  "cartId": "097504969642348742",
+                  "cartVersion": "12432",
+                  "orderId": "",
+                },
+              ],
+              "ProductPageView": Object {
+                "productCategoryId": "",
+                "productCategoryName": "",
+                "productChannelId": 18629762,
+                "productChannelName": "",
+                "productCurrency": "",
+                "productId": "08439484",
+                "productName": "Awesome Tie",
+                "productPrice": 98,
+                "productQuantity": "",
+                "productSku": "",
+              },
+            },
+            "telemetrySettings": Object {
+              "environmentId": "Development",
+              "eventHubAuthToken": "",
+              "eventHubEndPoint": "",
+              "instrumentationKey": "",
+              "operationId": "mockOperationId",
+              "operationalInsightsInstrumentationKey": "",
+              "optOutWebActivityTracking": false,
+            },
+            "textDirection": "ltr",
+            "themeOverride": Object {
+              "disableDefault": false,
+              "url": "",
+            },
+            "url": Object {
+              "requestUrl": "https://contoso.com/",
+              "staticCdnUrl": "string",
+            },
+            "urlTokens": Object {},
+            "user": Object {
+              "isAuthenticated": false,
+              "isB2b": true,
+              "optOutWebActivityTracking": false,
+              "token": "mockToken",
+            },
+          },
+          "telemetry": Object {
+            "critical": [Function],
+            "debug": [Function],
+            "error": [Function],
+            "exception": [Function],
+            "information": [Function],
+            "log": [Function],
+            "logEvent": [Function],
+            "setTelemetryAttribute": [Function],
+            "setTelemetryModuleContext": [Function],
+            "setTelemetryRequestContext": [Function],
+            "trace": [Function],
+            "trackDependency": [Function],
+            "trackEvent": [Function],
+            "trackMetric": [Function],
+            "warning": [Function],
+          },
+        },
+        "data": Object {},
+        "dataActions": Object {},
+        "friendlyName": "Mock Id",
+        "id": "mock-id",
+        "renderModuleAttributes": [Function],
+        "renderView": [Function],
+        "telemetry": Object {
+          "critical": [Function],
+          "debug": [Function],
+          "error": [Function],
+          "exception": [Function],
+          "information": [Function],
+          "log": [Function],
+          "logEvent": [Function],
+          "setTelemetryAttribute": [Function],
+          "setTelemetryModuleContext": [Function],
+          "setTelemetryRequestContext": [Function],
+          "trace": [Function],
+          "trackDependency": [Function],
+          "trackEvent": [Function],
+          "trackMetric": [Function],
+          "warning": [Function],
+        },
+        "typeName": "mock-type",
+      }
+    }
+  >
+    <div
+      className="ms-buybox"
+      data-m-t="mock-type"
+      id=""
+    >
+      <ForwardRef
+        className="ms-buybox__media-gallery"
+      >
+        <div
+          className="ms-buybox__media-gallery"
+        >
+          &lt;div&gt;mediaGallery&lt;/div&gt;
+        </div>
+      </ForwardRef>
+      <ForwardRef
+        className="ms-buybox__content"
+      >
+        <div
+          className="ms-buybox__content"
+        >
+          &lt;div&gt;Title&lt;/div&gt;
+          &lt;div&gt;price&lt;/div&gt;
+          &lt;div&gt;description&lt;/div&gt;
+          x
+          &lt;div&gt;rating&lt;/div&gt;
+          <ForwardRef
+            className="ms-buybux__configure"
+          >
+            <div
+              className="ms-buybux__configure"
+            >
+              <ForwardRef
+                className="ms-buybox__configure-dropdown"
+              >
+                <div
+                  className="ms-buybox__configure-dropdown"
+                >
+                  <ForwardRef
+                    className="ms-buybox__configure-dropdown-label"
+                  >
+                    <div
+                      className="ms-buybox__configure-dropdown-label"
+                    >
+                      &lt;div&gt;Heading 1&lt;/div&gt;
+                      &lt;div&gt;errors 1&lt;/div&gt;
+                    </div>
+                  </ForwardRef>
+                  &lt;div&gt;select 1&lt;/div&gt;
+                </div>
+              </ForwardRef>
+              <ForwardRef
+                className="ms-buybox__configure-dropdown"
+              >
+                <div
+                  className="ms-buybox__configure-dropdown"
+                >
+                  <ForwardRef
+                    className="ms-buybox__configure-dropdown-label"
+                  >
+                    <div
+                      className="ms-buybox__configure-dropdown-label"
+                    >
+                      &lt;div&gt;heading&lt;/div&gt;
+                      &lt;div&gt;errors&lt;/div&gt;
+                    </div>
+                  </ForwardRef>
+                  &lt;div&gt;select 2&lt;/div&gt;
+                </div>
+              </ForwardRef>
+            </div>
+          </ForwardRef>
+          <ForwardRef
+            className=""
+          >
+            <div
+              className=""
+            >
+              <ForwardRef
+                className=""
+              >
+                <div
+                  className=""
+                >
+                  &lt;h1&gt;d&lt;/h1&gt;
+                </div>
+              </ForwardRef>
+              <input />
+            </div>
+          </ForwardRef>
+          <ForwardRef
+            className="ms-buybux__quantity"
+          >
+            <div
+              className="ms-buybux__quantity"
+            >
+              <ForwardRef
+                className="ms-buybux__quantity-label"
+              >
+                <div
+                  className="ms-buybux__quantity-label"
+                >
+                  &lt;div&gt;heading&lt;/div&gt;
+                  &lt;div&gt;errors&lt;/div&gt;
+                </div>
+              </ForwardRef>
+              <IncrementalQuantity
+                currentCount={1}
+                decrementButtonAriaLabel="Decrease the quantity by 1"
+                decrementGlyphClass="fas fa-minus"
+                id="ms-buybox__product-quantity-input"
+                incrementButtonAriaLabel="Increase quantity by 1"
+                incrementGlyphClass="fas fa-plus"
+                inputQuantityAriaLabel="Quantity To Purchase"
+                maxQuantityText="The maximum quantity to purchase for this product is {max}."
+                min={1}
+                minQuantityText="The minimum quantity to purchase for this product is {min}."
+                onChange={[Function]}
+              >
+                <div
+                  className="quantity"
+                  id="ms-buybox__product-quantity-input"
+                >
+                  <button
+                    aria-hidden={true}
+                    aria-label="Decrease the quantity by 1"
+                    className="decrement quantity__controls disabled"
+                    color="secondary"
+                    disabled={true}
+                    onClick={[Function]}
+                    title=""
+                  >
+                    <span
+                      className="fas fa-minus quantity__controls-glyph"
+                    />
+                  </button>
+                  <input
+                    aria-label="Quantity To Purchase"
+                    aria-live="polite"
+                    aria-valuemin={1}
+                    aria-valuenow={1}
+                    className="quantity-input"
+                    min={1}
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    pattern="[0-9]*"
+                    role="spinbutton"
+                    type="number"
+                    value={1}
+                  />
+                  <button
+                    aria-hidden={false}
+                    aria-label="Increase quantity by 1"
+                    className="increment quantity__controls "
+                    color="secondary"
+                    onClick={[Function]}
+                    title="Increase quantity by 1"
+                  >
+                    <span
+                      className="fas fa-plus quantity__controls-glyph"
+                    />
+                  </button>
+                </div>
+              </IncrementalQuantity>
+            </div>
+          </ForwardRef>
+          <div
+            className="product-add-to-cart"
+          >
+            &lt;div&gt;errorBlock&lt;/div&gt;
+            &lt;div&gt;errorBlock&lt;/div&gt;
+            &lt;div&gt;errorBlock&lt;/div&gt;
+            <div
+              className="buttons"
+            >
+              &lt;div&gt;button&lt;/div&gt;
+              &lt;div&gt;button&lt;/div&gt;
+              &lt;div&gt;button&lt;/div&gt;
+            </div>
+          </div>
+          <ForwardRef
+            className="ms-buybux__find-in-store"
+          >
+            <div
+              className="ms-buybux__find-in-store"
+            >
+              &lt;div&gt;storeSelector&lt;/div&gt;
+              &lt;div&gt;heading&lt;/div&gt;
+              &lt;div&gt;description&lt;/div&gt;
+              &lt;div&gt;errors&lt;/div&gt;
+              &lt;div&gt;button&lt;/div&gt;
+              &lt;div&gt;modal&lt;/div&gt;
+            </div>
+          </ForwardRef>
+          <ForwardRef
+            className="ms-buybox__shopsimilarlooks"
+          >
+            <div
+              className="ms-buybox__shopsimilarlooks"
+            >
+              <Button
+                aria-label="Shop Similar looks"
+                className="ms-buybox__shop-similar-looks-button"
+                outline={false}
+                tag="button"
+                title="Shop Similar looks"
+              >
+                <button
+                  aria-label="Shop Similar looks"
+                  className="ms-buybox__shop-similar-looks-button msc-btn"
+                  onClick={[Function]}
+                  title="Shop Similar looks"
+                />
+              </Button>
+            </div>
+          </ForwardRef>
+          <ForwardRef
+            className="ms-buybox__shopsimilardescription"
+          >
+            <div
+              className="ms-buybox__shopsimilardescription"
+            >
+              <Button
+                aria-label="Shop Similar description"
+                className="ms-buybox__shop-similar-looks-description"
+                outline={false}
+                tag="button"
+                title="Shop Similar description"
+              >
+                <button
+                  aria-label="Shop Similar description"
+                  className="ms-buybox__shop-similar-looks-description msc-btn"
+                  onClick={[Function]}
+                  title="Shop Similar description"
+                />
+              </Button>
+            </div>
+          </ForwardRef>
+        </div>
+      </ForwardRef>
+    </div>
+  </Component>
+</BuyboxView>
+`;
+
+exports[`Buybox unit tests - View renders correctly with props 1`] = `
+<div
+  class="ms-buybox"
+  data-m-t="mock-type"
+  id=""
+>
+  <div
+    class="ms-buybox__media-gallery"
+  >
+    &lt;div&gt;mediaGallery&lt;/div&gt;
+  </div>
+  <div
+    class="ms-buybox__content"
+  >
+    &lt;div&gt;Title&lt;/div&gt;&lt;div&gt;price&lt;/div&gt;&lt;div&gt;description&lt;/div&gt;&lt;div&gt;rating&lt;/div&gt;
+    <div
+      class="ms-buybux__configure"
+    >
+      <div
+        class="ms-buybox__configure-dropdown"
+      >
+        <div
+          class="ms-buybox__configure-dropdown-label"
+        >
+          &lt;div&gt;Heading 1&lt;/div&gt;&lt;div&gt;errors 1&lt;/div&gt;
+        </div>
+        &lt;div&gt;select 1&lt;/div&gt;
+      </div>
+      <div
+        class="ms-buybox__configure-dropdown"
+      >
+        <div
+          class="ms-buybox__configure-dropdown-label"
+        >
+          &lt;div&gt;heading&lt;/div&gt;&lt;div&gt;errors&lt;/div&gt;
+        </div>
+        &lt;div&gt;select 2&lt;/div&gt;
+      </div>
+    </div>
+    <div
+      class=""
+    >
+      <div
+        class=""
+      >
+        &lt;h1&gt;heading&lt;h1/&gt;
+      </div>
+      <input />
+    </div>
+    <div
+      class="ms-buybux__quantity"
+    >
+      <div
+        class="ms-buybux__quantity-label"
+      >
+        &lt;div&gt;heading&lt;/div&gt;&lt;div&gt;errors&lt;/div&gt;
+      </div>
+      <div
+        class="quantity"
+        id="ms-buybox__product-quantity-input"
+      >
+        <button
+          aria-hidden="true"
+          aria-label="Decrease the quantity by 1"
+          class="decrement quantity__controls disabled"
+          color="secondary"
+          disabled=""
+          title=""
+        >
+          <span
+            class="fas fa-minus quantity__controls-glyph"
+          />
+        </button>
+        <input
+          aria-label="Quantity To Purchase"
+          aria-live="polite"
+          aria-valuemin="1"
+          aria-valuenow="1"
+          class="quantity-input"
+          min="1"
+          pattern="[0-9]*"
+          role="spinbutton"
+          type="number"
+          value="1"
+        />
+        <button
+          aria-hidden="false"
+          aria-label="Increase quantity by 1"
+          class="increment quantity__controls "
+          color="secondary"
+          title="Increase quantity by 1"
+        >
+          <span
+            class="fas fa-plus quantity__controls-glyph"
+          />
+        </button>
+      </div>
+    </div>
+    <div
+      class="product-add-to-cart"
+    >
+      &lt;div&gt;errorBlock&lt;/div&gt;&lt;div&gt;errorBlock&lt;/div&gt;&lt;div&gt;errorBlock&lt;/div&gt;
+      <div
+        class="buttons"
+      >
+        &lt;div&gt;button&lt;/div&gt;&lt;div&gt;button&lt;/div&gt;&lt;div&gt;button&lt;/div&gt;
+      </div>
+    </div>
+    <div
+      class="ms-buybux__find-in-store"
+    >
+      &lt;div&gt;storeSelector&lt;/div&gt;&lt;div&gt;heading&lt;/div&gt;&lt;div&gt;description&lt;/div&gt;&lt;div&gt;errors&lt;/div&gt;&lt;div&gt;button&lt;/div&gt;&lt;div&gt;modal&lt;/div&gt;
+    </div>
+    <div
+      class="ms-buybox__shopsimilarlooks"
+    >
+      <button
+        aria-label="Shop Similar looks"
+        class="ms-buybox__shop-similar-looks-button msc-btn"
+        title="Shop Similar looks"
+      />
+    </div>
+    <div
+      class="ms-buybox__shopsimilardescription"
+    >
+      <button
+        aria-label="Shop Similar description"
+        class="ms-buybox__shop-similar-looks-description msc-btn"
+        title="Shop Similar description"
+      />
+    </div>
+  </div>
+</div>
+`;

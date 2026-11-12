@@ -1,0 +1,25 @@
+{
+    "$type": "definitionExtension",
+    "dependentSchemas": {
+        "imageSource":{
+            "oneOf":[
+                {
+                    "properties":{
+                        "imageSource":{
+                            "enum":{
+                                "productId": "ProductId"
+                            }
+                        },
+                        "productId": {
+                            "type": "string",
+                            "friendlyName": "Product id",
+                            "description": "This field captures the product id for which you want to show images in a gallery. It should be used only when Image source is Product id",
+                            "required": false,
+                            "override": true
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}

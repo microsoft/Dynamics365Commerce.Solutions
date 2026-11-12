@@ -1,0 +1,30 @@
+@import "bootstrap/scss/bootstrap";
+
+$brandPrimaryColor: #FFFFFF;
+$brandSecondaryColor: #CCCCCC;
+$backgrounDefaultColor: #FFFFFF;
+$textDefaultColor: #333333;
+$bodyFont: Arial;
+$displayFont: Impact;
+$borderRadius: 4;
+$iconStyle: Line;
+$categoryColor: #000;
+$expandedCategoryColor: #000;
+
+
+:root {
+    --brandPrimaryColor: #{brandPrimaryColor};
+    --brandSecondaryColor: #{brandSecondaryColor};
+    --backgroundDefaultColor: #{$backgrounDefaultColor};
+    --textDefaultColor: #{textDefaultColor};
+    --bodyFont: #{bodyFont};
+    --displayFont: #{displayFont};
+    --borderRadius: #{borderRadius};
+    --iconStyle: #{iconStyle};
+    --categoryColor: #{categoryColor};
+    --expandedCategoryColor: #{expandedCategoryColor};
+}
+
+body {
+    background-color: var(--backgroundDefaultColor);
+}

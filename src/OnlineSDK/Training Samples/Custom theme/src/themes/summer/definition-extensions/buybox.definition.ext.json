@@ -1,0 +1,44 @@
+{
+    "$type": "definitionExtension",
+    "resources": {
+        "decrementButtonAriaLabel": {
+            "value": "Decrease the quantity by 1",
+            "comment": "Aria Label / tooltop for the quantity decrease button"
+        },
+        "incrementButtonAriaLabel": {
+            "value": "Increase quantity by 1",
+            "comment": "Aria Label / tooltop for the quantity increase button"
+        }
+    },
+    "dependentSchemas": {
+        "enableKeyInPrice": {
+            "oneOf":[
+                {
+                    "properties":{
+                        "enableKeyInPrice":{
+                            "enum":{
+                                "true":true
+                            }
+                        },
+                        "minimumKeyInPrice": {
+                            "friendlyName": "Minimum price",
+                            "type": "number",
+                            "description": "This defines the minimum amount that can be entered as a custom price",
+                            "default": 10,
+                            "override":true,
+                            "scope": "module"
+                        },
+                        "maximumKeyInPrice": {
+                            "friendlyName": "Maximum price",
+                            "type": "number",
+                            "description": "This defines the maximum amount that can be entered as a custom price",
+                            "default": 100,
+                            "override":true,
+                            "scope": "module"
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}
