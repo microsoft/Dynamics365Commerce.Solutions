@@ -1,0 +1,27 @@
+@mixin visually-hidden {
+    /* stylelint-disable-next-line declaration-no-important -- Auto-suppressed. Please fix if possible. */
+    position: absolute !important;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+    white-space: nowrap; /* added line */
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.slider__thumb__range.sr-only {
+    /* stylelint-disable declaration-no-important -- To override existing no important. */
+    height: 8px !important;
+    width: 8px !important;
+    top: -4px;
+}

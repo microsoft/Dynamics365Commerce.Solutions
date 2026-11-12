@@ -1,0 +1,627 @@
+@import "../common/00-settings/colors.scss";
+@import "../common/00-settings/font.scss";
+@import "../common/00-settings/icons.scss";
+@import "../common/00-settings/responsive-breakpoints.scss";
+@import "../common/02-generic/button.scss";
+@import "../common/02-generic/image.scss";
+@import "../common/02-generic/reset.scss";
+
+$popover-menu-item-height: 48px;
+$msv-order-history-padding-bottom: 28px;
+$msv-order-history-heading-margin-top: 10px;
+$msv-order-history-order-count-margin-left: 12px;
+$msv-order-history-order-count-padding-top: 5px;
+$msv-order-history-sales-order-padding-top: 80px;
+$msv-order-history-sales-order-padding-bottom: 80px;
+$msv-order-history-sales-order-padding-top-tablet: 60px;
+$msv-order-history-sales-order-padding-bottom-tablet: 60px;
+$msv-order-history-sales-order-padding-top-mobile: 40px;
+$msv-order-history-sales-order-padding-bottom-mobile: 40px;
+$msv-details-order-information-channel-name-margin-bottom: 16px;
+$msv-order-history-sales-lines-margin-top: 28px;
+$msv-order-history-sales-line-picture-margin-right: 8px;
+$msv-order-history-sales-line-picture-margin-top: 12px;
+$msv-order-history-sales-line-picture-height: 180px;
+$msv-order-history-sales-line-picture-height-tablet: 120px;
+$msv-order-history-sales-line-picture-height-mobile: 80px;
+$msv-order-history-empty-image-width: 81px;
+$msv-order-history-btn-order-details-margin-top: 28px;
+$msv-order-history-order-information-created-date-padding-right: 5px;
+$msv-order-history-order-information-amount-padding-left: 5px;
+$msv-order-history-btn-keep-shopping-margin-top: 20px;
+$msv-order-history-btn-more-margin-top: 28px;
+$msv-order-history-alert-margin-top: 20px;
+$msv-order-history-alert-margin-bottom: 20px;
+$msv-order-information-sales-id-margin-bottom: 4px;
+$msv-order-history-filter-padding: 0 20px;
+$msv-order-history-popover-links-max-width: 300px;
+$msv-order-history-view-modes-btn-margin: 0 4px;
+$msv-order-history-table-list-action-container-depth: 0 3.2px 7.2px rgba(0, 0, 0, 0.132), 0 0.6px 1.8px rgba(0, 0, 0, 0.108);
+$msv-order-history-heading-margin-bottom: 10px;
+$msv-order-history-heading-loading-state-margin-top: 148px;
+$msv-order-history-heading-loading-state-margin-right: 8px;
+$msv-order-history-heading-loading-icon-dimension: 20px;
+$msv-order-history-button-dimension: 36px;
+$msv-order-history-table-header-row-height: 40px;
+$msv-order-history-table-header-row-padding: 12px 0 12px 12px;
+$msv-order-history-sales-order-list-padding: 0 150px;
+$msv-order-history-order-information-count-left-position: 164px;
+$msv-order-history-order-information-count-top-position: 84px;
+$msv-order-history-order-information-count-top-position-tablet: 64px;
+$msv-order-history-order-information-count-top-position-mobile: 44px;
+$msv-order-history-order-information-count-left-position-mobile: 166px;
+$msv-order-history-order__expand-products-button-margin-top: 35px;
+$msv-order-history-empty-message-container-height: 427px;
+$msv-order-history-empty-message-container-padding: 0 300px;
+$msv-order-history-empty-message-container-padding-tablet: 0 160px;
+$msv-order-history-empty-message-container-padding-mobile: 0 40px;
+$msv-order-history-btn-more-width: 250px;
+$msv-order-history-loading-icon-border-color: rgb(0, 120, 212) rgb(199, 224, 244) rgb(199, 224, 244);
+
+//style presets
+:root {
+    --msv-order-history-border-color: #{$msv-gray-50};
+    --msv-order-history-view-mode-btn-color: #{$msv-gray-20};
+
+    //background
+    --msv-order-history-view-modes-background-color: #{$msv-white-20};
+    --msv-order-history-actions-container-background-color: var(--msv-bg-color);
+    --msv-order-history-button-background-color: #{$msv-transparent};
+
+    // heading
+    --msv-order-history-heading-font-color: var(--msv-font-primary-color);
+
+    // title
+    --msv-order-history-title-font-color: #{$msv-gray-20};
+
+    // text
+    --msv-order-order-information-font-color: #{$msv-gray-40};
+    --msv-order-history-text-font-size: var(--msv-body-font-size-m);
+    --msv-order-history-view-mode-btn-hover-color: #{$msv-blue};
+    --msv-order-history-list-view-mode-btn-color: #{$msv-gray-20};
+}
+
+.ms-order-history {
+    padding-bottom: $msv-order-history-padding-bottom;
+    overflow-y: auto;
+
+    &__heading {
+        @include font-heading-h3-l();
+        text-transform: capitalize;
+        color: var(--msv-order-history-heading-font-color);
+        width: auto;
+        margin-bottom: $msv-order-history-heading-margin-bottom;
+    }
+
+    &__header {
+        margin-top: $msv-order-history-heading-margin-top;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    &__loading {
+        @include font-body-regular-s();
+        display: flex;
+        margin-top: $msv-order-history-heading-loading-state-margin-top;
+        justify-content: center;
+
+        &::before {
+            @include msv-icon();
+            content: $msv-Spinner;
+            margin-right: $msv-order-history-heading-loading-state-margin-right;
+            border-radius: 50%;
+            border-width: 1.5px;
+            border-style: solid;
+            border-color: $msv-order-history-loading-icon-border-color;
+            border-image: initial;
+            animation: spin 1s steps(8) infinite;
+            animation-timing-function: cubic-bezier(0.53, 0.21, 0.29, 0.67);
+            width: $msv-order-history-heading-loading-icon-dimension;
+            height: $msv-order-history-heading-loading-icon-dimension;
+            font-family: inherit;
+        }
+    }
+
+    &__ms-order-history-view-modes {
+        margin-left: auto;
+
+        button {
+            margin: $msv-order-history-view-modes-btn-margin;
+            padding: 8px;
+            width: $msv-order-history-button-dimension;
+            height: $msv-order-history-button-dimension;
+            border: none;
+            color: var(--msv-order-history-view-mode-btn-hover-color);
+        }
+
+        .msc-view-modes__selected {
+            background: var(--msv-order-history-view-modes-background-color);
+        }
+
+        &__list-view {
+            @include add-icon($msv-list-unordered);
+            color: var(--msv-order-history-list-view-mode-btn-color);
+            background: none;
+
+            &:hover {
+                color: var(--msv-order-history-view-mode-btn-hover-color);
+            }
+        }
+
+        &__detailed-view {
+            @include add-icon($msv-layout-grid-line);
+            color: var(--msv-order-history-view-mode-btn-color);
+            background: none;
+
+            &:hover {
+                color: var(--msv-order-history-view-mode-btn-hover-color);
+            }
+        }
+    }
+
+    &__table-list {
+        width: 100%;
+        border-collapse: collapse;
+
+        &__row {
+            @include font-body-regular-s();
+            height: 80px;
+            border-bottom: 0.5px solid var(--msv-order-history-border-color);
+
+            td {
+                padding-left: 12px;
+            }
+
+            &__column-with-number {
+                text-align: right;
+            }
+
+            &:hover {
+                background-color: var(--msv-order-history-view-modes-background-color);
+            }
+
+            &__column-with-number:first-child {
+                display: none;
+            }
+
+            &__open-order-details {
+                text-decoration: underline;
+                cursor: pointer;
+            }
+
+            &__mobile-cell {
+                &__open-details {
+                    display: grid;
+                    cursor: pointer;
+                    padding: 10px 0;
+                }
+
+                &__mobile-order-id {
+                    font-weight: bold;
+                }
+
+                &__mobile-created-date {
+                    font-size: 14px;
+                    line-height: 18px;
+                    padding-top: 8px;
+                }
+            }
+
+            &__extra-actions-cell {
+                &__toggle {
+                    @include add-icon($msv-Ellipses-V);
+                    background: none;
+                    height: 82px;
+                }
+
+                &__actions-container {
+                    align-items: flex-start;
+                    background: var(--msv-order-history-actions-container-background-color);
+                    border-radius: 2px;
+                    box-shadow: $msv-order-history-table-list-action-container-depth;
+                    flex-direction: column;
+                    height: auto;
+                    padding-left: 0;
+                    position: absolute;
+                    left: 0;
+                    width: 100%;
+                    z-index: 10;
+
+                    &__view-details {
+                        @include add-icon($msv-List);
+                    }
+
+                    button {
+                        background: none;
+                        height: 60px;
+                        padding: 0 8px;
+                        text-align: left;
+                        width: 100%;
+
+                        &::before {
+                            margin-right: 12px;
+                            width: 16px;
+                            color: var(--msv-accent-brand-color);
+                        }
+                    }
+                }
+            }
+        }
+
+        &__header {
+            text-align: left;
+
+            border-bottom: 0.5px solid var(--msv-order-history-border-color);
+
+            &__row {
+                height: $msv-order-history-table-header-row-height;
+                border-top: 0.5px solid var(--msv-order-history-border-color);
+
+                th {
+                    @include font-body-bold-xs();
+                    padding: $msv-order-history-table-header-row-padding;
+                    text-align: left;
+                }
+
+                &__column-with-number:first-child {
+                    display: none;
+                }
+            }
+        }
+
+        th, td {
+            text-align: left;
+
+            &.ms-order-history__table-list__header__row__mobile-cell, &.ms-order-history__table-list__row__mobile-cell {
+                padding: unset;
+            }
+        }
+    }
+
+    &__ms-order-history-filter {
+        margin-left: auto;
+        width: calc(100% - 88px);
+        display: flex;
+        justify-content: flex-end;
+
+        &__expand-filter-button {
+            @include font-body-bold-s();
+            background-color: var(--msv-order-history-button-background-color);
+            border-color: var(--msv-order-history-button-background-color);
+            float: right;
+            padding-right: 0;
+
+            &::after {
+                @include msv-icon();
+                content: $msv-ChevronDown;
+                text-align: center;
+                vertical-align: text-bottom;
+                margin-left: 8px;
+                padding-right: 10px;
+                border-right: 0.5px solid var(--msv-order-history-border-color);
+            }
+        }
+
+        &__expand-filter-button[aria-expanded="true"] {
+            &::after {
+                content: $msv-ChevronUp;
+            }
+        }
+
+        .msc-popover {
+            @include font-body-regular-m();
+            background-clip: padding-box;
+            border: 1px solid var(--msv-order-history-button-background-color);
+            display: block;
+            left: 0;
+            max-width: $msv-order-history-popover-links-max-width;
+            position: absolute;
+            top: 0;
+            word-wrap: break-word;
+            z-index: 1060;
+            background-color: var(--msv-bg-color);
+            box-shadow: $msv-depth8;
+            border-radius: 10px;
+
+            &-inner {
+                display: flex;
+                flex-direction: column;
+            }
+
+            button {
+                font-size: $msv-font-size-m;
+                line-height: $msv-line-height-s;
+                padding: $msv-order-history-filter-padding;
+                height: 48px;
+                cursor: pointer;
+                background-color: var(--msv-order-history-button-background-color);
+                border-color: var(--msv-order-history-button-background-color);
+                width: 100%;
+                text-align: right;
+
+                &:hover {
+                    text-decoration: none;
+                    background-color: var(--msv-order-history-view-modes-background-color);
+                }
+
+                @media screen and (max-width: $msv-breakpoint-m - 1) {
+                    text-align: left;
+                }
+            }
+
+            .msc-btn {
+                color: var(--msv-header-font-color);
+                font-weight: var(--msv-font-weight-normal);
+                height: $popover-menu-item-height;
+            }
+
+            .msc-arrow {
+                display: block;
+                height: 0.5rem;
+                margin: 0 0.3rem;
+                position: absolute;
+                top: calc((0.5rem + 1px) * -1);
+                width: 1rem;
+
+                &::before,
+                &::after {
+                    border-color: var(--msv-order-history-button-background-color);
+                    border-style: solid;
+                    border-width: 0 0.5rem 0.5rem 0.5rem;
+                    content: "";
+                    display: none;
+                    position: absolute;
+                }
+
+                &::before {
+                    border-bottom-color: $msv-gray-500;
+                    top: 0;
+                }
+
+                &::after {
+                    border-bottom-color: var(--msv-border-color);
+                    top: 1px;
+                }
+            }
+        }
+    }
+
+    &__order-count {
+        @include font-body-regular-s();
+        display: inline-block;
+        margin-left: $msv-order-history-order-count-margin-left;
+        color: var(--msv-order-order-information-font-color);
+        padding-top: $msv-order-history-order-count-padding-top;
+        width: calc(100% - 185px);
+    }
+
+    &__sales-order-list {
+        border-top: 0.5px solid var(--msv-order-history-border-color);
+
+        @media screen and (min-width: $msv-breakpoint-l) {
+            padding: $msv-order-history-sales-order-list-padding;
+        }
+    }
+
+    &__sales-order {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding-top: $msv-order-history-sales-order-padding-top;
+        padding-bottom: $msv-order-history-sales-order-padding-bottom;
+        position: relative;
+        border-bottom: 1px solid var(--msv-order-history-border-color);
+
+        @media screen and (max-width: $msv-breakpoint-l) {
+            padding-top: $msv-order-history-sales-order-padding-top-tablet;
+            padding-bottom: $msv-order-history-sales-order-padding-bottom-tablet;
+        }
+
+        @media screen and (max-width: $msv-breakpoint-m) {
+            padding-top: $msv-order-history-sales-order-padding-top-mobile;
+            padding-bottom: $msv-order-history-sales-order-padding-bottom-mobile;
+        }
+    }
+
+    &__order-information-channel-name {
+        @include font-heading-h5-l();
+        color: var(--msv-order-history-title-font-color);
+        display: block;
+        margin-bottom: $msv-details-order-information-channel-name-margin-bottom;
+        text-transform: capitalize;
+        width: 165px;
+        word-wrap: break-word;
+    }
+
+    &__order-information-sales-id,
+    &__order-information-receipt-id,
+    &__order-information-channel-reference-id {
+        display: block;
+    }
+
+    &__sales-lines {
+        margin-top: $msv-order-history-sales-lines-margin-top;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    &__sales-line-picture {
+        margin-right: $msv-order-history-sales-line-picture-margin-right;
+        margin-top: $msv-order-history-sales-line-picture-margin-top;
+
+        @include image($msv-order-history-sales-line-picture-height);
+
+        @media (min-width: $msv-breakpoint-m+1) and (max-width: $msv-breakpoint-l) {
+            @include image($msv-order-history-sales-line-picture-height-tablet);
+        }
+
+        @media screen and (max-width: $msv-breakpoint-m) {
+            @include image($msv-order-history-sales-line-picture-height-mobile);
+        }
+
+        .msc_image {
+            border: 0.5px solid var(--msv-order-history-border-color);
+            box-sizing: border-box;
+        }
+    }
+
+    &__btn-order-details {
+        @include secondary-button-light();
+
+        @media screen and (max-width: $msv-breakpoint-m) {
+            margin-top: $msv-order-history-btn-order-details-margin-top;
+            order: 4;
+        }
+    }
+
+    &__order-information-created-date {
+        padding-right: $msv-order-history-order-information-created-date-padding-right;
+        border-right: 1px solid var(--msv-order-history-border);
+
+        @include font-body-regular-m();
+    }
+
+    &__order-information-count {
+        @include font-body-regular-s();
+        position: absolute;
+        left: $msv-order-history-order-information-count-left-position;
+        top: $msv-order-history-order-information-count-top-position;
+
+        @media screen and (max-width: $msv-breakpoint-l) {
+            top: $msv-order-history-order-information-count-top-position-tablet;
+        }
+
+        @media screen and (max-width: $msv-breakpoint-m) {
+            top: $msv-order-history-order-information-count-top-position-mobile;
+            left: $msv-order-history-order-information-count-left-position-mobile;
+        }
+    }
+
+    &__order-information-amount {
+        padding-left: $msv-order-history-order-information-amount-padding-left;
+    }
+
+    &__groups {
+        display: flex;
+        order: 3;
+
+        @media screen and (max-width: $msv-breakpoint-m) {
+            order: 2;
+        }
+    }
+
+    .ms-order-history__sales-order__expand-products-button {
+        @include font-body-regular-m();
+        margin-right: auto;
+        cursor: pointer;
+        background-color: unset;
+        text-decoration-line: underline;
+        margin-top: $msv-order-history-order__expand-products-button-margin-top;
+        border: none;
+        order: 4;
+
+        @media screen and (max-width: $msv-breakpoint-m) {
+            order: 3;
+        }
+    }
+
+    .ms-order-history__sales-order__expand-products-button-wrapper {
+        width: calc(100% - 550px);
+
+        @media screen and (max-width: $msv-breakpoint-m) {
+            width: calc(100% - 300px);
+        }
+    }
+
+    &__empty-message,
+    &__alert {
+        display: block;
+        margin-top: $msv-order-history-alert-margin-top;
+        margin-bottom: $msv-order-history-alert-margin-bottom;
+    }
+
+    &__empty-message-container {
+        @media screen and (min-width: $msv-breakpoint-m) {
+            border: 0.5px solid var(--msv-order-history-border-color);
+        }
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: $msv-order-history-empty-message-container-height;
+
+        .ms-order-history__empty-message {
+            @include font-heading-h2-l();
+            padding: $msv-order-history-empty-message-container-padding;
+            text-align: center;
+
+            @media screen and (max-width: $msv-breakpoint-l) {
+                @include font-heading-h2-m();
+                padding: $msv-order-history-empty-message-container-padding-tablet;
+            }
+
+            @media screen and (max-width: $msv-breakpoint-m) {
+                padding: $msv-order-history-empty-message-container-padding-mobile;
+            }
+        }
+    }
+
+    &__order-information-receipt-id,
+    &__order-information-created-date,
+    &__order-information-amount {
+        font-size: var(--msv-order-history-text-font-size);
+        color: var(--msv-order-history-title-font-color);
+    }
+
+    &__order-information-sales-id {
+        @include font-heading-h6-l();
+        color: var(--msv-order-history-title-font-color);
+        margin-bottom: $msv-order-information-sales-id-margin-bottom;
+    }
+
+    &__order-information-channel-reference-id {
+        font-size: var(--msv-order-history-text-font-size);
+        color: var(--msv-order-order-information-font-color);
+    }
+
+    @media screen and (max-width: $msv-breakpoint-m) {
+        &__btn-order-details {
+            width: $msv-width-full;
+        }
+
+        &__btn-keep-shopping {
+            width: $msv-width-full;
+        }
+    }
+
+    &__btn-keep-shopping {
+        margin-top: $msv-order-history-btn-keep-shopping-margin-top;
+
+        @include primary-button-light();
+    }
+
+    &__btn-more {
+        &.is-busy {
+            @include add-spinner(before);
+        }
+
+        @include primary-button-light();
+        display: flex;
+        margin: auto;
+        margin-top: $msv-order-history-btn-more-margin-top;
+        width: $msv-order-history-btn-more-width;
+    }
+
+    &__group-delivery {
+        display: none;
+    }
+
+    @media screen and (min-width: $msv-breakpoint-m + 1) {
+        &__sales-order {
+            display: flex;
+            width: $msv-width-full;
+            flex-wrap: wrap;
+        }
+    }
+}

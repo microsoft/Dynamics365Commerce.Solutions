@@ -1,0 +1,18 @@
+{
+    "$type": "contentModule",
+    "friendlyName": "Gift card personalization",
+    "name": "gift-card-personalization",
+    "description": "Gift card personalization shows personalization options during checkout",
+    "categories": ["gift-card-personalization", "checkout_checkoutInformation", "checkoutSectionContainer_primary"],
+    "tags": ["Additional tags go here"],
+    "dataActions": {
+        "checkout": {
+            "path": "@msdyn365-commerce/global-state/dist/lib/data-actions/checkout-state-data-action",
+            "runOn": "client"
+        }
+    },
+    "config": {
+    },
+    "resources": {
+    }
+}

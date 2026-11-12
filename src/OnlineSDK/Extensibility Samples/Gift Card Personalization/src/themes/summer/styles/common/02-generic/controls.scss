@@ -1,0 +1,164 @@
+$msv-carousel-flipper-height-l: 80px;
+$msv-carousel-flipper-width-l: 80px;
+$msv-carousel-flipper-height-m: 48px;
+$msv-carousel-flipper-width-m: 48px;
+$msv-carousel-flipper-height-s: 32px;
+$msv-carousel-flipper-width-s: 32px;
+$msv-carousel-flipper-font-size-l: 60px;
+$msv-carousel-flipper-font-size-m: 28px;
+$msv-quantity-control-height: 52px;
+
+// Handle carousel flipper styles
+
+@mixin flipper-container-decoration() {
+    height: $msv-carousel-flipper-height-m;
+    width: $msv-carousel-flipper-width-m;
+
+    @media screen and (max-width: $msv-breakpoint-m) {
+        height: $msv-carousel-flipper-height-s;
+        width: $msv-carousel-flipper-width-s;
+    }
+
+    @media screen and (min-width: $msv-breakpoint-l) {
+        height: $msv-carousel-flipper-height-l;
+        width: $msv-carousel-flipper-width-l;
+    }
+
+    background-color: var(--msv-carousel-flipper-rest-bg-color);
+    border-radius: 100px;
+    color: var(--msv-font-primary-color);
+    outline: none;
+
+    &:hover {
+        background-color: var(--msv-carousel-flipper-hover-bg-color);
+        box-shadow: $msv-depth8;
+    }
+
+    &:focus {
+        background-color: var(--msv-carousel-flipper-focus-bg-color);
+        box-shadow: $msv-depth8;
+        border: 1px solid var(--msv-carousel-flipper-border-color);
+        box-sizing: border-box;
+    }
+
+    &:active {
+        box-shadow: $msv-depth4;
+        background-color: var(--msv-carousel-flipper-active-bg-color);
+    }
+
+    &:disabled,
+    &[disabled] {
+        color: var(--msv-font-disabled-color);
+    }
+}
+
+@mixin flipper-icon-decoration($selector: before) {
+    &:#{$selector} {
+        font-size: $msv-carousel-flipper-font-size-m;
+        vertical-align: text-bottom;
+
+        @media screen and (max-width: $msv-breakpoint-m) {
+            font-size: $msv-carousel-flipper-font-size-m;
+        }
+
+        @media screen and (min-width: $msv-breakpoint-l) {
+            font-size: $msv-carousel-flipper-font-size-l;
+        }
+    }
+}
+
+@mixin quantity-controls-decoration() {
+    .quantity {
+        display: flex;
+
+        .quantity-input {
+            @include form-control();
+            border: 0.5px solid var(--msv-quantity-border-color);
+            box-sizing: border-box;
+            border-radius: 2px;
+            text-align: center;
+            height: $msv-quantity-control-height;
+
+            &::-webkit-inner-spin-button,
+            &::-webkit-outer-spin-button {
+                -webkit-appearance: none;
+            }
+        }
+
+        .quantity__controls {
+            background: var(--msv-quantity-controls-content-bg-color);
+            border: 0.5px solid var(--msv-quantity-border-color);
+            outline: none;
+            box-sizing: border-box;
+            border-radius: 2px;
+            cursor: pointer;
+            height: $msv-quantity-control-height;
+        }
+
+        .increment {
+            @include add-icon($msv-Add, after);
+            color: var(--msv-quantity-btn-font-color);
+
+            &::after {
+                font-size: $msv-icon-size-m;
+                vertical-align: middle;
+            }
+
+            &.disabled {
+                color: var(--msv-quantity-controls-disable-color);
+                background-color: var(--msv-quantity-control-disable-background-color);
+            }
+
+            &:focus {
+                border: 0.5px solid $msv-blue;
+                outline: none;
+            }
+
+            &:not(:disabled):not(.disabled):active,
+            &:not(:disabled):not(.disabled):active:focus {
+                color: var(--msv-quantity-btn-font-color);
+            }
+        }
+
+        .decrement {
+            @include add-icon($msv-Remove, after);
+            color: var(--msv-quantity-btn-font-color);
+
+            &::after {
+                font-size: $msv-icon-size-m;
+                vertical-align: middle;
+            }
+
+            &.disabled {
+                color: var(--msv-quantity-controls-disable-color);
+                background-color: var(--msv-quantity-control-disable-background-color);
+            }
+
+            &:focus {
+                border: 0.5px solid $msv-blue;
+                outline: none;
+            }
+
+            &:not(:disabled):not(.disabled):active,
+            &:not(:disabled):not(.disabled):active:focus {
+                color: var(--msv-quantity-btn-font-color);
+            }
+        }
+    }
+}
+// Style presets
+:root {
+    // Carousel flippers
+    --msv-carousel-flipper-rest-bg-color: #{$msv-white};
+    --msv-carousel-flipper-hover-bg-color: #{$msv-white};
+    --msv-carousel-flipper-focus-bg-color: #{$msv-white};
+    --msv-carousel-flipper-active-bg-color: #{$msv-white-20};
+    --msv-carousel-flipper-border-color: #{$msv-blue};
+
+    // Quantity flippers
+    --msv-quantity-controls-disable-color: #{$msv-gray-50};
+    --msv-quantity-control-disable-background-color: #{$msv-white};
+    --msv-quantity-border-color: #{$msv-gray-50};
+    --msv-quantity-btn-font-color: var(--msv-font-primary-color);
+    --msv-quantity-controls-content-bg-color: #{$msv-white};
+}

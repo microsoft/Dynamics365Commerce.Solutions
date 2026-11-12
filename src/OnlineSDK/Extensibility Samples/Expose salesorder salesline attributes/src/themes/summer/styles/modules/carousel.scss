@@ -1,0 +1,276 @@
+@import "../common/00-settings/colors.scss";
+@import "../common/00-settings/font.scss";
+@import "../common/00-settings/responsive-breakpoints.scss";
+@import "../common/00-settings/icons.scss";
+@import "../common/01-tools/mixins.scss";
+@import "../common/02-generic/controls.scss";
+
+$carousel-control-opacity: 1;
+$carousel-control-transition: opacity 0.15s ease;
+$carousel-indicator-width:  12px;
+$carousel-indicator-height: 12px;
+$carousel-indicator-hit-area-height: 10px;
+$carousel-indicator-spacer: 6px;
+$carousel-indicator-transition: opacity 0.6s ease;
+$carousel-indicator-margin-left-right: 6px;
+$carousel-caption-width: 70%;
+$carousel-control-icon-size: 21px;
+$carousel-control-icon-width: 100%;
+$carousel-transition-duration: 0.6s;
+// Define transform transition first if using multiple transitions (e.g., `transform 2s ease, opacity .5s ease-out`)
+$carousel-transition: transform $carousel-transition-duration ease-in-out;
+$carousel-transition-base: all 0.2s ease-in-out;
+$carousel-transition-fade: opacity 0.15s linear;
+$carousel-transition-collapse: height 0.35s ease;
+$carousel-enable-transitions:  true;
+$carousel-enable-prefers-reduced-motion-media-query: true;
+
+// Style presets
+:root {
+    // Indicators
+    --msv-carousel-indicator-color: var(--msv-font-secondary-color);
+    --msv-carousel-indicator-fill-color: var(--msv-font-secondary-color);
+
+    // Flippers
+    --msv-carousel-flipper-color: var(--msv-font-secondary-color);
+}
+
+@mixin carousel-transition($transition...) {
+    @if $carousel-enable-transitions {
+        @if length($transition) == 0 {
+            transition: $carousel-transition-base;
+        } @else {
+            transition: $transition;
+        }
+    }
+
+    @if $carousel-enable-prefers-reduced-motion-media-query {
+        @media (prefers-reduced-motion: reduce) {
+            transition: none;
+        }
+    }
+}
+
+.screen-reader-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.active.msc-carousel__item__right {
+    transform: translateX(100%);
+}
+
+.active.msc-carousel__item__left {
+    transform: translateX(-100%);
+}
+
+.msc-carousel {
+    position: relative;
+    align-items: center;
+    display: flex;
+
+    .pointer-event {
+        touch-action: pan-y;
+    }
+
+    &__dismiss {
+        background: $msv-black;
+        border-color: $msv-black;
+        color: var(--msv-font-secondary-color);
+        position: absolute;
+        top: 0;
+        right: 0;
+
+        &::before {
+            @include msv-icon();
+            content: $msv-Cancel;
+            font-size: $msv-heading-text-size;
+            position: unset;
+            text-align: center;
+            vertical-align: text-bottom;
+            visibility: visible;
+        }
+    }
+
+    &__inner {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+
+        @include clearfix();
+    }
+
+    &__item {
+        height: 100%;
+        position: relative;
+        display: none;
+        float: left;
+        width: 100%;
+        margin-right: -100%;
+        backface-visibility: hidden;
+
+        @include carousel-transition($carousel-transition);
+
+        &.active,
+        &__next,
+        &__prev {
+            display: block;
+        }
+    }
+
+    &.carousel-fade {
+        &__item {
+            opacity: 0;
+            transition-property: opacity;
+            transform: none;
+        }
+
+        .msc-carousel__item.active,
+        .msc-carousel__item__next.msc-carousel__item__left,
+        .msc-carousel__item__prev.msc-carousel__item__right {
+            z-index: 1;
+            opacity: 1;
+        }
+
+        .active.msc-carousel__item__left,
+        .active.msc-carousel__item__right {
+            z-index: 0;
+            opacity: 0;
+
+            @include carousel-transition(0s $carousel-transition-duration opacity);
+        }
+    }
+
+    &__control__prev,
+    &__control__next {
+        top: calc(50% - 24px);
+        transition: none;
+        position: absolute;
+        bottom: 0;
+        z-index: 16;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        opacity: $carousel-control-opacity;
+
+        @include carousel-transition($carousel-control-transition);
+
+        // Hover/focus state
+
+        @include flipper-container-decoration();
+
+        &::before {
+            display: block;
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            content: "";
+            outline-offset: 1px;
+        }
+    }
+
+    &__control__prev {
+        left: 0;
+        justify-content: flex-start;
+        margin-left: 2px;
+
+        &__icon {
+            @include add-icon($msv-ChevronLeft);
+        }
+    }
+
+    &__control__next {
+        justify-content: flex-end;
+        margin-right: 2px;
+        right: 0;
+
+        &__icon {
+            @include add-icon($msv-ChevronRight);
+        }
+    }
+
+    &__caption {
+        color: var(--msv-carousel-indicator-color);
+        position: absolute;
+        right: (100% - $carousel-caption-width) / 2;
+        bottom: 20px;
+        left: (100% - $carousel-caption-width) / 2;
+        z-index: 10;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        text-align: center;
+    }
+
+    &__indicators {
+        position: absolute;
+        right: 0;
+        bottom: 1rem;
+        left: 0;
+        z-index: 15;
+        display: flex;
+        justify-content: center;
+        padding-left: 0; // override <ol> default
+        // Use the .carousel-control's width as margin so we don't overlay those
+        margin-right: $carousel-indicator-margin-left-right;
+        margin-left: $carousel-indicator-margin-left-right;
+        list-style: none;
+
+        li {
+            @include carousel-transition($carousel-indicator-transition);
+            @include vfi-psuedo(after, 3px);
+            border-radius: 50%;
+            border: 1px solid var(--msv-carousel-indicator-color);
+            background: transparent;
+            opacity: 1;
+            box-sizing: content-box;
+            flex: 0 1 auto;
+            width: $carousel-indicator-width;
+            height: $carousel-indicator-height;
+            margin-right: $carousel-indicator-spacer;
+            margin-left: $carousel-indicator-spacer;
+            text-indent: -999px;
+            cursor: pointer;
+            background-clip: padding-box;
+        }
+
+        .active {
+            background: var(--msv-carousel-indicator-fill-color);
+            opacity: 1;
+        }
+    }
+
+    &__control__prev__icon,
+    &__control__next__icon {
+        display: inline-block;
+        width: $carousel-control-icon-width;
+        font-size: $carousel-control-icon-size;
+        background: no-repeat 50% / 100% 100%;
+
+        @include flipper-icon-decoration();
+    }
+}
+
+.msc-carousel__item__next:not(.msc-carousel__item__left) {
+    transform: translateX(100%);
+}
+
+.msc-carousel__item__prev:not(.msc-carousel__item__right) {
+    transform: translateX(-100%);
+}
+
+@media screen and (max-width: $msv-breakpoint-m) {
+    .msc-carousel {
+        &__inner {
+            color: var(--msv-font-secondary-color);
+        }
+    }
+}
