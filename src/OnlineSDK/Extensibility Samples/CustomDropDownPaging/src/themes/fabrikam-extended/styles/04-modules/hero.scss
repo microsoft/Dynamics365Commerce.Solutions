@@ -1,0 +1,92 @@
+$homepage-hero-title-font-size: 64px;
+$homepage-hero-title-line-height: 1.2;
+
+:root {
+    //Text theme
+    --msv-hero-textheme-dark: var(--msv-font-primary-color);
+    --msv-hero-textheme-light: var(--msv-font-secondary-color);
+
+    // Heading
+    --msv-hero-heading-size: #{$homepage-hero-title-font-size};
+
+    //Body
+    --msv-hero-body-size: #{$msv-font-size-m};
+
+    //Cta
+    --msv-hero-cta-color: var(--msv-accent-brand-color);
+}
+
+.hero.ms-content-block {
+    .ms-content-block__details {
+        align-items: flex-start;
+        bottom: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        left: 0;
+        padding: 48px 60px 60px 60px;
+        right: 0;
+        top: 0;
+
+        .ms-content-block__title {
+            @include fabrikam-font(var(--msv-font-weight-normal),
+            var(--msv-hero-heading-size) ,$homepage-hero-title-line-height, none, $msv-font-cinzel);
+            color: var(--msv-hero-textheme-dark);
+        }
+
+        .ms-content-block__text {
+            color: var(--msv-hero-textheme-dark);
+            font-size: var(--msv-hero-body-size);
+        }
+
+        .msc-cta__primary {
+            background-color: var(--msv-hero-cta-color);
+            font-size: var(--msv-body-font-size-l);
+            line-height: var(--msv-body-line-height-l);
+        }
+
+        .msc-cta__secondary {
+            font-size: var(--msv-body-font-size-l);
+            line-height: var(--msv-body-line-height-l);
+            text-decoration: underline;
+        }
+    }
+
+    &.texttheme__light .ms-content-block__title, &.texttheme__light .ms-content-block__text {
+        color: var(--msv-hero-textheme-light);
+        text-shadow: $hero-content-shadow;
+    }
+
+    &.texttheme__dark .ms-content-block__title, &.texttheme__dark .ms-content-block__text {
+        color: var(--msv-hero-textheme-dark);
+    }
+}
+
+@media screen and (max-width: $msv-breakpoint-m) {
+    .hero.ms-content-block {
+        .ms-content-block__details {
+            background-color: $msv-gray-900;
+            color: $msv-gray-100;
+            position: static;
+            text-decoration: none;
+
+            .ms-content-block__title {
+                color: $msv-gray-100;
+                font-size: 28px;
+                max-width: initial;
+            }
+
+            .ms-content-block__text {
+                color: $msv-gray-100;
+            }
+
+            .ms-content-block__cta {
+                width: 100%;
+
+                .msc-cta__primary {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
