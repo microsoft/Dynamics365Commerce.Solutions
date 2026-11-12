@@ -1,0 +1,78 @@
+$msv-checkout-billing-address-margin: 8px;
+$msv-checkout-input-margin-left: 0;
+$msv-checkout-input-dimensions: 16px;
+$msv-checkout-shipping-address-label-margin-bottom: 12px;
+$msv-checkout-shipping-address-checkbox-margin-left: 8px;
+$msv-checkout-address-detail-margin-left: 0;
+$msv-checkout-address-detail-padding-bottom: 20px;
+
+//style presets
+:root {
+    --msv-checkout-shipping-address-font-size: var(--msv-body-font-size-m);
+    --msv-checkout-billing-address-font-size: var(--msv-body-font-size-m);
+    --msv-checkout-shipping-address-font-color: var(--msv-font-primary-color);
+    --msv-checkout-billing-address-font-color: var(--msv-font-primary-color);
+
+    // heading
+    --msv-checkout-billing-address-heading-font-color: var(--msv-font-primary-color);
+    --msv-checkout-billing-address-heading-font-size: var(--msv-body-font-size-s);
+
+    // secondary button
+    --msv-checkout-shipping-address-secondary-btn-bg: var(--msv-secondary-button-background-color);
+    --msv-checkout-shipping-address-secondary-btn-font-color: var(--msv-font-primary-color);
+    --msv-checkout-shipping-address-secondary-btn-border: var(--msv-accent-brand-color);
+}
+
+.ms-checkout-billing-address {
+    &__heading {
+        @include font-content(var(--msv-font-weight-bold),
+        var(--msv-checkout-billing-address-heading-font-size), $msv-line-height-s);
+        color: var(--msv-checkout-billing-address-heading-font-color);
+        margin-bottom: $msv-checkout-billing-address-margin;
+    }
+
+    .msc-address-detail {
+        @include font-content(var(--msv-font-weight-normal),
+        var(--msv-checkout-billing-address-font-size), $msv-line-height-m);
+        color: var(--msv-checkout-billing-address-font-color);
+        margin-left: $msv-checkout-address-detail-margin-left;
+    }
+
+    &__shipping-address-label {
+        display: flex;
+        margin-bottom: $msv-checkout-shipping-address-label-margin-bottom;
+    }
+
+    &__input {
+        min-width: $msv-checkout-input-dimensions;
+        min-height: $msv-checkout-input-dimensions;
+        margin-left: $msv-checkout-input-margin-left;
+    }
+
+    &__shipping-address-checkbox-text {
+        @include font-content(var(--msv-font-weight-normal),
+        var(--msv-checkout-billing-address-font-size), $msv-line-height-m);
+        margin-left: $msv-checkout-shipping-address-checkbox-margin-left;
+        align-self: center;
+    }
+}
+
+.ms-checkout-shipping-address {
+    .msc-address-select__button-add {
+        @include secondary-button(var(--msv-checkout-shipping-address-secondary-btn-bg),
+        var(--msv-checkout-shipping-address-secondary-btn-font-color),
+        var(--msv-checkout-shipping-address-secondary-btn-border));
+    }
+
+    .msc-address-detail {
+        @include font-content(var(--msv-font-weight-normal),
+        var(--msv-checkout-shipping-address-font-size), $msv-line-height-m);
+        color: var(--msv-checkout-shipping-address-font-color);
+        padding-bottom: $msv-checkout-address-detail-padding-bottom;
+    }
+
+    .msc-address-form__label,.msc-address-form__dropdown {
+        color: var(--msv-checkout-address-font-color);
+        font-size: var(--msv-checkout-address-font-size);
+    }
+}

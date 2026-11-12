@@ -1,0 +1,288 @@
+$msv-icon-font-family: "Remix Icon";
+$msv-solid-icon-weight: normal;
+$msv-outline-icon-weight: 400;
+
+$msv-font-family-rubik: "Rubik";
+$msv-font-family-rubik-regular: "Rubik-Regular";
+$msv-font-family-rubik-bold: "Rubik-Bold";
+$msv-font-family-rubik-medium: "Rubik-Medium";
+$msv-font-family-beth-ellen: "BethEllen";
+$msv-font-family-nothing-you-could-do: "Nothing You Could Do";
+
+//footer icons
+$msv-Mobile : "\f3cd";
+$msv-Envelope : "\f0e0";
+$msv-Comment : "\f086";
+
+$msv-linkedin: "\f0e1";
+$msv-vimeo: "\f27d";
+
+$msv-icon-size-m: 20px;
+$msv-icon-size-xs: 24px;
+$msv-icon-size-small: 28px;
+$msv-icon-size-medium: 40px;
+$msv-icon-size-large: 48px;
+
+// Adventure works icons
+$msv-facebook: "\ecbb";
+$msv-facebook-circle: "\ecba";
+$msv-microsoft: "\ef57";
+$msv-instagram: "\ee66";
+$msv-twitter: "\f23b";
+$msv-youtube: "\f2d5";
+$msv-Remove:"\f1af";
+$msv-Add: "\ea13";
+$msv-Shop-Address: "\ef14";
+$msv-list-line: "\eeba";
+$msv-location: "\ef0a";
+$msv-Phone: "\efec";
+$msv-Chat: "\eb51";
+$msv-question-circle: "\f045";
+$msv-signin: "\ea09";
+$msv-shopping-bag: "\f118";
+$msv-GlobalNavButton: "\ef3e";
+$msv-Search: "\f0d1";
+$msv-Cancel: "\eb99";
+$msv-ChevronLeft: "\ea64";
+$msv-ChevronRight: "\ea6e";
+$msv-ChevronDown: "\ea4e";
+$msv-ChevronUp: "\ea78";
+$msv-FavoriteStarFill: "\f186";
+$msv-half-star: "\f188";
+$msv-empty-star: "\f18b";
+$msv-Fullscreen: "\ed9c";
+$msv-information: "\ee59";
+$msv-Heart: "\ee0f";
+$msv-Heart-Fill: "\ee0e";
+$msv-InStore-Pickup: "\f1a5";
+$msv-eye: "\ecb5";
+$msv-file: "\ed0f";
+$msv-Dislike: "\f205";
+$msv-Like: "\f207";
+$msv-Dislike-Solid: "\f204";
+$msv-Like-Solid: "\f206";
+$msv-store: "\f1a5";
+$msv-More: "\ef77";
+$msv-Pause: "\efd5";
+$msv-IncidentTriangle: "\eca1";
+$msv-DeliveryTruck: "\f231";
+$msv-SolidPlay: "\f008";
+$msv-Mute: "\f29d";
+$msv-UnMute: "\f2a1";
+$msv-ExitFullscreen: "\ed9a";
+$msv-ClosedCaptions: "\eb9a";
+$msv-Selected: "\eb7b";
+$msv-Error: "\eca0";
+$msv-Checkbox-Checked: "\eb85";
+$msv-Checkbox-Circle-Checked: "\eb81";
+$msv-Spinner: "\eec7";
+$msv-BackArrow: "\ea60";
+$msv-times-circle: "\eb97";
+$msv-ToggleLeft:"\f219";
+$msv-ToggleRight:"\f218";
+$msv-roadster: "\f090";
+$msv-list-unordered: "\eebe";
+$msv-Checkbox: "\eb7F";
+$msv-RadioBtnOff: "\eB7d";
+$msv-RadioBtnOn: "\f04f";
+$equalizer-line: "\ec9d";
+$shopping-bag-3: "\f116";
+$msv-time-line: "\f20f";
+$msv-layout-grid-line:"\ee90";
+$msv-grid: "\eddf";
+$msv-add-circle: "\ea11";
+
+// Adventure works B2B icons
+$msv-Edit: "\efe0";
+$msv-List:"\eeba";
+$msv-Ellipses-V: "\ef76";
+$msv-Arrow-Down: "\f063";
+$msv-Arrow-Up: "\f062";
+$msv-Arrow-Right-In-Circle:"\ea67";
+$msv-envelope: "\eef9";
+$msv-Plus: "\ea12";
+$msv-PlusSquare: "\ea0e";
+$msv-bank-card-line: "\ea92";
+$msv-group-2-line: "\ede1";
+$msv-money-dollar-circle-line: "\ef65";
+$msv-Invoice: "\eac2";
+$msv-bookmark-line: "\eae5";
+$msv-check-circle-fill: "\eB80";
+$msv-order-template-add: "\f00e";
+$msv-arrow-left-circle: "\ea5c";
+$msv-file-history-line: "\ece6";
+$msv-send-plane-line: "\f0d8";
+$msv-swap-box-line: "\f1c9";
+$msv-swap-box-fill: "\f1c8";
+$msv-checkbox-circle: "\eb81";
+
+@font-face {
+    font-family: $msv-font-family-rubik;
+    font-display: swap;
+    src: url("#{$msv-font-path}/Rubik-Regular.ttf") format("truetype"),
+        url("#{$msv-font-path}/Rubik-Regular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: $msv-font-family-rubik-regular;
+    src: url("#{$msv-font-path}/Rubik-Regular.ttf") format("truetype"),
+        url("#{$msv-font-path}/Rubik-Regular.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: $msv-font-family-rubik-regular;
+    src: url("#{$msv-font-path}/Rubik-Regular.ttf") format("truetype"),
+        url("#{$msv-font-path}/Rubik-Regular.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: $msv-font-family-rubik-bold;
+    src: url("#{$msv-font-path}/Rubik-Bold.ttf") format("truetype"),
+        url("#{$msv-font-path}/Rubik-Bold.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: $msv-font-family-rubik-bold;
+    src: url("#{$msv-font-path}/Rubik-Bold.ttf") format("truetype"),
+        url("#{$msv-font-path}/Rubik-Bold.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: $msv-font-family-rubik-medium;
+    src: url("#{$msv-font-path}/Rubik-Medium.ttf") format("truetype"),
+        url("#{$msv-font-path}/Rubik-Medium.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: $msv-font-family-rubik-medium;
+    src: url("#{$msv-font-path}/Rubik-Medium.ttf") format("truetype"),
+        url("#{$msv-font-path}/Rubik-Medium.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: $msv-font-family-beth-ellen;
+    font-display: swap;
+    src: url("#{$msv-font-path}/BethEllen-Regular.ttf") format("truetype"),
+        url("#{$msv-font-path}/BethEllen-Regular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: $msv-font-family-beth-ellen;
+    src: url("#{$msv-font-path}/BethEllen-Regular.ttf") format("truetype"),
+        url("#{$msv-font-path}/BethEllen-Regular.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: $msv-font-family-nothing-you-could-do;
+    font-display: swap;
+    src: url("#{$msv-font-path}/NothingYouCouldDo-Regular.ttf") format("truetype"),
+        url("#{$msv-font-path}/NothingYouCouldDo-Regular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: $msv-font-family-nothing-you-could-do;
+    src: url("#{$msv-font-path}/NothingYouCouldDo-Regular.ttf") format("truetype"),
+        url("#{$msv-font-path}/NothingYouCouldDo-Regular.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: $msv-icon-font-family;
+    font-style: normal;
+    font-weight: $msv-outline-icon-weight;
+    font-display: swap;
+    src: url("#{$msv-font-path}/remixicon.woff2") format("woff2"),
+        url("#{$msv-font-path}/remixicon.woff") format("woff");
+}
+
+@mixin msv-icon($icon-weight: $msv-solid-icon-weight) {
+    font-family: $msv-icon-font-family;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: $icon-weight;
+    text-rendering: auto;
+    line-height: 1;
+}
+
+@mixin add-icon($icon, $selector: before, $icon-weight: $msv-solid-icon-weight) {
+    &:#{$selector} {
+        @include msv-icon($icon-weight);
+        content: $icon;
+    }
+}
+
+@mixin add-spinner($selector: before) {
+    @include add-icon($msv-Spinner, $selector);
+    &:#{$selector} {
+        margin-right: 8px;
+        -webkit-animation: spin 1s steps(8) infinite;
+        animation: spin 1s steps(8) infinite;
+    }
+    cursor: progress;
+}
+
+@mixin msv-rubik-bold($font-weight: 700, $font-style: normal, $font-size: 16px, $line-height: 24px) {
+    font-family: $msv-font-family-rubik-bold;
+    font-weight: $font-weight;
+    font-style: $font-style;
+    font-size: $font-size;
+    line-height: $line-height;
+}
+
+@mixin msv-rubik-regular($font-weight: 400, $font-style: normal, $font-size: 16px, $line-height: 24px) {
+    font-family: $msv-font-family-rubik-regular;
+    font-weight: $font-weight;
+    font-style: $font-style;
+    font-size: $font-size;
+    line-height: $line-height;
+}
+
+@mixin msv-rubik-medium($font-weight: 700, $font-style: normal, $font-size: 16px, $line-height: 24px) {
+    font-family: $msv-font-family-rubik-medium;
+    font-weight: $font-weight;
+    font-style: $font-style;
+    font-size: $font-size;
+    line-height: $line-height;
+}
+
+@mixin msv-beth-ellen($font-weight: 400, $font-style: normal, $font-size: 16px, $line-height: 24px) {
+    font-family: $msv-font-family-beth-ellen;
+    font-weight: $font-weight;
+    font-style: $font-style;
+    font-size: $font-size;
+    line-height: $line-height;
+}
+
+@mixin msv-nothing-you-could-do($font-weight: 400, $font-style: normal, $font-size: 16px, $line-height: 24px) {
+    font-family: $msv-font-family-nothing-you-could-do;
+    font-weight: $font-weight;
+    font-style: $font-style;
+    font-size: $font-size;
+    line-height: $line-height;
+}
