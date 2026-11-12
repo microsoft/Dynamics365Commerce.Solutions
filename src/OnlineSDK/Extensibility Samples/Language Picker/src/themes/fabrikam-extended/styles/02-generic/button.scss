@@ -1,0 +1,85 @@
+@import "../00-settings/colors";
+@import "../00-settings/font";
+@import "../00-settings/responsive-breakpoints";
+
+$msv-btn-min-width: 160px;
+$msv-btn-side-padding: 20px;
+$msv-btn-vertical-padding: 12px;
+
+:root {
+    // Background
+    --msv-secondary-button-background-color: #{$msv-white};
+}
+
+@mixin button-link($color: $msv-link-color) {
+    border-color: transparent;
+    background-color: transparent;
+    color: $color;
+
+    &:hover {
+        text-decoration: underline;
+        cursor: pointer;
+    }
+}
+
+@mixin primary-button($bg-color: var(--msv-accent-brand-color),
+$color: var(--msv-font-secondary-color), $border-color: var(--msv-accent-brand-color)) {
+    background-color: $bg-color;
+    border: 1px solid $border-color;
+    color: $color;
+    padding: $msv-btn-vertical-padding $msv-btn-side-padding;
+    min-width: $msv-btn-min-width;
+
+    &:hover,
+    &:focus {
+        background-color: var(--msv-accent-brand-alt-color);
+        border-color: var(--msv-accent-brand-alt-color);
+    }
+
+    &:disabled,
+    &[disabled] {
+        cursor: default;
+        border-color: $msv-gray-300;
+        background-color: $msv-gray-300;
+        color: var(--msv-font-secondary-color);
+    }
+}
+
+@mixin secondary-button($bg-color: var(--msv-secondary-button-background-color),
+$color: var(--msv-font-primary-color), $border-color: var(--msv-accent-brand-color), $disableBtn: true) {
+    background-color: $bg-color;
+    border: 1px solid $border-color;
+    color: $color;
+    padding: $msv-btn-vertical-padding $msv-btn-side-padding;
+    min-width: $msv-btn-min-width;
+
+    &:hover,
+    &:focus {
+        background-color: var(--msv-accent-secondary-btn);
+    }
+
+    @if $disableBtn {
+        &:disabled,
+        &[disabled] {
+            cursor: default;
+            border-color: $msv-gray-300;
+            background-color: $msv-gray-300;
+            color: var(--msv-font-secondary-color);
+        }
+    }
+}
+
+@mixin button-default() {
+    @include vfi();
+    @include font-content-l();
+    cursor: pointer;
+    padding: 12px 20px;
+    height: 48px;
+    min-width: 160px;
+    text-align: center;
+}
+
+@mixin button-icon {
+    width: 48px;
+    height: 48px;
+}

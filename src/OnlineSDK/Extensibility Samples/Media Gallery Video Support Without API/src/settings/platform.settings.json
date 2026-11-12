@@ -1,0 +1,6 @@
+{
+    "namespaceExtensions": ["@msdyn365-commerce-marketplace"],
+    "excludedModules": ["excluded-module"],
+    "secretsManagerOUN": "128",
+    "clientSideDataActionTimeoutInMs": 10000    
+}

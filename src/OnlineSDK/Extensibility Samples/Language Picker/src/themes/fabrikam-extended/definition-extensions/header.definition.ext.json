@@ -1,0 +1,12 @@
+{
+    "$type": "definitionExtension",
+    "slots": {
+        "languages":{
+            "friendlyName": "Language Picker",
+            "description": "Slot for locale",
+            "max": 1,
+            "min": 0,
+            "allowedTypes":["language-picker"]
+        }
+    }
+}

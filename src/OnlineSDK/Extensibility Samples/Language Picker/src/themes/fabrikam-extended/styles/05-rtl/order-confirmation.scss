@@ -1,0 +1,24 @@
+[dir="rtl"] {
+    .ms-order-confirmation {
+        &__order-information-created-date {
+            right: unset;
+            left: 0;
+        }
+
+        &__order-summary {
+            float: left;
+        }
+
+        &__order-summary-price {
+            float: unset;
+
+            .msc-price__actual {
+                float: left;
+            }
+        }
+
+        &__payment-methods {
+            float: right;
+        }
+    }
+}
