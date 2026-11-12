@@ -1,0 +1,17 @@
+[dir="rtl"] {
+    .ms-review-modal {
+        &-row {
+            .msc-rating {
+                margin-right: unset;
+                margin-left: 8px;
+            }
+        }
+
+        @media (min-width: $msv-breakpoint-m) {
+            &-submit {
+                margin-right: unset;
+                margin-left: 16px;
+            }
+        }
+    }
+}
