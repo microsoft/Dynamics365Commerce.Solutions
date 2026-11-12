@@ -1,0 +1,120 @@
+.click-and-collect-module {
+    .msc-address-select__button,
+    .msc-address-form__button {
+      &-save,
+      &-cancel {
+        display: none;
+      }
+    }
+    .deliveryoptions {
+      list-style: none;
+      padding: 0;
+      vertical-align: middle;
+      font-size: 16px;
+      li {
+        display: block;
+        position: relative;
+        margin: 0 9px 0 0;
+        cursor: pointer;
+        text-transform: capitalize;
+        cursor: pointer;
+        text-transform: capitalize;
+        border: 1px solid transparent;
+        padding-left: 1.25rem;
+        @include vfi();
+        &:before {
+          content: "";
+          width: 15px;
+          height: 15px;
+          display: inline-block;
+          border: 1px solid grey;
+          border-radius: 50%;
+          position: absolute;
+          top: 4px;
+          left: 0;
+        }
+  
+        span {
+          box-sizing: border-box;
+          border-radius: 50%;
+          content: "";
+          width: 9px;
+          height: 9px;
+          display: inline-block;
+          position: absolute;
+          top: 7px;
+          left: 3px;
+          opacity: 0;
+        }
+        &.selected {
+          span {
+            opacity: 1;
+            background-color: $msv-black;
+          }
+        }
+      }
+    }
+  }
+  
+  .ms-checkout-shipping-address {
+    .ms-checkout-click-and-collect-option.opt1 {
+      display: none;
+    }
+    .ms-checkout-click-and-collect-option.opt2 {
+      display: block;
+      .addresssearch {
+        .headinglabel {
+          display: block;
+          line-height: 24px;
+          margin-bottom: 5px;
+          color: var(--msv-checkout-address-font-color);
+          font-size: var(--msv-checkout-address-font-size);
+          text-align: center;
+          font-weight: 600;
+        }
+  
+        select {
+          display: block;
+          width: 100%;
+          border: none;
+          box-sizing: border-box !important;
+          border-radius: 2px;
+          line-height: 24px;
+          font-weight: var(--msv-font-weight-normal);
+          height: 48px;
+          color: var(--msv-checkout-address-font-color);
+          font-size: var(--msv-checkout-address-font-size);
+        }
+  
+        .msc-address-search__alert.show{
+          display: none;
+        }
+        .msc-address-search__alert.show{
+          display: block;
+          font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+          font-weight: var(--msv-font-weight-bold);
+          font-size: var(--msv-address-error-font-size);
+          line-height: 21px;
+          text-transform: none;
+          font-family: var(--msv-address-font-family);
+          text-transform: none;
+          border-radius: 0;
+          position: relative;
+          padding: 0.75rem 1.25rem;
+          margin-bottom: 1rem;
+          border: 1px solid var(--msv-address-error-border);
+          color: var(--msv-address-error-font-color);
+          background-color: var(--msv-address-error-bg);
+          margin-top: 8px;
+        }
+      }
+    }
+  
+    &-deliveryNotes {
+      &-text-area {
+        width: 100%;
+        min-height: 150px;
+        padding: 5px;
+      }
+    }
+  }
