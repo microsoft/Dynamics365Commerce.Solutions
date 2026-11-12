@@ -1,0 +1,85 @@
+$msv-alert-success-color: $msv-text-color;
+$msv-alert-success-background-color: $msv-gray-300;
+
+$msv-alert-close-button-color: var(--msv-font-primary-color);
+$msv-alert-close-button-right: 10px;
+$msv-alert-border-radius: 0;
+$msv-alert-padding: 0.75rem 1.25rem;
+$msv-alert-margin-bottom: 1rem;
+$msv-alert-border: 1px solid transparent;
+
+$msv-alert-icon: $msv-IncidentTriangle;
+$msv-alert-icon-margin: 8px;
+$msv-alert-line-margin-top: 8px;
+
+.msc-alert {
+    @include font-content-m(600);
+    border: $msv-alert-border;
+    border-radius: $msv-alert-border-radius;
+    display: block;
+    margin-bottom: $msv-alert-margin-bottom;
+    padding: $msv-alert-padding;
+    position: relative;
+    text-transform: none;
+
+    &::before {
+        color: $msv-alert-close-button-color;
+        position: absolute;
+        right: $msv-alert-close-button-right;
+    }
+
+    .msi-exclamation-triangle {
+        margin-right: $msv-alert-icon-margin;
+
+        @include add-icon($msv-alert-icon, before);
+    }
+
+    .msc-alert__line {
+        margin-top: $msv-alert-line-margin-top;
+    }
+
+    .close {
+        @include add-icon($msv-x-shape);
+    }
+}
+
+.msc-alert-success {
+    color: $msv-alert-success-color;
+    background-color: $msv-alert-success-background-color;
+    border-color: $msv-alert-success-color;
+}
+
+.msc-alert__header {
+    background-color: transparent;
+    color: var(--msv-error-color);
+    border-color: transparent;
+    padding: 0;
+
+    @include font-content-m(600);
+    border: $msv-alert-border;
+    border-radius: $msv-alert-border-radius;
+    display: block;
+    margin-bottom: $msv-alert-margin-bottom;
+    position: relative;
+    text-transform: none;
+
+    .msi-exclamation-triangle {
+        margin-right: $msv-alert-icon-margin;
+
+        @include add-icon($msv-alert-icon, before);
+    }
+}
+
+.msc-alert-danger {
+    color: var(--msv-error-color);
+    background-color: $msv-pink;
+    border-color: var(--msv-error-color);
+}
+
+.msc-alert-noborder {
+    background-color: transparent;
+    color: var(--msv-error-color);
+    border-color: transparent;
+    margin-bottom: 0;
+    padding: 0;
+}
