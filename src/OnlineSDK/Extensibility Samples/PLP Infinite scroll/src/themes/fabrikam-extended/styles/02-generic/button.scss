@@ -1,0 +1,39 @@
+@mixin button-link($color: var(--msv-accent-brand-color)) {
+    border-color: transparent;
+    background-color: transparent;
+    color: $color;
+
+    &:hover {
+        text-decoration: underline;
+        cursor: pointer;
+    }
+}
+
+@mixin primary-button($bg-color: var(--msv-accent-brand-color),
+$color: var(--msv-font-secondary-color), $border: var(--msv-accent-brand-color)) {
+    background-color: $bg-color;
+    border: 1px solid $border;
+    color: $color;
+
+    &:disabled,
+    &[disabled] {
+        cursor: default;
+        border-color: $msv-gray-60;
+        background-color: $msv-gray-60;
+        color: $msv-text-color;
+    }
+}
+
+@mixin secondary-button($bg-color: var(--msv-bg-color), $color: $msv-gray-160, $border: $msv-gray-90) {
+    background-color: $bg-color;
+    border: 1px solid $border;
+    color: $color;
+
+    &:disabled,
+    &[disabled] {
+        cursor: default;
+        border-color: $msv-gray-60;
+        background-color: $msv-gray-60;
+        color: $msv-text-color;
+    }
+}

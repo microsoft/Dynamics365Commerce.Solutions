@@ -1,0 +1,138 @@
+$msc-account-welcome-title-margin-bottom: 40px;
+$msc-account-welcome-title-margin-top: 32px;
+$msc-account-welcome-title-border-bottom-color: $msv-gray-120;
+$msc-account-welcome-title-border-bottom-style: solid;
+$msc-account-welcome-title-border-bottom-thickness: 1px;
+$msc-account-tile-heading-icon-padding: 5px;
+$msc-generic-tile-heading-margin-bottom: 0.5rem;
+$msv-black: #000000;
+$msv-text-size: 14px;
+$msv-line-height-m: 12px;
+$msc-link-padding-right: 12px;
+
+.ms-account {
+    &-welcome-tile {
+        display: block;
+        border-bottom: $msc-account-welcome-title-border-bottom-thickness
+            $msc-account-welcome-title-border-bottom-style $msc-account-welcome-title-border-bottom-color;
+        margin-bottom: $msc-account-welcome-title-margin-bottom;
+
+        &__heading {
+            @include font-content-xl();
+        }
+
+        @media (min-width: $msv-breakpoint-m) {
+            &__heading {
+                @include font-content-xxl();
+            }
+        }
+
+        @media (max-width: $msv-breakpoint-m) {
+            margin-top: $msc-account-welcome-title-margin-top;
+        }
+    }
+
+    &-generic-tile {
+        &__link {
+            @include vfi();
+        }
+
+        &.order-tile {
+            .ms-account-generic-tile__heading {
+                @include add-icon($msv-DeliveryTruck, before);
+
+                &::before {
+                    padding-right: $msc-account-tile-heading-icon-padding;
+                }
+            }
+        }
+
+        &.profile-tile {
+            .ms-account-generic-tile__heading {
+                @include add-icon($msv-Contact, before);
+
+                &::before {
+                    padding-right: $msc-account-tile-heading-icon-padding;
+                }
+            }
+        }
+    }
+
+    &-wishlist-tile__heading {
+        @include add-icon($msv-HeartFill, before);
+
+        &::before {
+            padding-right: $msc-account-tile-heading-icon-padding;
+        }
+    }
+
+    &-order-templates-tile__heading {
+        @include add-icon($msv-file, before);
+
+        &::before {
+            padding-right: $msc-account-tile-heading-icon-padding;
+        }
+    }
+
+    &-address-tile__heading {
+        @include add-icon($msv-MapPin, before);
+
+        &::before {
+            padding-right: $msc-account-tile-heading-icon-padding;
+        }
+    }
+
+    &-loyalty-tile__heading {
+        @include add-icon($msv-IdCard, before);
+
+        &::before {
+            padding-right: $msc-account-tile-heading-icon-padding;
+        }
+    }
+
+    &-organization-users-tile__heading {
+        @include add-icon($msv-OrganizationUsers, before);
+
+        &::before {
+            padding-right: $msc-account-tile-heading-icon-padding;
+        }
+    }
+
+    &-customer-balance-tile__heading {
+        @include add-icon($msv-DollarSign, before);
+
+        &::before {
+            padding-right: $msc-account-tile-heading-icon-padding;
+        }
+    }
+
+    &-generic-tile,
+    &-wishlist-tile,
+    &-order-templates-tile,
+    &-address-tile,
+    &-loyalty-tile,
+    &-organization-users-tile,
+    &-customer-balance-tile {
+        margin-bottom: $msc-account-welcome-title-margin-bottom;
+
+        /* stylelint-disable-next-line no-descending-specificity -- Auto-suppressed. Please fix if possible. */
+        &__heading {
+            @include font-content-l($msv-font-weight-bold);
+            margin-bottom: $msc-generic-tile-heading-margin-bottom;
+        }
+
+        &__links {
+            @include font-content-m-underline();
+        }
+
+        &__link {
+            @include vfi();
+            padding-right: $msc-link-padding-right;
+        }
+
+        &__description {
+            @include font-content(var(--msv-font-weight-normal),$msv-text-size, $msv-line-height-m);
+            color: $msv-black;
+        }
+    }
+}

@@ -1,0 +1,150 @@
+$msv-subscription-form-input-border: 1px solid $msv-white;
+$msv-subscribe-form-container-subscribe-button-border: 1px solid $msv-white;
+$msv-subscribe-background-color: #2C262D;
+$msv-subscribe-email-desktop-width: 437px;
+$msv-subscribe-email-tablet-width: 318px;
+$msv-subscribe-container-desktop-width: 50%;
+$msv-subscribe-container-tablet-width: 75%;
+$msv-subscribe-container-padding: 60px 16px;
+$msv-subscribe-container-heading-margin: 28px 0;
+$msv-subscribe-container-heading-margin-mobile: 20px 0 36px 0;
+$msv-subscribe-button-border-radius: 100px;
+$msv-subscribe-button-margin: 0 0 0 20px;
+$msv-subscribe-button-mobile-margin: 20px 0;
+$msv-subscribe-button-letter-spacing: 0.1em;
+$msv-font-style-normal: normal;
+$msv-font-weight-500: 500;
+$msv-title-font-size-xs: 20px;
+$msv-subscribe-details-form-submit-min-width-desktop: 190px;
+$msv-subscribe-details-form-submit-height: 44px;
+$msv-subscribe-details-form-submit-padding: 12px 48px;
+$msv-line-height-20: 20px;
+$msv-width-full: 100%;
+$msv-subscribe-details-form-email-padding: 16px 0 8px 0;
+
+:root {
+    //Background
+    --msv-subscribe-background-color: #{$msv-subscribe-background-color};
+}
+
+.ms-subscribe {
+    background: var(--msv-subscribe-background-color);
+
+    .ms-subscribe__details {
+        align-items: center;
+        padding: $msv-subscribe-container-padding;
+        width: $msv-subscribe-container-desktop-width;
+        margin: 0 auto;
+        color: $msv-white;
+
+        @media screen and (max-width: $msv-breakpoint-m) {
+            width: $msv-width-full;
+        }
+
+        @media screen and (max-width: $msv-breakpoint-l) and (min-width: $msv-breakpoint-m) {
+            width: $msv-subscribe-container-tablet-width;
+        }
+
+        &__heading {
+            font-weight: $msv-font-weight-500;
+            font-style: $msv-font-style-normal;
+            font-size: $msv-title-font-size-xs;
+            line-height: $msv-line-height-l;
+        }
+
+        &__text {
+            font-weight: $msv-font-weight-normal;
+            font-style: $msv-font-style-normal;
+            font-size: $msv-font-size-s;
+            line-height: $msv-line-height-20;
+
+            @media screen and (max-width: $msv-breakpoint-m) {
+                margin: $msv-subscribe-container-heading-margin-mobile;
+            }
+
+            @media screen and (min-width: $msv-breakpoint-m) {
+                margin: $msv-subscribe-container-heading-margin;
+            }
+        }
+
+        .ms-subscribe__details__form {
+            flex-direction: row;
+            align-items: baseline;
+
+            @media screen and (max-width: $msv-breakpoint-m) {
+                display: block;
+            }
+
+            &__email {
+                border: 0;
+                border-bottom: $msv-subscription-form-input-border;
+                background: transparent;
+                color: $msv-white;
+                font-weight: $msv-font-weight-normal;
+                font-style: $msv-font-style-normal;
+                font-size: $msv-font-size-s;
+                line-height: $msv-line-height-20;
+                padding: $msv-subscribe-details-form-email-padding;
+
+                @media screen and (max-width: $msv-breakpoint-m) {
+                    width: $msv-width-full;
+                }
+
+                @media screen and (min-width: $msv-breakpoint-m) {
+                    width: $msv-subscribe-email-tablet-width;
+                }
+
+                @media screen and (min-width: $msv-breakpoint-l) {
+                    width: $msv-subscribe-email-desktop-width;
+                }
+            }
+
+            &__email::placeholder {
+                color: var(--msv-subscribe-placeholder-color);
+            }
+
+            &__email:focus {
+                outline: none;
+            }
+
+            &__submit {
+                font-size: $msv-font-size-s;
+                line-height: $msv-line-height-20;
+                height: $msv-subscribe-details-form-submit-height;
+                padding: $msv-subscribe-details-form-submit-padding;
+                border: $msv-subscribe-form-container-subscribe-button-border;
+                box-sizing: border-box;
+                border-radius: $msv-subscribe-button-border-radius;
+                flex: none;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                background: var(--msv-subscribe-background-color);
+                text-transform: uppercase;
+                text-align: center;
+                letter-spacing: $msv-subscribe-button-letter-spacing;
+                color: $msv-white;
+            }
+
+            @media screen and (max-width: $msv-breakpoint-m) {
+                &__submit {
+                    margin: $msv-subscribe-button-mobile-margin;
+                }
+            }
+
+            @media screen and (min-width: $msv-breakpoint-m) {
+                display: flex;
+
+                &__email {
+                    flex-grow: 1;
+                }
+
+                &__submit {
+                    margin: $msv-subscribe-button-margin;
+                    float: right;
+                    min-width: $msv-subscribe-details-form-submit-min-width-desktop;
+                }
+            }
+        }
+    }
+}

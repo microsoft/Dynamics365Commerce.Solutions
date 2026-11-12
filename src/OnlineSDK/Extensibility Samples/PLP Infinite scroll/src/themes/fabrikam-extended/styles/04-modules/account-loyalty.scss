@@ -1,0 +1,110 @@
+$msv-account-loyalty-divider: 1px dashed $msv-gray-120;
+$msv-alternate-point-entry-bg: $msv-gray-20;
+$msv-account-loyalty-home-link-border: 1px solid $msv-gray-90;
+
+.ms-account-loyalty {
+    max-width: 640px;
+    margin-bottom: 40px;
+
+    .back-to-shopping {
+        width: auto;
+    }
+
+    &__home-link {
+        background: var(--msv-bg-color);
+        border: $msv-account-loyalty-home-link-border;
+    }
+
+    &__heading {
+        margin-bottom: 28px;
+    }
+
+    &__info-label {
+        margin-bottom: 12px;
+    }
+
+    &__card-number {
+        margin-bottom: 8px;
+    }
+
+    &__join-date {
+        margin-bottom: 40px;
+    }
+
+    &__points {
+        margin-bottom: 40px;
+    }
+
+    &__total-points-label {
+        margin-bottom: 12px;
+    }
+
+    &__total-points {
+        font-size: 40px;
+        font-weight: $msv-font-weight-bold;
+        padding-bottom: 25px;
+        margin-bottom: 25px;
+        border-bottom: $msv-account-loyalty-divider;
+    }
+
+    &__point-breakdown {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 10px;
+    }
+
+    &__points-title {
+        font-weight: $msv-font-weight-bold;
+    }
+
+    &__available-points-label,
+    &__expiring-points-label {
+        font-weight: 300;
+        margin-bottom: 0;
+    }
+
+    &__points-trigger {
+        @include button-link();
+        @include vfi();
+        color: var(--msv-font-primary-color);
+        font-weight: $msv-font-weight-bold;
+    }
+
+    &__points-modal-body-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 12px;
+        margin-bottom: 12px;
+        border-bottom: $msv-account-loyalty-divider;
+    }
+
+    &__points-modal-body-header {
+        display: flex;
+        justify-content: space-between;
+        padding: 0 8px;
+        margin-bottom: 4px;
+    }
+
+    &__points-modal-activity {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-content: space-between;
+        padding: 8px;
+        height: 65px;
+
+        &:nth-child(odd) {
+            background: $msv-alternate-point-entry-bg;
+        }
+    }
+
+    &__points-modal-type {
+        margin-bottom: 4px;
+    }
+
+    &__points-modal-points {
+        flex-basis: 100%;
+    }
+}
