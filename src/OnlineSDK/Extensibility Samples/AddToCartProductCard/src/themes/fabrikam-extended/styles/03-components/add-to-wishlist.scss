@@ -1,0 +1,14 @@
+.msc-add-to-wishlist {
+    @include add-icon($msv-Heart, after, $msv-outline-icon-weight);
+    @include vfi();
+
+    &__removing {
+        @include add-icon($msv-HeartFill, after);
+    }
+
+    &:not(:disabled) {
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}

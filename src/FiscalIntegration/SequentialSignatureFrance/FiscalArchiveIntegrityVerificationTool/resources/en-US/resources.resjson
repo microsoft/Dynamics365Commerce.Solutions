@@ -1,0 +1,91 @@
+{
+    "FileNotFound"                              : "File not found: {0}.",
+    "FileNotFound.comment"                      : "Message when a file was not found.",
+
+    "SignatureFileNotFound"                     : "Signature file not found: {0}.",
+    "SignatureFileNotFound.comment"             : "Message when the signature file was not found at the expected path.",
+
+    "UnsupportedFileType"                       : "The {0} file type is not supported.",
+    "UnsupportedFileType.comment"               : "Message when the file type is not supported.",
+
+    "SearchingCertificate"                      : "Searching for a certificate with the thumbprint {0} in {1}...",
+    "SearchingCertificate.comment"              : "Message when started searching for a certificate with the specified thumbprint.",
+
+    "CertificateFound"                          : "The certificate '{0}' is found.",
+    "CertificateFound.comment"                  : "Message when a certificate is found. {0} is the certificate name.",
+
+    "ValidatingArchive"                         : "Validating the archive file...",
+    "ValidatingArchive.comment"                 : "Message when started to validate the archive file.",
+
+    "ReportEmpty"                               : "The report is empty.",
+    "ReportEmpty.comment"                       : "Message when the report text is empty.",
+
+    "SignatureFileEmpty"                        : "The signature file is empty.",
+    "SignatureFileEmpty.comment"                : "Message when the signature file is empty.",
+
+    "CertificateNotFound"                       : "Certificate with the thumbprint {0} not found.",
+    "CertificateNotFound.comment"               : "Message when the certificate was not found. {0} is the certificate thumbprint.",
+
+    "ArchiveValidationPassed"                   : "The archive file validation passed.",
+    "ArchiveValidationPassed.comment"           : "Message when validation of the archive file has successfully passed.",
+
+    "ArchiveValidationFailed"                   : "The archive file validation failed. The signature is invalid.",
+    "ArchiveValidationFailed.comment"           : "Message when validation of the archive file has failed.",
+
+    "UnableValidateArchive"                     : "Unable to validate the archive file. {0}",
+    "UnableValidateArchive.comment"             : "Message when there was an error validating the archive file. {0} is the error details text.",
+
+    "HashOrThumbprintMissing"                   : "HashAlgorithm or CertificateThumbprint is missing.",
+    "HashOrThumbprintMissing.comment"           : "Error message when some required fields are missing.",
+
+    "DataToSignFormatVersionMissing"            : "DataToSignFormatVersion is missing.",
+    "DataToSignFormatVersionMissing.comment"    : "Error message when a required field is missing.",
+
+    "DataToSignFormatVersionInvalid"            : "Invalid format version: {0}.",
+    "DataToSignFormatVersionInvalid.comment"    : "Error message when the format version is not valid.",
+
+    "ValidationActivity"                        : "Data integrity validation",
+    "ValidationActivity.comment"                : "The progress bar title.",
+
+    "PercentComplete"                           : "{0}% complete",
+    "PercentComplete.comment"                   : "The progress bar text with percentage, ex.: 99% complete",
+
+    "ValidatingNode"                            : "Validating {0}...",
+    "ValidatingNode.comment"                    : "The message when started validating a node. {0} is the node header, ex.: MyNode NodeId=123.",
+
+    "NodeValidationPassed"                      : "{0} validation passed.",
+    "NodeValidationPassed.comment"              : "The message when node validation has sucessfully passed. {0} is the node header, ex.: MyNode NodeId=123.",
+
+    "NodeValidationFailed"                      : "{0} validation failed. {1}",
+    "NodeValidationFailed.comment"              : "The message when node validation fails. {0} is the node header, ex.: MyNode NodeId=123. {1} is the error reason text.",
+
+    "SignatureInvalid"                          : "The signature is invalid.",
+    "SignatureInvalid.comment"                  : "Error reason text when the signature is not valid.",
+
+    "DataIntegrityViolated"                     : "Data integrity is violated.",
+    "DataIntegrityViolated.comment"             : "Error reason text when data integrity is broken.",
+
+    "SeeExpectedAndActual"                      : "See the expected and actual values in the table below:",
+    "SeeExpectedAndActual.comment"              : "Message text when data integrity is broken and a diff table available.",
+
+    "AttributeHeader"                           : "Attribute",
+    "AttributeHeader.comment"                   : "Table header for attribute names.",
+
+    "ExpectedValueHeader"                       : "Expected",
+    "ExpectedValueHeader.comment"               : "Table header for the expected values of the attributes",
+
+    "ActualValueHeader"                         : "Actual",
+    "ActualValueHeader.comment"                 : "Table header for the actual values of the attributes",
+
+    "UnableToValidateNode"                      : "Unable to validate {0}. {1}",
+    "UnableToValidateNode.comment"              : "Message text for an unexpected error. {0} is the node header, ex.: MyNode NodeId=123. {1} is the details text.",
+
+    "ValidationCompleted"                       : "Validation completed. Incorrect entries: {0} out of {1} ({2}%).",
+    "ValidationCompleted.comment"               : "Message text when validation completed. Ex.: ...12 out of 24 (50%).",
+
+    "NonSupportedNode"                          : "Non-supported node: {0}.",
+    "NonSupportedNode.comment"                  : "Error message when the node is not supported.",
+
+    "Initialization"                            : "Initialization",
+    "Initialization.comment"                    : "The progress bar title."
+}
