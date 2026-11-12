@@ -1,0 +1,276 @@
+{
+	"$type": "contentModule",
+	"friendlyName": "Business account address (COPY)",
+	"name": "custom-business-account-address",
+	"description": "Address module for the business partner request form",
+	"categories": [
+		"Business Account Form",
+		"businessSignUp_address"
+	],
+	"dataActions": {
+		"address": {
+			"path": "@msdyn365-commerce-modules/retail-actions/dist/lib/get-address",
+			"runOn": "server"
+		},
+		"countryRegions": {
+			"path": "@msdyn365-commerce-modules/address/dist/lib/actions/get-country-regions",
+			"runOn": "server"
+		},
+		"countryStates": {
+			"path": "@msdyn365-commerce-modules/address/dist/lib/actions/get-country-state",
+			"runOn": "server"
+		},
+		"addressPurposes": {
+			"path": "@msdyn365-commerce-modules/address/dist/lib/actions/get-address-purposes",
+			"runOn": "server"
+		}
+	},
+	"config": {
+		"className": {
+			"friendlyName": "Custom CSS class name",
+			"description": "Provide a custom css class name defined in the theme pack to target the CSS for this module",
+			"type": "string",
+			"default": ""
+		},
+		"clientRender": {
+			"friendlyName": "Render module client side",
+			"description": "Enabling this property will cause the module to load its Javascript chunk and render on the client based on the user view port. This property is recommended for modules which are generally hidden below the users view port (lower on the page) to increase page load performance.",
+			"type": "boolean",
+			"default": false
+		}
+	},
+	"resources": {
+		"addressAddButtonText": {
+			"comment": "Add button text",
+			"value": "Add address"
+		},
+		"addressChangeCheckboxAriaLabel": {
+			"comment": "Aria Label address change checkbox",
+			"value": "Select address"
+		},
+		"addressAddButtonAriaLabel": {
+			"comment": "Add button aria label",
+			"value": "Add address"
+		},
+		"addressPrimaryButtonText": {
+			"comment": "Primay button text",
+			"value": "Set as primary address"
+		},
+		"addressPrimaryButtonAriaLabel": {
+			"comment": "Primay button aria label",
+			"value": "Set {addressName} address as your primary address"
+		},
+		"addressEditButtonText": {
+			"comment": "Edit button text",
+			"value": "Edit"
+		},
+		"addressEditButtonAriaLabel": {
+			"comment": "Edit button aria label",
+			"value": "Edit {addressName} address"
+		},
+		"addressRemoveButtonText": {
+			"comment": "Remove button text",
+			"value": "Remove"
+		},
+		"addressRemoveButtonAriaLabel": {
+			"comment": "Remove button aria label",
+			"value": "Remove {addressName} address"
+		},
+		"addressSaveButtonText": {
+			"comment": "Save button text",
+			"value": "Save"
+		},
+		"addressSaveButtonAriaLabel": {
+			"comment": "Save button aria label",
+			"value": "Save"
+		},
+		"addressCancelButtonText": {
+			"comment": "Cancel button text",
+			"value": "Cancel"
+		},
+		"addressCancelButtonAriaLabel": {
+			"comment": "Cancel button aria label",
+			"value": "Cancel"
+		},
+		"addressStateDefaultSelectionText": {
+			"comment": "Default selection text for state drop down",
+			"value": "Select state"
+		},
+		"addressNameLabel": {
+			"comment": "Label for the Name field",
+			"value": "Name *"
+		},
+		"addressNameLabelOptional": {
+			"comment": "Label for the Name field (Optional)",
+			"value": "Name"
+		},
+		"addressNameRequiredErrorMessage": {
+			"comment": "Error message to display when name is not provided",
+			"value": "Name is required"
+		},
+		"addressPhoneLabel": {
+			"comment": "Label for the phone field",
+			"value": "Phone"
+		},
+		"addressPhoneRequiredErrorMessage": {
+			"comment": "Error message to display when phone is not provided",
+			"value": "Phone is required"
+		},
+		"addressPhoneFormatErrorMessage": {
+			"comment": "Error message to display when phone format is wrong",
+			"value": "Only numeric characters, spaces, +, - and parentheses are valid entries"
+		},
+		"addressZipCodeLabel": {
+			"comment": "Label for the zipcode field",
+			"value": "Zip code *"
+		},
+		"addressZipCodeLabelOptional": {
+			"comment": "Label for the zipcode field (Optional)",
+			"value": "Zip code"
+		},
+		"addressZipCodeRequiredErrorMessage": {
+			"comment": "Error message to display when zip code is not provided",
+			"value": "Zip code is required"
+		},
+		"addressAddressTypeValueLabel": {
+			"comment": "Label for the Address Type field",
+			"value": "Address type *"
+		},
+		"addressAddressTypeValueLabelOptional": {
+			"comment": "Label for the Address Type field (Optional)",
+			"value": "Address type "
+		},
+		"addressCityLabel": {
+			"comment": "Label for the city field",
+			"value": "City *"
+		},
+		"addressCityLabelOptional": {
+			"comment": "Label for the city field (Optional)",
+			"value": "City"
+		},
+		"addressCityRequiredErrorMessage": {
+			"comment": "Error message to display when city is not provided",
+			"value": "City is required"
+		},
+		"addressCountyLabel": {
+			"comment": "Label for the County field",
+			"value": "County *"
+		},
+		"addressCountyLabelOptional": {
+			"comment": "Label for the County field  (Optional)",
+			"value": "County"
+		},
+		"addressCountyRequiredErrorMessage": {
+			"comment": "Error message to display when county is not provided",
+			"value": "County is required"
+		},
+		"addressStateLabel": {
+			"comment": "Label for the State field",
+			"value": "State *"
+		},
+		"addressStateLabelOptional": {
+			"comment": "Label for the State field",
+			"value": "State"
+		},
+		"addressStateRequiredErrorMessage": {
+			"comment": "Error message to display when zip code is not provided",
+			"value": "State is required"
+		},
+		"addressThreeLetterISORegionNameLabel": {
+			"comment": "Label for the country field",
+			"value": "Country *"
+		},
+		"addressThreeLetterISORegionNameLabelOptional": {
+			"comment": "Label for the country field (Optional)",
+			"value": "Country"
+		},
+		"addressThreeLetterISORegionNameRequiredErrorMessage": {
+			"comment": "Error message to display when country is not provided",
+			"value": "Country is required"
+		},
+		"addressStreetLabel": {
+			"comment": "Label for the Street field",
+			"value": "Street *"
+		},
+		"addressStreetLabelOptional": {
+			"comment": "Label for the Street field",
+			"value": "Street"
+		},
+		"addressStreetRequiredErrorMessage": {
+			"comment": "Error message to display when street is not provided",
+			"value": "Street is required"
+		},
+		"addressDistrictLabel": {
+			"comment": "Label for the District field",
+			"value": "District"
+		},
+		"addressDistrictNameLabel": {
+			"comment": "Label for the District field",
+			"value": "District"
+		},
+		"addressDistrictRequiredErrorMessage": {
+			"comment": "Error message to display when district is not provided",
+			"value": "District is required"
+		},
+		"addressStreetNumberLabel": {
+			"comment": "Label for the street number field",
+			"value": "Street number"
+		},
+		"addressStreetNumberRequiredErrorMessage": {
+			"comment": "Error message to display when street number is not provided",
+			"value": "Street number is required"
+		},
+		"addressBuildingComplimentLabel": {
+			"comment": "Label for the building compliment field",
+			"value": "Building compliment"
+		},
+		"addressBuildingComplimentRequiredErrorMessage": {
+			"comment": "Error message to display when building compliment is not provided",
+			"value": "Building compliment is required"
+		},
+		"addressPostboxLabel": {
+			"comment": "Label for the post box field",
+			"value": "Post box"
+		},
+		"addressPostboxRequiredErrorMessage": {
+			"comment": "Error message to display when post box is not provided",
+			"value": "Post box is required"
+		},
+		"addressHouseRULabel": {
+			"comment": "Label for the house field",
+			"value": "House"
+		},
+		"addressHouseRURequiredErrorMessage": {
+			"comment": "Error message to display when house is not provided",
+			"value": "House is required"
+		},
+		"addressFlatRULabel": {
+			"comment": "Label for the flat field",
+			"value": "Flat"
+		},
+		"addressFlatRURequiredErrorMessage": {
+			"comment": "Error message to display when flat is not provided",
+			"value": "Flat is required"
+		},
+		"addressCountryOKSMCodeRULabel": {
+			"comment": "Label for the countryoksmcode field",
+			"value": "Countryoksmcode"
+		},
+		"addressCountryOKSMCodeRURequiredErrorMessage": {
+			"comment": "Error message to display when countryoksmcode is not provided",
+			"value": "Countryoksmcode field is required"
+		},
+		"addressErrorMessageTitle": {
+			"comment": "Localized text for error message title",
+			"value": "Error message"
+		},
+		"addressGenericErrorMessage": {
+			"comment": "Generic error message for Address module",
+			"value": "Something went wrong. Please try again later"
+		},
+		"addressEmptyListAddressMessage": {
+			"comment": "Generic message to show in list address component when no addresses are present",
+			"value": "No addresses are present. Please add one."
+		}
+	}
+}
