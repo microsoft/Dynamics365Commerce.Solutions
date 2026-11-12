@@ -1,0 +1,99 @@
+$msv-dialog-width: 400px;
+$msv-dialog-modal-content-padding: 20px;
+$msv-dialog-modal-content-body-text-padding: 4px 0;
+$msv-dialog-modal-content-empty-image-padding-bottom: 10px;
+$msv-dialog-modal-content-button-margin: 6px 0;
+$msv-dialog-button-width: 100%;
+$msv-dialog-msc-empty_image-size: 240px;
+
+.msc-add-to-cart {
+    @include primary-button();
+    @include vfi();
+
+    &:not(:disabled) {
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}
+
+.msc-modal {
+    /* stylelint-disable-next-line no-descending-specificity -- Auto-suppressed. Please fix if possible. */
+    .msc-add-to-cart {
+        &__dialog {
+            max-width: $msv-dialog-width;
+
+            .msc-modal__content {
+                padding: $msv-dialog-modal-content-padding;
+            }
+
+            &__header {
+                .msc-modal__title {
+                    @include font-content-l();
+
+                    span {
+                        &:nth-child(1) {
+                            font-weight: var(--msv-font-weight-bold);
+                        }
+                    }
+                }
+            }
+
+            &__body {
+                @include font-content-l();
+                text-align: center;
+                padding: 0 12px;
+
+                @include image($msv-dialog-msc-empty_image-size);
+
+                .msc-empty_image {
+                    padding-bottom: $msv-dialog-modal-content-empty-image-padding-bottom;
+                }
+            }
+
+            @media screen and (max-width: $msv-breakpoint-xl) {
+                &__body {
+                    max-height: 450px;
+                }
+            }
+
+            &__image {
+                margin-right: auto;
+                margin-left: auto;
+            }
+
+            &__product-title {
+                padding: $msv-dialog-modal-content-body-text-padding;
+            }
+
+            &__product-variants {
+                @include font-content-m();
+                padding: $msv-dialog-modal-content-body-text-padding;
+            }
+
+            &__product-price {
+                font-weight: var(--msv-font-weight-bold);
+                padding: $msv-dialog-modal-content-body-text-padding;
+
+                .msc-price {
+                    &__strikethrough {
+                        font-weight: var(--msv-font-weight-light);
+                        color: $msv-gray-500;
+                    }
+                }
+            }
+
+            &__go-to-cart {
+                @include primary-button();
+                margin: $msv-dialog-modal-content-button-margin;
+                width: $msv-dialog-button-width;
+            }
+
+            &__back-to-shopping {
+                @include secondary-button();
+                margin: $msv-dialog-modal-content-button-margin;
+                width: $msv-dialog-button-width;
+            }
+        }
+    }
+}
