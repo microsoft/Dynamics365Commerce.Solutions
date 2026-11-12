@@ -1,0 +1,71 @@
+{
+	"$type": "contentModule",
+	"friendlyName": "Content block (COPY)",
+	"name": "super-content-block",
+	"categories": [
+		"Promotions",
+		"Marketing",
+		"carousel_content"
+	],
+	"description": "Content block is used to promote marketing content using rich imagery.",
+	"config": {
+		"heading": {
+			"friendlyName": "Heading",
+			"description": "Heading",
+			"$ref": "@msdyn365-commerce-modules/definitions/dist/src/Heading.json#/definitions/heading"
+		},
+		"paragraph": {
+			"type": "richText",
+			"friendlyName": "Rich Text",
+			"description": "Paragraph Text"
+		},
+		"image": {
+			"type": "image",
+			"friendlyName": "Image",
+			"description": "Feature image"
+		},
+		"links": {
+			"type": "array",
+			"friendlyName": "Links",
+			"description": "Action links",
+			"items": {
+				"$ref": "@msdyn365-commerce-modules/definitions/dist/src/ActionLink.json#/definitions/actionLink"
+			}
+		},
+		"additionalContent": {
+			"type": "array",
+			"friendlyName": "Subtext",
+			"description": "Additional content that can be added as footer or subtext",
+			"items": {
+				"$ref": "@msdyn365-commerce-modules/definitions/dist/src/Subtext.json#/definitions/subText"
+			}
+		},
+		"actionableRegion": {
+			"friendlyName": "Actionable region",
+			"description": "Defines the actionable regions of the content block",
+			"type": "string",
+			"enum": {
+				"imageAndLinks": "Image and links",
+				"linksOnly": "links only"
+			},
+			"default": "linksOnly",
+			"scope": "module"
+		},
+		"imageLink": {
+			"type": "link",
+			"friendlyName": "Link for image",
+			"description": "Optional link for image if image is actionable"
+		},
+		"imageAriaLabel": {
+			"friendlyName": "Aria label for image link",
+			"description": "Aria label if image link is provided",
+			"type": "string"
+		},
+		"className": {
+			"friendlyName": "Custom CSS class name",
+			"description": "Provide a custom css class name defined in the theme pack to target the CSS for this module",
+			"type": "string",
+			"default": ""
+		}
+	}
+}

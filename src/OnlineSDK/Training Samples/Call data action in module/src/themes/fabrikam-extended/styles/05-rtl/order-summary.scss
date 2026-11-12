@@ -1,0 +1,18 @@
+$msv-order-summary-value-rtl-right:10px;
+$msv-order-summary-promo-code-margin-left:20px;
+
+[dir="rtl"] {
+    .msc-order-summary {
+        &__value {
+            margin-left: $msv-order-summary-value-rtl-right;
+            float: left;
+        }
+    }
+
+    .msc-promo-code {
+        &__input-box {
+            margin-left: $msv-order-summary-promo-code-margin-left;
+            margin-right: 0;
+        }
+    }
+}
