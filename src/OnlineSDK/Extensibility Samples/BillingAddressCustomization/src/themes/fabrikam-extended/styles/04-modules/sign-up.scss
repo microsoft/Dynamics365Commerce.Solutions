@@ -1,0 +1,125 @@
+$msv-sign-up-width: 40%;
+$msv-sign-up-width-m: 80%;
+$msv-sign-up-input-margin-top: 4px;
+$msv-sign-up-account-item-margin-top: 20px;
+$msv-sign-up-message-margin-top: 20px;
+$msv-sign-up-message-padding: 20px;
+$msv-sign-up-email-verification-buttons-margin-top: 12px;
+$msv-sign-up-button-group-spacing: 32px;
+$msv-sign-up-button-margin-top: 20px;
+
+//style presets
+:root {
+    --msv-sign-up-font-size: var(--msv-body-font-size-m);
+    --msv-sign-up-font-color: var(--msv-font-primary-color);
+
+    // heading
+    --msv-sign-up-heading-font-size: var(--msv-body-font-size-xl);
+    --msv-sign-up-heading-font-color: var(--msv-font-primary-color);
+
+    // alert
+    --msv-sign-up-success-alert-bg: #{$msv-gray-300};
+    --msv-sign-up-success-alert-font-color: var(--msv-font-primary-color);
+    --msv-sign-up-success-alert-border: #{$msv-gray-900};
+    --msv-sign-up-error-alert-bg: var(--msv-error-color);
+    --msv-sign-up-error-alert-font-color: var(--msv-font-secondary-color);
+    --msv-sign-up-error-alert-border: var(--msv-error-color);
+    --msv-sign-up-error-color: var(--msv-error-color);
+
+    // primary button
+    --msv-sign-up-primary-btn-bg: var(--msv-accent-brand-color);
+    --msv-sign-up-primary-btn-font-color: var(--msv-font-secondary-color);
+    --msv-sign-up-primary-btn-border: var(--msv-accent-brand-color);
+
+    // secondary button
+    --msv-sign-up-secondary-btn-bg: var(--msv-secondary-button-background-color);
+    --msv-sign-up-secondary-btn-font-color: var(--msv-font-primary-color);
+    --msv-sign-up-secondary-btn-border: var(--msv-accent-brand-color);
+}
+
+.ms-sign-up {
+    @include font-content(var(--msv-font-weight-normal), var(--msv-sign-up-font-size), $msv-line-height-m);
+    color: var(--msv-sign-up-font-color);
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    &__container {
+        width: $msv-sign-up-width;
+    }
+
+    &__heading {
+        @include font-content(var(--msv-font-weight-normal), var(--msv-sign-up-heading-font-size), $msv-line-height-xl);
+        color: var(--msv-sign-up-heading-font-color);
+    }
+
+    &__account-item {
+        margin-top: $msv-sign-up-account-item-margin-top;
+
+        &-input {
+            @include form-input-el();
+            margin-top: $msv-sign-up-input-margin-top;
+            width: 100%;
+            border: 1px solid $msv-gray-500;
+
+            &:focus {
+                border: 1px dashed $msv-gray-500;
+                outline: none;
+            }
+        }
+    }
+
+    &__email-verification-buttons {
+        margin-top: $msv-sign-up-email-verification-buttons-margin-top;
+    }
+
+    /* Override inline style inject by AAD so we need important */
+    &__account-item-emailVerificationCode[aria-hidden="false"],
+    &__page-success[aria-hidden="false"],
+    &__page-error[aria-hidden="false"] {
+        /* stylelint-disable-next-line declaration-no-important -- Auto-suppressed. Please fix if possible. */
+        display: block !important;
+    }
+
+    &__page-success {
+        @include validation-success(var(--msv-sign-up-success-alert-bg),
+        var(--msv-sign-up-success-alert-border), var(--msv-sign-up-success-alert-font-color));
+        display: none;
+        margin-top: $msv-sign-up-message-margin-top;
+        padding: $msv-sign-up-message-padding;
+    }
+
+    &__page-error {
+        @include validation-error(var(--msv-sign-up-error-alert-bg),
+        var(--msv-sign-up-error-alert-border), var(--msv-sign-up-error-alert-font-color));
+        display: none;
+        margin-top: $msv-sign-up-message-margin-top;
+        padding: $msv-sign-up-message-padding;
+    }
+
+    &__item-error {
+        color: var(--msv-sign-up-error-color);
+    }
+
+    &__email-verification-button,
+    &__create-button {
+        @include primary-button(var(--msv-sign-up-primary-btn-bg),
+        var(--msv-sign-up-primary-btn-font-color), var(--msv-sign-up-primary-btn-border));
+        margin-top: $msv-sign-up-button-margin-top;
+        width: 100%;
+    }
+
+    &__cancel-button {
+        @include secondary-button(var(--msv-sign-up-secondary-btn-bg),
+        var(--msv-sign-up-secondary-btn-font-color), var(--msv-sign-up-secondary-btn-border));
+        margin-top: $msv-sign-up-button-margin-top;
+        width: 100%;
+    }
+
+    @media screen and (max-width: $msv-breakpoint-m) {
+        &__container {
+            width: $msv-sign-up-width-m;
+        }
+    }
+}

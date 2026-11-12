@@ -1,0 +1,84 @@
+.msc-notification-instance {
+    margin-bottom: 20px;
+    padding: 4px;
+
+    /* stylelint-disable declaration-no-important -- Width should be fixed and be the same for all the notifications. */
+    min-width: 320px !important;
+    max-width: 320px !important;
+    width: 320px !important;
+    /* stylelint-enable declaration-no-important */
+
+    box-shadow: 0 6.4px 14.4px rgba(0, 0, 0, 0.132), 0 1.2px 3.6px rgba(0, 0, 0, 0.108);
+    border-radius: 2px;
+
+    background-color: $msv-white;
+    opacity: 1;
+}
+
+.msc-dismissible-notification {
+    &__dismissing {
+        @-webkit-keyframes fadeOut {
+            0% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+
+        @keyframes fadeOut {
+            0% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+
+        -webkit-animation: fadeOut 0.3s linear;
+        animation: fadeOut 0.3s linear;
+    }
+
+    &__dismissed {
+        display: none;
+    }
+}
+
+.msc-closable-notification {
+    font-size: 14px;
+
+    &__closed {
+        display: none;
+    }
+
+    .msc-notification-close {
+        @include add-icon($msv-x-shape);
+        @include vfi();
+        background-color: transparent;
+        border: 0;
+        color: var(--msv-font-primary-color);
+        font-size: 15px;
+        padding: 5px 10px;
+        cursor: pointer;
+        max-height: 30px;
+        margin-left: auto;
+    }
+}
+
+.msc-notification-header {
+    display: flex;
+}
+
+.msc-notification-title {
+    padding: 7px 0;
+}
+
+.msc-notification-content {
+    margin: 20px;
+    margin-top: 10px;
+}
+
+.msc-notification-footer {
+    margin: 20px;
+
+    .msc-btn {
+        width: 100%;
+        margin-top: 12px;
+    }
+
+    .msc-btn:first-child {
+        margin-top: unset;
+    }
+}

@@ -1,0 +1,497 @@
+$msv-business-organization-list-width: 100%;
+$msv-business-organization-list-primary-btn-font-color: $msv-white;
+$msv-business-organization-list-margin-right: 20px;
+$msv-business-organization-list-border-radius: 2px;
+$msv-business-organization-list-form-item-margin: 20px 0 0;
+$msv-business-organization-list-form-item-margin-right: 10px;
+$msv-business-organization-list-input-border: 1px solid $msv-gray-500;
+$msv-business-organization-list-input-padding: 6px 8px;
+$msv-business-organization-list-input-size: 48px;
+$msv-business-organization-list-input-spacing: 20px;
+$msv-business-organization-list-label-margin: 0 0 5px 0;
+$msv-business-organization-list-error-border: 1px solid $msv-white;
+$msv-business-organization-list-error-bg-color: $msv-error-color;
+$msv-business-organization-list-message-margin-top: 20px;
+$msv-business-organization-list-message-padding: 20px;
+$msv-business-organization-list-list-item-spacing: 8px;
+$msv-business-organization-list-table-margin-top: 20px;
+$msv-business-organization-list-table-data-row-height: 82px;
+$msv-business-organization-list-modal-padding: 2 0;
+$msv-business-organization-list-pagination-padding-left: 0;
+$msv-business-organization-list-page-item-page-link-padding: 8px 4px;
+$msv-business-organization-list-page-item-page-link-line-height: 1.25;
+$msv-business-organization-list-page-item-padding-right: 10px;
+$msv-business-organization-list-page-prev-next-padding: 0 4px;
+//TODO: add to style presets
+$msv-business-organization-list-table-border: 1px solid #D1D1D1;
+$msv-business-organization-list-action-link-padding: 0 10px;
+$msv-business-organization-list-actions-shadow: 0 3.2px 7.2px rgba(0, 0, 0, 0.132), 0 0.6px 1.8px rgba(0, 0, 0, 0.108);
+
+:root {
+    //title
+    --msv-business-organization-list-title-font-size: var(--msv-body-font-size-xl);
+    --msv-business-organization-list-title-font-color: var(--msv-font-primary-color);
+
+    // primary button
+    --msv-business-organization-list-primary-btn-bg: var(--msv-accent-brand-color);
+    --msv-business-organization-list-primary-btn-font-color: var(--msv-font-secondary-color);
+    --msv-business-organization-list-primary-btn-border: var(--msv-accent-brand-color);
+
+    // secondary button
+    --msv-business-organization-list-secondary-btn-bg: var(--msv-secondary-button-background-color);
+    --msv-business-organization-list-secondary-btn-font-color: var(--msv-font-primary-color);
+    --msv-business-organization-list-secondary-btn-border: var(--msv-accent-brand-color);
+
+    // actions
+    --msv-business-organization-list-actions-icon-color: var(--msv-accent-brand-color);
+    --msv-business-organization-list-actions-text-color: var(--msv-font-primary-color);
+
+    // text
+    --msv-business-organization-list-pagination-text-font-size: var(--msv-body-font-size-m);
+    --msv-business-organization-list-text-font-color: var(--msv-font-primary-color);
+    --msv-business-organization-list-text-font-size: var(--msv-body-font-size-m);
+    --msv-business-organization-list-pagination-color: var(--msv-font-primary-color);
+    --msv-business-organization-list-pagination-size: var(--msv-body-font-size-m);
+}
+
+.ms-business-organization-list {
+    padding: 40px;
+
+    &__container {
+        width: $msv-business-organization-list-width;
+    }
+
+    &__heading {
+        @include font-content-xl();
+    }
+
+    &__add-user-button {
+        @include primary-button(var(--msv-business-organization-list-primary-btn-bg),
+        var(--msv-business-organization-list-primary-btn-font-color),
+        var(--msv-business-organization-list-primary-btn-border));
+        margin: 20px 0;
+    }
+
+    &__table {
+        border-collapse: collapse;
+        margin-top: $msv-business-organization-list-table-margin-top;
+        table-layout: auto;
+        width: 100%;
+
+        .ms-table {
+            &__heading-row,
+            &__heading-row-data,
+            &__row,
+            &__row-data,
+            &__row-links {
+                @include font-content-l();
+                border-bottom: $msv-business-organization-list-table-border;
+                height: $msv-business-organization-list-table-data-row-height;
+                overflow: hidden;
+                text-align: left;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+
+                &.num-type {
+                    text-align: right;
+                }
+
+                &.action-links {
+                    padding-left: 20px;
+                }
+            }
+
+            &__heading-row,
+            &__heading-row-data {
+                height: $msv-business-organization-list-table-data-row-height;
+
+                &__checkbox {
+                    width: 60px;
+                }
+            }
+
+            &__heading-sorting {
+                cursor: pointer;
+
+                &.asc {
+                    @include add-icon($msv-Arrow-Down, after);
+                }
+
+                &.dsc {
+                    @include add-icon($msv-Arrow-Up, after);
+                }
+
+                &::after {
+                    color: $msv-gray-500;
+                    padding-left: 8px;
+                }
+            }
+
+            &__row-links {
+                align-items: center;
+                border-bottom: none;
+                display: flex;
+                padding-left: 20px;
+
+                &-edit,
+                &-delete,
+                &-view {
+                    background: none;
+                    padding: $msv-business-organization-list-action-link-padding;
+
+                    &::before {
+                        color: var(--msv-business-organization-list-actions-icon-color);
+                    }
+                }
+
+                &-edit {
+                    @include add-icon($msv-Edit);
+                }
+
+                &-delete {
+                    @include add-icon($msv-Cancel);
+                }
+
+                &-view {
+                    @include add-icon($msv-List);
+                }
+            }
+        }
+    }
+
+    &__modal {
+        &-heading {
+            margin-bottom: 40px;
+        }
+
+        &-body {
+            @include font-content-l();
+            display: flex;
+            flex-wrap: wrap;
+            padding-left: $msv-business-organization-list-modal-padding;
+        }
+
+        .msc-modal {
+            &__content {
+                background-color: $msv-white;
+                padding: 40px;
+            }
+
+            &__dialog {
+                align-items: center;
+                display: flex;
+                height: 100%;
+            }
+        }
+
+        ul.ms-business-organization-list__form-list {
+            list-style: none;
+            margin-top: 20px;
+        }
+    }
+
+    &__form {
+        display: flex;
+        flex-wrap: wrap;
+
+        &-all-required-msg {
+            @include font-content-m(var(--msv-font-weight-light));
+            flex-basis: 100%;
+        }
+
+        &-description {
+            @include font-content-l();
+            margin-top: 20px;
+        }
+
+        &-list-item {
+            @include font-content-l();
+            margin-top: 8px;
+
+            &-name {
+                @include font-content-l($msv-font-weight-heavy);
+            }
+
+            span:nth-child(2) {
+                margin-left: $msv-business-organization-list-list-item-spacing;
+            }
+        }
+
+        &-item {
+            display: flex;
+            flex-direction: column;
+            margin: $msv-business-organization-list-form-item-margin;
+            margin-right: $msv-business-organization-list-input-spacing;
+
+            &.width-50 {
+                width: calc(50% - #{$msv-business-organization-list-input-spacing});
+            }
+
+            &.width-100 {
+                width: calc(100% - #{$msv-business-organization-list-input-spacing});
+            }
+
+            &-label {
+                @include font-content-l();
+                margin: $msv-business-organization-list-label-margin;
+            }
+
+            &-input {
+                @include font-content-l();
+                @include vfi();
+                background-color: $msv-gray-100;
+                border: $msv-business-organization-list-input-border;
+                border-radius: $msv-business-organization-list-border-radius;
+                box-sizing: border-box;
+                display: block;
+                height: $msv-business-organization-list-input-size;
+                padding: $msv-business-organization-list-input-padding;
+            }
+        }
+
+        &-save, &-remove-user-button {
+            @include primary-button(var(--msv-business-organization-list-primary-btn-bg),
+            var(--msv-business-organization-list-primary-btn-font-color),
+            var(--msv-business-organization-list-primary-btn-border));
+        }
+
+        &-cancel {
+            @include secondary-button($msv-white);
+            margin: 0 20px;
+        }
+
+        @media only screen and (max-width: $msv-breakpoint-l) {
+            .msc-modal__content {
+                padding: $msv-business-organization-list-modal-padding;
+            }
+
+            &__form-item {
+                margin-right: $msv-business-organization-list-form-item-margin-right;
+
+                &.width-50, &.width-100 {
+                    width: 100%;
+                }
+            }
+
+            &__save-button,
+            &__cancel-button {
+                width: calc(50% - #{$msv-business-organization-list-input-spacing});
+            }
+        }
+    }
+
+    .ms-table-business-org__pagination {
+        padding-top: 20px;
+        width: 100%;
+
+        .msc-pagination {
+            @include font-content(var(--msv-font-weight-normal),
+            var(--msv-business-organization-list-pagination-text-font-size), $msv-line-height-m);
+            display: flex;
+            list-style: none;
+            padding-left: $msv-business-organization-list-pagination-padding-left;
+            width: 100%;
+        }
+
+        ul.msc-pagination {
+            display: flex;
+            justify-content: center;
+        }
+
+        .previous {
+            margin-right: auto;
+
+            .msc-pagination__prev {
+                padding-left: 4px;
+                display: inline-block;
+            }
+
+            .msc-page-link {
+                color: var(--msv-business-organization-list-text-font-color);
+                font-size: var(--msv-business-organization-list-pagination-text-font-size);
+                display: block;
+                padding: $msv-business-organization-list-page-item-page-link-padding;
+                line-height: $msv-business-organization-list-page-item-page-link-line-height;
+
+                &::before {
+                    @include msv-icon();
+                    content: "";
+                }
+
+                .ms-table-business-org__pagination-left {
+                    @include add-icon($msv-ChevronLeft, before);
+                }
+            }
+        }
+
+        .msc-page-item {
+            padding-right: $msv-business-organization-list-page-item-padding-right;
+        }
+
+        .msc-page-item.disabled {
+            .msc-page-link {
+                color: $msv-secondary;
+                pointer-events: none;
+                cursor: auto;
+            }
+        }
+
+        .next {
+            margin-left: auto;
+
+            .msc-pagination__next {
+                padding-right: 4px;
+                display: inline-block;
+            }
+
+            /* stylelint-disable-next-line no-descending-specificity -- Auto-suppressed. Please fix if possible. */
+            .msc-page-link {
+                color: var(--msv-business-organization-list-text-font-color);
+                font-size: var(--msv-business-organization-list-pagination-text-font-size);
+                display: block;
+                padding: $msv-business-organization-list-page-item-page-link-padding;
+                line-height: $msv-business-organization-list-page-item-page-link-line-height;
+                padding-right: 4px;
+
+                &::after {
+                    @include msv-icon();
+                    content: "";
+                }
+
+                .ms-table-business-org__pagination-right {
+                    @include add-icon($msv-ChevronRight, after);
+                }
+            }
+        }
+
+        /* stylelint-disable-next-line no-descending-specificity -- Auto-suppressed. Please fix if possible. */
+        .msc-page-link {
+            color: var(--msv-business-organization-list-text-font-color);
+            font-size: var(--msv-business-organization-list-pagination-text-font-size);
+            display: block;
+            padding: $msv-business-organization-list-page-item-page-link-padding;
+            line-height: $msv-business-organization-list-page-item-page-link-line-height;
+
+            @include vfi();
+        }
+
+        .active {
+            text-decoration: underline;
+        }
+
+        .prev-text,
+        .next-text {
+            padding: $msv-business-organization-list-page-prev-next-padding;
+        }
+    }
+
+    @media only screen and (max-width: $msv-breakpoint-l) {
+        padding: 0;
+
+        &__add-user-button {
+            width: 50%;
+        }
+
+        &__form {
+            &-item {
+                &.width-25, &.width-50, &.width-100 {
+                    margin-right: 0;
+                    width: 100%;
+                }
+            }
+
+            &-cancel {
+                background-color: $msv-white;
+            }
+        }
+
+        &__heading {
+            margin-top: 32px;
+        }
+
+        &__modal {
+            &.type-details {
+                margin-right: 20px;
+                margin-left: 20px;
+            }
+
+            &.type-view {
+                .ms-business-organization-list__form-cancel {
+                    width: 100%;
+                }
+            }
+        }
+
+        .ms-table {
+            &__heading {
+                &-row, &-row-data {
+                    height: 42px;
+                }
+
+                &-sorting {
+                    height: 42px;
+                }
+            }
+
+            &__row-links {
+                align-items: flex-start;
+                background: $msv-white;
+                border-radius: 2px;
+                box-shadow: $msv-business-organization-list-actions-shadow;
+                flex-direction: column;
+                height: auto;
+                padding-left: 0;
+                position: absolute;
+                left: 0;
+                width: 100%;
+                z-index: 10;
+
+                &-edit,
+                &-delete,
+                &-view {
+                    background: none;
+                    color: var(--msv-business-organization-list-actions-text-color);
+                    height: 60px;
+                    padding: 0 8px;
+                    text-align: left;
+                    width: 100%;
+
+                    &::before {
+                        margin-right: 12px;
+                        width: 16px;
+                    }
+                }
+
+                &-minified {
+                    text-align: right;
+                }
+
+                &-toggle {
+                    @include add-icon($msv-Ellipses-V);
+                    background: none;
+                    height: $msv-business-organization-list-table-data-row-height;
+                }
+            }
+
+            &__row {
+                position: relative;
+
+                &-data {
+                    font-weight: 600;
+                }
+
+                &.selected {
+                    background-color: $msv-selected-user-background-color;
+
+                    .ms-table__row-links-toggle {
+                        background-color: $msv-selected-user-background-color;
+                    }
+                }
+            }
+        }
+    }
+
+    &__padRight {
+        padding-right: 40px;
+    }
+}
