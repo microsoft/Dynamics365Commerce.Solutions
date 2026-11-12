@@ -1,0 +1,27 @@
+$msv-flyout-container-price-actual-text-align: right;
+$msv-flyout-container-remove-item-margin-right: 104px;
+
+[dir="rtl"] {
+    .ms-cart-icon__flyout-container {
+        .msc-cart-line__product-savings-actual .msc-price__actual {
+            text-align: $msv-flyout-container-price-actual-text-align;
+        }
+
+        .msc-cart-line__remove-item {
+            margin-right: $msv-flyout-container-remove-item-margin-right;
+        }
+
+        .msc-cart-line__product-savings {
+            margin-right: 0;
+        }
+
+        .ms-cart-icon__subtotal {
+            text-align: left;
+        }
+
+        .msc-flyout__close-button {
+            right: unset;
+            left: 20px;
+        }
+    }
+}

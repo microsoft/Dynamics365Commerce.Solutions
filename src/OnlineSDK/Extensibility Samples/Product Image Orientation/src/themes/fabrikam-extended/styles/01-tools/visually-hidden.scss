@@ -1,0 +1,29 @@
+@mixin visually-hidden {
+    /* stylelint-disable declaration-no-important -- Auto-suppressed. Please fix if possible. */
+    position: absolute !important;
+    height: 1px !important;
+    width: 1px !important;
+    overflow: hidden !important;
+    clip: rect(1px, 1px, 1px, 1px) !important;
+    border: 0 !important;
+    white-space: nowrap !important; /* added line */
+    /* stylelint-enable declaration-no-important -- Auto-suppressed. Please fix if possible. */
+}
+
+.sr-only {
+    @include visually-hidden();
+}
+
+.slider__thumb__range.sr-only {
+    /* stylelint-disable declaration-no-important -- To override existing no important. */
+    height: 8px !important;
+    width: 8px !important;
+    top: -4px;
+}
+
+.msc-line__quantity.sr-only {
+    height: 30px !important;
+    width: 10px !important;
+    bottom: -10px;
+    left: 100px;
+}
