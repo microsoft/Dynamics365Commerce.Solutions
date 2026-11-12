@@ -1,0 +1,86 @@
+.ms-accordion {
+    &-header-section {
+        margin: 5px 5px 20px 5px;
+
+        &__heading {
+            @include font-content-xl();
+        }
+
+        &-toggle-button-container {
+            margin-right: 10px;
+            display: flex;
+            align-items: center;
+            margin-top: 15px;
+
+            .ms-accordion_ExpandAll,
+            .ms-accordion_CollapseAll {
+                background: transparent;
+                border: none;
+
+                @include vfi();
+                cursor: pointer;
+            }
+        }
+    }
+
+    @media (min-width: $msv-breakpoint-m) {
+        &-header-section {
+            display: flex;
+            margin: 5px 5px 20px 5px;
+
+            &-container {
+                flex-grow: 4;
+            }
+
+            &-toggle-button-container {
+                margin-top: 0;
+            }
+        }
+    }
+
+    &-item {
+        &__drawer {
+            margin-top: 5px;
+            border-top: 1px solid $msv-gray-120;
+
+            .drawer__button {
+                background: transparent;
+                display: flex;
+                height: 64px;
+                justify-content: space-between;
+                padding-left: 0;
+                padding-right: 0;
+                width: 100%;
+                margin-top: 5px;
+                cursor: pointer;
+                text-align: left;
+
+                &[aria-expanded="true"] {
+                    @include add-icon($msv-ChevronUp, after);
+                    padding-right: 20px;
+
+                    &::after {
+                        color: $msv-gray-120;
+                    }
+                }
+
+                &[aria-expanded="false"] {
+                    @include add-icon($msv-ChevronDown, after);
+                    padding-right: 20px;
+
+                    &::after {
+                        color: $msv-gray-120;
+                    }
+                }
+            }
+        }
+
+        &-content {
+            padding: 10px 0;
+        }
+
+        .collapse:not(.show) {
+            display: none;
+        }
+    }
+}

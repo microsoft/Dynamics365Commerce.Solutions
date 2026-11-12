@@ -1,0 +1,71 @@
+$msv-histogram-bar-bg: #E8E8E8;
+$msv-histogram-bar-fg: $msv-text-color;
+$msv-histogram-bar-height: 4px;
+$msv-histogram-bar-width: 200px;
+$msv-histogram-heading-margin-bottom: 24px;
+$msv-histogram-heading-font-size: 24px;
+
+.ms-ratings-histogram {
+    &__heading {
+        color: var(--msv-font-primary-color);
+        display: block;
+        font-size: $msv-histogram-heading-font-size;
+        font-weight: normal;
+        line-height: 32px;
+        margin-bottom: $msv-histogram-heading-margin-bottom;
+    }
+
+    .msc-progress {
+        position: relative;
+        background-color: $msv-histogram-bar-bg;
+        height: $msv-histogram-bar-height;
+        width: $msv-histogram-bar-width;
+        margin: 0 12px;
+
+        &__bar {
+            background-color: $msv-histogram-bar-fg;
+            height: $msv-histogram-bar-height;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    }
+
+    .msc-rating {
+        display: inline-block;
+    }
+
+    &__histogram {
+        margin-right: 20px;
+    }
+
+    &__average {
+        display: inline-block;
+    }
+
+    &__total {
+        margin-top: 12px;
+    }
+
+    &__item {
+        color: var(--msv-font-primary-color);
+        background-color: transparent;
+        border-color: transparent;
+        display: flex;
+        align-items: center;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    &__star {
+        @include add-icon($msv-FavoriteStarFill, after);
+        display: flex;
+        line-height: 1;
+
+        &::after {
+            margin-left: 4px;
+        }
+    }
+}

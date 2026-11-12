@@ -1,0 +1,53 @@
+$ms-social-share-margin:10px 0 10px 0;
+
+.ms-social-share {
+    margin: $ms-social-share-margin;
+
+    &-ul {
+        display: flex;
+        list-style: none;
+
+        &.caption::before {
+            content: attr(data-title);
+            display: block;
+            font-weight: bold;
+            height: 30px;
+            padding: 4px;
+        }
+
+        &.vertical {
+            display: block;
+
+            li {
+                margin-bottom: 10px;
+            }
+
+            li:last-of-type {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    &-item {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+    }
+
+    &-li {
+        margin-right: 10px;
+        height: 30px;
+        width: 30px;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    &-li:last-of-type {
+        margin-right: 0;
+    }
+}

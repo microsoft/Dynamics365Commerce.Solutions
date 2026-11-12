@@ -1,0 +1,17 @@
+{
+	"id": "R1Module1",
+	"config": {
+		"showText": "${subscribe_showText}"
+	},
+	"data": {
+		"actionResponse": {
+			"text": "Sample Action Response"
+		}
+	},
+	"resources": {
+		"subscribe_showText": {
+			"value": "Example Config Value"
+		}
+	},
+	"typeName": "subscribe"
+}

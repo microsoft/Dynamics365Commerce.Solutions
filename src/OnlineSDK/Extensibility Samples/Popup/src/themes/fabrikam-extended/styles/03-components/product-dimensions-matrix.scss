@@ -1,0 +1,560 @@
+$product-dimensions-matrix-text-secondary-color: #595959;
+$product-dimensions-matrix-text-focus-color: #2266E3;
+$product-dimensions-matrix-text-focus-shadow-color: rgba(34, 102, 227, 0.1);
+$product-dimensions-matrix-footer-shadow: 0 -0.3px 0.9px rgba(0, 0, 0, 0.1), 0 -1.6px 3.6px rgba(0, 0, 0, 0.13);
+$product-dimensions-matrix-separator-color: $msv-gray-600;
+$product-dimensions-matrix-cell-shadow: 1px 0 0 #EDEBE9, -1px 0 0 #EDEBE9, 0 -1px 0 #EDEBE9, 0 1px 0 #EDEBE9;
+$product-dimensions-matrix-cell-background-color: $msv-white;
+$product-dimensions-matrix-cell-secondary-color: #F5F5F5;
+$product-dimensions-matrix-cell-button-hover-color: $product-dimensions-matrix-cell-secondary-color;
+$product-dimensions-matrix-cell-popover-shadow: 0 1.2px 3.6px rgba(0, 0, 0, 0.1), 0 6.4px 14.4px rgba(0, 0, 0, 0.13);
+$product-dimensions-matrix-cell-disabled-text-color: $msv-gray-600;
+
+.msc-product-dimensions-matrix {
+    &__header {
+        border-bottom: 0.5px solid $msv-gray-600;
+
+        @media screen and (min-width: $msv-breakpoint-m) {
+            margin-bottom: 10px;
+        }
+
+        &__display-order {
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            padding-bottom: 0;
+
+            &__label {
+                font-weight: 500;
+                font-size: 14px;
+                line-height: 20px;
+                padding-bottom: 8px;
+            }
+
+            &__dropdown {
+                height: 52px;
+            }
+        }
+
+        &__actions {
+            display: flex;
+
+            &__enter-all-quantities-container {
+                &__toggle-button {
+                    @include add-icon($msv-Plus, before);
+
+                    &::before {
+                        padding-right: 10px;
+                    }
+
+                    &::after {
+                        float: right;
+                        margin-top: 3px;
+                        padding-left: 10px;
+                    }
+
+                    &[aria-expanded="true"] {
+                        @include add-icon($msv-ChevronUp, after);
+
+                        background-color: $product-dimensions-matrix-cell-button-hover-color;
+                    }
+
+                    &[aria-expanded="false"] {
+                        @include add-icon($msv-ChevronDown, after);
+                    }
+                }
+
+                &__popover {
+                    background: $product-dimensions-matrix-cell-background-color;
+                    box-shadow: $product-dimensions-matrix-cell-popover-shadow;
+                    border-radius: 8px;
+                    padding: 28px 20px;
+
+                    &__content {
+                        &__quantity-label, &__button-label {
+                            font-size: 14px;
+                            line-height: 20px;
+                            color: $product-dimensions-matrix-text-secondary-color;
+                            padding: 8px 0;
+                        }
+
+                        .quantity {
+                            .quantity-input {
+                                @include form-control();
+                                width: 80px;
+                                display: inline-block;
+                                margin-left: 8px;
+                                margin-right: 8px;
+                                -moz-appearance: textfield;
+                                padding: 5px;
+                                vertical-align: bottom;
+                                border: 0.5px solid $product-dimensions-matrix-separator-color;
+
+                                &::-webkit-inner-spin-button,
+                                &::-webkit-outer-spin-button {
+                                    -webkit-appearance: none;
+                                }
+                            }
+
+                            .quantity__controls {
+                                padding: 5px;
+                                padding-left: 0;
+                                padding-right: 0;
+                                background-color: $product-dimensions-matrix-cell-background-color;
+                                background-position: center;
+                                background-repeat: no-repeat;
+                                border: 0.5px solid $product-dimensions-matrix-separator-color;
+                                min-width: auto;
+                                width: 48px;
+                                height: 48px;
+                                cursor: pointer;
+
+                                &:disabled {
+                                    color: $msv-gray-300;
+                                }
+                            }
+
+                            .increment {
+                                @include add-icon($msv-Add, after);
+                                color: var(--msv-font-primary-color);
+
+                                &.disabled {
+                                    color: $msv-gray-300;
+                                }
+
+                                &:not(:disabled):not(.disabled):active,
+                                &:not(:disabled):not(.disabled):active:focus {
+                                    color: var(--msv-font-primary-color);
+                                }
+                            }
+
+                            .decrement {
+                                @include add-icon($msv-Remove, after);
+                                color: var(--msv-font-primary-color);
+
+                                &.disabled {
+                                    color: $msv-gray-300;
+                                }
+
+                                &:not(:disabled):not(.disabled):active,
+                                &:not(:disabled):not(.disabled):active:focus {
+                                    color: var(--msv-font-primary-color);
+                                }
+                            }
+                        }
+
+                        &__apply-to-all-container {
+                            &__button {
+                                @include primary-button();
+
+                                width: 100%;
+                            }
+                        }
+                    }
+                }
+            }
+
+            &__clear-all-quantities-container {
+                &__button {
+                    @include add-icon($msv-x-shape, before);
+
+                    &::before {
+                        padding-right: 10px;
+                    }
+                }
+            }
+
+            &__enter-all-quantities-container__toggle-button, &__clear-all-quantities-container__button {
+                background-color: unset;
+                font-size: 14px;
+                line-height: 20px;
+                margin: 10px;
+                border-radius: 4px;
+
+                @media screen and (max-width: $msv-breakpoint-m) {
+                    padding: 10px;
+                    font-size: 12px;
+                }
+
+                &:hover {
+                    background-color: $product-dimensions-matrix-cell-button-hover-color;
+                }
+            }
+        }
+    }
+
+    &__matrix {
+        &__mobile {
+            &__single-dimension {
+                display: flex;
+                flex-wrap: wrap;
+                align-content: flex-start;
+                padding: 10px;
+            }
+
+            height: 50vh;
+            overflow: auto;
+
+            .msc-swatch-container {
+                padding-right: 8px;
+
+                &__item {
+                    cursor: unset;
+                }
+            }
+
+            &__cell__dimension-container {
+                &__main-dimension {
+                    border-bottom: 0.5px solid $msv-gray-600;
+
+                    &__collapse {
+                        border-top: 0.5px solid $msv-gray-600;
+                    }
+
+                    &__collapse__item {
+                        display: flex;
+                        flex-wrap: wrap;
+                        padding: 10px;
+                    }
+
+                    &__expand-button {
+                        display: flex;
+                        align-items: center;
+                        width: 100%;
+                        height: 68px;
+                        font-size: 14px;
+                        line-height: 20px;
+                        text-align: unset;
+                        background-color: $product-dimensions-matrix-cell-background-color;
+
+                        &__dimension {
+                            width: 100%;
+
+                            &__dimension-item {
+                                width: 100%;
+                                display: flex;
+                                align-items: center;
+                            }
+                        }
+
+                        &::after {
+                            margin: 0 8px;
+                            float: right;
+                        }
+
+                        &[aria-expanded="true"] {
+                            @include add-icon($msv-Remove, after);
+                        }
+
+                        &[aria-expanded="false"] {
+                            @include add-icon($msv-Plus, after);
+                        }
+                    }
+                }
+
+                &__container {
+                    padding: 10px;
+                    border-bottom: 0.5px solid $msv-gray-600;
+                    width: 100%;
+
+                    &:nth-child(odd) {
+                        background-color: $product-dimensions-matrix-cell-secondary-color;
+                    }
+
+                    &__dimension {
+                        font-size: 14px;
+                        line-height: 20px;
+                        padding: 0 20px;
+
+                        &__dimension-item {
+                            display: flex;
+                            align-items: center;
+                        }
+                    }
+
+                    &__items {
+                        display: flex;
+                        flex-wrap: wrap;
+                    }
+                }
+
+                &__cell {
+                    padding: 12px;
+
+                    &__content {
+                        .msc-quantity-input {
+                            font-size: 14px;
+                            line-height: 20px;
+                            border: 0.5px solid $msv-gray-600;
+                            box-sizing: border-box;
+                            border-radius: 3px;
+                            width: 80px;
+                            height: 62px;
+                        }
+
+                        &__out-of-stock {
+                            background-color: $product-dimensions-matrix-cell-secondary-color;
+                            border: 0.5px solid $msv-gray-600;
+                            box-sizing: border-box;
+                            border-radius: 3px;
+                            width: 80px;
+                            height: 62px;
+                            font-size: 14px;
+                            line-height: 20px;
+                            text-align: center;
+                            align-items: center;
+                            display: flex;
+                            padding: 5px;
+                            color: $msv-gray-600;
+                        }
+                    }
+
+                    &__dimension-label__dimension-item {
+                        display: flex;
+                        align-items: center;
+
+                        font-weight: 500;
+                        font-size: 14px;
+                        line-height: 20px;
+                    }
+                }
+            }
+        }
+
+        overflow: auto;
+        padding-top: 1px;
+        padding-bottom: 20px;
+        display: inline-block;
+        max-width: 100%;
+        width: 100%;
+
+        &__dimensions-header {
+            display: flex;
+            padding: 0 5px;
+            width: 100%;
+
+            &__cell {
+                width: 168px;
+                min-width: 168px;
+                height: 64px;
+                background-color: $product-dimensions-matrix-cell-secondary-color;
+                box-shadow: $product-dimensions-matrix-cell-shadow;
+                align-items: center;
+                text-align: center;
+                font-size: 14px;
+                line-height: 20px;
+                padding: 5px;
+
+                &:last-of-type {
+                    width: 100%;
+                }
+
+                &__toggle-button {
+                    width: 157px;
+                    height: 100%;
+                    background-color: unset;
+                    text-align: left;
+                    float: left;
+
+                    &::after {
+                        float: right;
+                        padding-top: 4px;
+                        padding-left: 10px;
+                    }
+
+                    &[aria-expanded="true"] {
+                        @include add-icon($msv-ChevronUp, after);
+
+                        background-color: #EBEBEB;
+                    }
+
+                    &[aria-expanded="false"] {
+                        @include add-icon($msv-ChevronDown, after);
+                    }
+
+                    &:hover {
+                        background-color: #EBEBEB;
+                    }
+                }
+
+                &__popover {
+                    background: $product-dimensions-matrix-cell-background-color;
+                    box-shadow: $product-dimensions-matrix-cell-popover-shadow;
+                    border-radius: 8px;
+                    padding: 28px 20px;
+                    width: 200px;
+
+                    &__content {
+                        &__item {
+                            @include secondary-button();
+
+                            width: 140px;
+                            min-width: unset;
+                            margin: 10px;
+                        }
+                    }
+                }
+            }
+        }
+
+        &__row {
+            display: flex;
+            width: fit-content;
+            padding: 0 5px;
+
+            &:first-of-type {
+                .msc-product-dimensions-matrix__matrix__row__cell__dimension-item__value {
+                    width: 100%;
+                }
+            }
+
+            &__cell {
+                width: 168px;
+                min-width: 168px;
+                height: 64px;
+                background: $product-dimensions-matrix-cell-background-color;
+                box-shadow: $product-dimensions-matrix-cell-shadow;
+                align-items: center;
+                text-align: center;
+                font-size: 14px;
+                line-height: 20px;
+                padding: 5px;
+
+                &__unavailable {
+                    background-color: $product-dimensions-matrix-cell-secondary-color;
+                    display: flex;
+                    cursor: not-allowed;
+                }
+
+                &__out-of-stock {
+                    width: 100%;
+                    color: $product-dimensions-matrix-cell-disabled-text-color;
+                }
+
+                &__dimension-item {
+                    display: flex;
+                    align-items: center;
+                    width: 100%;
+                    height: 100%;
+
+                    .msc-swatch-container {
+                        padding-right: 8px;
+
+                        &__item {
+                            cursor: unset;
+                        }
+                    }
+                }
+
+                .msc-quantity-input {
+                    width: 100%;
+                    height: 100%;
+                    border: unset;
+                    border-radius: unset;
+                    font-size: 12px;
+                    line-height: 16px;
+                }
+            }
+        }
+    }
+
+    .msc-quantity-input {
+        background: $product-dimensions-matrix-cell-background-color;
+        text-align: center;
+
+        &:focus-visible {
+            border: 0.5px solid $product-dimensions-matrix-text-focus-color;
+            box-sizing: border-box;
+            box-shadow: 4px 4px 10px $product-dimensions-matrix-text-focus-shadow-color;
+            border-radius: 3px;
+            outline: unset;
+        }
+    }
+
+    &__footer {
+        box-shadow: $product-dimensions-matrix-footer-shadow;
+        position: relative;
+
+        @media screen and (min-width: $msv-breakpoint-m) {
+            height: 85px;
+            margin: 5px -60px -32px -60px;
+            display: flex;
+        }
+
+        &__total-summary {
+            @media screen and (min-width: $msv-breakpoint-m) {
+                width: 368px;
+                border-right: 0.5px solid $product-dimensions-matrix-separator-color;
+            }
+
+            padding: 20px;
+            height: 100%;
+            box-sizing: border-box;
+            text-align: center;
+
+            &__total-quantity {
+                font-weight: 500;
+                font-size: 20px;
+                line-height: 24px;
+            }
+
+            &__total-quantity-label {
+                font-size: 14px;
+                line-height: 20px;
+                color: $product-dimensions-matrix-text-secondary-color;
+            }
+        }
+
+        &__actions {
+            display: flex;
+
+            @media screen and (min-width: $msv-breakpoint-m) {
+                margin: 10px;
+                margin-left: auto;
+            }
+
+            @media screen and (max-width: $msv-breakpoint-m) {
+                width: 100%;
+            }
+
+            &__add-to-order-template {
+                @media screen and (max-width: $msv-breakpoint-m) {
+                    width: 100%;
+                }
+
+                &__add-button {
+                    background-color: unset;
+                    font-size: 14px;
+                    line-height: 20px;
+                    margin: 10px;
+                    border-radius: 4px;
+
+                    &:hover {
+                        background-color: $product-dimensions-matrix-cell-button-hover-color;
+                    }
+
+                    @include add-icon($msv-file, before, $msv-outline-icon-weight);
+
+                    &::before {
+                        padding-right: 10px;
+                    }
+                }
+            }
+
+            &__add-to-cart {
+                @media screen and (max-width: $msv-breakpoint-m) {
+                    width: 100%;
+                }
+
+                @include primary-button();
+
+                margin: 10px;
+                cursor: pointer;
+
+                &[disabled] {
+                    cursor: not-allowed;
+                }
+            }
+        }
+    }
+}
