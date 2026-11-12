@@ -1,0 +1,123 @@
+@import "../common/00-settings/colors.scss";
+@import "../common/00-settings/font.scss";
+@import "../common/00-settings/responsive-breakpoints.scss";
+@import "../common/01-tools/mixins.scss";
+@import "../common/00-settings/icons.scss";
+
+$ms-refine-submenu-item-rating-line-height: 28px;
+$ms-refine-submenu-item-rating-padding-left: 12px;
+$refine-menu-rating-margin-bottom: 10px;
+$refine-menu-submenu-item-line-height: 42px;
+$refine-menu-submenu-item-multi-select-line-height: 24px;
+$refine-menu-desktop-margin-top: 35px;
+$refine-menu-desktop-margin-bottom: 40px;
+$refine-menu-desktop-margin-left: 60px;
+$refine-menu-mobile-margin-top: 0;
+$refine-menu-mobile-margin-bottom: 60px;
+$refine-menu-mobile-margin-left: 0;
+
+.ms-refine-submenu__list {
+    border: 0;
+    margin: 0;
+    min-width: 0;
+    padding: 0;
+}
+
+.ms-search-result-container__refine-menu {
+    flex-direction: row;
+    display: flex;
+    margin-top: $refine-menu-desktop-margin-top;
+    margin-left: $refine-menu-desktop-margin-left;
+    margin-bottom: $refine-menu-desktop-margin-bottom;
+    max-height: 44vh;
+}
+
+.ms-refine-submenu-item {
+    display: block;
+    line-height: $refine-menu-submenu-item-line-height;
+
+    .refine-submenu-item {
+        &__rating {
+            padding-left: $ms-refine-submenu-item-rating-padding-left;
+            display: inline-block;
+
+            @include font-content-m(var(--msv-font-weight-light));
+        }
+    }
+
+    &__label {
+        @include font-content-m(var(--msv-font-weight-light));
+    }
+
+    .multi-select,
+    .multi-select-checked {
+        line-height: $refine-menu-submenu-item-multi-select-line-height;
+        text-decoration: none;
+    }
+
+    .msc-rating {
+        @include font-content-m(var(--msv-font-weight-light));
+        margin-bottom: $refine-menu-rating-margin-bottom;
+    }
+
+    &.multi-select {
+        @include add-icon($msv-Checkbox, before, 400);
+    }
+
+    &.multi-select-checked {
+        @include add-icon($msv-Checkbox-Checked, before, 400);
+    }
+
+    &.single-select {
+        @include add-icon($msv-RadioBtnOff, before, 400);
+    }
+
+    &.single-select-checked {
+        @include add-icon($msv-RadioBtnOn, before, 400);
+    }
+
+    &.multi-select,
+    &.multi-select-checked,
+    &.single-select,
+    &.single-select-checked {
+        &::before {
+            vertical-align: middle;
+            font-size: var(--msv-body-font-size-s);
+        }
+    }
+}
+
+@media (max-width: $msv-breakpoint-l) {
+    .ms-search-result-container__refine-menu {
+        display: block;
+        margin-top: $refine-menu-mobile-margin-top;
+        margin-bottom: $refine-menu-mobile-margin-bottom;
+        margin-left: $refine-menu-mobile-margin-left;
+        max-height: unset;
+    }
+
+    .ms-refine-submenu__toggle_collapsed {
+        @include add-icon($msv-Add, after);
+
+        &::after {
+            font-size: $msv-font-size-ml;
+        }
+    }
+
+    .ms-refine-submenu__toggle_expanded {
+        @include add-icon($msv-Remove, after);
+        @include font-content-l();
+
+        &::after {
+            font-size: $msv-font-size-ml;
+        }
+    }
+}
+
+.msc-choice-summary__clear-all {
+    @include add-icon($msv-Cancel, after);
+}
+
+.ms-refine-submenu-item[aria-checked="true"] .msc-rating__count {
+    font-weight: $msv-font-weight-bold;
+}

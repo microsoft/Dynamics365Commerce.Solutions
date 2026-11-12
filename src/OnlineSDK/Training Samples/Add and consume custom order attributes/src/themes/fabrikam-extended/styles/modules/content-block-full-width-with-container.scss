@@ -1,0 +1,245 @@
+@import "../common/00-settings/colors.scss";
+@import "../common/00-settings/font.scss";
+@import "../common/00-settings/responsive-breakpoints.scss";
+@import "../common/02-generic/image.scss";
+@import "../common/01-tools/layout.scss";
+@import "../common/01-tools/mixins.scss";
+@import "../common/02-generic/button.scss";
+@import "../common/00-settings/icons.scss";
+@import "../common/02-generic/reset.scss";
+
+$content-block-min-height: 50px;
+$hero-content-text-margin-top: 40px;
+$hero-content-text-margin-top-xs: 20px;
+$hero-content-button-margin-top: 32px;
+$hero-content-button-margin-top-xs: 10px;
+$hero-content-shadow: 0 0.3px 0.9px rgba(0, 0, 0, 0.108), 0 1.6px 3.6px rgba(0, 0, 0, 0.132);
+$hero-link-to-link-spacing: 16px;
+$content-block-without-image-padding: 60px 80px 0 60px;
+$content-block-without-btn-margin: 8px 0 0 0;
+
+:root {
+    // heading
+    --msv-content-block-full-width-heading-font-size: #{$msv-font-size-xxl};
+    --msv-content-block-heading-font-size-s: #{$msv-font-size-xl};
+    --msv-content-block-heading-font-color: var(--msv-font-primary-color);
+
+    // Text theme
+    --msv-content-block-textheme-dark: var(--msv-font-primary-color);
+    --msv-content-block-textheme-light: #{$msv-gray-100};
+    --msv-content-block-text-font-size: var(--msv-body-font-size-m);
+
+    // primary button
+    --msv-content-block-primary-btn-font-color: #{$msv-black};
+    --msv-content-block-primary-btn-border: #{$msv-black};
+}
+
+@mixin overlay-text-on-image {
+    .ms-content-block__details {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        left: 0;
+        padding: 60px 40px 0 40px;
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+}
+
+.ms-content-block {
+    min-height: $content-block-min-height;
+    overflow: hidden;
+
+    .msc_image.lazyloading[height="1px"],
+    .msc_image.lazyload[height="1px"] {
+        display: none;
+    }
+
+    &[data-m-layout="full-width-with-container"] {
+        position: relative;
+
+        .ms-content-block__details.withoutImage {
+            padding-left: 0;
+
+            @media (min-width: $msv-breakpoint-l) {
+                padding: $content-block-without-image-padding;
+            }
+        }
+
+        .ms-content-block__image,
+        .ms-content-block__image img {
+            width: 100%;
+        }
+
+        .ms-content-block__image svg {
+            width: 100%;
+        }
+
+        .ms-content-block__link {
+            width: 100%;
+        }
+
+        .ms-content-block__details,
+        &.textplacement__left .ms-content-block__details {
+            text-align: left;
+            align-items: flex-start;
+        }
+
+        &.textplacement__center .ms-content-block__details {
+            align-items: center;
+            text-align: center;
+        }
+
+        &.textplacement__right .ms-content-block__details {
+            text-align: right;
+            align-items: flex-end;
+        }
+
+        .ms-content-block__title {
+            color: var(--msv-content-block-heading-font-color);
+
+            &[contenteditable="true"] {
+                width: 100%;
+            }
+        }
+
+        .ms-content-block__text {
+            @include font-body-regular-m();
+            color: var(--msv-content-block-textheme-dark);
+        }
+
+        &.texttheme__light .ms-content-block__title, &.texttheme__light .ms-content-block__text {
+            color: var(--msv-content-block-textheme-light);
+            text-shadow: $hero-content-shadow;
+        }
+
+        &.texttheme__dark .ms-content-block__title, &.texttheme__dark .ms-content-block__text {
+            color: var(--msv-content-block-textheme-dark);
+        }
+
+        /* body should have top margin only when there's something above it */
+        /* stylelint-disable-next-line no-descending-specificity -- Auto-suppressed. Please fix if possible. */
+        * + .ms-content-block__text {
+            margin-top: $hero-content-text-margin-top;
+        }
+
+        .ms-content-block__cta {
+            align-items: flex-end;
+            justify-content: center;
+        }
+
+        /* links should have top margin only when there's something above it */
+        * + .ms-content-block__cta {
+            margin-top: $hero-content-button-margin-top;
+        }
+
+        /* stylelint-disable-next-line no-descending-specificity -- Auto-suppressed. Please fix if possible. */
+        .ms-content-block__details {
+            @include msv-layout-page-side-padding;
+            display: flex;
+            flex-direction: column;
+            align-content: center;
+            justify-content: center;
+
+            .msc-cta__primary {
+                @include primary-button-light();
+                text-decoration: none;
+                width: 100%;
+                margin: $content-block-without-btn-margin;
+            }
+        }
+
+        .withoutImage.ms-content-block__details {
+            position: relative;
+        }
+
+        /**
+    * When the image is not added in content block.
+    */
+        div.ms-content-block__image:empty {
+            + div.ms-content-block__details {
+                position: relative;
+                height: unset;
+            }
+        }
+
+        /**
+    * Text over image by default only in modern browsers.
+    * We must reflow the text to bottom in IE 11 because it doesn't support srcset and the image will be too short to put text over it.
+    */
+
+        @supports (object-fit: cover) {
+            .ms-content-block__image {
+                object-fit: cover;
+            }
+
+            @include overlay-text-on-image;
+        }
+
+        /**
+    * When the image is tall enough for IE 11 to display text on top of it.
+    */
+
+        @media screen and (min-width: $msv-breakpoint-l) {
+            @include overlay-text-on-image;
+        }
+
+        @media screen and (min-width: $msv-breakpoint-m) {
+            .ms-content-block__details,
+            &.textplacement__left .ms-content-block__details,
+            &.textplacement__center .ms-content-block__details,
+            &.textplacement__right .ms-content-block__details {
+                width: 100%;
+                overflow: inherit;
+            }
+
+            &.textplacement__center .ms-content-block__details {
+                margin: 0 auto;
+            }
+
+            &.textplacement__right .ms-content-block__details {
+                margin-left: auto;
+            }
+        }
+
+        @media screen and (max-width: $msv-breakpoint-m) {
+            .ms-content-block__cta {
+                display: flex;
+            }
+
+            &[data-m-layout="full-width-with-container"] {
+                margin: 40px 0;
+
+                * + .ms-content-block__text {
+                    margin-top: $hero-content-text-margin-top-xs;
+                }
+
+                * + .ms-content-block__cta {
+                    margin-top: $hero-content-button-margin-top-xs;
+                    width: 100%;
+                }
+
+                .ms-content-block__title {
+                    @include font-heading-h1-s();
+                }
+
+                .ms-content-block__details {
+                    padding: 0;
+                }
+            }
+        }
+
+        @media screen and (min-width: $msv-breakpoint-m) {
+            &[data-m-layout="full-width-with-container"] {
+                .ms-content-block__title {
+                    @include font-heading-h1-m();
+                }
+
+                * + .ms-content-block__cta {
+                    width: auto;
+                }
+            }
+        }
+    }
+}

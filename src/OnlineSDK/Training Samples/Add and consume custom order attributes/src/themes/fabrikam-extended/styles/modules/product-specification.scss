@@ -1,0 +1,115 @@
+@import "../common/00-settings/colors.scss";
+@import "../common/00-settings/font.scss";
+@import "../common/00-settings/icons.scss";
+
+//Variables
+$msv-accordion-font-family: $msv-primary-font-family;
+$msv-accordion-font-style: normal;
+$msv-accordion-height: 68px;
+$msv-accordion-font-weight-400: 400;
+$msv-accordion-padding: 25px 0 56px 0;
+$msv-accordion-product-details-padding-left: 6px;
+$ms-product-details-padding-bottom: 40px;
+$ms-product-details-padding-top: 20px;
+
+// Style preset
+:root {
+    // border
+    --msv-product-specification-accordion-border: #{$msv-blue};
+
+    // body
+    --msv-product-specification-accordion-text-font-color: #{$msv-gray-40};
+    --msv-product-specification-accordion-bg-color: #{$msv-white};
+    --msv-product-specification-accordion-font-size: #{$msv-font-size-s};
+    --msv-product-details-font-size: #{$msv-font-size-m};
+    --msv-product-details-text-font-color: var(--msv-font-primary-color);
+}
+
+.ms-product-specification {
+    color: var(--msv-font-primary-color);
+
+    &__heading {
+        display: none;
+    }
+
+    &__accordion {
+        font-family: $msv-accordion-font-family;
+        font-style: $msv-accordion-font-style;
+        font-weight: $msv-font-weight-normal;
+        padding: $msv-accordion-padding;
+
+        .drawer {
+            border-top: 0.5px solid $msv-gray-50;
+            background-color: var(--msv-product-specification-accordion-bg-color);
+
+            &__button {
+                width: 100%;
+                height: $msv-accordion-height;
+                background-color: var(--msv-product-specification-accordion-bg-color);
+                display: flex;
+                justify-content: space-between;
+                border: none;
+                outline: none;
+
+                &:focus {
+                    border: 0.5px solid var(--msv-product-specification-accordion-border);
+                }
+
+                &:focus:not(:focus-visible) {
+                    outline: none;
+                }
+
+                .drawer__buttontext {
+                    @include font-body-regular-s();
+                    float: left;
+                    margin-bottom: auto;
+                    margin-top: auto;
+                    color: var(--msv-product-specification-accordion-text-font-color);
+                }
+
+                .ms-product-specification__drawer-close,
+                .ms-product-specification__drawer-open {
+                    float: right;
+                    line-height: $msv-line-height-m;
+                    margin-bottom: auto;
+                    margin-top: auto;
+                }
+
+                .ms-product-specification__drawer-close {
+                    @include add-icon($msv-Add, after);
+
+                    &::after {
+                        font-size: $msv-icon-size-m;
+                        vertical-align: middle;
+                    }
+                }
+
+                .ms-product-specification__drawer-open {
+                    @include add-icon($msv-Remove, after);
+
+                    &::after {
+                        font-size: $msv-icon-size-m;
+                        vertical-align: middle;
+                    }
+                }
+            }
+
+            .ms-product-details {
+                @include font-body-regular-m();
+                background-color: var(--msv-product-specification-accordion-bg-color);
+                color: var(--msv-product-details-text-font-color);
+                padding-left: $msv-accordion-product-details-padding-left;
+                padding-bottom: $ms-product-details-padding-bottom;
+                padding-top: $ms-product-details-padding-top;
+
+                &:focus {
+                    outline: none;
+                }
+            }
+        }
+
+        .ms-product-specification-title:last-child {
+            border-bottom: 0.5px solid $msv-gray-50;
+        }
+    }
+}

@@ -1,0 +1,297 @@
+@import "../common/00-settings/colors.scss";
+@import "../common/00-settings/font.scss";
+@import "../common/00-settings/responsive-breakpoints.scss";
+@import "../common/01-tools/mixins.scss";
+@import "../common/01-tools/layout.scss";
+@import "../common/02-generic/image.scss";
+@import "../common/02-generic/button.scss";
+@import "../common/00-settings/icons.scss";
+@import "../common/02-generic/reset.scss";
+@import "../common/01-tools/bootstrap.scss";
+@import "../common/02-generic/form.scss";
+@import "../common/01-tools/visually-hidden";
+
+$account-loyalty-margin-left: 40px;
+$account-loyalty-margin-right: 40px;
+$account-loyalty-margin-left-mobile: 0;
+$account-loyalty-margin-right-mobile: 0;
+$account-loyalty-border-color: $msv-gray-50;
+$account-loyalty-heading-color: $msv-gray-20;
+$account-loyalty-heading-margin-bottom: 28px;
+$account-loyalty__info-padding-top: 44px;
+$account-loyalty__join-date-color: $msv-gray-40;
+$account-loyalty__point-breakdown: $msv-gray-20;
+$account-loyalty__card-number-margin-top: 12px;
+$account-loyalty__join-date-margin-top: 15px;
+$account-loyalty__points-body-height: 335px;
+$account-loyalty__points-body-padding: 2px 10px;
+$account-loyalty__points-margin-top: 52px;
+$account-loyalty__points-margin-bottom: 25px;
+$account-loyalty__points-header-padding: 0 8px;
+$account-loyalty__points-header-margin-bottom: 4px;
+$account-loyalty__points-activity-height: 65px;
+$account-loyalty__points-activity-padding: 8px;
+$account-loyalty__breakdown-margin-top: 46px;
+$account-loyalty__breakdown-padding-top: 52px;
+$account-loyalty__breakdown-padding-bottom: 44px;
+$account-loyalty__loyalty-signup-sub-heading: 32px;
+$account-loyalty__available-label-margin-top: 21px;
+$account-loyalty__expiring-label-margin-top: 12px;
+$account-loyalty__modal-header-top: 50px;
+$account-loyalty__modal-padding-bottom: 10px;
+$account-loyalty-sign-up-margin-bottom: 23px;
+
+// info message bar
+$msv-account-loyalty-padding: 20px;
+$msv-account-loyalty-margin-bottom: 44px;
+
+:root {
+    //Modal
+    --msv-account-loyalty-heading-font-size: #{$msv-font-size-l};
+    --msv-account-loyalty-text-size: #{$msv-font-size-m};
+    --msv-font-weight-bold: #{$msv-font-weight-bold};
+
+    // info message bar
+    --msv-account-loyalty-message-bg: #{$msv-blue-20};
+    --msv-account-loyalty-message-border: transparent;
+}
+
+.ms-loyalty-signup__info {
+    @include add-icon($msv-information);
+    @include font-body-regular-m();
+    @include vfi();
+    background-color: var(--msv-account-loyalty-message-bg);
+    border: 1px solid var(--msv-account-loyalty-message-border);
+    padding: $msv-account-loyalty-padding;
+    margin-bottom: $msv-account-loyalty-margin-bottom;
+    border-radius: 10px;
+
+    &::before {
+        font-size: $msv-font-size-ml;
+        padding-right: 10px;
+        top: 2px;
+        position: relative;
+        vertical-align: top;
+        color: $msv-blue;
+    }
+}
+
+.ms-loyalty-signup__heading {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.ms-loyalty-signup__sub-heading p {
+    margin-bottom: $account-loyalty__loyalty-signup-sub-heading;
+}
+
+.ms-loyalty-signup {
+    .ms-loyalty-signup__heading {
+        @include font-heading-h3-l();
+        margin-bottom: 10px;
+
+        h2 span {
+            font-weight: 500;
+        }
+    }
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 57.78px;
+
+    .ms-loyalty-signup__text {
+        display: none;
+    }
+
+    .ms-loyalty-signup__terms {
+        @include button-link($color: $msv-gray-40);
+        @include font-body-regular-xs();
+        border-radius: 0;
+        padding: 6px 12px 6px 0;
+        margin-bottom: $account-loyalty-sign-up-margin-bottom;
+        text-align: center;
+    }
+
+    .ms-loyalty-signup__btn {
+        @include primary-button-light();
+    }
+
+    .ms-loyalty-signup__details.msc-btn {
+        text-decoration: underline;
+    }
+}
+
+.ms-account-loyalty {
+    color: $account-loyalty-heading-color;
+
+    &__heading {
+        @include font-heading-h3-l();
+        margin-bottom: $account-loyalty-heading-margin-bottom;
+    }
+
+    &__info {
+        border-top: 0.5px solid $account-loyalty-border-color;
+        padding-top: $account-loyalty__info-padding-top;
+    }
+
+    &__points {
+        margin-top: $account-loyalty__points-margin-top;
+    }
+
+    &__breakdown {
+        border-top: 0.5px solid $account-loyalty-border-color;
+        width: calc(5 * #{$msv-column-width-s});
+        margin-top: $account-loyalty__breakdown-margin-top;
+        padding-top: $account-loyalty__breakdown-padding-top;
+        padding-bottom: $account-loyalty__breakdown-padding-bottom;
+    }
+
+    &__info-label,
+    &__total-points-label,
+    &__points-title {
+        @include font-heading-h5-l();
+    }
+
+    &__card-number,
+    &__total-points {
+        @include font-heading-h3-l();
+        margin-top: $account-loyalty__card-number-margin-top;
+    }
+
+    &__join-date {
+        @include font-body-regular-m();
+        color: $account-loyalty__join-date-color;
+        margin-top: $account-loyalty__join-date-margin-top;
+    }
+
+    &__point-breakdown {
+        @include font-body-regular-m();
+        color: $account-loyalty__point-breakdown;
+        display: flex;
+        justify-content: space-between;
+        background: transparent;
+
+        .ms-account-loyalty__points-title {
+            margin-bottom: $account-loyalty__available-label-margin-top;
+            display: inline-block;
+        }
+
+        .ms-account-loyalty__available-points-label {
+            margin-top: $account-loyalty__available-label-margin-top;
+            display: inline-block;
+        }
+
+        .ms-account-loyalty__expiring-points-label {
+            margin-top: $account-loyalty__expiring-label-margin-top;
+            display: inline-block;
+        }
+
+        .ms-account-loyalty__points-trigger {
+            @include vfi();
+            @include link-regular-m();
+            float: right;
+            padding: 0;
+            border: none;
+            background-color: transparent;
+            cursor: pointer;
+        }
+
+        .ms-account-loyalty__available-points-label ~ .ms-account-loyalty__points-trigger {
+            margin-top: $account-loyalty__available-label-margin-top;
+        }
+
+        .ms-account-loyalty__expiring-points-label ~ .ms-account-loyalty__points-trigger {
+            margin-top: $account-loyalty__expiring-label-margin-top;
+        }
+    }
+
+    &__link {
+        a {
+            @include primary-button-light();
+            margin-bottom: $account-loyalty-heading-margin-bottom;
+        }
+    }
+
+    @media (max-width: $msv-breakpoint-m) {
+        margin-left: $account-loyalty-margin-left-mobile;
+        margin-right: $account-loyalty-margin-right-mobile;
+
+        &__breakdown {
+            width: calc(4 * #{$msv-column-width-l});
+        }
+    }
+
+    &__points-modal {
+        &-header {
+            .msc-modal__title {
+                font-size: var(--msv-account-loyalty-heading-font-size);
+            }
+
+            .msc-modal__close-button::before {
+                font-weight: var(--msv-font-weight-bold);
+            }
+        }
+
+        &-body {
+            max-height: $account-loyalty__points-body-height;
+            padding: $account-loyalty__points-body-padding;
+
+            &-header {
+                display: flex;
+                justify-content: space-between;
+                padding: $account-loyalty__points-header-padding;
+                margin-bottom: $account-loyalty__points-header-margin-bottom;
+            }
+
+            &-top {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: $account-loyalty__points-margin-bottom;
+
+                .ms-account-loyalty__points-modal-total {
+                    font-size: var(--msv-account-loyalty-text-size);
+                    font-weight: var(--msv-font-weight-bold);
+                }
+            }
+        }
+
+        &-activity {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-content: space-between;
+            height: $account-loyalty__points-activity-height;
+            padding: $account-loyalty__points-activity-padding;
+
+            &:nth-child(odd) {
+                background-color: $msv-gray-100;
+            }
+
+            .ms-account-loyalty__points-modal-points {
+                font-size: var(--msv-account-loyalty-text-size);
+                font-weight: var(--msv-font-weight-bold);
+            }
+        }
+
+        @media screen and (max-width: $msv-breakpoint-m) {
+            max-height: 100%;
+
+            .msc-modal__content {
+                margin-top: auto;
+                padding-bottom: $account-loyalty__modal-padding-bottom;
+
+                .msc-modal__header {
+                    display: contents;
+                    margin-top: auto;
+
+                    .msc-modal__close-button {
+                        top: $account-loyalty__modal-header-top;
+                        right: 0;
+                    }
+                }
+            }
+        }
+    }
+}

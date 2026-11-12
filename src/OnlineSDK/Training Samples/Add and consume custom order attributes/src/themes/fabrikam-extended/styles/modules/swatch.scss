@@ -1,0 +1,215 @@
+@import "../common/00-settings/colors.scss";
+@import "../common/00-settings/font.scss";
+@import "../common/00-settings/icons.scss";
+@import "../common/02-generic/button.scss";
+@import "../common/00-settings/responsive-breakpoints.scss";
+
+$msv-swatch-item-background-color: $msv-white;
+$msv-swatch-item-border-color: #2C262D;
+$msv-swatch-selected-colored-item-inner-color: $msv-white;
+$msv-swatch-item-size: 40px;
+$msv-swatch-item-height: 44px;
+$msv-swatch-item-width: 44px;
+$msv-swatch-item-border-radius: 45px;
+$msv-swatch-item-uncolored-size: 89px;
+$msv-swatch-selected-colored-item-inner-size: 8px;
+$msv-swatch-selected-colored-item-margin: 6px;
+$msv-swatch-unselected-colored-item-margin: 10px;
+$msv-swatch-container-item-selected-padding: 6px;
+$msv-swatch-variant-depth-4: 0.3px 0.9px rgba(0, 0, 0, 0.1), 0 1.6px 3.6px rgba(0, 0, 0, 0.13);
+$msv-swatch-variant-depth-8: 0 0.6px 1.8px rgba(0, 0, 0, 0.1), 0 3.2px 7.2px rgba(0, 0, 0, 0.13);
+$msv-swatch-variant-depth-24: 0 4.8px 14.4px rgba(0, 0, 0, 0.18), 0 25.6px 57.6px rgba(0, 0, 0, 0.22);
+$msv-swatch-image-border: 1px solid $msv-black;
+$msv-swatch-image-border-radius: 50px;
+$msv-swatch-image-height: 40px;
+$msv-swatch-image-width: 40px;
+$msv-swatch-height: 40px;
+
+:root {
+    --msv-swatch-item-background-color: #{$msv-swatch-item-background-color};
+    --msv-swatch-item-border-color: #{$msv-swatch-item-border-color};
+    --msv-swatch-selected-colored-item-inner-color: #{$msv-swatch-selected-colored-item-inner-color};
+    --msv-swatch-item-size: #{$msv-swatch-item-size};
+    --msv-swatch-item-height: #{$msv-swatch-item-height};
+    --msv-swatch-item-width: #{$msv-swatch-item-width};
+    --msv-swatch-item-uncolored-size: #{$msv-swatch-item-uncolored-size};
+    --msv-swatch-selected-colored-item-inner-size: #{$msv-swatch-selected-colored-item-inner-size};
+    --msv-swatch-selected-button-border-color: #{$msv-gray-20};
+}
+
+.msc-swatch-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    min-height: 52px;
+    align-items: center;
+
+    &__item {
+        position: relative;
+        min-width: var(--msv-swatch-item-size);
+        height: var(--msv-swatch-item-height);
+        margin: 5px;
+        background-color: var(--msv-swatch-item-background-color);
+        border: 1px solid var(--msv-swatch-item-border-color);
+        box-sizing: border-box;
+        cursor: pointer;
+        box-shadow: $msv-swatch-variant-depth-4;
+        border-radius: $msv-swatch-item-border-radius;
+        padding-left: 15px;
+        padding-right: 15px;
+
+        @include font-content-m();
+
+        &:hover {
+            box-shadow: $msv-swatch-variant-depth-24;
+        }
+
+        &:focus {
+            box-shadow: $msv-swatch-variant-depth-8;
+        }
+
+        &__selected {
+            @include primary-button-light();
+            padding-left: 15px;
+            padding-right: 15px;
+            border: 1px solid var(--msv-swatch-item-border-color);
+        }
+
+        &__colored, &__image {
+            height: $msv-swatch-height;
+            min-width: 40px;
+            padding: unset;
+            margin: unset;
+            border: none;
+
+            &.msc-swatch-container__item__selected {
+                position: relative;
+                display: block;
+                width: 52px;
+                height: 52px;
+                border-radius: 100%;
+                border: 1px solid var(--msv-swatch-selected-button-border-color);
+                margin: $msv-swatch-selected-colored-item-margin;
+                background-clip: content-box;
+                box-sizing: border-box;
+                padding: $msv-swatch-container-item-selected-padding;
+                background-color: $msv-white;
+            }
+        }
+
+        &__colored.msc-swatch-container__item__unselected, &__image.msc-swatch-container__item__unselected {
+            display: block;
+            border: transparent;
+            margin: $msv-swatch-unselected-colored-item-margin;
+            outline: 0;
+        }
+
+        &__colored {
+            @media screen and (max-width: $msv-breakpoint-m) {
+                height: var(--msv-swatch-item-height);
+                min-width: var(--msv-swatch-item-width);
+            }
+
+            @media (forced-colors: active) {
+                forced-color-adjust: none;
+            }
+
+            &:focus {
+                width: 52px;
+                height: 52px;
+                border-radius: 100%;
+                margin: $msv-swatch-selected-colored-item-margin;
+                background-clip: content-box;
+                box-sizing: border-box;
+                padding: $msv-swatch-container-item-selected-padding;
+                background-color: $msv-white;
+                border: 1px solid $msv-gray-50;
+            }
+        }
+
+        &__colored.msc-swatch-container__item__selected {
+            &:focus:not(:focus-visible) {
+                border: 1px solid var(--msv-swatch-selected-button-border-color);
+            }
+        }
+
+        &__image {
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: $msv-swatch-image-height;
+            width: $msv-swatch-image-width;
+            border-radius: $msv-swatch-image-border-radius;
+            border: $msv-swatch-image-border;
+            overflow: hidden;
+            padding: 0;
+        }
+
+        &__image.msc-swatch-container__item__selected {
+            position: relative;
+            display: inline-block;
+            width: 52px;
+            height: 52px;
+            border-radius: 100%;
+            border: 1px solid $msv-gray-20;
+            padding: 5px;
+            background: $msv-white;
+            margin: $msv-swatch-selected-colored-item-margin;
+            min-width: unset;
+            overflow: hidden;
+        }
+
+        &__disabled {
+            opacity: 0.5;
+            border: 1px solid #C4C4C4;
+
+            @media screen and (max-width: $msv-breakpoint-m) {
+                min-width: var(--msv-swatch-item-width);
+                height: var(--msv-swatch-item-height);
+            }
+
+            &::before {
+                content: "";
+                background-color: #C4C4C4;
+                height: 1px;
+                width: 98%;
+                position: absolute;
+                transform: rotate(200deg);
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                margin: auto;
+            }
+
+            &:focus {
+                &::before {
+                    border: none;
+                }
+            }
+        }
+
+        &__colored.msc-swatch-container__item__disabled, &__image.msc-swatch-container__item__disabled {
+            opacity: 0.5;
+
+            &::before {
+                content: "";
+                background-color: #F5F5F5;
+                height: 1px;
+                width: 100%;
+                position: absolute;
+                transform: rotate(45deg);
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                margin: auto;
+                border: none;
+            }
+        }
+    }
+
+    &__item.msc-swatch-container__item__uncolored {
+        min-width: var(--msv-swatch-item-uncolored-size);
+    }
+}
